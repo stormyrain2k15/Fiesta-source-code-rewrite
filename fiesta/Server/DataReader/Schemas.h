@@ -725,6 +725,16 @@ struct MobInfoServerRow {
     uint16 RoamIdx;          // links to MobRoam id
     uint16 AttackSeqIdx;     // links to MobAttackSequence id
     uint16 ActionSetIdx;     // links to MobSetting/Action id
+
+    // EVIDENCE: DATA_CONFIRMED  source: MobInfoServer.shn columns 7/11/15.
+    // EnemyDetectType: 0=passive, !=0 active; AggroList consults this gate.
+    // DetectCha:       aggro radius (game units); the AI uses this as the
+    //                  "noticed me" distance before any level-gap test.
+    // FollowCha:       chase distance; once the target leaves this radius
+    //                  the mob disengages and the aggro list decays.
+    uint32 EnemyDetectType;
+    uint16 DetectCha;
+    uint32 FollowCha;
 };
 class MobInfoServerTab : public ITableBase<MobInfoServerRow>, public IDataTable {
 public: MobInfoServerTab() { ms_pkTable = this; }

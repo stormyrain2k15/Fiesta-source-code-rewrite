@@ -13,6 +13,9 @@
 #include "KingdomQuest.h"
 #include "MarketSystems.h"
 #include "GuildSystem.h"
+#include "CharDBClient.h"
+#include "WMClient.h"
+#include "ChargedEffect.h"
 
 namespace fiesta {
 
@@ -29,10 +32,29 @@ public:
         // Register every documented *Tab in DataBox (20 headline schemas).
         RegisterAllSchemaTabs();
         DataBox::Get().LoadAll(m_kReader);
+        // Charged-item booster tables (sourced externally via the website
+        // shop -- the Zone only consumes their effects).
+        ChargedEffectTable::Get()  .Load(m_kReader.GetRoot());
+        ChargedEffectManager::Get().LoadDeletable(m_kReader.GetRoot());
 
         ZoneServer::Get().Init(m_kInfo.GetU16("Zone.Id", 0));
         RegisterZoneHandlers();
         if (!m_kIOCP.Start()) return false;
+
+        // Outbound link to the Character DB exe. Failure is non-fatal -- the
+        // engine boots without it and players use provisional fill.
+        CharDBClient::Get().Connect(&m_kIOCP,
+            m_kInfo.GetString("CharDB.Ip",   "127.0.0.1"),
+            m_kInfo.GetU16   ("CharDB.Port", 27602));
+
+        // Outbound link to WorldManager. Same non-fatal posture.
+        WMClient::Get().Connect(&m_kIOCP,
+            m_kInfo.GetString("WM.Ip",   "127.0.0.1"),
+            m_kInfo.GetU16   ("WM.Port", 28001),
+            m_kInfo.GetU16   ("Zone.Id", 0),
+            m_kInfo.GetString("Zone.PublicIp", "127.0.0.1"),
+            m_kInfo.GetU16   ("Zone.ClientPort", 28100));
+
         if (!m_kAcceptor.Start(&m_kIOCP, m_kInfo.GetU16("Zone.ClientPort", 28100), &MakeZoneClient))
             return false;
         SHINELOG_INFO("Zone%02u started on :%u", m_kInfo.GetU16("Zone.Id", 0),
@@ -44,11 +66,16 @@ public:
         MIDServer::Get().Tick();
         KQServer::Get().Tick();
         AuctionSystem::Get().Tick();
+        BoothManager::Tick();
         GuildWarManager::Tick();
         GuildTournamentSystem::Tick();
+        ChargedEffectManager::Get().Tick();
+        WMClient::Get().Heartbeat();
     }
     virtual void OnStop() {
         m_kAcceptor.Stop(); m_kIOCP.Stop();
+        WMClient::Get().Disconnect();
+        CharDBClient::Get().Disconnect();
         ZoneServer::Get().Shutdown();
         DataBox::Get().Shutdown();
     }

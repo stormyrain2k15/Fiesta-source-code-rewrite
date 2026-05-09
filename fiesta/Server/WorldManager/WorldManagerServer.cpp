@@ -72,6 +72,46 @@ bool WorldManagerServer::ConsumeToken(AccountID aid, const uint8 aSecret[16]) {
     return bOk;
 }
 
+void WorldManagerServer::RegisterZoneSession(uint16 uiZoneId, IOCPSession* pkSess) {
+    EnterCriticalSection(&m_kCs);
+    m_kZoneSessions[uiZoneId] = pkSess;
+    LeaveCriticalSection(&m_kCs);
+}
+
+void WorldManagerServer::UnregisterZoneSession(IOCPSession* pkSess) {
+    EnterCriticalSection(&m_kCs);
+    for (std::map<uint16, IOCPSession*>::iterator it = m_kZoneSessions.begin();
+         it != m_kZoneSessions.end(); ++it) {
+        if (it->second == pkSess) { m_kZoneSessions.erase(it); break; }
+    }
+    LeaveCriticalSection(&m_kCs);
+}
+
+void WorldManagerServer::BroadcastToZones(NCOpcode uiOp, const void* p, size_t n) {
+    // Snapshot the session list so we don't hold the CS during sends.
+    std::vector<IOCPSession*> snapshot;
+    EnterCriticalSection(&m_kCs);
+    for (std::map<uint16, IOCPSession*>::iterator it = m_kZoneSessions.begin();
+         it != m_kZoneSessions.end(); ++it) {
+        if (it->second) snapshot.push_back(it->second);
+    }
+    LeaveCriticalSection(&m_kCs);
+    for (size_t i = 0; i < snapshot.size(); ++i) {
+        SendPacket(snapshot[i], uiOp, p, n);
+    }
+}
+
+bool WorldManagerServer::SendToZone(uint16 uiZoneId, NCOpcode uiOp, const void* p, size_t n) {
+    IOCPSession* pkSess = NULL;
+    EnterCriticalSection(&m_kCs);
+    std::map<uint16, IOCPSession*>::iterator it = m_kZoneSessions.find(uiZoneId);
+    if (it != m_kZoneSessions.end()) pkSess = it->second;
+    LeaveCriticalSection(&m_kCs);
+    if (!pkSess) return false;
+    SendPacket(pkSess, uiOp, p, n);
+    return true;
+}
+
 // --------------- WMClientSession ---------------
 void WMClientSession::OnConnect()    { m_uiAccount = 0; m_uiActiveChar = 0; SHINELOG_INFO("WM: client connected"); }
 void WMClientSession::OnDisconnect() { SHINELOG_INFO("WM: client disconnect aid=%u", m_uiAccount); }
@@ -102,7 +142,10 @@ void WMClientSession::OnPacket(const GPacket& rPkt) {
 
 // --------------- WMZoneSession ---------------
 void WMZoneSession::OnConnect()    { m_uiZoneId = 0xFFFF; }
-void WMZoneSession::OnDisconnect() { SHINELOG_INFO("WM: Zone%02u disconnected", m_uiZoneId); }
+void WMZoneSession::OnDisconnect() {
+    SHINELOG_INFO("WM: Zone%02u disconnected", m_uiZoneId);
+    WorldManagerServer::Get().UnregisterZoneSession(this);
+}
 
 void WMZoneSession::OnPacket(const GPacket& rPkt) {
     switch (rPkt.GetOpcode()) {
@@ -113,6 +156,7 @@ void WMZoneSession::OnPacket(const GPacket& rPkt) {
             uint16 port = 0; b.ReadU16(port);
             m_uiZoneId = zid;
             WorldManagerServer::Get().RegisterZone(zid, ip, port);
+            WorldManagerServer::Get().RegisterZoneSession(zid, this);
             PacketBuffer ack; ack.WriteU8(1); SendPacket(this, NC_INTER_HELLO_ACK, ack.Data(), ack.Size());
             break;
         }
@@ -192,9 +236,10 @@ void WMOPToolSession::OnPacket(const GPacket& rPkt) {
             body.ReadU32(cid); body.ReadU32(mins); body.ReadString(reason);
             SHINELOG_WARN("OPTool BAN  cid=%u %u min reason='%s' (level=%d)",
                           cid, mins, reason.c_str(), m_iOperLevel);
-            // Real action lives in WM->Zone fanout; the request shape is the
-            // contract the admin panel binds to.
-            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("ban queued");
+            // Fan out to every zone -- whichever currently hosts cid acts.
+            PacketBuffer push; push.WriteU32(cid); push.WriteU32(mins); push.WriteString(reason);
+            WorldManagerServer::Get().BroadcastToZones(NC_INTER_OPTOOL_BAN_PUSH, push.Data(), push.Size());
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("ban dispatched");
             SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
             break;
         }
@@ -203,7 +248,9 @@ void WMOPToolSession::OnPacket(const GPacket& rPkt) {
             body.ReadU32(cid); body.ReadString(reason);
             SHINELOG_WARN("OPTool KICK cid=%u reason='%s' (level=%d)",
                           cid, reason.c_str(), m_iOperLevel);
-            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("kick queued");
+            PacketBuffer push; push.WriteU32(cid); push.WriteString(reason);
+            WorldManagerServer::Get().BroadcastToZones(NC_INTER_OPTOOL_KICK_PUSH, push.Data(), push.Size());
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("kick dispatched");
             SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
             break;
         }
@@ -212,14 +259,18 @@ void WMOPToolSession::OnPacket(const GPacket& rPkt) {
             body.ReadU32(cid); body.ReadU32(mins); body.ReadString(reason);
             SHINELOG_WARN("OPTool JAIL cid=%u %u min reason='%s' (level=%d)",
                           cid, mins, reason.c_str(), m_iOperLevel);
-            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("jail queued");
+            PacketBuffer push; push.WriteU32(cid); push.WriteU32(mins); push.WriteString(reason);
+            WorldManagerServer::Get().BroadcastToZones(NC_INTER_OPTOOL_JAIL_PUSH, push.Data(), push.Size());
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("jail dispatched");
             SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
             break;
         }
         case NC_OPTOOL_UNJAIL_CMD: {
             uint32 cid = 0; body.ReadU32(cid);
             SHINELOG_WARN("OPTool UNJAIL cid=%u (level=%d)", cid, m_iOperLevel);
-            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("unjail queued");
+            PacketBuffer push; push.WriteU32(cid);
+            WorldManagerServer::Get().BroadcastToZones(NC_INTER_OPTOOL_UNJAIL_PUSH, push.Data(), push.Size());
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("unjail dispatched");
             SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
             break;
         }
@@ -227,8 +278,9 @@ void WMOPToolSession::OnPacket(const GPacket& rPkt) {
             uint8 scope = 0; std::string text;
             body.ReadU8(scope); body.ReadString(text);
             SHINELOG_INFO("OPTool SYSMSG scope=%u text='%s'", (uint32)scope, text.c_str());
-            // WM fanout to every Zone -> NC_CHAT_BROADCAST_CMD lives in pass 2.
-            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("sysmsg queued");
+            PacketBuffer push; push.WriteU8(scope); push.WriteString(text);
+            WorldManagerServer::Get().BroadcastToZones(NC_INTER_OPTOOL_SYSMSG_PUSH, push.Data(), push.Size());
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("sysmsg dispatched");
             SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
             break;
         }
@@ -237,7 +289,9 @@ void WMOPToolSession::OnPacket(const GPacket& rPkt) {
             body.ReadU32(cid); body.ReadU32(item); body.ReadU16(cnt);
             SHINELOG_WARN("OPTool GIVEITEM cid=%u item=%u count=%u (level=%d)",
                           cid, item, (uint32)cnt, m_iOperLevel);
-            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("give queued");
+            PacketBuffer push; push.WriteU32(cid); push.WriteU32(item); push.WriteU16(cnt);
+            WorldManagerServer::Get().BroadcastToZones(NC_INTER_OPTOOL_GIVEITEM_PUSH, push.Data(), push.Size());
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("give dispatched");
             SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
             break;
         }
@@ -247,7 +301,9 @@ void WMOPToolSession::OnPacket(const GPacket& rPkt) {
             uint64 itemKey = ((uint64)hi << 32) | (uint64)lo;
             SHINELOG_WARN("OPTool TAKEITEM key=%llu (level=%d)",
                           (unsigned long long)itemKey, m_iOperLevel);
-            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("take queued");
+            PacketBuffer push; push.WriteU32(lo); push.WriteU32(hi);
+            WorldManagerServer::Get().BroadcastToZones(NC_INTER_OPTOOL_TAKEITEM_PUSH, push.Data(), push.Size());
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("take dispatched");
             SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
             break;
         }

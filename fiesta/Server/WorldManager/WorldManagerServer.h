@@ -37,6 +37,15 @@ public:
     void RegisterZone(uint16 uiZoneId, const std::string& rIp, uint16 uiPort);
     const ZoneInfo* PickZoneForChar(CharID cid) const;
 
+    // Live WMZoneSession registry. The WMZoneSession::OnPacket handler pushes
+    // its IOCPSession in here on register, and yanks it on disconnect. Used
+    // by the OPTool fanout to broadcast a packet to every connected zone, or
+    // to target a single zone by ID.
+    void RegisterZoneSession  (uint16 uiZoneId, IOCPSession* pkSess);
+    void UnregisterZoneSession(IOCPSession* pkSess);
+    void BroadcastToZones     (NCOpcode uiOp, const void* p, size_t n);
+    bool SendToZone           (uint16 uiZoneId, NCOpcode uiOp, const void* p, size_t n);
+
     // Token bridge (Login -> WM) (defined in WMLoginSession.cpp).
     void OnTokenIssuedFromLogin(const PendingTokenAuth& rTok);
     bool ConsumeToken(AccountID aid, const uint8 aSecret[16]);
@@ -49,6 +58,7 @@ public:
 private:
     WorldManagerServer();
     std::map<uint16, ZoneInfo>          m_kZones;
+    std::map<uint16, IOCPSession*>      m_kZoneSessions;   // zid -> WMZoneSession*
     std::vector<PendingTokenAuth>       m_kPendingTokens;
     class PartyFinderServer*  m_pkPartyFinder;
     class RankingServer*      m_pkRanking;

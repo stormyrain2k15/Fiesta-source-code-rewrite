@@ -2,6 +2,9 @@
 #include "MobAISystem.h"
 #include "ScriptLoader.h"
 #include "MobBehaviorScript.h"
+#include "ShineObject.h"
+#include "../DataReader/Schemas.h"
+#include "../DataReader/ITableBase.h"
 #include "../Lua/LuaRuntime.h"
 #include "../Shared/ShineLogSystem.h"
 #include <windows.h>
@@ -80,6 +83,29 @@ void MobAISystem::RegisterKqOverride(const std::string& rSpecies, const std::str
 eMobAiKind MobAISystem::ResolvedKind(const std::string& rSpecies) const {
     const MobAiDef* p = Find(rSpecies);
     return p ? p->eKind : AI_DEFAULT;
+}
+
+bool MobAISystem::IsInAggroRange(const ShineMob* pkMob, const ShinePlayer* pkPlayer,
+                                 bool bChasing)
+{
+    if (!pkMob || !pkPlayer) return false;
+    const MobInfoServerRow* pkInfo =
+        ITableBase<MobInfoServerRow>::ms_pkTable
+        ? ITableBase<MobInfoServerRow>::ms_pkTable->Find((uint32)pkMob->m_uiSpecies)
+        : NULL;
+    if (!pkInfo) return false;
+    // Passive mobs (EnemyDetectType == 0) never aggro on proximity alone.
+    if (!bChasing && pkInfo->EnemyDetectType == 0) return false;
+
+    int32 radius = bChasing ? (int32)pkInfo->FollowCha : (int32)pkInfo->DetectCha;
+    if (radius <= 0) return false;
+
+    const Vec3& a = pkMob->GetPos();
+    const Vec3& b = pkPlayer->GetPos();
+    float dx = a.x - b.x, dy = a.y - b.y, dz = a.z - b.z;
+    float d2 = dx*dx + dy*dy + dz*dz;
+    float r2 = (float)radius * (float)radius;
+    return d2 <= r2;
 }
 
 } // namespace fiesta

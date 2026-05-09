@@ -11,6 +11,7 @@
 #include "../DataServer/Common/Database.h"   // DBRecord
 #include "AbState.h"
 #include "SkillSystem.h"
+#include "AggroList.h"
 #include <string>
 
 namespace fiesta {
@@ -122,7 +123,13 @@ private:
 };
 
 class ShineMover : public ShineObject { public: virtual ObjType GetType() const { return OT_MOVER; } };
-class ShineMob   : public ShineObject { public: virtual ObjType GetType() const { return OT_MOB;   } MobID m_uiSpecies; };
+class ShineMob   : public ShineObject {
+public:
+    virtual ObjType GetType() const { return OT_MOB; }
+    MobID      m_uiSpecies;
+    uint16     m_uiLevel;       // copied from MobInfo.shn at spawn time
+    AggroList  m_kAggro;
+};
 class ShineNPC   : public ShineObject { public: virtual ObjType GetType() const { return OT_NPC;   } uint32 m_uiNpcId; };
 class ShinePet   : public ShineObject { public: virtual ObjType GetType() const { return OT_PET;   } CharID m_uiOwner; };
 class ShineItemDrop: public ShineObject { public: virtual ObjType GetType() const { return OT_ITEMDROP; } ItemID m_uiItem; uint32 m_uiQty; };

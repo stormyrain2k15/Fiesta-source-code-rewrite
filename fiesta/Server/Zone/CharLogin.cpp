@@ -1,5 +1,6 @@
 // Server/Zone/CharLogin.cpp
 #include "CharLogin.h"
+#include "CharDBClient.h"
 #include "../Shared/ShineLogSystem.h"
 #include "../Common/NETCOMMAND.h"
 #include "../Common/SendPacket.h"
@@ -14,11 +15,14 @@ void CharLogin(ClientSession* pkSess, const GPacket& rPkt) {
     b.ReadU32(aid); b.ReadU32(cid); b.ReadBytes(sec, 16);
     // Token consumption already happened on WM; Zone trusts WM.
     ShinePlayer* pk = new ShinePlayer();
-    // Provisional fill -- real CharDataLoad goes through CharDB session.
-    pk->FillFromCharLogin(aid, cid, "Adventurer", 1, 0);
-    pkSess->GetSession(); // (no-op; placeholder)
+    pk->FillFromCharLogin(aid, cid, "Adventurer", 1, 0); // provisional until CharDB row arrives
     ZoneServer::Get().AttachPlayer(pk);
     pk->AttachSession(pkSess);
+
+    // Fire the real CharDB lookup. The response handler will call
+    // pk->LoadFromCharDBRow asynchronously and overwrite the provisional fill.
+    CharDBClient::Get().QueryCharLogin(cid, pk);
+
     PacketBuffer ack; ack.WriteU8(1); ack.WriteU32(pk->GetHandle());
     SendPacket(pkSess, NC_CHAR_LOGIN_ACK, ack.Data(), ack.Size());
     SHINELOG_INFO("Zone CharLogin aid=%u cid=%u handle=%u", aid, cid, pk->GetHandle());
@@ -26,6 +30,9 @@ void CharLogin(ClientSession* pkSess, const GPacket& rPkt) {
 
 void CharLogout(ClientSession* pkSess, const GPacket&) {
     if (!pkSess) return;
+    if (pkSess->GetPlayer()) {
+        CharDBClient::Get().QueryCharLogout(pkSess->GetPlayer()->GetCharID());
+    }
     pkSess->Close();
 }
 

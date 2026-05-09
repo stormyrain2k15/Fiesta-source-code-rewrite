@@ -19,6 +19,7 @@ public:
 
     // Sets the on-disk root for /Data ("Data\\..." mirrors the original layout).
     void SetRoot(const std::string& rRoot) { m_kRoot = rRoot; }
+    const std::string& GetRoot() const     { return m_kRoot; }
 
     // Load <root>/<rLogicalName>.shn (or .txt). Returns rows of strings parsed
     // from a tab/comma-separated record file. SHN binary parsing belongs behind

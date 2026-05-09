@@ -210,12 +210,28 @@ void Battle::Apply(ShineObject* pkA, ShineObject* pkT, const DamageInfo& d) {
     if (!pkT || d.bMiss) return;
     int32 total = d.iPhys + d.iMagic;
     pkT->SetHP(pkT->GetHP() - total);
+    if (pkA && pkT->GetType() == OT_MOB && pkA->GetType() == OT_PLAYER) {
+        ShineMob* pkM = (ShineMob*)pkT;
+        ShinePlayer* pkP = (ShinePlayer*)pkA;
+        // 20-level-span scaler: a much higher-level player pulls less aggro
+        // than a same/lower-level player dealing the same damage.
+        pkM->m_kAggro.AddScaled(pkP->GetCharID(),
+                                total > 0 ? total : 1,
+                                pkP->GetLevel(), pkM->m_uiLevel);
+    }
     if (pkT->IsDead()) Kill(pkA, pkT);
 }
 
 void Battle::Apply(ShineObject* pkA, ShineObject* pkT, const DAMAGERESULT& r) {
     if (!pkT || r.bMissed) return;
     pkT->SetHP(pkT->GetHP() - r.nDamage);
+    if (pkA && pkT->GetType() == OT_MOB && pkA->GetType() == OT_PLAYER) {
+        ShineMob* pkM = (ShineMob*)pkT;
+        ShinePlayer* pkP = (ShinePlayer*)pkA;
+        pkM->m_kAggro.AddScaled(pkP->GetCharID(),
+                                r.nDamage > 0 ? r.nDamage : 1,
+                                pkP->GetLevel(), pkM->m_uiLevel);
+    }
     if (pkT->IsDead()) Kill(pkA, pkT);
 }
 

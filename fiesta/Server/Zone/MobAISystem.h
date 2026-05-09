@@ -24,6 +24,8 @@
 namespace fiesta {
 
 class LuaRuntime;
+class ShineMob;
+class ShinePlayer;
 class MobBehaviorScript;
 
 enum eMobAiKind {
@@ -60,6 +62,23 @@ public:
 
     // Convenience: get the resolved kind, with the AI_DEFAULT fallback.
     eMobAiKind ResolvedKind(const std::string& rSpecies) const;
+
+    // -----------------------------------------------------------------
+    // Aggro proximity check.
+    //
+    // Consults `MobInfoServer.shn` for the per-species detect/chase radii
+    // (DetectCha / FollowCha) and returns whether `pkPlayer` is currently
+    // inside the threat radius around `pkMob`. The 20-level-span scaler
+    // lives on AggroList; this helper is purely the geometry test.
+    //   bChasing == false : "should I notice you" (uses DetectCha)
+    //   bChasing == true  : "should I keep chasing you" (uses FollowCha)
+    //
+    // EnemyDetectType==0 mobs (passive) always return false unless the
+    // player has already pushed hate (i.e. attacked the mob first); the
+    // caller resolves that case with `AggroList::Empty()`.
+    // -----------------------------------------------------------------
+    static bool IsInAggroRange(const ShineMob* pkMob, const ShinePlayer* pkPlayer,
+                               bool bChasing);
 
 private:
     MobAISystem() {}

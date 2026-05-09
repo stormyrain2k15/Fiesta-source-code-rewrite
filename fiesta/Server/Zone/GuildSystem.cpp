@@ -1,4 +1,5 @@
 #include "GuildSystem.h"
+#include <windows.h>
 namespace fiesta {
 
 GuildServer& GuildServer::Get() { static GuildServer s; return s; }
@@ -47,7 +48,31 @@ bool GuildStorageManager::Take(uint32 id, CharID, uint32 uiItemId) {
 }
 
 void GuildAcademy::GrantApprenticeReward(CharID, CharID) {}
-bool GuildWarManager::Declare(uint32, uint32) { return true; }
+// ----- GuildWarManager ------------------------------------------------------
+//
+// Declaration window: only Fri/Sat/Sun 19:00..23:00 local by default. Two
+// guilds can declare a war that goes hot for the duration of the next
+// window. Out-of-window calls are rejected at Declare() time so the client
+// can show a "war declarations only allowed Fri-Sun 7-11 PM" toast.
+namespace {
+    GuildWarWindow s_kWindow = { (uint8)((1<<0)|(1<<5)|(1<<6)), 19, 23 };
+}
+
+const GuildWarWindow& GuildWarManager::GetWindow()                       { return s_kWindow; }
+void                  GuildWarManager::SetWindow(const GuildWarWindow& w) { s_kWindow = w; }
+
+bool GuildWarManager::InWindow() {
+    SYSTEMTIME st; GetLocalTime(&st);
+    if ((s_kWindow.uiDayMask & (uint8)(1u << st.wDayOfWeek)) == 0) return false;
+    if (st.wHour < s_kWindow.uiHourFrom || st.wHour >= s_kWindow.uiHourTo) return false;
+    return true;
+}
+
+bool GuildWarManager::Declare(uint32 uiAttacker, uint32 uiDefender) {
+    if (uiAttacker == 0 || uiDefender == 0 || uiAttacker == uiDefender) return false;
+    if (!InWindow()) return false;
+    return true;
+}
 void GuildWarManager::Tick() {}
 
 void  GuildTournamentSystem::RegisterGuild(uint32 id) {

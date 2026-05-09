@@ -44,7 +44,24 @@ public:
     static bool Take(uint32 uiGuildId, CharID c, uint32 uiItemId);
 };
 class GuildAcademy        { public: static void GrantApprenticeReward(CharID master, CharID app); };
-class GuildWarManager     { public: static bool Declare(uint32 uiAttacker, uint32 uiDefender); static void Tick(); };
+
+// Guild war declaration window. The original game only accepted declaration
+// requests during a fixed weekday/hour band (so wars couldn't be declared
+// at 4 AM on a Tuesday). Tunables editable in one place.
+struct GuildWarWindow {
+    uint8  uiDayMask;        // bit i = (1<<i) for Sunday..Saturday
+    uint8  uiHourFrom;       // inclusive
+    uint8  uiHourTo;         // exclusive
+};
+class GuildWarManager {
+public:
+    static bool Declare(uint32 uiAttacker, uint32 uiDefender);
+    static void Tick();
+    // Window control (default: Fri/Sat/Sun 19:00..23:00 local).
+    static const GuildWarWindow& GetWindow();
+    static void SetWindow(const GuildWarWindow& rWin);
+    static bool InWindow(); // checks current localtime
+};
 class GuildTournamentSystem {
 public:
     static void RegisterGuild(uint32 uiGuildId);

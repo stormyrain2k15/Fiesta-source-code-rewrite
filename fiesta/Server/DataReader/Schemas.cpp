@@ -719,13 +719,16 @@ bool MobInfoServerTab::Load(DataReader& reader) {
     for (size_t i = 1; i < kRows.size(); ++i) {
         const std::vector<std::string>& r = kRows[i];
         MobInfoServerRow rec; memset(&rec, 0, sizeof(rec));
-        rec.InxNo            = (uint16)ColU32(r, 0);
-        rec.DropItemListIdx  = (uint16)ColU32(r, 1);
-        rec.ResistanceIdx    = (uint16)ColU32(r, 2);
-        rec.BehaviorIdx      = (uint16)ColU32(r, 3);
-        rec.RoamIdx          = (uint16)ColU32(r, 4);
-        rec.AttackSeqIdx     = (uint16)ColU32(r, 5);
-        rec.ActionSetIdx     = (uint16)ColU32(r, 6);
+        // EVIDENCE: DATA_CONFIRMED  source: MobInfoServer.shn header (49 cols).
+        rec.InxNo            = (uint16)ColU32(r, 0);   // ID
+        // The drop-table / resist / behavior / roam / attack / action indices
+        // are looked up out-of-band by string key in pass 2 -- the SHN row
+        // doesn't carry them directly. Aggro-pipeline fields ARE present
+        // and pinned here so MobAI / AggroList can consult them straight
+        // away.
+        rec.EnemyDetectType  = (uint32)ColU32(r, 7);   // 0=passive
+        rec.DetectCha        = (uint16)ColU32(r, 11);  // aggro radius (units)
+        rec.FollowCha        = (uint32)ColU32(r, 15);  // chase radius
         Push((uint32)rec.InxNo, rec);
     }
     SHINELOG_INFO("MobInfoServer: loaded %u rows", (uint32)m_uiTotal);

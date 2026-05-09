@@ -351,6 +351,50 @@ connector / SQL surface so any external admin panel can attach.
 
 Total now: **~190 source files**. See `docs/PASS1_16_OPTOOL_LOOPBACK.md`.
 
+## Pass 1.17 -- Closing the next-action list (2026-02)
+
+User confirmed the original game had no in-engine cash shop -- billing was
+website-side, and the engine only consumes the time-limited boosters
+defined in `ChargedEffect.shn`. Worked through the rest of the pending
+list in one pass.
+
+- **Outbound IOCP**: new `Socket_Connector` (counterpart to
+  `Socket_Acceptor`).
+- **Zone <-> CharDB roundtrip**: `CharDBClient` issues
+  `NC_INTER_CHAR_DB_QUERY` and feeds the response into
+  `ShinePlayer::LoadFromCharDBRow`. Async, non-fatal if offline.
+- **Zone <-> WM link**: `WMClient` registers the zone with WM and serves
+  the OPTool push family inbound.
+- **WM zone-session registry + broadcast**: WM tracks zone sessions by
+  id and `BroadcastToZones` fans OPTool actions out. Every OPTool
+  command in `WMOPToolSession` now actually dispatches.
+- **Battle aggro**: `AggroList` per-mob hate accumulator with the
+  documented **20-level-span** scaler (`AddScaled` rejects out-of-span
+  attackers); `Battle::Apply` uses it. `MobAISystem::IsInAggroRange`
+  consults `MobInfoServer.shn DetectCha / FollowCha / EnemyDetectType`
+  for the proximity test. `ShineMob` now carries `m_uiLevel` and the
+  per-mob `AggroList`.
+- **Pot system**: `PotSystem` consumed-from-inventory potion dispatch
+  with per-(char, kind) cooldowns.
+- **Charged-effect loader**: `ChargedEffectTable` / `ChargedEffectManager`
+  parse `ChargedEffect.shn` + `ChargedDeletableBuff.shn` and apply
+  time-limited boosters when a charged item enters inventory.
+- **Booth persistence**: `StreetBooth*` / `BoothManager` got real
+  per-owner state and a 15-min stale-owner reaper.
+- **GuildWar declaration window**: `GuildWarManager` rejects out-of-window
+  declarations; default Fri/Sat/Sun 19:00..23:00 local, editable.
+- **LuaEnums**: filled `ReturnAI`, `ObjectType`, `ObjectMode`,
+  `BasicClass`/`Classes`, `EFFECT_MSG_TYPE`, `CAMERA_STATE`, `KQ_TEAM`,
+  `PlayerDamage`, `PlayerList`, `StatsEnum`.
+- **NC opcodes**: added `NC_INTER_OPTOOL_*_PUSH` family.
+
+Items deliberately left out: in-engine ItemMall billing (per user),
+NC numeric pinning (need captures), `.dat` animation offsets (need
+samples), AbState save-on-link (would need a tAbState schema not present
+in the .bak inventory).
+
+Total now: **~199 source files**. See `docs/PASS1_17_TIE_OFF.md`.
+
 ## Pack rule compliance
 
 | Rule | Status |
