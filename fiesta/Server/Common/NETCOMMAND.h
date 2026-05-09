@@ -311,6 +311,11 @@ enum NETCOMMAND {
     // PDB names this NC_NPC_SCRIPT_MSG_CMD; client decodes into the
     // localized message lookup. Body: { int32 msgIndex }.
     NC_ACT_SCRIPT_MSG_CMD           = NC_FAMILY_KQ + 0x07,
+    // PROVISIONAL: door state push. PineScript's cDoorAction toggles
+    // a named block on the map; the client uses the same body to update
+    // its collision lattice. Body: { uint32 npcHandle, string blockName,
+    // uint8 open }.
+    NC_MAP_DOOR_STATE_CMD           = NC_FAMILY_KQ + 0x08,
     NC_MID_QUEUE_REQ                = NC_FAMILY_MID + 0x01,
     NC_MID_LEAVE_REQ                = NC_FAMILY_MID + 0x02,
     NC_MID_REWARD_CMD               = NC_FAMILY_MID + 0x03,

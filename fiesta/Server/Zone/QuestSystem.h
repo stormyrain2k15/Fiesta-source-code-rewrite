@@ -29,8 +29,17 @@ public:
     void   OnKill  (MobID uiSpecies);
     QuestState State(uint32 uiQuestId) const;
     const std::vector<CharQuestEntry>& Entries() const { return m_kEntries; }
+
+    // PineScript "finish key" ledger. Each cFinishKey/cIsFinishKey pair
+    // gates a script branch on a numeric checkpoint. We use a sorted
+    // vector so we can binary-search the membership test quickly.
+    void   FinishKeyAdd  (uint32 uiKey);
+    bool   FinishKeyHas  (uint32 uiKey) const;
+    size_t FinishKeyCount() const { return m_kFinishKeys.size(); }
+    const std::vector<uint32>& FinishKeys() const { return m_kFinishKeys; }
 private:
     std::vector<CharQuestEntry> m_kEntries;
+    std::vector<uint32>         m_kFinishKeys;   // sorted, unique
 };
 
 class QuestFramework {

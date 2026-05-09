@@ -1,17 +1,10 @@
 // Server/Zone/SubAbstatePriority.h
-// WIRE-05 (Lyra, May 2026)
+// PDB-name anchor for `SubAbstatePriority`. The class is declared
+// alongside `AbnormalState` in `AbState.h` (they are tightly coupled --
+// the priority resolver reads `AbStateRow` columns, and `AbnormalState`
+// applies its decisions when stacking new instances). This header is
+// kept as a forwarder so legacy includes still resolve.
 #ifndef FIESTA_ZONE_SUBABSTATEPRIORITY_H
 #define FIESTA_ZONE_SUBABSTATEPRIORITY_H
-#include "../Shared/ShineTypes.h"
-
-namespace fiesta {
-
-class SubAbstatePriority {
-public:
-    // Returns true if uiNew should replace uiOld when both target
-    // the same sub-effect slot.
-    static bool ShouldReplace(uint32 uiNew, uint32 uiOld);
-};
-
-} // namespace fiesta
+#include "AbState.h"   // exposes class SubAbstatePriority
 #endif

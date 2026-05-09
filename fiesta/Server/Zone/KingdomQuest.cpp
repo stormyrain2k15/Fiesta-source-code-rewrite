@@ -1,5 +1,9 @@
 #include "KingdomQuest.h"
 #include "BattleTunables.h"
+#include "ZoneServer.h"
+#include "../Common/NETCOMMAND.h"
+#include "../Common/SendPacket.h"
+#include "../Shared/PacketBuffer.h"
 #include "../Shared/GTimer.h"
 #include "../Shared/ShineLogSystem.h"
 namespace fiesta {
@@ -50,6 +54,20 @@ void KQServer::ForceEnd() {
     if (m_eState == KQS_IDLE) return;
     m_eState         = KQS_END;
     m_uiStateEnterMs = GTimer::NowMillis();
+    // Synchronously broadcast the END envelope to every queued participant
+    // so the client UI dismisses the KQ window without waiting for the
+    // standard tick to push the state. The standard tick still fires the
+    // KQS_END -> KQS_IDLE transition after kKQEndTimeoutMs, which is when
+    // we clear the queue and award rewards.
+    PacketBuffer body; body.WriteU8((uint8)KQS_END);
+    for (size_t i = 0; i < m_kQueue.size(); ++i) {
+        ShinePlayer* pk = ZoneServer::Get().FindPlayerByCharID(m_kQueue[i]);
+        if (pk && pk->GetSession())
+            SendPacket(pk->GetSession(), NC_KQ_STATE_CMD,
+                       body.Data(), body.Size());
+    }
+    SHINELOG_INFO("KQ ForceEnd broadcast to %u players",
+                  (uint32)m_kQueue.size());
 }
 
 void   KQContribute::Add(CharID c, uint32 v) { s_kKQContrib[c] += v; }

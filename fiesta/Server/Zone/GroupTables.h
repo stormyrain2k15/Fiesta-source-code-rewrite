@@ -182,6 +182,30 @@ struct MapInfoRow {
 };
 
 // ----- AbState family -------------------------------------------------------
+//
+// Column meanings (decoded from /app/downloads/Shine-1/AbState.shn,
+// 777 rows, recLen=291, 19 cols):
+//
+//   ID                  -- numeric primary key (matches dictionary lookup)
+//   InxName             -- "StaSeverBone" / "StaMightySoul" / etc; the
+//                          string skill scripts pass to cSetAbstate
+//   AbStataIndex        -- secondary index (legacy alias)
+//   KeepTimeRatio       -- duration scale x100 (200 = 2.0x base SubAbState time)
+//   KeepTimePower       -- duration tier index (per-power scaling rule)
+//   StateGrade          -- "stronger" tier; higher grade replaces lower
+//   PartyState[1..5]    -- chained sub-states applied to nearby party
+//                          members when the source state fires
+//   PartyRange          -- AoE radius (world units) for party propagation
+//   PartyEnchantNumber  -- max party members affected
+//   SubAbState          -- name link into SubAbState.shn (the row that
+//                          actually carries the per-strength effect set)
+//   DispelIndex         -- dispel-family group A
+//   SubDispelIndex      -- dispel-family group B
+//   AbStateSaveType     -- index into AbStateSaveTypeInfo.shn
+//                          (link/die/logoff persistence flags)
+//   MainStateInx        -- back-link to a "container" parent state when
+//                          this row is itself a chained sub-state
+//   Duplicate           -- 0 = replace existing instance, 1 = stack
 struct AbStateRow {
     uint32      uiID;
     std::string kInxName;
@@ -189,7 +213,15 @@ struct AbStateRow {
     uint32      uiKeepTimeRatio;
     uint32      uiKeepTimePower;
     uint32      uiStateGrade;
+    std::string kPartyState[5];
+    uint32      uiPartyRange;
+    uint32      uiPartyEnchantNumber;
+    std::string kSubAbState;
+    uint32      uiDispelIndex;
+    uint32      uiSubDispelIndex;
     uint32      uiAbStateSaveType;
+    std::string kMainStateInx;
+    uint32      uiDuplicate;
 };
 
 // ----- Charged family is in ChargedEffect.h --------------------------------

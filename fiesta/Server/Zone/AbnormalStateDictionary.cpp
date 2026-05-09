@@ -1,6 +1,7 @@
 // Server/Zone/AbnormalStateDictionary.cpp
 // Real implementation -- formerly a stub in an anonymous namespace.
 #include "AbnormalStateDictionary.h"
+#include "GroupTables.h"            // AbStateTables / AbStateRow
 #include "../DataReader/ShnRegistry.h"
 #include "../Shared/ShineLogSystem.h"
 
@@ -30,6 +31,15 @@ bool AbnormalStateDictionary::Load() {
 uint32 AbnormalStateDictionary::Lookup(const std::string& rName) const {
     std::map<std::string, uint32>::const_iterator it = m_kByName.find(rName);
     return (it == m_kByName.end()) ? 0 : it->second;
+}
+
+const AbStateRow* AbnormalStateDictionary::GetRow(uint32 uiAb) const {
+    return AbStateTables::Get().Find(uiAb);
+}
+
+uint32 AbnormalStateDictionary::GetSaveType(uint32 uiAb) const {
+    const AbStateRow* p = AbStateTables::Get().Find(uiAb);
+    return p ? p->uiAbStateSaveType : 0;
 }
 
 } // namespace fiesta

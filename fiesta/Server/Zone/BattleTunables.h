@@ -150,5 +150,37 @@ const int32  kKQRewardBaseGold         = 5000;
 const int32  kKQRewardGoldPerPoint     = 25;
 const int32  kKQRewardMaxGold          = 5000000;
 
+// =============================================================================
+//  AbState / SubAbState dispatcher (the real buff/debuff system).
+//  Action ids match the documented `ActionIndexA..D` slot meanings on
+//  SubAbState.shn rows. Adjust handler curves in
+//  `AbStateRuntime.cpp::Tick` when retuning; the kAbAction_* constants
+//  here are the dispatcher key, not the curve.
+// =============================================================================
+const uint32 kAbAction_None         = 0;
+const uint32 kAbAction_DotHP_A      = 20;     // per-tick HP loss, curve A
+const uint32 kAbAction_DotHP_B      = 21;     // per-tick HP loss, curve B (faster)
+const uint32 kAbAction_DotSP        = 22;
+const uint32 kAbAction_StatModATK   = 30;
+const uint32 kAbAction_StatModDEF   = 31;
+const uint32 kAbAction_StatModMoveSpd = 32;
+const uint32 kAbAction_StatModAtkSpd  = 33;
+const uint32 kAbAction_StatModMATK    = 34;
+const uint32 kAbAction_StatModMDEF    = 35;
+const uint32 kAbAction_RegenHP        = 40;
+const uint32 kAbAction_RegenSP        = 41;
+const uint32 kAbAction_DisableMove    = 50;   // stun / hold / freeze
+const uint32 kAbAction_DisableAct     = 51;   // silence / sleep
+const uint32 kAbAction_AbsorbShield   = 60;   // shield: arg = absorb pool
+const uint32 kAbAction_ReflectDmg     = 70;   // reflect arg/1000 of incoming
+const uint32 kAbAction_DispelOnHit    = 80;
+
+// Per-tick cadence and DoT curve scaler.
+const uint32 kAbStateTickMs           = 1000;
+const int32  kAbStateDotScalerX1k     = 1000;     // 1000 = 1.0x raw arg
+// Default keep-time when the SubAbState row reports 0 ms (AbState
+// container with no SubAbState binding still gets a minimum lifetime).
+const uint32 kAbStateDefaultKeepMs    = 10000;
+
 } // namespace fiesta
 #endif

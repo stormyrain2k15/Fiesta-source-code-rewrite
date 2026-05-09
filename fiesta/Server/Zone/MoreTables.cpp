@@ -425,13 +425,54 @@ void SubAbStateTable::Bind() {
         r.iActionArgC  = ShnGetI32(*t, _r, "ActionArgC");
         r.uiActionIdxD = ShnGetU32(*t, _r, "ActionIndexD");
         r.iActionArgD  = ShnGetI32(*t, _r, "ActionArgD");
-        m_kById[r.uiID] = m_kRows.size();
+        size_t idx = m_kRows.size();
+        m_kById[r.uiID] = idx;
+        m_kByInx[r.kInxName].push_back(idx);
         m_kRows.push_back(r);
     }
 }
 const SubAbStateTable::Row* SubAbStateTable::Find(uint32 uID) const {
     std::map<uint32, size_t>::const_iterator it = m_kById.find(uID);
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second]; }
+
+const SubAbStateTable::Row* SubAbStateTable::FindByInx(const std::string& rInx,
+                                                       uint32 uiStrength) const {
+    std::map<std::string, std::vector<size_t> >::const_iterator it = m_kByInx.find(rInx);
+    if (it == m_kByInx.end() || it->second.empty()) return NULL;
+    // Pick the highest Strength row that does not exceed the request.
+    // Strength=0 -> lowest-tier row; clamp at the top of the available
+    // set when the request exceeds the data drop.
+    const Row* pkBest = NULL;
+    for (size_t i = 0; i < it->second.size(); ++i) {
+        const Row* r = &m_kRows[it->second[i]];
+        if (uiStrength == 0) {
+            if (!pkBest || r->uiStrength < pkBest->uiStrength) pkBest = r;
+        } else {
+            if (r->uiStrength <= uiStrength) {
+                if (!pkBest || r->uiStrength > pkBest->uiStrength) pkBest = r;
+            }
+        }
+    }
+    if (!pkBest) {
+        // Requested strength is below the lowest available -- fall back
+        // to that lowest row so the buff still fires (clamped behaviour
+        // matches the original NA2016 build's "scale-down to floor" rule).
+        for (size_t i = 0; i < it->second.size(); ++i) {
+            const Row* r = &m_kRows[it->second[i]];
+            if (!pkBest || r->uiStrength < pkBest->uiStrength) pkBest = r;
+        }
+    }
+    return pkBest;
+}
+
+void SubAbStateTable::GatherByInx(const std::string& rInx,
+                                  std::vector<const Row*>& rOut) const {
+    rOut.clear();
+    std::map<std::string, std::vector<size_t> >::const_iterator it = m_kByInx.find(rInx);
+    if (it == m_kByInx.end()) return;
+    for (size_t i = 0; i < it->second.size(); ++i)
+        rOut.push_back(&m_kRows[it->second[i]]);
+}
 
 AbStateSaveTypeInfoTable& AbStateSaveTypeInfoTable::Get() { static AbStateSaveTypeInfoTable s; return s; }
 void AbStateSaveTypeInfoTable::Bind() {

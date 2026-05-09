@@ -246,6 +246,20 @@ private:
 };
 
 // ----- SubAbState / AbStateSaveTypeInfo / SingleData ------------------------
+//
+// SubAbState.shn is the *effect* table -- one row per (InxName, Strength)
+// pair. AbState.kSubAbState links into this table by string, then we
+// pick the row whose Strength matches what the source skill stamped.
+// Each row carries up to FOUR action slots:
+//
+//   ActionIndexA + ActionArgA
+//   ActionIndexB + ActionArgB     -- 0 = empty slot
+//   ActionIndexC + ActionArgC
+//   ActionIndexD + ActionArgD
+//
+// `Type`/`SubType` are the effect category for the dispatcher (in
+// `AbStateRuntime.cpp`); `KeepTime` is the per-tier duration in ms
+// (multiplied by AbState.KeepTimeRatio when both are non-zero).
 class SubAbStateTable {
 public:
     static SubAbStateTable& Get();
@@ -258,8 +272,16 @@ public:
         int32       iActionArgA,  iActionArgB,  iActionArgC,  iActionArgD;
     };
     const Row* Find(uint32 uiID) const;
+    // Lookup by InxName + Strength tier. Strength=0 returns the
+    // lowest-strength row for that name (a sensible default).
+    const Row* FindByInx(const std::string& rInx, uint32 uiStrength) const;
+    // Iterate every row whose InxName matches; used by the dictionary
+    // bootstrap to pre-compute strength counts.
+    void       GatherByInx(const std::string& rInx, std::vector<const Row*>& rOut) const;
+    size_t     Size() const { return m_kRows.size(); }
 private:
     std::vector<Row>             m_kRows;     std::map<uint32, size_t> m_kById;
+    std::map<std::string, std::vector<size_t> > m_kByInx;
 };
 
 class AbStateSaveTypeInfoTable {

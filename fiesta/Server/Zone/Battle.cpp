@@ -15,6 +15,7 @@
 #include "QuestSystem.h"
 #include "GameLogClient.h"
 #include "LiveOpsBoosts.h"
+#include "AbStateRuntime.h"
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
 
@@ -217,7 +218,16 @@ int32 RuleOfEngagement::LevelGapDamageTable(uint16 uiLvA, uint16 uiLvT) {
 void Battle::Apply(ShineObject* pkA, ShineObject* pkT, const DamageInfo& d) {
     if (!pkT || d.bMiss) return;
     int32 total = d.iPhys + d.iMagic;
+    // Run incoming damage through any active absorb-shield buffs on
+    // the target (AbStateRuntime action 60). The shield rows decrement
+    // their remaining capacity in place; total here is the residual.
+    total = AbStateRuntime::AbsorbIncoming(pkT, total);
     pkT->SetHP(pkT->GetHP() - total);
+    // Reflect-damage hook (action 70). Mirror a fraction back to the
+    // attacker if it's still alive and not the same object as target.
+    int32 reflect = AbStateRuntime::ReflectIncoming(pkT, total);
+    if (reflect > 0 && pkA && pkA != pkT && !pkA->IsDead())
+        pkA->SetHP(pkA->GetHP() - reflect);
     if (pkA && pkT->GetType() == OT_MOB && pkA->GetType() == OT_PLAYER) {
         ShineMob* pkM = (ShineMob*)pkT;
         ShinePlayer* pkP = (ShinePlayer*)pkA;
@@ -241,12 +251,16 @@ void Battle::Apply(ShineObject* pkA, ShineObject* pkT, const DamageInfo& d) {
 
 void Battle::Apply(ShineObject* pkA, ShineObject* pkT, const DAMAGERESULT& r) {
     if (!pkT || r.bMissed) return;
-    pkT->SetHP(pkT->GetHP() - r.nDamage);
+    int32 net = AbStateRuntime::AbsorbIncoming(pkT, r.nDamage);
+    pkT->SetHP(pkT->GetHP() - net);
+    int32 reflect = AbStateRuntime::ReflectIncoming(pkT, net);
+    if (reflect > 0 && pkA && pkA != pkT && !pkA->IsDead())
+        pkA->SetHP(pkA->GetHP() - reflect);
     if (pkA && pkT->GetType() == OT_MOB && pkA->GetType() == OT_PLAYER) {
         ShineMob* pkM = (ShineMob*)pkT;
         ShinePlayer* pkP = (ShinePlayer*)pkA;
         pkM->m_kAggro.AddScaled(pkP->GetCharID(),
-                                r.nDamage > 0 ? r.nDamage : 1,
+                                net > 0 ? net : 1,
                                 pkP->GetLevel(), pkM->m_uiLevel);
         const MobInfoRow* pkInfo = MobTables::Get().Find((uint32)pkM->m_uiSpecies);
         if (pkInfo) {

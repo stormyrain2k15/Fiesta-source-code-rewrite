@@ -23,6 +23,7 @@
   <ItemGroup>
     <ClCompile Include="..\Server\Zone\AIScript\AIScript.cpp"><Filter>Zone\AIScript</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\AbState.cpp"><Filter>Zone</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\AbStateRuntime.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\AbnormalState.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\AbnormalStateDictionary.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\AbnormalStateShelter.cpp"><Filter>Zone</Filter></ClCompile>
@@ -337,6 +338,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Server\Zone\AbState.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\AbStateRuntime.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\AbnormalStateDictionary.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\AbnormalStateShelter.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\AdminSecLog.h"><Filter>Zone</Filter></ClInclude>
@@ -348,6 +350,7 @@
     <ClInclude Include="..\Server\Zone\Battle.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\BattleStat.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\BattleTunables.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\BoothManager.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\CharDBClient.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\CharLogin.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\ChargedEffect.h"><Filter>Zone</Filter></ClInclude>
@@ -365,6 +368,7 @@
     <ClInclude Include="..\Server\Zone\GMEventManager.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\GameLogClient.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\GroupTables.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\GuildAcademy.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\GuildSystem.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\InstanceDungeon.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\InstanceSystem.h"><Filter>Zone</Filter></ClInclude>

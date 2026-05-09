@@ -502,28 +502,30 @@ bool SellItemManager::BuyFromNpc(ShinePlayer* pk, uint32 uiNpcId, uint32 uiInx, 
 
 void NpcScheduleServer::Tick() {
     // Hour-of-week granular visibility toggle. Every NPC registered in
-    // NPCManager is matched against `NpcScheduleTable::IsActive`; if the
-    // active state has flipped since the last tick we surface a log line
-    // (the per-field visibility broadcast lives in the spawn pass and
-    // is keyed by the same active-flag, so the Field walk owns the
-    // wire-side update). This implementation is the cadence anchor;
-    // adjust the polling cadence by changing how often the parent tick
-    // calls into NpcScheduleServer (default: once per second).
+    // NPCManager is matched against `NpcScheduleTable::IsActive`; when
+    // the active state flips we add or remove the NPC from its Field
+    // (so collision and click-targeting follow the schedule).
     SYSTEMTIME st; GetLocalTime(&st);
     uint32 hourOfWeek = (uint32)st.wDayOfWeek * 24u + (uint32)st.wHour;
-    static std::map<std::string, bool> s_kLastActive;
+    static std::map<uint32, bool> s_kLastActive;   // key = npcId
     NPCManager& nm = NPCManager::Get();
     const std::map<uint32, std::string>& kKeys = nm.NpcKeys();
     for (std::map<uint32, std::string>::const_iterator it = kKeys.begin();
          it != kKeys.end(); ++it) {
         bool bNow = NpcScheduleTable::Get().IsActive(it->second, hourOfWeek);
-        std::map<std::string, bool>::iterator pit = s_kLastActive.find(it->second);
+        std::map<uint32, bool>::iterator pit = s_kLastActive.find(it->first);
         bool bWas = (pit != s_kLastActive.end()) ? pit->second : true;
-        if (bNow != bWas) {
-            s_kLastActive[it->second] = bNow;
-            SHINELOG_INFO("NPC schedule: '%s' -> %s",
-                          it->second.c_str(), bNow ? "ACTIVE" : "INACTIVE");
-        }
+        if (bNow == bWas) continue;
+        s_kLastActive[it->first] = bNow;
+        ShineNPC* pkN = nm.Find(it->first);
+        if (!pkN) continue;
+        Field* pkF = MapDataBox::Get().GetField(pkN->GetMap());
+        if (!pkF) continue;
+        if (bNow) pkF->AddObject(pkN);
+        else      pkF->RemoveObject(pkN);
+        SHINELOG_INFO("NPC schedule: '%s' npc=%u -> %s",
+                      it->second.c_str(), it->first,
+                      bNow ? "ACTIVE" : "INACTIVE");
     }
 }
 

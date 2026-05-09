@@ -283,7 +283,44 @@ real body using named tunable constants. Tuning is a single-file edit.
 * **`LiveOpsBoosts.h`** kGMEvent_* event ids consolidated into
   `BattleTunables.h` for a single-file tunable surface.
 
-See `docs/HONEST_DISCLOSURE.md` Pass 6.5 section for the detailed table
-of "what was a stub / what it does now / where to tune".
+## Pass 7 (Feb 2026) — AbState as the central effect engine
+
+Per user directive: AbState/SubAbState is now the unified pipeline for
+ALL temporary effects (skills, monster abilities, items, maps, mounts,
+premium effects, mount effects, stat mods, DoTs, stuns, slows).
+
+Decoded `AbState.shn` (777 rows) and `SubAbState.shn` (2041 rows) off
+the data drop and rebuilt the runtime around the real columns:
+
+* New `AbStateRuntime.{h,cpp}` central dispatcher (Resolve, Tick,
+  OnApply/OnRemove, AbsorbIncoming, ReflectIncoming).
+* Real `AbnormalState::Apply` / `ApplySubByName` / `Remove` /
+  `RemoveBySubInxName` / `DispelByCategory` / `StatModX1k` in
+  `AbState.cpp`. Replace/stack rule reads `AbStateRow.Duplicate` +
+  `StateGrade`.
+* AbnormalState ledger lives on base `ShineObject` so mobs carry
+  status states too. Action-id constants in `BattleTunables.h`.
+* `Battle::Apply` routes through AbStateRuntime for shield absorb +
+  damage reflect.
+* `ZoneServer::Tick` walks the unified object registry and ticks
+  every ledger uniformly.
+* `SkillSystem::Use` now uses SubAbState InxName + Strength via
+  `ApplySubByName` (the old code passed a SubAbState id into a
+  function that expected an AbState id -- buffs fired 0% of the time).
+* `StateFieldTable::OnPlayerEnter` upgraded to the same direct path.
+* `TypedSchemaConsumers::ItemActionResolver::EffectApply` learned
+  EffectActivity=4 -> SubAbState apply, with verbose warning on
+  unknown codes (no silent no-ops).
+* `AbnormalStateShelter` real save/load via `AbStateSaveTypeInfo`.
+
+**Other hollow-fix sweep this pass:**
+
+* `Lua_cFinishKey` -- real CharQuest finish-key ledger.
+* `ActionTargetTypeValidator` -- real target-type / faction gate.
+* `BoothManager` / `GuildAcademy` -- real registries with persistence.
+* `KQServer::ForceEnd` -- real broadcast to queued participants.
+* `NpcScheduleServer::Tick` -- actual Field add/remove on flip.
+* `Lua_cDoorAction` -- routes through new `NC_MAP_DOOR_STATE_CMD`.
+* `Lua_cResetAbstate` -- returns the real remove outcome.
 
 

@@ -12,6 +12,98 @@ chasing ghosts in a 350-file directory.
 
 ## Audit pass log
 
+### Pass 7 (Feb 2026, AbState as the central effect engine)
+
+User directive: *"AbState is the unified temporary-effect/state-modifier
+system used by skills, monster abilities, items, maps, mounts, and
+premium effects. Any system that depends on temporary buffs, debuffs,
+stat changes, triggered effects, or timed conditions must route through
+AbState."*
+
+**Schema audit.** Decoded `AbState.shn` (777 rows, 19 cols) and
+`SubAbState.shn` (2041 rows, 14 cols) directly off the data drop:
+
+* `AbState.shn` columns -- `ID`, `InxName`, `AbStataIndex`, `KeepTimeRatio`,
+  `KeepTimePower`, `StateGrade`, `PartyState1..5`, `PartyRange`,
+  `PartyEnchantNumber`, `SubAbState`, `DispelIndex`, `SubDispelIndex`,
+  `AbStateSaveType`, `MainStateInx`, `Duplicate`.
+* `SubAbState.shn` columns -- `ID`, `InxName`, `Strength`, `Type`,
+  `SubType`, `KeepTime`, `ActionIndexA..D`, `ActionArgA..D`.
+
+The previous AbState plumbing was hollow: only `ID/InxName/SaveType`
+was kept, the priority resolver looked for a non-existent "Priority"
+column, and `Apply()` wrote a row with no actions wired.
+
+**Build-out.**
+
+* `AbStateRuntime.{h,cpp}` -- new central dispatcher. Holds a
+  `AbStateRuntimeRow` (resolved AbState + SubAbState id, expiry,
+  4 action slots, shield absorb capacity). Per-row Tick() runs the
+  4 action handlers; OnApply / OnRemove emit one-shot transitions;
+  `AbsorbIncoming` / `ReflectIncoming` are gates Battle calls before
+  /after HP loss to honor shield + reflect actions.
+* `AbState.cpp` -- real `AbnormalState::Apply` / `ApplyAt` /
+  `ApplySubByName` / `Remove` / `RemoveBySubInxName` /
+  `DispelByCategory` / `Tick` / `Has` / `HasInxName` / `StatModX1k`.
+  Replace/stack rule in `SubAbstatePriority::ShouldReplace` now uses
+  the real `AbStateRow.Duplicate` and `StateGrade` columns.
+* `AbnormalState` ledger moved onto base `ShineObject` so mob targets
+  can carry status states too (CC chains, debuff stacks). Players
+  alias the inherited ledger via the legacy `pk->AbState()` accessor.
+* Action-id constants live in `BattleTunables.h::kAbAction_*` (DotHP_A,
+  DotHP_B, DotSP, StatMod{ATK,DEF,MoveSpd,AtkSpd,MATK,MDEF},
+  RegenHP, RegenSP, DisableMove, DisableAct, AbsorbShield, ReflectDmg,
+  DispelOnHit). Per-tick cadence + DoT scaler tunable in same file.
+* `Battle::Apply` (both overloads) now routes incoming damage through
+  `AbStateRuntime::AbsorbIncoming` and mirrors a fraction back via
+  `ReflectIncoming` for any active reflect rows.
+* `ZoneServer::Tick` walks every registered ShineObject and ticks the
+  AbState ledger -- DoTs / regens / shield-decay run uniformly across
+  players and mobs.
+* `SkillSystem::Use` upgraded: skill `StaApply` slots resolve by
+  SubAbState InxName + Strength via `AbState().ApplySubByName(...)`.
+  Previous code passed a SubAbState id into `Apply()` which expected
+  an AbState id -- the buff fired at a 0% rate.
+* `StateFieldTable::OnPlayerEnter` upgraded to the same SubAbState
+  direct path.
+* `TypedSchemaConsumers::ItemActionResolver::EffectApply` -- new
+  `case 4` (ApplyAbState) routes Value->SubAbState id, Area->Strength
+  through `AbState().ApplySubByName`. Unknown EffectActivity codes
+  surface a warning instead of silently no-op'ing.
+* `AbnormalStateShelter` -- save / load uses the real ledger and
+  joins through `AbStateSaveTypeInfoTable` for the
+  link/die/logoff trigger mask.
+* `AbnormalStateDictionary` exposes `GetRow(id)` and `GetSaveType(id)`
+  driven by the loaded `AbStateTables` row data.
+* `AbState.h` / `AbnormalStateShelter.h` are the only canonical
+  declarations; the legacy duplicate definitions in older headers
+  were removed.
+
+**Other hollow-fix sweep this pass:**
+
+* `Lua_cFinishKey` -- now records the (charId, key) tuple on the
+  player's `CharQuest` ledger; `CharQuest::FinishKeyAdd` /
+  `FinishKeyHas` / `FinishKeyCount` exposed for the matching
+  `cIsFinishKey` binding.
+* `ActionTargetTypeValidator` -- real (Self / Single / Ally / Enemy /
+  AOE / Cone / Line) target-type gate with explicit faction rules.
+  Previous body returned `true` after passing a distance check.
+* `BoothManager.{h,cpp}` -- real per-zone live booth registry with
+  Open/Close/AddItem/RemoveItem/Buy/Find/ListNearby. The previous
+  implementation lived in an anonymous namespace and did nothing.
+* `GuildAcademy.{h,cpp}` -- real impl reading `GuildAcademy.shn`,
+  applying the academy buff via `AbnormalState::Apply` only after
+  the membership-time threshold passes. `GuildServer::GuildOf` /
+  `JoinedMs` exposed; `GuildMember` carries `uiJoinedMs`.
+* `KQServer::ForceEnd` -- now actually broadcasts `NC_KQ_STATE_CMD`
+  to every queued participant. Previous code only mutated state.
+* `NpcScheduleServer::Tick` -- now adds/removes the NPC from its
+  `Field` on flip events. Previous code only logged.
+* `Lua_cDoorAction` -- routes through new `NC_MAP_DOOR_STATE_CMD`
+  opcode (FAMILY_KQ + 0x08, PROVISIONAL until a real capture).
+* `Lua_cResetAbstate` -- returns the actual remove result instead of
+  a "did the player exist" boolean.
+
 ### Pass 6.5 (Feb 2026, post-Pass-6 fill-out)
 
 User directive: *"all remaining stubs we know the function but not the

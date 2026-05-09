@@ -2,7 +2,10 @@
 #include "ZoneServer.h"
 #include "ItemUpgrade.h"
 #include "LiveOpsBoosts.h"
+#include "AbState.h"
+#include "NPCSystem.h"
 #include "../Shared/ShineLogSystem.h"
+#include "../Shared/GTimer.h"
 #include "../Common/NETCOMMAND.h"
 #include "../Common/SendPacket.h"
 #include "../Common/ProtocolParser.h"
@@ -33,8 +36,29 @@ void ZoneServer::Shutdown() {
 }
 
 void ZoneServer::Tick() {
-    // 1Hz hook -- per-system tick fan-out happens here in pass-2 (BattleTick, AbStateTick, etc.).
+    // 1Hz fan-out tick. Order matters:
+    //   1. LiveOpsBoosts -- expires timed boosts before they're queried.
+    //   2. AbState ledgers -- DoTs / regens / shield-decay run on every
+    //      registered ShineObject (players + mobs + NPCs). Walk the
+    //      unified m_kObjects map so a CC'd mob and a buffed player
+    //      get the same per-tick path.
+    //   3. NpcScheduleServer -- hour-of-week visibility flips.
     LiveOpsBoosts::Get().Tick();
+    uint64 now = GTimer::NowMillis();
+    EnterCriticalSection(&m_kCs);
+    // Snapshot first so OnRemove side-effects (e.g. removing a row
+    // mid-walk) don't invalidate iteration.
+    std::vector<ShineObject*> snap;
+    snap.reserve(m_kObjects.size());
+    for (std::map<Handle, ShineObject*>::iterator it = m_kObjects.begin();
+         it != m_kObjects.end(); ++it) {
+        snap.push_back(it->second);
+    }
+    LeaveCriticalSection(&m_kCs);
+    for (size_t i = 0; i < snap.size(); ++i) {
+        if (snap[i]) snap[i]->AbStateLedger().Tick(snap[i], now);
+    }
+    NpcScheduleServer::Tick();
 }
 
 Handle ZoneServer::NewObjectHandle() {

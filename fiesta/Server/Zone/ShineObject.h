@@ -46,12 +46,20 @@ public:
     void    SetMaxSP(int32 v) { m_iMaxSP = v >= 0 ? v : 0; if (m_iSP > m_iMaxSP) m_iSP = m_iMaxSP; }
     bool    IsDead() const { return m_iHP <= 0; }
 
+    // Per-target buff/debuff ledger. Mobs and NPCs share the same
+    // surface as players so AbStateRuntime can absorb / reflect on
+    // any target via a single call site (mobs can carry status states
+    // too -- e.g. a stunned mob on a CC chain). The ledger only stores
+    // active runtime rows and is empty by default.
+    AbnormalState&        AbStateLedger()       { return m_kAbStateLedger; }
+    const AbnormalState&  AbStateLedger() const { return m_kAbStateLedger; }
 protected:
     Handle m_uiHandle;
     MapID  m_uiMap;
     Vec3   m_kPos;
     int32  m_iHP, m_iMaxHP;
     int32  m_iSP, m_iMaxSP;
+    AbnormalState m_kAbStateLedger;
 };
 
 class ShinePlayer : public ShineObject {
@@ -101,7 +109,11 @@ public:
 
     // -- subsystems owned by the player -------------------------------------
     CharacterSkill& Skills()  { return m_kSkills; }
-    AbnormalState&  AbState() { return m_kAbState; }
+    // AbState ledger lives on the base ShineObject so mob targets share
+    // the same surface (for status effects on mobs). The legacy
+    // `AbState()` accessor on ShinePlayer is kept as an alias so all the
+    // existing call sites keep working unchanged.
+    AbnormalState&  AbState() { return m_kAbStateLedger; }
     Inventory&      Inv()     { return m_kInv;    }
     CharQuest&      Quest()   { return m_kQuest;  }
 
@@ -138,7 +150,6 @@ private:
 
     ClientSession* m_pkSession;
     CharacterSkill m_kSkills;
-    AbnormalState  m_kAbState;
     Inventory      m_kInv;
     CharQuest      m_kQuest;
 };

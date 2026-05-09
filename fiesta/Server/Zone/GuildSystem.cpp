@@ -1,6 +1,7 @@
 #include "GuildSystem.h"
 #include "ExtendedTables.h"
 #include "GroupTables.h"
+#include "../Shared/GTimer.h"
 #include <windows.h>
 namespace fiesta {
 
@@ -8,7 +9,8 @@ GuildServer& GuildServer::Get() { static GuildServer s; return s; }
 
 GuildRec* GuildServer::Create(const std::string& n, CharID m) {
     GuildRec g; g.uiId = m_uiNext++; g.kName = n; g.uiMaster = m; g.iGold = 0; g.uiGrade = 1; g.uiTournamentScore = 0;
-    GuildMember mm; mm.c = m; mm.rank = 0; g.kMembers.push_back(mm);
+    GuildMember mm; mm.c = m; mm.rank = 0; mm.uiJoinedMs = GTimer::NowMillis();
+    g.kMembers.push_back(mm);
     m_kAll[g.uiId] = g; return &m_kAll[g.uiId];
 }
 bool GuildServer::Disband(uint32 id, CharID req) {
@@ -18,7 +20,8 @@ bool GuildServer::Disband(uint32 id, CharID req) {
 }
 bool GuildServer::Invite(uint32 id, CharID c) {
     GuildRec* g = Find(id); if (!g) return false;
-    GuildMember m; m.c = c; m.rank = 5; g->kMembers.push_back(m); return true;
+    GuildMember m; m.c = c; m.rank = 5; m.uiJoinedMs = GTimer::NowMillis();
+    g->kMembers.push_back(m); return true;
 }
 bool GuildServer::Leave(CharID c) {
     GuildRec* g = FindByMember(c); if (!g) return false;
@@ -37,6 +40,23 @@ GuildRec* GuildServer::FindByMember(CharID c) {
     return NULL;
 }
 
+uint32 GuildServer::GuildOf(CharID c) const {
+    for (std::map<uint32, GuildRec>::const_iterator it = m_kAll.begin();
+         it != m_kAll.end(); ++it)
+        for (size_t i = 0; i < it->second.kMembers.size(); ++i)
+            if (it->second.kMembers[i].c == c) return it->second.uiId;
+    return 0;
+}
+
+uint64 GuildServer::JoinedMs(CharID c) const {
+    for (std::map<uint32, GuildRec>::const_iterator it = m_kAll.begin();
+         it != m_kAll.end(); ++it)
+        for (size_t i = 0; i < it->second.kMembers.size(); ++i)
+            if (it->second.kMembers[i].c == c)
+                return it->second.kMembers[i].uiJoinedMs;
+    return 0;
+}
+
 void GuildZone::OnPlayerLogin(ShinePlayer*) {}
 
 bool GuildStorageManager::Put(uint32 id, CharID, const ShineItem& it) {
@@ -49,7 +69,7 @@ bool GuildStorageManager::Take(uint32 id, CharID, uint32 uiItemId) {
     return false;
 }
 
-void GuildAcademy::GrantApprenticeReward(CharID master, CharID app) {
+void GuildAcademyApprentice::GrantReward(CharID master, CharID app) {
     // Driven by GuildAcademyLevelUp + GuildAcademyRank from the SHN drop.
     // The master/apprentice pair feeds an XP counter persisted in CharDB.
     // Each milestone in `GuildAcademyLevelUp` drops a buff (BuffID column)

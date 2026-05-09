@@ -28,6 +28,25 @@ bool CharQuest::GiveUp(uint32 q) {
         if (m_kEntries[i].uiQuestId == q) { m_kEntries.erase(m_kEntries.begin()+i); return true; }
     return false;
 }
+
+void CharQuest::FinishKeyAdd(uint32 uiKey) {
+    // Insertion sort into the sorted vector (typical key counts: < 32).
+    for (size_t i = 0; i < m_kFinishKeys.size(); ++i) {
+        if (m_kFinishKeys[i] == uiKey) return;
+        if (m_kFinishKeys[i] >  uiKey) {
+            m_kFinishKeys.insert(m_kFinishKeys.begin() + i, uiKey);
+            return;
+        }
+    }
+    m_kFinishKeys.push_back(uiKey);
+}
+bool CharQuest::FinishKeyHas(uint32 uiKey) const {
+    // Linear scan -- the vector is small enough that binary-search adds
+    // more code than it saves.
+    for (size_t i = 0; i < m_kFinishKeys.size(); ++i)
+        if (m_kFinishKeys[i] == uiKey) return true;
+    return false;
+}
 void CharQuest::OnKill(MobID s) {
     for (size_t i = 0; i < m_kEntries.size(); ++i)
         if (m_kEntries[i].eState == QS_ACTIVE)

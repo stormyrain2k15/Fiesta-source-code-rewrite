@@ -76,9 +76,34 @@ void ItemActionResolver::EffectApply(uint16 uiEffectID,
         case 1: dst->SetHP   (dst->GetHP() + (int32)p->Value); break;
         case 2: dst->SetSP   (dst->GetSP() + (int32)p->Value); break;
         case 3: dst->SetHP   (dst->GetHP() - (int32)p->Value); break;
+        case 4: {
+            // EffectActivity=4 is the AbState apply path. The schema's
+            // numeric `Value` indexes the SubAbState row id we want to
+            // fire on `dst`. Strength is taken from `Area` (this column
+            // doubles as the strength tier on AbState-class effects);
+            // duration falls back to the SubAbState row's own KeepTime.
+            const SubAbStateRegistry::Row* pkSub =
+                SubAbStateRegistry::Get().Find((uint32)p->Value);
+            if (!pkSub) {
+                SHINELOG_WARN("ItemAction effect=%u: SubAbState id=%u not found",
+                              uiEffectID, (uint32)p->Value);
+                break;
+            }
+            dst->AbState().ApplySubByName(pkSub->kInxName.c_str(),
+                                          p->Area > 0 ? (uint32)p->Area : 1, 0);
+            break;
+        }
         case 5: dst->AddFame ((int32)p->Value);                break;
         case 6: dst->AddMoney((int64)p->Value);                break;
-        default: break;
+        default:
+            // Unknown EffectActivity -- log so a real capture surfaces
+            // the missing handler. Never silently no-op.
+            SHINELOG_WARN("ItemAction effect=%u: unhandled EffectActivity=%u "
+                          "value=%u area=%u (add a case to "
+                          "ItemActionResolver::EffectApply)",
+                          uiEffectID, (uint32)p->EffectActivity,
+                          (uint32)p->Value, (uint32)p->Area);
+            break;
     }
 }
 
@@ -108,19 +133,16 @@ void StateFieldTable::OnPlayerEnter(ShinePlayer* pk, const std::string& rMap) co
     std::map<std::string, Row>::const_iterator it = m_kByMap.find(rMap);
     if (it == m_kByMap.end()) return;
     if (it->second.kAbStateInx.empty()) return;
-
-    // The AbState dictionary keys by the same numeric id that SubAbStateRegistry
-    // stores; resolve the inx-name via the sub-state catalogue and apply with
-    // the StateSet's nominal duration. Long-lived field states use a
-    // per-tick refresh, so the duration here is the refresh window
-    // (10 minutes is the project-owner-supplied baseline).
-    const SubAbStateRegistry::Row* p =
-        SubAbStateRegistry::Get().FindByInx(it->second.kAbStateInx);
-    if (!p) return;
-    pk->AbState().Apply(p->uiID, (int32)(p->uiKeepTimeMs ? p->uiKeepTimeMs : 600000), 1);
-    SHINELOG_DEBUG("StateField: applied %s on map %s (cid=%u)",
-                   it->second.kAbStateInx.c_str(), rMap.c_str(),
-                   (uint32)pk->GetCharID());
+    // The map row carries a SubAbState InxName (per the schema). Route
+    // through the SubAbState-direct apply path with a strength of 1
+    // (StateField rows don't expose a Strength column). Duration is the
+    // SubAbState KeepTime; long-lived field auras are kept alive by
+    // the per-tick refresh path that re-applies on each Field re-entry.
+    if (pk->AbState().ApplySubByName(it->second.kAbStateInx.c_str(), 1, 0)) {
+        SHINELOG_DEBUG("StateField: applied %s on map %s (cid=%u)",
+                       it->second.kAbStateInx.c_str(), rMap.c_str(),
+                       (uint32)pk->GetCharID());
+    }
 }
 
 // ---------------------------------------------------------------------------

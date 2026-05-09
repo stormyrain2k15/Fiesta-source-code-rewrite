@@ -80,6 +80,7 @@
   <ItemGroup>
     <ClCompile Include="..\Server\Zone\AIScript\AIScript.cpp" />
     <ClCompile Include="..\Server\Zone\AbState.cpp" />
+    <ClCompile Include="..\Server\Zone\AbStateRuntime.cpp" />
     <ClCompile Include="..\Server\Zone\AbnormalState.cpp" />
     <ClCompile Include="..\Server\Zone\AbnormalStateDictionary.cpp" />
     <ClCompile Include="..\Server\Zone\AbnormalStateShelter.cpp" />
@@ -394,6 +395,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Server\Zone\AbState.h" />
+    <ClInclude Include="..\Server\Zone\AbStateRuntime.h" />
     <ClInclude Include="..\Server\Zone\AbnormalStateDictionary.h" />
     <ClInclude Include="..\Server\Zone\AbnormalStateShelter.h" />
     <ClInclude Include="..\Server\Zone\AdminSecLog.h" />
@@ -405,6 +407,7 @@
     <ClInclude Include="..\Server\Zone\Battle.h" />
     <ClInclude Include="..\Server\Zone\BattleStat.h" />
     <ClInclude Include="..\Server\Zone\BattleTunables.h" />
+    <ClInclude Include="..\Server\Zone\BoothManager.h" />
     <ClInclude Include="..\Server\Zone\CharDBClient.h" />
     <ClInclude Include="..\Server\Zone\CharLogin.h" />
     <ClInclude Include="..\Server\Zone\ChargedEffect.h" />
@@ -422,6 +425,7 @@
     <ClInclude Include="..\Server\Zone\GMEventManager.h" />
     <ClInclude Include="..\Server\Zone\GameLogClient.h" />
     <ClInclude Include="..\Server\Zone\GroupTables.h" />
+    <ClInclude Include="..\Server\Zone\GuildAcademy.h" />
     <ClInclude Include="..\Server\Zone\GuildSystem.h" />
     <ClInclude Include="..\Server\Zone\InstanceDungeon.h" />
     <ClInclude Include="..\Server\Zone\InstanceSystem.h" />

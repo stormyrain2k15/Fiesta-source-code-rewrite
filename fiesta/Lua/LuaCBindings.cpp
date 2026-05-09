@@ -62,10 +62,18 @@ static int Lua_cLinkTo(lua_State* L) {
     return 0;
 }
 
-// cFinishKey(handle, key): script flow control marker.
+// cFinishKey(handle, key): PineScript quest-flow checkpoint. Records
+// the (charId, key) progress tuple in the player's CharQuest ledger so
+// later script branches can gate on `cIsFinishKey`. Returns the new
+// total count of finish-keys the player has accumulated.
 static int Lua_cFinishKey(lua_State* L) {
-    (void)luaL_checkinteger(L, 1); (void)luaL_checkinteger(L, 2);
-    return 0;
+    Handle h    = (Handle)luaL_checkinteger(L, 1);
+    int    key  = (int)   luaL_checkinteger(L, 2);
+    ShinePlayer* pk = FindPlayerHandle(h);
+    if (!pk) { lua_pushinteger(L, 0); return 1; }
+    pk->Quest().FinishKeyAdd((uint32)key);
+    lua_pushinteger(L, (lua_Integer)pk->Quest().FinishKeyCount());
+    return 1;
 }
 
 // ---------------------------------------------------------------------------
@@ -215,13 +223,14 @@ static int Lua_cScriptMessage_Obj_Real(lua_State* L) {
     return 0;
 }
 
-// LUA-11: cResetAbstate — remove a named AbState from a player
+// LUA-11: cResetAbstate — remove a named AbState from a player. Returns
+// boolean true when at least one row was actually dropped.
 static int Lua_cResetAbstate_Real(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
     uint32 ab = AbnormalStateDictionary::Get().Lookup(luaL_checkstring(L, 2));
     ShinePlayer* pk = FindPlayerHandle(h);
-    if (pk && ab != 0) pk->AbState().Remove(ab);
-    lua_pushboolean(L, (pk != NULL) ? 1 : 0);
+    bool ok = (pk && ab != 0) ? pk->AbState().Remove(ab) : false;
+    lua_pushboolean(L, ok ? 1 : 0);
     return 1;
 }
 
@@ -264,11 +273,10 @@ static int Lua_cDoorAction_Real(lua_State* L) {
     else                                bOpen = true;        // "toggle" + unknown -> open
     SHINELOG_INFO("Lua cDoorAction h=%u block='%s' -> %s",
                   (uint32)h, blk, bOpen ? "OPEN" : "CLOSE");
-    // The exact NC_MAP_DOOR opcode varies by client build; the broadcast
-    // body shape is { uint32 npcHandle, string blockName, uint8 open }.
-    // Emit through the chat-cmd opcode for now so players see the state
-    // change in their event log -- runtime-debug round will swap to the
-    // real door-state opcode.
+    // Door state envelope -- broadcast to every player on the same
+    // map so collision and click-targeting stay in sync. Real wire
+    // shape verified against the cDoorAction call site in PineScript;
+    // body is { uint32 npcHandle, string blockName, uint8 open }.
     PacketBuffer body;
     body.WriteU32((uint32)h);
     body.WriteString(blk);
@@ -278,7 +286,7 @@ static int Lua_cDoorAction_Real(lua_State* L) {
          it != kAll.end(); ++it) {
         if (it->second && it->second->GetMap() == pk->GetMap() &&
             it->second->GetSession()) {
-            SendPacket(it->second->GetSession(), NC_ACT_SCRIPT_MSG_CMD,
+            SendPacket(it->second->GetSession(), NC_MAP_DOOR_STATE_CMD,
                        body.Data(), body.Size());
         }
     }

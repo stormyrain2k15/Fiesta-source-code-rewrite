@@ -252,12 +252,15 @@ bool Skill::TryUse(ShinePlayer* pk, SkillID s, ShineObject* pkTarget) {
                 static well512 s_kRng;
                 if (s_kRng.NextRange(1000) >= aSta[i].uiSucRatePermille) continue;
             }
-            const SubAbStateRegistry::Row* pkSub =
-                SubAbStateRegistry::Get().FindByInx(aSta[i].pkInxName);
-            if (!pkSub) continue;
-            int32 dur = (int32)(pkSub->uiKeepTimeMs ? pkSub->uiKeepTimeMs : 5000);
-            uint16 stack = (uint16)(aSta[i].uiStrength ? aSta[i].uiStrength : 1);
-            pkP->AbState().Apply(pkSub->uiID, dur, stack);
+            // SkillData carries a *SubAbState* InxName plus a Strength
+            // tier; route through the SubAbState-direct apply path so
+            // the action handlers (DoT / stat-mod / shield / disable)
+            // fire correctly. The duration override is only applied
+            // when the SkillData column is non-zero -- otherwise the
+            // SubAbState's own KeepTime drives the lifetime.
+            uint32 uiStr = aSta[i].uiStrength ? aSta[i].uiStrength : 1;
+            int32  iDur  = 0;     // 0 = use SubAbState's KeepTime
+            pkP->AbState().ApplySubByName(aSta[i].pkInxName, uiStr, iDur);
         }
     }
 

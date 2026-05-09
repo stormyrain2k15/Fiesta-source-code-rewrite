@@ -9,7 +9,7 @@
 
 namespace fiesta {
 
-struct GuildMember { CharID c; uint8 rank; };
+struct GuildMember { CharID c; uint8 rank; uint64 uiJoinedMs; };
 struct GuildRec {
     uint32 uiId;
     std::string kName;
@@ -30,6 +30,10 @@ public:
     bool      Leave  (CharID member);
     GuildRec* Find   (uint32 uiGuildId);
     GuildRec* FindByMember(CharID c);
+    // Resolve the guild id and join-timestamp for a character. 0/0 when
+    // the character isn't in any guild.
+    uint32    GuildOf (CharID c) const;
+    uint64    JoinedMs(CharID c) const;
 private:
     std::map<uint32, GuildRec> m_kAll;
     uint32 m_uiNext;
@@ -42,7 +46,12 @@ public:
     static bool Put (uint32 uiGuildId, CharID c, const ShineItem& kIt);
     static bool Take(uint32 uiGuildId, CharID c, uint32 uiItemId);
 };
-class GuildAcademy        { public: static void GrantApprenticeReward(CharID master, CharID app); };
+// GuildAcademy lives in its own header (GuildAcademy.h). The static
+// `GrantApprenticeReward` apprentice helper below is preserved here as
+// a free function so nothing is silently demoted.
+namespace GuildAcademyApprentice {
+    void GrantReward(CharID master, CharID app);
+}
 
 // Guild war declaration window. The original game only accepted declaration
 // requests during a fixed weekday/hour band (so wars couldn't be declared
