@@ -64,6 +64,22 @@ User provided `SHN_Editor_4.7` source. Wrote a real C++ SHN binary reader:
 
 Total now: **122 source files**. See `docs/PASS1_6_SHN_BINARY.md` for details.
 
+## Pass 1.7 — `.dat` reader + SHN→DAT→NIF link (2026-05-09)
+
+User clarified `.dat` files bridge SHN rows to NIF animation clips. Empirically
+derived format from supplied samples (plain LE binary, not encrypted, 352-byte
+entries for Action/, 104-byte for AbState/).
+
+- `Server/DataReader/DatFile.{h,cpp}` — loader + `ActionDatBox` registry.
+- `Client/Engine/AnimationLink.{h,cpp}` — `ResolveClip(actionDat, actionId)` →
+  clip name → Gamebryo `NiControllerManager::ActivateSequence` (wiring deferred
+  until Client VS project picks up Gamebryo include paths).
+
+Declined to crawl external leaked-source repository per pass-1 IP boundary;
+continued with user-supplied artifacts only.
+
+Total now: **126 source files**. See `docs/PASS1_7_DAT_AND_NIF_LINK.md`.
+
 ## Pack rule compliance
 
 | Rule | Status |
