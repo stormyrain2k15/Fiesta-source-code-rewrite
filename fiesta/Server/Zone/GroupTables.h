@@ -138,6 +138,9 @@ struct MobInfoRow {
     uint32      uiIsNPC, uiSize, uiWeaponType, uiArmorType,
                 uiGradeType, uiType, uiIsPlayerSide, uiAbsoluteSize;
     uint32      uiExp;
+    uint32      uiMoney;     // base gold drop (MobInfo.shn "Money" column;
+                             // 0 if missing -- MoneyRateX1k still applies
+                             // proportionally so Lucky Hour stays consistent).
 };
 struct MobSpeciesRow {
     uint32      uiID;

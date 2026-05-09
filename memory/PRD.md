@@ -145,7 +145,8 @@ holds three multiplicative scalers (x1000, 1000 == stock):
 * `ExpRateX1k()`   -> applied in `Battle.cpp` after `ExpRecalcTable` scaler
 * `DropRateX1k()`  -> overrides `DropContext.nGlobalRateX1k` in
   `ItemSystems.cpp::ItemDropFromMob::Trigger`
-* `MoneyRateX1k()` -> reserved for gold-drop / quest-reward consumers
+* `MoneyRateX1k()` -> applied in `Battle.cpp::Kill` against
+  `MobInfoRow.uiMoney` on every mob-kill grant
 
 Well-known event ids (extends GMEvent.shn):
 
@@ -166,9 +167,57 @@ Trigger paths:
    to `LiveOpsBoosts::StartEvent / StopEvent`.
 3. GM ad-hoc trigger: `&luckyhour <minutes> [expX1k] [dropX1k]` via
    `AmpersandCommands.cpp` (admin level 100). `&luckyhour stop` ends.
+   The command sends `NC_INTER_GMEVENT_TRIGGER_REQ` to WM via
+   `WMClient::SendGMEventTrigger`; WM (`PF_Zone.cpp`) re-broadcasts
+   `NC_INTER_BROADCAST_CMD` kind=2 to every connected zone, so a single
+   GM click hits every shard. WM-offline fallback runs the boost on the
+   issuing zone only.
 
 Tick: `LiveOpsBoosts::Tick()` runs from `ZoneServer::Tick()` and
 auto-reverts when `m_uiEndsAtMs` elapses.
+
+## NPC enchanter (+N upgrade) wiring
+
+NA2016-style flow:
+1. Player clicks an enchanter NPC. NPCSystem renders the click menu via
+   `NPCAction.txt` + `NPCViewInfo.shn`.
+2. Player selects an "Upgrade" / "Enchant" / "Refine" /
+   "EquipmentUpgrade" button. `NPCSystem::HandlePick` recognises the
+   action tag, opens an enchanter session via
+   `ItemUpgrade::OpenSession(player, npcId, kind)`, and sends
+   `NC_ITEM_UPGRADE_OPEN_CMD { npcId, kind, allowsLuck }` to the client
+   so the upgrade UI opens.
+3. Player chooses an item; client sends `NC_ITEM_UPGRADE_REQ { itemId,
+   useLuckStone }` -> ZoneHandlers -> `ItemUpgrade::ResolveForPlayer`.
+4. `ResolveForPlayer` requires an open session (anti-cheat against raw
+   packet injection); the session is single-shot and is closed before
+   the roll, regardless of outcome.
+5. `ClientSession::OnDisconnect` calls `ItemUpgrade::CloseSession` so
+   abandoned sessions don't leak memory.
+
+`kind`: 0=any, 1=weapon, 2=armour, 3=accessory; resolved from the
+`NPCViewInfo` row's `Arg0`.
+
+## Map block reader (BlockInfo/.shbd)
+
+* `Server/DataReader/BlockInfoFile.{h,cpp}` parses the three terrain
+  binary formats (`.shbd` cell grid, `.aid` area-id table, `.sbi`
+  sub-block rects). The .shbd payload is one byte per cell, 0xFF
+  blocked / 0x00 walkable; size = width*height + 8.
+* `Server/Zone/MapField.h` is now the canonical home of the
+  `MapBlockInformation` struct (one per `Field`). It exposes:
+    * `IsBlockedCell(cx, cy)` -- raw cell-grid lookup
+    * `IsBlockedWorld(x, y)`  -- world-coord lookup with the universal
+      `kMapBlockCellSize=16` world-units-per-cell scale
+* `MapBlockInformation.h` is now a thin facade that just includes
+  `MapField.h`; the previous duplicate class (singleton) has been
+  removed to fix the ODR conflict.
+* `MapNavigator::FindWay` now samples at one-cell granularity instead
+  of a fixed 32-step lerp, so single-cell blockers are no longer skipped.
+* `BlockingDistribute::ResolveNearby(Field&, x, y)` spirals outward by
+  cell increments to find the nearest walkable world coord, capped at
+  ~512 world units.
+
 
 Announcements: `AnnounceSystem::Broadcast(level, text)` -- now declared
 in `Server/Zone/AnnounceSystem.h`, called from LiveOpsBoosts on every

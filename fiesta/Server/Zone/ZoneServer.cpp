@@ -1,5 +1,6 @@
 // Server/Zone/ZoneServer.cpp
 #include "ZoneServer.h"
+#include "ItemUpgrade.h"
 #include "LiveOpsBoosts.h"
 #include "../Shared/ShineLogSystem.h"
 #include "../Common/NETCOMMAND.h"
@@ -75,6 +76,7 @@ void ClientSession::OnConnect() {
 
 void ClientSession::OnDisconnect() {
     if (m_pkPlayer) {
+        ItemUpgrade::CloseSession(m_pkPlayer);
         ZoneServer::Get().DetachPlayer(m_pkPlayer);
         delete m_pkPlayer; m_pkPlayer = NULL;
     }

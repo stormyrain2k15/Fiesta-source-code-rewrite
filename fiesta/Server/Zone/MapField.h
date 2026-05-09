@@ -9,13 +9,33 @@
 
 namespace fiesta {
 
+// World <-> cell scale. Live SHBD grids store one byte per 16-world-unit
+// cell (verified against Adl.shbd: file size - 8 == width*height where
+// width/height are the cell dimensions, and the in-game map width is
+// roughly 16x the cell count). If a future map ships with a different
+// scale we'll plumb it through MapInfo.shn; the constant here is the
+// universal default.
+const int32 kMapBlockCellSize = 16;
+
+// Per-Field collision grid. One byte per cell; 0 = walkable, non-zero
+// (typically 0xFF) = blocked. Origin is the south-west corner of the
+// map at world (0, 0). x grows east, y grows north.
 struct MapBlockInformation {
-    uint16 uiW, uiH;
-    std::vector<uint8> kBlocked; // 1 byte per cell, 1 = blocked
-    bool IsBlocked(uint16 x, uint16 y) const {
-        if (x >= uiW || y >= uiH) return true;
-        size_t i = (size_t)y * uiW + x;
+    uint16             uiW, uiH;
+    std::vector<uint8> kBlocked;
+    bool   IsBlockedCell(uint16 cx, uint16 cy) const {
+        if (cx >= uiW || cy >= uiH) return true;
+        size_t i = (size_t)cy * uiW + cx;
         return i < kBlocked.size() && kBlocked[i] != 0;
+    }
+    // World-coordinate test. Negatives are treated as out-of-bounds
+    // (= blocked) so the path sampler returns failure rather than
+    // wrapping around.
+    bool   IsBlockedWorld(float x, float y) const {
+        if (x < 0.0f || y < 0.0f) return true;
+        uint16 cx = (uint16)((int32)(x / (float)kMapBlockCellSize));
+        uint16 cy = (uint16)((int32)(y / (float)kMapBlockCellSize));
+        return IsBlockedCell(cx, cy);
     }
 };
 
@@ -46,8 +66,10 @@ private:
 
 class MapNavigator {
 public:
-    // Provisional path approximation: straight-line sampling + block test.
--- replace with FindWay() when MapBlockInformation/BlockImage are pinned.
+    // Straight-line waypoint sampler. Steps the segment in cell-sized
+    // increments and consults MapBlockInformation::IsBlockedWorld at each
+    // step. Returns false on the first blocked sample so callers can
+    // fall back to a stepped re-route.
     static bool FindWay(Field& rField, const Vec3& a, const Vec3& b, std::vector<Vec3>& rPath);
 };
 

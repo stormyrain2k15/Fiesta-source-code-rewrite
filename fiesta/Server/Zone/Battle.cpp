@@ -294,6 +294,19 @@ void Battle::Kill(ShineObject* pkA, ShineObject* pkT) {
             }
             pkKiller->AddExp(grant);
 
+            // 1b) Money: base from MobInfo.shn (Money column); zero is a
+            // valid "no gold" outcome. Live-ops Money boost (Golden
+            // Hour) stacks on top of the base and is applied last so
+            // 0 base remains 0 after boost.
+            if (pkInfo && pkInfo->uiMoney > 0) {
+                int64 gold = (int64)pkInfo->uiMoney;
+                const int32 moneyBoost = LiveOpsBoosts::Get().MoneyRateX1k();
+                if (moneyBoost != 1000) {
+                    gold = (gold * (int64)moneyBoost) / 1000LL;
+                }
+                pkKiller->AddMoney(gold);
+            }
+
             // 2) Drops from data-driven DropResolver.
             ItemDropFromMob::Trigger(pkMob, pkKiller);
 

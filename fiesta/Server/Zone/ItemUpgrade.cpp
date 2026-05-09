@@ -23,6 +23,44 @@ static well512 s_kRng;
 // (random options, endure) are written from their respective subsystems.
 static const uint8 kItemOption_Enchant = 1;
 
+// ---------------------------------------------------------------------------
+//  Enchanter NPC session.
+//  Keyed by CharID so we don't have to thread a session pointer through
+//  every NPC handler. The session is single-use: every successful pick of
+//  an "Upgrade" button opens a session, every NC_ITEM_UPGRADE_REQ closes
+//  it. A connection drop takes the session with it -- the on-disconnect
+//  path in ClientSession calls CloseSession via DetachPlayer.
+// ---------------------------------------------------------------------------
+namespace {
+    struct EnchantSession {
+        uint32 uiNpcId;
+        uint8  uiKind;       // 0=any, 1=weapon, 2=armour, 3=accessory
+    };
+    std::map<CharID, EnchantSession>& Sessions() {
+        static std::map<CharID, EnchantSession> s;
+        return s;
+    }
+}
+
+void ItemUpgrade::OpenSession(ShinePlayer* pkP, uint32 uiNpcId, uint8 uiKind) {
+    if (!pkP) return;
+    EnchantSession s; s.uiNpcId = uiNpcId; s.uiKind = uiKind;
+    Sessions()[pkP->GetCharID()] = s;
+}
+
+bool ItemUpgrade::IsSessionActive(ShinePlayer* pkP, uint8* puiKindOut) {
+    if (!pkP) return false;
+    std::map<CharID, EnchantSession>::iterator it = Sessions().find(pkP->GetCharID());
+    if (it == Sessions().end()) return false;
+    if (puiKindOut) *puiKindOut = it->second.uiKind;
+    return true;
+}
+
+void ItemUpgrade::CloseSession(ShinePlayer* pkP) {
+    if (!pkP) return;
+    Sessions().erase(pkP->GetCharID());
+}
+
 eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckStone,
                                 uint16& uiNewEnchantOut, uint64& uiItemKeyOut) {
     uiNewEnchantOut = 0;
@@ -96,6 +134,26 @@ eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckS
 eUpgradeResult ItemUpgrade::ResolveForPlayer(ShinePlayer* pkPlayer,
                                               uint32 uiItemId, bool bUseLuckStone) {
     if (!pkPlayer) return UPGRADE_BLOCKED;
+
+    // Anti-cheat: require an open enchanter session. The session is
+    // opened by NPCSystem::HandlePick on the "Upgrade" / "Enchant" /
+    // "Refine" / "EquipmentUpgrade" button and closed by this call.
+    uint8 uiKind = 0;
+    if (!IsSessionActive(pkPlayer, &uiKind)) {
+        SHINELOG_WARN("ItemUpgrade: cid=%u sent UPGRADE_REQ with no active enchanter session",
+                      pkPlayer->GetCharID());
+        ClientSession* cs = pkPlayer->GetSession();
+        if (cs) {
+            PacketBuffer ack;
+            ack.WriteU8 ((uint8)UPGRADE_BLOCKED);
+            ack.WriteU32(uiItemId);
+            ack.WriteU16(0);
+            SendPacket(cs, NC_ITEM_UPGRADE_ACK, ack.Data(), ack.Size());
+        }
+        return UPGRADE_BLOCKED;
+    }
+    // Session consumed regardless of outcome -- one click, one roll.
+    CloseSession(pkPlayer);
 
     uint16 uiNewEnchant = 0;
     uint64 uiItemKey    = 0;

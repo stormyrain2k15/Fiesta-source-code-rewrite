@@ -139,6 +139,28 @@ private:
         // up against the per-player Inventory. The SQL row deletion is done
         // by the panel via NC_OPTOOL_QUERY_REQ in the meantime.
     }
+    // ----- inter-zone broadcast (KQ / chat / GM event) -----------------
+    // Body shape (matches WM senders):
+    //   uint8 kind
+    //     0 = chat steal       (handled by ChatStealServer + zone sink)
+    //     1 = daily reset      (handled by per-system reset)
+    //     2 = GM event start/end
+    //   ... per-kind tail
+    // Only kind=2 is implemented here. Other kinds are dropped through
+    // until their consumers are wired in.
+    static void OnInterBroadcast(const GPacket& rPkt) {
+        PacketBuffer b = rPkt.Body();
+        uint8 uiKind = 0; b.ReadU8(uiKind);
+        if (uiKind != 2) {
+            SHINELOG_DEBUG("Zone<-WM InterBroadcast kind=%u (not handled)",
+                           (uint32)uiKind);
+            return;
+        }
+        uint32 uiEventNo = 0; uint8 uiAction = 0;
+        b.ReadU32(uiEventNo);
+        b.ReadU8(uiAction);
+        GMEventManager_Zone::OnEventBroadcast(uiEventNo, uiAction != 0);
+    }
 };
 
 // ---------------------------------------------------------------------------
@@ -167,31 +189,15 @@ void WMClient::Heartbeat() {
     m_kConn.SendPacket(kPkt);
 }
 
-} // namespace fiesta
-
-//  WMClient
-// ---------------------------------------------------------------------------
-WMClient& WMClient::Get() { static WMClient s; return s; }
-
-bool WMClient::Connect(IOCPManager* pkIOCP, const std::string& rIp, uint16 uiPort,
-                       uint16 uiZoneId, const std::string& rZoneIp, uint16 uiZoneClientPort)
-{
-    if (!m_kConn.Connect(pkIOCP, rIp, uiPort, new WMClientSession())) return false;
+bool WMClient::SendGMEventTrigger(uint32 uiEventNo, uint32 uiDurationSec, bool bStart) {
+    if (!IsConnected()) return false;
     PacketBuffer body;
-    body.WriteU16(uiZoneId);
-    body.WriteString(rZoneIp);
-    body.WriteU16(uiZoneClientPort);
-    GPacket kPkt; kPkt.SetOpcode(NC_INTER_ZONE_REGISTER_REQ);
+    body.WriteU32(uiEventNo);
+    body.WriteU32(uiDurationSec);
+    body.WriteU8 (bStart ? 1 : 0);
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_GMEVENT_TRIGGER_REQ);
     kPkt.Body().WriteBytes(body.Data(), body.Size());
     return m_kConn.SendPacket(kPkt);
-}
-
-void WMClient::Disconnect() { m_kConn.Close(); }
-
-void WMClient::Heartbeat() {
-    if (!IsConnected()) return;
-    GPacket kPkt; kPkt.SetOpcode(NC_INTER_ZONE_HEARTBEAT_CMD);
-    m_kConn.SendPacket(kPkt);
 }
 
 } // namespace fiesta

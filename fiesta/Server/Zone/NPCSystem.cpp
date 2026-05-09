@@ -6,6 +6,7 @@
 #include "ExtendedTables.h"
 #include "WorldTables.h"
 #include "QuestSystem.h"
+#include "ItemUpgrade.h"
 #include "../Common/NETCOMMAND.h"
 #include "../Shared/PacketBuffer.h"
 #include "../Shared/GPacket.h"
@@ -341,6 +342,41 @@ void ServerMenuActor::HandlePick(ShinePlayer* pk, uint32 uiNpcId, uint32 uiViewI
     }
     if (kAction == "Promote" || kAction == "JobChange") {
         SendPickAck(pk, uiNpcId, uiViewInfoId, 1, kArg0);
+        return;
+    }
+    // Enchanter NPCs. Action tags observed in NpcDialogData.shn /
+    // NPCViewInfo.shn:
+    //   "Upgrade"           -> generic +N enchant (any equip type)
+    //   "Enchant"           -> alias used by some Roumen NPCs
+    //   "Refine"            -> alias used by accessory upgraders
+    //   "EquipmentUpgrade"  -> the canonical NA2016 button text
+    // Arg0 narrows to a specific equip kind: "weapon"/"armor"/"accessory".
+    // The session is single-shot -- the actual roll happens on
+    // NC_ITEM_UPGRADE_REQ which clears the session.
+    if (kAction == "Upgrade" || kAction == "Enchant" ||
+        kAction == "Refine"  || kAction == "EquipmentUpgrade") {
+        uint8 uiKind = 0;
+        if      (kArg0 == "weapon"    || kArg0 == "1") uiKind = 1;
+        else if (kArg0 == "armor"     || kArg0 == "2") uiKind = 2;
+        else if (kArg0 == "accessory" || kArg0 == "3") uiKind = 3;
+        ItemUpgrade::OpenSession(pk, uiNpcId, uiKind);
+
+        // Tell the client to open the enchanter UI. Body matches the
+        // documented NA2016 wire shape:
+        //   uint32 npcId
+        //   uint8  kind         (0/1/2/3)
+        //   uint8  allowsLuck   (1 if Luck Stones can be consumed)
+        PacketBuffer body;
+        body.WriteU32(uiNpcId);
+        body.WriteU8 (uiKind);
+        body.WriteU8 (1);     // every enchanter accepts Luck Stones
+        GPacket kPkt; kPkt.SetOpcode(NC_ITEM_UPGRADE_OPEN_CMD);
+        kPkt.Body().WriteBytes(body.Data(), body.Size());
+        if (pk->GetSession()) pk->GetSession()->SendPacket(kPkt);
+
+        SendPickAck(pk, uiNpcId, uiViewInfoId, 1, std::string());
+        SHINELOG_INFO("Enchanter session OPEN cid=%u npc=%u kind=%u",
+                      (uint32)pk->GetCharID(), uiNpcId, (uint32)uiKind);
         return;
     }
     if (kAction == "Save" || kAction == "SavePoint" || kAction == "Recall") {

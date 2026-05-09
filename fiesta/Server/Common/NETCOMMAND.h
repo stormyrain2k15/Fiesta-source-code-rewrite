@@ -194,6 +194,7 @@ enum NETCOMMAND {
     NC_ITEM_DESTROY_ACK             = NC_FAMILY_ITEM + 0x10,
     NC_ITEM_DROPONFLOOR_CMD         = NC_FAMILY_ITEM + 0x11,
     NC_ITEM_PICKEDFROMFLOOR_CMD     = NC_FAMILY_ITEM + 0x12,
+    NC_ITEM_UPGRADE_OPEN_CMD        = NC_FAMILY_ITEM + 0x13,    // Server -> client: open enchanter UI
     NC_STORE_BUY_REQ                = NC_FAMILY_ITEM + 0x20,
     NC_STORE_SELL_REQ               = NC_FAMILY_ITEM + 0x21,
     NC_STORE_CLOSE_REQ              = NC_FAMILY_ITEM + 0x22,
@@ -357,7 +358,11 @@ enum NETCOMMAND {
     NC_INTER_GAMELOG_RESPONSE       = NC_FAMILY_INTERSVR + 0x12,
     // AccountLog DB exe (World00_AccountLog) -- Zone/WM -> AccountLog.
     NC_INTER_ACCTLOG_QUERY          = NC_FAMILY_INTERSVR + 0x13,
-    NC_INTER_ACCTLOG_RESPONSE       = NC_FAMILY_INTERSVR + 0x14
+    NC_INTER_ACCTLOG_RESPONSE       = NC_FAMILY_INTERSVR + 0x14,
+    // GM event admin trigger: Zone -> WM. WM rebroadcasts kind=2 to all
+    // zones via NC_INTER_BROADCAST_CMD. Body:
+    //   uint32 eventNo, uint32 durationSec, uint8 action(1=start/0=stop)
+    NC_INTER_GMEVENT_TRIGGER_REQ    = NC_FAMILY_INTERSVR + 0x15
 };
 
 } // namespace fiesta

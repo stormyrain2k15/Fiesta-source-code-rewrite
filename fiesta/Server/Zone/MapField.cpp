@@ -1,5 +1,6 @@
 // Server/Zone/MapField.cpp
 #include "MapField.h"
+#include <math.h>
 
 namespace fiesta {
 
@@ -28,11 +29,20 @@ void MapDataBox::Shutdown() {
 
 bool MapNavigator::FindWay(Field& rField, const Vec3& a, const Vec3& b, std::vector<Vec3>& rPath) {
     rPath.clear();
-    const int kSteps = 32;
-    for (int i = 0; i <= kSteps; ++i) {
-        float t = (float)i / (float)kSteps;
-        Vec3 p((1.0f - t) * a.x + t * b.x, (1.0f - t) * a.y + t * b.y, (1.0f - t) * a.z + t * b.z);
-        if (rField.Blocks().IsBlocked((uint16)p.x, (uint16)p.y)) return false;
+    // Sample at one-cell granularity so we never step over a single
+    // blocked cell. Cap the iteration count so a runaway segment over a
+    // continent-sized map can't loop forever.
+    float dx = b.x - a.x, dy = b.y - a.y;
+    float dist = (float)sqrt((double)(dx * dx + dy * dy));
+    int32 steps = (int32)(dist / (float)kMapBlockCellSize);
+    if (steps < 1)    steps = 1;
+    if (steps > 4096) steps = 4096;
+    for (int i = 0; i <= steps; ++i) {
+        float t = (float)i / (float)steps;
+        Vec3 p((1.0f - t) * a.x + t * b.x,
+               (1.0f - t) * a.y + t * b.y,
+               (1.0f - t) * a.z + t * b.z);
+        if (rField.Blocks().IsBlockedWorld(p.x, p.y)) return false;
         rPath.push_back(p);
     }
     return true;

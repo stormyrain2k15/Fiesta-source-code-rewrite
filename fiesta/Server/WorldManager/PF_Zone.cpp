@@ -34,6 +34,29 @@ void WMZoneSession::OnPacket(const GPacket& rPkt) {
         case NC_INTER_ZONE_HEARTBEAT_CMD:
             WorldManagerServer::Get().TouchZoneHeartbeat(m_uiZoneId);
             break;
+        case NC_INTER_GMEVENT_TRIGGER_REQ: {
+            // Re-broadcast as kind=2 GM event to every connected zone.
+            // This is the cross-zone fanout path for `&luckyhour` and
+            // any other live-ops trigger sent up from a single zone.
+            // Body in: { uint32 eventNo, uint32 durationSec, uint8 action }.
+            PacketBuffer b = rPkt.Body();
+            uint32 uiEventNo = 0; uint32 uiDur = 0; uint8 uiAction = 0;
+            b.ReadU32(uiEventNo); b.ReadU32(uiDur); b.ReadU8(uiAction);
+            // The duration is currently advisory; zones resolve it from
+            // GMEvent.shn or their own defaults. We forward-it-along so
+            // future per-event windows can ride this same path.
+            (void)uiDur;
+            PacketBuffer out;
+            out.WriteU8(2);                     // kind = GM event
+            out.WriteU32(uiEventNo);
+            out.WriteU8(uiAction);              // 1 = start, 0 = end
+            WorldManagerServer::Get().BroadcastToZones(NC_INTER_BROADCAST_CMD,
+                                                       out.Data(), out.Size());
+            SHINELOG_INFO("WM: GM event #%u %s fanned out from Zone%02u (dur=%us)",
+                          uiEventNo, uiAction ? "START" : "END",
+                          m_uiZoneId, uiDur);
+            break;
+        }
         default:
             SHINELOG_DEBUG("WM<-Zone%02u NC=0x%04X", m_uiZoneId, rPkt.GetOpcode());
             break;

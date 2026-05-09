@@ -22,7 +22,7 @@ public:
 
 class NearScan {
 public:
--- exact visibility radius is per-map; provisional 30.0 units.
+    // exact visibility radius is per-map; provisional 30.0 units.
     static void Run(Field& rField, const Vec3& kFrom, std::vector<ShineObject*>& rOut);
 };
 

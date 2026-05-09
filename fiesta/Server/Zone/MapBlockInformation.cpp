@@ -1,12 +1,8 @@
 // Server/Zone/MapBlockInformation.cpp
-// Collision block grid. Loaded from per-map .blk files at boot. Bit per
-// 16-unit cell; 1 = blocked.
-#include "../Shared/ShineTypes.h"
-namespace fiesta { namespace {
-class MapBlockInformation {
-public:
-    static MapBlockInformation& Get() { static MapBlockInformation s; return s; }
-    bool Load(uint16 /*uiMap*/, const std::string& /*rPath*/) { return true; }
-    bool IsBlocked(uint16 /*uiMap*/, float /*x*/, float /*y*/) const { return false; }
-};
-}} // anonymous
+// MapBlockInformation is a struct owned by each Field (defined in
+// MapField.h). The cell payload is loaded from BlockInfo/<MapName>.shbd
+// at boot by ZoneAssetLoader::WalkBlockInfo + LoadShbd. This TU is kept
+// so the project file slot is preserved; no extra runtime symbols are
+// emitted because all behaviour lives inline in MapField.h.
+#include "MapBlockInformation.h"
+namespace fiesta { /* see MapField.h */ }

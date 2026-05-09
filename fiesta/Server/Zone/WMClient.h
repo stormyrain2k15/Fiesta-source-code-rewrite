@@ -24,6 +24,12 @@ public:
     void Disconnect();
     void Heartbeat();
 
+    // Outbound admin trigger: ask WM to fan a GMEvent start/stop to
+    // every connected zone (including this one). Local-only triggers
+    // bypass this and go straight to GMEventManager_Zone, but anything
+    // that wants cross-zone reach must route through here.
+    bool SendGMEventTrigger(uint32 uiEventNo, uint32 uiDurationSec, bool bStart);
+
     bool IsConnected() const { return m_kConn.IsConnected(); }
 private:
     WMClient() {}

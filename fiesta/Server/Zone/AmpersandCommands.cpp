@@ -1,6 +1,7 @@
 // Server/Zone/AmpersandCommands.cpp
 #include "AmpersandCommands.h"
 #include "LiveOpsBoosts.h"
+#include "WMClient.h"
 #include "../Shared/ShineLogSystem.h"
 #include <stdlib.h>
 namespace fiesta {
@@ -11,22 +12,39 @@ static bool Cmd_default(ShinePlayer* pk, const std::vector<std::string>& a) {
 }
 
 // &luckyhour <minutes> [expX1k] [dropX1k]
-//   minutes : duration window. 0 == open-ended (until &luckyhour 0 0 0 ends).
-//   expX1k  : EXP boost x1000 (default 2000 = 2.00x).
-//   dropX1k : Drop boost x1000 (default 2000 = 2.00x).
-// `&luckyhour stop` ends it early. Mirrors a server-wide GMEvent
-// kGMEvent_LuckyHour (1001) for the local zone; cross-zone fanout still
-// requires a WM-side trigger.
+//   minutes : duration window. 0 == open-ended (until &luckyhour stop).
+//   expX1k  : EXP boost x1000 (ignored unless cross-zone path can't reach
+//             WM; the canonical path uses GMEvent.shn-driven boosts).
+//   dropX1k : Drop boost x1000 (same caveat).
+// `&luckyhour stop` ends it server-wide.
+//
+// Wire path: Zone -> WM via NC_INTER_GMEVENT_TRIGGER_REQ -> WM
+// re-broadcasts NC_INTER_BROADCAST_CMD kind=2 to every connected zone
+// -> each zone calls GMEventManager_Zone::OnEventBroadcast which feeds
+// LiveOpsBoosts. This guarantees every zone sees the same boost window.
+//
+// If the WM link is down (boot race / disconnect), we fall back to a
+// local-only boost so the GM still gets visible feedback.
 static bool Cmd_luckyhour(ShinePlayer* pk, const std::vector<std::string>& a) {
-    if (a.empty() || a[0] == "stop" || a[0] == "end" || a[0] == "off") {
-        LiveOpsBoosts::Get().Stop();
+    bool bStop = (!a.empty() && (a[0] == "stop" || a[0] == "end" || a[0] == "off"));
+    if (a.empty() || bStop) {
+        if (!WMClient::Get().SendGMEventTrigger(kGMEvent_LuckyHour, 0, false)) {
+            LiveOpsBoosts::Get().Stop();    // local fallback
+            SHINELOG_WARN("&luckyhour STOP: WM offline, local-only");
+        }
         SHINELOG_INFO("&luckyhour STOP by %s", pk ? pk->GetName().c_str() : "?");
         return true;
     }
     uint32 uiMin     = (uint32)atoi(a[0].c_str());
     int32  iExpX1k   = (a.size() >= 2) ? atoi(a[1].c_str()) : 2000;
     int32  iDropX1k  = (a.size() >= 3) ? atoi(a[2].c_str()) : 2000;
-    LiveOpsBoosts::Get().StartLuckyHour(uiMin * 60, iExpX1k, iDropX1k);
+    const uint32 uiDurSec = uiMin * 60;
+    if (!WMClient::Get().SendGMEventTrigger(kGMEvent_LuckyHour, uiDurSec, true)) {
+        // WM offline -- run the boost locally so the calling zone at
+        // least gets a visible event. Cross-zone fanout is forfeit.
+        LiveOpsBoosts::Get().StartLuckyHour(uiDurSec, iExpX1k, iDropX1k);
+        SHINELOG_WARN("&luckyhour: WM offline, local-only boost on this zone");
+    }
     SHINELOG_INFO("&luckyhour START by %s mins=%u exp=%d/1k drop=%d/1k",
                   pk ? pk->GetName().c_str() : "?",
                   uiMin, iExpX1k, iDropX1k);

@@ -41,6 +41,20 @@ public:
     // ZoneHandlers when NC_ITEM_UPGRADE_REQ arrives.
     static eUpgradeResult ResolveForPlayer(ShinePlayer* pkPlayer,
                                            uint32 uiItemId, bool bUseLuckStone);
+
+    // Enchanter NPC session. NPCSystem::HandlePick opens a session when
+    // the player clicks an "Upgrade" / "Enchant" / "Refine" /
+    // "EquipmentUpgrade" button on an enchanter NPC. ResolveForPlayer
+    // refuses to roll unless a session is open and clears it after one
+    // attempt -- this prevents a malicious client from sending raw
+    // NC_ITEM_UPGRADE_REQ packets without ever clicking the NPC.
+    //
+    // The session also tags which subset of items the NPC can enchant
+    // (kind 0 = any, 1 = weapons, 2 = armour, 3 = accessory) so the
+    // anti-cheat gate matches the on-screen button.
+    static void OpenSession (ShinePlayer* pkPlayer, uint32 uiNpcId, uint8 uiKind);
+    static bool IsSessionActive(ShinePlayer* pkPlayer, uint8* puiKindOut);
+    static void CloseSession(ShinePlayer* pkPlayer);
 };
 
 } // namespace fiesta
