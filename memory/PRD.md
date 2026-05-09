@@ -206,8 +206,16 @@ code and pinned every confirmed hex opcode from F2/NCProtocol.h.
 - **`FreeStatSystem`** -- STR/END/DEX/INT/MEN allocation with per-level
   `MoverMain.MaxStat` cap, `kMaxFreeStatPerStat` clamp, and a refund
   helper for stat-reset tickets.
-- **`SoulStoneSystem`** -- HP/SP/Shine soul revive flow with per-tier %
-  restoration and `ExpLossOnTownRevive(level)` penalty curve.
+- **`SoulStoneSystem`** (Pass 1.11.1) -- HP/SP soul stones modeled as the
+  active-use combat consumables they actually are: per-tier counters on
+  the character row (NOT in inventory), 0 inventory cost, dedicated UI
+  counter per tier, shared cooldown clock. Edit `kHpSoulHeal[6]` /
+  `kSpSoulHeal[6]` / `kSoulStoneCooldownMs` / `kSoulStoneMaxPerTier` in
+  `SoulStoneSystem.h` to retune.
+- **`DeathReviveSystem`** (Pass 1.11.1, separate concern) -- on-death
+  dialog flow: `ShineSoulPouch` revive token + town respawn + queued
+  resurrect. `ExpLossOnTownRevive(level)` returns the per-mille XP
+  penalty curve.
 
 Total now: **~177 source files**. See `docs/PASS1_11_BATTLE_PIPELINE.md`.
 
