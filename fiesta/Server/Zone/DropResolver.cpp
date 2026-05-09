@@ -2,6 +2,7 @@
 #include "DropResolver.h"
 #include "WorldTables.h"
 #include "BattleTunables.h"
+#include "GroupTables.h"
 #include "../DataReader/Schemas.h"
 #include "../DataReader/ITableBase.h"
 #include "../Shared/well512.h"
@@ -86,7 +87,7 @@ void DropResolver::Resolve(const DropContext& rCtx, std::vector<ShineItem>& rOut
     if (!pTab) return;
     int32 globalRate = rCtx.nGlobalRateX1k > 0 ? rCtx.nGlobalRateX1k : kDropRateGlobalScalerX1k;
 
-    const std::vector<ItemDropTableRow>& rows = pTab->All();
+    const std::vector<ItemDropTableRow>& rows = pTab->Rows();
     for (size_t i = 0; i < rows.size(); ++i) {
         const ItemDropTableRow& r = rows[i];
         if ((uint32)r.DropTableID != dropTableId) continue;
@@ -110,7 +111,15 @@ void DropResolver::Resolve(const DropContext& rCtx, std::vector<ShineItem>& rOut
         }
         item.uiEnchant  = RollUpgrade(*g);
         for (int k = 0; k < 5; ++k) item.aRandomOption[k] = 0;
-        RollRandomOptions(g->kItemID, item);
+        // Resolve the random-option pool: ItemInfoServer.RandomOptionDropGroup
+        // overrides the per-item lookup when present (it lets multiple
+        // items share a single roll table, e.g. all "Lv60 Mage Robe" items
+        // pull from the same option pool).
+        const ItemInfoServerRow* pSrv = ItemTables::Get().FindServerByInx(g->kItemID);
+        if (pSrv && !pSrv->kRandomOptionDropGroup.empty())
+            RollRandomOptions(pSrv->kRandomOptionDropGroup, item);
+        else
+            RollRandomOptions(g->kItemID, item);
         rOut.push_back(item);
     }
 }

@@ -414,7 +414,7 @@ void ServerMenuActor::HandleSell(ShinePlayer* pk, uint32 uiNpcId, uint16 uiInvSl
         for (size_t i = 0; i < kAll.size(); ++i) {
             if (kAll[i].uiSlot == uiInvSlot) { pkS = &kAll[i]; break; }
         }
-        if (pkS) {
+        if (pkS && ItemAuthority::CanSell(*pkS)) {
             uint16 actual = (uiQty > pkS->uiQty) ? pkS->uiQty : uiQty;
             const ItemInfoRow* pkI = ItemTables::Get().FindItem((uint32)pkS->uiInxName);
             if (pkI) {

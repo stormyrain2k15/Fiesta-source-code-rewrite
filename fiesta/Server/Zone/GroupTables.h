@@ -29,6 +29,16 @@ namespace fiesta {
 // =============================================================================
 
 // ----- Item* (18 SHNs) ------------------------------------------------------
+// Extended in pass 1.23 to carry every gameplay-relevant column from
+// ItemInfo.shn (91 fields). Class permissions are kept as a packed 32-bit
+// mask -- bit `eClassEnum` is set when ItemInfo.<ClassTag> != 0.
+//
+//   bit 0  Fig   bit 1  Cfig  bit 2  War   bit 3  Gla   bit 4  Kni
+//   bit 5  Cle   bit 6  Hcle  bit 7  Pal   bit 8  Hol   bit 9  Gua
+//   bit 10 Arc   bit 11 Harc  bit 12 Sco   bit 13 Sha   bit 14 Ran
+//   bit 15 Mag   bit 16 Wmag  bit 17 Enc   bit 18 Warl  bit 19 Wiz
+//   bit 20 Jok   bit 21 Chs   bit 22 Cru   bit 23 Cls   bit 24 Ass
+//
 struct ItemInfoRow {
     uint32      uiID;
     std::string kInxName;
@@ -36,22 +46,77 @@ struct ItemInfoRow {
     uint32      uiType;
     uint32      uiClass;
     uint32      uiMaxLot;
-    uint32      uiEquip;
+    uint32      uiEquip;             // equip-slot bitmask (-> EquipEnumChanger)
+    uint32      uiItemAuctionSubGroup;
     uint32      uiItemGradeType;
     uint32      uiTwoHand;
     uint32      uiAtkSpeed;
     uint32      uiDemandLv;
     uint32      uiGrade;
-    uint32      uiMinWC, uiMaxWC, uiAC, uiMinMA, uiMaxMA, uiMR, uiTH, uiTB;
-    uint32      uiUpLimit;
+    uint32      uiMinWC, uiMaxWC, uiAC, uiMinMA, uiMaxMA, uiMR;
+    uint32      uiWCRate, uiMARate, uiACRate, uiMRRate;
+    uint32      uiCriRate, uiCriMinWc, uiCriMaxWc, uiCriMinMa, uiCriMaxMa, uiCrlTB;
+    uint32      uiMaxHP, uiMaxSP, uiMaxAP;
+    uint32      uiClassMask;         // packed class permissions (see comment)
     uint32      uiBuyPrice;
     uint32      uiSellPrice;
-    uint32      uiSetItemIndex;
+    uint32      uiBuyFame;
+    uint32      uiBuyGToken;
+    uint32      uiBuyGBCoin;
+    uint32      uiWeaponType;
+    uint32      uiArmorType;
+    uint32      uiUpLimit;           // max enchant level
+    uint32      uiUpSucRatio;
+    uint32      uiUpLuckRatio;
+    uint32      uiUpResource;
+    uint32      uiBasicUpInx;
+    uint32      uiAddUpInx;
+    uint32      uiTH, uiTB;
+    uint32      uiShieldAC;
+    uint32      uiHitRatePlus, uiEvaRatePlus;
+    uint32      uiMACriPlus, uiCriDamPlus, uiMagCriDamPlus;
+    uint8       bPutOnBelonged;       // bind-on-equip
+    uint8       bBelonged;            // bind-on-acquire (always BoP)
+    uint8       bNoDrop;
+    uint8       bNoSell;
+    uint8       bNoStorage;
+    uint8       bNoTrade;
+    uint8       bNoDelete;
+    std::string kTitleName;
+    std::string kItemUseSkill;        // skill triggered on Use()
+    std::string kSetItemIndex;        // SetItem grouping key
     uint32      uiItemFunc;
+    uint8       bAutoMon;             // auto-summon mover when used
 };
+// Extended ItemInfoServer.shn (25 fields) -- every column is now consumed:
+//   * kMarketIndex      -> MarketSearchInfo lookup key
+//   * uiKingdom         -> per-kingdom drop weight (Rou/Eld/...) projected
+//                          via DropResolver
+//   * kDropGroupA/B     -> chained ItemDropTable IDs
+//   * kRandomOptionDropGroup -> RandomOption roll set
+//   * uiVanish          -> seconds-on-ground before despawn
+//   * uiLooting         -> belong-policy override (FREE/MASTER/PARTY)
+//   * uiDropRateKilledByMob/Player -> rate scalars for PvE / PvP drops
+//   * uiISET_Index      -> CompoundSetItem group
+//   * bKQItem etc.      -> KingdomQuest gating
 struct ItemInfoServerRow {
     uint32      uiID;
     std::string kInxName;
+    std::string kMarketIndex;
+    uint32      uiRou, uiEld, uiUrg, uiAll;
+    uint32      uiFer, uiKas, uiSad, uiKor, uiVer, uiMys;
+    std::string kDropGroupA;
+    std::string kDropGroupB;
+    std::string kRandomOptionDropGroup;
+    uint32      uiVanishSecs;
+    uint32      uiLootingMode;
+    uint16      uiDropRateKilledByMob;
+    uint16      uiDropRateKilledByPlayer;
+    uint32      uiISETIndex;
+    uint8       bKQItem;
+    uint8       bPK_KQ_USE;
+    uint8       bKQ_Item_Drop;
+    uint8       bPreventAttack;
 };
 struct ItemUpgradeRow {
     uint32      uiID;
@@ -165,7 +230,16 @@ struct CollectCardRewardRow{ uint32 uiID; uint32 uiPercent; std::string kReward;
 // ----- Random / Set / Grade / Misc ------------------------------------------
 struct RandomOptionRow2    { std::string kDropItemIndex; uint32 uiRandomOptionType; int32 iMin; int32 iMax; uint32 uiTypeDropRate; };
 struct SetItemRow          { uint32 uiIndex; uint32 uiPiece; uint32 uiEffect; };
-struct GradeItemOptionRow  { uint32 uiID; uint32 uiGrade; std::string kEffect; int32 iValue; };
+// GradeItemOption.shn (20 wide cols): per-item-grade stat boost set. The
+// runtime keeps the full wide row -- consumers (EquipSummaryBuilder) sum
+// across the 20 columns when an item's grade matches.
+struct GradeItemOptionRow {
+    uint32 uiItemIndex;
+    uint16 uiSTR, uiCON, uiDEX, uiINT, uiMEN;
+    uint16 uiResistPoison, uiResistDeaseas, uiResistCurse, uiResistMoveSpdDown;
+    uint16 uiCritical, uiToHitRate, uiToHitPlus, uiToBlockRate, uiToBlockPlus;
+    uint16 uiMaxHP, uiMaxSP, uiMoveSpdRate, uiAbsoluteAttack, uiPickupLimit;
+};
 
 // ----- KingdomQuest family --------------------------------------------------
 struct KingdomQuestRow     { uint32 uiID; std::string kName; uint32 uiMinLevel; uint32 uiMaxLevel; uint32 uiTeamSize; };
@@ -183,8 +257,20 @@ public:
     const ItemInfoRow*       FindItem    (uint32 uiID) const;
     const ItemInfoRow*       FindByInx   (const std::string& rInx) const;
     const ItemInfoServerRow* FindServer  (uint32 uiID) const;
+    const ItemInfoServerRow* FindServerByInx(const std::string& rInx) const;
     const ItemUpgradeRow*    FindUpgrade (uint32 uiID) const;
     const ItemActionRow*     FindAction  (uint32 uiID) const;
+
+    // ItemInfoServer-derived projections used at gameplay time.
+    //   KingdomWeight : 1..1000 multiplier for the supplied kingdom tag
+    //                   ("Rou","Eld","Urg","Fer","Kas","Sad","Kor","Ver",
+    //                    "Mys"); "All" is the fallback.
+    //   VanishSecs    : seconds the item lingers on the ground.
+    //   LootingMode   : 0=FREE 1=MASTER 2=PARTY (matches the value in
+    //                   ItemInfoServer.looting).
+    uint32  KingdomWeight(uint32 uiID, const std::string& rTag) const;
+    uint32  VanishSecs   (uint32 uiID) const;
+    uint32  LootingMode  (uint32 uiID) const;
 
     size_t ItemCount()   const { return m_kItems.size(); }
     size_t ServerCount() const { return m_kServer.size(); }
@@ -194,6 +280,7 @@ private:
     std::map<std::string, size_t>             m_kItemByInx;
     std::vector<ItemInfoServerRow>            m_kServer;
     std::map<uint32, size_t>                  m_kServerById;
+    std::map<std::string, size_t>             m_kServerByInx;
     std::vector<ItemUpgradeRow>               m_kUpgrade;
     std::map<uint32, size_t>                  m_kUpgradeById;
     std::vector<ItemActionRow>                m_kActions;

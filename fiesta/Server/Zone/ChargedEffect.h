@@ -73,6 +73,7 @@ struct ChargedEffectInst {
     uint16          uiHandle;
     eChargedEffect  eEffect;
     uint16          uiEffectValue;
+    uint8           uiStaStrength;  // strength multiplier band (mirrors row)
     uint64          uiExpireMs;
     bool            bDeletable;
 };

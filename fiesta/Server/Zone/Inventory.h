@@ -50,6 +50,14 @@ class ItemAuthority {
 public:
     static bool CanEquip(ShinePlayer* pk, const ShineItem& kItem);
     static bool CanUse  (ShinePlayer* pk, const ShineItem& kItem);
+    // Per-policy gates. Each is a thin wrapper around one ItemInfo flag
+    // (NoDrop / NoSell / NoTrade / NoStorage / NoDelete) plus a bound-state
+    // check that honours Belonged + PutOnBelonged.
+    static bool CanDrop   (const ShineItem& kItem);
+    static bool CanSell   (const ShineItem& kItem);
+    static bool CanTrade  (const ShineItem& kItem);
+    static bool CanStorage(const ShineItem& kItem);
+    static bool CanDelete (const ShineItem& kItem);
 };
 
 class EquipEnumChanger {

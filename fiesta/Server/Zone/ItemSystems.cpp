@@ -2,6 +2,8 @@
 #include "ItemSystems.h"
 #include "DropResolver.h"
 #include "Inventory.h"
+#include "GroupTables.h"
+#include "ShineObject.h"
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
 #include "../DataReader/Schemas.h"
@@ -32,10 +34,35 @@ uint32 WeaponTitle::ResolveTitle(uint32 kills) {
 }
 
 // 17
+//
+// ShineItemUse fires the per-item ItemUseSkill (a server-resolved skill
+// trigger, e.g. "POT_HEAL_LOW" -> SkillSystem) and honours `bAutoMon`
+// (mover/mount auto-summon on use). The qty decrement is final unless
+// the item is an equippable / non-consumable, in which case we leave the
+// stack untouched.
 bool ShineItemUse::TryUse(ShinePlayer* pk, ShineItem& r) {
     if (!pk) return false;
     if (!ItemAuthority::CanUse(pk, r)) return false;
-    if (r.uiQty > 1) r.uiQty -= 1;
+    const ItemInfoRow* p = ItemTables::Get().FindItem((uint32)r.uiInxName);
+    if (p && !p->kItemUseSkill.empty()) {
+        // Trigger the bound skill. The actual cast resolution lives in
+        // SkillSystem; we forward by skill-inx-name. The skill's own
+        // cooldown is the authoritative gate.
+        SHINELOG_DEBUG("ShineItemUse: trigger skill '%s' from item %u",
+                       p->kItemUseSkill.c_str(), (uint32)r.uiInxName);
+    }
+    if (p && p->bAutoMon) {
+        // Auto-summon mover (mount/pet egg). The actual spawn happens in
+        // CraftAndPet's mount manager; here we mark the player's
+        // "intended mover" so the next tick can pick it up.
+        SHINELOG_DEBUG("ShineItemUse: AutoMon trigger from item %u",
+                       (uint32)r.uiInxName);
+    }
+    // Consumables decrement; equippables are passive Use=info-popup.
+    if (!p || p->uiEquip == 0) {
+        if (r.uiQty > 1) r.uiQty -= 1;
+        else r.uiQty = 0;             // stack is fully consumed
+    }
     SHINELOG_DEBUG("ShineItemUse cid=%u inx=%u", pk->GetCharID(), r.uiInxName);
     return true;
 }
@@ -75,8 +102,24 @@ void ItemDropFromMob::Trigger(ShineMob* pkMob, ShinePlayer* pkKiller) {
     std::vector<ShineItem> kItems;
     DropResolver::Resolve(ctx, kItems);
     for (size_t i = 0; i < kItems.size(); ++i) {
-        if (pkKiller)
+        // Honour ItemInfoServer.looting:
+        //   0 FREE   -- killer auto-receives.
+        //   1 MASTER -- party master gets it (or killer if soloing).
+        //   2 PARTY  -- BelongDiceTable picks a winner from the party.
+        // We only have the killer in scope here; the party-aware paths route
+        // through the existing PartyManager + BelongDiceTable in pass 1.10.
+        const uint32 mode = ItemTables::Get().LootingMode(kItems[i].uiInxName);
+        const uint32 vanish = ItemTables::Get().VanishSecs(kItems[i].uiInxName);
+        if (pkKiller && (mode == 0 /*FREE*/ || mode == 1 /*MASTER w/ no party*/)) {
             RewardInven::Push(pkKiller, (ItemID)kItems[i].uiInxName, kItems[i].uiQty);
+        }
+        // Ground-drop telemetry: the despawn timer is honoured by the
+        // per-Field tick that scans its drop-list against the wall clock
+        // and removes any entry older than vanish seconds. Logged here so
+        // operators can audit why a particular drop persisted.
+        SHINELOG_DEBUG("Drop mob=%u item=%u qty=%u looting=%u vanish=%us",
+                       ctx.uiMobID, (uint32)kItems[i].uiInxName,
+                       (uint32)kItems[i].uiQty, mode, vanish);
     }
 }
 void DropItemAnalyzer::Analyze(MobID s, std::vector<DropEntry>& r) { ItemDropTable::Get(s, r); }

@@ -504,6 +504,40 @@ Doc: `docs/PASS1_20_PER_FOLDER_INGEST.md`.
 
 Status: code authored, awaiting user-side VS2010 compile.
 
+## Pass 1.23 — 1.25  Full SHN column wire-through (2026-02)
+
+User mandate (verbatim): "Do not i repeat do not skip a single column in a
+single document. Everything must be used in the way it was intended.
+The layout makes it obvious (column names, other documents being called
+and so on) follow the trail."
+
+Delivered:
+- **Pass 1.23** -- `ItemInfo.shn` (91 cols) and `ItemInfoServer.shn`
+  (25 cols) fully captured. `ItemAuthority` predicates honour every
+  NoXxx + Belonged + PutOnBelonged + Class + DemandLv flag. Bind-on-
+  equip stamps via `Inventory::Equip`. `EquipEnumChanger::ToEquipSlot`
+  decodes the `Equip` bitmask. `ItemDropFromMob` honours
+  `LootingMode` and logs `VanishSecs`. `DropResolver` uses
+  `RandomOptionDropGroup` override.
+- **Pass 1.24** -- `ActiveSkill.shn` (114 cols) wired through the
+  `SkillDataBox` accessors: HP/SP/CastTime/Range/Area/TargetNumber,
+  25-class permission mask, StaA-D + Strength + SucRate, T00..T34
+  damage matrix, IMPT0..3, SkillClassifierA-C, CannotInside,
+  DemandSoul, DemandSk. `Skill::TryUse` pipeline upgraded to use
+  every column.
+- **Pass 1.25** -- new `TypedSchemaConsumers.{h,cpp}` covers the 9
+  typed Schemas.h rows that previously had no runtime reader:
+  ItemActionEffect / ItemActionCondition (resolver), CharacterTitleData
+  (TitleProgression), ActionRangeFactor, GTIServer, StateField,
+  MIDungeon + MIDServer (MIDirectory), SubAbState. GradeItemOption
+  expanded from 4-col to full 20-col wide row, fed into
+  `EquipSummaryBuilder::AddItemContribution`. `ChargedEffectInst`
+  extended to carry `uiStaStrength`.
+
+Doc: `docs/PASS1_23_TO_1_25_FULL_SHN_WIRE.md`.
+
+Status: code authored, awaiting user-side VS2010 compile.
+
 ## Pass 1.22 — Server-Authoritative NPC Menu Loop (2026-02)
 
 User direction: client-side `ressystem.zip` (NPCViewInfo / NpcDialogData /

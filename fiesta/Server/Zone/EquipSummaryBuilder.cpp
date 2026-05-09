@@ -1,5 +1,6 @@
 // Server/Zone/EquipSummaryBuilder.cpp
 #include "EquipSummaryBuilder.h"
+#include "GroupTables.h"
 #include "../DataReader/Schemas.h"
 #include "../DataReader/ITableBase.h"
 #include "../Shared/ShineLogSystem.h"
@@ -28,22 +29,40 @@ void AddItemContribution(EQUIPSUMMARY* pOut, const ShineItem& kItem) {
     pOut->nCritical+= (int32)p->CriRate;
     pOut->nAccuracy+= (int32)p->HitRatePlus;
     pOut->nDodge   += (int32)p->EvaRatePlus;
-    pOut->nBlock   += 0;                // ToBlockRate lives on GradeItemOption
 
     // Upgrade-level bonus -- BasicUpInx baseline + AddUpInx per +level.
-    // Real game: a +N item contributes ~ BasicUpInx*N (ATK/DEF) on top of
-    // the base WC/AC. Treated as flat bonus per slot.
     if (kItem.uiEnchant > 0 && p->BasicUpInx > 0) {
         int32 upATK = (int32)p->BasicUpInx * (int32)kItem.uiEnchant;
         if (kItem.uiEnchant > 1 && p->AddUpInx > 0)
             upATK += (int32)p->AddUpInx * ((int32)kItem.uiEnchant - 1);
-        // Weapons feed ATK upgrade; armor / shields feed DEF upgrade.
         if (p->WeaponType > 0)        pOut->nUpgradeATK += upATK;
         else if (p->ArmorType > 0 || p->ShieldAC > 0) pOut->nUpgradeDEF += upATK;
     }
 
     if (p->ShieldAC > 0)
         pOut->nDEF += (int32)p->ShieldAC;
+
+    // GradeItemOption.shn (20-col wide row) -- per-item-grade stat boost.
+    // Keyed by ItemIndex; if the item's row has Grade>0 we sum every
+    // column on the matching grade row into the summary.
+    const GradeItemOptionRow* pGrade = GradeRandomTables::Get().FindGrade(kItem.uiInxName);
+    if (pGrade) {
+        // Stat-side bonuses go through the equip summary; pure-stat (STR..MEN)
+        // are returned as additive raw stat which is folded by BuildBattleStat
+        // through the BUFFMODIFIERS path. For now, we surface the equip-level
+        // ones directly.
+        pOut->nHP        += (int32)pGrade->uiMaxHP;
+        pOut->nSP        += (int32)pGrade->uiMaxSP;
+        pOut->nCritical  += (int32)pGrade->uiCritical;
+        pOut->nAccuracy  += (int32)pGrade->uiToHitPlus;
+        pOut->nBlock     += (int32)pGrade->uiToBlockPlus;
+        pOut->nMoveSpeed += (int32)pGrade->uiMoveSpdRate;
+        pOut->nATK       += (int32)pGrade->uiAbsoluteAttack;
+        // ResistPoison / Deaseas / Curse / MoveSpdDown route to abstate
+        // resists; ToHitRate / ToBlockRate are permille rates folded by
+        // BuildBattleStat. The remaining STR/CON/DEX/INT/MEN are picked
+        // up via RAWCHARSTAT additive in BuildBattleStat.
+    }
 }
 
 void BuildEquipSummary(EQUIPSUMMARY* pOut, const Inventory& kInv) {

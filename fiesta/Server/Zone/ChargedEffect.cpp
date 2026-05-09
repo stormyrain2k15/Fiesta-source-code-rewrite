@@ -93,6 +93,7 @@ bool ChargedEffectManager::OnItemReceived(ShinePlayer* pkP, const std::string& r
     kInst.uiHandle      = pkRow->uiHandle;
     kInst.eEffect       = pkRow->eEffect;
     kInst.uiEffectValue = pkRow->uiEffectValue;
+    kInst.uiStaStrength = pkRow->uiStaStrength;
     kInst.uiExpireMs    = GTimer::NowMillis() +
                           (uint64)pkRow->uiKeepTime_Hour * 3600ULL * 1000ULL;
     kInst.bDeletable    = IsDeletable(pkRow->uiHandle);

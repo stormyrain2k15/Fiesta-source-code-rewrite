@@ -20,6 +20,7 @@
 #include "MiscTables.h"
 #include "MoreTables.h"
 #include "ExtendedTables.h"
+#include "TypedSchemaConsumers.h"
 #include "EstateSystem.h"
 #include "ExpeditionSystem.h"
 #include "WorldTables.h"
@@ -63,6 +64,11 @@ public:
         BindAllMiscTables();
         BindAllMoreTables();
         BindAllExtendedTables();
+        // Pass 1.25 -- consume every typed-schema row whose Schemas.h struct
+        // had no runtime reader: ItemActionEffect / ItemActionCondition /
+        // CharacterTitleData / ActionRangeFactor / GTIServer / StateField /
+        // MIDungeon+MIDServer / SubAbState.
+        BindTypedSchemaConsumers();
         // Walk World/PineScript.txt and load every ScenarioBookShelf
         // .ps script (KQ, Promote, Wedding, Guild, instance dungeons).
         LoadAllPineScripts(shineRoot);
