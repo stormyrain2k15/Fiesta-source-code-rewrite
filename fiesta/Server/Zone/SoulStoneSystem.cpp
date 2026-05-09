@@ -6,76 +6,77 @@
 
 namespace fiesta {
 
-static uint64 NowMs() {
-    // GetTickCount64 is XP+SP1 / 2003 onwards; safe on VS2010 / Win32.
-    return (uint64)GetTickCount64();
+static uint64 NowMs() { return (uint64)GetTickCount64(); }
+
+uint8 SoulStoneSystem::TierForLevel(int32 nLevel) {
+    if (nLevel < 1) nLevel = 1;
+    if (nLevel >= kMaxLevelForTierTable) nLevel = kMaxLevelForTierTable - 1;
+    return kSoulStoneTierByLevel[nLevel - 1];
+}
+
+int32 SoulStoneSystem::HealForLevel(int32 nLevel, bool bIsHp) {
+    uint8 t = TierForLevel(nLevel);
+    return bIsHp ? kHpSoulHealByTier[t] : kSpSoulHealByTier[t];
+}
+
+int32 SoulStoneSystem::PriceForLevel(int32 nLevel) {
+    uint8 t = TierForLevel(nLevel);
+    return kSoulStonePriceByTier[t];
 }
 
 eSoulStoneUseResult SoulStoneSystem::Use(ShinePlayer*      pkP,
                                           SoulStoneCounts& rC,
-                                          bool             bIsHp,
-                                          int              iTier) {
-    if (!pkP) return SS_USE_DEAD;
-    if (iTier < 0 || iTier >= kSoulStoneTierCount) return SS_USE_INVALID_TIER;
+                                          bool             bIsHp) {
+    if (!pkP)            return SS_USE_DEAD;
+    if (pkP->IsDead())   return SS_USE_DEAD;
 
-    // Liveness: dead players cannot use soul stones (must use the death
-    // revive dialog instead).
-    if (pkP->IsDead()) return SS_USE_DEAD;
-
-    // Cooldown gate.
+    // Independent cooldowns.
     uint64 now = NowMs();
-    if (rC.uiNextUseTickMs > now) return SS_USE_ON_COOLDOWN;
+    uint64& rNext = bIsHp ? rC.uiNextHpUseTickMs : rC.uiNextSpUseTickMs;
+    if (rNext > now) return SS_USE_ON_COOLDOWN;
 
     // Counter gate.
-    uint16& rCount = bIsHp ? rC.aHpStones[iTier] : rC.aSpStones[iTier];
+    uint16& rCount = bIsHp ? rC.uiHpCount : rC.uiSpCount;
     if (rCount == 0) return SS_USE_NONE_LEFT;
 
-    // "Already at full" gate -- prevents wasting a stone.
+    // "Already at full" guard.
     if (bIsHp) {
         if (pkP->GetHP() >= pkP->GetMaxHP()) return SS_USE_AT_MAX_HP;
     } else {
         if (pkP->GetSP() >= pkP->GetMaxSP()) return SS_USE_AT_MAX_SP;
     }
 
-    // Apply.
+    // Apply -- tier is derived from level, not stored.
+    int32 heal = HealForLevel((int32)pkP->GetLevel(), bIsHp);
     if (bIsHp) {
-        int32 newHp = pkP->GetHP() + kHpSoulHeal[iTier];
+        int32 newHp = pkP->GetHP() + heal;
         if (newHp > pkP->GetMaxHP()) newHp = pkP->GetMaxHP();
         pkP->SetHP(newHp);
     } else {
-        int32 newSp = pkP->GetSP() + kSpSoulHeal[iTier];
+        int32 newSp = pkP->GetSP() + heal;
         if (newSp > pkP->GetMaxSP()) newSp = pkP->GetMaxSP();
         pkP->SetSP(newSp);
     }
     --rCount;
-    rC.uiNextUseTickMs = now + (uint64)kSoulStoneCooldownMs;
+    rNext = now + (uint64)kSoulStoneCooldownMs;
     return SS_USE_OK;
 }
 
-void SoulStoneSystem::Grant(SoulStoneCounts& rC, bool bIsHp, int iTier, uint16 uiQty) {
-    if (iTier < 0 || iTier >= kSoulStoneTierCount) return;
-    uint16& rCount = bIsHp ? rC.aHpStones[iTier] : rC.aSpStones[iTier];
+void SoulStoneSystem::Grant(SoulStoneCounts& rC, bool bIsHp, uint16 uiQty) {
+    uint16& rCount = bIsHp ? rC.uiHpCount : rC.uiSpCount;
     uint32 sum = (uint32)rCount + (uint32)uiQty;
-    if (sum > (uint32)kSoulStoneMaxPerTier) sum = kSoulStoneMaxPerTier;
+    if (sum > (uint32)kSoulStoneMaxCount) sum = kSoulStoneMaxCount;
     rCount = (uint16)sum;
 }
 
-uint32 SoulStoneSystem::RemainingCooldownMs(const SoulStoneCounts& rC) {
+uint32 SoulStoneSystem::RemainingHpCooldownMs(const SoulStoneCounts& rC) {
     uint64 now = NowMs();
-    if (rC.uiNextUseTickMs <= now) return 0;
-    return (uint32)(rC.uiNextUseTickMs - now);
+    return (rC.uiNextHpUseTickMs <= now) ? 0u : (uint32)(rC.uiNextHpUseTickMs - now);
 }
 
-uint32 SoulStoneSystem::TotalHp(const SoulStoneCounts& rC) {
-    uint32 t = 0;
-    for (int i = 0; i < kSoulStoneTierCount; ++i) t += rC.aHpStones[i];
-    return t;
-}
-
-uint32 SoulStoneSystem::TotalSp(const SoulStoneCounts& rC) {
-    uint32 t = 0;
-    for (int i = 0; i < kSoulStoneTierCount; ++i) t += rC.aSpStones[i];
-    return t;
+uint32 SoulStoneSystem::RemainingSpCooldownMs(const SoulStoneCounts& rC) {
+    uint64 now = NowMs();
+    return (rC.uiNextSpUseTickMs <= now) ? 0u : (uint32)(rC.uiNextSpUseTickMs - now);
 }
 
 } // namespace fiesta

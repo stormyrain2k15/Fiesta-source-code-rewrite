@@ -206,16 +206,21 @@ code and pinned every confirmed hex opcode from F2/NCProtocol.h.
 - **`FreeStatSystem`** -- STR/END/DEX/INT/MEN allocation with per-level
   `MoverMain.MaxStat` cap, `kMaxFreeStatPerStat` clamp, and a refund
   helper for stat-reset tickets.
-- **`SoulStoneSystem`** (Pass 1.11.1) -- HP/SP soul stones modeled as the
-  active-use combat consumables they actually are: per-tier counters on
-  the character row (NOT in inventory), 0 inventory cost, dedicated UI
-  counter per tier, shared cooldown clock. Edit `kHpSoulHeal[6]` /
-  `kSpSoulHeal[6]` / `kSoulStoneCooldownMs` / `kSoulStoneMaxPerTier` in
-  `SoulStoneSystem.h` to retune.
+- **`SoulStoneSystem`** (final, Pass 1.11.2) -- HP/SP soul stones modeled
+  exactly as the project owner described: **two flat counters** on the
+  character row (`uiHpCount`, `uiSpCount`), **two independent cooldown
+  clocks**, **tier auto-derived from level** (player never sees tier).
+  No inventory cost. Use disabled while dead. Single-edit tunables in
+  `SoulStoneSystem.h`: `kHpSoulHealByTier[6]`, `kSpSoulHealByTier[6]`,
+  `kSoulStoneTierByLevel[200]`, `kSoulStoneCooldownMs`,
+  `kSoulStoneMaxCount`, `kSoulStonePriceByTier[6]`.
+- **`SoulStoneVendor`** (Pass 1.11.2) -- vendor flow for NPCs flagged
+  `Role=Merchant RoleArg0=SoulStone` in `World/NPC.txt`. Two SKUs (HP /
+  SP), price = `PriceForLevel(buyer.level)`. Validates NPC role, money,
+  and counter cap; debits Vis; calls `SoulStoneSystem::Grant`.
 - **`DeathReviveSystem`** (Pass 1.11.1, separate concern) -- on-death
   dialog flow: `ShineSoulPouch` revive token + town respawn + queued
-  resurrect. `ExpLossOnTownRevive(level)` returns the per-mille XP
-  penalty curve.
+  resurrect.
 
 Total now: **~177 source files**. See `docs/PASS1_11_BATTLE_PIPELINE.md`.
 

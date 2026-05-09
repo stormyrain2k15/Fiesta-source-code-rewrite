@@ -1,28 +1,30 @@
 // Server/Zone/SoulStoneSystem.h
-// 14 -- Soul Stones are active-use combat consumables. They are NOT inventory
-// items: they live on the character row as flat per-tier counters, and the
-// client UI exposes them in its own dedicated bar with one counter per tier
-// (HP100 / HP500 / HP1000 / HP3000 / ... / SP100 / SP500 / SP1000 / SP3000).
+// 14 -- HP and SP soul stones.
 //
-// On use:
-//   * One stone of the chosen tier is decremented.
-//   * A fixed flat HP (or SP) heal is applied immediately.
-//   * The shared "soul stone cooldown" clock is set; another soul stone
-//     cannot be used until the cooldown expires.
+// Model (from project owner's clarification):
 //
-// Tunables (tiers, heal amounts, cooldown ms) live below as named const --
-// edit in place to retune. None of these numbers leak into business logic
-// anywhere else.
+//   * Two flat counters per character row: `nHpSoulCount` and `nSpSoulCount`.
+//     NOT inventory items, NOT per-tier counters -- just two integers.
 //
-// ---------------------------------------------------------------------------
-// Death revive is a separate mechanic and lives in DeathReviveSystem.h
-// (Shine Soul Stones, town respawn, etc.). Do not conflate the two.
-// ---------------------------------------------------------------------------
+//   * Tier is derived automatically from the character level via
+//     `kSoulStoneTierByLevel[]`. The player never sees tier; the UI just
+//     shows "HP Soul Stones: N" and "SP Soul Stones: N" with a Use button.
+//
+//   * HP and SP have INDEPENDENT cooldown clocks. Using an HP soul does
+//     not start the SP cooldown and vice versa. Cooldown is `kSoulStoneCooldownMs`
+//     (same duration as the matching potion tier on live -- see SkillTimers).
+//
+//   * Vendors: NPCs flagged `Role=Merchant RoleArg0=SoulStone` in
+//     World/NPC.txt sell soul stones. The shop UI shows two SKUs ("HP Soul
+//     Stone" and "SP Soul Stone") at a level-appropriate price (`kSoulStonePrice`).
+//     Every confirmed vendor in the supplied World/NPC.txt:
+//        RouSoulMctJulia, EldSoulMctAvon, UruSoulPooring, HednisSoulKeroll,
+//        StoneMctTomson, SoulMctChloe, AlruinSoulRunadilla, BeraSoulOlivia,
+//        TempSoul, ... .
 //
 // EVIDENCE: PDB_CONFIRMED   symbols: cMoverHpRegen, cMoverSpRegen,
 //                                    SoulStoneCount, SoulStoneUse_Req.
-//                           DATA_CONFIRMED  DefaultCharacterData.txt has
-//                                    initial counters per tier.
+//                           DATA_CONFIRMED  World/NPC.txt SoulStone vendors.
 #ifndef FIESTA_ZONE_SOULSTONESYSTEM_H
 #define FIESTA_ZONE_SOULSTONESYSTEM_H
 #include "../Shared/ShineTypes.h"
@@ -35,87 +37,87 @@ class ShinePlayer;
 //  EDITABLE TUNABLES
 // =============================================================================
 
-// Number of tiers in each (HP / SP) ladder. Edit `kSoulStoneTierCount` plus
-// the tables below to add or remove tiers.
+// Number of tiers in the ladder. Used by the level->tier and the heal tables.
 const int    kSoulStoneTierCount     = 6;
 
-// Heal amount per HP tier (flat HP restored per stone consumed).
-const int32  kHpSoulHeal[kSoulStoneTierCount] = {
-    100,    // tier 0  -- "HP 100"
-    500,    // tier 1  -- "HP 500"
-    1000,   // tier 2  -- "HP 1000"
-    3000,   // tier 3  -- "HP 3000"
-    8000,   // tier 4  -- "HP 8000"
-    20000   // tier 5  -- "HP 20000" (cash-shop / endgame)
+// Heal amounts per tier (flat HP/SP restored per stone consumed).
+// Tiers 0..5 align with potion tiers 1..6 on live.
+const int32  kHpSoulHealByTier[kSoulStoneTierCount] = {
+    100, 500, 1000, 3000, 8000, 20000
 };
-// Heal amount per SP tier.
-const int32  kSpSoulHeal[kSoulStoneTierCount] = {
+const int32  kSpSoulHealByTier[kSoulStoneTierCount] = {
     100, 500, 1000, 3000, 8000, 20000
 };
 
-// Per-tier display names (sent in NC_MISC_SHN_VERIFY-equivalent flows /
-// debug logs). Kept here so the UI mapping is in one place.
-const char* const kHpSoulName[kSoulStoneTierCount] = {
-    "HP100","HP500","HP1000","HP3000","HP8000","HP20000"
-};
-const char* const kSpSoulName[kSoulStoneTierCount] = {
-    "SP100","SP500","SP1000","SP3000","SP8000","SP20000"
+// Tier selected automatically by character level. Index = level (clamped).
+// Live game thresholds: T1 1-19, T2 20-39, T3 40-59, T4 60-89, T5 90-119, T6 120+.
+const int    kMaxLevelForTierTable   = 200;
+const uint8  kSoulStoneTierByLevel[kMaxLevelForTierTable] = {
+    /*   1- 19 */ 0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,
+    /*  20- 39 */ 1,1,1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1,1,1,
+    /*  40- 59 */ 2,2,2,2,2,2,2,2,2,2, 2,2,2,2,2,2,2,2,2,2,
+    /*  60- 89 */ 3,3,3,3,3,3,3,3,3,3, 3,3,3,3,3,3,3,3,3,3,
+                  3,3,3,3,3,3,3,3,3,3,
+    /*  90-119 */ 4,4,4,4,4,4,4,4,4,4, 4,4,4,4,4,4,4,4,4,4,
+                  4,4,4,4,4,4,4,4,4,4,
+    /* 120-200 */ 5,5,5,5,5,5,5,5,5,5, 5,5,5,5,5,5,5,5,5,5,
+                  5,5,5,5,5,5,5,5,5,5, 5,5,5,5,5,5,5,5,5,5,
+                  5,5,5,5,5,5,5,5,5,5, 5,5,5,5,5,5,5,5,5,5,
+                  5,5,5,5,5,5,5,5,5,5, 5,5,5,5,5,5,5,5,5,5,5
 };
 
-// Maximum number of stones the character may hold per tier.
-const uint16 kSoulStoneMaxPerTier    = 9999;
+// Maximum count the character can hold (single counter, not per-tier).
+const uint16 kSoulStoneMaxCount      = 9999;
 
-// Shared cooldown (ms) gating the next soul-stone use. Real game value
-// is ~1.5 sec. Setting to 0 disables the cooldown (PvE testing).
+// Cooldown per stone use, ms (HP and SP independent). Live ~1.5s.
 const uint32 kSoulStoneCooldownMs    = 1500;
 
-// =============================================================================
-//  RUNTIME STATE
-// =============================================================================
-
-// One ledger per character. Lives on the character DB row -- not in the
-// inventory. Initial values come from DefaultCharacterData.txt.
-struct SoulStoneCounts {
-    uint16 aHpStones[kSoulStoneTierCount];
-    uint16 aSpStones[kSoulStoneTierCount];
-    uint64 uiNextUseTickMs;     // shared cooldown clock (uses GetTickCount64)
-
-    SoulStoneCounts() : uiNextUseTickMs(0) {
-        for (int i = 0; i < kSoulStoneTierCount; ++i) {
-            aHpStones[i] = 0;
-            aSpStones[i] = 0;
-        }
-    }
+// Vendor sell price per stone (Vis), keyed by tier.
+const int32  kSoulStonePriceByTier[kSoulStoneTierCount] = {
+    50, 200, 800, 3000, 10000, 40000
 };
 
-// Use-result reported back to the client.
+// =============================================================================
+//  RUNTIME STATE  (lives on the character DB row, NOT inventory)
+// =============================================================================
+
+struct SoulStoneCounts {
+    uint16 uiHpCount;
+    uint16 uiSpCount;
+    uint64 uiNextHpUseTickMs;       // independent HP cooldown
+    uint64 uiNextSpUseTickMs;       // independent SP cooldown
+
+    SoulStoneCounts()
+        : uiHpCount(0), uiSpCount(0), uiNextHpUseTickMs(0), uiNextSpUseTickMs(0) {}
+};
+
 enum eSoulStoneUseResult {
     SS_USE_OK             = 0,
     SS_USE_NONE_LEFT      = 1,
     SS_USE_ON_COOLDOWN    = 2,
-    SS_USE_INVALID_TIER   = 3,
-    SS_USE_AT_MAX_HP      = 4,    // already full -- some clients hide the bar instead
-    SS_USE_AT_MAX_SP      = 5,
-    SS_USE_DEAD           = 6
+    SS_USE_AT_MAX_HP      = 3,
+    SS_USE_AT_MAX_SP      = 4,
+    SS_USE_DEAD           = 5
 };
 
 class SoulStoneSystem {
 public:
-    // Active in-combat use. eIsHp = true for HP soul stone, false for SP.
-    static eSoulStoneUseResult Use(ShinePlayer*       pkP,
-                                    SoulStoneCounts&  rC,
-                                    bool              bIsHp,
-                                    int               iTier);
+    // Active in-combat use. bIsHp=true selects HP soul, false selects SP.
+    static eSoulStoneUseResult Use(ShinePlayer*      pkP,
+                                    SoulStoneCounts& rC,
+                                    bool             bIsHp);
 
-    // Add stones (drop, quest reward, vendor purchase). Clamps to kSoulStoneMaxPerTier.
-    static void Grant(SoulStoneCounts& rC, bool bIsHp, int iTier, uint16 uiQty);
+    // Add stones (drop, quest reward, vendor purchase). Clamps to kSoulStoneMaxCount.
+    static void Grant(SoulStoneCounts& rC, bool bIsHp, uint16 uiQty);
 
-    // Time until the next soul stone may be used (ms; 0 = ready now).
-    static uint32 RemainingCooldownMs(const SoulStoneCounts& rC);
+    // Time until the next HP / SP soul stone may be used (ms; 0 = ready).
+    static uint32 RemainingHpCooldownMs(const SoulStoneCounts& rC);
+    static uint32 RemainingSpCooldownMs(const SoulStoneCounts& rC);
 
-    // Helper for client UI / quest checks: total stones across all tiers.
-    static uint32 TotalHp(const SoulStoneCounts& rC);
-    static uint32 TotalSp(const SoulStoneCounts& rC);
+    // Tier resolution helpers (UI / vendor / log).
+    static uint8 TierForLevel(int32 nLevel);
+    static int32 HealForLevel(int32 nLevel, bool bIsHp);
+    static int32 PriceForLevel(int32 nLevel);
 };
 
 } // namespace fiesta
