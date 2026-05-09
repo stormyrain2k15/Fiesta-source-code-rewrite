@@ -12,6 +12,29 @@ chasing ghosts in a 350-file directory.
 
 ## Audit pass log
 
+### Lyra task list pass 4 (May 2026)
+
+Heavy task list arrived from the user. Of ~50 tasks (FIX-01..03 + WIRE-01..18 + LUA-01..20 + DOC-01..05), I tackled the highest-impact subset:
+
+| # | Task ID | Issue | Resolution |
+|---|---------|-------|------------|
+| 1 | FIX-01 | `Lua/LuaEnums.cpp` had invented values for ObjectType / ObjectMode / Classes -> every script comparing against them got wrong results | Replaced with PDB-confirmed values: ObjectType (Invalid=-1, Flag=0, ..., Mob=5, ..., Pet=12, Max=13), Classes (None=0, Fighter=1, Cleric=6, Archer=11, Mage=16, Joker=21, Sentinel=26 -- step-of-5 IDs). Added `InstallEnumStrTable` so ObjectMode is now installed as STRING-valued (`linking`/`normal`/`fight`/`corpse`/`house`/`booth`/`riding`/`logoutwait`) since scripts compare against strings, not ints |
+| 2 | FIX-02 | 4 SHN table-name mismatches: MoverData->MoverMain, MoverUpgrade->MoverUpgradeEffect, KQReward->KingdomQuestRew, MultiHit->MultiHitType | Updated all 4 .cpp files with correct ShnRegistry table names. MoverDataBox / MoverUpgradeData / KQRewardDataBox now load real data instead of always failing |
+| 3 | FIX-03 | `LoginClientSession::HandleWorldSelect` hardcoded WM endpoint `127.0.0.1:28000` | Added `ServerInfo::GetCurrent()` / `SetCurrent()` process-wide getter (set by Login service main on boot, cleared on stop). `HandleWorldSelect` now resolves WM via `ServerInfo::FindFirst(SK_WorldManager, -1, -1)`. WM-missing case logs WARN and falls back to provisional values (visible in logs rather than silent) |
+| 4 | WIRE-01 | `MultiHitTable.cpp` was a 7-line anonymous-namespace stub that always returned 1 hit | New `MultiHitTable.h` declaring the full surface. `.cpp` now loads `MultiHitType.shn`, indexes by `HitGroupID`, exposes `GetGroup(id, *count)` for the Battle.cpp hit-loop. `Resolve(SkillID)` keeps the single-hit default until the SkillID->HitGroupID wiring (ActiveSkill.shn nHitID) lands |
+| 5 | WIRE-06 | `AttackRhythm.cpp` was an anonymous-namespace stub | New `AttackRhythm.h` + real `.cpp` with per-(cid, sid) cadence gate keyed by `GTimer::NowMillis()`. `Allow(cid, sid, cdMs)` returns true and advances; `Forget(cid)` drops a player's history on disconnect |
+| 6 | WIRE-07 | `AbnormalStateDictionary.cpp` was an anonymous-namespace stub | New `AbnormalStateDictionary.h` + real `.cpp`. Loads `AbState.shn` at boot, builds `name -> id` map. `Lookup("Stun")` returns the abstate id |
+| 7 | WIRE-08 | `NearScan` was declared in two places (MoveManager.h class + an anonymous-namespace stub in NearScan.cpp) -> ODR collision | Single canonical `NearScan` class in new `NearScan.h`. Added `Players(uiMap, cx, cy, r, &out)` for AOE / KQ scans + `RunOnField(field, from, &out)` for the legacy MoveManager call site (visibility radius 30). MoveManager.h now includes NearScan.h instead of redeclaring |
+| 8 | WIRE-09 | `PartyContainer.cpp` was an anonymous-namespace 4-field struct | New `PartyContainer.h` with full `MAX_SLOTS=8` array, leader index, ePartyLootRule enum, level-range fields. `.cpp` provides `AddMember/RemoveMember/HasMember/LeaderCid/SetLeader` with auto-leader reseat on leader removal |
+
+### Deferred (longer / blocked / lower priority)
+
+* WIRE-02..05 (other anonymous-namespace stubs) -- pattern is now established (header + lift); apply the same pattern as bugs surface
+* WIRE-10..18 (further data-box wireups) -- mostly follow-on to FIX-02
+* LUA-01..20 (real bodies for the 20 most-used Lua bindings) -- the 5 critical bindings (cDamaged / cStaticDamage / cSetAbstate / cLinkTo / cFinishKey) are done; the remaining 15 need ShineObject getter helpers that opus's static round will bring in
+* DOC-01..05 (architecture docs) -- HONEST_DISCLOSURE.md already covers most of this
+* PASS3-005 (unified Handle->ShineObject registry) -- still deferred to opus round
+
 ### codex pass 3 (May 2026)
 
 | # | Audit ID | Issue | Resolution |

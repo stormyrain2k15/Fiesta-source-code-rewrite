@@ -393,11 +393,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Server\Zone\AbState.h" />
+    <ClInclude Include="..\Server\Zone\AbnormalStateDictionary.h" />
     <ClInclude Include="..\Server\Zone\AdminSecLog.h" />
     <ClInclude Include="..\Server\Zone\AggroList.h" />
     <ClInclude Include="..\Server\Zone\AmpersandCommands.h" />
     <ClInclude Include="..\Server\Zone\AnnounceSystem.h" />
     <ClInclude Include="..\Server\Zone\AreaBMP.h" />
+    <ClInclude Include="..\Server\Zone\AttackRhythm.h" />
     <ClInclude Include="..\Server\Zone\Battle.h" />
     <ClInclude Include="..\Server\Zone\BattleStat.h" />
     <ClInclude Include="..\Server\Zone\BattleTunables.h" />
@@ -446,10 +448,13 @@
     <ClInclude Include="..\Server\Zone\MoreTables.h" />
     <ClInclude Include="..\Server\Zone\MoveManager.h" />
     <ClInclude Include="..\Server\Zone\MoverTables.h" />
+    <ClInclude Include="..\Server\Zone\MultiHitTable.h" />
     <ClInclude Include="..\Server\Zone\NPCItemListTable.h" />
     <ClInclude Include="..\Server\Zone\NPCRole.h" />
     <ClInclude Include="..\Server\Zone\NPCSystem.h" />
+    <ClInclude Include="..\Server\Zone\NearScan.h" />
     <ClInclude Include="..\Server\Zone\Party.h" />
+    <ClInclude Include="..\Server\Zone\PartyContainer.h" />
     <ClInclude Include="..\Server\Zone\PineScript\PineScript.h" />
     <ClInclude Include="..\Server\Zone\PotSystem.h" />
     <ClInclude Include="..\Server\Zone\PowerGuardStoneSystem.h" />

@@ -8,7 +8,8 @@
 namespace fiesta {
 
 // Helper: install a table of (name, int) pairs as a global Lua table.
-struct EnumKV { const char* szName; int iValue; };
+struct EnumKV   { const char* szName; int iValue; };
+struct EnumStrKV{ const char* szName; const char* szValue; };
 
 static void InstallEnumTable(lua_State* L, const char* szTableName,
                              const EnumKV* pkPairs, size_t n)
@@ -21,65 +22,70 @@ static void InstallEnumTable(lua_State* L, const char* szTableName,
     lua_setglobal(L, szTableName);
 }
 
+// String-valued enum installer. Some Lua tables (notably ObjectMode)
+// use lowercase string ids, not integers, when referenced from script.
+static void InstallEnumStrTable(lua_State* L, const char* szTableName,
+                                const EnumStrKV* pkPairs, size_t n)
+{
+    lua_newtable(L);
+    for (size_t i = 0; i < n; ++i) {
+        lua_pushstring(L, pkPairs[i].szValue);
+        lua_setfield(L, -2, pkPairs[i].szName);
+    }
+    lua_setglobal(L, szTableName);
+}
+
 // ----- ObjectType -----------------------------------------------------------
-// Mirrors the engine's `ObjType` enum (Player / Mover / Mob / NPC / Pet /
-// ItemDrop). A scripted entry/exit script that needs to filter targets uses
-// e.g. `if obj.type == ObjectType.Mob then ...`.
+// PDB-confirmed values from common.lua (NA2016). The earlier table was
+// invented; scripts that test e.g. `ObjectType.Mob` would have got the
+// wrong handle class. Don't reorder -- numeric values are part of the
+// wire/script contract.
 static const EnumKV kObjectType[] = {
-    { "Player",   0 },
-    { "Mover",    1 },
-    { "Mob",      2 },
-    { "NPC",      3 },
-    { "Pet",      4 },
-    { "ItemDrop", 5 }
+    { "Invalid",    -1 },
+    { "Flag",        0 },
+    { "DropItem",    1 },
+    { "Player",      2 },
+    { "MiniHouse",   3 },
+    { "NPC",         4 },
+    { "Mob",         5 },
+    { "MagicField",  6 },
+    { "Door",        7 },
+    { "Bandit",      8 },
+    { "Effect",      9 },
+    { "Servant",    10 },
+    { "Mover",      11 },
+    { "Pet",        12 },
+    { "Max",        13 }
 };
 
 // ----- ObjectMode -----------------------------------------------------------
-// Field-mode flags consulted by AI / battle. The values are the mover-state
-// bitmask documented under `Field/SubLayerInteractTable`.
-static const EnumKV kObjectMode[] = {
-    { "Idle",      0 },
-    { "Walking",   1 },
-    { "Running",   2 },
-    { "Combat",    3 },
-    { "Casting",   4 },
-    { "Dead",      5 },
-    { "Sit",       6 },
-    { "Trade",     7 },
-    { "Booth",     8 }
+// Lowercase string ids from common.lua. Scripts compare against
+// strings, not numbers; the earlier int table broke every state-machine
+// branch. Installed via the string-valued helper.
+static const EnumStrKV kObjectMode[] = {
+    { "Linking",    "linking"    },
+    { "Normal",     "normal"     },
+    { "Fight",      "fight"      },
+    { "Corpse",     "corpse"     },
+    { "House",      "house"      },
+    { "Booth",      "booth"      },
+    { "Riding",     "riding"     },
+    { "LogoutWait", "logoutwait" }
 };
 
 // ----- BasicClass / Classes -------------------------------------------------
-// Class IDs from `ClassName.shn`. Same table is exposed under both the legacy
-// name (`BasicClass`) and the canonical script name (`Classes`).
+// PDB-confirmed class IDs (steps of 5). The earlier table used 0..26
+// sequential which broke every Sentinel AI script. Don't change the
+// numeric values -- they're the contract with ClassName.shn and with
+// every PineScript/Lua entry that does `class == Classes.Sentinel`.
 static const EnumKV kClasses[] = {
-    { "Vagrant",       0 },
-    { "Fighter",       1 },
-    { "Cleric",        2 },
-    { "Archer",        3 },
-    { "Mage",          4 },
-    { "Knight",        5 },
-    { "HighFighter",   6 },
-    { "Paladin",       7 },
-    { "HighCleric",    8 },
-    { "ScoutArcher",   9 },
-    { "Sharpshooter", 10 },
-    { "Wizard",       11 },
-    { "Enchanter",    12 },
-    { "Gladiator",    13 },
-    { "Templar",      14 },
-    { "Crusader",     15 },
-    { "Guardian",     16 },
-    { "Ranger",       17 },
-    { "Trickster",    18 },
-    { "Warlock",      19 },
-    { "ArchMage",     20 },
-    { "ForceMaster",  21 },
-    { "Shaman",       22 },
-    { "Reaper",       23 },
-    { "FateBreaker",  24 },
-    { "Assassin",     25 },
-    { "Spectre",      26 }
+    { "None",        0 },
+    { "Fighter",     1 },
+    { "Cleric",      6 },
+    { "Archer",     11 },
+    { "Mage",       16 },
+    { "Joker",      21 },     // local name "Trickster" in some scripts
+    { "Sentinel",   26 }      // mandatory -- omitted earlier broke Sentinel AI
 };
 
 // ----- ReturnAI -------------------------------------------------------------
@@ -169,21 +175,24 @@ static const EnumKV kStatsEnum[] = {
 
 #define INSTALL(L, name, arr) \
     InstallEnumTable((L), (name), (arr), sizeof(arr)/sizeof((arr)[0]))
+#define INSTALL_STR(L, name, arr) \
+    InstallEnumStrTable((L), (name), (arr), sizeof(arr)/sizeof((arr)[0]))
 
 void RegisterLuaEnums(lua_State* L) {
     if (!L) return;
-    INSTALL(L, "ReturnAI",        kReturnAI);
-    INSTALL(L, "ObjectType",      kObjectType);
-    INSTALL(L, "ObjectMode",      kObjectMode);
-    INSTALL(L, "BasicClass",      kClasses);
-    INSTALL(L, "Classes",         kClasses);
-    INSTALL(L, "EFFECT_MSG_TYPE", kEffectMsgType);
-    INSTALL(L, "CAMERA_STATE",    kCameraState);
-    INSTALL(L, "KQ_TEAM",         kKQTeam);
-    INSTALL(L, "PlayerDamage",    kPlayerDamage);
-    INSTALL(L, "PlayerList",      kPlayerList);
-    INSTALL(L, "StatsEnum",       kStatsEnum);
+    INSTALL    (L, "ReturnAI",        kReturnAI);
+    INSTALL    (L, "ObjectType",      kObjectType);
+    INSTALL_STR(L, "ObjectMode",      kObjectMode);   // STRING-valued
+    INSTALL    (L, "BasicClass",      kClasses);
+    INSTALL    (L, "Classes",         kClasses);
+    INSTALL    (L, "EFFECT_MSG_TYPE", kEffectMsgType);
+    INSTALL    (L, "CAMERA_STATE",    kCameraState);
+    INSTALL    (L, "KQ_TEAM",         kKQTeam);
+    INSTALL    (L, "PlayerDamage",    kPlayerDamage);
+    INSTALL    (L, "PlayerList",      kPlayerList);
+    INSTALL    (L, "StatsEnum",       kStatsEnum);
 }
 #undef INSTALL
+#undef INSTALL_STR
 
 } // namespace fiesta

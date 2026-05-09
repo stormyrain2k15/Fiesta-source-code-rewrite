@@ -7,6 +7,13 @@ namespace fiesta {
 
 std::string ServerInfo::s_kEmpty;
 
+namespace {
+    const ServerInfo* g_pCurrent = NULL;
+}
+
+const ServerInfo* ServerInfo::GetCurrent()              { return g_pCurrent; }
+void              ServerInfo::SetCurrent(const ServerInfo* p) { g_pCurrent = p; }
+
 ServerInfo::ServerInfo() : m_uiWorld(0) {}
 
 bool ServerInfo::Load(const char* szPath) {

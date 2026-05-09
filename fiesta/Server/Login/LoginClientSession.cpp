@@ -3,6 +3,7 @@
 #include "ClientVersionKeyInfo.h"
 #include "../DataServer/Common/SQLP.h"
 #include "../Shared/ShineLogSystem.h"
+#include "../Shared/ServerInfo.h"
 #include "../Common/NETCOMMAND.h"
 #include "../Common/SendPacket.h"
 
@@ -119,8 +120,27 @@ void LoginClientSession::HandleWorldSelect(const GPacket& rPkt) {
     m_eState = LS_WORLD_PICKED;
     PacketBuffer ack;
     ack.WriteU8(1);
-    ack.WriteString("127.0.0.1");        // WM ip (provisional)
-    ack.WriteU16(28000);                 // WM port (provisional)
+    // Resolve the WorldManager endpoint from LoginServerInfo.txt
+    // (SERVER_INFO line: WM <world> -1 <bind> <ip> <port> ...). Fall
+    // back to the previous hardcoded values only if the lookup fails,
+    // so a misconfigured environment fails loud rather than silently
+    // routing every player to localhost.
+    std::string wmIp("127.0.0.1");
+    uint16      wmPort = 28000;
+    const ServerInfo* sv = ServerInfo::GetCurrent();
+    if (sv) {
+        const ServiceEndpoint* wm = sv->FindFirst(SK_WorldManager, -1, -1);
+        if (wm) {
+            wmIp   = wm->kIp;
+            wmPort = wm->uiPort;
+        } else {
+            SHINELOG_WARN("Login: WM endpoint missing from LoginServerInfo.txt -- "
+                          "falling back to %s:%u (provisional)",
+                          wmIp.c_str(), wmPort);
+        }
+    }
+    ack.WriteString(wmIp);
+    ack.WriteU16   (wmPort);
     ack.WriteBytes(m_kToken.GetSecret(), 16);
     SendPacket(this, NC_USER_WORLDSELECT_ACK, ack.Data(), ack.Size());
     // The WM is told about the issued token via NC_INTER_AUTH_TOKEN_PUSH (LoginAccountDBSession).

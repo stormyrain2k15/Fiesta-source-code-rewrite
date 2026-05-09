@@ -1,9 +1,10 @@
 // Server/Zone/MoveManager.h
-// movement / action / visibility (NearScan).
+// movement / action / visibility.
 #ifndef FIESTA_ZONE_MOVEMANAGER_H
 #define FIESTA_ZONE_MOVEMANAGER_H
 #include "ShineObject.h"
 #include "MapField.h"
+#include "NearScan.h"           // canonical NearScan class lives there
 
 namespace fiesta {
 
@@ -20,11 +21,10 @@ public:
     static bool ValidateTarget(ShineObject* pkActor, ShineObject* pkTarget);
 };
 
-class NearScan {
-public:
-    // exact visibility radius is per-map; provisional 30.0 units.
-    static void Run(Field& rField, const Vec3& kFrom, std::vector<ShineObject*>& rOut);
-};
+// NearScan was historically declared here too. Its canonical home is
+// now NearScan.h (also reachable via this header's include above).
+// The legacy `NearScan::Run(Field&, Vec3, vector<ShineObject*>)` entry
+// is implemented as `NearScan::RunOnField` in NearScan.cpp.
 
 } // namespace fiesta
 #endif

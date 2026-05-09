@@ -78,6 +78,15 @@ public:
     int    GetInt   (const std::string& rKey, int    nDef = 0) const;
     uint16 GetU16   (const std::string& rKey, uint16 uDef = 0) const;
     const std::string& GetString(const std::string& rKey, const std::string& rDef = "") const;
+
+    // Process-wide singleton handle. Set by service mains via
+    // SetCurrent() right after Load() succeeds; consumed by classes
+    // (LoginClientSession, ZoneHandlers, etc.) that need to look up a
+    // service endpoint without being passed a ServerInfo* through
+    // every constructor. Returns NULL until the service main calls
+    // SetCurrent(this).
+    static const ServerInfo* GetCurrent();
+    static void              SetCurrent(const ServerInfo* p);
 private:
     void   Snapshot();
     ConfigParser  m_kCfg;

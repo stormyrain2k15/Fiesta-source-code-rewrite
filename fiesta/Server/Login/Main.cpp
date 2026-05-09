@@ -30,6 +30,7 @@ public:
     LoginService() : WinService("FiestaLogin") {}
     virtual bool OnStart() {
         m_kInfo.Load("LoginServerInfo.txt");
+        ServerInfo::SetCurrent(&m_kInfo);
         ClientVersionKeyInfo::Get().Load("ClientVersionKeyInfo.txt");
 
         // Connect the Account ODBC source for credential verification.
@@ -62,6 +63,7 @@ public:
     }
     virtual void OnStop() {
         m_kAcceptor.Stop(); m_kIOCP.Stop();
+        ServerInfo::SetCurrent(NULL);
         delete g_pkLoginAcctLog;  g_pkLoginAcctLog  = NULL;
         delete g_pkLoginIPCheck;  g_pkLoginIPCheck  = NULL;
         delete g_pkLoginAccount;  g_pkLoginAccount  = NULL;

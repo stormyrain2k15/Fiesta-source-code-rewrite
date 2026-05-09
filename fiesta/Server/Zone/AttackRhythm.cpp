@@ -1,22 +1,30 @@
 // Server/Zone/AttackRhythm.cpp
-// Attack timing -- enforces a minimum interval between consecutive
-// attacks of the same kind. Backing instance kept anonymous to avoid
-// ODR with any existing AttackRhythm declaration.
+// Real implementation -- formerly a stub in an anonymous namespace.
+#include "AttackRhythm.h"
 #include "../Shared/GTimer.h"
-#include "../Shared/ShineTypes.h"
-#include <map>
-namespace fiesta { namespace {
-class AttackRhythmImpl {
-public:
-    static AttackRhythmImpl& Get() { static AttackRhythmImpl s; return s; }
-    bool Allow(uint32 cid, uint32 sid, uint32 cdMs) {
-        uint64 now = GTimer::NowMillis();
-        uint64& last = m_kLast[((uint64)cid << 32) | sid];
-        if (now < last + cdMs) return false;
-        last = now;
-        return true;
+
+namespace fiesta {
+
+AttackRhythm& AttackRhythm::Get() { static AttackRhythm s; return s; }
+
+bool AttackRhythm::Allow(uint32 cid, uint32 sid, uint32 cdMs) {
+    if (cdMs == 0) return true;
+    uint64 now = GTimer::NowMillis();
+    uint64 key = ((uint64)cid << 32) | sid;
+    std::map<uint64, uint64>::iterator it = m_kLast.find(key);
+    if (it != m_kLast.end() && now < it->second + cdMs) return false;
+    m_kLast[key] = now;
+    return true;
+}
+
+void AttackRhythm::Forget(uint32 cid) {
+    // Erase every (cid, *) pair. Simple O(N) sweep -- only runs on
+    // disconnect so the cost is negligible vs. session lifetime.
+    for (std::map<uint64, uint64>::iterator it = m_kLast.begin();
+         it != m_kLast.end(); /*advance inside*/) {
+        if ((uint32)(it->first >> 32) == cid) m_kLast.erase(it++);
+        else                                  ++it;
     }
-private:
-    std::map<uint64, uint64> m_kLast;
-};
-}} // anonymous
+}
+
+} // namespace fiesta

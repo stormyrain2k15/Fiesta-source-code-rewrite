@@ -29,14 +29,14 @@ bool Action::ValidateTarget(ShineObject* pkA, ShineObject* pkT) {
     return true;
 }
 
-void NearScan::Run(Field& rField, const Vec3& kFrom, std::vector<ShineObject*>& rOut) {
-    rOut.clear();
-    const std::vector<ShineObject*>& v = rField.Objects();
-    for (size_t i = 0; i < v.size(); ++i) {
-        Vec3 p = v[i]->GetPos();
-        float dx = p.x - kFrom.x, dy = p.y - kFrom.y;
-        if (dx*dx + dy*dy <= kVisibilityRadius * kVisibilityRadius) rOut.push_back(v[i]);
-    }
+// NearScan::Run was historically defined here; it's now provided by
+// NearScan::RunOnField in NearScan.cpp. The redirect below preserves
+// any TU that still resolves the old name, for free, until the rename
+// reaches every call site.
+void NearScan_RunLegacy(Field& rField, const Vec3& kFrom,
+                        std::vector<ShineObject*>& rOut)
+{
+    NearScan::RunOnField(rField, kFrom, rOut);
 }
 
 } // namespace fiesta
