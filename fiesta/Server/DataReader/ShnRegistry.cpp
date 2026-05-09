@@ -46,6 +46,32 @@ void ShnAudit_EmitReport(const ShnRegistry& rReg) {
     }
     SHINELOG_INFO("ShnColumnAuditor: %u tables audited, %u unconsumed columns",
                   totalAudited, totalUnread);
+
+    // ----- Pass 2: registry-level "unowned table" audit ------------------
+    // Column-read auditing only catches partial ownership of tables that
+    // were already opened. Any SHN that loaded successfully but no
+    // binder/system ever opened doesn't appear above -- and that is
+    // exactly the signal we need to find missing-system gaps. Walk the
+    // full registry once and flag anything that never showed up in
+    // s_kAuditReads.
+    uint32 unowned = 0;
+    uint32 deferred = 0;
+    for (ShnRegistry::iterator rit = rReg.begin(); rit != rReg.end(); ++rit) {
+        const std::string& name = rit->first;
+        const ShnFile*     f    = rit->second;
+        // Skip the dedicated quest path -- those are owned by
+        // QuestShnReader and won't appear in s_kAuditReads.
+        if (ShnRegistry::IsQuestShn(name)) { ++deferred; continue; }
+        if (f && f->IsQuestDeferred())     { ++deferred; continue; }
+        if (s_kAuditReads.find(name) == s_kAuditReads.end()) {
+            SHINELOG_WARN("ShnAudit: table '%s' loaded but no system "
+                          "owns it (no GetTable/ShnGet* call observed)",
+                          name.c_str());
+            ++unowned;
+        }
+    }
+    SHINELOG_INFO("ShnRegistryAuditor: %u unowned table(s), %u quest-deferred (skipped)",
+                  unowned, deferred);
 }
 
 ShnRegistry& ShnRegistry::Get() { static ShnRegistry s; return s; }

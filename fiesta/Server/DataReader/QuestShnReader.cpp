@@ -4,6 +4,7 @@
 #include "ShnFile.h"
 #include "../Shared/ShineLogSystem.h"
 #include <stdio.h>
+#include <ctype.h>
 
 namespace fiesta {
 

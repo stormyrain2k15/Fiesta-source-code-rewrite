@@ -78,7 +78,9 @@
     <ClCompile Include="..\Server\DataReader\DataBox.cpp" />
     <ClCompile Include="..\Server\DataReader\DataReader.cpp" />
     <ClCompile Include="..\Server\DataReader\PsScriptFile.cpp" />
+    <ClCompile Include="..\Server\DataReader\QuestShnReader.cpp" />
     <ClCompile Include="..\Server\DataReader\Schemas.cpp" />
+    <ClCompile Include="..\Server\DataReader\ShnCsvExporter.cpp" />
     <ClCompile Include="..\Server\DataReader\ShnDataFileCheckSum.cpp" />
     <ClCompile Include="..\Server\DataReader\ShnFile.cpp" />
     <ClCompile Include="..\Server\DataReader\ShnRegistry.cpp" />
@@ -94,6 +96,7 @@
     <ClInclude Include="..\Server\DataReader\DataReader.h" />
     <ClInclude Include="..\Server\DataReader\ITableBase.h" />
     <ClInclude Include="..\Server\DataReader\PsScriptFile.h" />
+    <ClInclude Include="..\Server\DataReader\QuestShnReader.h" />
     <ClInclude Include="..\Server\DataReader\Schemas.h" />
     <ClInclude Include="..\Server\DataReader\ShnDataFileCheckSum.h" />
     <ClInclude Include="..\Server\DataReader\ShnFile.h" />

@@ -105,6 +105,15 @@ enum NETCOMMAND {
     NC_CHAR_CLIENT_SHAPE_CMD        = NC_FAMILY_CHAR + 0x0F,
     NC_CHAR_CLIENT_ITEM_CMD         = NC_FAMILY_CHAR + 0x10,
     NC_CHAR_CLIENT_PASSIVE_CMD      = NC_FAMILY_CHAR + 0x11,
+    // PDB-confirmed event-attendance opcodes (verified against
+    // CParserClient::fc_NC_CHAR_EVENT_ATTENDANCE_* in the Login PDB
+    // symbol inventory). Used by the daily/weekly attendance reward
+    // system; the client's UIResourceTables references CHECK_CMD by
+    // name, so the alias here keeps the opcode-name table in sync.
+    NC_CHAR_EVENT_ATTENDANCE_CHECK_CMD       = NC_FAMILY_CHAR + 0x12,
+    NC_CHAR_EVENT_ATTENDANCE_CHANGE_DAY_CMD  = NC_FAMILY_CHAR + 0x13,
+    NC_CHAR_EVENT_ATTENDANCE_REWARD_DB_REQ   = NC_FAMILY_CHAR + 0x14,
+    NC_CHAR_EVENT_ATTENDANCE_REWARD_DB_ACK   = NC_FAMILY_CHAR + 0x15,
 
     // ---- Zone server (port 9120) ---------------------------------------
     NC_MAP_LOGIN_REQ                = 0x1801,    // CONFIRMED -> char slot+name+SHA+SHN hash

@@ -12,6 +12,27 @@ chasing ghosts in a 350-file directory.
 
 ## Audit pass log
 
+### codex pass 2 (May 2026)
+
+| # | Audit ID | Issue | Resolution |
+|---|----------|-------|------------|
+| 1 | PASS2-001 | `QuestShnReader.cpp/.h` and `ShnCsvExporter.cpp` not in any vcxproj -> Zone link fail | Re-ran `Build/gen_vcxproj.py`. DataReader.vcxproj now compiles 14 cpp / 15 h (was 12 / 14) |
+| 2 | PASS2-004 | `QuestShnReader.cpp` used `::tolower` without `<ctype.h>` | Added `#include <ctype.h>` |
+| 3 | PASS2-003 | `NC_CHAR_EVENT_ATTENDANCE_CHECK_CMD` referenced in client UI table but undefined | Added 4 PDB-confirmed event-attendance opcodes to `NETCOMMAND.h` (CHECK_CMD, CHANGE_DAY_CMD, REWARD_DB_REQ, REWARD_DB_ACK) under NC_FAMILY_CHAR + 0x12-0x15 |
+| 4 | (audit-tool improvement) | `ShnAudit_EmitReport` only audited tables already touched via GetTable -> couldn't catch a loaded SHN that no system opened | Added registry-level "unowned table" audit pass. Walks the full registry and emits `ShnAudit: table 'X' loaded but no system owns it` WARN for any non-quest, non-deferred table that never appeared in `s_kAuditReads`. Boot now logs both `ShnColumnAuditor` and `ShnRegistryAuditor` summary lines |
+
+### Deferred to opus static debug / sonnet runtime debug rounds
+
+Per the audit's own next-pass guidance, these stay open for the
+deeper-pass rounds:
+
+* PASS2-002 (`QuestShnReader` only slurps bytes) -- needs real format RE first
+* PASS1-FUNC-001 (player-only handle lookup, breaks PvE combat)
+* PASS1-FUNC-002 (`static CharacterSkill s_kDummy` -> per-character state)
+* PASS1-FUNC-003 (Roe_* / normalpyRoe / normalmaRoe original function surface)
+* PASS1-FUNC-004 (Lua API surface mostly stubs)
+* PASS1-FUNC-005 (Login WM endpoint hardcoded `127.0.0.1:28000`)
+
 ### codex pass 1 (May 2026)
 
 Hard compile/link blockers reported and resolved in the same response:
