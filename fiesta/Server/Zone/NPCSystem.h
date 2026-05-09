@@ -22,13 +22,24 @@ class NPCManager {
 public:
     static NPCManager& Get();
     void Register(ShineNPC* pkNpc);
+    void RegisterKey(uint32 uiNpcId, const std::string& rMobName);
     ShineNPC* Find(uint32 uiNpcId);
+    const std::string& KeyOf(uint32 uiNpcId) const;
 private:
     std::map<uint32, ShineNPC*> m_kAll;
+    std::map<uint32, std::string> m_kKey;
+    std::string m_kEmpty;
 };
 
 class NPCAct                : public NPCAction { public: virtual void OnClick(ShinePlayer*, ShineNPC*); };
-class NPCItemList           { public: static void GetForShop(uint32 uiNpcId, std::vector<NPCMenuItem>& rOut); };
+class NPCItemList           {
+public:
+    // Resolve the NPC's mob-name via NPCManager and walk every "TabXX" in
+    // the matching `NPCItemList/<MobName>.txt` to enumerate offered items.
+    // Each shop entry is mapped through ItemTables / ItemExtraTables for
+    // pricing (BuyPrice from ItemInfo; Microbill price from ItemShop).
+    static void GetForShop(uint32 uiNpcId, std::vector<NPCMenuItem>& rOut);
+};
 class CurrentMenu           { public: uint32 uiOpenNpcId; };
 class ServerMenuActor       { public: static void OpenMenu(ShinePlayer* pk, uint32 uiNpcId); };
 class SellItemManager       { public: static bool BuyFromNpc(ShinePlayer* pk, uint32 uiNpcId, uint32 uiInx, uint16 uiQty); };

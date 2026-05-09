@@ -39,8 +39,9 @@ static void EnumerateShn(const std::string& rDir, std::map<std::string, ShnFile*
 }
 
 size_t ShnRegistry::LoadAll(const std::string& rRoot) {
-    EnumerateShn(rRoot + "\\Shine",   m_kAll);
-    EnumerateShn(rRoot + "\\Shine-1", m_kAll);
+    EnumerateShn(rRoot + "\\Shine",      m_kAll);
+    EnumerateShn(rRoot + "\\Shine-1",    m_kAll);
+    EnumerateShn(rRoot + "\\Shine\\View",m_kAll);   // Client-shape view tables
     SHINELOG_INFO("ShnRegistry: %u tables loaded from %s",
                   (uint32)m_kAll.size(), rRoot.c_str());
     return m_kAll.size();

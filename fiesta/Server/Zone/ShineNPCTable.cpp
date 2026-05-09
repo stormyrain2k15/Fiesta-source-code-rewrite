@@ -1,5 +1,8 @@
 // Server/Zone/ShineNPCTable.cpp
 #include "ShineNPCTable.h"
+#include "NPCSystem.h"
+#include "MapField.h"
+#include "GroupTables.h"
 #include "../DataReader/TableScriptFile.h"
 #include "../Shared/ShineLogSystem.h"
 
@@ -43,6 +46,35 @@ bool ShineNPCTable::Load(const std::string& rRoot) {
     }
     SHINELOG_INFO("ShineNPCTable: %u NPCs, %u links", (uint32)m_kNPCs.size(), (uint32)m_kLinks.size());
     return true;
+}
+
+// Walk every ShineNPC row, create a Field-bound ShineNPC instance, register
+// it with NPCManager keyed by mob-name. The row's Map column maps via
+// MapTables to a numeric MapID; rows pointing at maps this zone doesn't
+// host are still registered (so the merchant catalog stays addressable
+// from the WorldManager loopback path).
+size_t ShineNPCTable::SpawnAll() {
+    size_t spawned = 0;
+    static uint32 s_uiNext = 1;
+    for (size_t i = 0; i < m_kNPCs.size(); ++i) {
+        const ShineNPCRow& r = m_kNPCs[i];
+        if (r.kMobName.empty()) continue;
+        ShineNPC* pkN = new ShineNPC();
+        pkN->m_uiNpcId = s_uiNext++;
+        const MapInfoRow* pkM = MapTables::Get().FindByName(r.kMap);
+        Vec3 v((float)r.iCoordX, (float)r.iCoordY, 0.0f);
+        pkN->SetMap(pkM ? (MapID)pkM->uiID : 0);
+        pkN->SetPos(v);
+        NPCManager::Get().Register(pkN);
+        NPCManager::Get().RegisterKey(pkN->m_uiNpcId, r.kMobName);
+        if (pkM) {
+            Field* pkF = MapDataBox::Get().GetField((MapID)pkM->uiID);
+            if (pkF) pkF->AddObject(pkN);
+        }
+        ++spawned;
+    }
+    SHINELOG_INFO("ShineNPCTable::SpawnAll: %u NPCs spawned", (uint32)spawned);
+    return spawned;
 }
 
 const ShineNPCRow* ShineNPCTable::FindNPC(const std::string& rMobName) const {

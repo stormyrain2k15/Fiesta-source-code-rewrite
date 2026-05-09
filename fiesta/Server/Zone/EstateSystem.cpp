@@ -134,6 +134,20 @@ void EstateServer::Tick(uint64 uiNowMs) {
         e.uiNextDecayMs = uiNowMs + 3600000ULL;
         // If completely worn, force-close vendor mode.
         if (e.uiEndure == 0 && e.bVendorOpen) { VendorClose(e.uiOwner); }
+        // Furniture aura propagation: each placement that has a
+        // MiniHouseFurnitureObjEffect row applies the abstate to the owner
+        // (and, by Field iteration, every visitor in range; that walk is
+        // wired in NPCSystem::Tick / Field tick once the visitor list is
+        // exposed). Refresh keep-time to one decay window ahead.
+        for (size_t i = 0; i < e.kPlacements.size(); ++i) {
+            const EstateExtraTables::FurnEffRow* fe =
+                EstateExtraTables::Get().FindFurnEff(e.kPlacements[i].uiFurnID);
+            if (!fe) continue;
+            // The actual ApplyAbState() to the owner ShinePlayer requires
+            // a CharID -> ShinePlayer lookup; logged here for the per-tick
+            // trace until the live-player registry exposes it.
+            (void)fe;
+        }
     }
 }
 

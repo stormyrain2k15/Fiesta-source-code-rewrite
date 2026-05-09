@@ -40,7 +40,7 @@ bool MapNavigator::FindWay(Field& rField, const Vec3& a, const Vec3& b, std::vec
 
 void TownPortal(ShinePlayer* pk, MapID dest, const Vec3& kSpawn) {
     if (!pk) return;
-    Field* pkOld = MapDataBox::Get().GetField(pk->GetMapId());
+    Field* pkOld = MapDataBox::Get().GetField(pk->GetMap());
     Field* pkNew = MapDataBox::Get().GetField(dest);
     if (pkOld) pkOld->RemoveObject(pk);
     pk->SetMap(dest); pk->SetPos(kSpawn);

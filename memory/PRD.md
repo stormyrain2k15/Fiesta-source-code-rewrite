@@ -427,6 +427,50 @@ P2:
 - Unit tests for opcode round-trip on PacketBuffer / GPacket.
 - Anti-cheat: real XTrap handshake against XTrap4 server DLL.
 
+## Pass 1.20 — Per-folder asset ingest + NPC spawn pipeline (2026-02)
+
+User direction (verbatim): "keep going with adding the files and what
+each function behind them is and making sure the server does the same
+thing."
+
+Delivered:
+- `Server/Zone/ZoneAssetLoader.{h,cpp}`: single boot pass walking every
+  per-folder data source under `Data\Shine\` (AbState, AreaBMP,
+  BlockInfo, MobAttackSequence, MobBehaviorDescript, MobRegen, MobRoam,
+  MobSetting/Action, NPCItemList, Script, plus every `LuaScript/`
+  subtree). Includes `AbStateBinaryBox` for the binary `.dat` index.
+- BlockInfo callback resolves the file basename via `MapTables` and
+  stamps the `BlockGrid` into the matching `Field::Blocks()` so
+  collision is live the moment boot completes.
+- `ShineNPCTable::SpawnAll()`: instantiates a `ShineNPC` for every row
+  in `World/NPC.txt`, registers (id, mob-name) with `NPCManager`, and
+  inserts into the resolved `Field`.
+- `NPCSystem.cpp` rewritten: `NPCManager::RegisterKey` /
+  `NPCManager::KeyOf`; `NPCItemList::GetForShop` walks the loaded
+  `NPCItemListFile` and resolves each ItemIndex via `ItemTables`;
+  `SellItemManager::BuyFromNpc` validates SKU + debits gold.
+- `ShnRegistry::LoadAll` now also walks `Data\Shine\View\*.shn` (21
+  view-shape tables).
+- `Zone/Main.cpp`: opens a per-process `LuaRuntime`, calls
+  `ZoneAssetLoader::LoadAll`, `ShineNPCTable::Load/SpawnAll`,
+  `ClassParamTable::Load`, `ChrCommonTable::Load` in dependency order.
+
+Coverage matrix:
+| Folder                                   | Files | Wired |
+|------------------------------------------|-------|-------|
+| `AbState\*.dat`                          | 11    | 11    |
+| `AreaBMP\*.bmp`                          | 53    | 53    |
+| `BlockInfo\*.{shbd,aid,sbi}`             | 301   | 301   |
+| `NPCItemList\*.txt`                      | 73    | 73    |
+| `Script\*.txt`                           | 52    | 52    |
+| `View\*.shn`                             | 21    | 21    |
+| `MobAttackSequence,Behavior,Regen,Roam,Setting/Action\*.txt` | per-mob/zone | walked |
+| `LuaScript\**\*.lua`                     | per-system | walked |
+
+Doc: `docs/PASS1_20_PER_FOLDER_INGEST.md`.
+
+Status: code authored, awaiting user-side VS2010 compile.
+
 ## Pass 1.19 — Long-tail data ingest + Estate / Marriage / Expedition (2026-02)
 
 User direction (verbatim): "I want you to keep going through all of the

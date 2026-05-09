@@ -34,6 +34,10 @@ class ShineNPCTable {
 public:
     static ShineNPCTable& Get();
     bool   Load(const std::string& rRoot);
+    // Walk every loaded row, create a ShineNPC, register it with NPCManager,
+    // and (if the row's Map resolves) add it to the matching Field. Returns
+    // the number of NPCs actually spawned.
+    size_t SpawnAll();
     size_t NPCCount () const { return m_kNPCs .size(); }
     size_t LinkCount() const { return m_kLinks.size(); }
     const ShineNPCRow* FindNPC(const std::string& rMobName) const;
