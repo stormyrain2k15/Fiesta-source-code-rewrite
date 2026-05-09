@@ -51,14 +51,14 @@ public:
 // Per-character quest counter dispatcher used by Battle / NPC-talk hooks.
 // Lives outside QuestFramework so it can be called from kill-handlers
 // without taking a write lock on the framework.
-class QuestProgress {
+class QuestEventDispatcher {
 public:
-    static QuestProgress& Get();
+    static QuestEventDispatcher& Get();
     void OnMobKilled (CharID c, MobID uiSpecies);
     void OnNpcTalked (CharID c, uint32 uiNpcId);
     void OnItemUsed  (CharID c, ItemID uiItem);
 private:
-    QuestProgress() {}
+    QuestEventDispatcher() {}
 };
 
 class QuestEvent {

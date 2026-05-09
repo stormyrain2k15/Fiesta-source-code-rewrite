@@ -4,11 +4,12 @@
 #include "ShineNPCTable.h"
 #include "Inventory.h"
 #include "../Shared/ShineLogSystem.h"
+#include "../Shared/GTimer.h"
 #include <windows.h>
 
 namespace fiesta {
 
-static uint64 NowMs() { return (uint64)GetTickCount64(); }
+static uint64 NowMs() { return (uint64)GTimer::NowMillis(); }
 static eShineClass ClassOf(ShinePlayer* /*pk*/) { return SC_FIGHTER; }   // until ShinePlayerCharacter::m_eClass exists
 
 eStoneUseResult PowerGuardStoneSystem::Use(ShinePlayer* pkP, StoneCounts& rC, bool bIsPower) {

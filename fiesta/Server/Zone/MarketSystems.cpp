@@ -71,7 +71,7 @@ bool StreetBooth::Open(CharID owner, const std::string& rTitle) {
     BoothRec& r = s_kBooths[owner];
     r.uiOwner            = owner;
     r.kTitle             = rTitle;
-    r.uiCreatedMs        = GetTickCount64();
+    r.uiCreatedMs        = GTimer::NowMillis();
     r.uiOwnerLastSeenMs  = r.uiCreatedMs;
     return true;
 }
@@ -101,7 +101,7 @@ bool StreetBoothBuy::BuyFromBooth(CharID self, CharID booth, uint32 uiItemId) {
 
 void BoothManager::Tick() {
     const uint64 kStaleMs = 15ULL * 60ULL * 1000ULL;
-    uint64 now = GetTickCount64();
+    uint64 now = GTimer::NowMillis();
     for (std::map<CharID, BoothRec>::iterator it = s_kBooths.begin(); it != s_kBooths.end();) {
         if (now - it->second.uiOwnerLastSeenMs > kStaleMs) {
             std::map<CharID, BoothRec>::iterator dead = it++;

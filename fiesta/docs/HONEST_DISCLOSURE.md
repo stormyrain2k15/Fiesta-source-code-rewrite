@@ -12,6 +12,27 @@ chasing ghosts in a 350-file directory.
 
 ## Audit pass log
 
+### codex pass 3 (May 2026)
+
+| # | Audit ID | Issue | Resolution |
+|---|----------|-------|------------|
+| 1 | PASS3-001 | `Server/Zone/tests/*.cpp` had its own `main()` AND was being pulled into `Zone.vcxproj` -> duplicate `main` | Reworked `Build/gen_vcxproj.py` with `EXCLUDES`/`EXTRA_DEFINES` tables. Zone now drops the `tests/` subtree (321→312 cpp); new `ZoneTests.vcxproj` owns the 9 tests + defines `FIESTA_TEST_MAIN`. Re-running `gen_vcxproj.py` keeps both projects in sync |
+| 2 | PASS3-002 | `Client.vcxproj` was in the active build but is out-of-scope for the server-only rounds | Removed `Client` from `PROJECTS[]`. Source under `fiesta/Client/` stays so it doesn't drift. Re-enable instructions are in a comment in `gen_vcxproj.py` |
+| 3 | PASS3-003 | 4 calls to `GetTickCount64()` (Vista+ API, banned by VS2010-on-XP target) | Replaced with `GTimer::NowMillis()` in `MarketSystems.cpp`, `QuestRuntime.cpp`, `SoulStoneSystem.cpp`, `PowerGuardStoneSystem.cpp`, `Main.cpp`. Added missing `#include "../Shared/GTimer.h"` where needed |
+| 4 | PASS3-004 | `DataServer/Character/Main.cpp` used raw `vsnprintf` without VS2010 guard | Added `_MSC_VER` guard around `_vsnprintf_s` (matching the pattern in `SQLP.cpp`). Added missing `#include <stdarg.h>` |
+| 5 | PASS3-006 | `Skill::TryUse` had `static CharacterSkill s_kDummy` -> one player's cast locked the spell for everyone | Replaced with `pk->Skills()` (per-character `CharacterSkill` book). Reordered: cooldown gate now runs BEFORE SP/HP deduction so a still-cooling skill doesn't drain resources from a failed attempt |
+| 6 | PASS3-007 | `NC_CHAR_EVENT_ATTENDANCE_CHECK_CMD` was an alias to a non-existent base. Pass 2 added the alias label but no numeric base | Added 4 numeric opcodes under `NC_FAMILY_CHAR + 0x12-0x15` with PDB-confirmed names (CHECK_CMD, CHANGE_DAY_CMD, REWARD_DB_REQ, REWARD_DB_ACK). The alias label now points at a real value |
+| 7 | PASS3-008 | `QuestProgress` was both a `struct` (per-player counters in `QuestRuntime.h`) and a `class` (global event dispatcher in `QuestSystem.h`) -> ODR collision | Renamed the struct to `PlayerQuestProgress` (per-player progress data) and the class to `QuestEventDispatcher` (global event hub). Updated 3 call sites in `Battle.cpp` and `NPCSystem.cpp` |
+| 8 | PASS3-009 | Battle pipeline lacked the original NA2016 PDB function surface (Roe_*, normalpyRoe_*, normalmaRoe_*) so PineScript bindings have nothing to target | Added free-function namespaces in `Battle.h` declaring `Roe::Roe_calcdamage / getattack / defendpower / hitrate / criticalrate / isdamageincrease`, `normalpyRoe::*`, `normalmaRoe::*`. Implementations in `RuleOfEngagement.cpp` are thin wrappers around the existing pipeline (math stays VERIFY-tagged in `Battle.cpp`; surface is the deliverable) |
+| 9 | PASS3-010 | The 3 invented packet bodies were tagged `// VERIFY:` but not greppable as a class | Renamed to `// PROVISIONAL_BODY:` for `NC_NPC_MENU_PICK_ACK`, `NC_ITEM_UPGRADE_OPEN_CMD`, `NC_INTER_GMEVENT_TRIGGER_REQ`. Codex / opus can now `grep -r PROVISIONAL_BODY` to find every untrusted wire shape |
+
+### Deferred to opus / sonnet rounds
+
+* PASS3-005 (unified `Handle -> ShineObject` registry across mobs/npcs/players) -- larger touch, deferred per audit's own guidance
+* PASS3-011 (`QuestShnReader` real row parsing) -- requires QuestData.shn binary RE first
+* PASS1-FUNC-004 (real Lua bindings beyond the 5 implemented)
+* PASS1-FUNC-005 (Login WM endpoint from config -- still hardcoded `127.0.0.1:28000`)
+
 ### codex pass 2 (May 2026)
 
 | # | Audit ID | Issue | Resolution |

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="tests"><UniqueIdentifier>{D82D0AF4-BCF0-5741-A721-C1120B188CE6}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Server\Zone\tests\TestBase.cpp"><Filter>tests</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\tests\TestShineObjectUtil.cpp"><Filter>tests</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\tests\test_Battle.cpp"><Filter>tests</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\tests\test_CharracterSkill.cpp"><Filter>tests</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\tests\test_DynamicCast.cpp"><Filter>tests</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\tests\test_UtilFunction.cpp"><Filter>tests</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\tests\test_abstate.cpp"><Filter>tests</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\tests\test_attacksequence.cpp"><Filter>tests</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\tests\test_guildtournamentsystem.cpp"><Filter>tests</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Server\Zone\tests\TestBase.h"><Filter>tests</Filter></ClInclude>
+  </ItemGroup>
+</Project>

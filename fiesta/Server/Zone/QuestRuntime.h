@@ -25,7 +25,7 @@ namespace fiesta {
 class ShinePlayer;
 class Inventory;
 
-struct QuestProgress {
+struct PlayerQuestProgress {
     uint16 uiHandle;
     uint64 uiStartedAtMs;
     std::map<std::string, uint16> kHuntCount;     // mob -> kills so far
@@ -50,7 +50,7 @@ class QuestRuntime {
 public:
     // Per-player state container. Lives on the ShinePlayer record.
     struct PlayerLog {
-        std::map<uint16, QuestProgress> kActive;
+        std::map<uint16, PlayerQuestProgress> kActive;
     };
 
     static eQuestResult StartQuest   (ShinePlayer* pkP, PlayerLog& rL, uint16 uiHandle, const std::string& rNpc);

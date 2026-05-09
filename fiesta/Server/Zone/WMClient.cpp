@@ -191,11 +191,12 @@ void WMClient::Heartbeat() {
 
 bool WMClient::SendGMEventTrigger(uint32 uiEventNo, uint32 uiDurationSec, bool bStart) {
     if (!IsConnected()) return false;
-    // VERIFY: NC_INTER_GMEVENT_TRIGGER_REQ body shape (eventNo,
-    // durationSec, action) is internal to this rewrite -- there's no
-    // original NA2016 inter-server packet for an ad-hoc GM event push.
-    // If the build chain ever links this to an existing OPTool admin
-    // opcode, the fields here will need to match that opcode's body.
+    // PROVISIONAL_BODY: NC_INTER_GMEVENT_TRIGGER_REQ body shape
+    // (eventNo, durationSec, action) is internal to this rewrite --
+    // there's no original NA2016 inter-server packet for an ad-hoc GM
+    // event push. If the build chain ever links this to an existing
+    // OPTool admin opcode, the fields here will need to match that
+    // opcode's body.
     PacketBuffer body;
     body.WriteU32(uiEventNo);
     body.WriteU32(uiDurationSec);

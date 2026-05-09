@@ -61,16 +61,16 @@ bool QuestParserScript::LoadCompiled(const std::string& rPath) {
 void QuestEvent::Fire(ShinePlayer*, uint32, uint32) {}
 void ShineQuestDiary::OpenDiary(ShinePlayer*) {}
 
-QuestProgress& QuestProgress::Get() { static QuestProgress s; return s; }
-void QuestProgress::OnMobKilled(CharID c, MobID uiSpecies) {
+QuestEventDispatcher& QuestEventDispatcher::Get() { static QuestEventDispatcher s; return s; }
+void QuestEventDispatcher::OnMobKilled(CharID c, MobID uiSpecies) {
     ShinePlayer* pk = ZoneServer::Get().FindPlayerByCharID(c);
     if (!pk) return;
     pk->Quest().OnKill(uiSpecies);
 }
-void QuestProgress::OnNpcTalked(CharID c, uint32 uiNpcId) {
+void QuestEventDispatcher::OnNpcTalked(CharID c, uint32 uiNpcId) {
     QuestEvent::Fire(ZoneServer::Get().FindPlayerByCharID(c), 1 /*ETALK*/, uiNpcId);
 }
-void QuestProgress::OnItemUsed(CharID c, ItemID uiItem) {
+void QuestEventDispatcher::OnItemUsed(CharID c, ItemID uiItem) {
     QuestEvent::Fire(ZoneServer::Get().FindPlayerByCharID(c), 2 /*EUSE*/, (uint32)uiItem);
 }
 

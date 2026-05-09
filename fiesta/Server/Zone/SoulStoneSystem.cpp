@@ -2,11 +2,12 @@
 #include "SoulStoneSystem.h"
 #include "ShineObject.h"
 #include "../Shared/ShineLogSystem.h"
+#include "../Shared/GTimer.h"
 #include <windows.h>
 
 namespace fiesta {
 
-static uint64 NowMs() { return (uint64)GetTickCount64(); }
+static uint64 NowMs() { return (uint64)GTimer::NowMillis(); }
 
 // Resolve the player's class. ShinePlayer doesn't yet expose a class accessor
 // directly so we forward-declare the tiny helper inline; once the

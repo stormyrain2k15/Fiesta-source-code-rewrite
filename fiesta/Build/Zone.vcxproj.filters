@@ -19,7 +19,6 @@
     <Filter Include="Zone\PineScript"><UniqueIdentifier>{3152A355-ED87-5649-88E1-B8D8E5CBA4FB}</UniqueIdentifier></Filter>
     <Filter Include="Zone\Quest"><UniqueIdentifier>{5ACB90A7-C537-5382-BDCA-597030F56968}</UniqueIdentifier></Filter>
     <Filter Include="Zone\WeaponTitle"><UniqueIdentifier>{FDDC13AB-4504-57F8-A162-8C9CFCEB06B4}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\tests"><UniqueIdentifier>{9D5AC8A5-0AA1-5F52-96CC-A3AAD5388C55}</UniqueIdentifier></Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Server\Zone\AIScript\AIScript.cpp"><Filter>Zone\AIScript</Filter></ClCompile>
@@ -334,15 +333,6 @@
     <ClCompile Include="..\Server\Zone\ZoneHandlers.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\ZoneServer.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\ZoneServerEvent.cpp"><Filter>Zone</Filter></ClCompile>
-    <ClCompile Include="..\Server\Zone\tests\TestBase.cpp"><Filter>Zone\tests</Filter></ClCompile>
-    <ClCompile Include="..\Server\Zone\tests\TestShineObjectUtil.cpp"><Filter>Zone\tests</Filter></ClCompile>
-    <ClCompile Include="..\Server\Zone\tests\test_Battle.cpp"><Filter>Zone\tests</Filter></ClCompile>
-    <ClCompile Include="..\Server\Zone\tests\test_CharracterSkill.cpp"><Filter>Zone\tests</Filter></ClCompile>
-    <ClCompile Include="..\Server\Zone\tests\test_DynamicCast.cpp"><Filter>Zone\tests</Filter></ClCompile>
-    <ClCompile Include="..\Server\Zone\tests\test_UtilFunction.cpp"><Filter>Zone\tests</Filter></ClCompile>
-    <ClCompile Include="..\Server\Zone\tests\test_abstate.cpp"><Filter>Zone\tests</Filter></ClCompile>
-    <ClCompile Include="..\Server\Zone\tests\test_attacksequence.cpp"><Filter>Zone\tests</Filter></ClCompile>
-    <ClCompile Include="..\Server\Zone\tests\test_guildtournamentsystem.cpp"><Filter>Zone\tests</Filter></ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Server\Zone\AbState.h"><Filter>Zone</Filter></ClInclude>
@@ -426,6 +416,5 @@
     <ClInclude Include="..\Server\Zone\WorldTables.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\ZoneAssetLoader.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\ZoneServer.h"><Filter>Zone</Filter></ClInclude>
-    <ClInclude Include="..\Server\Zone\tests\TestBase.h"><Filter>Zone\tests</Filter></ClInclude>
   </ItemGroup>
 </Project>

@@ -5,8 +5,8 @@
     <ProjectConfiguration Include="Release|Win32"><Configuration>Release</Configuration><Platform>Win32</Platform></ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D5DA81D2-D1B6-5F94-86DF-5D40B53EF71B}</ProjectGuid>
-    <RootNamespace>Client</RootNamespace>
+    <ProjectGuid>{05A15460-AC6D-58DC-9006-F84F5BBADD9A}</ProjectGuid>
+    <RootNamespace>ZoneTests</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -31,13 +31,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)Bin\Debug\</OutDir>
     <IntDir>$(SolutionDir)Obj\Debug\$(ProjectName)\</IntDir>
-    <TargetName>Client</TargetName>
+    <TargetName>ZoneTests</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)Bin\Release\</OutDir>
     <IntDir>$(SolutionDir)Obj\Release\$(ProjectName)\</IntDir>
-    <TargetName>Client</TargetName>
+    <TargetName>ZoneTests</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -46,7 +46,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;NOMINMAX;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;NOMINMAX;_DEBUG;_CONSOLE;FIESTA_TEST_MAIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Server\Common;..\Server\Shared;..\Server\DataReader;..\Server\DataServer\Common;..\Lua;..\ThirdParty\Gamebryo\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
@@ -64,7 +64,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;NOMINMAX;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;NOMINMAX;NDEBUG;_CONSOLE;FIESTA_TEST_MAIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Server\Common;..\Server\Shared;..\Server\DataReader;..\Server\DataServer\Common;..\Lua;..\ThirdParty\Gamebryo\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
@@ -78,15 +78,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Client\Engine\AnimationLink.cpp" />
-    <ClCompile Include="..\Client\Engine\ClientApp.cpp" />
-    <ClCompile Include="..\Client\Engine\Main.cpp" />
-    <ClCompile Include="..\Client\ResSystem\UIResourceTables.cpp" />
+    <ClCompile Include="..\Server\Zone\tests\TestBase.cpp" />
+    <ClCompile Include="..\Server\Zone\tests\TestShineObjectUtil.cpp" />
+    <ClCompile Include="..\Server\Zone\tests\test_Battle.cpp" />
+    <ClCompile Include="..\Server\Zone\tests\test_CharracterSkill.cpp" />
+    <ClCompile Include="..\Server\Zone\tests\test_DynamicCast.cpp" />
+    <ClCompile Include="..\Server\Zone\tests\test_UtilFunction.cpp" />
+    <ClCompile Include="..\Server\Zone\tests\test_abstate.cpp" />
+    <ClCompile Include="..\Server\Zone\tests\test_attacksequence.cpp" />
+    <ClCompile Include="..\Server\Zone\tests\test_guildtournamentsystem.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Client\Engine\AnimationLink.h" />
-    <ClInclude Include="..\Client\Engine\ClientApp.h" />
-    <ClInclude Include="..\Client\ResSystem\UIResourceTables.h" />
+    <ClInclude Include="..\Server\Zone\tests\TestBase.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Common.vcxproj">

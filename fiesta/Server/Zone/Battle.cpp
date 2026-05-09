@@ -318,7 +318,7 @@ void Battle::Kill(ShineObject* pkA, ShineObject* pkT) {
             ItemDropFromMob::Trigger(pkMob, pkKiller);
 
             // 3) Quest credit: kill-target requirement.
-            QuestProgress::Get().OnMobKilled(pkKiller->GetCharID(),
+            QuestEventDispatcher::Get().OnMobKilled(pkKiller->GetCharID(),
                                              pkMob->m_uiSpecies);
 
             // 4) Friend point: aggregate from FriendPointReward when the

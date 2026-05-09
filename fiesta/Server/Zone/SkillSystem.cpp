@@ -209,18 +209,25 @@ bool Skill::TryUse(ShinePlayer* pk, SkillID s, ShineObject* pkTarget) {
         (void)dem;
     }
 
-    // 3) Resource costs (HP/SP).
+    // 3) Resource cost lookup (HP/SP). Costs are NOT spent yet --
+    //    cooldown gate must run first so a still-cooling skill doesn't
+    //    drain SP/HP from a failed attempt.
     int32 sp = kBox.GetSPCost(s);
     int32 hp = kBox.GetHPCost(s);
     if (pk->GetSP() < sp) return false;
     if (hp > 0 && (int32)pk->GetHP() <= hp) return false;
+
+    // 4) Cooldown gate (per-character). Owned by the player's
+    //    CharacterSkill book (`pk->Skills()`), not a process-wide
+    //    dummy -- otherwise one player's cast would lock the spell
+    //    for everyone in the zone.
+    CharacterSkill& book = pk->Skills();
+    uint64 now = GTimer::NowMillis();
+    if (!book.IsReady(s, now)) return false;
+
+    // 5) All gates passed -- spend resources, then apply.
     pk->SetSP(pk->GetSP() - sp);
     if (hp > 0) pk->SetHP(pk->GetHP() - hp);
-
-    // 4) Cooldown gate (per-character).
-    static CharacterSkill s_kDummy;
-    uint64 now = GTimer::NowMillis();
-    if (!s_kDummy.IsReady(s, now)) return false;
 
     // Multi-hit rolls + per-row T-matrix scalar.
     int32 hits = MultiHitTable::Resolve(s);
@@ -254,7 +261,7 @@ bool Skill::TryUse(ShinePlayer* pk, SkillID s, ShineObject* pkTarget) {
         }
     }
 
-    s_kDummy.PutOnCooldown(s, kBox.GetCooldownMs(s), now);
+    book.PutOnCooldown(s, kBox.GetCooldownMs(s), now);
     return true;
 }
 

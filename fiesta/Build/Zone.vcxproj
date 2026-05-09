@@ -390,15 +390,6 @@
     <ClCompile Include="..\Server\Zone\ZoneHandlers.cpp" />
     <ClCompile Include="..\Server\Zone\ZoneServer.cpp" />
     <ClCompile Include="..\Server\Zone\ZoneServerEvent.cpp" />
-    <ClCompile Include="..\Server\Zone\tests\TestBase.cpp" />
-    <ClCompile Include="..\Server\Zone\tests\TestShineObjectUtil.cpp" />
-    <ClCompile Include="..\Server\Zone\tests\test_Battle.cpp" />
-    <ClCompile Include="..\Server\Zone\tests\test_CharracterSkill.cpp" />
-    <ClCompile Include="..\Server\Zone\tests\test_DynamicCast.cpp" />
-    <ClCompile Include="..\Server\Zone\tests\test_UtilFunction.cpp" />
-    <ClCompile Include="..\Server\Zone\tests\test_abstate.cpp" />
-    <ClCompile Include="..\Server\Zone\tests\test_attacksequence.cpp" />
-    <ClCompile Include="..\Server\Zone\tests\test_guildtournamentsystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Server\Zone\AbState.h" />
@@ -482,7 +473,6 @@
     <ClInclude Include="..\Server\Zone\WorldTables.h" />
     <ClInclude Include="..\Server\Zone\ZoneAssetLoader.h" />
     <ClInclude Include="..\Server\Zone\ZoneServer.h" />
-    <ClInclude Include="..\Server\Zone\tests\TestBase.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Common.vcxproj">

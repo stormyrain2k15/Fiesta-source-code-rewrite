@@ -55,6 +55,53 @@ public:
     static int32      LevelGapDamageTable(uint16 uiLvA, uint16 uiLvT);
 };
 
+// ----------------------------------------------------------------------------
+//  Original NA2016 PDB function surface.
+//
+//  These free-function wrappers preserve the original-server function
+//  shape (Roe_*, normalpyRoe_*, normalmaRoe_*) that PineScript and
+//  client-emitted scripts expect. They forward into the current
+//  RuleOfEngagement pipeline where possible. The math inside is still
+//  VERIFY/TUNE-tagged -- the goal of these wrappers is the function
+//  surface, not the formula. Tunable details live in the wrapped
+//  implementations (Battle.cpp).
+//
+//  Calling convention: every helper takes the same battle stats /
+//  ShineObject pointers the canonical handlers use; outputs are plain
+//  ints / DamageInfo so PineScript bindings can grab them without
+//  pulling Battle.h into the script TU.
+// ----------------------------------------------------------------------------
+namespace Roe {
+    // Generic damage / hit / crit pipeline (mirrors the PDB Roe_*
+    // free-function surface). Internally calls RuleOfEngagement.
+    int32      Roe_calcdamage      (ShineObject* pkA, ShineObject* pkT, int32 nSkillBaseATK);
+    int32      Roe_getattack       (const BATTLESTAT* pkA, eElement eAtkElement, int32 nSkillBaseATK);
+    int32      Roe_defendpower     (const BATTLESTAT* pkT, eElement eAtkElement);
+    int32      Roe_hitrate         (const BATTLESTAT* pkA, const BATTLESTAT* pkT);
+    int32      Roe_criticalrate    (const BATTLESTAT* pkA, const BATTLESTAT* pkT);
+    bool       Roe_isdamageincrease(const BATTLESTAT* pkA, const BATTLESTAT* pkT, int32 nDmgFlags);
+}
+
+namespace normalpyRoe {
+    // Physical (PY) normal-attack rules. PDB function family
+    // `normalpyRoe_*`. Used by PvP normal attacks and physical-class
+    // skills that bypass the elemental table.
+    DamageInfo normalpyRoe_calc        (ShineObject* pkA, ShineObject* pkT);
+    int32      normalpyRoe_damage      (ShineObject* pkA, ShineObject* pkT);
+    int32      normalpyRoe_hitrate     (const BATTLESTAT* pkA, const BATTLESTAT* pkT);
+    bool       normalpyRoe_isdamageincrease(const BATTLESTAT* pkA, const BATTLESTAT* pkT);
+}
+
+namespace normalmaRoe {
+    // Magical (MA) normal-attack rules. PDB function family
+    // `normalmaRoe_*`. Used by mage normal attacks and magic-class
+    // skills before the SkillDataBox T-matrix scaler.
+    DamageInfo normalmaRoe_calc        (ShineObject* pkA, ShineObject* pkT);
+    int32      normalmaRoe_damage      (ShineObject* pkA, ShineObject* pkT);
+    int32      normalmaRoe_hitrate     (const BATTLESTAT* pkA, const BATTLESTAT* pkT);
+    bool       normalmaRoe_isdamageincrease(const BATTLESTAT* pkA, const BATTLESTAT* pkT);
+}
+
 class Battle {
 public:
     static void Apply(ShineObject* pkA, ShineObject* pkT, const DamageInfo&    d);

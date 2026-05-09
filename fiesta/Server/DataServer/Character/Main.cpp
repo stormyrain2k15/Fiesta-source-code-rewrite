@@ -18,15 +18,22 @@
 #include "../Common/SQLP.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdarg.h>
 
 namespace fiesta {
 
 // sprintf-style proc-arg builder, bounded to 256 bytes (matches the
-// internal helper in SQLP.cpp).
+// internal helper in SQLP.cpp). VS2010-safe: uses _vsnprintf_s under
+// MSVC to avoid the deprecation warning + truncation hazard of the
+// stock vsnprintf signature in the v100 CRT.
 static std::string F(const char* fmt, ...) {
     char buf[256];
     va_list ap; va_start(ap, fmt);
+#if defined(_MSC_VER)
+    _vsnprintf_s(buf, sizeof(buf), _TRUNCATE, fmt, ap);
+#else
     vsnprintf(buf, sizeof(buf), fmt, ap);
+#endif
     va_end(ap);
     buf[sizeof(buf)-1] = '\0';
     return std::string(buf);

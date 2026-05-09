@@ -4,6 +4,7 @@
 #include "Inventory.h"
 #include "CharDBClient.h"
 #include "../Shared/ShineLogSystem.h"
+#include "../Shared/GTimer.h"
 #include <windows.h>
 
 namespace fiesta {
@@ -12,7 +13,7 @@ namespace fiesta {
 //   0 = INACTIVE  1 = ACTIVE  2 = COMPLETED  3 = ABANDONED
 enum { QSTATE_INACTIVE = 0, QSTATE_ACTIVE = 1, QSTATE_COMPLETED = 2, QSTATE_ABANDONED = 3 };
 
-static uint64 NowMs() { return (uint64)GetTickCount64(); }
+static uint64 NowMs() { return (uint64)GTimer::NowMillis(); }
 
 static const QuestHeader* GetHeader(uint16 h) { return QuestTable::Get().Header(h); }
 
@@ -26,7 +27,7 @@ eQuestResult QuestRuntime::StartQuest(ShinePlayer* pkP, PlayerLog& rL,
     if (pkP->GetLevel() > h->uiLevHigh) return QR_LEVEL_TOO_HIGH;
     if (!h->kStartNPC.empty() && _stricmp(h->kStartNPC.c_str(), rNpc.c_str()) != 0)
         return QR_WRONG_NPC;
-    QuestProgress p; p.uiHandle = uiHandle; p.uiStartedAtMs = NowMs();
+    PlayerQuestProgress p; p.uiHandle = uiHandle; p.uiStartedAtMs = NowMs();
     rL.kActive[uiHandle] = p;
     // Persist the new ACTIVE row.
     CharDBClient::Get().QuestSet(pkP->GetCharID(), uiHandle, QSTATE_ACTIVE, 0);
@@ -40,7 +41,7 @@ eQuestResult QuestRuntime::CompleteQuest(ShinePlayer* pkP, PlayerLog& rL, Invent
     if (!pkP) return QR_UNKNOWN_HANDLE;
     const QuestHeader* h = GetHeader(uiHandle);
     if (!h) return QR_UNKNOWN_HANDLE;
-    std::map<uint16, QuestProgress>::iterator it = rL.kActive.find(uiHandle);
+    std::map<uint16, PlayerQuestProgress>::iterator it = rL.kActive.find(uiHandle);
     if (it == rL.kActive.end()) return QR_NOT_ACTIVE;
     if (!h->kStopNPC.empty() && _stricmp(h->kStopNPC.c_str(), rNpc.c_str()) != 0)
         return QR_WRONG_NPC;
@@ -70,14 +71,14 @@ eQuestResult QuestRuntime::CompleteQuest(ShinePlayer* pkP, PlayerLog& rL, Invent
 }
 
 eQuestResult QuestRuntime::GiveUp(PlayerLog& rL, uint16 uiHandle) {
-    std::map<uint16, QuestProgress>::iterator it = rL.kActive.find(uiHandle);
+    std::map<uint16, PlayerQuestProgress>::iterator it = rL.kActive.find(uiHandle);
     if (it == rL.kActive.end()) return QR_NOT_ACTIVE;
     rL.kActive.erase(it);
     return QR_OK;
 }
 
 void QuestRuntime::OnMobKill(PlayerLog& rL, const std::string& rMobName) {
-    for (std::map<uint16, QuestProgress>::iterator it = rL.kActive.begin(); it != rL.kActive.end(); ++it) {
+    for (std::map<uint16, PlayerQuestProgress>::iterator it = rL.kActive.begin(); it != rL.kActive.end(); ++it) {
         const std::vector<QuestHuntRow>& v = QuestTable::Get().HuntsFor(it->first);
         for (size_t i = 0; i < v.size(); ++i)
             if (_stricmp(v[i].kMob.c_str(), rMobName.c_str()) == 0) {
@@ -88,7 +89,7 @@ void QuestRuntime::OnMobKill(PlayerLog& rL, const std::string& rMobName) {
 }
 
 void QuestRuntime::OnItemPick(PlayerLog& rL, const std::string& rItemName) {
-    for (std::map<uint16, QuestProgress>::iterator it = rL.kActive.begin(); it != rL.kActive.end(); ++it) {
+    for (std::map<uint16, PlayerQuestProgress>::iterator it = rL.kActive.begin(); it != rL.kActive.end(); ++it) {
         const std::vector<QuestLootRow>& v = QuestTable::Get().LootsFor(it->first);
         for (size_t i = 0; i < v.size(); ++i)
             if (_stricmp(v[i].kItem.c_str(), rItemName.c_str()) == 0) {
@@ -99,7 +100,7 @@ void QuestRuntime::OnItemPick(PlayerLog& rL, const std::string& rItemName) {
 }
 
 void QuestRuntime::OnNpcMeet(PlayerLog& rL, const std::string& rNpcName) {
-    for (std::map<uint16, QuestProgress>::iterator it = rL.kActive.begin(); it != rL.kActive.end(); ++it) {
+    for (std::map<uint16, PlayerQuestProgress>::iterator it = rL.kActive.begin(); it != rL.kActive.end(); ++it) {
         if (QuestTable::Get().IsMeeting(it->first)) {
             uint16& c = it->second.kMetCount[rNpcName];
             ++c;
@@ -108,7 +109,7 @@ void QuestRuntime::OnNpcMeet(PlayerLog& rL, const std::string& rNpcName) {
 }
 
 void QuestRuntime::OnProduce(PlayerLog& rL, const std::string& rItemMade) {
-    for (std::map<uint16, QuestProgress>::iterator it = rL.kActive.begin(); it != rL.kActive.end(); ++it) {
+    for (std::map<uint16, PlayerQuestProgress>::iterator it = rL.kActive.begin(); it != rL.kActive.end(); ++it) {
         const std::vector<QuestProduceRow>& v = QuestTable::Get().ProducesFor(it->first);
         for (size_t i = 0; i < v.size(); ++i)
             if (_stricmp(v[i].kToItem.c_str(), rItemMade.c_str()) == 0) {
@@ -119,9 +120,9 @@ void QuestRuntime::OnProduce(PlayerLog& rL, const std::string& rItemMade) {
 }
 
 bool QuestRuntime::AllGoalsComplete(const PlayerLog& rL, uint16 uiHandle) {
-    std::map<uint16, QuestProgress>::const_iterator it = rL.kActive.find(uiHandle);
+    std::map<uint16, PlayerQuestProgress>::const_iterator it = rL.kActive.find(uiHandle);
     if (it == rL.kActive.end()) return false;
-    const QuestProgress& p = it->second;
+    const PlayerQuestProgress& p = it->second;
     const std::vector<QuestHuntRow>&    hunts    = QuestTable::Get().HuntsFor(uiHandle);
     const std::vector<QuestLootRow>&    loots    = QuestTable::Get().LootsFor(uiHandle);
     const std::vector<QuestProduceRow>& produces = QuestTable::Get().ProducesFor(uiHandle);

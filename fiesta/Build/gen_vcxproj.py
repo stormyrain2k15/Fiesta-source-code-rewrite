@@ -31,14 +31,37 @@ PROJECTS = [
     ("DataServer.GameLog",    ["Server/DataServer/GameLog"],                  "Application",   ["Common", "Shared", "DataServerCommon"]),
     ("WorldManager",      ["Server/WorldManager"],                            "Application",   ["Common", "Shared", "DataReader", "DataServerCommon"]),
     ("Zone",              ["Server/Zone"],                                    "Application",   ["Common", "Shared", "DataReader", "LuaRuntime"]),
-    ("Client",            ["Client"],                                         "Application",   ["Common", "Shared", "DataReader", "LuaRuntime"]),
+    ("ZoneTests",         ["Server/Zone/tests"],                              "Application",   ["Common", "Shared", "DataReader", "LuaRuntime"]),
+    # NOTE: Client project is intentionally excluded from the active solution
+    # build. The client rewrite is out of scope for the server-only audit
+    # rounds (codex pass 3 step 4). Keep the source under fiesta/Client/ so
+    # it doesn't drift, but don't generate a vcxproj for it until a separate
+    # client-build pass starts. To re-enable, add the following entry:
+    #   ("Client", ["Client"], "Application", ["Common", "Shared", "DataReader", "LuaRuntime"]),
 ]
 
-def gather(src_dirs, exts):
+# Source dirs to exclude from each project's gather() walk. Used so Zone
+# doesn't pull in tests/ (which has its own ZoneTests project + main()).
+EXCLUDES = {
+    "Zone": ["Server/Zone/tests"],
+}
+
+# Per-project extra preprocessor definitions. ZoneTests needs
+# FIESTA_TEST_MAIN to enable the main() in TestBase.cpp.
+EXTRA_DEFINES = {
+    "ZoneTests": ["FIESTA_TEST_MAIN"],
+}
+
+def gather(src_dirs, exts, excludes=None):
     out = []
+    excludes = excludes or []
     for d in src_dirs:
         full = os.path.join(ROOT, d)
         for root, _, files in os.walk(full):
+            # Skip any subtree that matches an excluded source dir.
+            rel_root = os.path.relpath(root, ROOT).replace("\\", "/")
+            if any(rel_root == ex or rel_root.startswith(ex + "/") for ex in excludes):
+                continue
             for f in files:
                 if not any(f.endswith(e) for e in exts): continue
                 rel = os.path.relpath(os.path.join(root, f), BUILD)
@@ -68,8 +91,9 @@ def cfg_block(is_app):
     return link
 
 def write_vcxproj(name, src_dirs, kind, deps):
-    cpps = gather(src_dirs, [".cpp", ".cc"])
-    hdrs = gather(src_dirs, [".h", ".hpp", ".inl"])
+    excludes = EXCLUDES.get(name, [])
+    cpps = gather(src_dirs, [".cpp", ".cc"], excludes)
+    hdrs = gather(src_dirs, [".h", ".hpp", ".inl"], excludes)
     guid = stable_guid(name)
     is_app = (kind == "Application")
     out_ext = "exe" if is_app else "lib"
@@ -126,6 +150,8 @@ def write_vcxproj(name, src_dirs, kind, deps):
             defs += ";_CONSOLE"
         else:
             defs += ";_LIB"
+        for extra in EXTRA_DEFINES.get(name, []):
+            defs += ";" + extra
         proj.append(f'  <ItemDefinitionGroup Condition="\'$(Configuration)|$(Platform)\'==\'{cfg}|Win32\'">')
         proj.append('    <ClCompile>')
         proj.append('      <WarningLevel>Level3</WarningLevel>')

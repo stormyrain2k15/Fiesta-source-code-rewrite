@@ -5,6 +5,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include "../Shared/IOCPManager.h"
 #include "../Shared/Socket_Acceptor.h"
+#include "../Shared/GTimer.h"
 #include "../DataReader/DataReader.h"
 #include "../DataReader/DataBox.h"
 #include "../DataReader/Schemas.h"
@@ -158,10 +159,10 @@ public:
         KQServer::Get().Tick();
         AuctionSystem::Get().Tick();
         BoothManager::Tick();
-        EstateServer::Get().Tick(::GetTickCount64());
+        EstateServer::Get().Tick(GTimer::NowMillis());
         ExpeditionSystem::Get().Tick();
-        MobSpawnSystem::Get().Tick(::GetTickCount64());
-        MobAIRunner   ::Get().Tick(::GetTickCount64());
+        MobSpawnSystem::Get().Tick(GTimer::NowMillis());
+        MobAIRunner   ::Get().Tick(GTimer::NowMillis());
         GuildWarManager::Tick();
         GuildTournamentSystem::Tick();
         ChargedEffectManager::Get().Tick();
