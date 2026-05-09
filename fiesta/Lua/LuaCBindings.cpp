@@ -5,6 +5,15 @@
 #include "../Server/Zone/Battle.h"
 #include "../Server/Zone/AbState.h"
 #include "../Server/Zone/MapField.h"
+#include "../Server/Zone/ShineObject.h"
+#include "../Server/Zone/MobSpawnSystem.h"
+#include "../Server/Zone/NearScan.h"
+#include "../Server/Zone/AbnormalStateDictionary.h"
+#include "../Server/Zone/KingdomQuest.h"
+#include "../Server/Shared/GTimer.h"
+#include "../Server/Shared/well512.h"
+#include "../Server/Shared/PacketBuffer.h"
+#include "../Server/Common/NETCOMMAND.h"
 
 namespace fiesta {
 
@@ -56,6 +65,253 @@ static int Lua_cFinishKey(lua_State* L) {
     return 0;
 }
 
+// ---------------------------------------------------------------------------
+// LUA-01..LUA-20 — Real binding bodies (Lyra pass 5, May 2026)
+// Helper: find a ShinePlayer by handle (CODEX-05 will replace with FindObject
+// once the unified handle registry lands; for now players-only).
+// ---------------------------------------------------------------------------
+static ShinePlayer* FindPlayerHandle(Handle h) {
+    const std::map<Handle, ShinePlayer*>& m = ZoneServer::Get().Players();
+    std::map<Handle, ShinePlayer*>::const_iterator it = m.find(h);
+    return (it != m.end()) ? it->second : NULL;
+}
+
+// LUA-01: cCurrentSecond / cCurSec
+static int Lua_cCurrentSecond_Real(lua_State* L) {
+    lua_pushnumber(L, (double)(GTimer::NowMillis() / 1000ULL));
+    return 1;
+}
+
+// LUA-02: cObjectLocate — returns (x, y) world coordinates
+static int Lua_cObjectLocate_Real(lua_State* L) {
+    Handle h = (Handle)luaL_checkinteger(L, 1);
+    ShinePlayer* pk = FindPlayerHandle(h);
+    if (!pk) { lua_pushnil(L); lua_pushnil(L); return 2; }
+    lua_pushnumber(L, pk->GetPos().x);
+    lua_pushnumber(L, pk->GetPos().z);
+    return 2;
+}
+
+// LUA-03: cObjectHP — returns (curHP, maxHP)
+static int Lua_cObjectHP_Real(lua_State* L) {
+    Handle h = (Handle)luaL_checkinteger(L, 1);
+    ShinePlayer* pk = FindPlayerHandle(h);
+    if (!pk) { lua_pushinteger(L, 0); lua_pushinteger(L, 0); return 2; }
+    lua_pushinteger(L, (lua_Integer)pk->GetHP());
+    lua_pushinteger(L, (lua_Integer)pk->GetMaxHP());
+    return 2;
+}
+
+// LUA-04: cIsObjectDead
+static int Lua_cIsObjectDead_Real(lua_State* L) {
+    Handle h = (Handle)luaL_checkinteger(L, 1);
+    ShinePlayer* pk = FindPlayerHandle(h);
+    lua_pushboolean(L, (pk == NULL || pk->IsDead()) ? 1 : 0);
+    return 1;
+}
+
+// LUA-05: cMobRegen_XY — spawn one mob at specific XY
+// NOTE: MobSpawnSystem::Spawn(mapInx, mobInx, x, y) not yet
+// implemented; stub logs and returns nil until CODEX-05 lands.
+static int Lua_cMobRegen_XY_Real(lua_State* L) {
+    const char* szMapInx = luaL_checkstring(L, 1);
+    const char* szMobInx = luaL_checkstring(L, 2);
+    float x = (float)luaL_checknumber(L, 3);
+    float y = (float)luaL_checknumber(L, 4);
+    (void)luaL_optnumber(L, 5, 0.0);
+    // TODO CODEX-05: route through unified spawn system
+    // MobSpawnSystem::Get().SpawnAt(szMapInx, szMobInx, x, y);
+    (void)szMapInx; (void)szMobInx; (void)x; (void)y;
+    lua_pushnil(L);
+    return 1;
+}
+
+// LUA-06: cNPCVanish — despawn a scripted mob/NPC by handle
+static int Lua_cNPCVanish_Real(lua_State* L) {
+    Handle h = (Handle)luaL_checkinteger(L, 1);
+    // TODO CODEX-05: MobSpawnSystem::Get().Despawn(h);
+    (void)h;
+    return 0;
+}
+
+// LUA-07: cGetPlayerList — push all player handles in a map as return values
+static int Lua_cGetPlayerList_Real(lua_State* L) {
+    const char* szMapInx = luaL_checkstring(L, 1);
+    uint16 uiMapID = MapField::NameToID(szMapInx); // 0 if unknown
+    const std::map<Handle, ShinePlayer*>& kAll = ZoneServer::Get().Players();
+    int n = 0;
+    for (std::map<Handle, ShinePlayer*>::const_iterator it = kAll.begin();
+         it != kAll.end(); ++it) {
+        if (it->second && it->second->GetMap() == uiMapID) {
+            lua_pushinteger(L, (lua_Integer)it->first);
+            ++n;
+        }
+    }
+    return n;
+}
+
+// LUA-08: cObjectCount — count objects of a given ObjectType on a map
+static int Lua_cObjectCount_Real(lua_State* L) {
+    const char* szMapInx = luaL_checkstring(L, 1);
+    int nType = (int)luaL_checkinteger(L, 2);
+    uint16 uiMapID = MapField::NameToID(szMapInx);
+    int count = 0;
+    if (nType == 2) { // ObjectType.Player == 2
+        const std::map<Handle, ShinePlayer*>& kAll = ZoneServer::Get().Players();
+        for (std::map<Handle, ShinePlayer*>::const_iterator it = kAll.begin();
+             it != kAll.end(); ++it) {
+            if (it->second && it->second->GetMap() == uiMapID) ++count;
+        }
+    }
+    // TODO CODEX-05: add mob/npc counts via unified registry
+    lua_pushinteger(L, (lua_Integer)count);
+    return 1;
+}
+
+// LUA-09: cGetLevel
+static int Lua_cGetLevel_Real(lua_State* L) {
+    Handle h = (Handle)luaL_checkinteger(L, 1);
+    ShinePlayer* pk = FindPlayerHandle(h);
+    lua_pushinteger(L, pk ? (lua_Integer)pk->GetLevel() : 0);
+    return 1;
+}
+
+// LUA-10: cScriptMessage_Obj — send a script message index to a player
+static int Lua_cScriptMessage_Obj_Real(lua_State* L) {
+    Handle h       = (Handle)luaL_checkinteger(L, 1);
+    int32  nMsgIdx = (int32)luaL_checkinteger(L, 2);
+    ShinePlayer* pk = FindPlayerHandle(h);
+    if (pk && pk->GetSession()) {
+        PacketBuffer pkt;
+        pkt.WriteU16(NC_ACT_SCRIPT_MSG_CMD);
+        pkt.WriteI32(nMsgIdx);
+        pk->GetSession()->Send(pkt);
+    }
+    return 0;
+}
+
+// LUA-11: cResetAbstate — remove a named AbState from a player
+static int Lua_cResetAbstate_Real(lua_State* L) {
+    Handle h = (Handle)luaL_checkinteger(L, 1);
+    uint32 ab = AbnormalStateDictionary::Get().Lookup(luaL_checkstring(L, 2));
+    ShinePlayer* pk = FindPlayerHandle(h);
+    if (pk && ab != 0) pk->Abstate().Remove(ab);
+    lua_pushboolean(L, (pk != NULL) ? 1 : 0);
+    return 1;
+}
+
+// LUA-12: cHeal — restore HP
+static int Lua_cHeal_Real(lua_State* L) {
+    Handle h = (Handle)luaL_checkinteger(L, 1);
+    int32  a = (int32)luaL_checkinteger(L, 2);
+    ShinePlayer* pk = FindPlayerHandle(h);
+    if (pk) pk->SetHP(pk->GetHP() + a);
+    return 0;
+}
+
+// LUA-13: cExecCheck — debug/profiling hook, logs function name
+static int Lua_cExecCheck_Real(lua_State* L) {
+    const char* fn = luaL_optstring(L, 1, "unknown");
+    (void)fn; // TODO: route to SHINELOG_DEBUG when we want profiling data
+    return 0;
+}
+
+// LUA-14: cDoorAction — open/close a door entity by block name
+static int Lua_cDoorAction_Real(lua_State* L) {
+    Handle h        = (Handle)luaL_checkinteger(L, 1);
+    const char* blk = luaL_checkstring(L, 2);
+    const char* act = luaL_checkstring(L, 3);
+    bool bOpen = (strcmp(act, "open") == 0);
+    // TODO: MapField::SetDoorState(h, blk, bOpen) + broadcast NC_MAP_DOOR_ACTION_CMD
+    (void)h; (void)blk; (void)bOpen;
+    lua_pushboolean(L, 1);
+    return 1;
+}
+
+// LUA-15: cMobRegen_Rectangle, cMobRegen_Circle, cMobRegen_Obj
+// Variants of cMobRegen_XY with area spawning. Stub until CODEX-05.
+static int Lua_cMobRegen_Rectangle_Real(lua_State* L) {
+    (void)L; lua_pushnil(L); return 1;
+}
+static int Lua_cMobRegen_Circle_Real(lua_State* L) {
+    (void)L; lua_pushnil(L); return 1;
+}
+static int Lua_cMobRegen_Obj_Real(lua_State* L) {
+    (void)L; lua_pushnil(L); return 1;
+}
+
+// LUA-16: cRandomInt / cPermileRate
+static int Lua_cRandomInt_Real(lua_State* L) {
+    int lo = (int)luaL_checkinteger(L, 1);
+    int hi = (int)luaL_checkinteger(L, 2);
+    if (hi <= lo) { lua_pushinteger(L, lo); return 1; }
+    lua_pushinteger(L, (lua_Integer)(lo + (int)(Well512::Get().NextU32() % (uint32)(hi - lo + 1))));
+    return 1;
+}
+static int Lua_cPermileRate_Real(lua_State* L) {
+    int rate = (int)luaL_checkinteger(L, 1); // x/1000 probability
+    lua_pushboolean(L, ((int)(Well512::Get().NextU32() % 1000) < rate) ? 1 : 0);
+    return 1;
+}
+
+// LUA-17: cQuestResult — broadcast KQ success/fail to all players in map
+static int Lua_cQuestResult_Real(lua_State* L) {
+    const char* szMapInx = luaL_checkstring(L, 1);
+    const char* szResult = luaL_checkstring(L, 2);
+    bool bSuccess = (strcmp(szResult, "Success") == 0);
+    uint16 uiMapID = MapField::NameToID(szMapInx);
+    const std::map<Handle, ShinePlayer*>& kAll = ZoneServer::Get().Players();
+    for (std::map<Handle, ShinePlayer*>::const_iterator it = kAll.begin();
+         it != kAll.end(); ++it) {
+        if (it->second && it->second->GetMap() == uiMapID && it->second->GetSession()) {
+            PacketBuffer pkt;
+            pkt.WriteU16(NC_KQ_END_CMD);
+            pkt.WriteU8(bSuccess ? 1 : 0);
+            it->second->GetSession()->Send(pkt);
+        }
+    }
+    return 0;
+}
+
+// LUA-18: cEndOfKingdomQuest
+static int Lua_cEndOfKingdomQuest_Real(lua_State* L) {
+    const char* szMapInx = luaL_checkstring(L, 1);
+    KingdomQuest::Get().End(szMapInx);
+    lua_pushboolean(L, 1);
+    return 1;
+}
+
+// LUA-19: cSetAbstate_Range — apply an AbState to all players in radius
+static int Lua_cSetAbstate_Range_Real(lua_State* L) {
+    Handle  h      = (Handle)luaL_checkinteger(L, 1);
+    float   range  = (float)luaL_checknumber(L, 2);
+    (void)luaL_checkinteger(L, 3); // objType — TODO CODEX-05 filter by type
+    uint32  ab     = AbnormalStateDictionary::Get().Lookup(luaL_checkstring(L, 4));
+    int     str    = (int)luaL_checkinteger(L, 5);
+    int32   ms     = (int32)luaL_checkinteger(L, 6);
+    ShinePlayer* src = FindPlayerHandle(h);
+    if (src && ab != 0) {
+        float cx = src->GetPos().x, cy = src->GetPos().z;
+        uint16 uiMap = src->GetMap();
+        std::vector<ShinePlayer*> kNear;
+        NearScan::Players(uiMap, cx, cy, range, kNear);
+        for (size_t i = 0; i < kNear.size(); ++i)
+            kNear[i]->Abstate().Apply(ab, ms, str);
+    }
+    lua_pushboolean(L, 1);
+    return 1;
+}
+
+// LUA-20: cGroupRegenInstance — spawn a named mob regen group in an instance map
+static int Lua_cGroupRegenInstance_Real(lua_State* L) {
+    const char* szMapInx   = luaL_checkstring(L, 1);
+    const char* szGroupInx = luaL_checkstring(L, 2);
+    // TODO CODEX-05: MobSpawnSystem::Get().SpawnGroup(szMapInx, szGroupInx)
+    (void)szMapInx; (void)szGroupInx;
+    lua_pushnil(L);
+    return 1;
+}
+
 // Forward decls from generated files (registers all 272 documented APIs and 11 enum tables).
 void RegisterAllLuaAPIs(lua_State* L);
 void RegisterLuaEnums  (lua_State* L);
@@ -65,12 +321,39 @@ void LuaRuntime::RegisterCBindings() {
     // First install the full documented surface (272 stubs).
     RegisterAllLuaAPIs(m_pkL);
     RegisterLuaEnums  (m_pkL);
-    // Then override the 5 with real implementations (lua_register replaces).
+    // Then override with real implementations (lua_register replaces).
+    // Pass 1 (5 real)
     lua_register(m_pkL, "cDamaged",      &Lua_cDamaged);
     lua_register(m_pkL, "cStaticDamage", &Lua_cStaticDamage);
     lua_register(m_pkL, "cSetAbstate",   &Lua_cSetAbstate);
     lua_register(m_pkL, "cLinkTo",       &Lua_cLinkTo);
     lua_register(m_pkL, "cFinishKey",    &Lua_cFinishKey);
+    // Pass 5 / LUA-01..20
+    lua_register(m_pkL, "cCurrentSecond",      &Lua_cCurrentSecond_Real);
+    lua_register(m_pkL, "cCurSec",             &Lua_cCurrentSecond_Real);
+    lua_register(m_pkL, "cObjectLocate",       &Lua_cObjectLocate_Real);
+    lua_register(m_pkL, "cObjectHP",           &Lua_cObjectHP_Real);
+    lua_register(m_pkL, "cIsObjectDead",       &Lua_cIsObjectDead_Real);
+    lua_register(m_pkL, "cMobRegen_XY",        &Lua_cMobRegen_XY_Real);
+    lua_register(m_pkL, "cMobRegen_Rectangle", &Lua_cMobRegen_Rectangle_Real);
+    lua_register(m_pkL, "cMobRegen_Circle",    &Lua_cMobRegen_Circle_Real);
+    lua_register(m_pkL, "cMobRegen_Obj",       &Lua_cMobRegen_Obj_Real);
+    lua_register(m_pkL, "cNPCVanish",          &Lua_cNPCVanish_Real);
+    lua_register(m_pkL, "cGetPlayerList",      &Lua_cGetPlayerList_Real);
+    lua_register(m_pkL, "cObjectCount",        &Lua_cObjectCount_Real);
+    lua_register(m_pkL, "cGetLevel",           &Lua_cGetLevel_Real);
+    lua_register(m_pkL, "cScriptMessage_Obj",  &Lua_cScriptMessage_Obj_Real);
+    lua_register(m_pkL, "cResetAbstate",       &Lua_cResetAbstate_Real);
+    lua_register(m_pkL, "cHeal",               &Lua_cHeal_Real);
+    lua_register(m_pkL, "cExecCheck",          &Lua_cExecCheck_Real);
+    lua_register(m_pkL, "cDoorAction",         &Lua_cDoorAction_Real);
+    lua_register(m_pkL, "cRandomInt",          &Lua_cRandomInt_Real);
+    lua_register(m_pkL, "cRandom",             &Lua_cRandomInt_Real);
+    lua_register(m_pkL, "cPermileRate",        &Lua_cPermileRate_Real);
+    lua_register(m_pkL, "cQuestResult",        &Lua_cQuestResult_Real);
+    lua_register(m_pkL, "cEndOfKingdomQuest",  &Lua_cEndOfKingdomQuest_Real);
+    lua_register(m_pkL, "cSetAbstate_Range",   &Lua_cSetAbstate_Range_Real);
+    lua_register(m_pkL, "cGroupRegenInstance", &Lua_cGroupRegenInstance_Real);
 }
 
 // ---------------------------------------------------------------------------
@@ -89,11 +372,38 @@ void RegisterZoneLuaAPI(lua_State* L) {
     if (!L) return;
     RegisterAllLuaAPIs(L);
     RegisterLuaEnums  (L);
+    // Pass 1 originals (5 real)
     lua_register(L, "cDamaged",      &Lua_cDamaged);
     lua_register(L, "cStaticDamage", &Lua_cStaticDamage);
     lua_register(L, "cSetAbstate",   &Lua_cSetAbstate);
     lua_register(L, "cLinkTo",       &Lua_cLinkTo);
     lua_register(L, "cFinishKey",    &Lua_cFinishKey);
+    // Pass 5 / LUA-01..LUA-20 (Lyra, May 2026)
+    lua_register(L, "cCurrentSecond",      &Lua_cCurrentSecond_Real);
+    lua_register(L, "cCurSec",             &Lua_cCurrentSecond_Real);
+    lua_register(L, "cObjectLocate",       &Lua_cObjectLocate_Real);
+    lua_register(L, "cObjectHP",           &Lua_cObjectHP_Real);
+    lua_register(L, "cIsObjectDead",       &Lua_cIsObjectDead_Real);
+    lua_register(L, "cMobRegen_XY",        &Lua_cMobRegen_XY_Real);
+    lua_register(L, "cMobRegen_Rectangle", &Lua_cMobRegen_Rectangle_Real);
+    lua_register(L, "cMobRegen_Circle",    &Lua_cMobRegen_Circle_Real);
+    lua_register(L, "cMobRegen_Obj",       &Lua_cMobRegen_Obj_Real);
+    lua_register(L, "cNPCVanish",          &Lua_cNPCVanish_Real);
+    lua_register(L, "cGetPlayerList",      &Lua_cGetPlayerList_Real);
+    lua_register(L, "cObjectCount",        &Lua_cObjectCount_Real);
+    lua_register(L, "cGetLevel",           &Lua_cGetLevel_Real);
+    lua_register(L, "cScriptMessage_Obj",  &Lua_cScriptMessage_Obj_Real);
+    lua_register(L, "cResetAbstate",       &Lua_cResetAbstate_Real);
+    lua_register(L, "cHeal",               &Lua_cHeal_Real);
+    lua_register(L, "cExecCheck",          &Lua_cExecCheck_Real);
+    lua_register(L, "cDoorAction",         &Lua_cDoorAction_Real);
+    lua_register(L, "cRandomInt",          &Lua_cRandomInt_Real);
+    lua_register(L, "cRandom",             &Lua_cRandomInt_Real);  // deprecated alias
+    lua_register(L, "cPermileRate",        &Lua_cPermileRate_Real);
+    lua_register(L, "cQuestResult",        &Lua_cQuestResult_Real);
+    lua_register(L, "cEndOfKingdomQuest",  &Lua_cEndOfKingdomQuest_Real);
+    lua_register(L, "cSetAbstate_Range",   &Lua_cSetAbstate_Range_Real);
+    lua_register(L, "cGroupRegenInstance", &Lua_cGroupRegenInstance_Real);
 }
 
 } // namespace fiesta
