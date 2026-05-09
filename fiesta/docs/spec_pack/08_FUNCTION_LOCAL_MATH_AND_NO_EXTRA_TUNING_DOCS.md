@@ -4,7 +4,7 @@ This rewrite should look like original Fiesta server source, not a modern balanc
 
 ## Core rule
 
-If a system/function exists in the original game, Emergent must implement the function even when the exact formula constants are not known yet.
+If a system/function exists in the original game, the implementer must implement the function even when the exact formula constants are not known yet.
 
 Unknown math is handled inside the function body:
 

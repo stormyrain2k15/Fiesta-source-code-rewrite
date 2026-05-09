@@ -1,6 +1,6 @@
 # Complete System Catalog
 
-Every row below is a system family Emergent must account for. Some can start as stubs, but they should exist in the design so later source recovery has a home.
+Every row below is a system family the implementer must account for. Some can start as stubs, but they should exist in the design so later source recovery has a home.
 
 ## 00 Bootstrap / Service Host / Windows Services
 

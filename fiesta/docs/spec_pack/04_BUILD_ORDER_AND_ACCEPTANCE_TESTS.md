@@ -1,6 +1,6 @@
 # Build Order and Acceptance Tests
 
-This order prevents Emergent from writing gameplay features before the original server framework exists.
+This order prevents the implementer from writing gameplay features before the original server framework exists.
 
 ## L0 Proof/Ingestion
 

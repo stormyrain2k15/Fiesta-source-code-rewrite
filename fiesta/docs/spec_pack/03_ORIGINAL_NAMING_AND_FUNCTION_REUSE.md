@@ -1,6 +1,6 @@
 # Original Naming and Function Reuse Guide
 
-Emergent should not invent clean-room names first. Use the PDB-derived names as the source-name vocabulary.
+the implementer should not invent clean-room names first. Use the PDB-derived names as the source-name vocabulary.
 
 ## Required CSVs
 

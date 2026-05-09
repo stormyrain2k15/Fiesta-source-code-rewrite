@@ -2,7 +2,7 @@
 
 ## Current rewrite policy update
 
-Runtime captures are useful validation, but they are not required before implementing the missing function surface. Emergent should implement every original-style system/function first using PDB names, docs, SHNs/TXTs, and source/module evidence. Captures/Hex-Rays are then used to tune and verify packet layouts, DB writes, and exact outputs.
+Runtime captures are useful validation, but they are not required before implementing the missing function surface. the implementer should implement every original-style system/function first using PDB names, docs, SHNs/TXTs, and source/module evidence. Captures/Hex-Rays are then used to tune and verify packet layouts, DB writes, and exact outputs.
 
 Unknown gameplay math should remain inside the owning function body as local `VERIFY/TUNE` constants or terms. Do not add a separate balance document/config system just because a value is unknown.
 

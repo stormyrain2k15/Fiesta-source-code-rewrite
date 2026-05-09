@@ -2,9 +2,9 @@
 
 ---
 
-<!-- 00_README_EMERGENT_HANDOFF.md -->
+<!-- 00_README_ENGINE_HANDOFF.md -->
 
-# Fiesta Online Complete Engine Rewrite Pack — Emergent Handoff
+# Fiesta Online Complete Engine Rewrite Pack — Engine Handoff
 
 Generated: 2026-05-09 00:37:38
 
@@ -16,7 +16,7 @@ This replaces the thin first-pass `fiesta_engine_requirements` pack with a fulle
 - Current recovered source inventory.
 - Official/fan-facing feature references for public names and gameplay meaning.
 
-## Critical instructions for Emergent
+## Critical instructions for the implementer
 
 1. **Reuse original names whenever possible.** Start with `function_names/full_function_symbols_filtered.csv` and `function_names/original_object_modules_from_pdb.csv` before inventing a class/function name.
 2. **Do not parse or rewrite quest SHNs with unsafe tooling.** Quest handling belongs behind a guarded loader. Runtime packet/DB/Hex-Rays evidence should be used first.
@@ -63,7 +63,7 @@ This replaces the thin first-pass `fiesta_engine_requirements` pack with a fulle
 
 # Fiesta Online — Complete Engine Rewrite Requirements
 
-This is the rewrite target: rebuild the server/client-support code as an original-style Fiesta engine, not a hacked pile of isolated table readers. The current source is pass 1 scaffolding. This document defines the missing system surface so Emergent can rewrite with all systems accounted for.
+This is the rewrite target: rebuild the server/client-support code as an original-style Fiesta engine, not a hacked pile of isolated table readers. The current source is pass 1 scaffolding. This document defines the missing system surface so the implementer can rewrite with all systems accounted for.
 
 ## Non-negotiable architecture rules
 
@@ -367,7 +367,7 @@ Client-side mirror tables, UI windows, skill/item/mob names, packet send/recv na
 
 # Complete System Catalog
 
-Every row below is a system family Emergent must account for. Some can start as stubs, but they should exist in the design so later source recovery has a home.
+Every row below is a system family the implementer must account for. Some can start as stubs, but they should exist in the design so later source recovery has a home.
 
 ## 00 Bootstrap / Service Host / Windows Services
 
@@ -980,7 +980,7 @@ Every row below is a system family Emergent must account for. Some can start as 
 
 # Original Naming and Function Reuse Guide
 
-Emergent should not invent clean-room names first. Use the PDB-derived names as the source-name vocabulary.
+the implementer should not invent clean-room names first. Use the PDB-derived names as the source-name vocabulary.
 
 ## Required CSVs
 
@@ -1021,7 +1021,7 @@ Emergent should not invent clean-room names first. Use the PDB-derived names as 
 
 # Build Order and Acceptance Tests
 
-This order prevents Emergent from writing gameplay features before the original server framework exists.
+This order prevents the implementer from writing gameplay features before the original server framework exists.
 
 ## L0 Proof/Ingestion
 
@@ -1113,7 +1113,7 @@ This order prevents Emergent from writing gameplay features before the original 
 
 ## Current rewrite policy update
 
-Runtime captures are useful validation, but they are not required before implementing the missing function surface. Emergent should implement every original-style system/function first using PDB names, docs, SHNs/TXTs, and source/module evidence. Captures/Hex-Rays are then used to tune and verify packet layouts, DB writes, and exact outputs.
+Runtime captures are useful validation, but they are not required before implementing the missing function surface. the implementer should implement every original-style system/function first using PDB names, docs, SHNs/TXTs, and source/module evidence. Captures/Hex-Rays are then used to tune and verify packet layouts, DB writes, and exact outputs.
 
 Unknown gameplay math should remain inside the owning function body as local `VERIFY/TUNE` constants or terms. Do not add a separate balance document/config system just because a value is unknown.
 
@@ -1518,7 +1518,7 @@ This rewrite should look like original Fiesta server source, not a modern balanc
 
 ## Core rule
 
-If a system/function exists in the original game, Emergent must implement the function even when the exact formula constants are not known yet.
+If a system/function exists in the original game, the implementer must implement the function even when the exact formula constants are not known yet.
 
 Unknown math is handled inside the function body:
 

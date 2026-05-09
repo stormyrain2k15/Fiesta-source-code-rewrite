@@ -1,4 +1,4 @@
-# Fiesta Online Complete Engine Rewrite Pack — Emergent Handoff
+# Fiesta Online Complete Engine Rewrite Pack — Engine Handoff
 
 Generated: 2026-05-09 00:37:38
 
@@ -10,7 +10,7 @@ This replaces the thin first-pass `fiesta_engine_requirements` pack with a fulle
 - Current recovered source inventory.
 - Official/fan-facing feature references for public names and gameplay meaning.
 
-## Critical instructions for Emergent
+## Critical instructions for the implementer
 
 1. **Reuse original names whenever possible.** Start with `function_names/full_function_symbols_filtered.csv` and `function_names/original_object_modules_from_pdb.csv` before inventing a class/function name.
 2. **Do not parse or rewrite quest SHNs with unsafe tooling.** Quest handling belongs behind a guarded loader. Runtime packet/DB/Hex-Rays evidence should be used first.
