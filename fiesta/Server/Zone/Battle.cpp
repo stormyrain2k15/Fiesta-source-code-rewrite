@@ -14,6 +14,7 @@
 #include "ItemSystems.h"
 #include "QuestSystem.h"
 #include "GameLogClient.h"
+#include "LiveOpsBoosts.h"
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
 
@@ -284,6 +285,13 @@ void Battle::Kill(ShineObject* pkA, ShineObject* pkT) {
             int32  scaler = ExpRecalcTable::Get().Scaler(
                                 pkKiller->GetLevel(), pkMob->m_uiLevel);
             uint64 grant = (base * (uint64)scaler) / 100ULL;
+            // Live-ops EXP boost (Lucky Hour / Double EXP): ratio is
+            // x1000 with 1000 == stock. Skipped when scaler is stock so
+            // we don't pay the divide on the hot path.
+            const int32 expBoost = LiveOpsBoosts::Get().ExpRateX1k();
+            if (expBoost != 1000) {
+                grant = (grant * (uint64)expBoost) / 1000ULL;
+            }
             pkKiller->AddExp(grant);
 
             // 2) Drops from data-driven DropResolver.

@@ -135,3 +135,41 @@ Server/WorldManager/
 │                                     daily/ranking writes -> CharDB exe
 ```
 
+
+
+## Live-ops boost system (Lucky Hour)
+
+Zone-side `LiveOpsBoosts` singleton (`Server/Zone/LiveOpsBoosts.{h,cpp}`)
+holds three multiplicative scalers (x1000, 1000 == stock):
+
+* `ExpRateX1k()`   -> applied in `Battle.cpp` after `ExpRecalcTable` scaler
+* `DropRateX1k()`  -> overrides `DropContext.nGlobalRateX1k` in
+  `ItemSystems.cpp::ItemDropFromMob::Trigger`
+* `MoneyRateX1k()` -> reserved for gold-drop / quest-reward consumers
+
+Well-known event ids (extends GMEvent.shn):
+
+| Id   | Name        | Effect                         |
+|------|-------------|--------------------------------|
+| 1001 | LuckyHour   | EXP +100% AND Drop +100%       |
+| 1002 | DoubleExp   | EXP +100%                      |
+| 1003 | DoubleDrop  | Drop +100%                     |
+| 1004 | GoldenHour  | Money +100%                    |
+
+Trigger paths:
+1. WM-side `GMEventManager.cpp` walks `GMEvent.shn` once per tick and
+   broadcasts `NC_INTER_BROADCAST_CMD { kind=2, eventNo, action }` on
+   every window enter / exit.
+2. Zone-side `WMClient::OnInterBroadcast` decodes kind=2 and calls
+   `GMEventManager_Zone::OnEventBroadcast(eventNo, bStart)`, which
+   resolves the duration from the same `GMEvent.shn` row and forwards
+   to `LiveOpsBoosts::StartEvent / StopEvent`.
+3. GM ad-hoc trigger: `&luckyhour <minutes> [expX1k] [dropX1k]` via
+   `AmpersandCommands.cpp` (admin level 100). `&luckyhour stop` ends.
+
+Tick: `LiveOpsBoosts::Tick()` runs from `ZoneServer::Tick()` and
+auto-reverts when `m_uiEndsAtMs` elapses.
+
+Announcements: `AnnounceSystem::Broadcast(level, text)` -- now declared
+in `Server/Zone/AnnounceSystem.h`, called from LiveOpsBoosts on every
+state transition.

@@ -1,5 +1,6 @@
 // Server/Zone/ZoneServer.cpp
 #include "ZoneServer.h"
+#include "LiveOpsBoosts.h"
 #include "../Shared/ShineLogSystem.h"
 #include "../Common/NETCOMMAND.h"
 #include "../Common/SendPacket.h"
@@ -31,6 +32,7 @@ void ZoneServer::Shutdown() {
 
 void ZoneServer::Tick() {
     // 1Hz hook -- per-system tick fan-out happens here in pass-2 (BattleTick, AbStateTick, etc.).
+    LiveOpsBoosts::Get().Tick();
 }
 
 Handle ZoneServer::NewObjectHandle() {

@@ -73,7 +73,7 @@ void DropResolver::Resolve(const DropContext& rCtx, std::vector<ShineItem>& rOut
         if (!pMobTab) return;
         const MobInfoServerRow* pMob = pMobTab->Find(rCtx.uiMobID);
         if (!pMob) return;
-: column name "DropItemListIdx" matches the supplied
+        // column name "DropItemListIdx" matches the supplied
         // MobInfoServer.shn header. If the field is named differently in
         // the generated struct, edit this single line.
         dropTableId = (uint32)pMob->DropItemListIdx;

@@ -5,6 +5,7 @@
 #include "ShineObject.h"
 #include "TypedSchemaConsumers.h"
 #include "GameLogClient.h"
+#include "LiveOpsBoosts.h"
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
 #include "../DataReader/Schemas.h"
@@ -96,7 +97,12 @@ void ItemDropFromMob::Trigger(ShineMob* pkMob, ShinePlayer* pkKiller) {
     if (!pkMob) return;
     DropContext ctx;
     ctx.uiMobID        = (uint32)pkMob->m_uiSpecies;
-    ctx.nGlobalRateX1k = 0;
+    // Live-ops drop boost (Lucky Hour / Double Drop): a non-stock value
+    // overrides kDropRateGlobalScalerX1k via DropContext.
+    {
+        const int32 dropBoost = LiveOpsBoosts::Get().DropRateX1k();
+        ctx.nGlobalRateX1k = (dropBoost != 1000) ? dropBoost : 0;
+    }
     std::vector<ShineItem> kItems;
     DropResolver::Resolve(ctx, kItems);
     for (size_t i = 0; i < kItems.size(); ++i) {

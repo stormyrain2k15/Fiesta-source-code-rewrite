@@ -5,7 +5,7 @@
 
 namespace fiesta {
 
-: live-game tunes this curve every few patches; reasonable default.
+// live-game tunes this curve every few patches; reasonable default.
 int32 DeathReviveSystem::ExpLossOnTownRevive(int32 nLevel) {
     if (nLevel < 10)  return 0;
     if (nLevel < 30)  return 10;     // 1.0% per-mille

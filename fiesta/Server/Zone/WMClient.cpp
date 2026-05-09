@@ -3,6 +3,7 @@
 #include "ZoneServer.h"
 #include "ShineObject.h"
 #include "Inventory.h"
+#include "GMEventManager.h"
 #include "../Shared/PacketBuffer.h"
 #include "../Shared/GPacket.h"
 #include "../Shared/ShineLogSystem.h"
@@ -45,6 +46,7 @@ public:
             case NC_INTER_OPTOOL_SYSMSG_PUSH:     OnSysMsg   (rPkt); break;
             case NC_INTER_OPTOOL_GIVEITEM_PUSH:   OnGiveItem (rPkt); break;
             case NC_INTER_OPTOOL_TAKEITEM_PUSH:   OnTakeItem (rPkt); break;
+            case NC_INTER_BROADCAST_CMD:          OnInterBroadcast(rPkt); break;
             default:
                 SHINELOG_DEBUG("Zone<-WM NC=0x%04X (no handler)", rPkt.GetOpcode());
                 break;
@@ -140,6 +142,33 @@ private:
 };
 
 // ---------------------------------------------------------------------------
+//  WMClient
+// ---------------------------------------------------------------------------
+WMClient& WMClient::Get() { static WMClient s; return s; }
+
+bool WMClient::Connect(IOCPManager* pkIOCP, const std::string& rIp, uint16 uiPort,
+                       uint16 uiZoneId, const std::string& rZoneIp, uint16 uiZoneClientPort)
+{
+    if (!m_kConn.Connect(pkIOCP, rIp, uiPort, new WMClientSession())) return false;
+    PacketBuffer body;
+    body.WriteU16(uiZoneId);
+    body.WriteString(rZoneIp);
+    body.WriteU16(uiZoneClientPort);
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_ZONE_REGISTER_REQ);
+    kPkt.Body().WriteBytes(body.Data(), body.Size());
+    return m_kConn.SendPacket(kPkt);
+}
+
+void WMClient::Disconnect() { m_kConn.Close(); }
+
+void WMClient::Heartbeat() {
+    if (!IsConnected()) return;
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_ZONE_HEARTBEAT_CMD);
+    m_kConn.SendPacket(kPkt);
+}
+
+} // namespace fiesta
+
 //  WMClient
 // ---------------------------------------------------------------------------
 WMClient& WMClient::Get() { static WMClient s; return s; }
