@@ -1,4 +1,4 @@
-// Server/Zone/AmpersandCommands_Generated.cpp
+// Server/Zone/AmpersandCommands.cpp
 #include "AmpersandCommands.h"
 #include "../Shared/ShineLogSystem.h"
 namespace fiesta {

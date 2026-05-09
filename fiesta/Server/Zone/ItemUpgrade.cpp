@@ -1,8 +1,17 @@
 // Server/Zone/ItemUpgrade.cpp
+// Resolves an item-upgrade attempt against ItemInfo.shn columns, then
+// persists the post-attempt state through CharDBClient and acks the
+// client over NC_ITEM_UPGRADE_ACK.
 #include "ItemUpgrade.h"
+#include "ShineObject.h"
+#include "ZoneServer.h"
+#include "CharDBClient.h"
 #include "BattleTunables.h"
 #include "../DataReader/Schemas.h"
 #include "../DataReader/ITableBase.h"
+#include "../Common/NETCOMMAND.h"
+#include "../Common/SendPacket.h"
+#include "../Shared/PacketBuffer.h"
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
 
@@ -10,7 +19,15 @@ namespace fiesta {
 
 static well512 s_kRng;
 
-eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckStone) {
+// CharDB stored-procedure option type for the enchant level. Other types
+// (random options, endure) are written from their respective subsystems.
+static const uint8 kItemOption_Enchant = 1;
+
+eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckStone,
+                                uint16& uiNewEnchantOut, uint64& uiItemKeyOut) {
+    uiNewEnchantOut = 0;
+    uiItemKeyOut    = 0;
+
     // Find the target item.
     const std::vector<ShineItem>& vAll = kInv.All();
     int idx = -1;
@@ -28,6 +45,9 @@ eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckS
     if (p->UpLimit == 0) return UPGRADE_BLOCKED;
     if (kItem.uiEnchant >= p->UpLimit) return UPGRADE_BLOCKED;
     if (kItem.uiEnchant >= kMaxUpgradeLevel) return UPGRADE_BLOCKED;
+
+    uiItemKeyOut    = kItem.uiDbItemKey;
+    uiNewEnchantOut = kItem.uiEnchant;
 
     // Compute success rate (per-mille).
     int32 sucRate = (int32)p->UpSucRatio;
@@ -48,6 +68,7 @@ eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckS
         mutated.uiEnchant = (uint16)(mutated.uiEnchant + 1);
         kInv.Remove(uiItemId);
         kInv.Add(mutated);
+        uiNewEnchantOut = mutated.uiEnchant;
         return UPGRADE_OK;
     }
 
@@ -64,11 +85,58 @@ eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckS
         if (mutated.uiEnchant > 0) mutated.uiEnchant = (uint16)(mutated.uiEnchant - 1);
         kInv.Remove(uiItemId);
         kInv.Add(mutated);
+        uiNewEnchantOut = mutated.uiEnchant;
         return UPGRADE_DOWNGRADE;
     }
     // penalty == 2 -> destroy.
     kInv.Remove(uiItemId);
     return UPGRADE_DESTROY;
+}
+
+eUpgradeResult ItemUpgrade::ResolveForPlayer(ShinePlayer* pkPlayer,
+                                              uint32 uiItemId, bool bUseLuckStone) {
+    if (!pkPlayer) return UPGRADE_BLOCKED;
+
+    uint16 uiNewEnchant = 0;
+    uint64 uiItemKey    = 0;
+    eUpgradeResult eRes = Try(pkPlayer->Inv(), uiItemId, bUseLuckStone,
+                              uiNewEnchant, uiItemKey);
+
+    // Persist + ack. The DB write only fires when we actually have the
+    // SQL identity for the row (i.e. the original Item_Create ack came
+    // back); a brand-new item that has not yet finished creation is not
+    // written to so the in-flight Item_Create ack stamping wins.
+    if (uiItemKey != 0) {
+        switch (eRes) {
+            case UPGRADE_OK:
+            case UPGRADE_DOWNGRADE:
+                CharDBClient::Get().ItemSetOption(uiItemKey, kItemOption_Enchant,
+                                                  (int32)uiNewEnchant);
+                break;
+            case UPGRADE_DESTROY:
+                CharDBClient::Get().ItemDelete(uiItemKey);
+                break;
+            case UPGRADE_FAIL:
+            case UPGRADE_BLOCKED:
+            default:
+                break;
+        }
+    }
+
+    // ACK the client. Body = [uint8 result][uint32 itemId][uint16 newEnchant].
+    ClientSession* cs = pkPlayer->GetSession();
+    if (cs) {
+        PacketBuffer ack;
+        ack.WriteU8 ((uint8)eRes);
+        ack.WriteU32(uiItemId);
+        ack.WriteU16(uiNewEnchant);
+        SendPacket(cs, NC_ITEM_UPGRADE_ACK, ack.Data(), ack.Size());
+    }
+
+    SHINELOG_INFO("ItemUpgrade cid=%u item=%u luck=%d -> result=%u newEnchant=%u",
+                  pkPlayer->GetCharID(), uiItemId, bUseLuckStone ? 1 : 0,
+                  (uint32)eRes, (uint32)uiNewEnchant);
+    return eRes;
 }
 
 } // namespace fiesta

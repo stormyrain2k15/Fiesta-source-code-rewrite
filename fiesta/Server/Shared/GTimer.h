@@ -9,7 +9,7 @@ namespace fiesta {
 class GTimer {
 public:
     GTimer();
-    void   Reset();                                 // EV_PDB
+    void   Reset();
     uint64 GetMillis() const;                       // monotonic ms since Reset
     uint64 GetMicros() const;
     static uint64 NowMillis();                      // wall clock helper

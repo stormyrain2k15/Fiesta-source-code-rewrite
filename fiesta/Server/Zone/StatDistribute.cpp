@@ -1,8 +1,43 @@
 // Server/Zone/StatDistribute.cpp
 #include "StatDistribute.h"
+#include "ClassParamTable.h"
+#include "MoverTables.h"
+#include "ShineObject.h"
 #include "BattleTunables.h"
 
 namespace fiesta {
+
+void FillRawCharStatFromPlayer(RAWCHARSTAT& rOut, const ShinePlayer& kP) {
+    rOut.Clear();
+    rOut.nLevel = (int32)kP.GetLevel();
+    rOut.bClass = (uint8)kP.GetClass();
+    rOut.bJob   = 0;
+
+    // Allocated free-stat portion -- BattleStat compose layers these on
+    // top of the class baseline at the rates defined in BattleTunables.
+    rOut.nSTR = (int32)kP.GetSTR();
+    rOut.nEND = (int32)kP.GetEND();
+    rOut.nDEX = (int32)kP.GetDEX();
+    rOut.nINT = (int32)kP.GetINT();
+    rOut.nMEN = (int32)kP.GetMEN();
+
+    // Class progression baseline. Prefer ClassParamTable (per-class .txt
+    // ladder); fall back to MoverMainTable (SHN-wide cap) so the engine
+    // stays usable when only one of the two has loaded.
+    const ClassParamRow* pCp =
+        ClassParamTable::Get().Find((eShineClass)kP.GetClass(), kP.GetLevel());
+    if (pCp) {
+        rOut.nBaseHP        = pCp->nMaxHP;
+        rOut.nBaseSP        = pCp->nMaxSP;
+        rOut.nBaseATK       = pCp->nAtkPerAP * pCp->nStr / 100;   // AP * STR scaler
+        rOut.nBaseMATK      = pCp->nAtkPerAP * pCp->nInt / 100;
+        rOut.nBaseDEF       = pCp->nGrdStoneAC;
+        rOut.nBaseMDEF      = pCp->nGrdStoneMR;
+        rOut.nBaseMoveSpeed = 200;
+        return;
+    }
+    MoverMainTable::Get().FillRaw(&rOut, (uint8)kP.GetClass(), kP.GetLevel());
+}
 
 void BuildBattleStat(BATTLESTAT* pOut,
                      const RAWCHARSTAT* pRaw,
@@ -87,3 +122,4 @@ void BuildBattleStat(BATTLESTAT* pOut,
 }
 
 } // namespace fiesta
+

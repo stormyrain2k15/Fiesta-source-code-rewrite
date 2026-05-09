@@ -41,6 +41,8 @@ read-only client renderer.
 | Inventory add               | `Inventory::Add`                | Character.p_Item_Create (returns ItemKey)  |
 | Inventory remove            | `Inventory::Remove`             | Character.p_Item_Delete (by ItemKey)       |
 | Bind-on-equip               | `Inventory::Equip`              | Character.p_Item_SetOption                 |
+| Item upgrade success/dn     | `ItemUpgrade::ResolveForPlayer` | Character.p_Item_SetOption (type=1 enchant)|
+| Item upgrade destroy        | `ItemUpgrade::ResolveForPlayer` | Character.p_Item_Delete                    |
 | Quest accept / abandon      | `QuestRuntime::StartQuest`      | Character.p_Quest_Set                      |
 | Quest complete              | `QuestRuntime::CompleteQuest`   | Character.p_Quest_Set                      |
 | Quest list reload           | `CharDBClient::QuestGetDoing`   | Character.p_Quest_GetAllDoing              |

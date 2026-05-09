@@ -12,7 +12,7 @@ void ShinePrison::Release(ShinePlayer* pk) {
     if (pk) TownPortal(pk, /*MapID*/ 1, Vec3(0,0,0));
 }
 void PrisonServer::Tick() {}
-// Forward decl from generated AmpersandCommands_Generated.cpp.
+// Forward decl: dispatcher in AmpersandCommands.cpp.
 bool DispatchAmpersand(ShinePlayer* pk, const std::string& rLine);
 
 bool AmpersandCommand::Execute(ShinePlayer* pk, const std::string& rLine) {

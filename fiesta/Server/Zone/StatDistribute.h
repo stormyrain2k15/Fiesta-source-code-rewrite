@@ -69,5 +69,16 @@ void BuildBattleStat(BATTLESTAT*           pOut,
                      const EQUIPSUMMARY*   pEquip,
                      const BUFFMODIFIERS*  pBuff);
 
+class ShinePlayer;
+
+// Builds a RAWCHARSTAT from the player's persistent state. The class
+// progression baseline (`nBaseHP/SP/ATK/DEF/MATK/MDEF/MoveSpeed`) is taken
+// from `ClassParamTable` (per-class growth file) -- with a fallback to
+// `MoverMainTable` when ClassParamTable hasn't been loaded for the class.
+// The allocated portion (`nSTR/nEND/nDEX/nINT/nMEN`) comes from the
+// player's free-stat ledger.
+void FillRawCharStatFromPlayer(RAWCHARSTAT& rOut, const ShinePlayer& kP);
+
 } // namespace fiesta
 #endif
+

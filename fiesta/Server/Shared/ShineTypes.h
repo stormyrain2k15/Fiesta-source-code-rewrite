@@ -1,5 +1,5 @@
 // Server/Shared/ShineTypes.h
-// common typedefs / evidence macros / build switches.
+// common typedefs and build switches.
 #ifndef FIESTA_SHINE_TYPES_H
 #define FIESTA_SHINE_TYPES_H
 
@@ -40,14 +40,6 @@ typedef uint16 NCOpcode;          // NETCOMMAND opcode (16-bit, network order on
 
 const Handle  INVALID_HANDLE = 0;
 const CharID  INVALID_CHARID = 0;
-
-// Evidence-level macro stamps (compile to nothing; pure documentation).
-#define EV_PDB
-#define EV_DATA
-#define EV_RUNTIME
-#define EV_HEX
-#define EV_GAMEPLAY
-#define
 
 } // namespace fiesta
 

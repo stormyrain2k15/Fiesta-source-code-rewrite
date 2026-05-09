@@ -1,5 +1,6 @@
 // Server/Zone/ShineObject.cpp
 #include "ShineObject.h"
+#include "FreeStatSystem.h"
 #include <stdlib.h>
 
 namespace fiesta {
@@ -31,6 +32,24 @@ void ShinePlayer::AddFame(int32 dFame) {
     int64 v = (int64)m_uiFame + dFame;
     if (v < 0) v = 0;
     m_uiFame = (uint32)v;
+}
+
+void ShinePlayer::BuildFreeStatLedger(FreeStatLedger& rOut) const {
+    rOut.nSTR = (int32)m_uiSTR;
+    rOut.nEND = (int32)m_uiEND;
+    rOut.nDEX = (int32)m_uiDEX;
+    rOut.nINT = (int32)m_uiINT;
+    rOut.nMEN = (int32)m_uiMEN;
+    rOut.nUnspentPoints = (int32)m_uiFreeStat;
+}
+
+void ShinePlayer::ApplyFreeStatLedger(const FreeStatLedger& rIn) {
+    m_uiSTR      = (uint16)(rIn.nSTR < 0 ? 0 : rIn.nSTR);
+    m_uiEND      = (uint16)(rIn.nEND < 0 ? 0 : rIn.nEND);
+    m_uiDEX      = (uint16)(rIn.nDEX < 0 ? 0 : rIn.nDEX);
+    m_uiINT      = (uint16)(rIn.nINT < 0 ? 0 : rIn.nINT);
+    m_uiMEN      = (uint16)(rIn.nMEN < 0 ? 0 : rIn.nMEN);
+    m_uiFreeStat = (uint16)(rIn.nUnspentPoints < 0 ? 0 : rIn.nUnspentPoints);
 }
 
 void ShinePlayer::FillFromCharLogin(AccountID a, CharID c, const std::string& n, uint16 lvl, uint16 cls) {

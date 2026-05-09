@@ -1,7 +1,7 @@
 // Server/DataServer/Common/SQLP.cpp
 // Implementations for every SQLP_* facade.  All proc names are the literal
 // `p_*` identifiers extracted from the original .bak files; see SQLP.h banner
-// for evidence trail.  Argument shapes follow the documented stored-procedure
+// for the source list. Argument shapes follow the documented stored-procedure
 // parameter lists; mismatches will surface at first proc call against a real
 // schema and should be corrected here only.
 // Concurrency: every call funnels through `Database::Exec/Query`, both of

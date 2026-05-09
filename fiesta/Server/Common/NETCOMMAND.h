@@ -151,6 +151,10 @@ enum NETCOMMAND {
     NC_BAT_REGEN_CMD                = NC_FAMILY_BAT + 0x07,
     NC_BAT_LEVELUP_CMD              = NC_FAMILY_BAT + 0x08,
     NC_BAT_GETEXP_CMD               = NC_FAMILY_BAT + 0x09,
+    NC_BAT_FREESTAT_DISTRIBUTE_REQ  = NC_FAMILY_BAT + 0x0A,
+    NC_BAT_FREESTAT_DISTRIBUTE_ACK  = NC_FAMILY_BAT + 0x0B,
+    NC_BAT_FREESTAT_RESET_REQ       = NC_FAMILY_BAT + 0x0C,
+    NC_BAT_FREESTAT_RESET_ACK       = NC_FAMILY_BAT + 0x0D,
 
     // ---- Skill ----------------------------------------------------------
     NC_BAT_SKILL_USE_REQ            = NC_FAMILY_SKILL + 0x01,

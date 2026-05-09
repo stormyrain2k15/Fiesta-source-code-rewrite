@@ -86,6 +86,15 @@ public:
     void           AddMoney(int64 dMoney);
     void           AddFame(int32 dFame);
 
+    // Free-stat allocation hooks. The ledger view exposes only the
+    // allocation-side stats (STR/END/DEX/INT/MEN are stored as totals
+    // here; class-baseline stats come from ClassParamTable at compose
+    // time). FreeStatSystem mutates this view, then ApplyFreeStatLedger
+    // writes the result back.
+    void           BuildFreeStatLedger(struct FreeStatLedger& rOut) const;
+    void           ApplyFreeStatLedger(const struct FreeStatLedger& rIn);
+    void           SetLevel(uint16 v) { m_uiLevel = v; }
+
     // -- session attachment -------------------------------------------------
     void           AttachSession(ClientSession* p) { m_pkSession = p; }
     ClientSession* GetSession() { return m_pkSession; }

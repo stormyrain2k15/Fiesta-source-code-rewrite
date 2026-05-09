@@ -10,6 +10,8 @@
 #include "SkillSystem.h"
 #include "Inventory.h"
 #include "ItemSystems.h"
+#include "ItemUpgrade.h"
+#include "FreeStatSystem.h"
 #include "NPCSystem.h"
 #include "QuestSystem.h"
 #include "Party.h"
@@ -85,6 +87,62 @@ static void H_NpcShopSell(IOCPSession* s, const GPacket& pkt) {
     ServerMenuActor::HandleSell(cs->GetPlayer(), npcId, slot, qty);
 }
 
+// ---- Item upgrade --------------------------------------------------------
+// Inbound: NC_ITEM_UPGRADE_REQ  [ uint32 itemId, uint8 useLuckStone ]
+// Outbound: NC_ITEM_UPGRADE_ACK [ uint8 result, uint32 itemId, uint16 newEnchant ]
+//   result codes: 0=OK 1=FAIL 2=DOWNGRADE 3=DESTROY 4=BLOCKED.
+static void H_ItemUpgrade(IOCPSession* s, const GPacket& pkt) {
+    ClientSession* cs = (ClientSession*)s; if (!cs || !cs->GetPlayer()) return;
+    PacketBuffer b = pkt.Body();
+    uint32 uiItemId = 0; uint8 uiLuck = 0;
+    b.ReadU32(uiItemId); b.ReadU8(uiLuck);
+    ItemUpgrade::ResolveForPlayer(cs->GetPlayer(), uiItemId, uiLuck != 0);
+}
+
+// ---- Free-stat allocation -------------------------------------------------
+// Inbound: NC_BAT_FREESTAT_DISTRIBUTE_REQ [ uint8 which, int32 delta ]
+//   `which` is the ASCII letter S/E/D/I/M selecting STR/END/DEX/INT/MEN.
+// Outbound: NC_BAT_FREESTAT_DISTRIBUTE_ACK
+//   [ uint8 ok, uint16 STR, uint16 END, uint16 DEX, uint16 INT, uint16 MEN,
+//     uint16 unspentPoints ]
+static void SendFreeStatAck(ClientSession* cs, ShinePlayer* p, NCOpcode op, bool bOk) {
+    if (!cs || !p) return;
+    PacketBuffer ack;
+    ack.WriteU8(bOk ? 1 : 0);
+    ack.WriteU16(p->GetSTR());
+    ack.WriteU16(p->GetEND());
+    ack.WriteU16(p->GetDEX());
+    ack.WriteU16(p->GetINT());
+    ack.WriteU16(p->GetMEN());
+    ack.WriteU16(p->GetFreeStat());
+    SendPacket(cs, op, ack.Data(), ack.Size());
+}
+
+static void H_FreeStatDistribute(IOCPSession* s, const GPacket& pkt) {
+    ClientSession* cs = (ClientSession*)s; if (!cs || !cs->GetPlayer()) return;
+    ShinePlayer* p = cs->GetPlayer();
+    PacketBuffer b = pkt.Body();
+    uint8 uiWhich = 0; int32 nDelta = 0;
+    b.ReadU8(uiWhich); b.ReadI32(nDelta);
+
+    FreeStatLedger kLedger;
+    p->BuildFreeStatLedger(kLedger);
+    bool bOk = FreeStatSystem::Allocate(kLedger, (uint8)p->GetClass(),
+                                         p->GetLevel(), (char)uiWhich, nDelta);
+    if (bOk) p->ApplyFreeStatLedger(kLedger);
+    SendFreeStatAck(cs, p, NC_BAT_FREESTAT_DISTRIBUTE_ACK, bOk);
+}
+
+static void H_FreeStatReset(IOCPSession* s, const GPacket&) {
+    ClientSession* cs = (ClientSession*)s; if (!cs || !cs->GetPlayer()) return;
+    ShinePlayer* p = cs->GetPlayer();
+    FreeStatLedger kLedger;
+    p->BuildFreeStatLedger(kLedger);
+    FreeStatSystem::RefundAll(kLedger);
+    p->ApplyFreeStatLedger(kLedger);
+    SendFreeStatAck(cs, p, NC_BAT_FREESTAT_RESET_ACK, true);
+}
+
 void RegisterZoneHandlers() {
     ProtocolParser& p = GetZoneParser();
     p.Register(NC_CHAR_LOGIN_REQ,           &CharLogin);
@@ -99,6 +157,9 @@ void RegisterZoneHandlers() {
     p.Register(NC_NPC_MENU_PICK_REQ,        &H_NpcMenuPick);
     p.Register(NC_NPC_SHOP_BUY_REQ,         &H_NpcShopBuy);
     p.Register(NC_NPC_SHOP_SELL_REQ,        &H_NpcShopSell);
+    p.Register(NC_ITEM_UPGRADE_REQ,         &H_ItemUpgrade);
+    p.Register(NC_BAT_FREESTAT_DISTRIBUTE_REQ, &H_FreeStatDistribute);
+    p.Register(NC_BAT_FREESTAT_RESET_REQ,   &H_FreeStatReset);
 }
 
 } // namespace fiesta

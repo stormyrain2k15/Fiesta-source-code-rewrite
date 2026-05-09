@@ -39,9 +39,9 @@ bool AbnormalState::Has(uint32 ab) const {
 AbnormalStateDictionary& AbnormalStateDictionary::Get() { static AbnormalStateDictionary s; return s; }
 
 uint16 AbnormalStateDictionary::GetSaveType(uint32) const {
-    // Real lookup wires through ITableBase<AbStateRow>::ms_pkTable in pass 2;
-    // generated AbStateRow has the documented "SaveType"-class fields under
-    // schema-derived names -- pass-2 maps the SHINE_ABSTATE_ID -> row.
+    // Real lookup wires through ITableBase<AbStateRow>::ms_pkTable;
+    // AbStateRow has the documented "SaveType"-class fields under
+    // schema-derived names; the SHINE_ABSTATE_ID maps to the row.
     return 0;
 }
 uint16 AbnormalStateDictionary::GetShelterFlags(uint32) const { return 0; }
