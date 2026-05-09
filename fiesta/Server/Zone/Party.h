@@ -26,6 +26,7 @@ public:
     bool    Kick (uint32 uiPartyId, CharID kicker, CharID kicked);
     bool    Break(uint32 uiPartyId, CharID requester);
     Party*  GetByMember(CharID c);
+    Party*  Get(uint32 uiPartyId);
     static int32 BonusXpPct(size_t uiSize);   // EV_VERIFY
 private:
     PartyContainer() : m_uiNext(1) {}

@@ -247,6 +247,7 @@ public:
     void Bind();
     const MapInfoRow* Find(uint32 uiID) const;
     const MapInfoRow* FindByName(const std::string& rMapName) const;
+    const std::vector<MapInfoRow>& Maps() const { return m_kMaps; }
     size_t Count() const { return m_kMaps.size(); }
 private:
     std::vector<MapInfoRow>           m_kMaps;

@@ -427,6 +427,39 @@ P2:
 - Unit tests for opcode round-trip on PacketBuffer / GPacket.
 - Anti-cheat: real XTrap handshake against XTrap4 server DLL.
 
+## Pass 1.21 — Runtime hooks: spawn, aura, persistence (2026-02)
+
+User direction (verbatim): "Do all of it, and the folder path is
+9Data/Shine/"
+
+Delivered:
+- Data root convention updated: default `Data.Root` is now `9Data`;
+  per-folder loaders consume `<dataRoot>\Shine`.
+- `Server/Zone/MobSpawnSystem.{h,cpp}`: walks `MobRegenBox` at boot,
+  builds one `MobSpawnGroup` per `MobRegen` row (species via
+  `MobTables::FindByInx`, area via the referenced `MobRegenGroup`).
+  Per-tick top-up to MobNum target; respawn timer on death.
+- `Battle::Kill` now notifies `MobSpawnSystem::OnMobDied` when an
+  `OT_MOB` target dies.
+- `EstateServer::Tick` propagates each placed furniture's
+  `MiniHouseFurnitureObjEffect` aura to the owner and every
+  `OT_PLAYER` within Range cells on the same Field.
+- `ExpeditionSystem::Tick` re-applies `uiMasterBuffID` to every member
+  of every sub-party (90s keep-time tolerates a missed tick).
+  `PartyContainer::Get(uiPartyId)` was added.
+- `CharDBClient` extended with fire-and-forget routes for
+  Marriage / HolyPromise / Estate (opcodes 10..33 over the existing
+  `NC_INTER_CHAR_DB_QUERY` envelope).
+- `SQLP_Estate` facade added (`p_Estate_Create/Demolish/SaveFurniture/
+  LoadFurniture`).
+- `Server/DataServer/Character/Main.cpp` dispatcher routes the new
+  social opcodes through `HandleSocialOp`; instantiates `SQLP_Estate`
+  at boot.
+
+Doc: `docs/PASS1_21_RUNTIME_HOOKS.md`.
+
+Status: code authored, awaiting user-side VS2010 compile.
+
 ## Pass 1.20 — Per-folder asset ingest + NPC spawn pipeline (2026-02)
 
 User direction (verbatim): "keep going with adding the files and what

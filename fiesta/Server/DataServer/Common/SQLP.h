@@ -151,6 +151,19 @@ public:
     bool   DelAll       (CharID c);                                             // p_Friend_Del_All
 };
 
+// Estate / mini-house persistence. Layout matches the in-memory `EstateRec`
+// in Server/Zone/EstateSystem.h:
+//   tEstate           (CharID PK, uiHouseId, uiTier, uiEndure, uiNextDecay)
+//   tEstateFurniture  (CharID, slot PK, furnId, X, Y, Z, yawDeg, endure)
+class SQLP_Estate : public SQLP_Base {
+public:
+    SQLP_Estate(Database* d) : SQLP_Base(d) {}
+    bool   Create   (CharID owner, uint32 uiHouseId, uint32 uiTier);            // p_Estate_Create
+    bool   Demolish (CharID owner);                                             // p_Estate_Demolish
+    bool   Save     (CharID owner, const uint8* pData, size_t uiLen);           // p_Estate_SaveFurniture
+    bool   Load     (CharID owner, std::vector<DBRecord>& rOut);                // p_Estate_LoadFurniture
+};
+
 // ----- World00_GameLog database ------------------------------------------
 
 class SQLP_GameLog : public SQLP_Base {

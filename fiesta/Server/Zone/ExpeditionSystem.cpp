@@ -1,5 +1,7 @@
 // Server/Zone/ExpeditionSystem.cpp
 #include "ExpeditionSystem.h"
+#include "ZoneServer.h"
+#include "AbState.h"
 #include "../Shared/ShineLogSystem.h"
 
 namespace fiesta {
@@ -104,13 +106,25 @@ void ExpeditionSystem::ApplyMasterBuff(uint32 uiExpId, uint32 uiBuffID) {
 }
 
 void ExpeditionSystem::Tick() {
-    // Per-expedition refresh: re-apply master buff to every member every
-    // ~5s. The actual buff dispatch is owned by AbState; we just nudge it.
+    // Per-expedition refresh: re-apply the master buff to every member of
+    // every sub-party every tick. Keep-time is 90s (~1 min) so a missed
+    // tick still leaves the buff pinned. AbState handles dedupe / stack
+    // resolution against any pre-existing identical abstate.
+    static const uint32 EXP_BUFF_KEEP_MS = 90000;
     std::map<uint32, ExpeditionRec>::iterator it;
     for (it = m_kAll.begin(); it != m_kAll.end(); ++it) {
         const ExpeditionRec& e = it->second;
         if (e.uiMasterBuffID == 0) continue;
-        // (No-op stub -- AbState wiring lands in a follow-up pass.)
+        for (size_t pi = 0; pi < e.kPartyIds.size(); ++pi) {
+            const Party* pkP = PartyContainer::Get().Get(e.kPartyIds[pi]);
+            if (!pkP) continue;
+            for (size_t mi = 0; mi < pkP->kMembers.size(); ++mi) {
+                ShinePlayer* pkM =
+                    ZoneServer::Get().FindPlayerByCharID(pkP->kMembers[mi]);
+                if (pkM)
+                    pkM->AbState().Apply(e.uiMasterBuffID, EXP_BUFF_KEEP_MS);
+            }
+        }
     }
 }
 

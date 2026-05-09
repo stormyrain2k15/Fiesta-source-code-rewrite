@@ -1,6 +1,7 @@
 // Server/Zone/MarriageSystem.cpp
 #include "MarriageSystem.h"
 #include "MiscTables.h"
+#include "CharDBClient.h"
 #include "../Shared/ShineLogSystem.h"
 
 namespace fiesta {
@@ -30,6 +31,7 @@ bool MarriageServer::Propose(CharID a, CharID b) {
     m_kIndex[a]      = r.uiRecID;
     m_kIndex[b]      = r.uiRecID;
     SHINELOG_INFO("Marriage proposed: %u -> %u (rec %u)", a, b, r.uiRecID);
+    CharDBClient::Get().WeddingPropose(a, b);
     return true;
 }
 
@@ -44,6 +46,7 @@ bool MarriageServer::Reject(CharID a) {
     MarriageRecord* p = FindByCharID(a); if (!p)                    return false;
     if (p->eState != MS_PROPOSED)                                   return false;
     if (p->uiB != a)                                                return false;
+    CharDBClient::Get().WeddingCancelPropose(p->uiA, p->uiB);
     m_kIndex.erase(p->uiA); m_kIndex.erase(p->uiB);
     m_kAll.erase(p->uiRecID);
     return true;
@@ -56,12 +59,20 @@ bool MarriageServer::Wed(CharID a, CharID b, uint64 uiNowMs) {
     p->eState       = MS_MARRIED;
     p->uiCeremonyMs = uiNowMs;
     SHINELOG_INFO("Marriage solemnised: %u <-> %u (rec %u)", a, b, p->uiRecID);
+    CharDBClient::Get().WeddingDo      (a, b);
+    CharDBClient::Get().HolyPromiseSet (a, b);
+    CharDBClient::Get().HolyPromiseSetDate(a);
     return true;
 }
 
 bool MarriageServer::Divorce(CharID a) {
     MarriageRecord* p = FindByCharID(a); if (!p)                    return false;
     p->eState = MS_DIVORCED;
+    CharID partner = (p->uiA == a) ? p->uiB : p->uiA;
+    CharDBClient::Get().WeddingDivorce     (a);
+    CharDBClient::Get().WeddingDivorce     (partner);
+    CharDBClient::Get().HolyPromiseDelChar (a);
+    CharDBClient::Get().HolyPromiseDelChar (partner);
     m_kIndex.erase(p->uiA); m_kIndex.erase(p->uiB);
     m_kAll.erase(p->uiRecID);
     return true;

@@ -48,6 +48,11 @@ Party* PartyContainer::GetByMember(CharID c) {
     return NULL;
 }
 
+Party* PartyContainer::Get(uint32 uiPartyId) {
+    std::map<uint32, Party>::iterator it = m_kAll.find(uiPartyId);
+    return (it == m_kAll.end()) ? NULL : &it->second;
+}
+
 int32 PartyContainer::BonusXpPct(size_t n) {
     static const int32 t[9] = { 0, 0, 10, 15, 20, 25, 30, 32, 35 };
     return n < 9 ? t[n] : 35;

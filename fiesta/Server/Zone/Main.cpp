@@ -27,6 +27,7 @@
 #include "ShineNPCTable.h"
 #include "ClassParamTable.h"
 #include "ChrCommonTable.h"
+#include "MobSpawnSystem.h"
 #include "../DataReader/ShnRegistry.h"
 #include "../../Lua/LuaRuntime.h"
 
@@ -41,7 +42,7 @@ public:
     ZoneService() : WinService("FiestaZone") {}
     virtual bool OnStart() {
         m_kInfo.Load("ZoneServerInfo.txt");
-        m_kReader.SetRoot(m_kInfo.GetString("Data.Root", "Data"));
+        m_kReader.SetRoot(m_kInfo.GetString("Data.Root", "9Data"));
         // Two distinct roots used across the loader chain:
         //   * `dataRoot`  -- top-level "Data" directory; ShnRegistry walks
         //                    `<dataRoot>\Shine\*.shn` and `<dataRoot>\Shine-1\*.shn`.
@@ -94,6 +95,11 @@ public:
         ClassParamTable::Get().Load(shineRoot);
         ChrCommonTable ::Get().Load(shineRoot);
 
+        // Build the per-zone mob spawn driver. After this, every populated
+        // MobRegen group has an entry in MobSpawnSystem and `Tick()` will
+        // top each one up to its MobNum target.
+        MobSpawnSystem::Get().LoadAll();
+
         ZoneServer::Get().Init(m_kInfo.GetU16("Zone.Id", 0));
         RegisterZoneHandlers();
         if (!m_kIOCP.Start()) return false;
@@ -126,6 +132,7 @@ public:
         BoothManager::Tick();
         EstateServer::Get().Tick(::GetTickCount64());
         ExpeditionSystem::Get().Tick();
+        MobSpawnSystem::Get().Tick(::GetTickCount64());
         GuildWarManager::Tick();
         GuildTournamentSystem::Tick();
         ChargedEffectManager::Get().Tick();

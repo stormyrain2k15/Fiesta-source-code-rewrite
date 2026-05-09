@@ -455,4 +455,40 @@ bool SQLP_IPChecker::IsBlocked(const std::string& rIP) {
     return Col0I32(rows) != 0;
 }
 
+// ===========================================================================
+//  SQLP_Estate -- mini-house ownership and furniture persistence.
+// ===========================================================================
+bool SQLP_Estate::Create(CharID owner, uint32 uiHouseId, uint32 uiTier) {
+    if (!m_pkDb) return false;
+    return m_pkDb->ExecProc("p_Estate_Create",
+        F("%u,%u,%u", owner, uiHouseId, uiTier));
+}
+
+bool SQLP_Estate::Demolish(CharID owner) {
+    if (!m_pkDb) return false;
+    return m_pkDb->ExecProc("p_Estate_Demolish", F("%u", owner));
+}
+
+bool SQLP_Estate::Save(CharID owner, const uint8* pData, size_t uiLen) {
+    if (!m_pkDb || !pData) return false;
+    // Encode the placement blob as a hex literal (0x...). Each placement
+    // is 24 bytes -- a 30-furniture house fits in 720B + 4B header, well
+    // within most ODBC drivers' 8000-char varbinary limit.
+    std::string hex; hex.reserve(2 + uiLen * 2);
+    hex += "0x";
+    static const char* kHex = "0123456789ABCDEF";
+    for (size_t i = 0; i < uiLen; ++i) {
+        hex += kHex[(pData[i] >> 4) & 0xF];
+        hex += kHex[ pData[i]       & 0xF];
+    }
+    if (uiLen == 0) hex = "0x00";
+    std::string args = F("%u,", owner); args += hex;
+    return m_pkDb->ExecProc("p_Estate_SaveFurniture", args);
+}
+
+bool SQLP_Estate::Load(CharID owner, std::vector<DBRecord>& rOut) {
+    if (!m_pkDb) return false;
+    return m_pkDb->QueryProc("p_Estate_LoadFurniture", F("%u", owner), rOut);
+}
+
 } // namespace fiesta

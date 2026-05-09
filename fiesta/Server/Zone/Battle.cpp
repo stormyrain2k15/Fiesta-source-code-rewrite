@@ -7,6 +7,7 @@
 #include "BattleTunables.h"
 #include "LevelGapTable.h"
 #include "MobResistTable.h"
+#include "MobSpawnSystem.h"
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
 
@@ -238,6 +239,9 @@ void Battle::Apply(ShineObject* pkA, ShineObject* pkT, const DAMAGERESULT& r) {
 void Battle::Kill(ShineObject* pkA, ShineObject* pkT) {
     if (!pkT) return;
     SHINELOG_INFO("Battle::Kill h=%u by h=%u", pkT->GetHandle(), pkA ? pkA->GetHandle() : 0);
+    // Notify the spawn system so the mob's slot frees up for respawn.
+    if (pkT->GetType() == OT_MOB)
+        MobSpawnSystem::Get().OnMobDied(pkT->GetHandle());
     // Drops / EXP / quest credit fan out from here in pass 2.
 }
 

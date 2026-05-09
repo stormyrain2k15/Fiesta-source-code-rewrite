@@ -10,7 +10,7 @@
 
 namespace fiesta {
 
-DataReader::DataReader() : m_kRoot("Data") {}
+DataReader::DataReader() : m_kRoot("9Data") {}
 DataReader::~DataReader() {}
 
 static std::string Join(const std::string& a, const std::string& b) {

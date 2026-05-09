@@ -115,4 +115,62 @@ void CharDBClient::OnLogoutResponse(CharID, bool) {
     // No state to update; pass-through.
 }
 
+// ---------------------------------------------------------------------------
+//  Marriage / HolyPromise persistence (fire-and-forget). The CharDB exe
+//  routes each opcode to its SQLP_Wedding / SQLP_HolyPromise handler.
+// ---------------------------------------------------------------------------
+#define DBC_SEND2(op, a, b) do {                                            \
+    if (!IsConnected()) return;                                             \
+    PacketBuffer body;                                                      \
+    body.WriteU8((op)); body.WriteU32((a)); body.WriteU32((b));             \
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_CHAR_DB_QUERY);                   \
+    kPkt.Body().WriteBytes(body.Data(), body.Size());                       \
+    m_kConn.SendPacket(kPkt);                                               \
+} while (0)
+
+#define DBC_SEND1(op, c) do {                                               \
+    if (!IsConnected()) return;                                             \
+    PacketBuffer body;                                                      \
+    body.WriteU8((op)); body.WriteU32((c));                                 \
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_CHAR_DB_QUERY);                   \
+    kPkt.Body().WriteBytes(body.Data(), body.Size());                       \
+    m_kConn.SendPacket(kPkt);                                               \
+} while (0)
+
+void CharDBClient::WeddingPropose      (CharID a, CharID b) { DBC_SEND2(10, a, b); }
+void CharDBClient::WeddingCancelPropose(CharID a, CharID b) { DBC_SEND2(11, a, b); }
+void CharDBClient::WeddingDo           (CharID a, CharID b) { DBC_SEND2(12, a, b); }
+void CharDBClient::WeddingDivorce      (CharID c)           { DBC_SEND1(13, c);    }
+void CharDBClient::HolyPromiseSet      (CharID a, CharID b) { DBC_SEND2(20, a, b); }
+void CharDBClient::HolyPromiseSetDate  (CharID c)           { DBC_SEND1(21, c);    }
+void CharDBClient::HolyPromiseDelChar  (CharID c)           { DBC_SEND1(22, c);    }
+
+void CharDBClient::EstateCreate(CharID owner, uint32 uiHouseId, uint32 uiTier) {
+    if (!IsConnected()) return;
+    PacketBuffer body;
+    body.WriteU8 (30);
+    body.WriteU32(owner);
+    body.WriteU32(uiHouseId);
+    body.WriteU32(uiTier);
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_CHAR_DB_QUERY);
+    kPkt.Body().WriteBytes(body.Data(), body.Size());
+    m_kConn.SendPacket(kPkt);
+}
+void CharDBClient::EstateDemolish(CharID owner) { DBC_SEND1(31, owner); }
+void CharDBClient::EstateSave(CharID owner, const uint8* pData, size_t uiLen) {
+    if (!IsConnected() || !pData) return;
+    PacketBuffer body;
+    body.WriteU8 (32);
+    body.WriteU32(owner);
+    body.WriteU32((uint32)uiLen);
+    body.WriteBytes(pData, uiLen);
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_CHAR_DB_QUERY);
+    kPkt.Body().WriteBytes(body.Data(), body.Size());
+    m_kConn.SendPacket(kPkt);
+}
+void CharDBClient::EstateLoad(CharID owner) { DBC_SEND1(33, owner); }
+
+#undef DBC_SEND2
+#undef DBC_SEND1
+
 } // namespace fiesta
