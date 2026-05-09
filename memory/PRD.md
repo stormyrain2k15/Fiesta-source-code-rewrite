@@ -504,6 +504,32 @@ Doc: `docs/PASS1_20_PER_FOLDER_INGEST.md`.
 
 Status: code authored, awaiting user-side VS2010 compile.
 
+## Pass 1.26 — Long-tail SHN + World/*.txt column auditor (2026-02)
+
+User mandate: "Audit per-column coverage of the long-tail SHNs read via
+the generic ShnRegistry path... Audit every `World/*.txt` runtime side
+... the same way."
+
+Delivered:
+- `Server/DataReader/ShnRegistry.{h,cpp}` -- transparent column
+  auditor hooked into `GetTable()` and `ShnGet*`. Emits one
+  `WARN ShnAudit: <table>.<col> parsed but not consumed` line per
+  unread column at boot end.
+- `Server/DataReader/TableScriptFile.{h,cpp}` -- same shape for the
+  TS-format World/*.txt files. `TsTable::GetCell` stamps every
+  by-name read; `TableScriptFile::Load` registers every parsed
+  TsTable so the boot-end walker can diff against the binders.
+- `Server/Zone/Main.cpp` -- after `BindAllExtendedTables()` and
+  `BindTypedSchemaConsumers()`, emits both audit reports.
+- `Server/Zone/NPCItemListTable.cpp` -- bumped per-tab column read
+  from Column00..05 to Column00..15.
+
+Status: code authored. Once user runs the first VS2010 boot, the log
+will include one warning per parsed-but-unconsumed column for the
+next pass to fill.
+
+Doc: `docs/PASS1_26_COLUMN_AUDITOR.md`.
+
 ## Pass 1.23 — 1.25  Full SHN column wire-through (2026-02)
 
 User mandate (verbatim): "Do not i repeat do not skip a single column in a

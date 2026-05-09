@@ -2,8 +2,44 @@
 #include "ShnRegistry.h"
 #include "../Shared/ShineLogSystem.h"
 #include <windows.h>
+#include <set>
+#include <string>
 
 namespace fiesta {
+
+// ----- Column audit: track every read (table, column) so we can warn at
+// boot for any column the binders never asked for. The "current" table is
+// set as a side-effect of GetTable() and updated whenever a new ShnFile
+// pointer is queried. Reads stamp into the per-table set.
+namespace {
+    static std::string                                    s_kAuditCurrent;
+    static std::map<std::string, std::set<std::string> >  s_kAuditReads;
+    static const ShnFile*                                 s_pkAuditLastFile = NULL;
+}
+void ShnAudit_BeginTable(const std::string& rT) { s_kAuditCurrent = rT; }
+void ShnAudit_RecordRead(const std::string& rC) {
+    if (!s_kAuditCurrent.empty()) s_kAuditReads[s_kAuditCurrent].insert(rC);
+}
+void ShnAudit_EmitReport(const ShnRegistry& rReg) {
+    uint32 totalUnread = 0;
+    uint32 totalAudited = 0;
+    std::map<std::string, std::set<std::string> >::const_iterator it;
+    for (it = s_kAuditReads.begin(); it != s_kAuditReads.end(); ++it) {
+        const ShnFile* t = rReg.GetTable(it->first);
+        if (!t) continue;
+        ++totalAudited;
+        const std::vector<ShnColumn>& cols = t->Columns();
+        for (size_t c = 0; c < cols.size(); ++c) {
+            if (it->second.find(cols[c].kName) == it->second.end()) {
+                SHINELOG_WARN("ShnAudit: %s.%s parsed but not consumed",
+                              it->first.c_str(), cols[c].kName.c_str());
+                ++totalUnread;
+            }
+        }
+    }
+    SHINELOG_INFO("ShnColumnAuditor: %u tables audited, %u unconsumed columns",
+                  totalAudited, totalUnread);
+}
 
 ShnRegistry& ShnRegistry::Get() { static ShnRegistry s; return s; }
 
@@ -49,7 +85,14 @@ size_t ShnRegistry::LoadAll(const std::string& rRoot) {
 
 const ShnFile* ShnRegistry::GetTable(const std::string& rName) const {
     std::map<std::string, ShnFile*>::const_iterator it = m_kAll.find(rName);
-    return (it == m_kAll.end()) ? NULL : it->second;
+    const ShnFile* p = (it == m_kAll.end()) ? NULL : it->second;
+    if (p) {
+        // Side-effect: set the audit "current table" so downstream
+        // ShnGet*() calls record their column reads against `rName`.
+        ShnAudit_BeginTable(rName);
+        s_pkAuditLastFile = p;
+    }
+    return p;
 }
 
 bool ShnRegistry::ColumnIndex(const std::string& rTable, const std::string& rColumn,
@@ -75,6 +118,7 @@ namespace {
 }
 
 std::string ShnGetStr(const ShnFile& rTab, size_t uiRow, const std::string& rColumn) {
+    if (&rTab == s_pkAuditLastFile) ShnAudit_RecordRead(rColumn);
     int32 c = FindCol(rTab, rColumn);
     if (c < 0) return std::string();
     if (uiRow >= rTab.Rows().size()) return std::string();
@@ -83,6 +127,7 @@ std::string ShnGetStr(const ShnFile& rTab, size_t uiRow, const std::string& rCol
     return row[c].kStr;
 }
 uint32 ShnGetU32(const ShnFile& rTab, size_t uiRow, const std::string& rColumn) {
+    if (&rTab == s_pkAuditLastFile) ShnAudit_RecordRead(rColumn);
     int32 c = FindCol(rTab, rColumn);
     if (c < 0) return 0u;
     if (uiRow >= rTab.Rows().size()) return 0u;
@@ -91,6 +136,7 @@ uint32 ShnGetU32(const ShnFile& rTab, size_t uiRow, const std::string& rColumn) 
     return (uint32)row[c].iVal;
 }
 int32 ShnGetI32(const ShnFile& rTab, size_t uiRow, const std::string& rColumn) {
+    if (&rTab == s_pkAuditLastFile) ShnAudit_RecordRead(rColumn);
     int32 c = FindCol(rTab, rColumn);
     if (c < 0) return 0;
     if (uiRow >= rTab.Rows().size()) return 0;

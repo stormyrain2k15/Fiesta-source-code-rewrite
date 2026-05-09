@@ -31,6 +31,7 @@
 #include "MobSpawnSystem.h"
 #include "MobAIRunner.h"
 #include "../DataReader/ShnRegistry.h"
+#include "../DataReader/TableScriptFile.h"
 #include "../../Lua/LuaRuntime.h"
 
 namespace fiesta {
@@ -69,6 +70,14 @@ public:
         // CharacterTitleData / ActionRangeFactor / GTIServer / StateField /
         // MIDungeon+MIDServer / SubAbState.
         BindTypedSchemaConsumers();
+        // Pass 1.26 -- diff each binder's read-set against the SHN's actual
+        // columns. Any column that was parsed but never asked-for shows up
+        // as a WARN line in the boot log. Same pass for the World/*.txt
+        // (TableScript) loaders so MobRegen / MobRoam / MobAttackSequence /
+        // MobSetting/Action / NPCItemList / NPCAction / BlockInfo all
+        // surface their unread columns at boot.
+        ShnAudit_EmitReport(ShnRegistry::Get());
+        TsAudit_EmitReport();
         // Walk World/PineScript.txt and load every ScenarioBookShelf
         // .ps script (KQ, Promote, Wedding, Guild, instance dungeons).
         LoadAllPineScripts(shineRoot);

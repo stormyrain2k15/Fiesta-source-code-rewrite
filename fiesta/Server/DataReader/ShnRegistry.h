@@ -60,5 +60,12 @@ uint32      ShnGetU32(const ShnFile& rTab, size_t uiRow, const std::string& rCol
 int32       ShnGetI32(const ShnFile& rTab, size_t uiRow, const std::string& rColumn);
 float       ShnGetF32(const ShnFile& rTab, size_t uiRow, const std::string& rColumn);
 
+// ----- Column auditor (pass 1.26) ------------------------------------------
+// Hooked transparently inside `GetTable()` and `ShnGet*`. Call EmitReport
+// at the end of boot to log each column the binders never read.
+void ShnAudit_BeginTable(const std::string& rT);
+void ShnAudit_RecordRead(const std::string& rC);
+void ShnAudit_EmitReport(const ShnRegistry& rReg);
+
 } // namespace fiesta
 #endif

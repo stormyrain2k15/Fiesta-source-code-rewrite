@@ -110,5 +110,15 @@ private:
     bool AppendRecord(const std::string& rTableName, const std::vector<std::string>& rFields);
 };
 
+// Pass 1.26 audit hooks for TS-format files. Every TsTable::GetCell-by-
+// name call stamps (table, column) into a static set; `TsAudit_VisitTable`
+// is invoked from a per-loader walker at boot end to warn for any
+// declared column that was never read.
+void TsAudit_Record        (const std::string& rTable, const std::string& rCol);
+void TsAudit_Reset         ();
+void TsAudit_RegisterLoaded(const TsTable& rT);
+void TsAudit_VisitTable    (const TsTable& rT);
+void TsAudit_EmitReport    ();
+
 } // namespace fiesta
 #endif

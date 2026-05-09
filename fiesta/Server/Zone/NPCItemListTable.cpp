@@ -15,7 +15,10 @@ bool NPCItemListFile::Load(const std::string& rPath) {
         for (size_t r = 0; r < t.kRecords.size(); ++r) {
             NPCShopRow row;
             row.uiRec = (uint8)t.GetInt(r, "Rec");
-            for (int c = 0; c < 6; ++c) {
+            // Tab format varies (BUYITEM has price/qty, SELLITEM has only inx,
+            // QUEST tabs carry mission ids). 16 is wide enough to cover every
+            // shipped tab without truncation; missing slots resolve to "".
+            for (int c = 0; c < 16; ++c) {
                 char b[12]; sprintf_s(b, sizeof(b), "Column%02d", c);
                 std::string v;
                 if (t.GetCell(r, b, v)) row.kColumns.push_back(v);

@@ -5,8 +5,61 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <set>
 
 namespace fiesta {
+
+// ----- Pass 1.26 column auditor for the TS-format files (mirrors the
+// ShnAudit hook in ShnRegistry). Stamp every (table, column) pair the
+// runtime asks for via TsTable::GetCell/GetInt/GetStr; at the end of
+// boot we walk every loaded file and warn for columns that were declared
+// in a #ColumnName but never read.
+namespace {
+    static std::map<std::string, std::set<std::string> > s_kTsReads;
+    static std::vector<TsTable>                          s_kTsLoaded;
+    static bool                                          s_bTsAuditOn = true;
+}
+void TsAudit_Record(const std::string& rTable, const std::string& rCol) {
+    if (!s_bTsAuditOn) return;
+    s_kTsReads[rTable].insert(rCol);
+}
+void TsAudit_Reset() { s_kTsReads.clear(); s_kTsLoaded.clear(); }
+void TsAudit_RegisterLoaded(const TsTable& rT) { s_kTsLoaded.push_back(rT); }
+void TsAudit_VisitTable(const TsTable& rT) {
+    std::map<std::string, std::set<std::string> >::const_iterator it
+        = s_kTsReads.find(rT.kName);
+    const std::set<std::string>* reads = (it == s_kTsReads.end()) ? NULL : &it->second;
+    for (size_t c = 0; c < rT.kColumns.size(); ++c) {
+        if (!reads || reads->find(rT.kColumns[c].kName) == reads->end()) {
+            SHINELOG_WARN("TsAudit: %s.%s parsed but not consumed",
+                          rT.kName.c_str(), rT.kColumns[c].kName.c_str());
+        }
+    }
+}
+void TsAudit_EmitReport() {
+    // Walk every TS table loaded since the last TsAudit_Reset(), de-dup by
+    // (table-name, column-set) so e.g. the per-map MobRegen tables don't
+    // emit one warning per file -- the column shape is shared.
+    std::set<std::string> seen;
+    uint32 unread = 0;
+    for (size_t i = 0; i < s_kTsLoaded.size(); ++i) {
+        const TsTable& t = s_kTsLoaded[i];
+        if (seen.find(t.kName) != seen.end()) continue;
+        seen.insert(t.kName);
+        std::map<std::string, std::set<std::string> >::const_iterator it
+            = s_kTsReads.find(t.kName);
+        const std::set<std::string>* reads = (it == s_kTsReads.end()) ? NULL : &it->second;
+        for (size_t c = 0; c < t.kColumns.size(); ++c) {
+            if (!reads || reads->find(t.kColumns[c].kName) == reads->end()) {
+                SHINELOG_WARN("TsAudit: %s.%s parsed but not consumed",
+                              t.kName.c_str(), t.kColumns[c].kName.c_str());
+                ++unread;
+            }
+        }
+    }
+    SHINELOG_INFO("TsColumnAuditor: %u unique TS tables audited, %u unconsumed columns",
+                  (uint32)seen.size(), unread);
+}
 
 // ---------------- TsTable ----------------
 int TsTable::ColIndex(const char* szName) const {
@@ -22,6 +75,7 @@ bool TsTable::GetCell(size_t row, size_t col, std::string& rOut) const {
 }
 bool TsTable::GetCell(size_t row, const char* szCol, std::string& rOut) const {
     int c = ColIndex(szCol); if (c < 0) return false;
+    TsAudit_Record(kName, szCol);
     return GetCell(row, (size_t)c, rOut);
 }
 int64 TsTable::GetInt(size_t row, const char* szCol, int64 iDefault) const {
@@ -342,6 +396,11 @@ bool TableScriptFile::Load(const std::string& rPath) {
     }
     fclose(fp);
     SHINELOG_INFO("TableScriptFile loaded '%s' (%u tables)", rPath.c_str(), (uint32)m_kTables.size());
+    // Register every parsed table with the auditor so the boot-end walker
+    // can diff #ColumnName declarations against the binders' read-set.
+    for (size_t i = 0; i < m_kTables.size(); ++i) {
+        TsAudit_RegisterLoaded(m_kTables[i]);
+    }
     return true;
 }
 
