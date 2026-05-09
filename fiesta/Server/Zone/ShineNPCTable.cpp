@@ -67,6 +67,7 @@ size_t ShineNPCTable::SpawnAll() {
         pkN->SetPos(v);
         NPCManager::Get().Register(pkN);
         NPCManager::Get().RegisterKey(pkN->m_uiNpcId, r.kMobName);
+        NPCManager::Get().RegisterMenu(pkN->m_uiNpcId, r.uiNPCMenu, r.kRole, r.kRoleArg0);
         if (pkM) {
             Field* pkF = MapDataBox::Get().GetField((MapID)pkM->uiID);
             if (pkF) pkF->AddObject(pkN);

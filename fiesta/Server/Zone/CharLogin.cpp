@@ -22,6 +22,9 @@ void CharLogin(ClientSession* pkSess, const GPacket& rPkt) {
     // Fire the real CharDB lookup. The response handler will call
     // pk->LoadFromCharDBRow asynchronously and overwrite the provisional fill.
     CharDBClient::Get().QueryCharLogin(cid, pk);
+    // Pull the player's estate furniture from CharDB so the room is
+    // already decorated when they walk through the portal NPC.
+    CharDBClient::Get().EstateLoad(cid);
 
     PacketBuffer ack; ack.WriteU8(1); ack.WriteU32(pk->GetHandle());
     SendPacket(pkSess, NC_CHAR_LOGIN_ACK, ack.Data(), ack.Size());

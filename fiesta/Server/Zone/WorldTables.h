@@ -106,6 +106,9 @@ public:
     // Multipliers x1000 (1000 = 1.0x).
     int32 PartyBonus(uint8 uiPartyMembers) const;       // ByPartyMem
     int32 LevelDiffBonus(int32 nLevelDiff) const;       // ByLevelDiff
+    // Convenience wrapper for solo kills: returns (LevelDiffBonus / 10) so
+    // callers can express the result as a percentage (1.0x -> 100).
+    int32 Scaler(uint16 uiKillerLv, uint16 uiMobLv) const;
 private:
     ExpRecalcTable() {}
     int32 m_aPartyBonus[8];
@@ -240,19 +243,38 @@ class NPCActionTable {
 public:
     static NPCActionTable& Get();
     bool Load(const std::string& rRoot);
-    // NPCCondition rows -- expose as raw rows; the per-condition evaluator
-    // lives in the NPC AI tick.
-    struct Row {
+
+    // World/NPCAction.txt has TWO sub-tables:
+    //   NPCCondition (rows already used by mob AI for engagement gates)
+    //   NPCAction    (rows describing what buttons / text show in the
+    //                 NPC click box, indexed by NPCMenu page from
+    //                 World/NPC.txt)
+    struct CondRow {
         uint8 uiConditionID;
         std::string kConditionA, kTypeA;
         uint32 uiAX, uiAY;
         std::string kConditionB, kTypeB;
         uint32 uiBX, uiBY;
     };
-    const std::vector<Row>& Rows() const { return m_kRows; }
+    struct ActionRow {
+        uint8       uiNPCMenu;           // matches ShineNPC.NPCMenu
+        uint8       uiConditionID;       // -> CondRow.uiConditionID
+        std::string kAction;             // "Talk" / "Trade" / "Quest" / "Mover" / etc.
+        std::string kArg0;
+        std::string kArg1;
+        uint32      uiViewInfoId;        // -> NPCViewInfo.shn key (text + button layout)
+    };
+    const std::vector<CondRow>&   Conds()   const { return m_kConds; }
+    const std::vector<ActionRow>& Actions() const { return m_kActions; }
+    void   ActionsForMenu(uint8 uiNPCMenu,
+                          std::vector<const ActionRow*>& rOut) const;
+    const CondRow* FindCond(uint8 uiConditionID) const;
 private:
     NPCActionTable() {}
-    std::vector<Row> m_kRows;
+    std::vector<CondRow>   m_kConds;
+    std::vector<ActionRow> m_kActions;
+    std::map<uint8, std::vector<size_t> > m_kByMenu;
+    std::map<uint8, size_t>               m_kCondById;
 };
 
 // Walk PineScript.txt and load every ScenarioBookShelf entry it lists,

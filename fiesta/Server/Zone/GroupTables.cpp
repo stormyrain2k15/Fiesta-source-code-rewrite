@@ -148,6 +148,7 @@ void MobTables::Bind() {
             rec.uiType          = ShnGetU32(*t, _r, "Type");
             rec.uiIsPlayerSide  = ShnGetU32(*t, _r, "IsPlayerSide");
             rec.uiAbsoluteSize  = ShnGetU32(*t, _r, "AbsoluteSize");
+            rec.uiExp           = ShnGetU32(*t, _r, "Exp");
             m_kMobById[rec.uiID]      = m_kMobs.size();
             m_kMobByInx[rec.kInxName] = m_kMobs.size();
             m_kMobs.push_back(rec);

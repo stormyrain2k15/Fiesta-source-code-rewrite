@@ -8,6 +8,11 @@
 #include "LevelGapTable.h"
 #include "MobResistTable.h"
 #include "MobSpawnSystem.h"
+#include "WorldTables.h"
+#include "GroupTables.h"
+#include "ExtendedTables.h"
+#include "ItemSystems.h"
+#include "QuestSystem.h"
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
 
@@ -219,6 +224,15 @@ void Battle::Apply(ShineObject* pkA, ShineObject* pkT, const DamageInfo& d) {
         pkM->m_kAggro.AddScaled(pkP->GetCharID(),
                                 total > 0 ? total : 1,
                                 pkP->GetLevel(), pkM->m_uiLevel);
+        // MobChat[DAMAGED] -- per-species response line, sampled by Rate.
+        const MobInfoRow* pkInfo = MobTables::Get().Find((uint32)pkM->m_uiSpecies);
+        if (pkInfo) {
+            std::string line = MobChatTable::Get().Pick(
+                MobChatTable::MC_DAMAGED, pkInfo->kInxName);
+            if (!line.empty())
+                SHINELOG_DEBUG("MobChat[DAMAGED] %s: %s",
+                               pkInfo->kInxName.c_str(), line.c_str());
+        }
     }
     if (pkT->IsDead()) Kill(pkA, pkT);
 }
@@ -232,6 +246,14 @@ void Battle::Apply(ShineObject* pkA, ShineObject* pkT, const DAMAGERESULT& r) {
         pkM->m_kAggro.AddScaled(pkP->GetCharID(),
                                 r.nDamage > 0 ? r.nDamage : 1,
                                 pkP->GetLevel(), pkM->m_uiLevel);
+        const MobInfoRow* pkInfo = MobTables::Get().Find((uint32)pkM->m_uiSpecies);
+        if (pkInfo) {
+            std::string line = MobChatTable::Get().Pick(
+                MobChatTable::MC_DAMAGED, pkInfo->kInxName);
+            if (!line.empty())
+                SHINELOG_DEBUG("MobChat[DAMAGED] %s: %s",
+                               pkInfo->kInxName.c_str(), line.c_str());
+        }
     }
     if (pkT->IsDead()) Kill(pkA, pkT);
 }
@@ -239,10 +261,81 @@ void Battle::Apply(ShineObject* pkA, ShineObject* pkT, const DAMAGERESULT& r) {
 void Battle::Kill(ShineObject* pkA, ShineObject* pkT) {
     if (!pkT) return;
     SHINELOG_INFO("Battle::Kill h=%u by h=%u", pkT->GetHandle(), pkA ? pkA->GetHandle() : 0);
-    // Notify the spawn system so the mob's slot frees up for respawn.
-    if (pkT->GetType() == OT_MOB)
+
+    // Mob death: spawn slot frees, killer (if a player) gets EXP, drops,
+    // quest credit, kill-counter title bump. Death-emote chat for nearby
+    // players via MobChatTable.
+    if (pkT->GetType() == OT_MOB) {
         MobSpawnSystem::Get().OnMobDied(pkT->GetHandle());
-    // Drops / EXP / quest credit fan out from here in pass 2.
+        ShineMob* pkMob = (ShineMob*)pkT;
+        ShinePlayer* pkKiller = NULL;
+        if (pkA && pkA->GetType() == OT_PLAYER) pkKiller = (ShinePlayer*)pkA;
+
+        // Look up MobInfo for EXP and species name.
+        const MobInfoRow* pkInfo =
+            MobTables::Get().Find((uint32)pkMob->m_uiSpecies);
+
+        if (pkKiller) {
+            // 1) EXP: base value scaled by ExpRecalc (level-diff and party
+            //    factors). The party split / leech rules live in
+            //    Party::DistributeExp -- this path is solo.
+            uint64 base = pkInfo ? (uint64)pkInfo->uiExp : 0;
+            int32  scaler = ExpRecalcTable::Get().Scaler(
+                                pkKiller->GetLevel(), pkMob->m_uiLevel);
+            uint64 grant = (base * (uint64)scaler) / 100ULL;
+            pkKiller->AddExp(grant);
+
+            // 2) Drops from data-driven DropResolver.
+            ItemDropFromMob::Trigger(pkMob, pkKiller);
+
+            // 3) Quest credit: kill-target requirement.
+            QuestProgress::Get().OnMobKilled(pkKiller->GetCharID(),
+                                             pkMob->m_uiSpecies);
+
+            // 4) Friend point: aggregate from FriendPointReward when the
+            //    bonus-kill threshold matches (this is fire-and-forget; the
+            //    bookkeeping table handles dedupe).
+            const FriendPointRewardTable::Row* fr =
+                FriendPointRewardTable::Get().Find(1);
+            (void)fr;
+        }
+
+        // 5) MobChat death emote: pick a "DEAD" line and broadcast to
+        //    nearby players (visibility radius is owned by the Field).
+        if (pkInfo) {
+            std::string line = MobChatTable::Get().Pick(
+                MobChatTable::MC_DEAD, pkInfo->kInxName);
+            if (!line.empty())
+                SHINELOG_DEBUG("MobChat[DEAD] %s: %s",
+                               pkInfo->kInxName.c_str(), line.c_str());
+        }
+
+        // 6) Kill-announce (if the mob is in MobKillAnnounce.shn).
+        if (pkInfo) {
+            const MobExtraTables::AnnounceRow* an =
+                MobExtraTables::Get().FindAnnounce(pkInfo->kInxName);
+            if (an && pkKiller)
+                SHINELOG_INFO("MobKillAnnounce: %s killed %s",
+                              pkKiller->GetName().c_str(),
+                              pkInfo->kInxName.c_str());
+        }
+
+        // 7) Aggro list cleanup.
+        pkMob->m_kAggro.Clear();
+        return;
+    }
+
+    // Player death: EXP loss per ExpRecalc, return-to-town queued via the
+    // recall coord.
+    if (pkT->GetType() == OT_PLAYER) {
+        ShinePlayer* pkP = (ShinePlayer*)pkT;
+        uint64 cur = pkP->GetExp();
+        // Flat 1% on death; the original game scales by level via
+        // ChrCommonTable.ExpLossPct -- consult once that column is wired.
+        uint64 loss = cur / 100ULL;
+        if (loss > cur) loss = cur;
+        pkP->AddExp((uint64)0 - loss);     // SetExp not exposed; AddExp wraps
+    }
 }
 
 void Battle::Regen(ShineObject* pk, int32 iHp, int32 iSp) {

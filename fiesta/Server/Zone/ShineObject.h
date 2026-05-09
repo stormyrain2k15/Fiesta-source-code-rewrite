@@ -12,6 +12,8 @@
 #include "AbState.h"
 #include "SkillSystem.h"
 #include "AggroList.h"
+#include "Inventory.h"
+#include "QuestSystem.h"
 #include <string>
 
 namespace fiesta {
@@ -89,6 +91,8 @@ public:
     // -- subsystems owned by the player -------------------------------------
     CharacterSkill& Skills()  { return m_kSkills; }
     AbnormalState&  AbState() { return m_kAbState; }
+    Inventory&      Inv()     { return m_kInv;    }
+    CharQuest&      Quest()   { return m_kQuest;  }
 
     // -- DB-driven population -----------------------------------------------
     // Provisional fill used when the CharDB row hasn't arrived yet (legacy
@@ -122,15 +126,19 @@ private:
     ClientSession* m_pkSession;
     CharacterSkill m_kSkills;
     AbnormalState  m_kAbState;
+    Inventory      m_kInv;
+    CharQuest      m_kQuest;
 };
 
 class ShineMover : public ShineObject { public: virtual ObjType GetType() const { return OT_MOVER; } };
 class ShineMob   : public ShineObject {
 public:
+    ShineMob() : m_uiSpecies(0), m_uiLevel(1), m_uiLastAttackMs(0) {}
     virtual ObjType GetType() const { return OT_MOB; }
     MobID      m_uiSpecies;
     uint16     m_uiLevel;       // copied from MobInfo.shn at spawn time
     AggroList  m_kAggro;
+    uint64     m_uiLastAttackMs;
 };
 class ShineNPC   : public ShineObject { public: virtual ObjType GetType() const { return OT_NPC;   } uint32 m_uiNpcId; };
 class ShinePet   : public ShineObject { public: virtual ObjType GetType() const { return OT_PET;   } CharID m_uiOwner; };

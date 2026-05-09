@@ -704,6 +704,52 @@ private:
 };
 
 // =============================================================================
+//  NPC dialog UI data: bridges the click-on-NPC server flow into the
+//  client-rendered dialog box.
+//
+//   * `NpcDialogData.shn` -- per-DialogID rows holding the spoken-text key,
+//     the list of available reply / button keys, and any conditional
+//     branching logic. The server forwards a DialogID to the client which
+//     then renders the box from this table.
+//   * `NPCViewInfo.shn`   -- per-ViewInfoID rows holding the actual button
+//     label string id, icon id, tooltip id, and the action tag the client
+//     must echo back when the player presses it.
+//
+// Both files live in the client-side `ressystem/` drop and are loaded into
+// the universal `ShnRegistry` at boot. The schema is column-name-driven so
+// we tolerate drop-to-drop reorder.
+// =============================================================================
+class NPCDialogTables {
+public:
+    static NPCDialogTables& Get();
+    void Bind();
+    struct DialogRow {
+        uint32      uiDialogID;
+        std::string kTextKey;        // "Dialog" -- localisation key
+        std::string kButtonKeys;     // CSV of NPCViewInfo IDs to render
+        uint32      uiNextDialogID;  // 0 if leaf
+    };
+    struct ViewRow {
+        uint32      uiViewInfoID;
+        std::string kLabelKey;       // "Label" -- localisation key
+        uint32      uiIconID;
+        std::string kActionTag;      // echoed back when pressed
+        std::string kArg0;
+        std::string kArg1;
+    };
+    const DialogRow* FindDialog (uint32 uiDialogID)   const;
+    const ViewRow*   FindView   (uint32 uiViewInfoID) const;
+    void  ButtonsFor(uint32 uiDialogID, std::vector<const ViewRow*>& rOut) const;
+    size_t DialogCount() const { return m_kDialog.size(); }
+    size_t ViewCount()   const { return m_kView.size();   }
+private:
+    std::vector<DialogRow>  m_kDialog;
+    std::map<uint32, size_t> m_kDialogById;
+    std::vector<ViewRow>    m_kView;
+    std::map<uint32, size_t> m_kViewById;
+};
+
+// =============================================================================
 //  One-call binder for everything in this file.
 // =============================================================================
 void BindAllExtendedTables();

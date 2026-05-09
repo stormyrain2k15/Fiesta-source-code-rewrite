@@ -31,6 +31,7 @@ public:
     void WriteF32(float  v);
     void WriteBytes(const void* p, size_t n);
     void WriteString(const char* s);          // length-prefixed (uint16)
+    void WriteString(const std::string& s) { WriteString(s.c_str()); }
     void WriteWString(const wchar_t* s);
 
     // read

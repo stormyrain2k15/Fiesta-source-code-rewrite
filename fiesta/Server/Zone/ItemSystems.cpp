@@ -1,9 +1,12 @@
 // Server/Zone/ItemSystems.cpp
 #include "ItemSystems.h"
+#include "DropResolver.h"
+#include "Inventory.h"
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
 #include "../DataReader/Schemas.h"
 #include "../DataReader/Tables.h"  // back-compat aliases
+#include <math.h>
 
 namespace fiesta {
 
@@ -44,15 +47,36 @@ const ChargedEffectRow* ChargedItemEffectDataBox::Find(uint32 inx) {
 bool ItemMall::BuyById(ShinePlayer* pk, uint32, uint16 qty) { return pk && qty > 0; }
 
 // 18
-void ItemDropTable::Get(MobID, std::vector<DropEntry>& r) { r.clear(); } // EV_VERIFY
+void ItemDropTable::Get(MobID s, std::vector<DropEntry>& rOut) {
+    // Bridge to the data-driven DropResolver. This converts each rolled
+    // ShineItem back into a flat (uiInxName, uiWeight=1k, uiQty) entry so
+    // downstream legacy callers stay shape-compatible.
+    rOut.clear();
+    DropContext ctx;
+    ctx.uiMobID         = (uint32)s;
+    ctx.nGlobalRateX1k  = 0;     // use kDropRateGlobalScalerX1k
+    std::vector<ShineItem> kItems;
+    DropResolver::Resolve(ctx, kItems);
+    rOut.reserve(kItems.size());
+    for (size_t i = 0; i < kItems.size(); ++i) {
+        DropEntry e;
+        e.uiInxName = kItems[i].uiInxName;     // 0 if name->id mapping pending
+        e.uiQty     = kItems[i].uiQty;
+        e.uiWeight  = 10000;                   // already rolled in by Resolver
+        rOut.push_back(e);
+    }
+}
 
 void ItemDropFromMob::Trigger(ShineMob* pkMob, ShinePlayer* pkKiller) {
     if (!pkMob) return;
-    std::vector<DropEntry> kDrops; ItemDropTable::Get(pkMob->m_uiSpecies, kDrops);
-    for (size_t i = 0; i < kDrops.size(); ++i) {
-        if (s_kRng.NextRange(10000) < kDrops[i].uiWeight) {
-            if (pkKiller) RewardInven::Push(pkKiller, (ItemID)kDrops[i].uiInxName, kDrops[i].uiQty);
-        }
+    DropContext ctx;
+    ctx.uiMobID        = (uint32)pkMob->m_uiSpecies;
+    ctx.nGlobalRateX1k = 0;
+    std::vector<ShineItem> kItems;
+    DropResolver::Resolve(ctx, kItems);
+    for (size_t i = 0; i < kItems.size(); ++i) {
+        if (pkKiller)
+            RewardInven::Push(pkKiller, (ItemID)kItems[i].uiInxName, kItems[i].uiQty);
     }
 }
 void DropItemAnalyzer::Analyze(MobID s, std::vector<DropEntry>& r) { ItemDropTable::Get(s, r); }
@@ -65,6 +89,18 @@ CharID BelongDiceTable::PickWinner(const std::vector<CharID>& g) {
     if (g.empty()) return INVALID_CHARID;
     return g[s_kRng.NextRange((uint32)g.size())];
 }
-void RewardInven::Push(ShinePlayer*, ItemID, uint16) {}
+void RewardInven::Push(ShinePlayer* pk, ItemID id, uint16 qty) {
+    if (!pk || qty == 0) return;
+    ShineItem k;
+    k.uiItemId  = 0;
+    k.uiInxName = id;
+    k.uiSlot    = 0xFFFF;     // Inventory::Add picks the next free slot
+    k.uiQty     = qty;
+    k.uiEndure  = 0;
+    k.uiEnchant = 0;
+    k.bEquipped = 0;
+    for (int i = 0; i < 5; ++i) k.aRandomOption[i] = 0;
+    pk->Inv().Add(k);
+}
 
 } // namespace fiesta

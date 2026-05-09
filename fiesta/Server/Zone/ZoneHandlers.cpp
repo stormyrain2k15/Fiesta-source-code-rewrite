@@ -58,6 +58,36 @@ static void H_Chat(IOCPSession* s, const GPacket& pkt) {
 }
 static void H_Logout(IOCPSession* s, const GPacket&) { if (s) s->Close(); }
 
+// ---- NPC menu / shop ------------------------------------------------------
+//
+// Inbound flow:
+//   NC_NPC_MENU_PICK_REQ  : [ uint32 npcId, uint32 viewInfoId ]
+//                           viewInfoId == 0 -> open root menu.
+//   NC_NPC_SHOP_BUY_REQ   : [ uint32 npcId, uint32 inxName, uint16 qty ]
+//   NC_NPC_SHOP_SELL_REQ  : [ uint32 npcId, uint16 invSlot, uint16 qty ]
+//
+static void H_NpcMenuPick(IOCPSession* s, const GPacket& pkt) {
+    ClientSession* cs = (ClientSession*)s; if (!cs || !cs->GetPlayer()) return;
+    PacketBuffer b = pkt.Body();
+    uint32 npcId = 0, viewId = 0;
+    b.ReadU32(npcId); b.ReadU32(viewId);
+    ServerMenuActor::HandlePick(cs->GetPlayer(), npcId, viewId);
+}
+static void H_NpcShopBuy(IOCPSession* s, const GPacket& pkt) {
+    ClientSession* cs = (ClientSession*)s; if (!cs || !cs->GetPlayer()) return;
+    PacketBuffer b = pkt.Body();
+    uint32 npcId = 0, inx = 0; uint16 qty = 0;
+    b.ReadU32(npcId); b.ReadU32(inx); b.ReadU16(qty);
+    ServerMenuActor::HandleBuy(cs->GetPlayer(), npcId, inx, qty);
+}
+static void H_NpcShopSell(IOCPSession* s, const GPacket& pkt) {
+    ClientSession* cs = (ClientSession*)s; if (!cs || !cs->GetPlayer()) return;
+    PacketBuffer b = pkt.Body();
+    uint32 npcId = 0; uint16 slot = 0, qty = 0;
+    b.ReadU32(npcId); b.ReadU16(slot); b.ReadU16(qty);
+    ServerMenuActor::HandleSell(cs->GetPlayer(), npcId, slot, qty);
+}
+
 void RegisterZoneHandlers() {
     ProtocolParser& p = GetZoneParser();
     p.Register(NC_CHAR_LOGIN_REQ,           &CharLogin);
@@ -69,6 +99,9 @@ void RegisterZoneHandlers() {
     p.Register(NC_BAT_SKILL_USE_REQ,        &H_SkillUse);
     p.Register(NC_ACT_CHAT_REQ,             &H_Chat);
     p.Register(NC_USER_LOGOUT_REQ,          &H_Logout);
+    p.Register(NC_NPC_MENU_PICK_REQ,        &H_NpcMenuPick);
+    p.Register(NC_NPC_SHOP_BUY_REQ,         &H_NpcShopBuy);
+    p.Register(NC_NPC_SHOP_SELL_REQ,        &H_NpcShopSell);
 }
 
 } // namespace fiesta

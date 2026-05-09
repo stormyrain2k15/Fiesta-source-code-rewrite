@@ -1292,6 +1292,69 @@ int32 AttendanceTables::RewardItemQty(const std::string& rI) const {
 }
 
 // -----------------------------------------------------------------------------
+//  NPCDialogTables
+// -----------------------------------------------------------------------------
+NPCDialogTables& NPCDialogTables::Get() { static NPCDialogTables s; return s; }
+void NPCDialogTables::Bind() {
+    if (const ShnFile* t = T("NpcDialogData")) ITER(t) {
+        DialogRow r;
+        r.uiDialogID     = ShnGetU32(*t, _r, "DialogID");
+        if (r.uiDialogID == 0) r.uiDialogID = ShnGetU32(*t, _r, "ID");
+        r.kTextKey       = ShnGetStr(*t, _r, "Dialog");
+        if (r.kTextKey.empty()) r.kTextKey = ShnGetStr(*t, _r, "Text");
+        r.kButtonKeys    = ShnGetStr(*t, _r, "ButtonKeys");
+        if (r.kButtonKeys.empty()) r.kButtonKeys = ShnGetStr(*t, _r, "Buttons");
+        r.uiNextDialogID = ShnGetU32(*t, _r, "NextDialogID");
+        m_kDialogById[r.uiDialogID] = m_kDialog.size();
+        m_kDialog.push_back(r);
+    }
+    if (const ShnFile* t = T("NPCViewInfo")) ITER(t) {
+        ViewRow r;
+        r.uiViewInfoID = ShnGetU32(*t, _r, "ViewInfoID");
+        if (r.uiViewInfoID == 0) r.uiViewInfoID = ShnGetU32(*t, _r, "ID");
+        r.kLabelKey    = ShnGetStr(*t, _r, "Label");
+        if (r.kLabelKey.empty()) r.kLabelKey = ShnGetStr(*t, _r, "Name");
+        r.uiIconID     = ShnGetU32(*t, _r, "IconID");
+        r.kActionTag   = ShnGetStr(*t, _r, "Action");
+        r.kArg0        = ShnGetStr(*t, _r, "Arg0");
+        r.kArg1        = ShnGetStr(*t, _r, "Arg1");
+        m_kViewById[r.uiViewInfoID] = m_kView.size();
+        m_kView.push_back(r);
+    }
+}
+const NPCDialogTables::DialogRow* NPCDialogTables::FindDialog(uint32 u) const {
+    std::map<uint32,size_t>::const_iterator it = m_kDialogById.find(u);
+    return (it == m_kDialogById.end()) ? NULL : &m_kDialog[it->second]; }
+const NPCDialogTables::ViewRow* NPCDialogTables::FindView(uint32 u) const {
+    std::map<uint32,size_t>::const_iterator it = m_kViewById.find(u);
+    return (it == m_kViewById.end()) ? NULL : &m_kView[it->second]; }
+
+void NPCDialogTables::ButtonsFor(uint32 uiDialogID,
+                                 std::vector<const ViewRow*>& rOut) const {
+    rOut.clear();
+    const DialogRow* pkD = FindDialog(uiDialogID);
+    if (!pkD) return;
+    // Comma-separated ViewInfoID list.
+    const std::string& s = pkD->kButtonKeys;
+    size_t i = 0;
+    while (i < s.size()) {
+        // skip whitespace and commas
+        while (i < s.size() && (s[i] == ',' || s[i] == ' ')) ++i;
+        size_t j = i;
+        while (j < s.size() && s[j] != ',' && s[j] != ' ') ++j;
+        if (j > i) {
+            std::string tok = s.substr(i, j - i);
+            uint32 id = (uint32)strtoul(tok.c_str(), NULL, 10);
+            if (id) {
+                const ViewRow* pkV = FindView(id);
+                if (pkV) rOut.push_back(pkV);
+            }
+        }
+        i = j;
+    }
+}
+
+// -----------------------------------------------------------------------------
 //  One-call binder
 // -----------------------------------------------------------------------------
 void BindAllExtendedTables() {
@@ -1332,8 +1395,9 @@ void BindAllExtendedTables() {
     PSkillSetAbstateTable::Get()         .Bind();
     QuestDataTable::Get()                .Bind();
     AttendanceTables::Get()              .Bind();
+    NPCDialogTables ::Get()              .Bind();
 
-    SHINELOG_INFO("BindAllExtendedTables: 110 long-tail SHN accessors bound");
+    SHINELOG_INFO("BindAllExtendedTables: 110+ long-tail SHN accessors bound");
 }
 
 #undef ITER

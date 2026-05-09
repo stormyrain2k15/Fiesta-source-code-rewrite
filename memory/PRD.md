@@ -504,6 +504,29 @@ Doc: `docs/PASS1_20_PER_FOLDER_INGEST.md`.
 
 Status: code authored, awaiting user-side VS2010 compile.
 
+## Pass 1.22 — Server-Authoritative NPC Menu Loop (2026-02)
+
+User direction: client-side `ressystem.zip` (NPCViewInfo / NpcDialogData /
+QuestDialog SHNs) provided so the server can drive both ends of the NPC
+click flow.
+
+Delivered:
+- `Server/Zone/NPCSystem.h/cpp`: expanded `ServerMenuActor` with
+  `SendDialog` (chained DialogID -> ButtonsFor sub-pages), `OpenShop`
+  (`NC_NPC_SHOP_OPEN_CMD` projection of `NPCItemList` rows),
+  `HandlePick` (action-tag dispatcher: Talk/Trade/Quest/Mover/Promote/
+  Save/Close), `HandleBuy` (validates SKU + creates `ShineItem` from
+  `ItemTables::FindItem`), `HandleSell` (clamps to stack size, debits
+  inventory, credits `uiSellPrice * qty`).
+- `Server/Zone/ZoneHandlers.cpp`: registered `NC_NPC_MENU_PICK_REQ`,
+  `NC_NPC_SHOP_BUY_REQ`, `NC_NPC_SHOP_SELL_REQ`. ViewInfoId == 0 is the
+  synthetic "open root menu" click; bumps the per-NPC Meeting quest
+  counter via `QuestProgress::OnNpcTalked`.
+
+Doc: `docs/PASS1_22_NPC_MENU_LOOP.md`.
+
+Status: code authored, awaiting user-side VS2010 compile.
+
 ## Pass 1.19 — Long-tail data ingest + Estate / Marriage / Expedition (2026-02)
 
 User direction (verbatim): "I want you to keep going through all of the

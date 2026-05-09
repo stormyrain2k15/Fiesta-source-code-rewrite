@@ -28,6 +28,7 @@
 #include "ClassParamTable.h"
 #include "ChrCommonTable.h"
 #include "MobSpawnSystem.h"
+#include "MobAIRunner.h"
 #include "../DataReader/ShnRegistry.h"
 #include "../../Lua/LuaRuntime.h"
 
@@ -94,6 +95,8 @@ public:
         // exp-loss; load before any character can log in.
         ClassParamTable::Get().Load(shineRoot);
         ChrCommonTable ::Get().Load(shineRoot);
+        // World/NPCAction.txt -- per-NPC dialog page button list.
+        NPCActionTable::Get().Load(shineRoot);
 
         // Build the per-zone mob spawn driver. After this, every populated
         // MobRegen group has an entry in MobSpawnSystem and `Tick()` will
@@ -133,6 +136,7 @@ public:
         EstateServer::Get().Tick(::GetTickCount64());
         ExpeditionSystem::Get().Tick();
         MobSpawnSystem::Get().Tick(::GetTickCount64());
+        MobAIRunner   ::Get().Tick(::GetTickCount64());
         GuildWarManager::Tick();
         GuildTournamentSystem::Tick();
         ChargedEffectManager::Get().Tick();

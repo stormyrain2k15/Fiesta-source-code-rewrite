@@ -77,6 +77,7 @@ struct MobInfoRow {
     uint32      uiLevel, uiMaxHP, uiWalkSpeed, uiRunSpeed;
     uint32      uiIsNPC, uiSize, uiWeaponType, uiArmorType,
                 uiGradeType, uiType, uiIsPlayerSide, uiAbsoluteSize;
+    uint32      uiExp;
 };
 struct MobSpeciesRow {
     uint32      uiID;

@@ -17,6 +17,7 @@
 #define FIESTA_ZONE_CHARDB_CLIENT_H
 #include "../Shared/Socket_Connector.h"
 #include "../Shared/IOCPManager.h"
+#include "../DataServer/Common/Database.h"
 #include <map>
 #include <windows.h>
 
@@ -72,6 +73,8 @@ public:
     // Called by CharDBClientSession when an NC_INTER_CHAR_DB_RESPONSE arrives.
     void OnLoginResponse (CharID c, bool bOK, const std::vector<std::string>& rCols);
     void OnLogoutResponse(CharID c, bool bOK);
+    void OnEstateLoadResponse(CharID owner, bool bOK,
+                              const std::vector<DBRecord>& rRows);
 
     bool IsConnected() const { return m_kConn.IsConnected(); }
 

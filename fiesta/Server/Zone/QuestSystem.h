@@ -5,11 +5,14 @@
 //                                  QuestEvent, CharQuest, ShineQuestDiary, PineScript
 #ifndef FIESTA_ZONE_QUESTSYSTEM_H
 #define FIESTA_ZONE_QUESTSYSTEM_H
-#include "ShineObject.h"
+#include "../Shared/ShineTypes.h"
 #include <map>
 #include <vector>
+#include <string>
 
 namespace fiesta {
+
+class ShinePlayer;
 
 enum QuestState { QS_NONE = 0, QS_ACTIVE = 1, QS_COMPLETE = 2, QS_FAILED = 3 };
 
@@ -44,6 +47,19 @@ public:
     // Loads compiled PineScript bytecode (.pis), NOT raw quest SHN.
     // Returns false if a quest SHN was passed by mistake -- spec rule 02.
     static bool LoadCompiled(const std::string& rPath);
+};
+
+// Per-character quest counter dispatcher used by Battle / NPC-talk hooks.
+// Lives outside QuestFramework so it can be called from kill-handlers
+// without taking a write lock on the framework.
+class QuestProgress {
+public:
+    static QuestProgress& Get();
+    void OnMobKilled (CharID c, MobID uiSpecies);
+    void OnNpcTalked (CharID c, uint32 uiNpcId);
+    void OnItemUsed  (CharID c, ItemID uiItem);
+private:
+    QuestProgress() {}
 };
 
 class QuestEvent {

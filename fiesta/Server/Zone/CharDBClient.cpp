@@ -1,12 +1,14 @@
 // Server/Zone/CharDBClient.cpp
 #include "CharDBClient.h"
 #include "ShineObject.h"
+#include "EstateSystem.h"
 #include "../DataServer/Common/Database.h"   // DBRecord
 #include "../Shared/PacketBuffer.h"
 #include "../Shared/GPacket.h"
 #include "../Shared/ShineLogSystem.h"
 #include "../Common/NETCOMMAND.h"
 #include "../Common/SendPacket.h"
+#include <stdlib.h>
 
 namespace fiesta {
 
@@ -40,6 +42,27 @@ public:
             // CharLogout response carries no row; we don't track the cid here
             // because logout is fire-and-forget. Pass 0 as a sentinel.
             CharDBClient::Get().OnLogoutResponse(0, ok != 0);
+        } else if (op == 33) {
+            // Estate-Load: uint16 nRows, then for each row: uint16 nCols + ASCIIZ.
+            // Row layout (matches `tEstateFurniture` projection):
+            //   col0 = owner CharID (sanity)
+            //   col1 = slotID, col2 = furnID,
+            //   col3..5 = X,Y,Z, col6 = yawDeg, col7 = endure
+            std::vector<DBRecord> rows;
+            if (ok) {
+                uint16 nRows = 0; body.ReadU16(nRows);
+                rows.resize(nRows);
+                for (uint16 i = 0; i < nRows; ++i) {
+                    uint16 nCols = 0; body.ReadU16(nCols);
+                    rows[i].kCols.reserve(nCols);
+                    for (uint16 j = 0; j < nCols; ++j) {
+                        std::string s; body.ReadString(s); rows[i].kCols.push_back(s);
+                    }
+                }
+            }
+            CharID owner = (rows.empty() || rows[0].kCols.empty())
+                         ? 0 : (CharID)strtoul(rows[0].kCols[0].c_str(), NULL, 10);
+            CharDBClient::Get().OnEstateLoadResponse(owner, ok != 0, rows);
         }
     }
 };
@@ -113,6 +136,37 @@ void CharDBClient::OnLoginResponse(CharID c, bool bOK, const std::vector<std::st
 
 void CharDBClient::OnLogoutResponse(CharID, bool) {
     // No state to update; pass-through.
+}
+
+void CharDBClient::OnEstateLoadResponse(CharID owner, bool bOK,
+                                        const std::vector<DBRecord>& rRows) {
+    if (!bOK) return;
+    EstateRec* pkE = EstateServer::Get().FindByOwner(owner);
+    if (!pkE) {
+        // Auto-create the in-memory shell on first login if any rows exist.
+        if (rRows.empty()) return;
+        // Without a HouseID we fall back to tier 1; the actual values are
+        // overwritten on the next Estate_Create from the deed item flow.
+        pkE = EstateServer::Get().Create(owner, 1, 1);
+        if (!pkE) return;
+    }
+    pkE->kPlacements.clear();
+    for (size_t i = 0; i < rRows.size(); ++i) {
+        const DBRecord& r = rRows[i];
+        if (r.kCols.size() < 8) continue;
+        EstatePlacement p;
+        p.uiSlotID  = (uint32)strtoul(r.kCols[1].c_str(), NULL, 10);
+        p.uiFurnID  = (uint32)strtoul(r.kCols[2].c_str(), NULL, 10);
+        p.iX        = (int32) strtol (r.kCols[3].c_str(), NULL, 10);
+        p.iY        = (int32) strtol (r.kCols[4].c_str(), NULL, 10);
+        p.iZ        = (int32) strtol (r.kCols[5].c_str(), NULL, 10);
+        p.uiYawDeg  = (uint16)strtoul(r.kCols[6].c_str(), NULL, 10);
+        p.uiEndure  = (uint16)strtoul(r.kCols[7].c_str(), NULL, 10);
+        p.uiPlacedMs= 0;
+        pkE->kPlacements.push_back(p);
+    }
+    SHINELOG_INFO("CharDBClient: estate %u rehydrated (%u placements)",
+                  owner, (uint32)pkE->kPlacements.size());
 }
 
 // ---------------------------------------------------------------------------

@@ -4,11 +4,13 @@
 //                                  EquipEnumChanger
 #ifndef FIESTA_ZONE_INVENTORY_H
 #define FIESTA_ZONE_INVENTORY_H
-#include "ShineObject.h"
+#include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 
 namespace fiesta {
+
+class ShinePlayer;
 
 struct ShineItem {
     uint32 uiItemId;
