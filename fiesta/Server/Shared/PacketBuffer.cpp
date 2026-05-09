@@ -41,6 +41,7 @@ void PacketBuffer::WriteU16(uint16 v){ Reserve(m_uiSize+2); m_pData[m_uiSize++]=
 void PacketBuffer::WriteU32(uint32 v){ Reserve(m_uiSize+4); for(int i=0;i<4;++i) m_pData[m_uiSize++]=(uint8)(v>>(i*8)); }
 void PacketBuffer::WriteI32(int32  v){ WriteU32((uint32)v); }
 void PacketBuffer::WriteU64(uint64 v){ Reserve(m_uiSize+8); for(int i=0;i<8;++i) m_pData[m_uiSize++]=(uint8)(v>>(i*8)); }
+void PacketBuffer::WriteI64(int64  v){ WriteU64((uint64)v); }
 void PacketBuffer::WriteF32(float  v){ uint32 u; memcpy(&u,&v,4); WriteU32(u); }
 void PacketBuffer::WriteBytes(const void* p, size_t n){ Reserve(m_uiSize+n); memcpy(m_pData+m_uiSize,p,n); m_uiSize+=n; }
 void PacketBuffer::WriteString(const char* s){
@@ -57,6 +58,7 @@ bool PacketBuffer::ReadU16(uint16& v){ if(m_uiRead+2>m_uiSize) return false; v=(
 bool PacketBuffer::ReadU32(uint32& v){ if(m_uiRead+4>m_uiSize) return false; v=0; for(int i=0;i<4;++i) v|=((uint32)m_pData[m_uiRead+i])<<(i*8); m_uiRead+=4; return true; }
 bool PacketBuffer::ReadI32(int32&  v){ uint32 u; if(!ReadU32(u)) return false; v=(int32)u; return true; }
 bool PacketBuffer::ReadU64(uint64& v){ if(m_uiRead+8>m_uiSize) return false; v=0; for(int i=0;i<8;++i) v|=((uint64)m_pData[m_uiRead+i])<<(i*8); m_uiRead+=8; return true; }
+bool PacketBuffer::ReadI64(int64&  v){ uint64 u; if(!ReadU64(u)) return false; v=(int64)u; return true; }
 bool PacketBuffer::ReadF32(float&  v){ uint32 u; if(!ReadU32(u)) return false; memcpy(&v,&u,4); return true; }
 bool PacketBuffer::ReadBytes(void* p, size_t n){ if(m_uiRead+n>m_uiSize) return false; memcpy(p,m_pData+m_uiRead,n); m_uiRead+=n; return true; }
 bool PacketBuffer::ReadString(std::string& s){

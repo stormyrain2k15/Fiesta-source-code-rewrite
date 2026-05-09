@@ -27,6 +27,7 @@ public:
     void WriteU32(uint32 v);
     void WriteI32(int32  v);
     void WriteU64(uint64 v);
+    void WriteI64(int64  v);
     void WriteF32(float  v);
     void WriteBytes(const void* p, size_t n);
     void WriteString(const char* s);          // length-prefixed (uint16)
@@ -39,6 +40,7 @@ public:
     bool ReadU32(uint32& v);
     bool ReadI32(int32&  v);
     bool ReadU64(uint64& v);
+    bool ReadI64(int64&  v);
     bool ReadF32(float&  v);
     bool ReadBytes(void* p, size_t n);
     bool ReadString(std::string& s);

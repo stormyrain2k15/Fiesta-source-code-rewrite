@@ -1,11 +1,15 @@
 // Server/WorldManager/Main.cpp
-// WorldManager service exe entry.
+// WorldManager service exe entry. Builds five accept loops (Client, Zone,
+// Login, CharDB, OPTool) on the IOCP, fans data load through DataFileServer
+// at boot, and ticks every cross-zone subsystem via WMServicesTickAll() each
+// main-loop iteration.
 #include "../Shared/WinService.h"
 #include "../Shared/ServerInfo.h"
 #include "../Shared/IOCPManager.h"
 #include "../Shared/Socket_Acceptor.h"
 #include "../Shared/ShineLogSystem.h"
 #include "WorldManagerServer.h"
+#include "WMServices.h"
 
 namespace fiesta {
 
@@ -20,6 +24,12 @@ public:
     WorldManagerService() : WinService("FiestaWorldManager") {}
     virtual bool OnStart() {
         m_kInfo.Load("ServerInfo.txt");
+
+        // Boot the SHN registry first so KQ / NpcSchedule / GMEvent / Gamble
+        // can read their tables on the very first Tick().
+        std::string kDataRoot = m_kInfo.GetString("Data.Root", "Data");
+        DataFileServer::Get().LoadAll(kDataRoot);
+
         if (!m_kIOCP.Start()) return false;
         m_kClientAcc.Start(&m_kIOCP, m_kInfo.GetU16("WM.ClientPort", 28000), &MakeWMClient);
         m_kZoneAcc  .Start(&m_kIOCP, m_kInfo.GetU16("WM.ZonePort"  , 28001), &MakeWMZone);
@@ -37,9 +47,7 @@ public:
         m_kCharAcc.Stop(); m_kOPToolAcc.Stop(); m_kIOCP.Stop();
     }
     virtual void OnTick() {
-        WorldManagerServer::Get().PartyFinder()->Tick();
-        WorldManagerServer::Get().Ranking    ()->Tick();
-        WorldManagerServer::Get().ChatSteal  ()->Tick();
+        WMServicesTickAll();
     }
 private:
     ServerInfo      m_kInfo;

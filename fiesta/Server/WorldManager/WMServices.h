@@ -47,10 +47,11 @@ public:
     bool Post  (CharID host, uint8 uiCategory, const std::string& rNote);
     bool Cancel(CharID host);
     void GetList(uint8 uiCategory, std::vector<DBRecord>& rOut) const;
+    void Tick();         // prunes posts older than the TTL
 private:
     PartyFinderServer() {}
-    struct Post { CharID host; uint8 cat; std::string note; uint64 uiAt; };
-    std::vector<Post> m_kPosts;
+    struct Listing { CharID host; uint8 cat; std::string note; uint64 uiAt; };
+    std::vector<Listing> m_kPosts;
 };
 
 class RankingServer {

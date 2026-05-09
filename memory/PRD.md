@@ -97,3 +97,39 @@ ChargedEffect.
 
 VS2010 toolset, see `docs/BUILD.md` for project file layout. Compilation is
 performed locally on Windows; this repo is C++ source only.
+
+## WorldManager file layout (canonical NA2016 mapping)
+
+```
+Server/WorldManager/
+├── Main.cpp                          service entry; boots DataFileServer,
+│                                     opens 5 acceptors, ticks WMServices
+├── WorldManagerServer.{h,cpp}        zone registry, token bridge, fanout,
+│                                     WMClient/WMLogin/WMCharDB sessions
+├── WMServices.{h,cpp}                14 cross-zone subsystem singletons +
+│                                     WMServicesTickAll() master ticker
+├── DataFileServer.cpp                SHN ingest + column auditor
+├── GuildServer.{h,cpp}               cross-zone guild authority
+├── KQServer.cpp                      Kingdom Quest voting / lifecycle
+├── FriendServer.cpp                  presence + friend-list deltas
+├── ChatStealServer.cpp               world-wide chat fanout + mute
+├── PartyFinderServer.cpp             cross-zone LFG board
+├── RankingServer.cpp                 leaderboard merge + hourly publish
+├── PrisonServer.cpp                  PK sentencing + decrement timer
+├── HolyPromiseServer.cpp             couple registry
+├── GambleSystemServer.cpp            dice / slot-machine / coin window
+├── EventAttendanceServer.cpp         daily login attendance
+├── DailyQuestTimer.cpp               daily/weekly/monthly reset broadcast
+├── NpcScheduleServer.cpp             time-windowed NPC spawn/despawn
+├── GMEventManager.cpp                GM event start/end fanout
+├── MatchInstanceDungeonServer.cpp    MID party queue
+├── PF_Zone.cpp                       protocol family: WM<->Zone register/HB
+├── PF_OPTool.cpp                     protocol family: OPTool admin
+├── PF_AccountDB.cpp                  outbound proxy: AccountDB queries
+├── PF_AccountLogDB.cpp               outbound proxy: AccountLog audit
+├── PF_CharDB.cpp                     inbound dispatcher for CharDB acks
+├── PF_GameLogDB.cpp                  outbound proxy: GameLog audit
+├── WMCharDBClient.{h,cpp}            outbound: guild/friend/mail/KQ/event/
+│                                     daily/ranking writes -> CharDB exe
+```
+

@@ -1,11 +1,14 @@
 // Server/WorldManager/WorldManagerServer.h
-// world manager: routes between Login, Zone, optool, and the social/party servers.
-//                                  WMLoginSession, WMCharDBSession, WMOPToolSession,
-//                                  PartyFinderServer, RankingServer, ChatStealServer
+// world manager: routes between Login, Zone, optool, and the social/party
+// servers. Cross-zone content systems (Friend / ChatSteal / PartyFinder /
+// Ranking / Prison / HolyPromise / Gamble / EventAttendance / DailyQuest /
+// NpcSchedule / GMEvent / MatchInstanceDungeon / KQ / DataFile) live in
+// WMServices.h and are ticked from WMServicesTickAll() each frame.
 #ifndef FIESTA_WMSERVER_H
 #define FIESTA_WMSERVER_H
 #include "../Shared/Socket_Acceptor.h"
 #include "../Shared/CToken.h"
+#include "WMServices.h"
 #include <map>
 #include <vector>
 
@@ -50,25 +53,13 @@ public:
     void OnTokenIssuedFromLogin(const PendingTokenAuth& rTok);
     bool ConsumeToken(AccountID aid, const uint8 aSecret[16]);
 
-    // Party finder (in WM). Per-player party state lives in Zone; PartyFinderServer in WM
-    // brokers cross-zone party formation requests.
-    class PartyFinderServer*  PartyFinder() { return m_pkPartyFinder; }
-    class RankingServer*      Ranking()     { return m_pkRanking; }
-    class ChatStealServer*    ChatSteal()   { return m_pkChatSteal; }
 private:
     WorldManagerServer();
     std::map<uint16, ZoneInfo>          m_kZones;
     std::map<uint16, IOCPSession*>      m_kZoneSessions;   // zid -> WMZoneSession*
     std::vector<PendingTokenAuth>       m_kPendingTokens;
-    class PartyFinderServer*  m_pkPartyFinder;
-    class RankingServer*      m_pkRanking;
-    class ChatStealServer*    m_pkChatSteal;
     CRITICAL_SECTION                    m_kCs;
 };
-
-class PartyFinderServer { public: void Tick(); };
-class RankingServer     { public: void Tick(); };
-class ChatStealServer   { public: void Tick(); };
 
 class WMClientSession : public IOCPSession {
 public:
