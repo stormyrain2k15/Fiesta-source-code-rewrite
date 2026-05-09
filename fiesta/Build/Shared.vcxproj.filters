@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Shared"><UniqueIdentifier>{4568DFAD-69A7-5DA7-A65D-4048877F808F}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Server\Shared\BTree.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\BinaryDataCollection.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\CToken.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\ConfigParser.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\EHCrashHandler.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\GPacket.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\GTimer.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\IOCPManager.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\MD5Checksum.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\PacketBuffer.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\PacketEncrypt.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\RandomBox.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\ServerInfo.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\ShineLogSystem.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\Socket_Acceptor.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\Socket_Connector.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\WinService.cpp"><Filter>Shared</Filter></ClCompile>
+    <ClCompile Include="..\Server\Shared\well512.cpp"><Filter>Shared</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Server\Shared\BinaryDataCollection.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\CToken.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\ConfigParser.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\EHCrashHandler.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\GPacket.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\GTimer.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\IOCPManager.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\MD5Checksum.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\PacketBuffer.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\PacketEncrypt.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\RandomBox.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\ServerInfo.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\ShineLogSystem.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\ShineTypes.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\Socket_Acceptor.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\Socket_Connector.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\WinService.h"><Filter>Shared</Filter></ClInclude>
+    <ClInclude Include="..\Server\Shared\well512.h"><Filter>Shared</Filter></ClInclude>
+  </ItemGroup>
+</Project>

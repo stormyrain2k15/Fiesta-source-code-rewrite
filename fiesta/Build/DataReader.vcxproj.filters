@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="DataReader"><UniqueIdentifier>{F4B0F92F-2812-571E-B121-B9C4DADAFD19}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Server\DataReader\AbStateInfoFile.cpp"><Filter>DataReader</Filter></ClCompile>
+    <ClCompile Include="..\Server\DataReader\BlockInfoFile.cpp"><Filter>DataReader</Filter></ClCompile>
+    <ClCompile Include="..\Server\DataReader\DatFile.cpp"><Filter>DataReader</Filter></ClCompile>
+    <ClCompile Include="..\Server\DataReader\DataBox.cpp"><Filter>DataReader</Filter></ClCompile>
+    <ClCompile Include="..\Server\DataReader\DataReader.cpp"><Filter>DataReader</Filter></ClCompile>
+    <ClCompile Include="..\Server\DataReader\PsScriptFile.cpp"><Filter>DataReader</Filter></ClCompile>
+    <ClCompile Include="..\Server\DataReader\Schemas.cpp"><Filter>DataReader</Filter></ClCompile>
+    <ClCompile Include="..\Server\DataReader\ShnDataFileCheckSum.cpp"><Filter>DataReader</Filter></ClCompile>
+    <ClCompile Include="..\Server\DataReader\ShnFile.cpp"><Filter>DataReader</Filter></ClCompile>
+    <ClCompile Include="..\Server\DataReader\ShnRegistry.cpp"><Filter>DataReader</Filter></ClCompile>
+    <ClCompile Include="..\Server\DataReader\TableScriptFile.cpp"><Filter>DataReader</Filter></ClCompile>
+    <ClCompile Include="..\Server\DataReader\Tables.cpp"><Filter>DataReader</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Server\DataReader\AbStateInfoFile.h"><Filter>DataReader</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataReader\BlockInfoFile.h"><Filter>DataReader</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataReader\CommonData.h"><Filter>DataReader</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataReader\DatFile.h"><Filter>DataReader</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataReader\DataBox.h"><Filter>DataReader</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataReader\DataReader.h"><Filter>DataReader</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataReader\ITableBase.h"><Filter>DataReader</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataReader\PsScriptFile.h"><Filter>DataReader</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataReader\Schemas.h"><Filter>DataReader</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataReader\ShnDataFileCheckSum.h"><Filter>DataReader</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataReader\ShnFile.h"><Filter>DataReader</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataReader\ShnRegistry.h"><Filter>DataReader</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataReader\TableScriptFile.h"><Filter>DataReader</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataReader\Tables.h"><Filter>DataReader</Filter></ClInclude>
+  </ItemGroup>
+</Project>

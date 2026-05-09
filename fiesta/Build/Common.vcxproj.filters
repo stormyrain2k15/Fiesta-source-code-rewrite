@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common"><UniqueIdentifier>{154CA666-9EF2-52DF-8ED5-9053D5AF8F19}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Server\Common\ProtocolAnalysis.cpp"><Filter>Common</Filter></ClCompile>
+    <ClCompile Include="..\Server\Common\ProtocolParser.cpp"><Filter>Common</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Server\Common\NETCOMMAND.h"><Filter>Common</Filter></ClInclude>
+    <ClInclude Include="..\Server\Common\ProtocolAnalysis.h"><Filter>Common</Filter></ClInclude>
+    <ClInclude Include="..\Server\Common\ProtocolParser.h"><Filter>Common</Filter></ClInclude>
+    <ClInclude Include="..\Server\Common\SendPacket.h"><Filter>Common</Filter></ClInclude>
+  </ItemGroup>
+</Project>

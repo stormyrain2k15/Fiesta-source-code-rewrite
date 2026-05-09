@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Client"><UniqueIdentifier>{7823A91D-7168-5067-A0FA-BD0573D78AFA}</UniqueIdentifier></Filter>
+    <Filter Include="Client\Engine"><UniqueIdentifier>{E683B34F-9939-5A17-9C78-2395034CBBD3}</UniqueIdentifier></Filter>
+    <Filter Include="Client\ResSystem"><UniqueIdentifier>{FD7CA670-CEE5-543B-9B79-CEB5434A34E8}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Client\Engine\AnimationLink.cpp"><Filter>Client\Engine</Filter></ClCompile>
+    <ClCompile Include="..\Client\Engine\ClientApp.cpp"><Filter>Client\Engine</Filter></ClCompile>
+    <ClCompile Include="..\Client\Engine\Main.cpp"><Filter>Client\Engine</Filter></ClCompile>
+    <ClCompile Include="..\Client\ResSystem\UIResourceTables.cpp"><Filter>Client\ResSystem</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Client\Engine\AnimationLink.h"><Filter>Client\Engine</Filter></ClInclude>
+    <ClInclude Include="..\Client\Engine\ClientApp.h"><Filter>Client\Engine</Filter></ClInclude>
+    <ClInclude Include="..\Client\ResSystem\UIResourceTables.h"><Filter>Client\ResSystem</Filter></ClInclude>
+  </ItemGroup>
+</Project>

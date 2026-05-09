@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common"><UniqueIdentifier>{EF586B39-DAEB-534A-AEF6-32B3A6F810F6}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Server\DataServer\Common\Database.cpp"><Filter>Common</Filter></ClCompile>
+    <ClCompile Include="..\Server\DataServer\Common\SQLP.cpp"><Filter>Common</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Server\DataServer\Common\DBSchemaConstants.h"><Filter>Common</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataServer\Common\Database.h"><Filter>Common</Filter></ClInclude>
+    <ClInclude Include="..\Server\DataServer\Common\SQLP.h"><Filter>Common</Filter></ClInclude>
+  </ItemGroup>
+</Project>

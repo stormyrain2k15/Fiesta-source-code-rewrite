@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32"><Configuration>Debug</Configuration><Platform>Win32</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32"><Configuration>Release</Configuration><Platform>Win32</Platform></ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E9D051DA-BFB9-515D-8A78-978216F79EF7}</ProjectGuid>
+    <RootNamespace>Shared</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v100</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v100</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="Gamebryo.props" Condition="exists('Gamebryo.props')" />
+    <Import Project="Lua.props" Condition="exists('Lua.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)Bin\Debug\</OutDir>
+    <IntDir>$(SolutionDir)Obj\Debug\$(ProjectName)\</IntDir>
+    <TargetName>Shared</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)Bin\Release\</OutDir>
+    <IntDir>$(SolutionDir)Obj\Release\$(ProjectName)\</IntDir>
+    <TargetName>Shared</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;NOMINMAX;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Server\Common;..\Server\Shared;..\Server\DataReader;..\Server\DataServer\Common;..\Lua;..\ThirdParty\Gamebryo\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <AdditionalOptions>/ignore:4221 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;NOMINMAX;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Server\Common;..\Server\Shared;..\Server\DataReader;..\Server\DataServer\Common;..\Lua;..\ThirdParty\Gamebryo\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Lib>
+      <AdditionalOptions>/ignore:4221 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Server\Shared\BTree.cpp" />
+    <ClCompile Include="..\Server\Shared\BinaryDataCollection.cpp" />
+    <ClCompile Include="..\Server\Shared\CToken.cpp" />
+    <ClCompile Include="..\Server\Shared\ConfigParser.cpp" />
+    <ClCompile Include="..\Server\Shared\EHCrashHandler.cpp" />
+    <ClCompile Include="..\Server\Shared\GPacket.cpp" />
+    <ClCompile Include="..\Server\Shared\GTimer.cpp" />
+    <ClCompile Include="..\Server\Shared\IOCPManager.cpp" />
+    <ClCompile Include="..\Server\Shared\MD5Checksum.cpp" />
+    <ClCompile Include="..\Server\Shared\PacketBuffer.cpp" />
+    <ClCompile Include="..\Server\Shared\PacketEncrypt.cpp" />
+    <ClCompile Include="..\Server\Shared\RandomBox.cpp" />
+    <ClCompile Include="..\Server\Shared\ServerInfo.cpp" />
+    <ClCompile Include="..\Server\Shared\ShineLogSystem.cpp" />
+    <ClCompile Include="..\Server\Shared\Socket_Acceptor.cpp" />
+    <ClCompile Include="..\Server\Shared\Socket_Connector.cpp" />
+    <ClCompile Include="..\Server\Shared\WinService.cpp" />
+    <ClCompile Include="..\Server\Shared\well512.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Server\Shared\BinaryDataCollection.h" />
+    <ClInclude Include="..\Server\Shared\CToken.h" />
+    <ClInclude Include="..\Server\Shared\ConfigParser.h" />
+    <ClInclude Include="..\Server\Shared\EHCrashHandler.h" />
+    <ClInclude Include="..\Server\Shared\GPacket.h" />
+    <ClInclude Include="..\Server\Shared\GTimer.h" />
+    <ClInclude Include="..\Server\Shared\IOCPManager.h" />
+    <ClInclude Include="..\Server\Shared\MD5Checksum.h" />
+    <ClInclude Include="..\Server\Shared\PacketBuffer.h" />
+    <ClInclude Include="..\Server\Shared\PacketEncrypt.h" />
+    <ClInclude Include="..\Server\Shared\RandomBox.h" />
+    <ClInclude Include="..\Server\Shared\ServerInfo.h" />
+    <ClInclude Include="..\Server\Shared\ShineLogSystem.h" />
+    <ClInclude Include="..\Server\Shared\ShineTypes.h" />
+    <ClInclude Include="..\Server\Shared\Socket_Acceptor.h" />
+    <ClInclude Include="..\Server\Shared\Socket_Connector.h" />
+    <ClInclude Include="..\Server\Shared\WinService.h" />
+    <ClInclude Include="..\Server\Shared\well512.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

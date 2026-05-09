@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="WorldManager"><UniqueIdentifier>{C23787BF-CEF2-522C-8A2F-8ABEB97AE3EF}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Server\WorldManager\ChatStealServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\DailyQuestTimer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\DataFileServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\EventAttendanceServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\FriendServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\GMEventManager.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\GambleSystemServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\GuildServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\HolyPromiseServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\KQServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\Main.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\MatchInstanceDungeonServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\NpcScheduleServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\PF_AccountDB.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\PF_AccountLogDB.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\PF_CharDB.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\PF_GameLogDB.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\PF_OPTool.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\PF_Zone.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\PartyFinderServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\PrisonServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\RankingServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\WMCharDBClient.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\WMServices.cpp"><Filter>WorldManager</Filter></ClCompile>
+    <ClCompile Include="..\Server\WorldManager\WorldManagerServer.cpp"><Filter>WorldManager</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Server\WorldManager\GuildServer.h"><Filter>WorldManager</Filter></ClInclude>
+    <ClInclude Include="..\Server\WorldManager\WMCharDBClient.h"><Filter>WorldManager</Filter></ClInclude>
+    <ClInclude Include="..\Server\WorldManager\WMServices.h"><Filter>WorldManager</Filter></ClInclude>
+    <ClInclude Include="..\Server\WorldManager\WorldManagerServer.h"><Filter>WorldManager</Filter></ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32"><Configuration>Debug</Configuration><Platform>Win32</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32"><Configuration>Release</Configuration><Platform>Win32</Platform></ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C86D53DA-F75E-5C4A-982F-D64FE562FEA0}</ProjectGuid>
+    <RootNamespace>DataReader</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v100</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v100</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="Gamebryo.props" Condition="exists('Gamebryo.props')" />
+    <Import Project="Lua.props" Condition="exists('Lua.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)Bin\Debug\</OutDir>
+    <IntDir>$(SolutionDir)Obj\Debug\$(ProjectName)\</IntDir>
+    <TargetName>DataReader</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)Bin\Release\</OutDir>
+    <IntDir>$(SolutionDir)Obj\Release\$(ProjectName)\</IntDir>
+    <TargetName>DataReader</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;NOMINMAX;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Server\Common;..\Server\Shared;..\Server\DataReader;..\Server\DataServer\Common;..\Lua;..\ThirdParty\Gamebryo\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <AdditionalOptions>/ignore:4221 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;NOMINMAX;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Server\Common;..\Server\Shared;..\Server\DataReader;..\Server\DataServer\Common;..\Lua;..\ThirdParty\Gamebryo\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Lib>
+      <AdditionalOptions>/ignore:4221 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Server\DataReader\AbStateInfoFile.cpp" />
+    <ClCompile Include="..\Server\DataReader\BlockInfoFile.cpp" />
+    <ClCompile Include="..\Server\DataReader\DatFile.cpp" />
+    <ClCompile Include="..\Server\DataReader\DataBox.cpp" />
+    <ClCompile Include="..\Server\DataReader\DataReader.cpp" />
+    <ClCompile Include="..\Server\DataReader\PsScriptFile.cpp" />
+    <ClCompile Include="..\Server\DataReader\Schemas.cpp" />
+    <ClCompile Include="..\Server\DataReader\ShnDataFileCheckSum.cpp" />
+    <ClCompile Include="..\Server\DataReader\ShnFile.cpp" />
+    <ClCompile Include="..\Server\DataReader\ShnRegistry.cpp" />
+    <ClCompile Include="..\Server\DataReader\TableScriptFile.cpp" />
+    <ClCompile Include="..\Server\DataReader\Tables.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Server\DataReader\AbStateInfoFile.h" />
+    <ClInclude Include="..\Server\DataReader\BlockInfoFile.h" />
+    <ClInclude Include="..\Server\DataReader\CommonData.h" />
+    <ClInclude Include="..\Server\DataReader\DatFile.h" />
+    <ClInclude Include="..\Server\DataReader\DataBox.h" />
+    <ClInclude Include="..\Server\DataReader\DataReader.h" />
+    <ClInclude Include="..\Server\DataReader\ITableBase.h" />
+    <ClInclude Include="..\Server\DataReader\PsScriptFile.h" />
+    <ClInclude Include="..\Server\DataReader\Schemas.h" />
+    <ClInclude Include="..\Server\DataReader\ShnDataFileCheckSum.h" />
+    <ClInclude Include="..\Server\DataReader\ShnFile.h" />
+    <ClInclude Include="..\Server\DataReader\ShnRegistry.h" />
+    <ClInclude Include="..\Server\DataReader\TableScriptFile.h" />
+    <ClInclude Include="..\Server\DataReader\Tables.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Shared.vcxproj">
+      <Project>{E9D051DA-BFB9-515D-8A78-978216F79EF7}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

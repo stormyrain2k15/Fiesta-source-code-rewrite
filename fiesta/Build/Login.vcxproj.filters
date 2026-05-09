@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Login"><UniqueIdentifier>{37CC13BD-84EC-5BDF-B5D2-C40D4D0F4BB0}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Server\Login\ClientVersionKeyInfo.cpp"><Filter>Login</Filter></ClCompile>
+    <ClCompile Include="..\Server\Login\LoginClientSession.cpp"><Filter>Login</Filter></ClCompile>
+    <ClCompile Include="..\Server\Login\Main.cpp"><Filter>Login</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Server\Login\ClientVersionKeyInfo.h"><Filter>Login</Filter></ClInclude>
+    <ClInclude Include="..\Server\Login\LoginClientSession.h"><Filter>Login</Filter></ClInclude>
+  </ItemGroup>
+</Project>

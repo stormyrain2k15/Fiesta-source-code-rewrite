@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <!-- Edit this to point at your Lua 5.2 install. Default expects an
+         in-tree drop at ../ThirdParty/Lua/{include,lib}. The project
+         strictly requires Lua 5.2.x; 5.1 and 5.4 are NOT compatible
+         with the binding layer in /Lua/LuaRuntime.cpp. -->
+    <LuaRoot>$(SolutionDir)..\ThirdParty\Lua</LuaRoot>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(LuaRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(LuaRoot)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>lua52.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(LuaRoot)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LuaRoot"><Value>$(LuaRoot)</Value></BuildMacro>
+  </ItemGroup>
+</Project>
