@@ -707,6 +707,53 @@ bool GradeItemOptionTab::Load(DataReader& reader) {
     SHINELOG_INFO("GradeItemOption: loaded %u rows", (uint32)m_uiTotal);
     return true;
 }
+
+// =============================================================================
+// MobInfoServer.shn  -- per-mob server-only metadata (drop table id, AI bindings).
+// EVIDENCE: PDB_CONFIRMED  symbol: cMobInfoServer.
+// =============================================================================
+MobInfoServerTab g_MobInfoServerTab;
+bool MobInfoServerTab::Load(DataReader& reader) {
+    std::vector<std::vector<std::string> > kRows;
+    if (!reader.LoadAsRows("MobInfoServer", kRows)) return false;
+    for (size_t i = 1; i < kRows.size(); ++i) {
+        const std::vector<std::string>& r = kRows[i];
+        MobInfoServerRow rec; memset(&rec, 0, sizeof(rec));
+        rec.InxNo            = (uint16)ColU32(r, 0);
+        rec.DropItemListIdx  = (uint16)ColU32(r, 1);
+        rec.ResistanceIdx    = (uint16)ColU32(r, 2);
+        rec.BehaviorIdx      = (uint16)ColU32(r, 3);
+        rec.RoamIdx          = (uint16)ColU32(r, 4);
+        rec.AttackSeqIdx     = (uint16)ColU32(r, 5);
+        rec.ActionSetIdx     = (uint16)ColU32(r, 6);
+        Push((uint32)rec.InxNo, rec);
+    }
+    SHINELOG_INFO("MobInfoServer: loaded %u rows", (uint32)m_uiTotal);
+    return true;
+}
+
+// =============================================================================
+// ItemDropTable.shn -- DropTableID -> {ItemGroupIdx, Permill, MinQty, MaxQty}
+// EVIDENCE: PDB_CONFIRMED  symbol: cItemDropTable.
+// =============================================================================
+ItemDropTableTab g_ItemDropTableTab;
+bool ItemDropTableTab::Load(DataReader& reader) {
+    std::vector<std::vector<std::string> > kRows;
+    if (!reader.LoadAsRows("ItemDropTable", kRows)) return false;
+    for (size_t i = 1; i < kRows.size(); ++i) {
+        const std::vector<std::string>& r = kRows[i];
+        ItemDropTableRow rec;
+        rec.DropTableID  = (uint16)ColU32(r, 0);
+        rec.ItemGroupIdx = (r.size() > 1) ? r[1] : "";
+        rec.Permill      = (uint16)ColU32(r, 2);
+        rec.MinQty       = (uint16)ColU32(r, 3);
+        rec.MaxQty       = (uint16)ColU32(r, 4);
+        Push((uint32)i, rec);
+    }
+    SHINELOG_INFO("ItemDropTable: loaded %u rows", (uint32)m_uiTotal);
+    return true;
+}
+
 void RegisterAllSchemaTabs() {
     DataBox::Get().Register(&g_ItemInfoTab);
     DataBox::Get().Register(&g_AbStateTab);
@@ -728,5 +775,7 @@ void RegisterAllSchemaTabs() {
     DataBox::Get().Register(&g_AbStateViewTab);
     DataBox::Get().Register(&g_SetEffectTab);
     DataBox::Get().Register(&g_GradeItemOptionTab);
+    DataBox::Get().Register(&g_MobInfoServerTab);
+    DataBox::Get().Register(&g_ItemDropTableTab);
 }
 } // namespace fiesta

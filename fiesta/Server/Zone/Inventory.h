@@ -5,6 +5,7 @@
 #ifndef FIESTA_ZONE_INVENTORY_H
 #define FIESTA_ZONE_INVENTORY_H
 #include "ShineObject.h"
+#include <string>
 #include <vector>
 
 namespace fiesta {
@@ -17,6 +18,14 @@ struct ShineItem {
     uint16 uiEndure;
     uint16 uiEnchant;
     uint8  bEquipped;
+    // Resolved at insert time when the item is created from a drop / quest
+    // reward where only the string item-index is known. Empty after the
+    // ItemInfo lookup has converted it to `uiInxName`.
+    std::string kItemIndex;
+    // Up to 5 random-option roll values (Str / Con / Dex / Int / Men).
+    // 0 = no roll. Filled by `DropResolver`; consumed by stat compositor
+    // and the equip summary builder.
+    uint16 aRandomOption[5];
 };
 
 class Inventory {

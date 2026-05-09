@@ -709,6 +709,48 @@ public: GradeItemOptionTab() { ms_pkTable = this; }
 };
 extern GradeItemOptionTab g_GradeItemOptionTab;
 
+// =============================================================================
+// MobInfoServer.shn / ItemDropTable.shn / RandomOption.shn -- runtime drop pipeline.
+// Minimal-field stubs so DropResolver / EquipSummaryBuilder compile against
+// real ITableBase plumbing. Full schemas are filled in by the SchemaGen
+// pass once the SHN headers are confirmed.
+//
+// EVIDENCE: PDB_CONFIRMED  symbol: cMobInfoServer, cItemDropTable, cRandomOption.
+// =============================================================================
+struct MobInfoServerRow {
+    uint16 InxNo;            // mob species id (links to MobInfo.shn.InxNo)
+    uint16 DropItemListIdx;  // drop-table id (links to ItemDropTable.DropTableID)
+    uint16 ResistanceIdx;    // links to MobResist.shn
+    uint16 BehaviorIdx;      // links to MobBehavior id (PS / Lua)
+    uint16 RoamIdx;          // links to MobRoam id
+    uint16 AttackSeqIdx;     // links to MobAttackSequence id
+    uint16 ActionSetIdx;     // links to MobSetting/Action id
+};
+class MobInfoServerTab : public ITableBase<MobInfoServerRow>, public IDataTable {
+public: MobInfoServerTab() { ms_pkTable = this; }
+    virtual bool Load(DataReader& r);
+    virtual void BeforeTerminate() { ITableBase<MobInfoServerRow>::BeforeTerminate(); }
+    virtual uint32 GetTotal() const { return ITableBase<MobInfoServerRow>::GetTotal(); }
+    virtual const char* LogicalName() const { return "MobInfoServer"; }
+};
+extern MobInfoServerTab g_MobInfoServerTab;
+
+struct ItemDropTableRow {
+    uint16      DropTableID;
+    std::string ItemGroupIdx;
+    uint16      Permill;
+    uint16      MinQty;
+    uint16      MaxQty;
+};
+class ItemDropTableTab : public ITableBase<ItemDropTableRow>, public IDataTable {
+public: ItemDropTableTab() { ms_pkTable = this; }
+    virtual bool Load(DataReader& r);
+    virtual void BeforeTerminate() { ITableBase<ItemDropTableRow>::BeforeTerminate(); }
+    virtual uint32 GetTotal() const { return ITableBase<ItemDropTableRow>::GetTotal(); }
+    virtual const char* LogicalName() const { return "ItemDropTable"; }
+};
+extern ItemDropTableTab g_ItemDropTableTab;
+
 void RegisterAllSchemaTabs();
 } // namespace fiesta
 #endif
