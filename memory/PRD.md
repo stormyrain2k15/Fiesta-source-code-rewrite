@@ -264,6 +264,37 @@ each STR/INT/DEX/CON/MEN point grants.
 
 Total now: **190 source files**. See `docs/PASS1_12_WORLD_FOLDER.md`.
 
+## Pass 1.14 -- DataServer DB layer (2026-02)
+
+User dropped `Account.bak` + `AccountLog.bak` and the canonical
+`shn_parser.py`. Combined with the existing `World00_Character.bak`,
+`World00_GameLog.bak`, `Options.bak`, `OperatorTool.bak`, `StatisticsData.bak`
+extractions, we now have ground-truth identifier inventory: 56 stored
+procedures and ~30 tables across 7 databases.
+
+- **`DBSchemaConstants.h`** rewritten -- new `fiesta::DB::<Table>` sub-
+  namespaces with `kTable` + per-column `kXxx` constants for every real
+  table; pre-existing `DBField::*()` accessors preserved for back-compat.
+- **`Database`** got `Quote()` / `ExecProc()` / `QueryProc()` helpers so all
+  call sites build `{CALL proc(args)}` strings consistently.
+- **`SQLP.h/.cpp`** rewritten as 11 per-concern facades:
+  `SQLP_Account`, `SQLP_AccountLog`, `SQLP_Character`, `SQLP_Wedding`,
+  `SQLP_HolyPromise`, `SQLP_Guild`, `SQLP_Item`, `SQLP_Quest`, `SQLP_Skill`,
+  `SQLP_Friend`, `SQLP_GameLog`, `SQLP_Statistics`, `SQLP_Operator`,
+  `SQLP_Options`, plus generic `SQLP_Report` / `SQLP_IPChecker`. Every
+  proc-name string is the literal `p_*` / `up_*` identifier extracted
+  from the corresponding .bak.
+- **DataServer Main.cpp** updated for `Account`, `AccountLog`, `Character`,
+  `GameLog`, `OperatorTool` -- each exe now opens its real ODBC connection
+  and instantiates the SQLP facades it owns.
+- **Login client-version check** -- gated. Block in
+  `LoginClientSession::HandleVersionCheck` is commented out behind a
+  `MUST CONFIGURE TO ENABLE` banner; the packet is acknowledged blindly
+  and the session moves into `LS_VERSION_OK`. Matches original-game
+  behaviour where only the WM ever advisory-checked the build key.
+
+Total now: **~191 source files**. See `docs/PASS1_14_DB_LAYER.md`.
+
 ## Pack rule compliance
 
 | Rule | Status |

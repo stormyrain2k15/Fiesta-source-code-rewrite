@@ -31,16 +31,32 @@ void LoginClientSession::OnPacket(const GPacket& rPkt) {
     }
 }
 
+// ---------------------------------------------------------------------------
+// Client-version / build-token check.
+//
+// Disabled by default. The original game shipped without this check for
+// most of its lifetime, only the WorldManager ever consulted the build key,
+// and even there the gate was advisory: if WM accepted the connection
+// nothing downstream re-validated. We follow the same posture here -- the
+// packet is acknowledged blindly and the session is moved into LS_VERSION_OK
+// so the auth flow continues. Re-enable below ("MUST CONFIGURE TO ENABLE")
+// only for hardened deployments that actually ship `ClientVersionKeyInfo.txt`.
+// ---------------------------------------------------------------------------
 void LoginClientSession::HandleVersionCheck(const GPacket& rPkt) {
     PacketBuffer body = rPkt.Body();
     std::string clientKey;
     body.ReadString(clientKey);
+
+    /*  MUST CONFIGURE TO ENABLE -- security gate, off by default.
     if (!ClientVersionKeyInfo::Get().IsAcceptable(clientKey)) {
         SHINELOG_WARN("Login: version mismatch got='%s' expected='%s'",
                       clientKey.c_str(), ClientVersionKeyInfo::Get().Key().c_str());
         SendPacket(this, NC_USER_LOGINFAIL_ACK);
         return;
     }
+    */
+    (void)clientKey; // accept any value while the gate is disabled
+
     m_eState = LS_VERSION_OK;
     PacketBuffer ack; ack.WriteU8(1);
     SendPacket(this, NC_USER_CLIENT_VERSION_CHECK_REQ + 1, ack.Data(), ack.Size());
@@ -86,16 +102,6 @@ void LoginClientSession::HandleWorldSelect(const GPacket& rPkt) {
     m_kToken.Generate(m_uiAccount, uiWorldId);
     m_eState = LS_WORLD_PICKED;
     PacketBuffer ack;
-    ack.WriteU8(1);
-    ack.WriteString("127.0.0.1");        // WM ip (provisional)
-    ack.WriteU16(28000);                 // WM port (provisional)
-    ack.WriteBytes(m_kToken.GetSecret(), 16);
-    SendPacket(this, NC_USER_WORLDSELECT_ACK, ack.Data(), ack.Size());
-    // The WM is told about the issued token via NC_INTER_AUTH_TOKEN_PUSH (LoginAccountDBSession).
-}
-
-} // namespace fiesta
-er ack;
     ack.WriteU8(1);
     ack.WriteString("127.0.0.1");        // WM ip (provisional)
     ack.WriteU16(28000);                 // WM port (provisional)

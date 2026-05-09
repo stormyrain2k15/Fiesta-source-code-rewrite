@@ -31,6 +31,15 @@ public:
     bool Exec(const std::string& rSql);                                   // INSERT/UPDATE/DELETE/EXEC
     bool Query(const std::string& rSql, std::vector<DBRecord>& rOut);     // SELECT
     bool IsConnected() const { return m_hDbc != SQL_NULL_HDBC; }
+
+    // Escape a literal string so it is safe to embed in a SQL/proc-call body.
+    // T-SQL escapes single-quote by doubling it; we additionally strip any
+    // embedded NUL or non-printable byte that should not reach the wire.
+    static std::string Quote(const std::string& rIn);
+
+    // Convenience: build "{CALL <proc>(<args...>)}" and Exec/Query it.
+    bool ExecProc (const std::string& rProc, const std::string& rArgs);
+    bool QueryProc(const std::string& rProc, const std::string& rArgs, std::vector<DBRecord>& rOut);
 private:
     SQLHENV m_hEnv;
     SQLHDBC m_hDbc;

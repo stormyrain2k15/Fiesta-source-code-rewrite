@@ -72,4 +72,28 @@ bool Database::Query(const std::string& rSql, std::vector<DBRecord>& rOut) {
     return true;
 }
 
+std::string Database::Quote(const std::string& rIn) {
+    std::string out;
+    out.reserve(rIn.size() + 4);
+    for (size_t i = 0; i < rIn.size(); ++i) {
+        char c = rIn[i];
+        if (c == '\'') { out.push_back('\''); out.push_back('\''); }
+        else if ((unsigned char)c < 0x20) { /* drop NUL/control */ }
+        else { out.push_back(c); }
+    }
+    return out;
+}
+
+bool Database::ExecProc(const std::string& rProc, const std::string& rArgs) {
+    std::string kSql; kSql.reserve(rProc.size() + rArgs.size() + 8);
+    kSql += "{CALL "; kSql += rProc; kSql += "("; kSql += rArgs; kSql += ")}";
+    return Exec(kSql);
+}
+
+bool Database::QueryProc(const std::string& rProc, const std::string& rArgs, std::vector<DBRecord>& rOut) {
+    std::string kSql; kSql.reserve(rProc.size() + rArgs.size() + 8);
+    kSql += "{CALL "; kSql += rProc; kSql += "("; kSql += rArgs; kSql += ")}";
+    return Query(kSql, rOut);
+}
+
 } // namespace fiesta

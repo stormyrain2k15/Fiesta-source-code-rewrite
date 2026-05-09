@@ -1,5 +1,6 @@
 // Server/DataServer/GameLog/Main.cpp
-// 03/41 -- GameLog DB service exe entry. Records combat / drop / mob hunt / item drop logs.
+// 03/41 -- GameLog DB service exe entry. Records combat / drop / mob hunt /
+// trade logs into the World00_GameLog database.
 // EVIDENCE: PDB_CONFIRMED  symbol: GameLogSession, MobHuntLog, ItemDropLog
 #include "../../Shared/WinService.h"
 #include "../../Shared/ServerInfo.h"
@@ -7,8 +8,13 @@
 #include "../../Shared/IOCPManager.h"
 #include "../../Shared/Socket_Acceptor.h"
 #include "../Common/Database.h"
+#include "../Common/SQLP.h"
 
 namespace fiesta {
+
+static Database*     g_pkGameLogDB = NULL;
+static SQLP_GameLog* g_pkSQLPGL    = NULL;
+static SQLP_Report*  g_pkSQLPRpt   = NULL;
 
 class GameLogSession : public IOCPSession {
 public:
@@ -20,21 +26,26 @@ static IOCPSession* MakeGameLogSession() { return new GameLogSession(); }
 
 class GameLogService : public WinService {
 public:
-    GameLogService() : WinService("FiestaGameLog"), m_pkDB(NULL) {}
+    GameLogService() : WinService("FiestaGameLog") {}
     virtual bool OnStart() {
         m_kInfo.Load("ServerInfo.txt");
-        m_pkDB = new Database();
-        m_pkDB->Connect(m_kInfo.GetString("GameLog.ConnStr",
-            "Driver={SQL Server Native Client 11.0};Server=.;Database=GameLog;Trusted_Connection=yes;"));
+        g_pkGameLogDB = new Database();
+        g_pkGameLogDB->Connect(m_kInfo.GetString("GameLog.ConnStr",
+            "Driver={SQL Server Native Client 11.0};Server=.;Database=World00_GameLog;Trusted_Connection=yes;"));
+        g_pkSQLPGL  = new SQLP_GameLog(g_pkGameLogDB);
+        g_pkSQLPRpt = new SQLP_Report (g_pkGameLogDB);
         if (!m_kIOCP.Start()) return false;
-        return m_kAcceptor.Start(&m_kIOCP, m_kInfo.GetU16("GameLog.Port", 27603), &MakeGameLogSession);
+        return m_kAcceptor.Start(&m_kIOCP, m_kInfo.GetU16("GameLog.Port", 27603),
+                                 &MakeGameLogSession);
     }
     virtual void OnStop() {
         m_kAcceptor.Stop(); m_kIOCP.Stop();
-        if (m_pkDB) { m_pkDB->Disconnect(); delete m_pkDB; m_pkDB = NULL; }
+        delete g_pkSQLPRpt; g_pkSQLPRpt = NULL;
+        delete g_pkSQLPGL;  g_pkSQLPGL  = NULL;
+        if (g_pkGameLogDB) { g_pkGameLogDB->Disconnect(); delete g_pkGameLogDB; g_pkGameLogDB = NULL; }
     }
 private:
-    ServerInfo m_kInfo; IOCPManager m_kIOCP; Socket_Acceptor m_kAcceptor; Database* m_pkDB;
+    ServerInfo m_kInfo; IOCPManager m_kIOCP; Socket_Acceptor m_kAcceptor;
 };
 
 } // namespace fiesta

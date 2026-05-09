@@ -1,0 +1,1 @@
+QuestData.shn	unpack_from requires a buffer of at least 2140448 bytes for unpacking 4 bytes at offset 2140444 (actual buffer size is 2140444)
