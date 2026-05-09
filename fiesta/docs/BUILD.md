@@ -19,7 +19,6 @@ existing operator scripts (`runall.bat`, `taskkill /im ...`) to keep working:
 | `Server/DataServer/AccountLog/`  | **`AccountLog Release.exe`**  |
 | `Server/DataServer/Character/`   | **`Character Release.exe`**   |
 | `Server/DataServer/GameLog/`     | **`GameLog_Release.exe`**     |
-| `Server/OperatorTool/`           | **`OperatorTool Release.exe`**|
 | `Client/Engine/`                 | `Fiesta.exe`                  |
 
 The space (`Account Release.exe`) and underscore (`GameLog_Release.exe`) styles
@@ -53,7 +52,6 @@ lookups against shipped PDBs still match.
 | `LoginServer2` (exe)     | WinExe    | `Server/Login/*.cpp`                     -> ShineCore                    -> rename to `3LoginServer2.exe` |
 | `WorldManagerServer2`(exe)| WinExe   | `Server/WorldManager/*.cpp`              -> ShineCore                    -> rename to `4WorldManagerServer2.exe` |
 | `ZoneServer2` (exe)      | WinExe    | `Server/Zone/*.cpp`                      -> ShineCore + LuaRuntime       -> rename to `5ZoneServer2.exe` |
-| `OperatorTool` (exe)     | WinExe    | `Server/OperatorTool/Main.cpp`           -> ShineCore                    -> rename to `OperatorTool Release.exe` |
 | `Fiesta` (client exe)    | WinExe    | `Client/**/*.cpp` -> ShineCore + ThirdParty/Gamebryo libs |
 
 ## Required additional include / lib paths
@@ -83,8 +81,7 @@ lookups against shipped PDBs still match.
 5.  "4WorldManagerServer2.exe"   -console   :28000..:28004
 6.  "3LoginServer2.exe"          -console   :9010
 7.  "5ZoneServer2.exe"           -console   :28100   (Zone.Id=0 in ZoneServerInfo.txt)
-8.  "OperatorTool Release.exe"   -console   :30000
-9.  "Fiesta.exe"                            -> connects to 127.0.0.1:9010
+8.  "Fiesta.exe"                            -> connects to 127.0.0.1:9010
 ```
 
 `ServerInfo.txt` and `ZoneServerInfo.txt` are simple `key=value` files; defaults

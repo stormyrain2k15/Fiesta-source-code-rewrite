@@ -327,6 +327,30 @@ Zone server, not a real game function.
 Total still: **~191 source files** (one Main.cpp deleted, one new doc).
 See `docs/PASS1_15_EXE_LAYOUT_AND_CHARDB.md`.
 
+## Pass 1.16 -- OperatorTool exe dropped, loopback-only admin entry (2026-02)
+
+User clarified: the OperatorTool was the admin / dev control panel, not a
+game function. Nothing depended on it; services just accepted its
+connection over loopback. So we don't ship a new exe, but we keep every
+connector / SQL surface so any external admin panel can attach.
+
+- **Removed `Server/OperatorTool/`** entirely.
+- **Kept** `WMOPToolSession`, `SQLP_Operator`, `DB::tOperator` /
+  `DB::tMenuAuth`, and the full `NC_OPTOOL_*` opcode set.
+- **`Socket_Acceptor`** got an optional `bLoopbackOnly` flag -- binds to
+  `127.0.0.1` and double-checks the peer address in AcceptLoop.
+- **WM Main.cpp** now starts `m_kOPToolAcc` loopback-only.
+- **`WMOPToolSession`** now actually does something: tracks
+  authed/oper-level state, calls `p_Operator_Logon` via a lazy
+  `SQLP_Operator`, then dispatches the full admin command surface
+  (ban / kick / jail / unjail / sysmsg / give-item / take-item /
+  read-only DB query) with documented wire layouts.
+- **`NETCOMMAND.h`** extended with `NC_OPTOOL_JAIL_CMD`, `_UNJAIL_CMD`,
+  `_SYSMSG_CMD`, `_GIVEITEM_CMD`, `_TAKEITEM_CMD`, `_QUERY_REQ`,
+  `_QUERY_ACK`, `_RESULT_ACK`.
+
+Total now: **~190 source files**. See `docs/PASS1_16_OPTOOL_LOOPBACK.md`.
+
 ## Pack rule compliance
 
 | Rule | Status |

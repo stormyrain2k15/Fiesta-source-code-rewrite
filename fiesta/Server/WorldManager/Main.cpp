@@ -25,7 +25,11 @@ public:
         m_kZoneAcc  .Start(&m_kIOCP, m_kInfo.GetU16("WM.ZonePort"  , 28001), &MakeWMZone);
         m_kLoginAcc .Start(&m_kIOCP, m_kInfo.GetU16("WM.LoginPort" , 28002), &MakeWMLogin);
         m_kCharAcc  .Start(&m_kIOCP, m_kInfo.GetU16("WM.CharDBPort", 28003), &MakeWMCharDB);
-        m_kOPToolAcc.Start(&m_kIOCP, m_kInfo.GetU16("WM.OPToolPort", 28004), &MakeWMOPTool);
+        // Admin / OperatorTool entry: loopback-only. The OperatorTool exe is
+        // not part of this tree -- any external admin panel that connects
+        // here must run on the same host. See WMOPToolSession docs.
+        m_kOPToolAcc.Start(&m_kIOCP, m_kInfo.GetU16("WM.OPToolPort", 28004), &MakeWMOPTool,
+                           /*bLoopbackOnly*/ true);
         return true;
     }
     virtual void OnStop() {

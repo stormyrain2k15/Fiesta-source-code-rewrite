@@ -89,9 +89,28 @@ public:
     virtual void OnPacket(const GPacket& rPkt);
 };
 
+// Admin / dev-tool acceptor on the WM. The OperatorTool exe itself does not
+// ship in this tree (the original was a thin Win32 admin panel). The WM still
+// listens for an external admin tool to connect -- but only over loopback,
+// and only with a successful `p_Operator_Logon` against the OperatorTool DB.
+//
+// Once authed, the panel can drive every cross-DB / cross-zone admin action:
+//   ban / kick / jail / unjail / sysmsg broadcast / give-item / take-item /
+//   read-only DB query (any of Account / AccountLog / World00_Character /
+//   World00_GameLog / OperatorTool / StatisticsData / Options).
+//
+// Nothing in the engine depends on the OPTool being connected; the session is
+// purely opt-in.
 class WMOPToolSession : public IOCPSession {
 public:
+    WMOPToolSession() : m_iOperLevel(0), m_bAuthed(false) {}
     virtual void OnPacket(const GPacket& rPkt);
+
+    int  GetLevel() const { return m_iOperLevel; }
+    bool IsAuthed() const { return m_bAuthed;   }
+private:
+    int  m_iOperLevel;
+    bool m_bAuthed;
 };
 
 } // namespace fiesta

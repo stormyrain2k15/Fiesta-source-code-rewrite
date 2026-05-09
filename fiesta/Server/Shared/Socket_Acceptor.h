@@ -56,7 +56,8 @@ public:
     Socket_Acceptor();
     ~Socket_Acceptor();
 
-    bool Start(IOCPManager* pkIOCP, uint16 uiPort, SessionFactory pkFactory);
+    bool Start(IOCPManager* pkIOCP, uint16 uiPort, SessionFactory pkFactory,
+               bool bLoopbackOnly = false);
     void Stop();
 private:
     static unsigned __stdcall AcceptThreadStatic(void* p);
@@ -68,6 +69,7 @@ private:
     SessionFactory m_pkFactory;
     LONG           m_bRun;
     uint16         m_uiPort;
+    bool           m_bLoopbackOnly;
 };
 
 } // namespace fiesta

@@ -78,24 +78,32 @@ void IOCPSession::FlushSend_NoLock() {
 // ---------- Socket_Acceptor ----------
 Socket_Acceptor::Socket_Acceptor()
     : m_pkIOCP(NULL), m_kListen(INVALID_SOCKET), m_hThread(NULL),
-      m_pkFactory(NULL), m_bRun(0), m_uiPort(0) {}
+      m_pkFactory(NULL), m_bRun(0), m_uiPort(0), m_bLoopbackOnly(false) {}
 
 Socket_Acceptor::~Socket_Acceptor() { Stop(); }
 
-bool Socket_Acceptor::Start(IOCPManager* pk, uint16 uiPort, SessionFactory pkFactory) {
+bool Socket_Acceptor::Start(IOCPManager* pk, uint16 uiPort, SessionFactory pkFactory,
+                            bool bLoopbackOnly) {
     m_pkIOCP = pk; m_uiPort = uiPort; m_pkFactory = pkFactory;
+    m_bLoopbackOnly = bLoopbackOnly;
     m_kListen = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (m_kListen == INVALID_SOCKET) return false;
     BOOL bReuse = TRUE;
     setsockopt(m_kListen, SOL_SOCKET, SO_REUSEADDR, (const char*)&bReuse, sizeof(bReuse));
     sockaddr_in sa; ZeroMemory(&sa, sizeof(sa));
-    sa.sin_family = AF_INET; sa.sin_addr.s_addr = htonl(INADDR_ANY); sa.sin_port = htons(uiPort);
+    sa.sin_family = AF_INET;
+    // Loopback-only sockets bind to 127.0.0.1 so the kernel rejects external
+    // peers before they even reach our accept(). The defence-in-depth check
+    // in AcceptLoop covers the case of a future caller forgetting the flag.
+    sa.sin_addr.s_addr = bLoopbackOnly ? htonl(INADDR_LOOPBACK) : htonl(INADDR_ANY);
+    sa.sin_port = htons(uiPort);
     if (bind(m_kListen, (sockaddr*)&sa, sizeof(sa)) == SOCKET_ERROR) { Stop(); return false; }
     if (listen(m_kListen, SOMAXCONN) == SOCKET_ERROR) { Stop(); return false; }
     InterlockedExchange(&m_bRun, 1);
     unsigned tid;
     m_hThread = (HANDLE)_beginthreadex(NULL, 0, &Socket_Acceptor::AcceptThreadStatic, this, 0, &tid);
-    SHINELOG_INFO("Socket_Acceptor listening on :%u", uiPort);
+    SHINELOG_INFO("Socket_Acceptor listening on %s:%u",
+                  bLoopbackOnly ? "127.0.0.1" : "0.0.0.0", uiPort);
     return m_hThread != NULL;
 }
 
@@ -114,6 +122,13 @@ void Socket_Acceptor::AcceptLoop() {
         sockaddr_in sa; int sl = sizeof(sa);
         SOCKET s = accept(m_kListen, (sockaddr*)&sa, &sl);
         if (s == INVALID_SOCKET) { if (!m_bRun) break; Sleep(10); continue; }
+        // Defence-in-depth: even with INADDR_LOOPBACK bind, double-check the
+        // peer is on 127.0.0.0/8 before letting any session callbacks run.
+        if (m_bLoopbackOnly && (ntohl(sa.sin_addr.s_addr) >> 24) != 127) {
+            SHINELOG_WARN("Socket_Acceptor :%u rejected non-loopback peer 0x%08X",
+                          (uint32)m_uiPort, ntohl(sa.sin_addr.s_addr));
+            closesocket(s); continue;
+        }
         IOCPSession* pkSess = m_pkFactory ? m_pkFactory() : NULL;
         if (!pkSess) { closesocket(s); continue; }
         pkSess->AttachSocket(s);

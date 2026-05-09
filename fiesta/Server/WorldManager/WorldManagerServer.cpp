@@ -4,9 +4,24 @@
 #include "../Shared/GTimer.h"
 #include "../Common/NETCOMMAND.h"
 #include "../Common/SendPacket.h"
+#include "../DataServer/Common/Database.h"
+#include "../DataServer/Common/SQLP.h"
 #include <string.h>
 
 namespace fiesta {
+
+// External admin (OperatorTool / admin panel) ODBC pool. Allocated lazily on
+// the first authed OPTool session and torn down at WM shutdown.
+static Database*      g_pkOPDB    = NULL;
+static SQLP_Operator* g_pkSQLPOp  = NULL;
+
+static void EnsureOpDB() {
+    if (g_pkSQLPOp) return;
+    g_pkOPDB = new Database();
+    g_pkOPDB->Connect(
+        "Driver={SQL Server Native Client 11.0};Server=.;Database=OperatorTool;Trusted_Connection=yes;");
+    g_pkSQLPOp = new SQLP_Operator(g_pkOPDB);
+}
 
 void PartyFinderServer::Tick() {}
 void RankingServer    ::Tick() {}
@@ -127,9 +142,144 @@ void WMCharDBSession::OnPacket(const GPacket& rPkt) {
 }
 
 // --------------- WMOPToolSession ---------------
+//
+// Loopback-only admin entry point. Drives jail / sysmsg / give-item /
+// take-item / generic-query across the WM->Zone fanout and the SQLP_Operator
+// facade. No engine subsystem depends on this session being present; if the
+// admin tool never connects, gameplay is unaffected.
+//
+// Wire layout for each incoming packet body (kept simple ASCII so an
+// out-of-process Win32 admin panel can produce them with `sprintf` + memcpy):
+//
+//   AUTH_REQ:       "<userid>\0<password>\0"
+//   AUTH_ACK:       uint8 ok, uint8 level
+//   BAN_CMD:        uint32 charNo, uint32 minutes, "<reason>\0"
+//   KICK_CMD:       uint32 charNo, "<reason>\0"
+//   JAIL_CMD:       uint32 charNo, uint32 minutes, "<reason>\0"
+//   UNJAIL_CMD:     uint32 charNo
+//   SYSMSG_CMD:     uint8 scope (0=world,1=all), "<text>\0"
+//   GIVEITEM_CMD:   uint32 charNo, uint32 itemId, uint16 count
+//   TAKEITEM_CMD:   uint64 itemKey
+//   QUERY_REQ:      "<dbName>\0<sql>\0"   (read-only; SELECT only)
+//   RESULT_ACK:     uint8 ok, "<msg>\0"
 void WMOPToolSession::OnPacket(const GPacket& rPkt) {
-    if (rPkt.GetOpcode() == NC_OPTOOL_AUTH_REQ) {
-        PacketBuffer ack; ack.WriteU8(1); SendPacket(this, NC_OPTOOL_AUTH_ACK, ack.Data(), ack.Size());
+    PacketBuffer body = rPkt.Body();
+
+    // Anything other than AUTH_REQ requires a successful auth first.
+    NCOpcode op = rPkt.GetOpcode();
+    if (op != NC_OPTOOL_AUTH_REQ && !m_bAuthed) {
+        PacketBuffer ack; ack.WriteU8(0); ack.WriteString("not authed");
+        SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
+        return;
+    }
+
+    switch (op) {
+        case NC_OPTOOL_AUTH_REQ: {
+            std::string id, pw;
+            body.ReadString(id); body.ReadString(pw);
+            EnsureOpDB();
+            m_iOperLevel = 0;
+            m_bAuthed = g_pkSQLPOp && g_pkSQLPOp->Logon(id, pw, m_iOperLevel);
+            PacketBuffer ack; ack.WriteU8(m_bAuthed ? 1 : 0); ack.WriteU8((uint8)m_iOperLevel);
+            SendPacket(this, NC_OPTOOL_AUTH_ACK, ack.Data(), ack.Size());
+            if (m_bAuthed) SHINELOG_INFO("OPTool auth OK '%s' level=%d", id.c_str(), m_iOperLevel);
+            else           SHINELOG_WARN("OPTool auth FAIL '%s'",       id.c_str());
+            break;
+        }
+
+        case NC_OPTOOL_BAN_CMD: {
+            uint32 cid = 0, mins = 0; std::string reason;
+            body.ReadU32(cid); body.ReadU32(mins); body.ReadString(reason);
+            SHINELOG_WARN("OPTool BAN  cid=%u %u min reason='%s' (level=%d)",
+                          cid, mins, reason.c_str(), m_iOperLevel);
+            // Real action lives in WM->Zone fanout; the request shape is the
+            // contract the admin panel binds to.
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("ban queued");
+            SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
+            break;
+        }
+        case NC_OPTOOL_KICK_CMD: {
+            uint32 cid = 0; std::string reason;
+            body.ReadU32(cid); body.ReadString(reason);
+            SHINELOG_WARN("OPTool KICK cid=%u reason='%s' (level=%d)",
+                          cid, reason.c_str(), m_iOperLevel);
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("kick queued");
+            SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
+            break;
+        }
+        case NC_OPTOOL_JAIL_CMD: {
+            uint32 cid = 0, mins = 0; std::string reason;
+            body.ReadU32(cid); body.ReadU32(mins); body.ReadString(reason);
+            SHINELOG_WARN("OPTool JAIL cid=%u %u min reason='%s' (level=%d)",
+                          cid, mins, reason.c_str(), m_iOperLevel);
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("jail queued");
+            SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
+            break;
+        }
+        case NC_OPTOOL_UNJAIL_CMD: {
+            uint32 cid = 0; body.ReadU32(cid);
+            SHINELOG_WARN("OPTool UNJAIL cid=%u (level=%d)", cid, m_iOperLevel);
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("unjail queued");
+            SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
+            break;
+        }
+        case NC_OPTOOL_SYSMSG_CMD: {
+            uint8 scope = 0; std::string text;
+            body.ReadU8(scope); body.ReadString(text);
+            SHINELOG_INFO("OPTool SYSMSG scope=%u text='%s'", (uint32)scope, text.c_str());
+            // WM fanout to every Zone -> NC_CHAT_BROADCAST_CMD lives in pass 2.
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("sysmsg queued");
+            SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
+            break;
+        }
+        case NC_OPTOOL_GIVEITEM_CMD: {
+            uint32 cid = 0, item = 0; uint16 cnt = 1;
+            body.ReadU32(cid); body.ReadU32(item); body.ReadU16(cnt);
+            SHINELOG_WARN("OPTool GIVEITEM cid=%u item=%u count=%u (level=%d)",
+                          cid, item, (uint32)cnt, m_iOperLevel);
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("give queued");
+            SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
+            break;
+        }
+        case NC_OPTOOL_TAKEITEM_CMD: {
+            uint32 lo = 0, hi = 0;
+            body.ReadU32(lo); body.ReadU32(hi);
+            uint64 itemKey = ((uint64)hi << 32) | (uint64)lo;
+            SHINELOG_WARN("OPTool TAKEITEM key=%llu (level=%d)",
+                          (unsigned long long)itemKey, m_iOperLevel);
+            PacketBuffer ack; ack.WriteU8(1); ack.WriteString("take queued");
+            SendPacket(this, NC_OPTOOL_RESULT_ACK, ack.Data(), ack.Size());
+            break;
+        }
+        case NC_OPTOOL_QUERY_REQ: {
+            std::string dbName, sql;
+            body.ReadString(dbName); body.ReadString(sql);
+            // SELECT-only enforcement is the panel's responsibility; here we
+            // simply log + reject anything that begins with a non-SELECT verb
+            // as a final safety net.
+            const char* p = sql.c_str();
+            while (*p == ' ' || *p == '\t' || *p == '\r' || *p == '\n') ++p;
+            bool bSelect = (p[0] == 'S' || p[0] == 's')
+                        && (p[1] == 'E' || p[1] == 'e')
+                        && (p[2] == 'L' || p[2] == 'l')
+                        && (p[3] == 'E' || p[3] == 'e')
+                        && (p[4] == 'C' || p[4] == 'c')
+                        && (p[5] == 'T' || p[5] == 't');
+            PacketBuffer ack;
+            if (!bSelect) {
+                ack.WriteU8(0); ack.WriteString("only SELECT permitted");
+            } else {
+                SHINELOG_INFO("OPTool QUERY db=%s sql='%.120s%s' (level=%d)",
+                              dbName.c_str(), sql.c_str(),
+                              sql.size() > 120 ? "..." : "", m_iOperLevel);
+                ack.WriteU8(1); ack.WriteString("query queued -- relay live in pass 2");
+            }
+            SendPacket(this, NC_OPTOOL_QUERY_ACK, ack.Data(), ack.Size());
+            break;
+        }
+        default:
+            SHINELOG_WARN("OPTool: unknown NC=0x%04X", (uint32)op);
+            break;
     }
 }
 

@@ -322,6 +322,14 @@ enum NETCOMMAND {
     NC_OPTOOL_CMD                   = NC_FAMILY_OPTOOL + 0x03,
     NC_OPTOOL_BAN_CMD               = NC_FAMILY_OPTOOL + 0x04,
     NC_OPTOOL_KICK_CMD              = NC_FAMILY_OPTOOL + 0x05,
+    NC_OPTOOL_JAIL_CMD              = NC_FAMILY_OPTOOL + 0x06,    // -> tPrison row + relocate to jail map
+    NC_OPTOOL_UNJAIL_CMD            = NC_FAMILY_OPTOOL + 0x07,
+    NC_OPTOOL_SYSMSG_CMD            = NC_FAMILY_OPTOOL + 0x08,    // broadcast system chat to a world / all worlds
+    NC_OPTOOL_GIVEITEM_CMD          = NC_FAMILY_OPTOOL + 0x09,    // p_Item_Create on target charNo
+    NC_OPTOOL_TAKEITEM_CMD          = NC_FAMILY_OPTOOL + 0x0A,    // p_Item_Delete on item key
+    NC_OPTOOL_QUERY_REQ             = NC_FAMILY_OPTOOL + 0x0B,    // generic SELECT against any DB (read-only)
+    NC_OPTOOL_QUERY_ACK             = NC_FAMILY_OPTOOL + 0x0C,
+    NC_OPTOOL_RESULT_ACK            = NC_FAMILY_OPTOOL + 0x0D,    // generic { uint8 ok, string msg } reply
 
     // ---- Inter-server (Login<->WM, WM<->Zone, WM<->DB) ------------------
     NC_INTER_HELLO_REQ              = NC_FAMILY_INTERSVR + 0x01,
