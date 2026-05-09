@@ -27,6 +27,13 @@ namespace fiesta {
 
 // Well-known GMEvent.shn event ids handled specially. Anything outside
 // this range falls through to the generic announce-only path.
+//
+// VERIFY: these ids (1001-1004) are placeholders chosen by this rewrite
+// pass. The original NA2016 GMEvent.shn drop has not been catalogued
+// row-by-row in this tree yet, so these MUST be reconciled against the
+// real EventNo values before going live -- otherwise WM windows from
+// the real GMEvent.shn will fall into the unrecognised path and only
+// emit a generic banner instead of a boost.
 const uint32 kGMEvent_LuckyHour      = 1001;   // EXP + Drop boost
 const uint32 kGMEvent_DoubleExp      = 1002;
 const uint32 kGMEvent_DoubleDrop     = 1003;

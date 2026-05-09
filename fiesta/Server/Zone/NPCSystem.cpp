@@ -245,6 +245,10 @@ void ServerMenuActor::SendPickAck(ShinePlayer* pk, uint32 uiNpcId,
                                   uint32 uiViewInfoId, uint8 uiResult,
                                   const std::string& rMsg) {
     if (!pk || !pk->GetSession()) return;
+    // VERIFY: NC_NPC_MENU_PICK_ACK body shape (npcId, viewInfoId, result,
+    // msg) is a placeholder. The NA2016 client format has not been
+    // captured into this tree; reconcile against a real ack capture
+    // before relying on the field order downstream.
     PacketBuffer body;
     body.WriteU32(uiNpcId);
     body.WriteU32(uiViewInfoId);
@@ -366,6 +370,12 @@ void ServerMenuActor::HandlePick(ShinePlayer* pk, uint32 uiNpcId, uint32 uiViewI
         //   uint32 npcId
         //   uint8  kind         (0/1/2/3)
         //   uint8  allowsLuck   (1 if Luck Stones can be consumed)
+        //
+        // VERIFY: the (npcId, kind, allowsLuck) ordering is provisional.
+        // The NA2016 client likely expects a specific field set/order
+        // (possibly including a list of allowed item-class filters).
+        // Reconcile against a real packet capture before treating this
+        // as canonical.
         PacketBuffer body;
         body.WriteU32(uiNpcId);
         body.WriteU8 (uiKind);

@@ -66,6 +66,13 @@ eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckS
     uiNewEnchantOut = 0;
     uiItemKeyOut    = 0;
 
+    // VERIFY: This implementation does NOT consume the upgrade resource
+    // (UpResource column on ItemInfo.shn) from the inventory before
+    // attempting the roll. The NA2016 enchanter removes one "upgrade
+    // stone" matching `p->uiUpResource` regardless of success, so the
+    // current code lets a player try unlimited upgrades for free. The
+    // resource-consumption path needs UpResource -> ItemId binding
+    // (likely a per-server config), which is not present in this tree.
     // Find the target item.
     const std::vector<ShineItem>& vAll = kInv.All();
     int idx = -1;
@@ -89,7 +96,19 @@ eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckS
 
     // Compute success rate (per-mille).
     int32 sucRate = (int32)p->UpSucRatio;
-    if (bUseLuckStone) sucRate += (int32)p->UpLuckRatio;
+    if (bUseLuckStone) {
+        // VERIFY: Luck Stone consumption is NOT yet implemented.
+        // The original game removes one Luck Stone (a specific item class
+        // identified via ItemInfo.kClassify / a per-server config item id)
+        // from the player's inventory before applying UpLuckRatio. Until
+        // the Luck-Stone item id is bound (via a config table or hardcoded
+        // ItemId list), granting the luck bonus would let the client get
+        // a free probability boost. Log and ignore the flag for now.
+        SHINELOG_WARN("ItemUpgrade::Try cid?? requested LuckStone bonus -- "
+                      "consumption path not implemented, ignoring bUseLuckStone");
+        bUseLuckStone = false;
+        (void)bUseLuckStone;
+    }
     sucRate = (sucRate * kUpgradeSucScalerX1k) / 1000;
     if (sucRate < 0)    sucRate = 0;
     if (sucRate > 1000) sucRate = 1000;

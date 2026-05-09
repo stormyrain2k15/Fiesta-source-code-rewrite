@@ -15,6 +15,12 @@ namespace fiesta {
 // roughly 16x the cell count). If a future map ships with a different
 // scale we'll plumb it through MapInfo.shn; the constant here is the
 // universal default.
+//
+// VERIFY: the 16:1 world-to-cell ratio is inferred from the doc note
+// in BlockInfoFile.h, which itself is observation-based ("we don't have
+// authoritative format docs"). A wrong ratio means players phase
+// through walls or get stuck in valid terrain. Confirm against a live
+// client running the same shbd.
 const int32 kMapBlockCellSize = 16;
 
 // Per-Field collision grid. One byte per cell; 0 = walkable, non-zero

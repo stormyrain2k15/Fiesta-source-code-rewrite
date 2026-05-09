@@ -31,11 +31,17 @@ bool LoadShbd(const std::string& rPath, BlockGrid& rOut) {
     size_t need = (size_t)rOut.uiWidth * (size_t)rOut.uiHeight;
     size_t avail = kBuf.size() - 8;
     if (need == 0 || need > avail) {
-        // Fall back to "file - 8 bytes" body.
-        SHINELOG_WARN("Shbd: header geometry %ux%u != payload %u bytes -- using raw body.",
-                      rOut.uiWidth, rOut.uiHeight, (uint32)avail);
-        rOut.kCells.assign(kBuf.begin() + 8, kBuf.end());
-        return true;
+        // Hard refuse rather than silently producing a wrong-size grid:
+        // a mis-sized grid causes IsBlockedCell/IsBlockedWorld to either
+        // out-of-bounds or to read the wrong row, and a mob can phase
+        // through walls. Fail loud and let the caller log + skip.
+        SHINELOG_WARN("Shbd: %s header geometry %ux%u != payload %u bytes -- "
+                      "refusing load (file is malformed or geometry is encoded "
+                      "differently than the documented one-byte-per-cell layout).",
+                      rPath.c_str(), rOut.uiWidth, rOut.uiHeight, (uint32)avail);
+        rOut.uiWidth = rOut.uiHeight = 0;
+        rOut.kCells.clear();
+        return false;
     }
     rOut.kCells.assign(kBuf.begin() + 8, kBuf.begin() + 8 + need);
     return true;

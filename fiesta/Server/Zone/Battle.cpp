@@ -298,6 +298,13 @@ void Battle::Kill(ShineObject* pkA, ShineObject* pkT) {
             // valid "no gold" outcome. Live-ops Money boost (Golden
             // Hour) stacks on top of the base and is applied last so
             // 0 base remains 0 after boost.
+            //
+            // VERIFY: `MobInfoRow.uiMoney` is read from a "Money" column
+            // in MobInfo.shn (see GroupTables.cpp parse). I have not
+            // confirmed that column actually exists in the NA2016
+            // MobInfo.shn header -- ShnGetU32 returns 0 for a missing
+            // column, so the visible symptom of a wrong column name is
+            // "mobs never drop gold". Reconcile against the SHN dump.
             if (pkInfo && pkInfo->uiMoney > 0) {
                 int64 gold = (int64)pkInfo->uiMoney;
                 const int32 moneyBoost = LiveOpsBoosts::Get().MoneyRateX1k();
