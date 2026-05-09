@@ -1,0 +1,38 @@
+// Server/Zone/ItemUpgrade.h
+// 15 -- the +N enhancement / upgrade flow.
+//
+// Inputs (ItemInfo.shn columns):
+//   * UpLimit       -- maximum +N this item type can reach.
+//   * UpSucRatio    -- success probability per-mille (1000 = 100.00%).
+//   * UpLuckRatio   -- additional probability if a Luck stone is consumed.
+//   * UpResource    -- which item class is consumed as the upgrade resource
+//                      (refer to docs/SHN Documentation/UpResource.md).
+//   * BasicUpInx    -- bonus delta on a successful +N -> +N+1.
+//   * AddUpInx      -- additional delta starting from +2 onwards.
+//
+// Outputs: success/fail/destroy/downgrade applied to the item in-place.
+//
+// EVIDENCE: PDB_CONFIRMED   symbol: ItemUpgrade, ItemEnchantTryResult.
+#ifndef FIESTA_ZONE_ITEMUPGRADE_H
+#define FIESTA_ZONE_ITEMUPGRADE_H
+#include "Inventory.h"
+
+namespace fiesta {
+
+enum eUpgradeResult {
+    UPGRADE_OK        = 0,    // +N -> +N+1
+    UPGRADE_FAIL      = 1,    // no change
+    UPGRADE_DOWNGRADE = 2,    // +N -> +N-1
+    UPGRADE_DESTROY   = 3,    // item destroyed
+    UPGRADE_BLOCKED   = 4     // not allowed (not upgradeable / at cap)
+};
+
+class ItemUpgrade {
+public:
+    // Attempt to upgrade a single item. Consumes one resource from the same
+    // inventory if found. bUseLuckStone applies UpLuckRatio bonus.
+    static eUpgradeResult Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckStone);
+};
+
+} // namespace fiesta
+#endif

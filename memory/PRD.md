@@ -166,6 +166,51 @@ Wrote first-class C++ readers for every shipped format that wasn't yet covered:
 
 Total now: **~157 source files**. See `docs/PASS1_10_SHINE_DATA_PARSERS.md`.
 
+## Pass 1.11 — Real Battle Pipeline + Stat / Item / Soul Systems (2026-02)
+
+User clarified the engine is the world for their AI agent (Elle); combat
+must be coherent and tunable without surgery. Also stripped XTrap as dead
+code and pinned every confirmed hex opcode from F2/NCProtocol.h.
+
+- **NETCOMMAND.h opcodes pinned**: `NC_USER_LOGIN_REQ=0x0C06`,
+  `NC_MAP_LOGIN_ACK=0x1038`, `NC_MAP_INVENTORY_CMD=0x103A`,
+  `NC_MAP_EQUIPMENT_CMD=0x103B`, `NC_MAP_SKILLBUFF_CMD=0x10CE`,
+  `NC_MAP_QUEST_CMD=0x10D7`, `NC_WM_HANDSHAKE_REQ=0x200F`,
+  `NC_MAP_WORLDPARAMS_CMD=0x700D`, `NC_MAP_WORLDTICK_CMD=0x7C07`, etc.
+- **XTrap stripped** to a legacy no-op handler that always ACKs success;
+  `LS_XTRAP_OK` removed from the login state machine; static token
+  preserved as a reference comment only.
+- **Editable build constants**: `kClientID`, `kClientBuildToken`,
+  `kMapLoginShaToken`, `kMapLoginShaLen`, `kWmHandshakeTokenLen` now live
+  as named constants in `Server/Login/ClientVersionKeyInfo.h`.
+- **Single-home tunables**: `Server/Zone/BattleTunables.h` collects every
+  formula number (damage floor, level-gap clamp, crit scaler, variance,
+  angle multipliers, PvP scaler, per-stat fallbacks, upgrade cap +
+  fail-penalty curve, free-stat grants, drop scaler, regen ticks).
+- **`BATTLESTAT` + `DAMAGERESULT`** structs (40+ fields) with a 12-stage
+  `RuleOfEngagement::CalcDamage` pipeline: hit roll -> raw -> level-gap ->
+  element -> angle -> crit -> block -> dmg-type-resist -> variance ->
+  absorb -> PvP scaler -> floor.
+- **`BuildBattleStat` composer** layering RAWCHARSTAT (MoverMain.shn
+  base) + EQUIPSUMMARY (sum of equipped ItemInfo + upgrade absolutes) +
+  BUFFMODIFIERS (AbState).
+- **`MoverMain` / `MoverAbility` / `MobResist` / `LevelGap` SHN loaders**
+  (each falls back to neutral defaults if the SHN is missing).
+- **`EquipSummaryBuilder`** sums equipped ItemInfo rows including
+  upgrade-level absolutes derived from `BasicUpInx` + `AddUpInx` *
+  `(uiEnchant - 1)`.
+- **`ItemUpgrade::Try`** -- real +N enhancement with
+  UpSucRatio/UpLuckRatio rolls, success/fail/downgrade/destroy outcomes
+  via the editable `kFailPenaltyAtLevel[20]` curve, capped by
+  `kMaxUpgradeLevel`.
+- **`FreeStatSystem`** -- STR/END/DEX/INT/MEN allocation with per-level
+  `MoverMain.MaxStat` cap, `kMaxFreeStatPerStat` clamp, and a refund
+  helper for stat-reset tickets.
+- **`SoulStoneSystem`** -- HP/SP/Shine soul revive flow with per-tier %
+  restoration and `ExpLossOnTownRevive(level)` penalty curve.
+
+Total now: **~177 source files**. See `docs/PASS1_11_BATTLE_PIPELINE.md`.
+
 ## Pack rule compliance
 
 | Rule | Status |

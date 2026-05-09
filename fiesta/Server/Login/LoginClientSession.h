@@ -8,7 +8,7 @@
 
 namespace fiesta {
 
-enum LoginState { LS_NEW = 0, LS_VERSION_OK, LS_XTRAP_OK, LS_AUTHED, LS_WORLD_PICKED };
+enum LoginState { LS_NEW = 0, LS_VERSION_OK, LS_AUTHED, LS_WORLD_PICKED };
 
 class LoginClientSession : public IOCPSession {
 public:
@@ -22,7 +22,7 @@ public:
     CToken&    GetToken()         { return m_kToken; }
 private:
     void HandleVersionCheck (const GPacket& rPkt);
-    void HandleXTrap        (const GPacket& rPkt);
+    void HandleXTrapLegacy  (const GPacket& rPkt);   // legacy no-op (modern client doesn't send)
     void HandleLogin        (const GPacket& rPkt);
     void HandleWorldStatus  (const GPacket& rPkt);
     void HandleWorldSelect  (const GPacket& rPkt);

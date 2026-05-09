@@ -19,11 +19,11 @@ void LoginClientSession::OnDisconnect() {
 
 void LoginClientSession::OnPacket(const GPacket& rPkt) {
     switch (rPkt.GetOpcode()) {
-        case NC_USER_CLIENT_VERSION_CHECK_REQ: HandleVersionCheck(rPkt); break;
-        case NC_USER_XTRAP_REQ:                HandleXTrap(rPkt);        break;
+        case NC_USER_VERSION_REQ:              HandleVersionCheck(rPkt); break;
+        case NC_USER_XTRAP_REQ:                HandleXTrapLegacy(rPkt);  break; // legacy no-op
         case NC_USER_LOGIN_REQ:                HandleLogin(rPkt);        break;
         case NC_USER_WORLD_STATUS_REQ:         HandleWorldStatus(rPkt);  break;
-        case NC_USER_WORLD_SELECT_REQ:         HandleWorldSelect(rPkt);  break;
+        case NC_USER_WORLDSELECT_REQ:          HandleWorldSelect(rPkt);  break;
         case NC_USER_LOGOUT_REQ:
             SendPacket(this, NC_USER_LOGOUT_ACK); Close(); break;
         default:
@@ -90,7 +90,17 @@ void LoginClientSession::HandleWorldSelect(const GPacket& rPkt) {
     ack.WriteString("127.0.0.1");        // WM ip (provisional)
     ack.WriteU16(28000);                 // WM port (provisional)
     ack.WriteBytes(m_kToken.GetSecret(), 16);
-    SendPacket(this, NC_USER_WORLD_SELECT_ACK, ack.Data(), ack.Size());
+    SendPacket(this, NC_USER_WORLDSELECT_ACK, ack.Data(), ack.Size());
+    // The WM is told about the issued token via NC_INTER_AUTH_TOKEN_PUSH (LoginAccountDBSession).
+}
+
+} // namespace fiesta
+er ack;
+    ack.WriteU8(1);
+    ack.WriteString("127.0.0.1");        // WM ip (provisional)
+    ack.WriteU16(28000);                 // WM port (provisional)
+    ack.WriteBytes(m_kToken.GetSecret(), 16);
+    SendPacket(this, NC_USER_WORLDSELECT_ACK, ack.Data(), ack.Size());
     // The WM is told about the issued token via NC_INTER_AUTH_TOKEN_PUSH (LoginAccountDBSession).
 }
 
