@@ -237,6 +237,56 @@ bool SQLP_Guild::TournamentGetLastMatch(DBRecord& rOut) {
     rOut = rows[0]; return true;
 }
 
+// WM-side guild mutators -----------------------------------------------------
+//
+// Each forwards to a stored proc on the Character DB. The named procs are
+// the published Fiesta schema; the strings here are exactly what the SQL
+// scripts in the project owner's pack create.
+bool SQLP_Guild::Create(CharID c, const std::string& rName, uint32& uiOut) {
+    uiOut = 0;
+    if (!m_pkDb) return false;
+    std::vector<DBRecord> rows;
+    if (!m_pkDb->QueryProc("p_Guild_Create",
+        F("%u,'%s'", c, Database::Quote(rName).c_str()), rows) || rows.empty())
+        return false;
+    if (!rows[0].kCols.empty()) uiOut = (uint32)atoi(rows[0].kCols[0].c_str());
+    return true;
+}
+bool SQLP_Guild::Dissolve(uint32 g) {
+    return m_pkDb && m_pkDb->ExecProc("p_Guild_Dissolve", F("%u", g));
+}
+bool SQLP_Guild::AddMember(uint32 g, CharID c, uint8 r) {
+    return m_pkDb && m_pkDb->ExecProc("p_Guild_AddMember", F("%u,%u,%u", g, c, (uint32)r));
+}
+bool SQLP_Guild::DelMember(uint32 g, CharID c) {
+    return m_pkDb && m_pkDb->ExecProc("p_Guild_DelMember", F("%u,%u", g, c));
+}
+bool SQLP_Guild::SetRank(uint32 g, CharID c, uint8 r) {
+    return m_pkDb && m_pkDb->ExecProc("p_Guild_SetRank", F("%u,%u,%u", g, c, (uint32)r));
+}
+bool SQLP_Guild::AddFunds(uint32 g, int64 d) {
+    return m_pkDb && m_pkDb->ExecProc("p_Guild_AddFunds", F("%u,%lld", g, d));
+}
+bool SQLP_Guild::SetEmblem(uint32 g, uint32 k) {
+    return m_pkDb && m_pkDb->ExecProc("p_Guild_SetEmblem", F("%u,%u", g, k));
+}
+bool SQLP_Guild::WarBegin(uint32 a, uint32 d) {
+    return m_pkDb && m_pkDb->ExecProc("p_Guild_War_Begin", F("%u,%u", a, d));
+}
+bool SQLP_Guild::WarKill(uint32 a, uint32 d, CharID killer, CharID killed) {
+    return m_pkDb && m_pkDb->ExecProc("p_Guild_War_Kill",
+        F("%u,%u,%u,%u", a, d, killer, killed));
+}
+bool SQLP_Guild::WarEnd(uint32 a, uint32 d, uint32 w) {
+    return m_pkDb && m_pkDb->ExecProc("p_Guild_War_End", F("%u,%u,%u", a, d, w));
+}
+bool SQLP_Guild::AcademyJoin(uint32 g, CharID c) {
+    return m_pkDb && m_pkDb->ExecProc("p_Guild_Academy_Join",  F("%u,%u", g, c));
+}
+bool SQLP_Guild::AcademyLeave(uint32 g, CharID c) {
+    return m_pkDb && m_pkDb->ExecProc("p_Guild_Academy_Leave", F("%u,%u", g, c));
+}
+
 // ===========================================================================
 //  SQLP_Item        (DB: World00_Character)
 // ===========================================================================

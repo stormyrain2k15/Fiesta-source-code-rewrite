@@ -106,6 +106,19 @@ public:
     bool   TournamentSet              (uint32 uiGTNo, uint32 uiGuildNo, int iStatus); // p_GuildTournament_Set
     bool   TournamentGetAllList       (std::vector<DBRecord>& rOut);            // p_GuildTournament_GetAllTournamentList
     bool   TournamentGetLastMatch     (DBRecord& rOut);                         // p_GuildTournament_GetLastMatch
+    // WM-side mutators (cross-zone authority):
+    bool   Create        (CharID cMaster, const std::string& rName, uint32& uiGuildNoOut);  // p_Guild_Create
+    bool   Dissolve      (uint32 uiGuildNo);                                    // p_Guild_Dissolve
+    bool   AddMember     (uint32 uiGuildNo, CharID c, uint8 uiRank);            // p_Guild_AddMember
+    bool   DelMember     (uint32 uiGuildNo, CharID c);                          // p_Guild_DelMember
+    bool   SetRank       (uint32 uiGuildNo, CharID c, uint8 uiRank);            // p_Guild_SetRank
+    bool   AddFunds      (uint32 uiGuildNo, int64 iDelta);                      // p_Guild_AddFunds
+    bool   SetEmblem     (uint32 uiGuildNo, uint32 uiEmblemKey);                // p_Guild_SetEmblem
+    bool   WarBegin      (uint32 uiAtk, uint32 uiDef);                          // p_Guild_War_Begin
+    bool   WarKill       (uint32 uiAtk, uint32 uiDef, CharID killer, CharID killed); // p_Guild_War_Kill
+    bool   WarEnd        (uint32 uiAtk, uint32 uiDef, uint32 uiWinner);         // p_Guild_War_End
+    bool   AcademyJoin   (uint32 uiGuildNo, CharID c);                          // p_Guild_Academy_Join
+    bool   AcademyLeave  (uint32 uiGuildNo, CharID c);                          // p_Guild_Academy_Leave
 };
 
 class SQLP_Item : public SQLP_Base {

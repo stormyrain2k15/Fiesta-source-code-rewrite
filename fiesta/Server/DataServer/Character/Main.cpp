@@ -16,8 +16,21 @@
 #include "../../Common/SendPacket.h"
 #include "../Common/Database.h"
 #include "../Common/SQLP.h"
+#include <stdarg.h>
+#include <stdio.h>
 
 namespace fiesta {
+
+// sprintf-style proc-arg builder, bounded to 256 bytes (matches the
+// internal helper in SQLP.cpp).
+static std::string F(const char* fmt, ...) {
+    char buf[256];
+    va_list ap; va_start(ap, fmt);
+    vsnprintf(buf, sizeof(buf), fmt, ap);
+    va_end(ap);
+    buf[sizeof(buf)-1] = '\0';
+    return std::string(buf);
+}
 
 static Database*         g_pkCharDB    = NULL;
 static SQLP_Character*   g_pkSQLPChar  = NULL;
@@ -218,6 +231,103 @@ static void HandleSocialOp(IOCPSession* pkSrc, const GPacket& rPkt, uint8 op) {
         bOK = g_pkSQLPGuild && g_pkSQLPGuild->TournamentSet(a, guildNo, status);
         break;
     }
+    // ---- WM-owned cross-zone ops (90+) ---------------------------------
+    case 90 /*GUILD_CREATE*/: {
+        std::string name; body.ReadString(name);
+        uint32 newGid = 0;
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->Create((CharID)a, name, newGid);
+        PacketBuffer ack; ack.WriteU8(op); ack.WriteU8(bOK ? 1 : 0); ack.WriteU32(newGid);
+        SendPacket(pkSrc, NC_INTER_CHAR_DB_RESPONSE, ack.Data(), ack.Size());
+        return;
+    }
+    case 91 /*GUILD_DISSOLVE*/:
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->Dissolve(a); break;
+    case 92 /*GUILD_ADD_MEMBER*/: {
+        uint32 c = 0; uint8 r = 0; body.ReadU32(c); body.ReadU8(r);
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->AddMember(a, c, r); break;
+    }
+    case 93 /*GUILD_DEL_MEMBER*/: {
+        uint32 c = 0; body.ReadU32(c);
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->DelMember(a, c); break;
+    }
+    case 94 /*GUILD_SET_RANK*/: {
+        uint32 c = 0; uint8 r = 0; body.ReadU32(c); body.ReadU8(r);
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->SetRank(a, c, r); break;
+    }
+    case 95 /*GUILD_ADD_FUNDS*/: {
+        int64 d = 0; body.ReadI64(d);
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->AddFunds(a, d); break;
+    }
+    case 96 /*GUILD_SET_EMBLEM*/: {
+        uint32 k = 0; body.ReadU32(k);
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->SetEmblem(a, k); break;
+    }
+    case 97 /*GUILD_WAR_BEGIN*/: {
+        uint32 d = 0; body.ReadU32(d);
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->WarBegin(a, d); break;
+    }
+    case 98 /*GUILD_WAR_KILL*/: {
+        uint32 d = 0, kr = 0, kd = 0;
+        body.ReadU32(d); body.ReadU32(kr); body.ReadU32(kd);
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->WarKill(a, d, kr, kd); break;
+    }
+    case 99 /*GUILD_WAR_END*/: {
+        uint32 d = 0, w = 0; body.ReadU32(d); body.ReadU32(w);
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->WarEnd(a, d, w); break;
+    }
+    case 100 /*GUILD_ACADEMY_JOIN*/: {
+        uint32 c = 0; body.ReadU32(c);
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->AcademyJoin(a, c); break;
+    }
+    case 101 /*GUILD_ACADEMY_LEAVE*/: {
+        uint32 c = 0; body.ReadU32(c);
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->AcademyLeave(a, c); break;
+    }
+    case 102 /*GUILD_TOURN_SET*/: {
+        uint32 g = 0; int32 s = 0; body.ReadU32(g); body.ReadI32(s);
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->TournamentSet(a, g, s); break;
+    }
+    case 110 /*FRIEND_ADD*/: {
+        uint32 b2 = 0; body.ReadU32(b2);
+        bOK = g_pkCharDB && g_pkCharDB->ExecProc("p_Friend_Add",
+                                         F("%u,%u", a, b2));
+        break;
+    }
+    case 111 /*FRIEND_DEL*/: {
+        uint32 b2 = 0; body.ReadU32(b2);
+        bOK = g_pkCharDB && g_pkCharDB->ExecProc("p_Friend_Del",
+                                         F("%u,%u", a, b2));
+        break;
+    }
+    case 120 /*MAIL_SEND*/: {
+        uint32 to = 0; std::string title, msg; int64 attach = 0;
+        body.ReadU32(to); body.ReadString(title); body.ReadString(msg); body.ReadI64(attach);
+        bOK = g_pkCharDB && g_pkCharDB->ExecProc("p_Mail_Send",
+            F("%u,%u,'%s','%s',%lld", a, to,
+              Database::Quote(title).c_str(),
+              Database::Quote(msg).c_str(), attach));
+        break;
+    }
+    case 130 /*KQ_RESULT_SET*/: {
+        uint32 winK = 0; body.ReadU32(winK);
+        bOK = g_pkCharDB && g_pkCharDB->ExecProc("p_KQ_Result_Set", F("%u,%u", a, winK));
+        break;
+    }
+    case 140 /*EVENT_ATTEND*/: {
+        uint8 day = 0; body.ReadU8(day);
+        bOK = g_pkCharDB && g_pkCharDB->ExecProc("p_EventAttendance_Mark",
+                                         F("%u,%u", a, (uint32)day));
+        break;
+    }
+    case 150 /*DAILY_RESET*/:
+        bOK = g_pkCharDB && g_pkCharDB->ExecProc("p_Daily_Reset", F("%u", a));
+        break;
+    case 160 /*RANKING_PUBLISH*/: {
+        // Ranking is bulk; we just stamp the run-id on tRankingHistory and
+        // let the proc rebuild from tCharacter / tGuild snapshots.
+        bOK = g_pkCharDB && g_pkCharDB->ExecProc("p_Ranking_Publish", F("%u", a));
+        break;
+    }
     default: SHINELOG_WARN("CharDB: unknown social op=%u", (uint32)op); return;
     }
     SHINELOG_DEBUG("CharDB op=%u cid=%u -> %s", (uint32)op, a, bOK ? "OK" : "FAIL");
@@ -236,6 +346,7 @@ public:
                 if      (op == CHARDB_OP_LOGIN)  HandleCharLogin (this, rPkt);
                 else if (op == CHARDB_OP_LOGOUT) HandleCharLogout(this, rPkt);
                 else if (op >= 10 && op <= 80)   HandleSocialOp  (this, rPkt, op);
+                else if (op >= 90 && op <= 165)  HandleSocialOp  (this, rPkt, op);
                 else SHINELOG_WARN("CharDB: unknown op=%u", (uint32)op);
                 break;
             }

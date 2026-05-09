@@ -23,6 +23,23 @@ static void EnsureOpDB() {
     g_pkSQLPOp = new SQLP_Operator(g_pkOPDB);
 }
 
+// Per-named-DB ODBC pool used by the OPTool generic-SELECT relay. Each entry
+// is created on first use and held open for the lifetime of the WM process.
+static std::map<std::string, Database*> g_kOPQueryDBs;
+
+static Database* OPQueryDB(const std::string& rDbName) {
+    std::map<std::string, Database*>::iterator it = g_kOPQueryDBs.find(rDbName);
+    if (it != g_kOPQueryDBs.end()) return it->second;
+    Database* d = new Database();
+    char conn[256];
+    _snprintf(conn, sizeof(conn),
+        "Driver={SQL Server Native Client 11.0};Server=.;Database=%s;Trusted_Connection=yes;",
+        rDbName.c_str());
+    if (!d->Connect(conn)) { delete d; return NULL; }
+    g_kOPQueryDBs[rDbName] = d;
+    return d;
+}
+
 void PartyFinderServer::Tick() {}
 void RankingServer    ::Tick() {}
 void ChatStealServer  ::Tick() {}
@@ -42,6 +59,16 @@ void WorldManagerServer::RegisterZone(uint16 zid, const std::string& ip, uint16 
     m_kZones[zid] = z;
     LeaveCriticalSection(&m_kCs);
     SHINELOG_INFO("WM: Zone%02u registered at %s:%u", zid, ip.c_str(), port);
+}
+
+void WorldManagerServer::TouchZoneHeartbeat(uint16 zid) {
+    EnterCriticalSection(&m_kCs);
+    std::map<uint16, ZoneInfo>::iterator it = m_kZones.find(zid);
+    if (it != m_kZones.end()) {
+        it->second.uiLastHeartbeatMs = GTimer::NowMillis();
+        it->second.bAlive = true;
+    }
+    LeaveCriticalSection(&m_kCs);
 }
 
 const ZoneInfo* WorldManagerServer::PickZoneForChar(CharID cid) const {
@@ -161,7 +188,7 @@ void WMZoneSession::OnPacket(const GPacket& rPkt) {
             break;
         }
         case NC_INTER_ZONE_HEARTBEAT_CMD:
-            // touch alive
+            WorldManagerServer::Get().TouchZoneHeartbeat(m_uiZoneId);
             break;
         default: break;
     }
@@ -322,10 +349,23 @@ void WMOPToolSession::OnPacket(const GPacket& rPkt) {
             if (!bSelect) {
                 ack.WriteU8(0); ack.WriteString("only SELECT permitted");
             } else {
-                SHINELOG_INFO("OPTool QUERY db=%s sql='%.120s%s' (level=%d)",
-                              dbName.c_str(), sql.c_str(),
-                              sql.size() > 120 ? "..." : "", m_iOperLevel);
-                ack.WriteU8(1); ack.WriteString("query queued -- relay live in pass 2");
+                Database* pDb = OPQueryDB(dbName);
+                if (!pDb) {
+                    ack.WriteU8(0); ack.WriteString("db connect failed");
+                } else {
+                    std::vector<DBRecord> rows;
+                    bool ok = pDb->Query(sql, rows);
+                    SHINELOG_INFO("OPTool QUERY db=%s rows=%u ok=%d (level=%d)",
+                                  dbName.c_str(), (uint32)rows.size(),
+                                  ok ? 1 : 0, m_iOperLevel);
+                    ack.WriteU8(ok ? 1 : 0);
+                    ack.WriteU16((uint16)rows.size());
+                    for (size_t i = 0; i < rows.size(); ++i) {
+                        ack.WriteU16((uint16)rows[i].kCols.size());
+                        for (size_t j = 0; j < rows[i].kCols.size(); ++j)
+                            ack.WriteString(rows[i].kCols[j]);
+                    }
+                }
             }
             SendPacket(this, NC_OPTOOL_QUERY_ACK, ack.Data(), ack.Size());
             break;

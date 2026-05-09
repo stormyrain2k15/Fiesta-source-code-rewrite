@@ -34,6 +34,7 @@ public:
     static WorldManagerServer& Get();
 
     void RegisterZone(uint16 uiZoneId, const std::string& rIp, uint16 uiPort);
+    void TouchZoneHeartbeat(uint16 uiZoneId);
     const ZoneInfo* PickZoneForChar(CharID cid) const;
 
     // Live WMZoneSession registry. The WMZoneSession::OnPacket handler pushes
