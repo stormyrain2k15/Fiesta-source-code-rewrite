@@ -1,6 +1,5 @@
 // Server/DataReader/DataReader.h
-// 02 -- top-level SHN/TXT loader and table registry.
-// EVIDENCE: PDB_CONFIRMED  symbol: DataReader, CommonData<T>, IndexedCommonData<T>, DataBox, SingleDataMap
+// top-level SHN/TXT loader and table registry.
 #ifndef FIESTA_DATAREADER_H
 #define FIESTA_DATAREADER_H
 #include "../Shared/ShineTypes.h"

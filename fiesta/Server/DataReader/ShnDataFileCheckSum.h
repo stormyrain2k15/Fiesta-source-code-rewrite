@@ -1,6 +1,5 @@
 // Server/DataReader/ShnDataFileCheckSum.h
-// 02 -- guard that refuses unsafe parsing of quest SHNs and verifies file integrity.
-// EVIDENCE: PDB_CONFIRMED  symbol: ShnDataFileCheckSum
+// guard that refuses unsafe parsing of quest SHNs and verifies file integrity.
 //   Spec rule: quest SHNs are not parsed by this codebase.
 #ifndef FIESTA_SHNDATAFILECHECKSUM_H
 #define FIESTA_SHNDATAFILECHECKSUM_H

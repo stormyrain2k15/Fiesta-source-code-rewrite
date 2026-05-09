@@ -1,12 +1,9 @@
 // Server/Zone/MobRoamTable.h
-// 19 -- MobRoam/<MapID>.txt -- patrol-path waypoints for "roaming" mobs.
+// MobRoam/<MapID>.txt -- patrol-path waypoints for "roaming" mobs.
 // One Roaming table per file with ID/X/Y/EventIndex columns.
-//
 // Mob AI consumes this via the per-map MobAI tick: when a roamer reaches
 // a waypoint, advance to (ID + 1) % count; if EventIndex != "-" the AI
 // fires the named event (chat / mobregen / linkto / ...).
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied MobRoam/.
 #ifndef FIESTA_ZONE_MOBROAMTABLE_H
 #define FIESTA_ZONE_MOBROAMTABLE_H
 #include "../Shared/ShineTypes.h"

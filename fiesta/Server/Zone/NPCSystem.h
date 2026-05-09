@@ -1,6 +1,5 @@
 // Server/Zone/NPCSystem.h
-// 19 -- NPC / menus / shops.
-// EVIDENCE: PDB_CONFIRMED  symbol: NPCManager, NPCAct, NPCAction, NPCItemList,
+// NPC / menus / shops.
 //                                  CurrentMenu, ServerMenuActor, SellItemManager, NpcScheduleServer
 #ifndef FIESTA_ZONE_NPCSYSTEM_H
 #define FIESTA_ZONE_NPCSYSTEM_H
@@ -51,7 +50,6 @@ public:
 class CurrentMenu           { public: uint32 uiOpenNpcId; };
 
 // ServerMenuActor -- the *server-authoritative* drawer for the NPC click box.
-//
 //   OpenMenu        : top-level click. Renders the page-N NPCAction rows for
 //                     this NPC as buttons. Sends NC_NPC_MENU_OPEN_CMD.
 //   SendDialog      : a chained dialog page (DialogID -> ButtonsFor in

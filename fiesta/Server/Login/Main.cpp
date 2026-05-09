@@ -1,14 +1,27 @@
 // Server/Login/Main.cpp
-// 04 -- Login service exe entry.
+// Login service exe entry. Owns:
+//   * the IOCP listener clients connect to with NC_USER_LOGIN_REQ
+//   * a co-resident SQLP_Account / SQLP_IPChecker pair so credential
+//     verification is ODBC-direct (no extra hop)
+//   * the AccountLogClient that records every login / logout event
 #include "../Shared/WinService.h"
 #include "../Shared/ServerInfo.h"
 #include "../Shared/IOCPManager.h"
 #include "../Shared/Socket_Acceptor.h"
 #include "../Shared/ShineLogSystem.h"
+#include "../DataServer/Common/Database.h"
+#include "../DataServer/Common/SQLP.h"
 #include "LoginClientSession.h"
 #include "ClientVersionKeyInfo.h"
 
 namespace fiesta {
+
+// Globals consumed by LoginClientSession::HandleLogin.
+Database*           g_pkLoginAccountDB = NULL;
+Database*           g_pkLoginAcctLogDB = NULL;
+SQLP_Account*       g_pkLoginAccount   = NULL;
+SQLP_IPChecker*     g_pkLoginIPCheck   = NULL;
+SQLP_AccountLog*    g_pkLoginAcctLog   = NULL;
 
 static IOCPSession* MakeLoginClientSession() { return new LoginClientSession(); }
 
@@ -18,6 +31,26 @@ public:
     virtual bool OnStart() {
         m_kInfo.Load("LoginServerInfo.txt");
         ClientVersionKeyInfo::Get().Load("ClientVersionKeyInfo.txt");
+
+        // Connect the Account ODBC source for credential verification.
+        g_pkLoginAccountDB = new Database();
+        const OdbcEntry* od = m_kInfo.FindOdbc("Account");
+        if (!g_pkLoginAccountDB->Connect(od ? od->kConnStr :
+            "Driver={SQL Server Native Client 11.0};Server=.;Database=Account;Trusted_Connection=yes;")) {
+            SHINELOG_WARN("Login: Account ODBC connect failed");
+        }
+        g_pkLoginAccount = new SQLP_Account  (g_pkLoginAccountDB);
+        g_pkLoginIPCheck = new SQLP_IPChecker(g_pkLoginAccountDB);
+
+        // Connect the AccountLog ODBC for the per-login audit row.
+        g_pkLoginAcctLogDB = new Database();
+        const OdbcEntry* odl = m_kInfo.FindOdbc("AccountLog");
+        if (!g_pkLoginAcctLogDB->Connect(odl ? odl->kConnStr :
+            "Driver={SQL Server Native Client 11.0};Server=.;Database=AccountLog;Trusted_Connection=yes;")) {
+            SHINELOG_WARN("Login: AccountLog ODBC connect failed");
+        }
+        g_pkLoginAcctLog = new SQLP_AccountLog(g_pkLoginAcctLogDB);
+
         if (!m_kIOCP.Start()) return false;
         const ServiceEndpoint* pkSvc = m_kInfo.FindFirst(SK_Login, -1, 20);
         uint16 uiPort = pkSvc ? pkSvc->uiPort : 9010;
@@ -27,7 +60,20 @@ public:
                       uiPort, ClientVersionKeyInfo::Get().Key().c_str());
         return true;
     }
-    virtual void OnStop() { m_kAcceptor.Stop(); m_kIOCP.Stop(); }
+    virtual void OnStop() {
+        m_kAcceptor.Stop(); m_kIOCP.Stop();
+        delete g_pkLoginAcctLog;  g_pkLoginAcctLog  = NULL;
+        delete g_pkLoginIPCheck;  g_pkLoginIPCheck  = NULL;
+        delete g_pkLoginAccount;  g_pkLoginAccount  = NULL;
+        if (g_pkLoginAcctLogDB) {
+            g_pkLoginAcctLogDB->Disconnect();
+            delete g_pkLoginAcctLogDB; g_pkLoginAcctLogDB = NULL;
+        }
+        if (g_pkLoginAccountDB) {
+            g_pkLoginAccountDB->Disconnect();
+            delete g_pkLoginAccountDB; g_pkLoginAccountDB = NULL;
+        }
+    }
 private:
     ServerInfo      m_kInfo;
     IOCPManager     m_kIOCP;

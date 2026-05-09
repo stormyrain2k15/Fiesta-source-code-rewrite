@@ -1,10 +1,9 @@
 // Server/DataReader/AbStateInfoFile.h
-// 02 -- readers for the AbState/ binary set:
+// readers for the AbState/ binary set:
 //   * AbStateInfo.dat  -- master index of abnormal states (count + name table).
 //   * Sta<XXX>.dat     -- per-state timeline blob, each StaXxx.dat is an array
 //                          of records starting with a u32 record count and
 //                          followed by 28-byte rows (5 * uint32 + dword) each.
-//
 // Format observed from the supplied AbState/ binaries:
 //   AbStateInfo.dat:
 //     [00..03] uint32 count          (e.g. 0x0000000A = 10 entries)
@@ -12,7 +11,6 @@
 //       [00..00] uint8  mainStateId  (1..N)
 //       [01..??] ascii  EnglishInxName (null-terminated, 32 bytes max)
 //       [??..??] ascii  KoreanLabel    (32 bytes max -- shift-jis bytes)
-//
 //   StaXxx.dat:
 //     [00..03] uint32 recordCount     (e.g. 0x97 = 151)
 //     [04..  ] records, each 28 bytes laid out as:
@@ -23,11 +21,8 @@
 //        uint32 keepFrames
 //        uint32 reserved
 //        uint32 reserved
-//
 // Field semantics (timestep / actionId / strength) are tentative; we surface
 // the raw fields so callers can reinterpret. Parsing is best-effort.
-//
-// EVIDENCE: HEX_PARTIAL  source: project-owner-supplied AbState/ binaries.
 #ifndef FIESTA_DATAREADER_ABSTATEINFOFILE_H
 #define FIESTA_DATAREADER_ABSTATEINFOFILE_H
 #include "../Shared/ShineTypes.h"

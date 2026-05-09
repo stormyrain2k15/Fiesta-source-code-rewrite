@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -20,7 +17,6 @@
 // NiMemObject implements interfaces overriding the global new and
 // delete operators. All derived classes will now funnel their
 // allocations/deallocations through the NiMemManager object.
-//
 // External code should never call "new" or "delete"
 // on NiMemObjects directly. Rather, they should use
 // "NiNew" and "NiDelete". This will allow allocation tracking

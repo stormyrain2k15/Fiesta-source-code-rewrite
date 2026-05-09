@@ -1,9 +1,7 @@
 // Server/Zone/ScriptStringTable.h
-// 23 -- typed loader for Script/<Set>.txt (NPC dialog / system message catalogs).
+// typed loader for Script/<Set>.txt (NPC dialog / system message catalogs).
 // Each file declares a "Script" table with two columns: ScrIndex (INDEX) and
 // ScrString (STRING[128]).
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied Script/Event.txt etc.
 #ifndef FIESTA_ZONE_SCRIPTSTRINGTABLE_H
 #define FIESTA_ZONE_SCRIPTSTRINGTABLE_H
 #include "../Shared/ShineTypes.h"

@@ -1,9 +1,8 @@
 // Server/DataReader/TableScriptFile.h
-// 02 DataReader -- generic parser for the "#Table / #ColumnType / #ColumnName /
+// generic parser for the "#Table / #ColumnType / #ColumnName /
 // #Record / #recordin / #End" text format used throughout the supplied data
 // archive (World/, Script/, MobAttackSequence/, MobRegen/, MobRoam/,
 // MobSetting/Action/, NPCItemList/, ChrCommon, ItemDropTable, Quest, etc.).
-//
 // File layout (based on the actual files in the project owner's Shine.zip):
 //   ; comment line
 //   #ignore       \o042                    ; characters to drop entirely
@@ -15,11 +14,8 @@
 //   #Record       <field1> <field2> ...
 //   #recordin     <TableName> <field1> ... ; explicit-table record line
 //   #End
-//
 // One file may declare multiple #Table blocks. The parser keeps every table by
 // declared name and exposes typed field accessors (string / int64 / double).
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied Shine.zip
 //                                   (World/Field.txt, Script/Event.txt,
 //                                    MobRegen/*.txt, ItemDropTable.txt, ...).
 #ifndef FIESTA_DATAREADER_TABLESCRIPTFILE_H
@@ -110,7 +106,6 @@ private:
     bool AppendRecord(const std::string& rTableName, const std::vector<std::string>& rFields);
 };
 
-// Pass 1.26 audit hooks for TS-format files. Every TsTable::GetCell-by-
 // name call stamps (table, column) into a static set; `TsAudit_VisitTable`
 // is invoked from a per-loader walker at boot end to warn for any
 // declared column that was never read.

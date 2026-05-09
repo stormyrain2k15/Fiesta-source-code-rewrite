@@ -1,8 +1,7 @@
 // Server/Login/ClientVersionKeyInfo.h
-// 04 -- single-token version key file used by Login to validate the client
+// single-token version key file used by Login to validate the client
 // build during NC_USER_VERSION_REQ. File format is a 14-character date+revision
 // token followed by newline (e.g., "10022024000000").
-//
 // EDITABLE TUNABLES (change without touching business logic):
 //   * kClientID            -- Gamigo regional client id (US / EU / etc.).
 //                             32-bit value sent with NC_USER_LOGIN_REQ.
@@ -10,8 +9,6 @@
 //   * kMapLoginShaToken    -- 326-char SHA1 of the client PE first 4096 bytes,
 //                             cached because clients always send the same
 //                             value per build.
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner Shine.zip + F2/NCProtocol.h.
 #ifndef FIESTA_LOGIN_CLIENTVERSIONKEYINFO_H
 #define FIESTA_LOGIN_CLIENTVERSIONKEYINFO_H
 #include "../Shared/ShineTypes.h"

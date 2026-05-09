@@ -1,20 +1,14 @@
 // Server/Zone/ExpeditionSystem.h
 // 24+ -- Expedition (raid of parties).
-//
-// EVIDENCE: PDB_CONFIRMED  symbol: ExpeditionPartyWin (client),
 //                                  ExpeditionMemberAddWin,
 //                                  ExpeditionLootSelectWin
-// EVIDENCE: SOURCE_HINT    file: docs/spec_pack/function_names/full_function_symbols_filtered.csv
 //                                  ("Party / Raid / Party Finder")
-//
 // Conceptually an Expedition is *a party of parties*: up to 6 sub-parties,
 // each a normal Party from `Party.h`. Membership is by Party UID, not
 // CharID, so when a party leader joins an expedition every member of that
 // party rides along.
-//
 // Loot modes: FREE / MASTER / TURN.  In MASTER mode the expedition leader
 // distributes drops; in TURN mode the engine round-robins per drop.
-//
 // Buffs: a master-buff applies to every sub-party while the expedition is
 // active; this matches the GuildTournamentMasterBuff data the original
 // game used during Guild Tournament expeditions.

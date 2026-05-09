@@ -1,7 +1,6 @@
 // Client/Engine/ClientApp.cpp
 // Pass-1 client shell. The Ni* method calls below describe the integration shape;
 // the actual Gamebryo headers from ThirdParty/Gamebryo provide the real declarations.
-//
 // Why no real #include <NiMain.h> here yet:
 //   The Gamebryo headers under ThirdParty/Gamebryo are the project owner's vendored
 //   tree. Wiring them into this TU is a build-system step (add include + lib paths

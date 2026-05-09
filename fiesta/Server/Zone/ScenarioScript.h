@@ -1,11 +1,9 @@
 // Server/Zone/ScenarioScript.h
-// 23 -- runtime wrapper for ScenarioBookShelf/<Cat>/*.ps. Same DSL as the mob
+// runtime wrapper for ScenarioBookShelf/<Cat>/*.ps. Same DSL as the mob
 // behavior scripts, but used to drive promote / KQ / wedding / instance-dungeon
 // scenarios. Verbs include: doorbuild, doorclose, dooropen, scriptfile,
 // waitlogin, findhandle, call, npcchat, broadcast, linkto, pause sec N,
 // effectobj, itemcreate, questresult, break, mobregen, etc.
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied ScenarioBookShelf/.
 #ifndef FIESTA_ZONE_SCENARIOSCRIPT_H
 #define FIESTA_ZONE_SCENARIOSCRIPT_H
 #include "../Shared/ShineTypes.h"

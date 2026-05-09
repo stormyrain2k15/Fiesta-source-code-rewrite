@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -16,21 +13,17 @@
 
 // This class adds (N)ames, (E)xtra Data, and (T)ime controllers to
 // NiObject.
-//
 // WARNING. Be aware of calls to RemoveExtraData(pExtra) deleting the
 // object to which pExtra points. This happens when pExtra is only
 // referenced by the internal extra data list. For example the deletion
 // occurs in the code
-//
 //    const char* pcKey = <some string>;
 //    NiNode* pkNode = <some node>;
 //    NiMyExtraData* pkExtra = new NiMyExtraData; // refs = 0
 //    pkNode->AddExtraData(pcKey, pkExtra);       // refs = 1
 //    pkNode->RemoveExtraData(pcKey);             // refs = 0, deletion occurs
 //    <pkExtra is now a dangling pointer>
-//
 // To make sure you can still use the extra data after removal, do
-//
 //    const char* pcKey = <some string>;
 //    NiNode* pkNode = <some node>;
 //    NiMyExtraDataPtr spkExtra = new NiMyExtraData;   // refs = 1
@@ -38,7 +31,6 @@
 //    pkNode->RemoveExtraData(pcKey);                  // refs = 1
 //    <use spkExtra however>;
 //    spkExtra = 0;                                    // refs = 0, deletion
-//
 // The same warning applies to RemoveController(pkControl).
 
 

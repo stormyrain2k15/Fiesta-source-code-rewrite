@@ -186,15 +186,12 @@ void WMCharDBSession::OnPacket(const GPacket& rPkt) {
 }
 
 // --------------- WMOPToolSession ---------------
-//
 // Loopback-only admin entry point. Drives jail / sysmsg / give-item /
 // take-item / generic-query across the WM->Zone fanout and the SQLP_Operator
 // facade. No engine subsystem depends on this session being present; if the
 // admin tool never connects, gameplay is unaffected.
-//
 // Wire layout for each incoming packet body (kept simple ASCII so an
 // out-of-process Win32 admin panel can produce them with `sprintf` + memcpy):
-//
 //   AUTH_REQ:       "<userid>\0<password>\0"
 //   AUTH_ACK:       uint8 ok, uint8 level
 //   BAN_CMD:        uint32 charNo, uint32 minutes, "<reason>\0"

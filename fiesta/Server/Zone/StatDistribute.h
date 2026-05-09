@@ -1,8 +1,6 @@
 // Server/Zone/StatDistribute.h
-// 12 -- input structures + BuildBattleStat for compiling a BATTLESTAT from
+// input structures + BuildBattleStat for compiling a BATTLESTAT from
 // raw character stats + equipment + active buffs.
-//
-// EVIDENCE: DATA_CONFIRMED  (shape from F2/Battle/statdistribute.h).
 #ifndef FIESTA_ZONE_STATDISTRIBUTE_H
 #define FIESTA_ZONE_STATDISTRIBUTE_H
 #include "BattleStat.h"

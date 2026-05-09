@@ -1,8 +1,6 @@
-// Lua/LuaEnums_Generated.cpp -- GENERATED Lua enum table installers.
-// EVIDENCE: DATA_CONFIRMED  source: lua_api_classes.csv + spec_pack/
+// Lua/LuaEnums_Generated.cpp
 //                                   06_DATA_TABLE_AND_DOC_CROSSWALK.md +
 //                                   in-engine enum mirrors.
-//
 // Names exposed as global tables with documented numeric values. Server-side
 // code never reads these tables -- they exist so Lua scripts can refer to
 // constants by name (`ObjectType.Player`) instead of by magic number.

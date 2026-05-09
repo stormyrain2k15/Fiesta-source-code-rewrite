@@ -25,10 +25,10 @@ The space (`Account Release.exe`) and underscore (`GameLog_Release.exe`) styles
 are inconsistent in the original drop; preserve them as shown so symbol-server
 lookups against shipped PDBs still match.
 
-> **Note on `GamigoZR`** -- removed from this tree as of Pass 1.15. The "ZR"
+> **Note on `GamigoZR`** -- removed from this tree as of . The "ZR"
 > service was an EU-side workaround for an ancient client-version security
 > check inside the Zone server, not a real game function. With that check
-> disabled (see Pass 1.14) the workaround is unnecessary.
+> disabled (see ) the workaround is unnecessary.
 
 > **Note on `Account.exe` (309 KB, Mar 2 build)** in the file-listing
 > screenshot -- that is the operator-side admin tool, distinct from

@@ -1,11 +1,10 @@
 // Server/Zone/ExtendedTables.h
-// 06+ -- The remaining typed SHN accessors. Pass 1.18 covered the headline
+// 06+ -- The remaining typed SHN accessors.  covered the headline
 // data tables (Item / Mob / Skill / Map / AbState / Pup / Mover /
 // MiniHouse / Guild / Collect / Quest / Spamer / SetEffect / Upgrade /
 // Pup AI / Mob battle); this file mops up the *long tail* (110 SHN
 // files). Every loader is a thin static singleton that caches the row
 // data into a typed POD and a primary-key index map at boot.
-//
 // The original engine had one of these per `*Tab`/`*DataBox` C++ class
 // (e.g. `BMPDataBox`, `ItemMixDataBox`, `MapBuffDataBox`, ...). We
 // fold them into one TU because they all follow the same pattern --
@@ -13,8 +12,6 @@
 // row struct, and pushes onto a `std::vector` while indexing into a
 // `std::map`. Column reads via `ShnGetU32/Str/I32` keep us resilient
 // to drop-to-drop column reorder (the file headers carry names).
-//
-// EVIDENCE: DATA_CONFIRMED  source: 199 .shn files in `Data/Shine[-1]/`
 //                                   (2026-02 drop, schema manifest at
 //                                   /app/downloads/shn_schema_manifest.csv).
 #ifndef FIESTA_ZONE_EXTENDEDTABLES_H
@@ -706,7 +703,6 @@ private:
 // =============================================================================
 //  NPC dialog UI data: bridges the click-on-NPC server flow into the
 //  client-rendered dialog box.
-//
 //   * `NpcDialogData.shn` -- per-DialogID rows holding the spoken-text key,
 //     the list of available reply / button keys, and any conditional
 //     branching logic. The server forwards a DialogID to the client which
@@ -714,7 +710,6 @@ private:
 //   * `NPCViewInfo.shn`   -- per-ViewInfoID rows holding the actual button
 //     label string id, icon id, tooltip id, and the action tag the client
 //     must echo back when the player presses it.
-//
 // Both files live in the client-side `ressystem/` drop and are loaded into
 // the universal `ShnRegistry` at boot. The schema is column-name-driven so
 // we tolerate drop-to-drop reorder.

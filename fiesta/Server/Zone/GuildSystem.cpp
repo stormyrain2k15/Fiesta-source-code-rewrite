@@ -60,7 +60,6 @@ void GuildAcademy::GrantApprenticeReward(CharID master, CharID app) {
     (void)row;          // hooked up by Friend::GrantPoint when paired
 }
 // ----- GuildWarManager ------------------------------------------------------
-//
 // Declaration window: only Fri/Sat/Sun 19:00..23:00 local by default. Two
 // guilds can declare a war that goes hot for the duration of the next
 // window. Out-of-window calls are rejected at Declare() time so the client

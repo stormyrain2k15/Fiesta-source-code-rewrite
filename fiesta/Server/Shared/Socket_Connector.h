@@ -1,10 +1,8 @@
 // Server/Shared/Socket_Connector.h
-// 01/07 -- IOCP-based outbound client socket. Counterpart to Socket_Acceptor.
-//
+// IOCP-based outbound client socket. Counterpart to Socket_Acceptor.
 // Every cross-service link in the stack (Zone -> CharDB, WM -> CharDB,
 // Login -> WM-AccountDB-side, etc.) opens with this. It owns a single
 // `IOCPSession` and reconnects on demand.
-//
 // Design intent
 // =============
 //   * Single-shot Connect() does a synchronous TCP connect; if it succeeds
@@ -13,7 +11,6 @@
 //   * Send() is a thin pass-through to IOCPSession::SendPacket so call sites
 //     don't have to keep their own pointer to the session.
 //   * Close() tears down the session; the next Connect() re-opens.
-// EVIDENCE: PDB_CONFIRMED  symbol: Socket_Connector
 #ifndef FIESTA_SOCKET_CONNECTOR_H
 #define FIESTA_SOCKET_CONNECTOR_H
 #include "Socket_Acceptor.h"

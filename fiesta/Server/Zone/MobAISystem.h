@@ -1,19 +1,14 @@
 // Server/Zone/MobAISystem.h
-// 19 -- unified mob AI resolver.
-//
+// unified mob AI resolver.
 // One mob species can be driven by EITHER (or BOTH):
 //   1. A Lua AI script: LuaScript/AIScript/<MobName>.lua
 //   2. A PS behavior  : MobBehaviorDescript/[<KQ>/]<MobName>.ps
-//
 // Selection rule: Lua takes precedence when both exist (the live game
 // uses Lua for the more sophisticated AIs and PS as the legacy /
 // designer-friendly fallback). When neither exists the mob falls
 // through to MobBehaviorDescript/DefaultBehavior.ps.
-//
 // At ENTER time a mob asks `MobAISystem::ResolveFor(species)` and
 // receives a small descriptor that names which runtime to drive.
-//
-// EVIDENCE: DATA_CONFIRMED  source: LuaScript/AIScript/* (Defense.lua,
 //                                   BH_Helga.lua) + MobBehaviorDescript/.
 #ifndef FIESTA_ZONE_MOBAISYSTEM_H
 #define FIESTA_ZONE_MOBAISYSTEM_H

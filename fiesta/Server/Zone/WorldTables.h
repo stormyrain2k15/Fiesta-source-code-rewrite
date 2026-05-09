@@ -1,7 +1,6 @@
 // Server/Zone/WorldTables.h
-// 09 / 12 / 15 -- typed loaders for the remaining World/*.txt files that
+// typed loaders for the remaining World/*.txt files that
 // drive significant runtime behaviour:
-//
 //   QuestTable             -- World/Quest.txt (6 sub-tables)
 //   ExpRecalcTable         -- World/ExpRecalculation.txt (party + level-diff bonus)
 //   RecallCoordTable       -- World/RecallCoord.txt (recall-scroll dest map)
@@ -16,11 +15,8 @@
 //   TreasureRewardTable    -- World/TreasureReward.txt (loot box content)
 //   MiscDataTable          -- World/MiscDataTable.txt (skill-breed-mob)
 //   NPCActionTable         -- World/NPCAction.txt (NPCCondition routing)
-//
 // All loaders are typed wrappers over `TableScriptFile` -- they parse once
 // at zone start and expose row lookups for the runtime systems.
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied World/*.txt.
 #ifndef FIESTA_ZONE_WORLDTABLES_H
 #define FIESTA_ZONE_WORLDTABLES_H
 #include "../Shared/ShineTypes.h"

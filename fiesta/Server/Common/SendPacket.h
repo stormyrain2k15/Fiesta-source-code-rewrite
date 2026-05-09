@@ -1,6 +1,5 @@
 // Server/Common/SendPacket.h
-// 07 Network -- helper SendPacket(session, opcode, builder) symmetric with PDB symbol SendPacket.
-// EVIDENCE: PDB_CONFIRMED  symbol: SendPacket
+// helper SendPacket(session, opcode, builder) symmetric with PDB symbol SendPacket.
 #ifndef FIESTA_SENDPACKET_H
 #define FIESTA_SENDPACKET_H
 #include "../Shared/ShineTypes.h"

@@ -110,7 +110,7 @@ void MobAIRunner::Tick(uint64 uiNowMs) {
                 }
                 // Hand off to Battle::Apply with a flat damage figure.
                 DamageInfo di;
-                di.iPhys = 10;     // EV_VERIFY -- replace with BattleStat curve
+                di.iPhys = 10;-- replace with BattleStat curve
                 di.iMagic= 0;
                 di.bMiss = false;
                 Battle::Apply(pkMob, pkTgt, di);

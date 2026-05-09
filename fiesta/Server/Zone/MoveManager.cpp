@@ -4,7 +4,7 @@
 
 namespace fiesta {
 
-// Local provisional movement caps (EV_VERIFY).
+// Local provisional movement caps.
 static const float kMaxWalkUnitsPerCmd = 8.0f;
 static const float kMaxRunUnitsPerCmd  = 16.0f;
 static const float kVisibilityRadius   = 30.0f;

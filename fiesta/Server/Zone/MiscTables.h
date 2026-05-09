@@ -1,7 +1,6 @@
 // Server/Zone/MiscTables.h
 // 06+ -- Smaller/singleton tables that don't justify their own group class
 // but the engine still needs to consult.
-//
 // Each accessor caches the underlying ShnFile pointer at Bind() time and
 // exposes a Find() helper. Column reads use ShnGetU32/Str/I32 by name so
 // missing columns degrade gracefully (zero/empty).

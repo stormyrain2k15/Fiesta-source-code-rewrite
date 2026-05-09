@@ -1,11 +1,17 @@
 // Server/Login/LoginClientSession.cpp
 #include "LoginClientSession.h"
 #include "ClientVersionKeyInfo.h"
+#include "../DataServer/Common/SQLP.h"
 #include "../Shared/ShineLogSystem.h"
 #include "../Common/NETCOMMAND.h"
 #include "../Common/SendPacket.h"
 
 namespace fiesta {
+
+extern Database*        g_pkLoginAccountDB;
+extern SQLP_Account*    g_pkLoginAccount;
+extern SQLP_IPChecker*  g_pkLoginIPCheck;
+extern SQLP_AccountLog* g_pkLoginAcctLog;
 
 LoginClientSession::LoginClientSession() : m_eState(LS_NEW), m_uiAccount(0) {}
 
@@ -33,7 +39,6 @@ void LoginClientSession::OnPacket(const GPacket& rPkt) {
 
 // ---------------------------------------------------------------------------
 // Client-version / build-token check.
-//
 // Disabled by default. The original game shipped without this check for
 // most of its lifetime, only the WorldManager ever consulted the build key,
 // and even there the gate was advisory: if WM accepted the connection
@@ -73,11 +78,22 @@ void LoginClientSession::HandleLogin(const GPacket& rPkt) {
     std::string user, pass;
     body.ReadString(user); body.ReadString(pass);
     m_kAccountName = user;
-    // Real verify -> AccountDB SQLP_Account::VerifyLogin; provisional accept-all stub.
-    m_uiAccount = (AccountID)(0x10000000u ^ (uint32)user.size());
-    m_eState = LS_AUTHED;
+
+    AccountID a = 0; int authId = 0; bool blocked = false;
+    bool bOk = (g_pkLoginAccount &&
+                g_pkLoginAccount->VerifyLogin(user, pass, a, authId, blocked) &&
+                !blocked);
+    if (!bOk) {
+        SendPacket(this, NC_USER_LOGINFAIL_ACK);
+        return;
+    }
+    m_uiAccount = a;
+    m_eState    = LS_AUTHED;
+    // Audit row in AccountLog.tLoginEvent so support has a per-account
+    // login trail keyed off the source IP that XL2 logged.
+    if (g_pkLoginAcctLog) g_pkLoginAcctLog->AppendLogin(m_uiAccount, /*world*/0);
     PacketBuffer ack;
-    ack.WriteU8(1);
+    ack.WriteU8 (1);
     ack.WriteU32(m_uiAccount);
     SendPacket(this, NC_USER_LOGIN_ACK, ack.Data(), ack.Size());
 }
@@ -87,7 +103,7 @@ void LoginClientSession::HandleWorldStatus(const GPacket&) {
     ack.WriteU8(1);                       // world count
     ack.WriteU16(1);                      // world id
     ack.WriteString("World00");           // name
-    ack.WriteU8(2);                       // status: NORMAL=2, BUSY=3, FULL=4 (EV_VERIFY)
+    ack.WriteU8(2);                       // status: NORMAL=2, BUSY=3, FULL=4
     ack.WriteU8(0);                       // pvp flag
     SendPacket(this, NC_USER_WORLD_STATUS_ACK, ack.Data(), ack.Size());
 }

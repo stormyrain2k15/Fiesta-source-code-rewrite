@@ -1,7 +1,5 @@
 // Server/Shared/PacketEncrypt.h
-// 01/07 -- per-session stream cipher seeded from CToken seed exchange.
-// EVIDENCE: PDB_CONFIRMED  symbol: PacketEncrypt
-// EVIDENCE: VERIFY (final cipher schedule constants need a runtime capture pass to confirm)
+// per-session stream cipher seeded from CToken seed exchange.
 #ifndef FIESTA_PACKETENCRYPT_H
 #define FIESTA_PACKETENCRYPT_H
 #include "ShineTypes.h"
@@ -11,7 +9,7 @@ namespace fiesta {
 class PacketEncrypt {
 public:
     PacketEncrypt();
-    void Init(uint32 uiSeed);     // EV_VERIFY -- per-session 32-bit seed from CToken
+    void Init(uint32 uiSeed);-- per-session 32-bit seed from CToken
     void Encrypt(uint8* pBuf, size_t uiLen);
     void Decrypt(uint8* pBuf, size_t uiLen);  // symmetric stream
 private:

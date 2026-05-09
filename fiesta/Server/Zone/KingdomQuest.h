@@ -1,5 +1,5 @@
 // Server/Zone/KingdomQuest.h
-// 23 -- KQ. EVIDENCE: PDB_CONFIRMED  symbol: KingdomQuest, KQServer, KQRewardDataBox,
+// KQ. symbol: KingdomQuest, KQServer, KQRewardDataBox,
 //                                          KQContribute, KQTeam, KQIsVote, KQVoteMajorityRate
 #ifndef FIESTA_ZONE_KINGDOMQUEST_H
 #define FIESTA_ZONE_KINGDOMQUEST_H

@@ -22,7 +22,7 @@ void MIDServer::Tick() {
 }
 
 int32 MIDRewardDataBox::GoldFor(uint32, uint16 clr) {
-    int32 base = 1000;            // EV_VERIFY
+    int32 base = 1000;
     if (clr < 60)  return base * 3;
     if (clr < 120) return base * 2;
     return base;

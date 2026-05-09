@@ -1,5 +1,4 @@
 // Server/Zone/ExtendedTables.cpp
-//
 // Each Bind() walks one ShnFile and projects a small set of named
 // columns into a typed POD vector + index map. Where a column is
 // absent in this drop, ShnGetU32/Str/I32 returns 0 / "" / 0 and the

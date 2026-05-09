@@ -1,7 +1,6 @@
 // Server/Shared/BinaryDataCollection.h
-// 01 Foundation -- intrusive object pool / fixed-block allocator used widely
+// intrusive object pool / fixed-block allocator used widely
 // (BinaryDataCollection, AntiBloatAllocator references in PDB).
-// EVIDENCE: PDB_CONFIRMED  symbol: BinaryDataCollection
 #ifndef FIESTA_BINARYDATACOLLECTION_H
 #define FIESTA_BINARYDATACOLLECTION_H
 #include "ShineTypes.h"

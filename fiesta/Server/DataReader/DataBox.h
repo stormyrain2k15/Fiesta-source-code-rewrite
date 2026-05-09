@@ -1,6 +1,5 @@
 // Server/DataReader/DataBox.h
-// 02 -- runtime registry of every loaded ITableBase<*>. Mirrors PDB symbol DataBox.
-// EVIDENCE: PDB_CONFIRMED  symbol: DataBox, SingleDataMap
+// runtime registry of every loaded ITableBase<*>. Mirrors PDB symbol DataBox.
 #ifndef FIESTA_DATABOX_H
 #define FIESTA_DATABOX_H
 #include "../Shared/ShineTypes.h"

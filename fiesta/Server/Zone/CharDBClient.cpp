@@ -42,12 +42,10 @@ public:
             // CharLogout response carries no row; we don't track the cid here
             // because logout is fire-and-forget. Pass 0 as a sentinel.
             CharDBClient::Get().OnLogoutResponse(0, ok != 0);
-        } else if (op == 33) {
-            // Estate-Load: uint16 nRows, then for each row: uint16 nCols + ASCIIZ.
-            // Row layout (matches `tEstateFurniture` projection):
-            //   col0 = owner CharID (sanity)
-            //   col1 = slotID, col2 = furnID,
-            //   col3..5 = X,Y,Z, col6 = yawDeg, col7 = endure
+        } else if (op == 33 || op == 51) {
+            // Multi-row response (Estate-Load = 33; Quest-GetAllDoing = 51).
+            // Wire layout:
+            //   uint16 nRows; for each row { uint16 nCols; ASCIIZ * nCols }
             std::vector<DBRecord> rows;
             if (ok) {
                 uint16 nRows = 0; body.ReadU16(nRows);
@@ -62,7 +60,18 @@ public:
             }
             CharID owner = (rows.empty() || rows[0].kCols.empty())
                          ? 0 : (CharID)strtoul(rows[0].kCols[0].c_str(), NULL, 10);
-            CharDBClient::Get().OnEstateLoadResponse(owner, ok != 0, rows);
+            if (op == 33) CharDBClient::Get().OnEstateLoadResponse   (owner, ok != 0, rows);
+            else          CharDBClient::Get().OnQuestGetDoingResponse(owner, ok != 0, rows);
+        } else if (op == 40) {
+            // Item_Create response: (op, ok, keyLo, keyHi). Stamps the
+            // SQL IDENTITY back onto the in-flight ShineItem so subsequent
+            // Item_Delete / Item_SetOption calls have the right key.
+            uint64 key = 0;
+            if (ok) {
+                uint32 lo = 0, hi = 0; body.ReadU32(lo); body.ReadU32(hi);
+                key = ((uint64)hi << 32) | (uint64)lo;
+            }
+            CharDBClient::Get().OnItemCreateResponse(ok != 0, key);
         }
     }
 };
@@ -222,7 +231,132 @@ void CharDBClient::EstateSave(CharID owner, const uint8* pData, size_t uiLen) {
     kPkt.Body().WriteBytes(body.Data(), body.Size());
     m_kConn.SendPacket(kPkt);
 }
+void CharDBClient::NoteItemPending(CharID, uint16, void* pkItem) {
+    EnterCriticalSection(&m_kCs);
+    m_kItemPending.push_back(pkItem);
+    LeaveCriticalSection(&m_kCs);
+}
+void CharDBClient::OnItemCreateResponse(bool bOK, uint64 uiKey) {
+    EnterCriticalSection(&m_kCs);
+    void* pk = NULL;
+    if (!m_kItemPending.empty()) {
+        pk = m_kItemPending.front();
+        m_kItemPending.erase(m_kItemPending.begin());
+    }
+    LeaveCriticalSection(&m_kCs);
+    if (pk && bOK) {
+        ((ShineItem*)pk)->uiDbItemKey = uiKey;
+    }
+}
+
 void CharDBClient::EstateLoad(CharID owner) { DBC_SEND1(33, owner); }
+
+// ---------------------------------------------------------------------------
+//  Item / Quest / Skill / Friend / Guild persistence wrappers.
+// ---------------------------------------------------------------------------
+void CharDBClient::ItemCreate(CharID owner, uint32 uiItemId, uint16 uiCount,
+                              uint16 uiSlot, uint16 uiEndure,
+                              const std::string& rInx) {
+    if (!IsConnected()) return;
+    PacketBuffer body;
+    body.WriteU8 (40);
+    body.WriteU32(owner);
+    body.WriteU32(uiItemId);
+    body.WriteU16(uiCount);
+    body.WriteU16(uiSlot);
+    body.WriteU8 (0);              // storage type 0 = inventory
+    body.WriteU16(uiEndure);
+    body.WriteString(rInx);
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_CHAR_DB_QUERY);
+    kPkt.Body().WriteBytes(body.Data(), body.Size());
+    m_kConn.SendPacket(kPkt);
+}
+
+void CharDBClient::ItemDelete(uint64 uiItemKey) {
+    if (!IsConnected()) return;
+    PacketBuffer body;
+    body.WriteU8 (41);
+    body.WriteU32((uint32)(uiItemKey & 0xFFFFFFFFu));   // 'a' field = lo32
+    body.WriteU32((uint32)(uiItemKey >> 32));           // hi32
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_CHAR_DB_QUERY);
+    kPkt.Body().WriteBytes(body.Data(), body.Size());
+    m_kConn.SendPacket(kPkt);
+}
+
+void CharDBClient::ItemSetOption(uint64 uiItemKey, uint8 uiType, int32 iData) {
+    if (!IsConnected()) return;
+    PacketBuffer body;
+    body.WriteU8 (42);
+    body.WriteU32((uint32)(uiItemKey & 0xFFFFFFFFu));
+    body.WriteU32((uint32)(uiItemKey >> 32));
+    body.WriteU8 (uiType);
+    body.WriteI32(iData);
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_CHAR_DB_QUERY);
+    kPkt.Body().WriteBytes(body.Data(), body.Size());
+    m_kConn.SendPacket(kPkt);
+}
+
+void CharDBClient::QuestSet(CharID c, uint32 uiQuestNo, int32 iStatus, int32 iSubStatus) {
+    if (!IsConnected()) return;
+    PacketBuffer body;
+    body.WriteU8 (50);
+    body.WriteU32(c);
+    body.WriteU32(uiQuestNo);
+    body.WriteI32(iStatus);
+    body.WriteI32(iSubStatus);
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_CHAR_DB_QUERY);
+    kPkt.Body().WriteBytes(body.Data(), body.Size());
+    m_kConn.SendPacket(kPkt);
+}
+
+void CharDBClient::QuestGetDoing(CharID c) { DBC_SEND1(51, c); }
+
+void CharDBClient::SkillSetPower(CharID c, uint32 uiSkillNo, int32 iSlot,
+                                 int32 iValue, bool bActive) {
+    if (!IsConnected()) return;
+    // p_Skill_SetPower(cid, skillNo, slot, value, damage, cool, keep, sp).
+    // Damage / cool / keep / sp are derived by the SQL proc when nullable;
+    // we forward zeroes (the proc treats 0 as "preserve existing") and
+    // surface the activation flag through the value field's sign:
+    // negative value means "deactivated" so the proc removes the row.
+    PacketBuffer body;
+    body.WriteU8 (60);
+    body.WriteU32(c);
+    body.WriteU32(uiSkillNo);
+    body.WriteI32(iSlot);
+    body.WriteI32(bActive ? iValue : -iValue);
+    body.WriteI32(0);       // damage
+    body.WriteI32(0);       // cool
+    body.WriteI32(0);       // keep
+    body.WriteI32(0);       // sp
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_CHAR_DB_QUERY);
+    kPkt.Body().WriteBytes(body.Data(), body.Size());
+    m_kConn.SendPacket(kPkt);
+}
+
+void CharDBClient::SkillSetPowerAll(CharID c) { DBC_SEND1(61, c); }
+void CharDBClient::FriendDelAll   (CharID c) { DBC_SEND1(70, c); }
+
+void CharDBClient::GuildTournamentSet(uint32 uiGTNo, uint32 uiGuildNo, int32 iStatus) {
+    if (!IsConnected()) return;
+    PacketBuffer body;
+    body.WriteU8 (80);
+    body.WriteU32(uiGTNo);
+    body.WriteU32(uiGuildNo);
+    body.WriteI32(iStatus);
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_CHAR_DB_QUERY);
+    kPkt.Body().WriteBytes(body.Data(), body.Size());
+    m_kConn.SendPacket(kPkt);
+}
+
+void CharDBClient::OnQuestGetDoingResponse(CharID c, bool bOK,
+                                           const std::vector<DBRecord>& rRows) {
+    SHINELOG_DEBUG("Quest: cid=%u rows=%u (%s)", c,
+                   (uint32)rRows.size(), bOK ? "OK" : "FAIL");
+    // Quest hydration into the runtime CharQuest is dispatched via
+    // QuestRuntime when the player enters the world; this hook lets an
+    // operator audit raw rows without disturbing live state.
+}
 
 #undef DBC_SEND2
 #undef DBC_SEND1

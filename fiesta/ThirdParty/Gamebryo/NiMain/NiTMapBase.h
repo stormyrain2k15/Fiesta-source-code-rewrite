@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -22,9 +19,7 @@
 // table size of 37.  If you want a larger table size, the best bet is to
 // us a large prime number.  Consult a standard text on hashing for the
 // basic theory.
-//
 // TKEY MUST BE THE SAME SIZE AS A POINTER!
-//
 // The template class assumes that type TKEY has the following:
 //   1.  Default constructor, TKEY::TKEY();
 //   2.  Copy constructor, TKEY::TKEY(const TKEY&);
@@ -33,17 +28,13 @@
 //       specialized equality testing class in your template.
 //   5.  Implicit conversion, TKEY::operator long(), for building hash key,
 //       or you must pass in your own hash function class in your template.
-//
 // The template class assumes that type TVAL has the following:
 //   1.  Default constructor, TVAL::TVAL();
 //   2.  Copy constructor, TVAL::TVAL(const TVAL&);
 //   3.  Assignment, TVAL& operator=(const TVAL&);
-//
 // In both cases, the compiler-generated default constructor, copy
 // constructor, and assignment operator are acceptable.
-//
 // Example of iteration over map
-//
 //     NiTMap<TKEY,TVAL> kMap;
 //     NiTMapIterator pos = kMap.GetFirstPos();
 //     while (pos)

@@ -1,25 +1,19 @@
 // Server/DataReader/DatFile.h
-// 02 -- Action/AbState .dat reader. These files bridge SHN data rows to NIF
+// Action/AbState .dat reader. These files bridge SHN data rows to NIF
 // animation clips: a MobInfo / NPCInfo row references an action set name; the
 // matching <Name>.dat lists clip-name entries the client looks up in the
 // associated Gamebryo NIF when an action opcode arrives.
-//
 // Format (derived empirically from the samples in misc/Action/*.dat and
 // misc/AbState/*.dat -- all sizes match exactly):
-//
 //   [uint32 entry_count][entry x entry_count]
-//
 //   Action  entry size = 352 bytes
 //   AbState entry size = 104 bytes
-//
 // Entry layout (Action; the prefix on AbState looks similar):
 //   [uint16  uiKind]        // index/type tag
 //   [char    szClip[?]]     // zero-padded clip name; trailing 0xCD heap fill
 //   [bytes   abPayload[]]   // animation parameters (blend frames, loop flags,
-//                              sound triggers, hit-frame markers) -- pass 2
+//                              sound triggers, hit-frame markers)
 //                              once we know which sub-fields the client reads.
-//
-// EVIDENCE: DATA_CONFIRMED for size+count; VERIFY for sub-field offsets.
 #ifndef FIESTA_DATAREADER_DATFILE_H
 #define FIESTA_DATAREADER_DATFILE_H
 #include "../Shared/ShineTypes.h"

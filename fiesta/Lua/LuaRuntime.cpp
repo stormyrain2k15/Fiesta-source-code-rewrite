@@ -1,6 +1,6 @@
 // Lua/LuaRuntime.cpp
 #include "LuaRuntime.h"
-#include "LuaAPI_Generated.h"
+#include "LuaAPI.h"
 #include "../Server/Shared/ShineLogSystem.h"
 
 namespace fiesta {

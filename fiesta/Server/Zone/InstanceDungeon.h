@@ -1,6 +1,5 @@
 // Server/Zone/InstanceDungeon.h / .cpp combined
-// 22 -- Instance Dungeon (MID).
-// EVIDENCE: PDB_CONFIRMED  symbol: InstanceDungeon, MIDServer, MIDGroup, MIDReward,
+// Instance Dungeon (MID).
 //                                  MIDRewardDataBox, MatchInstanceDungeonServer
 #ifndef FIESTA_ZONE_INSTANCEDUNGEON_H
 #define FIESTA_ZONE_INSTANCEDUNGEON_H

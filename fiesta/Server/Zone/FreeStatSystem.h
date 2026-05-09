@@ -1,9 +1,7 @@
 // Server/Zone/FreeStatSystem.h
-// 09 -- "+ STR / + END / + DEX / + INT / + MEN" free-stat allocation,
+// "+ STR / + END / + DEX / + INT / + MEN" free-stat allocation,
 // per-level point grants, refund tickets, and validation against
 // MoverMain.shn's per-level stat cap.
-//
-// EVIDENCE: PDB_CONFIRMED   symbol: cFreeStat, FreeStatStr/Int/Dex/Con/Men.
 //                                   ChrCommon.txt: 5 sub-tables w/ 181 rows each.
 #ifndef FIESTA_ZONE_FREESTATSYSTEM_H
 #define FIESTA_ZONE_FREESTATSYSTEM_H

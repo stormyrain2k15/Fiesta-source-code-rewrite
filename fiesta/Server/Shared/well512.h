@@ -1,6 +1,5 @@
 // Server/Shared/well512.h
-// 01 Foundation -- WELL512 PRNG (Panneton/L'Ecuyer/Matsumoto).
-// EVIDENCE: PDB_CONFIRMED  symbol: well512
+// WELL512 PRNG (Panneton/L'Ecuyer/Matsumoto).
 #ifndef FIESTA_WELL512_H
 #define FIESTA_WELL512_H
 #include "ShineTypes.h"

@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -36,14 +33,10 @@
 //   5.  bool operator== (const T&);
 //   6.  bool operator!= (const T&);
 //   7.  T& operator= (const T&);
-//
 // NiTPointerList<T> requires sizeof(T) == sizeof(unsigned int), so that
 // elements may be block allocated from a shared memory pool.
-//
 // For true objects, the NiTObjectList is usually a better choice.
-//
 // Example of iteration from head to tail:
-//
 //   NiTPointerList<T> kList;
 //   NiTListIterator kPos = kList.GetHeadPos();
 //   while (kPos)

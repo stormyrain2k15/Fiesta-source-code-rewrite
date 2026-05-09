@@ -1,8 +1,7 @@
 // Server/Zone/ShineObject.h
-// 06/12 -- world-object hierarchy. Players additionally own per-character
+// world-object hierarchy. Players additionally own per-character
 // gameplay state (skills, abnormal-state book) so the engine can dispatch
 // without out-of-band lookups.
-// EVIDENCE: PDB_CONFIRMED  symbol: ShineObject, ShinePlayer, ShineMover, ShineMob,
 //                                  ShineNPC, ShinePet, ShineItemDrop, CharacterSkill,
 //                                  AbnormalState
 #ifndef FIESTA_ZONE_SHINEOBJECT_H
@@ -67,6 +66,9 @@ public:
     uint16         GetLevel()  const { return m_uiLevel; }
     uint16         GetClass()  const { return m_uiClass; }
     int32          GetAdminLevel() const { return m_iAdminLevel; }
+    const std::string& GetLoginZone() const { return m_kLoginZone; }
+    uint32         GetMapID()      const { return m_uiMapID; }
+    void           SetMapID(uint32 m)    { m_uiMapID = m; }
 
     // -- core stats ---------------------------------------------------------
     uint64         GetExp()    const { return m_uiExp; }
@@ -112,6 +114,8 @@ private:
     CharID         m_uiCharID;
     AccountID      m_uiAcctID;
     std::string    m_kName;
+    std::string    m_kLoginZone;
+    uint32         m_uiMapID;
     uint16         m_uiLevel;
     uint16         m_uiClass;
     int32          m_iAdminLevel;

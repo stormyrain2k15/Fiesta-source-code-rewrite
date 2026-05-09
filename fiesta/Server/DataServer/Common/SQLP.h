@@ -1,7 +1,6 @@
 // Server/DataServer/Common/SQLP.h
-// 03 -- SQLP_<area> stored-procedure facade. Each class corresponds to one
+// SQLP_<area> stored-procedure facade. Each class corresponds to one
 // physical SQL Server database in the original NA2016 deployment:
-//
 //     Account        -> SQLP_Account
 //     AccountLog     -> SQLP_AccountLog
 //     World00_Char   -> SQLP_Character + SQLP_Wedding + SQLP_HolyPromise
@@ -11,14 +10,10 @@
 //     OperatorTool   -> SQLP_Operator
 //     StatisticsData -> SQLP_Statistics
 //     Options        -> SQLP_Options
-//
 // Procedure names are the literal `p_*` / `up_*` identifiers extracted from
 // the original *.bak files; do not invent new ones here.
-//
-// EVIDENCE: PDB_CONFIRMED  symbol class names: SQLP_Account, SQLP_Character,
 //           SQLP_Statistics, SQLP_Operator, SQLP_GuildTournament, SQLP_Report,
 //           SQLP_IPChecker, SQLP_HolyPromise, SQLP_Wedding.
-// EVIDENCE: DATA_CONFIRMED  procedure names: extracted from
 //           {Account, AccountLog, World00_Character, OperatorTool,
 //            StatisticsData}.bak (2026-02 drop).
 #ifndef FIESTA_SQLP_H

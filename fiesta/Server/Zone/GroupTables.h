@@ -4,14 +4,11 @@
 // underlying ShnFile and exposes a Find()-style accessor that returns
 // either a strongly-typed POD struct or a row index plus column-name
 // helpers.
-//
 // Why string-keyed reads instead of column-index reads?  The original
 // SHN file headers carry the column NAMES, so referencing them by name is
 // resilient to the data team swapping column order between drops. Each
 // accessor also caches the column index it cares about on first use so
 // the per-row hot path is O(1).
-//
-// EVIDENCE: DATA_CONFIRMED  source: column manifest extracted from
 //                                   Shine-1/*.shn (2026-02 drop).
 #ifndef FIESTA_ZONE_GROUPTABLES_H
 #define FIESTA_ZONE_GROUPTABLES_H
@@ -32,13 +29,11 @@ namespace fiesta {
 // Extended in pass 1.23 to carry every gameplay-relevant column from
 // ItemInfo.shn (91 fields). Class permissions are kept as a packed 32-bit
 // mask -- bit `eClassEnum` is set when ItemInfo.<ClassTag> != 0.
-//
 //   bit 0  Fig   bit 1  Cfig  bit 2  War   bit 3  Gla   bit 4  Kni
 //   bit 5  Cle   bit 6  Hcle  bit 7  Pal   bit 8  Hol   bit 9  Gua
 //   bit 10 Arc   bit 11 Harc  bit 12 Sco   bit 13 Sha   bit 14 Ran
 //   bit 15 Mag   bit 16 Wmag  bit 17 Enc   bit 18 Warl  bit 19 Wiz
 //   bit 20 Jok   bit 21 Chs   bit 22 Cru   bit 23 Cls   bit 24 Ass
-//
 struct ItemInfoRow {
     uint32      uiID;
     std::string kInxName;

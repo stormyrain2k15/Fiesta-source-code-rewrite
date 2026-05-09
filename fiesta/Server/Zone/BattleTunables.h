@@ -1,8 +1,7 @@
 // Server/Zone/BattleTunables.h
-// 12 -- Single home for every "magic number" in the damage pipeline. Edit
+// Single home for every "magic number" in the damage pipeline. Edit
 // these to retune combat without touching business logic anywhere else.
-//
-// All values are EV_VERIFY -- they are reasonable starting points for the
+// All values are they are reasonable starting points for the
 // 145-cap live-game balance shape. Verify against community theorycraft
 // before treating any of them as ground truth.
 #ifndef FIESTA_ZONE_BATTLETUNABLES_H

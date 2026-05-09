@@ -1,6 +1,5 @@
 // Server/Zone/Party.h
-// 24 -- Party / Raid.
-// EVIDENCE: PDB_CONFIRMED  symbol: PartyCreate, PartyJoin, PartyLeave, PartyKickOut,
+// Party / Raid.
 //                                  PartyBreak, PartyContainer, RaidSystem
 #ifndef FIESTA_ZONE_PARTY_H
 #define FIESTA_ZONE_PARTY_H
@@ -27,7 +26,7 @@ public:
     bool    Break(uint32 uiPartyId, CharID requester);
     Party*  GetByMember(CharID c);
     Party*  Get(uint32 uiPartyId);
-    static int32 BonusXpPct(size_t uiSize);   // EV_VERIFY
+    static int32 BonusXpPct(size_t uiSize);
 private:
     PartyContainer() : m_uiNext(1) {}
     std::map<uint32, Party> m_kAll;

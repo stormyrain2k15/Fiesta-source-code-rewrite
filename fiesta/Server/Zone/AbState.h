@@ -1,6 +1,5 @@
 // Server/Zone/AbState.h
-// 14 -- AbState / SubAbState / dictionaries / shelter.
-// EVIDENCE: PDB_CONFIRMED  symbol: AbnormalState, AbnormalStateDictionary, AbnormalStateShelter,
+// AbState / SubAbState / dictionaries / shelter.
 //                                  SubAbstatePriority, AbStateInst
 #ifndef FIESTA_ZONE_ABSTATE_H
 #define FIESTA_ZONE_ABSTATE_H

@@ -31,7 +31,7 @@ void KQServer::Tick() {
 
 void   KQContribute::Add(CharID c, uint32 v) { s_kKQContrib[c] += v; }
 uint32 KQContribute::Get(CharID c) { std::map<CharID,uint32>::iterator it = s_kKQContrib.find(c); return it==s_kKQContrib.end()?0:it->second; }
-int32  KQRewardDataBox::GoldFor(uint32 c) { return (int32)c * 10; } // EV_VERIFY
+int32  KQRewardDataBox::GoldFor(uint32 c) { return (int32)c * 10; }
 void   KingdomQuest::OnDeath(ShinePlayer*) {}
 
 } // namespace fiesta

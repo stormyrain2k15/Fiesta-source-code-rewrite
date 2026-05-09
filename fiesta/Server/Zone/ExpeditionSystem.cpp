@@ -6,7 +6,7 @@
 
 namespace fiesta {
 
-static const size_t MAX_SUB_PARTIES = 6;     // EV_VERIFY -- ExpeditionPartyWin
+static const size_t MAX_SUB_PARTIES = 6;-- ExpeditionPartyWin
 
 ExpeditionSystem& ExpeditionSystem::Get() { static ExpeditionSystem s; return s; }
 

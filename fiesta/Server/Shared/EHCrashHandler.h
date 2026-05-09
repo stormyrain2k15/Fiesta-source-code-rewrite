@@ -1,6 +1,5 @@
 // Server/Shared/EHCrashHandler.h
-// 00 Bootstrap -- structured-exception handler with minidump writer.
-// EVIDENCE: PDB_CONFIRMED  symbol: EHCrashHandler, MiniDump
+// structured-exception handler with minidump writer.
 #ifndef FIESTA_EHCRASHHANDLER_H
 #define FIESTA_EHCRASHHANDLER_H
 #include "ShineTypes.h"

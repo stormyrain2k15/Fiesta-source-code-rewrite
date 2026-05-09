@@ -1,7 +1,6 @@
 // Server/DataReader/ITableBase.h
-// 02 DataReader -- common base for every *Tab table loader. Original symbol pattern:
+// common base for every *Tab table loader. Original symbol pattern:
 //   ITableBase<T>::Load / ::DataProcess / ::BeforeTerminate / ::GetTotal / ::ms_pkTable
-// EVIDENCE: PDB_CONFIRMED  symbol: ITableBase<*>
 #ifndef FIESTA_ITABLEBASE_H
 #define FIESTA_ITABLEBASE_H
 #include "../Shared/ShineTypes.h"

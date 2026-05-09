@@ -1,20 +1,15 @@
 // Server/Zone/SoulStoneVendor.h
-// 11 -- vendor flow for NPCs with `Role=Merchant RoleArg0=SoulStone`.
-//
+// vendor flow for NPCs with `Role=Merchant RoleArg0=SoulStone`.
 // Two SKUs only:
 //   * "HP Soul Stone"  (price = SoulStoneSystem::PriceForLevel(buyer.level))
 //   * "SP Soul Stone"  (price = same)
-//
 // Both purchases increment the matching counter on SoulStoneCounts (capped
 // at kSoulStoneMaxCount) and debit the player's Vis (Money). They are NOT
 // added as inventory items.
-//
 // Vendor list (verbatim from World/NPC.txt SoulStone-flagged rows):
 //   RouSoulMctJulia, EldSoulMctAvon, UruSoulPooring, HednisSoulKeroll,
 //   StoneMctTomson, SoulMctChloe, AlruinSoulRunadilla, BeraSoulOlivia,
 //   TempSoul, ... (use ShineNPCTable::FindNPC + RoleArg0 check).
-//
-// EVIDENCE: PDB_CONFIRMED   symbol: cMerchantSoulStone, NPCMenuPickAck.
 //                           DATA_CONFIRMED  World/NPC.txt SoulStone vendors.
 #ifndef FIESTA_ZONE_SOULSTONEVENDOR_H
 #define FIESTA_ZONE_SOULSTONEVENDOR_H

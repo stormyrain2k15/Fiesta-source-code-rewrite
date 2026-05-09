@@ -1,6 +1,5 @@
 // Server/Shared/GTimer.cpp
-// 01 Foundation -- high-resolution timer impl.
-// EVIDENCE: PDB_CONFIRMED
+// high-resolution timer impl.
 #include "GTimer.h"
 
 namespace fiesta {

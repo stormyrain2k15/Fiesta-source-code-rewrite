@@ -1,8 +1,6 @@
 // Lua/LuaRuntime.h
-// 21 -- thin Lua 5.2 host. The original Zone embeds Lua 5.2; this wrapper exposes
+// thin Lua 5.2 host. The original Zone embeds Lua 5.2; this wrapper exposes
 // per-script states + lifecycle for instance/KQ/event/script-AI use.
-// EVIDENCE: PDB_CONFIRMED  symbol: LuaScript, AIScript, ScriptScene, ScriptInterrupt
-//
 // NOTE: lua.h / lauxlib.h / lualib.h must be a Lua 5.2 distribution (5.2.x). The
 // vendored Lua source is expected to be added to the build by the user; this
 // header expresses the consumer-side interface only.

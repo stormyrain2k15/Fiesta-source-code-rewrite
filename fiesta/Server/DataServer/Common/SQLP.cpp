@@ -4,7 +4,6 @@
 // for evidence trail.  Argument shapes follow the documented stored-procedure
 // parameter lists; mismatches will surface at first proc call against a real
 // schema and should be corrected here only.
-//
 // Concurrency: every call funnels through `Database::Exec/Query`, both of
 // which take the per-connection critical section, so each SQLP_* instance is
 // thread-safe at single-statement granularity.

@@ -1,6 +1,5 @@
 // Server/Zone/GuildSystem.h
-// 25 -- Guild / Storage / Academy / War / Tournament.
-// EVIDENCE: PDB_CONFIRMED  symbol: GuildServer, GuildZone, GuildStorageManager,
+// Guild / Storage / Academy / War / Tournament.
 //                                  GuildAcademy, GuildTournamentSystem, GuildWarManager
 #ifndef FIESTA_ZONE_GUILDSYSTEM_H
 #define FIESTA_ZONE_GUILDSYSTEM_H

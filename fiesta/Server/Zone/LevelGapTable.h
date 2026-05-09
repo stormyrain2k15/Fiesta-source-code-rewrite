@@ -1,12 +1,10 @@
 // Server/Zone/LevelGapTable.h
-// 12 -- loads & queries the three level-gap damage modifier tables from SHN:
+// loads & queries the three level-gap damage modifier tables from SHN:
 //   damagelvgappve.shn   (player -> mob)
 //   damagelvgappvp.shn   (player -> player)
 //   damagelvgapevp.shn   (mob -> player)
 // Each table maps level difference -> multiplier (x1000). Table is symmetric
 // around gap = 0 (1000 = 1.0x = no change).
-//
-// EVIDENCE: DATA_CONFIRMED  source: F2/Battle/levelgapdamagetable.h shape.
 #ifndef FIESTA_ZONE_LEVELGAPTABLE_H
 #define FIESTA_ZONE_LEVELGAPTABLE_H
 #include "BattleStat.h"

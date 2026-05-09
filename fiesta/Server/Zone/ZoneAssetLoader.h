@@ -1,17 +1,13 @@
 // Server/Zone/ZoneAssetLoader.h
 // 06+ -- Single boot-time pass that walks every per-folder data source under
 // `Data\Shine\` and feeds each file to its existing parser / box.
-//
 // This was previously open-coded across half a dozen .cpp files (or worse,
 // only loaded on first lookup). Centralising it gives us:
-//
 //   - One entry point in Main.cpp.
 //   - Deterministic load order (alphabetical inside each folder).
 //   - One clean log line per folder reporting "<count> files loaded".
 //   - A single place to add new folder ingestion paths.
-//
 // Folders covered (with the parser each routes to):
-//
 //   AbState/*.dat                 -> AbStateBinaryBox        (binary descriptors)
 //   AreaBMP/*.bmp                 -> AreaBMPBox              (1-bit AOE masks)
 //   BlockInfo/*.{aid,sbi,shbd}    -> BlockInfoBox            (collision per map)
@@ -22,11 +18,8 @@
 //   MobSetting/*.txt              -> MobSettingActionBox     (action table)
 //   NPCItemList/*.txt             -> NPCItemListBox          (per-NPC merchant)
 //   Script/*.txt                  -> ScriptStringBox         (KQ string scripts)
-//
 // Lua trees (LuaScript/{AIScript,KQ,ID,PetSystem,Promote,Tutorial}) are
 // handed to ScriptLoader.
-//
-// EVIDENCE: PROJECT_REQUIREMENT  source: "keep going through all of the
 //                                       files and getting them being
 //                                       used by the server" (2026-02 user note).
 #ifndef FIESTA_ZONE_ASSET_LOADER_H

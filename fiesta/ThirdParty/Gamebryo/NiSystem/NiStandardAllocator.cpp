@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -27,20 +24,16 @@ NiSmallObjectAllocator* NiStandardAllocator::ms_pkSmallAlloc = NULL;
 // In order to facilitate speedy deallocations, it is necessary to prepend
 // the size of the allocation. This total size in bytes allows us to quickly
 // determine how to handle the memory.
-// 
 // The code works by adding "NI_MEM_ALIGNMENT_DEFAULT" bytes
 // to the size of the allocation. This value is expected to be a multiple
 // of the compiler's default alignment. The size, in bytes, of the allocation
 // is then set in this header. The memory address is advanced to the "real"
 // address.
-// 
 // Upon deallocation, this value is retrieved by jumping back the header size,
 // grabbing the allocation size and then forwarding the value onward into
 // the memory management system.
-//
 // This design assumes that some allocator will be able to better handle
 // knowing the full size, rather than inserting its own header. 
-// 
 // Note: Aligned allocation routines are a special case. Since they can
 // be of any alignment, we forward them on without any additional tracking.
 

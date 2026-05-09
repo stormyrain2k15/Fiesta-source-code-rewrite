@@ -1,19 +1,15 @@
 // Server/DataReader/ShnFile.h
-// 02 -- real SHN binary reader. Format derived from the SHN_Editor_4.7
+// real SHN binary reader. Format derived from the SHN_Editor_4.7
 // reference implementation provided by the project owner. Original tool is
 // MIT-style developer-shared; this header expresses the same wire format in
 // fresh C++ code, with the same type codes (1/2/3/5/9/11/12/13/16/18/20/21/22/24/26/27)
 // and the same symmetric XOR-rolling decrypt.
-//
 // File frame:
 //   [0x20 crypt header (passthrough)] [uint32 totalLen] [encrypted body of (totalLen - 0x24) bytes]
-//
 // Decrypted body:
 //   [uint32 Header] [uint32 RecordCount] [uint32 DefaultRecordLength] [uint32 ColumnCount]
 //   for each column: [0x30 name (zero-padded)] [uint32 Type] [int32 Length]
 //   for each record:  [uint16 rowSize] [columns concatenated per Type]
-//
-// EVIDENCE: DATA_CONFIRMED  source: SHN_Editor_4.7 / Classes/SHNFile.cs (user-provided tool).
 #ifndef FIESTA_DATAREADER_SHNFILE_H
 #define FIESTA_DATAREADER_SHNFILE_H
 #include "../Shared/ShineTypes.h"

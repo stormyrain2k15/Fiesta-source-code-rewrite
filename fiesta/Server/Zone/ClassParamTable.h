@@ -1,13 +1,10 @@
 // Server/Zone/ClassParamTable.h
-// 09 -- one loader for each per-class progression file:
-//
+// one loader for each per-class progression file:
 //   World/ParamFighterServer.txt
 //   World/ParamCleverFighterServer.txt
 //   World/ParamWarriorServer.txt           ... (22 classes total)
 //   ... etc
-//
 // Each file ships exactly one "Param" table with these 35 columns:
-//
 //   Level Strength Constitution Intelligence Wisdom Dexterity MentalPower
 //   SoulHP MAXSoulHP PriceHPStone
 //   SoulSP MAXSoulSP PriceSPStone
@@ -17,9 +14,7 @@
 //   PainRes RestraintRes CurseRes ShockRes
 //   MaxHP MaxSP
 //   CharTitlePt SkillPwrPt JobChangeDmgUp
-//
 // Semantics (verified from ParamFighterServer.txt rows):
-//
 //   * MAXSoulHP / MAXSoulSP = how many HP / SP soul stones the character
 //     may hold at this level (true per-level cap; replaces my old fake
 //     `kSoulStoneMaxCount`).
@@ -36,8 +31,6 @@
 //     "BaseHP/BaseSP" my MoverMain loader looked for.
 //   * CharTitlePt / SkillPwrPt = points granted on level-up.
 //   * JobChangeDmgUp         = damage bonus after job change (1000 = 1.0x).
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied
 //                                   World/Param*Server.txt files.
 #ifndef FIESTA_ZONE_CLASSPARAMTABLE_H
 #define FIESTA_ZONE_CLASSPARAMTABLE_H

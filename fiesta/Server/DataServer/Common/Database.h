@@ -1,7 +1,6 @@
 // Server/DataServer/Common/Database.h
-// 03 -- thin wrapper around ODBC connection. Per spec rule, we do not introduce
+// thin wrapper around ODBC connection. Per spec rule, we do not introduce
 // a new ORM/config layer. Connection string comes from ServerInfo.txt.
-// EVIDENCE: PDB_CONFIRMED  symbol: Database, DataServer, DBRecord
 #ifndef FIESTA_DATABASE_H
 #define FIESTA_DATABASE_H
 #include "../../Shared/ShineTypes.h"

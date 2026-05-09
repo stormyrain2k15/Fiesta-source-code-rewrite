@@ -80,7 +80,7 @@ bool PotSystem::Use(ShinePlayer* pk, uint32 uiItemId) {
         case POT_REST_EXP:
             // Rested-EXP and EXP-pct bonuses are applied at next mob-kill in
             // QuestRuntime / Battle::Kill. We just record the multiplier on
-            // the player at consume time -- pass 2 carries it through.
+            // the player at consume time carries it through.
             iApplied = pkDef->iAmount;
             break;
         case POT_ABSTATE:

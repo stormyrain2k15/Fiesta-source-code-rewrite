@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -17,15 +14,12 @@
 // This file represents a series of classes to implement NiMetricsTimer.
 // End users should use NiMetricsClockTimer and NiMetricsPCTimer to
 // time events.
-//
 // The NiMetricsTimer class can be used to refer to
 // any timer and get its information, so long as no timing needs
 // to be done with it.  This is what is used internally by the
 // NiMetricsLayer and its output modules.
-//
 // The name in the constructor must point to data that will exist for the 
 // duration of the timer's existence.  In general, this will be static data.
-//
 
 // NiMetricsTimer is the timer base class without a template that all timers 
 // derive from.  Derived classes should set m_fValue appropriately.
@@ -48,7 +42,6 @@ protected:
 // It takes a parameter T to specify the type of Timer to be used.  This is
 // because, depending on the length of time that this timer will be used for,
 // different precision timers should be used.
-//
 // The T template parameter must implement these functions:
 //  1) float GetElapsed() const
 //  2) void Start()

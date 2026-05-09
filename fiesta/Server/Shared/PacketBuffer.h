@@ -1,6 +1,5 @@
 // Server/Shared/PacketBuffer.h
-// 01 Foundation -- contiguous byte buffer with little-endian read/write.
-// EVIDENCE: PDB_CONFIRMED  symbol: PacketBuffer
+// contiguous byte buffer with little-endian read/write.
 #ifndef FIESTA_PACKETBUFFER_H
 #define FIESTA_PACKETBUFFER_H
 #include "ShineTypes.h"

@@ -1,12 +1,10 @@
 // Server/Zone/WMClient.h
-// 06 -- Zone-side outbound link to the WorldManager exe.
-//
+// Zone-side outbound link to the WorldManager exe.
 // On Zone boot:
 //   - Connect to WM:WM.ZonePort
 //   - Send NC_INTER_ZONE_REGISTER_REQ { zoneId, zoneIp, clientPort }
 //   - Receive NC_INTER_HELLO_ACK
 //   - Periodic NC_INTER_ZONE_HEARTBEAT_CMD via Zone's tick loop
-//
 // Inbound from WM:
 //   - NC_INTER_OPTOOL_*_PUSH (ban/kick/jail/unjail/sysmsg/giveitem/takeitem)
 //     -- routed through WMClient to the in-process Zone helpers.

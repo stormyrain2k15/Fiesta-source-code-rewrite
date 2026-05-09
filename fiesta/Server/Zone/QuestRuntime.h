@@ -1,10 +1,8 @@
 // Server/Zone/QuestRuntime.h
-// 17 -- sidecar that drives quest lifecycle on top of QuestTable
+// sidecar that drives quest lifecycle on top of QuestTable
 //        (Header / Reward / Looting / Hunting / Produce / Meeting).
-//
 // Per character we keep a tiny ledger of active quests and their progress
 // counters. The runtime exposes:
-//
 //   StartQuest(player, handle, npc)    -- validates level + start NPC.
 //   OnMobKill (player, mobName)        -- bumps Hunting kill counts.
 //   OnItemPick(player, itemName)       -- bumps Looting drop counts.
@@ -12,12 +10,9 @@
 //   OnProduce (player, itemMade)       -- ticks Produce craft-it counters.
 //   CompleteQuest(player, handle, npc) -- validates + grants Reward rows.
 //   GiveUp     (player, handle)        -- removes from active set.
-//
 // Reward delivery currently logs the grant intent + adds Vis when
 // Type=="MoneyExp"; full item-grant requires the Inventory item-name
 // resolver to be wired which is the next pass.
-//
-// EVIDENCE: PDB_CONFIRMED  symbol: cQuest, QuestStart, QuestComplete.
 #ifndef FIESTA_ZONE_QUESTRUNTIME_H
 #define FIESTA_ZONE_QUESTRUNTIME_H
 #include "WorldTables.h"

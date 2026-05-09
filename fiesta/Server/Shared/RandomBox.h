@@ -1,6 +1,5 @@
 // Server/Shared/RandomBox.h
-// 01 Foundation -- weighted random / dice helpers used by Drop / Belong / Gamble.
-// EVIDENCE: PDB_CONFIRMED  symbol: RandomBox
+// weighted random / dice helpers used by Drop / Belong / Gamble.
 #ifndef FIESTA_RANDOMBOX_H
 #define FIESTA_RANDOMBOX_H
 #include "well512.h"

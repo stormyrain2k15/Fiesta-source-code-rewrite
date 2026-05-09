@@ -1,8 +1,6 @@
 // Server/Zone/MobResistTable.h
-// 12 -- elemental + damage-type resist lookup per mob species.
+// elemental + damage-type resist lookup per mob species.
 // Source: MobResist.shn.
-//
-// EVIDENCE: DATA_CONFIRMED  shape from F2/Battle/mobresisttable.h.
 #ifndef FIESTA_ZONE_MOBRESISTTABLE_H
 #define FIESTA_ZONE_MOBRESISTTABLE_H
 #include "BattleStat.h"

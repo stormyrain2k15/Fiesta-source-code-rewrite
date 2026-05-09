@@ -1,5 +1,4 @@
-// Server/Zone/AmpersandCommands_Generated.h
-// EVIDENCE: DATA_CONFIRMED  source: gm_commands_index.csv (155 commands)
+// Server/Zone/AmpersandCommands.h
 #ifndef FIESTA_ZONE_AMPCMDS_GEN_H
 #define FIESTA_ZONE_AMPCMDS_GEN_H
 #include "ShineObject.h"

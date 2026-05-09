@@ -6,7 +6,7 @@
 
 namespace fiesta {
 
-static const uint64 SUMMON_COOLDOWN_MS = 1800000ULL;     // 30 min, EV_VERIFY
+static const uint64 SUMMON_COOLDOWN_MS = 1800000ULL;     // 30 min,
 
 MarriageServer& MarriageServer::Get() { static MarriageServer s; return s; }
 

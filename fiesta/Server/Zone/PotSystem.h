@@ -1,11 +1,8 @@
 // Server/Zone/PotSystem.h
-// 15 -- Inventory-consumed potion items.
-// EVIDENCE: PDB_CONFIRMED  symbol: ItemUseFunctionTable, PotionUse, RestExp
-//
+// Inventory-consumed potion items.
 // Distinct from SoulStoneSystem (which is a 0-inventory-space, vendor-bought,
 // per-tier-by-level concept). "Pot" here = ItemUseFunction rows that produce
 // HP, SP, EXP, or AbState changes when an inventory item is consumed.
-//
 // All values are sourced from `WorldTables::ItemUseFunctionTable` -- the
 // constants below are clamps / common-sense bounds, not authoritative
 // numbers.

@@ -1,6 +1,5 @@
 // Server/Zone/Battle.h
-// 12 -- normal/skill attacks, RuleOfEngagement dispatch, damage pipeline host.
-// EVIDENCE: PDB_CONFIRMED  symbols: Battle, BattleObject, RuleOfEngagement,
+// normal/skill attacks, RuleOfEngagement dispatch, damage pipeline host.
 //                                   DamageByAngle, DamageBySoul,
 //                                   LevelGapDamageTable, CalcDamage.
 #ifndef FIESTA_ZONE_BATTLE_H
@@ -21,7 +20,6 @@ struct DamageInfo {
 
 // ----------------------------------------------------------------------------
 // RuleOfEngagement -- the damage pipeline.
-//
 // Stages (each stage may be skipped via flags / data):
 //   1. Hit roll      (accuracy vs dodge)
 //   2. Block roll    (target block stat, melee only)

@@ -1,11 +1,8 @@
 // Server/Zone/PromoteSystem.h
-// 25 -- unified runtime for job-change scenarios. Same dual-source pattern
+// unified runtime for job-change scenarios. Same dual-source pattern
 // as InstanceSystem:
-//
 //   * Lua side: LuaScript/Promote/<JobChange>.lua (registration / hooks)
 //   * PS  side: ScenarioBookShelf/Promote/<JobChange>.ps (scenario flow)
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied
 //                                   LuaScript/Promote + ScenarioBookShelf/Promote.
 #ifndef FIESTA_ZONE_PROMOTESYSTEM_H
 #define FIESTA_ZONE_PROMOTESYSTEM_H

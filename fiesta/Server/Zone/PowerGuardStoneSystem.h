@@ -1,18 +1,14 @@
 // Server/Zone/PowerGuardStoneSystem.h
-// 14 -- Power Stones (offense buff stones) and Guard Stones (defense buff
+// Power Stones (offense buff stones) and Guard Stones (defense buff
 // stones). Same backing shape as soul stones: two flat counters per
 // character row, two independent cooldowns; cap, per-use boost amount, and
 // vendor price all sourced from `ClassParamTable` (per-(class, level) row).
-//
 // Power Stone: bumps WC + MA for kStoneBuffSec when consumed.
 //   ClassParam columns:  MaxPwrStone, NumPwrStone, PricePwrStone,
 //                        PwrStoneWC, PwrStoneMA
-//
 // Guard Stone: bumps AC + MR for kStoneBuffSec when consumed.
 //   ClassParam columns:  MaxGrdStone, NumGrdStone, PriceGrdStone,
 //                        GrdStoneAC, GrdStoneMR
-//
-// EVIDENCE: DATA_CONFIRMED  source: World/Param*Server.txt.
 #ifndef FIESTA_ZONE_POWERGUARDSTONESYSTEM_H
 #define FIESTA_ZONE_POWERGUARDSTONESYSTEM_H
 #include "ClassParamTable.h"
@@ -22,7 +18,7 @@ namespace fiesta {
 class ShinePlayer;
 class Inventory;
 
-// Buff duration per stone (seconds). EV_VERIFY -- live game uses ~30 min
+// Buff duration per stone (seconds). live game uses ~30 min
 // per stone consumed; tune in-place if needed.
 const uint32 kStoneBuffSec       = 1800;
 const uint32 kStoneCooldownMs    = 1500;

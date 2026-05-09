@@ -1,13 +1,10 @@
 // Server/Zone/MoverTables.h
-// 12 -- typed loaders for the per-class growth and ability tables that drive
+// typed loaders for the per-class growth and ability tables that drive
 // stat distribution at character login + level up.
-//
 //   MoverMain.shn    -- one row per (Class, Level) with base HP/SP/ATK/DEF/etc.
 //   MoverAbility.shn -- one row per Class with the per-stat-point gains
 //                       (delta HP/SP/ATK/MATK/DEF/MDEF/Hit/Crit/Dodge per
 //                        STR/END/DEX/INT/MEN allocated).
-//
-// EVIDENCE: PDB_CONFIRMED   symbols: cMoverMain, cMoverAbility, MOVERMAIN_TBLDAT.
 #ifndef FIESTA_ZONE_MOVERTABLES_H
 #define FIESTA_ZONE_MOVERTABLES_H
 #include "BattleStat.h"

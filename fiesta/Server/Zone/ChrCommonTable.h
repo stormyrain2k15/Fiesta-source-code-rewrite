@@ -1,6 +1,5 @@
 // Server/Zone/ChrCommonTable.h
-// 09 -- World/ChrCommon.txt: 7 sub-tables.
-//
+// World/ChrCommon.txt: 7 sub-tables.
 //   Common              -- key/value map (RunSpeed, WalkSpeed, AttackSpeed,
 //                          ShoutLevel, ShoutDelay, LevelLimit, MaxExpBonus,
 //                          RestExpRate, MinNeedTime, ..., MaxFreeStat).
@@ -11,8 +10,6 @@
 //   FreeStatDexTable    -- 181 rows; per-DEX -> ToHit / ToBlock / ATKSpd.
 //   FreeStatConTable    -- 181 rows; per-CON -> AC / MaxHP.
 //   FreeStatMenTable    -- 181 rows; per-MEN -> MR / status resists.
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied
 //                                   World/ChrCommon.txt.
 #ifndef FIESTA_ZONE_CHRCOMMONTABLE_H
 #define FIESTA_ZONE_CHRCOMMONTABLE_H

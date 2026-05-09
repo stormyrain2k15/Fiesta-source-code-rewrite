@@ -1,25 +1,19 @@
 // Server/Zone/AggroList.h
-// 12 -- per-mob aggro / hate accumulator + level-gap scaler.
-// EVIDENCE: PDB_CONFIRMED  symbol: AggroList, HateList, ThreatTable
-//
+// per-mob aggro / hate accumulator + level-gap scaler.
 // Maintains a (charId, hate) priority list per mob. Damage / heal-on-tank /
 // taunt skills push hate via Add(). The mob AI consults Top() each tick to
 // pick its target.
-//
 // Level-gap scaling
 // -----------------
 // Original game rule: aggro scales over a **20-level span** centred on the
 // mob's level.
-//
 //   * player.level <= mob.level                        -> full aggro (1.0x)
 //   * player.level >  mob.level && < mob.level + 20    -> linearly fades
 //   * player.level >= mob.level + 20                   -> no aggro (0.0x)
-//
 // The closer the player is to (or below) the mob's level the harder the
 // mob "notices" them; the further above the mob the player is the less
 // the mob cares. The scaler is applied at hate-push time so a passing
 // high-level player walking through low-level mobs doesn't pull aggro.
-//
 // Detect / chase ranges (from MobInfoServer.shn DetectCha / FollowCha) are
 // consulted by MobAI before any hate is pushed; AggroList itself is
 // purely the threat-priority queue.

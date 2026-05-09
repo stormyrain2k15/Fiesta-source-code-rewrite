@@ -1,10 +1,9 @@
 // Client/Engine/AnimationLink.h
-// 42 -- runtime resolver for the SHN -> DAT -> NIF chain.
+// runtime resolver for the SHN -> DAT -> NIF chain.
 // Server emits an action opcode with (objectHandle, actionId). Client looks up
 // the action set name from the entity's MobInfo/NPCInfo row, finds the matching
 // Action/<Name>.dat, picks the clip name for actionId, and tells Gamebryo's
 // NiControllerManager on the loaded NIF to play that NiControllerSequence.
-// EVIDENCE: PDB_CONFIRMED  symbol: ActionScene, NiControllerSequence, NiControllerManager
 #ifndef FIESTA_CLIENT_ANIMATIONLINK_H
 #define FIESTA_CLIENT_ANIMATIONLINK_H
 #include "../../Server/Shared/ShineTypes.h"

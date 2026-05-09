@@ -1,6 +1,5 @@
 // Server/Zone/DeathReviveSystem.h
-// 14 -- the on-death revive dialog flow.
-//
+// the on-death revive dialog flow.
 // When a character dies the client shows a dialog with:
 //   * "Use Shine Soul Stone"  -- consumes one Shine Soul (a separate counter
 //                                from HP/SP soul stones); restores 100% HP/SP,
@@ -8,8 +7,6 @@
 //   * "Town Respawn"          -- free; warp to bind town; XP penalty per
 //                                ExpLossOnTownRevive(level).
 //   * "Wait for Resurrect"    -- another player may cast a resurrect skill.
-//
-// EVIDENCE: PDB_CONFIRMED   symbol: cShineSoulRegen, ReviveDialog.
 #ifndef FIESTA_ZONE_DEATHREVIVESYSTEM_H
 #define FIESTA_ZONE_DEATHREVIVESYSTEM_H
 #include "../Shared/ShineTypes.h"

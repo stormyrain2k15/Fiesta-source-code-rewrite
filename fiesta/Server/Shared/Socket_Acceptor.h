@@ -1,6 +1,5 @@
 // Server/Shared/Socket_Acceptor.h
-// 01/07 -- IOCP-based listen socket + per-connection session callbacks.
-// EVIDENCE: PDB_CONFIRMED  symbol: Socket_Acceptor, IOCP
+// IOCP-based listen socket + per-connection session callbacks.
 #ifndef FIESTA_SOCKET_ACCEPTOR_H
 #define FIESTA_SOCKET_ACCEPTOR_H
 #include "ShineTypes.h"

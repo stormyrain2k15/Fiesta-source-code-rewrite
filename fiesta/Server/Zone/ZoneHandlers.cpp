@@ -1,6 +1,5 @@
 // Server/Zone/ZoneHandlers.cpp
-// 07 -- wire NETCOMMAND opcodes to their handler functions for the Zone parser.
-// EVIDENCE: PDB_CONFIRMED  symbol: ProtocolParser registrations
+// wire NETCOMMAND opcodes to their handler functions for the Zone parser.
 #include "ZoneServer.h"
 #include "../Common/ProtocolParser.h"
 #include "../Common/NETCOMMAND.h"
@@ -59,13 +58,11 @@ static void H_Chat(IOCPSession* s, const GPacket& pkt) {
 static void H_Logout(IOCPSession* s, const GPacket&) { if (s) s->Close(); }
 
 // ---- NPC menu / shop ------------------------------------------------------
-//
 // Inbound flow:
 //   NC_NPC_MENU_PICK_REQ  : [ uint32 npcId, uint32 viewInfoId ]
 //                           viewInfoId == 0 -> open root menu.
 //   NC_NPC_SHOP_BUY_REQ   : [ uint32 npcId, uint32 inxName, uint16 qty ]
 //   NC_NPC_SHOP_SELL_REQ  : [ uint32 npcId, uint16 invSlot, uint16 qty ]
-//
 static void H_NpcMenuPick(IOCPSession* s, const GPacket& pkt) {
     ClientSession* cs = (ClientSession*)s; if (!cs || !cs->GetPlayer()) return;
     PacketBuffer b = pkt.Body();

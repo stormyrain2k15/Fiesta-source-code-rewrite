@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -26,7 +23,6 @@
 // Instead, element access is provided via a pointer to the element.
 // T is block allocated from a shared memory pool. The template class 
 // requires that a default constructor for T exists, even if it does nothing.
-//
 // The pool uses some non-local static variables that must be declared using
 // the NiAllocatorDeclareStatics macro. For example:
 //   NiAllocatorDeclareStatics(T, size);
@@ -39,11 +35,8 @@
 // NiAllocatorShutdown(T), new NiTObjectList<T> instances may be created, but
 // of course they should be cleaned up with another call to
 // NiAllocatorShutdown(T).
-// 
 // Remove and FindPos search for an element based on pointer equality. 
-//
 // Example of iteration from head to tail:
-//
 //   NiTObjectList<T> kList;
 //   NiTListIterator kPos = kList.GetHeadPos();
 //   while (kPos)

@@ -1,5 +1,5 @@
 // Server/WorldManager/Main.cpp
-// 05 -- WorldManager service exe entry.
+// WorldManager service exe entry.
 #include "../Shared/WinService.h"
 #include "../Shared/ServerInfo.h"
 #include "../Shared/IOCPManager.h"

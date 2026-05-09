@@ -1,7 +1,7 @@
-// Lua/LuaAPI_Generated.cpp -- GENERATED Lua 5.2 binding stubs.
+// Lua/LuaAPI_Generated.cpp
 // All functions are operational stubs that pop their declared arg count
 // and push a sane default. Real bodies are wired in pass 2.
-#include "LuaAPI_Generated.h"
+#include "LuaAPI.h"
 extern "C" {
 #include <lua.h>
 #include <lauxlib.h>

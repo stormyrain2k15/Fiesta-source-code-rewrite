@@ -5,9 +5,8 @@
 #include <ctype.h>
 namespace fiesta {
 
-// 39
 void ShinePrison::Send (ShinePlayer* pk, uint32) {
-    if (pk) TownPortal(pk, /*MapID*/ 100, Vec3(0,0,0)); // Prison map id placeholder (EV_VERIFY)
+    if (pk) TownPortal(pk, /*MapID*/ 100, Vec3(0,0,0)); // Prison map id placeholder
 }
 void ShinePrison::Release(ShinePlayer* pk) {
     if (pk) TownPortal(pk, /*MapID*/ 1, Vec3(0,0,0));
@@ -25,7 +24,6 @@ uint8 AdminLvSet::GetRequiredLv(const std::string& rCmd) {
     return 1;
 }
 
-// 40
 bool XTrap4Server::Handshake(ShinePlayer*, const uint8*, size_t) { return true; }
 bool XTrap4Server::Validate (ShinePlayer*, const uint8*, size_t) { return true; }
 
@@ -39,7 +37,6 @@ void BadNameFilterData::AddBlocked(const std::string& s) {
     s_kBadNames[l] = true;
 }
 
-// 41
 void EasyLogSys::Write(const char* topic, const char* fmt, ...) {
     char buf[1024]; va_list ap; va_start(ap, fmt); _vsnprintf_s(buf, sizeof(buf), _TRUNCATE, fmt, ap); va_end(ap);
     SHINELOG_INFO("[%s] %s", topic ? topic : "log", buf);

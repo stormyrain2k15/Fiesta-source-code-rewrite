@@ -35,8 +35,7 @@ void ShinePlayer::AddFame(int32 dFame) {
 
 void ShinePlayer::FillFromCharLogin(AccountID a, CharID c, const std::string& n, uint16 lvl, uint16 cls) {
     m_uiAcctID = a; m_uiCharID = c; m_kName = n; m_uiLevel = lvl; m_uiClass = cls;
-    // Provisional base stat scaling -- replaced by LoadFromCharDBRow once the
-    // p_Char_Login result arrives.
+    m_kInv.SetOwner(c);
     m_iMaxHP = 80 + 20 * (int32)lvl;
     m_iMaxSP = 30 + 10 * (int32)lvl;
     m_iHP = m_iMaxHP; m_iSP = m_iMaxSP;
@@ -70,8 +69,11 @@ void ShinePlayer::LoadFromCharDBRow(const DBRecord& r) {
     m_uiExp        = SafeU64(r, 5);
     m_uiFame       = SafeU32(r, 6);
     m_uiMoney      = SafeU64(r, 7);
-    // 8: sLoginZone -- consumed by caller to pick the destination zone exe.
+    m_kLoginZone   = r.Get(8);                 // destination map name
     m_uiClass      = SafeU16(r, 9);
+    // Mirror the character-id into the inventory so every Add/Remove
+    // routes a Item_Create / Item_Delete proc through the CharDB exe.
+    m_kInv.SetOwner(m_uiCharID);
     m_uiSTR        = SafeU16(r, 10);
     m_uiEND        = SafeU16(r, 11);
     m_uiINT        = SafeU16(r, 12);

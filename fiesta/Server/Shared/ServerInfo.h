@@ -1,8 +1,6 @@
 // Server/Shared/ServerInfo.h
-// 00 -- typed wrapper over ConfigParser exposing the original-format records:
+// typed wrapper over ConfigParser exposing the original-format records:
 //   NATION_NAME, WORLD_NAME, SERVER_INFO, ODBC_INFO, MY_SERVER.
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied ServerInfo.txt
-//
 // SERVER_INFO record fields (positional per the project's #DEFINE):
 //   0 : <STRING>  service tag       e.g. "PG_Login", "PG_W00_Z00"
 //   1 : <INTEGER> service kind      0=AccDB 1=ALDB 2=CDB 3=GLDB 4=Login 5=WM 6=Zone
@@ -13,7 +11,6 @@
 //   6 : <INTEGER> port              tcp port
 //   7 : <INTEGER> max clients       (interpretation per service)
 //   8 : <INTEGER> max records / cap (interpretation per service)
-//
 // ODBC_INFO record fields:
 //   0 : <STRING>  db logical name   "Account", "World00_Character", ...
 //   1 : <INTEGER> db kind id        editor-internal grouping

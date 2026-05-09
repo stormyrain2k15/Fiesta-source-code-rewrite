@@ -1,9 +1,7 @@
 // Server/Zone/NPCItemListTable.h
-// 23 -- typed loader for NPCItemList/<NpcKey>.txt. Each file declares many
+// typed loader for NPCItemList/<NpcKey>.txt. Each file declares many
 // "TabXX" tables (one per UI tab) of merchant items. Each tab row holds up
 // to 6 item-index columns (Column00..Column05) where '-' means empty slot.
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied NPCItemList/.
 #ifndef FIESTA_ZONE_NPCITEMLISTTABLE_H
 #define FIESTA_ZONE_NPCITEMLISTTABLE_H
 #include "../Shared/ShineTypes.h"

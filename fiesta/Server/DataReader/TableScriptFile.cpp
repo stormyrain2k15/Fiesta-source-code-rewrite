@@ -9,7 +9,7 @@
 
 namespace fiesta {
 
-// ----- Pass 1.26 column auditor for the TS-format files (mirrors the
+// --- column auditor for the TS-format files (mirrors the
 // ShnAudit hook in ShnRegistry). Stamp every (table, column) pair the
 // runtime asks for via TsTable::GetCell/GetInt/GetStr; at the end of
 // boot we walk every loaded file and warn for columns that were declared

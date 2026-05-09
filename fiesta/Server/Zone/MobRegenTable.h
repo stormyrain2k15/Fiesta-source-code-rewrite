@@ -1,6 +1,5 @@
 // Server/Zone/MobRegenTable.h
-// 12 -- typed loader for MobRegen/<Map>.txt (MobRegenGroup + MobRegen tables).
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied MobRegen/.
+// typed loader for MobRegen/<Map>.txt (MobRegenGroup + MobRegen tables).
 #ifndef FIESTA_ZONE_MOBREGENTABLE_H
 #define FIESTA_ZONE_MOBREGENTABLE_H
 #include "../Shared/ShineTypes.h"

@@ -46,7 +46,6 @@ bool Trade::Cancel(CharID)               { return true; }
 int64 TradeMisc::GoldCapPerTrade() { return 2000000000LL; }
 
 // ----- StreetBooth (persistent listings) -----------------------------------
-//
 // Each open booth holds a vector of (item, price) listings. The booth
 // persists in-memory until Close() or its owning player disconnects (the
 // disconnect path lives in ZoneServer::DetachPlayer in pass 2). The Tick

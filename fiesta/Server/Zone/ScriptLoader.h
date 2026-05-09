@@ -1,21 +1,17 @@
 // Server/Zone/ScriptLoader.h
-// 21 -- scans the LuaScript/ tree shipped with the game data and loads each
+// scans the LuaScript/ tree shipped with the game data and loads each
 // event's scripts into the Zone Lua VM in the canonical order:
 //   1. Data/*.lua          (Name / Boss / Regen / Process / NPC / Chat / Stuff / ItemDrop / Servant / Monster)
 //   2. SubFunc.lua
 //   3. Progress.lua
 //   4. Routine.lua
-//
 // The shipped tree (verified via the project owner's data archive listing):
 //   LuaScript/common.lua
 //   LuaScript/KQ/<KQName>/{Routine,Progress,SubFunc}.lua + Data/*.lua
 //   LuaScript/ID/<InstanceName>/{Routine,Progress,SubFunc}.lua + Data/*.lua
 //   LuaScript/Promote/Job2_Forest/Functions/{Routine,Progress,SubFunc}.lua
-//
 // Routine.lua is loaded last because it captures references to functions defined
 // in the earlier files (Data tables + SubFunc helpers + Progress state).
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied LuaScript/ tree manifest.
 #ifndef FIESTA_ZONE_SCRIPTLOADER_H
 #define FIESTA_ZONE_SCRIPTLOADER_H
 #include "../Shared/ShineTypes.h"

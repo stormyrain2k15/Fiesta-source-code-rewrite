@@ -1,7 +1,6 @@
 // Server/Zone/ShineNPCTable.h
-// 11 -- typed loader for World/NPC.txt (ShineNPC + LinkTable tables).
+// typed loader for World/NPC.txt (ShineNPC + LinkTable tables).
 // Source format: TableScript (#Table ShineNPC ; #Table LinkTable ; #recordin ...).
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied World/NPC.txt.
 #ifndef FIESTA_ZONE_SHINENPCTABLE_H
 #define FIESTA_ZONE_SHINENPCTABLE_H
 #include "../Shared/ShineTypes.h"

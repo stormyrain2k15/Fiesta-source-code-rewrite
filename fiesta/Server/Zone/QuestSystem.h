@@ -1,7 +1,6 @@
 // Server/Zone/QuestSystem.h
-// 20 -- quest framework. Quest SHN files are NOT parsed here; this consumes
+// quest framework. Quest SHN files are NOT parsed here; this consumes
 // only PineScript bytecode (handled in QuestParserScript) and runtime hooks.
-// EVIDENCE: PDB_CONFIRMED  symbol: Quest, QuestData, QuestParserScript, QuestFramework,
 //                                  QuestEvent, CharQuest, ShineQuestDiary, PineScript
 #ifndef FIESTA_ZONE_QUESTSYSTEM_H
 #define FIESTA_ZONE_QUESTSYSTEM_H

@@ -1,11 +1,9 @@
 // Server/DataReader/PsScriptFile.h
-// 22 -- parser for the ".ps" DSL used by:
+// parser for the ".ps" DSL used by:
 //   * MobBehaviorDescript/*.ps        (mob AI behavior trees)
 //   * MobBehaviorDescript/KQ/*.ps     (per-KQ AI overrides)
 //   * ScenarioBookShelf/<Cat>/*.ps    (scenario / dungeon scripts)
-//
 // Grammar (verbatim from the supplied files):
-//
 //   open  [<BlockName>]            ; declare block (no-name = anonymous)
 //     var <Name1>. <Name2>. ...    ; declare local variables
 //     <Statement>.                 ; statement; statements end with '.'
@@ -19,16 +17,12 @@
 //     <Builtin> <Args...>.         ; doorbuild, dooropen, doorclose, broadcast,
 //                                    linkto, npcchat, scriptfile, effectobj, ...
 //   close
-//
 // Comments start with ';' (single-line). Strings are double-quoted. Numbers
 // are signed integers. Identifiers can include '_' '%' '@' (rare).
-//
 // This module produces a syntax tree (PsBlock / PsStmt / PsExpr) suitable for
 // downstream interpretation. We do NOT execute the tree here; that lives with
 // the AI behavior runtime (MobBehaviorScript) and scenario runtime
 // (ScenarioScript).
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied Shine.zip:
 //   MobBehaviorDescript/DefaultBehavior.ps,
 //   MobBehaviorDescript/KQ/KingSlime.ps,
 //   ScenarioBookShelf/Promote/JobChange1.ps.

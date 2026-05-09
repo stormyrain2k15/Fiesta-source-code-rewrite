@@ -1,13 +1,9 @@
 // Server/Zone/MobSpawnSystem.h
-// 19 -- Per-zone mob spawn driver.
-//
+// Per-zone mob spawn driver.
 // Walks every loaded `MobRegenBox` table at boot, builds one
 // `SpawnGroup` per `MobRegenGroup` row, and per-tick instantiates
 // `MobNum` mobs of the referenced species inside the group's area.
 // Killed mobs respawn after a `RegStandard` (+ aDelta/aSec curve) delay.
-//
-// EVIDENCE: PDB_CONFIRMED  symbol: MobSpawn, MobSpawnGroup
-// EVIDENCE: DATA_CONFIRMED  source: 9Data\Shine\MobRegen\<Map>.txt
 #ifndef FIESTA_ZONE_MOBSPAWNSYSTEM_H
 #define FIESTA_ZONE_MOBSPAWNSYSTEM_H
 #include "MobRegenTable.h"

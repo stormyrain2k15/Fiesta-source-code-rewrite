@@ -6,7 +6,7 @@
 
 namespace fiesta {
 
-// Local provisional constants (EV_VERIFY) -- edit in-place to match capture.
+// Local provisional constants -- edit in-place to match capture.
 static const uint32 kProvSchedMul = 0x9E3779B9u;
 static const uint32 kProvSchedAdd = 0x7F4A7C15u;
 static const uint32 kProvCtrInit  = 0x12345678u;

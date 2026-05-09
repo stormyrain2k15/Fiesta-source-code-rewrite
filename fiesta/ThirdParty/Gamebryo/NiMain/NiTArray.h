@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -35,23 +32,18 @@
 //   5.  bool operator== (const T&);
 //   6.  bool operator!= (const T&);
 //   7.  T& operator= (const T&);
-//
 // An example to illustrate what the members of NiTArray mean.  Shown is
 // an array of elements (0 = null element, x = an element)
 //     index:    0 1 2 3 4 5 6 7 8 9
 //     element:  x 0 x x 0 0 x 0 0 0
-//
 //     m_uiMaxSize = 10 (number of slots in array)
 //     m_uiSize    =  7 (next available slot, useful for traversing minimum
 //                       block of elements while searching for non-null items)
 //     m_uiESize   =  4 (number of used slots)
-//
 // Note that when m_uiSize = m_uiMaxSize, an attempt to add a new element
 // requires growing the array.  SetAtGrow does this.  SetAt does not.
-//
 // Note that there is an additional template argument, TAlloc.
 // This class must declare static functions matching the following prototypes:
-//
 //      static T* Allocate(unsigned int uiNumElements)
 //      static void Deallocate(T* pArray)
 

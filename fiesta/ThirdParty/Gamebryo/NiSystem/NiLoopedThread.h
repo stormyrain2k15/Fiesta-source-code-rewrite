@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -27,11 +24,9 @@
 // Usage notes:
 // Like an NiThread, an NiLoopedThread is created suspended and must be
 // resumed before it can be used.
-//
 // Each DoLoop() should be paired with a WaitForLoopCompletion() call
 // after it.  DoLoop() cannot be called repeatedly to run the loop
 // multiple times without blocking.
-//
 // NiLoopedThreads can be destroyed by deleting them (via destructor).
 // They can also be explicitly stopped via Shutdown().  Both Shutdown()
 // and the destructor will wait until the loop procedure has finished

@@ -1,6 +1,5 @@
 // Server/Shared/GTimer.h
-// 01 Foundation -- high-resolution timer.
-// EVIDENCE: PDB_CONFIRMED  symbol: GTimer
+// high-resolution timer.
 #ifndef FIESTA_GTIMER_H
 #define FIESTA_GTIMER_H
 #include "ShineTypes.h"

@@ -1,14 +1,11 @@
 // Server/DataServer/Character/Main.cpp
-// 03 -- Character DB service exe entry. Hosts every World00_Character SQLP
+// Character DB service exe entry. Hosts every World00_Character SQLP
 // module; the Wedding / HolyPromise / Guild / Item / Quest / Skill / Friend
 // helpers all share the same physical ODBC connection.
-//
 // Inter-server protocol served:
 //   NC_INTER_CHAR_DB_QUERY  -- WM-side request: { uint8 op, uint32 charId, ... }
 //                              op = 1 (CharLogin), 2 (CharLogout)
 //   NC_INTER_CHAR_DB_RESPONSE -- reply: { uint8 op, uint8 ok, repeated row text columns NUL-terminated }
-//
-// EVIDENCE: PDB_CONFIRMED  symbol: WMCharDBSession, GameDBSession
 #include "../../Shared/WinService.h"
 #include "../../Shared/ServerInfo.h"
 #include "../../Shared/ShineLogSystem.h"
@@ -49,7 +46,21 @@ enum CharDBOp {
     CHARDB_OP_EST_CREATE         = 30,
     CHARDB_OP_EST_DEMOLISH       = 31,
     CHARDB_OP_EST_SAVE           = 32,
-    CHARDB_OP_EST_LOAD           = 33
+    CHARDB_OP_EST_LOAD           = 33,
+    // Item (SQLP_Item)
+    CHARDB_OP_ITEM_CREATE        = 40,   // (cOwner, itemId, count, slot, endure, inxName)
+    CHARDB_OP_ITEM_DELETE        = 41,   // (itemKey)
+    CHARDB_OP_ITEM_SETOPT        = 42,   // (itemKey, optType, optData)
+    // Quest (SQLP_Quest)
+    CHARDB_OP_QUEST_SET          = 50,   // (cid, questNo, status, subStatus)
+    CHARDB_OP_QUEST_GETDOING     = 51,   // (cid)  -- replies with row vector
+    // Skill (SQLP_Skill)
+    CHARDB_OP_SKILL_SETPOWER     = 60,   // (cid, skillNo, slot, value, isActive)
+    CHARDB_OP_SKILL_SETPOWERALL  = 61,   // (cid)
+    // Friend (SQLP_Friend)
+    CHARDB_OP_FRIEND_DELALL      = 70,   // (cid)
+    // Guild (SQLP_Guild)
+    CHARDB_OP_GUILD_TOURNSET     = 80    // (gtNo, guildNo, status)
 };
 
 static void HandleCharLogin(IOCPSession* pkSrc, const GPacket& rPkt) {
@@ -135,6 +146,78 @@ static void HandleSocialOp(IOCPSession* pkSrc, const GPacket& rPkt, uint8 op) {
         SendPacket(pkSrc, NC_INTER_CHAR_DB_RESPONSE, ack.Data(), ack.Size());
         return;     // already replied
     }
+    case CHARDB_OP_ITEM_CREATE: {
+        // a = owner CharID. Body: itemId / count / slot / storage / endure / inx
+        // The Item_Create proc returns the new ItemKey via the &out parameter;
+        // we relay it back so the Zone-side Inventory can store it for the
+        // matching Item_Delete / Item_SetOption calls.
+        uint32 itemId = 0; uint16 count = 0; uint16 slot = 0; uint16 endure = 0;
+        uint8  storage = 0; std::string inx;
+        body.ReadU32(itemId); body.ReadU16(count); body.ReadU16(slot);
+        body.ReadU8 (storage); body.ReadU16(endure); body.ReadString(inx);
+        uint64 keyOut = 0;
+        bOK = g_pkSQLPItem &&
+              g_pkSQLPItem->Create((CharID)a, itemId, count, storage, slot, keyOut);
+        PacketBuffer ack;
+        ack.WriteU8 (op); ack.WriteU8(bOK ? 1 : 0);
+        ack.WriteU32((uint32)(keyOut & 0xFFFFFFFFu));
+        ack.WriteU32((uint32)(keyOut >> 32));
+        SendPacket(pkSrc, NC_INTER_CHAR_DB_RESPONSE, ack.Data(), ack.Size());
+        return;
+    }
+    case CHARDB_OP_ITEM_DELETE: {
+        uint32 hi = 0; body.ReadU32(hi);
+        uint64 itemKey = ((uint64)hi << 32) | (uint64)a;
+        bOK = g_pkSQLPItem && g_pkSQLPItem->Delete(itemKey);
+        break;
+    }
+    case CHARDB_OP_ITEM_SETOPT: {
+        uint32 hi = 0; uint8 type = 0; int32 data = 0;
+        body.ReadU32(hi); body.ReadU8(type); body.ReadI32(data);
+        uint64 itemKey = ((uint64)hi << 32) | (uint64)a;
+        bOK = g_pkSQLPItem && g_pkSQLPItem->SetOption(itemKey, type, data);
+        break;
+    }
+    case CHARDB_OP_QUEST_SET: {
+        uint32 questNo = 0; int32 status = 0, sub = 0;
+        body.ReadU32(questNo); body.ReadI32(status); body.ReadI32(sub);
+        bOK = g_pkSQLPQuest && g_pkSQLPQuest->Set((CharID)a, questNo, status, sub);
+        break;
+    }
+    case CHARDB_OP_QUEST_GETDOING: {
+        std::vector<DBRecord> rows;
+        bOK = g_pkSQLPQuest && g_pkSQLPQuest->GetAllDoing((CharID)a, rows);
+        PacketBuffer ack; ack.WriteU8(op); ack.WriteU8(bOK ? 1 : 0);
+        ack.WriteU16((uint16)rows.size());
+        for (size_t i = 0; i < rows.size(); ++i) {
+            ack.WriteU16((uint16)rows[i].kCols.size());
+            for (size_t j = 0; j < rows[i].kCols.size(); ++j)
+                ack.WriteString(rows[i].kCols[j]);
+        }
+        SendPacket(pkSrc, NC_INTER_CHAR_DB_RESPONSE, ack.Data(), ack.Size());
+        return;
+    }
+    case CHARDB_OP_SKILL_SETPOWER: {
+        // p_Skill_SetPower(cid, skillNo, slot, value, damage, cool, keep, sp)
+        uint32 sk = 0; int32 slot = 0, val = 0, dmg = 0, cool = 0, keep = 0, sp = 0;
+        body.ReadU32(sk); body.ReadI32(slot); body.ReadI32(val);
+        body.ReadI32(dmg); body.ReadI32(cool); body.ReadI32(keep); body.ReadI32(sp);
+        bOK = g_pkSQLPSkill && g_pkSQLPSkill->SetPower((CharID)a, sk, slot, val,
+                                                       dmg, cool, keep, sp);
+        break;
+    }
+    case CHARDB_OP_SKILL_SETPOWERALL:
+        bOK = g_pkSQLPSkill && g_pkSQLPSkill->SetPowerAll((CharID)a);
+        break;
+    case CHARDB_OP_FRIEND_DELALL:
+        bOK = g_pkSQLPFr && g_pkSQLPFr->DelAll((CharID)a);
+        break;
+    case CHARDB_OP_GUILD_TOURNSET: {
+        uint32 guildNo = 0; int32 status = 0;
+        body.ReadU32(guildNo); body.ReadI32(status);
+        bOK = g_pkSQLPGuild && g_pkSQLPGuild->TournamentSet(a, guildNo, status);
+        break;
+    }
     default: SHINELOG_WARN("CharDB: unknown social op=%u", (uint32)op); return;
     }
     SHINELOG_DEBUG("CharDB op=%u cid=%u -> %s", (uint32)op, a, bOK ? "OK" : "FAIL");
@@ -152,7 +235,7 @@ public:
                 uint8 op = body.Data()[0];
                 if      (op == CHARDB_OP_LOGIN)  HandleCharLogin (this, rPkt);
                 else if (op == CHARDB_OP_LOGOUT) HandleCharLogout(this, rPkt);
-                else if (op >= 10 && op <= 33)   HandleSocialOp  (this, rPkt, op);
+                else if (op >= 10 && op <= 80)   HandleSocialOp  (this, rPkt, op);
                 else SHINELOG_WARN("CharDB: unknown op=%u", (uint32)op);
                 break;
             }

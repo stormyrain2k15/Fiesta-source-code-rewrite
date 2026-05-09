@@ -1,4 +1,4 @@
-// Server/DataReader/Schemas.cpp  -- GENERATED row decoders
+// Server/DataReader/Schemas.cpp
 #include "Schemas.h"
 #include "../Shared/ShineLogSystem.h"
 #include <stdlib.h>
@@ -710,7 +710,6 @@ bool GradeItemOptionTab::Load(DataReader& reader) {
 
 // =============================================================================
 // MobInfoServer.shn  -- per-mob server-only metadata (drop table id, AI bindings).
-// EVIDENCE: PDB_CONFIRMED  symbol: cMobInfoServer.
 // =============================================================================
 MobInfoServerTab g_MobInfoServerTab;
 bool MobInfoServerTab::Load(DataReader& reader) {
@@ -719,7 +718,6 @@ bool MobInfoServerTab::Load(DataReader& reader) {
     for (size_t i = 1; i < kRows.size(); ++i) {
         const std::vector<std::string>& r = kRows[i];
         MobInfoServerRow rec; memset(&rec, 0, sizeof(rec));
-        // EVIDENCE: DATA_CONFIRMED  source: MobInfoServer.shn header (49 cols).
         rec.InxNo            = (uint16)ColU32(r, 0);   // ID
         // The drop-table / resist / behavior / roam / attack / action indices
         // are looked up out-of-band by string key in pass 2 -- the SHN row
@@ -737,7 +735,6 @@ bool MobInfoServerTab::Load(DataReader& reader) {
 
 // =============================================================================
 // ItemDropTable.shn -- DropTableID -> {ItemGroupIdx, Permill, MinQty, MaxQty}
-// EVIDENCE: PDB_CONFIRMED  symbol: cItemDropTable.
 // =============================================================================
 ItemDropTableTab g_ItemDropTableTab;
 bool ItemDropTableTab::Load(DataReader& reader) {

@@ -1,15 +1,12 @@
 // Server/Zone/DropResolver.h
-// 15 -- sidecar that turns a "this mob just died" event into a list of
+// sidecar that turns a "this mob just died" event into a list of
 // concrete `ShineItem` instances spawned on the floor.
-//
 // Inputs (already loaded by other systems):
 //   * MobInfoServer.shn          -> drop table id by mob species
 //   * World/ItemDropTable.txt    -> per-table list of (group, permill, qty)
 //   * World/ItemDropGroup.txt    -> group -> item id + per-+N upgrade chance
 //   * World/RandomOptionTable.txt-> per-item random-option ranges
 //   * ItemInfo.shn               -> item type / max-stack / default upgrade
-//
-// EVIDENCE: PDB_CONFIRMED   symbols: cDropTable, cItemDropGroup,
 //                                    cRandomOption, ItemDropResolver.
 #ifndef FIESTA_ZONE_DROPRESOLVER_H
 #define FIESTA_ZONE_DROPRESOLVER_H

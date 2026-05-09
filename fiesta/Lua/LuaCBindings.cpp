@@ -1,6 +1,5 @@
 // Lua/LuaCBindings.cpp
-// 21 -- C bindings for the original Zone Lua API.
-// EVIDENCE: PDB_CONFIRMED  symbol: cDamaged, cStaticDamage, cSetAbstate, cLinkTo, cFinishKey
+// C bindings for the original Zone Lua API.
 #include "LuaRuntime.h"
 #include "../Server/Zone/ZoneServer.h"
 #include "../Server/Zone/Battle.h"

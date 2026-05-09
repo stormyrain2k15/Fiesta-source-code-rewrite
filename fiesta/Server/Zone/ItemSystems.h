@@ -1,6 +1,5 @@
 // Server/Zone/ItemSystems.h
-// 16 + 17 + 18 -- upgrade / use / drop / mall / charged effects.
-// EVIDENCE: PDB_CONFIRMED  symbol: ShineItemUpgrade, AccUpGradeDataBox, ItemRandomOption,
+// upgrade / use / drop / mall / charged effects.
 //                                  SetItemData, WeaponTitle, ShineItemUse, ChargedItem,
 //                                  ChargedItemEffectDataBox, ChargedItemEffectList, ItemMall,
 //                                  ItemDropFromMob, ItemDropTable, DropItemAnalyzer,
@@ -12,7 +11,6 @@
 
 namespace fiesta {
 
-// 16 Upgrade / Random options / Set
 class ShineItemUpgrade {
 public:
     // Returns true on success; on failure, lvl is unchanged. Local provisional rates inline.
@@ -24,7 +22,6 @@ class ItemRandomOption  { public: static void Roll(ShineItem& rItem); };
 class SetItemData       { public: static int32 SetEffectStat(uint32 uiSetId, uint16 uiPiecesEquipped); };
 class WeaponTitle       { public: static uint32 ResolveTitle(uint32 uiKills); };
 
-// 17 Use / charged / mall
 class ShineItemUse {
 public:
     static bool TryUse(ShinePlayer* pk, ShineItem& rItem);
@@ -34,7 +31,6 @@ struct ChargedEffectRow;  // declared in Schemas.h
 class ChargedItemEffectDataBox { public: static const ChargedEffectRow* Find(uint32 uiInxName); };
 class ItemMall          { public: static bool BuyById(ShinePlayer* pk, uint32 uiMallId, uint16 uiQty); };
 
-// 18 Drop / loot / belong
 struct DropEntry { uint32 uiInxName; uint32 uiWeight; uint16 uiQty; };
 class ItemDropTable { public: static void Get(MobID s, std::vector<DropEntry>& rOut); };
 class ItemDropFromMob {

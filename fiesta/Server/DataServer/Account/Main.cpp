@@ -1,7 +1,5 @@
 // Server/DataServer/Account/Main.cpp
-// 03 -- Account DB service exe entry.
-// EVIDENCE: PDB_CONFIRMED  symbol: DataServer, GameDBSession (Account flavor)
-//
+// Account DB service exe entry.
 // Hosts:
 //   - SQLP_Account     (tUser / tUserAuth / tUserBlock / charge tables)
 //   - SQLP_AccountLog  (cross-DB facade kept on the same exe for legacy
@@ -13,8 +11,10 @@
 #include "../../Shared/ShineLogSystem.h"
 #include "../../Shared/IOCPManager.h"
 #include "../../Shared/Socket_Acceptor.h"
+#include "../../Shared/PacketBuffer.h"
 #include "../../Shared/GPacket.h"
 #include "../../Common/NETCOMMAND.h"
+#include "../../Common/SendPacket.h"
 #include "../Common/Database.h"
 #include "../Common/SQLP.h"
 
@@ -25,16 +25,50 @@ static Database*        g_pkAccountDB = NULL;
 static SQLP_Account*    g_pkSQLPAcc   = NULL;
 static SQLP_IPChecker*  g_pkSQLPIPCk  = NULL;
 
+// Inbound op codes routed from operator tools / remote managers.
+//   1 = VerifyLogin   { string user, string pass }    -> { ok, accountId }
+//   2 = IsIPBlocked   { string ip }                    -> { ok, blocked }
+//   3 = SetBlocked    { uint32 acct, uint8 blocked }   -> { ok }
+enum AcctDBOp { ADB_OP_VERIFY = 1, ADB_OP_IS_IP_BLOCKED = 2, ADB_OP_SET_BLOCKED = 3 };
+
 class AccountDBSession : public IOCPSession {
 public:
-    virtual void OnConnect()    { SHINELOG_INFO("AccountDB: peer connected"); }
-    virtual void OnDisconnect() { SHINELOG_INFO("AccountDB: peer disconnected"); }
     virtual void OnPacket(const GPacket& rPkt) {
-        SHINELOG_DEBUG("AccountDB recv NC=0x%04X size=%u",
-            rPkt.GetOpcode(), (uint32)rPkt.Body().Size());
-        // Login-side routing is performed by the upstream Login service; this
-        // exe is a passive ODBC facade.  Call sites that need credential
-        // verification reach in via g_pkSQLPAcc->VerifyLogin / IsBlocked.
+        if (rPkt.GetOpcode() != NC_INTER_ACCTLOG_QUERY) return;
+        PacketBuffer body = rPkt.Body();
+        uint8 op = 0; body.ReadU8(op);
+        switch (op) {
+            case ADB_OP_VERIFY: {
+                std::string u, p; body.ReadString(u); body.ReadString(p);
+                AccountID a = 0; int authId = 0; bool blocked = false;
+                bool ok = g_pkSQLPAcc &&
+                          g_pkSQLPAcc->VerifyLogin(u, p, a, authId, blocked);
+                PacketBuffer ack; ack.WriteU8(op);
+                ack.WriteU8(ok && !blocked ? 1 : 0);
+                ack.WriteU32(a);
+                ack.WriteI32(authId);
+                SendPacket(this, NC_INTER_ACCTLOG_RESPONSE, ack.Data(), ack.Size());
+                break;
+            }
+            case ADB_OP_IS_IP_BLOCKED: {
+                std::string ip; body.ReadString(ip);
+                uint8 blocked = (g_pkSQLPIPCk && g_pkSQLPIPCk->IsBlocked(ip)) ? 1 : 0;
+                PacketBuffer ack; ack.WriteU8(op); ack.WriteU8(1); ack.WriteU8(blocked);
+                SendPacket(this, NC_INTER_ACCTLOG_RESPONSE, ack.Data(), ack.Size());
+                break;
+            }
+            case ADB_OP_SET_BLOCKED: {
+                uint32 acct = 0; uint8 blocked = 0;
+                body.ReadU32(acct); body.ReadU8(blocked);
+                bool ok = g_pkSQLPAcc && g_pkSQLPAcc->SetBlocked(acct, blocked != 0);
+                PacketBuffer ack; ack.WriteU8(op); ack.WriteU8(ok ? 1 : 0);
+                SendPacket(this, NC_INTER_ACCTLOG_RESPONSE, ack.Data(), ack.Size());
+                break;
+            }
+            default:
+                SHINELOG_WARN("AccountDB: unknown op=%u", (uint32)op);
+                break;
+        }
     }
 };
 

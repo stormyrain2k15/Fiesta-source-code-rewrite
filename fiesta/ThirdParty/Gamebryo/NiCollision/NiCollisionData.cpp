@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -296,16 +293,13 @@ void NiCollisionData::SetModelSpaceABV(NiBoundingVolume* pkBV)
 // This "internal" member function exists primarily to simplify maintenance of
 // propagation flags, in that it mirrors the functionality of the
 // FindCollisionProcessing() member function which follows it.
-//
 // Here's the behavior for the propagation flags:
-//
 //  -  PROPAGATE_NEVER represets the case that a "real" collision is found.
 //     No more collision detection work needs to be done for TestCollisions,
 //     since it would not change the result, so we want to
 //     TERMINATE_COLLISIONS to save unnecessary work for TestCollision.
 //     (In the case of FindCollisions, the callback can choose whether to
 //     CONTINUE_COLLISIONS (likely) or TERMINATE_COLLISIONS.)
-//
 //  -  PROPAGATE_ALWAYS represents another case that a "real" collision is
 //     found.  Typically, this flag is used on the limbs of a character, where
 //     we are actually interested in the collision result at a node as well as
@@ -315,15 +309,12 @@ void NiCollisionData::SetModelSpaceABV(NiBoundingVolume* pkBV)
 //     collision is found.  So, we TERMINATE_COLLISIONS.
 //     (In the case of FindCollisions, the callback can choose whether to
 //     CONTINUE_COLLISIONS (likely) or TERMINATE_COLLISIONS.)
-//
 //  -  PROPAGATE_ON_SUCCESS functions as a collision culling mechanism:  When
 //     a collision is found, by default, this propagation flag tells the
 //     collision system to "pass on" responsibility for testing collisions
 //     further down the hierarchy.  In this case, we must CONTINUE_COLLISIONS
 //     until a "real", non-culling collision is found.
-//
 //  -  (PROPAGATE_ON_FAILURE is typically not used.)
-//
 // (For auxiliary callbacks (a diagnostic tool), PROPAGATE_ON_SUCCESS is
 // treated as a "real collision", so we TERMINATE_COLLISIONS in that case.)
 
@@ -351,15 +342,12 @@ int NiCollisionData::TestCollisionProcessing(PropagationMode ePropagationMode1,
 //----------------------------------------------------------------------------
 // This "internal" member function manages propagation flags and conditionally
 // calls a FindCollision callback, to handle actual collision processing.
-//
 // Here's the behavior for the propagation flags:
-//
 //  -  PROPAGATE_NEVER represets the case that a "real" collision is found.
 //     In the case of FindCollisions, the callback can choose whether or not
 //     to TERMINATE_COLLISIONS.  However, the user will usually want to
 //     CONTINUE_COLLISIONS, in order to return a detected collision if one
 //     exists.
-//
 //  -  PROPAGATE_ALWAYS represents another case that a "real" collision is
 //     found.  Typically, this flag is used on the limbs of a character, where
 //     we are actually interested in the collision result at a node as well as
@@ -369,16 +357,13 @@ int NiCollisionData::TestCollisionProcessing(PropagationMode ePropagationMode1,
 //     to TERMINATE_COLLISIONS.  However, the user will usually want to
 //     CONTINUE_COLLISIONS, in order to return a detected collision if one
 //     exists.
-//
 //  -  PROPAGATE_ON_SUCCESS functions as a collision culling mechanism:  When
 //     a collision is found, by default, this propagation flag tells the
 //     collision system to "pass on" responsibility for testing collisions
 //     further down the hierarchy.  In this case, we must CONTINUE_COLLISIONS
 //     until a "real", non-culling collision is found, and the FindCollision
 //     callback is not called.
-//
 //  -  (PROPAGATE_ON_FAILURE is typically not used.)
-//
 // (For auxiliary callbacks (a diagnostic tool), PROPAGATE_ON_SUCCESS is
 // treated as a "real collision".)
 

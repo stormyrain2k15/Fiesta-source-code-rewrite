@@ -1,6 +1,5 @@
 // Server/Shared/CToken.h
-// 01/04 -- Login -> WM transfer token. 16-byte secret + tagged user/account/world.
-// EVIDENCE: PDB_CONFIRMED  symbol: CToken
+// Login -> WM transfer token. 16-byte secret + tagged user/account/world.
 #ifndef FIESTA_CTOKEN_H
 #define FIESTA_CTOKEN_H
 #include "ShineTypes.h"

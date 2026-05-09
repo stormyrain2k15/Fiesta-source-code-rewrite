@@ -214,7 +214,6 @@ void ServerMenuActor::SendDialog(ShinePlayer* pk, uint32 uiNpcId, uint32 uiDialo
 // -----------------------------------------------------------------------------
 //  NC_NPC_SHOP_OPEN_CMD  -- "Trade" button. Walks the NPCItemList registered
 //  for this NPC's mob-name and projects each (uiInxName, BuyPrice) pair.
-//
 //  Wire layout:
 //    uint32 npcId
 //    uint16 itemCount
@@ -367,7 +366,6 @@ void ServerMenuActor::HandlePick(ShinePlayer* pk, uint32 uiNpcId, uint32 uiViewI
 //  SellItemManager, then synthesises a ShineItem and inserts it into the
 //  player's inventory. Pre-rolled stacks of size > MaxLot are not split
 //  here -- the client clamps qty before the request lands.
-//
 //  Reply: NC_NPC_SHOP_BUY_ACK [ uint8 result, uint32 inx, uint16 qty,
 //                               int64  newGold ]
 // -----------------------------------------------------------------------------

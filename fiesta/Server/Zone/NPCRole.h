@@ -1,10 +1,8 @@
 // Server/Zone/NPCRole.h
-// 11 -- canonical NPC role enum + classifier.
-//
+// canonical NPC role enum + classifier.
 // Source-of-truth: World/NPC.txt's `Role` (column 9) and `RoleArg0`
 // (column 10). Verified via grep over the supplied NPC.txt -- the unique
 // Role values present are:
-//
 //   ClientMenu       ; in-town main menu
 //   Merchant         ; vendor (RoleArg0 narrows to Weapon/Item/SoulStone/...)
 //   NPCMenu          ; non-merchant menu container (Guild, Tournament, etc.)
@@ -15,13 +13,9 @@
 //   ModeIDGate       ; mode-instance portal (KQ/PvP/Holy etc.)
 //   RandomGate       ; teleport to one of N exits
 //   Guard            ; auto-attack guard mob (RoleArg0 holds aggro target)
-//
 // Plus the merchant sub-types observed in RoleArg0:
-//
 //   Weapon, WeaponTitle, Item, Skill, Guild, SoulStone, PowerStone,
 //   GuardStone, Stone, Mount, Pet, Costume, Title, ItemCraft.
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied World/NPC.txt.
 #ifndef FIESTA_ZONE_NPCROLE_H
 #define FIESTA_ZONE_NPCROLE_H
 #include "../Shared/ShineTypes.h"

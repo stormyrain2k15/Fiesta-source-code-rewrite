@@ -1,6 +1,4 @@
 // Server/Zone/SkillSystem.cpp
-// Pass 1.24 -- Full ActiveSkill schema (114 cols) wired through SkillDataBox.
-//
 // Every Active-Skill column is now consumed by at least one runtime call:
 //   * SP / HP / DlyTime / CastTime / Range / Area / TargetNumber
 //   * 25-class mask (Fig..Ass)        -> ClassAllowed
@@ -15,21 +13,35 @@
 //   * SkillClassifierA-C              -> aggro / damage-type tagging
 //   * CannotInside / DemandSoul       -> cast-time gates
 //   * DemandSk                        -> prerequisite skill check
-//
 #include "SkillSystem.h"
 #include "Battle.h"
 #include "ShineObject.h"
+#include "AbState.h"
+#include "TypedSchemaConsumers.h"
+#include "CharDBClient.h"
 #include "../Shared/GTimer.h"
+#include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
 #include "../DataReader/Schemas.h"
-#include "../DataReader/Tables.h"  // back-compat aliases
+#include "../DataReader/Tables.h"
 #include <string.h>
 
 namespace fiesta {
 
 // -------- CharacterSkill --------
 bool CharacterSkill::Has(SkillID s) const { return m_kKnown.find(s) != m_kKnown.end(); }
-void CharacterSkill::Learn(SkillID s, uint16 lvl) { m_kKnown[s] = lvl; }
+// CharacterSkill::Learn now flows through CharDBClient so the character's
+// row in tSkill is kept in sync. The row carries (skillNo, slot, level)
+// where the slot is the player-visible hotbar position; for now we use 0
+// (auto-assigned by the SQL proc when slot < 0).
+void CharacterSkill::Learn(SkillID s, uint16 lvl) {
+    m_kKnown[s] = lvl;
+    if (m_uiOwner != 0) {
+        CharDBClient::Get().SkillSetPower(m_uiOwner, (uint32)s, 0,
+                                          (int32)lvl, lvl > 0);
+    }
+}
+void CharacterSkill::SetOwner(CharID c) { m_uiOwner = c; }
 uint16 CharacterSkill::GetLevel(SkillID s) const {
     std::map<SkillID, uint16>::const_iterator it = m_kKnown.find(s);
     return (it == m_kKnown.end()) ? 0 : it->second;
@@ -177,7 +189,6 @@ int32 SkillDataBox::GetDamageMatrix(SkillID s, int row, int col) const {
 }
 
 // -------- Skill::TryUse --------
-//
 // Cast-time pipeline: prereq -> class -> level -> resource -> indoors gate
 // -> SoulStone gate -> per-target IMPT filter -> N-hit damage rolls -> on-hit
 // status applies (StaApply) -> cooldown stamp.
@@ -211,7 +222,7 @@ bool Skill::TryUse(ShinePlayer* pk, SkillID s, ShineObject* pkTarget) {
     uint64 now = GTimer::NowMillis();
     if (!s_kDummy.IsReady(s, now)) return false;
 
-    // 5) Multi-hit rolls + per-row T-matrix scalar.
+    // Multi-hit rolls + per-row T-matrix scalar.
     int32 hits = MultiHitTable::Resolve(s);
     if (hits < 1) hits = 1;
     for (int i = 0; i < hits; ++i) {
@@ -219,15 +230,27 @@ bool Skill::TryUse(ShinePlayer* pk, SkillID s, ShineObject* pkTarget) {
         Battle::Apply(pk, pkTarget, d);
     }
 
-    // 6) Status-effect apply (StaName A..D / Strength / SucRate). Per-hit
-    //    sucrate roll is honoured by AbStateSystem when the slot fires.
+    // Status-effect apply. Each StaA-D slot resolves through SubAbStateRegistry
+    // (inx-name -> numeric id, KeepTime, Strength). The SucRate column is a
+    // permille gate; failed rolls leave the slot inert. The final ms duration
+    // honours the per-row KeepTime so debuffs expire on the same cadence the
+    // designer authored.
     SkillDataBox::StaApply aSta[4];
     kBox.GetStaApplies(s, aSta);
-    for (int i = 0; i < 4; ++i) {
-        if (aSta[i].pkInxName && aSta[i].pkInxName[0]) {
-            SHINELOG_DEBUG("Skill %u: StaApply '%s' str=%u rate=%u",
-                           (uint32)s, aSta[i].pkInxName,
-                           aSta[i].uiStrength, aSta[i].uiSucRatePermille);
+    if (pkTarget && pkTarget->GetType() == OT_PLAYER) {
+        ShinePlayer* pkP = (ShinePlayer*)pkTarget;
+        for (int i = 0; i < 4; ++i) {
+            if (!aSta[i].pkInxName || !aSta[i].pkInxName[0]) continue;
+            if (aSta[i].uiSucRatePermille > 0 && aSta[i].uiSucRatePermille < 1000) {
+                static well512 s_kRng;
+                if (s_kRng.NextRange(1000) >= aSta[i].uiSucRatePermille) continue;
+            }
+            const SubAbStateRegistry::Row* pkSub =
+                SubAbStateRegistry::Get().FindByInx(aSta[i].pkInxName);
+            if (!pkSub) continue;
+            int32 dur = (int32)(pkSub->uiKeepTimeMs ? pkSub->uiKeepTimeMs : 5000);
+            uint16 stack = (uint16)(aSta[i].uiStrength ? aSta[i].uiStrength : 1);
+            pkP->AbState().Apply(pkSub->uiID, dur, stack);
         }
     }
 

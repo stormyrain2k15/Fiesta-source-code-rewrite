@@ -1,6 +1,5 @@
 // Server/Shared/well512.cpp
-// 01 Foundation -- WELL512 PRNG impl.
-// EVIDENCE: PDB_CONFIRMED
+// WELL512 PRNG impl.
 #include "well512.h"
 #include <time.h>
 

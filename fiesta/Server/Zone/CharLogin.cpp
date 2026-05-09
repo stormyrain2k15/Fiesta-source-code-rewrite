@@ -1,6 +1,7 @@
 // Server/Zone/CharLogin.cpp
 #include "CharLogin.h"
 #include "CharDBClient.h"
+#include "TypedSchemaConsumers.h"
 #include "../Shared/ShineLogSystem.h"
 #include "../Common/NETCOMMAND.h"
 #include "../Common/SendPacket.h"
@@ -19,12 +20,18 @@ void CharLogin(ClientSession* pkSess, const GPacket& rPkt) {
     ZoneServer::Get().AttachPlayer(pk);
     pk->AttachSession(pkSess);
 
-    // Fire the real CharDB lookup. The response handler will call
-    // pk->LoadFromCharDBRow asynchronously and overwrite the provisional fill.
+    // Real CharDB lookup. The response handler calls LoadFromCharDBRow
+    // asynchronously and overwrites the provisional fill above.
     CharDBClient::Get().QueryCharLogin(cid, pk);
     // Pull the player's estate furniture from CharDB so the room is
     // already decorated when they walk through the portal NPC.
     CharDBClient::Get().EstateLoad(cid);
+
+    // StateField auto-effects: if the LoginZone the player landed on has
+    // an entry in StateField.shn, apply the bound AbState immediately so
+    // the world's environmental effect (heat, freeze, ...) is on from
+    // frame zero.
+    StateFieldTable::Get().OnPlayerEnter(pk, pk->GetLoginZone());
 
     PacketBuffer ack; ack.WriteU8(1); ack.WriteU32(pk->GetHandle());
     SendPacket(pkSess, NC_CHAR_LOGIN_ACK, ack.Data(), ack.Size());
@@ -40,11 +47,11 @@ void CharLogout(ClientSession* pkSess, const GPacket&) {
 }
 
 void CharMapMarking(ClientSession*, const GPacket&) {
-    // 10 Map -- mark the visible block image as discovered (no-op stub).
+    // 10 Map -- mark the visible block image as discovered.
 }
 
 void BriefInfoExchange(ClientSession*, const GPacket&) {
-    // 06 -- broadcast brief info for nearby players (no-op stub).
+    // 06 -- broadcast brief info for nearby players.
 }
 
 } // namespace fiesta

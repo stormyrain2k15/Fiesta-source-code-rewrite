@@ -2,10 +2,15 @@
 #include "QuestRuntime.h"
 #include "ShineObject.h"
 #include "Inventory.h"
+#include "CharDBClient.h"
 #include "../Shared/ShineLogSystem.h"
 #include <windows.h>
 
 namespace fiesta {
+
+// Quest status enum mirrors the World00_Character.tQuest schema:
+//   0 = INACTIVE  1 = ACTIVE  2 = COMPLETED  3 = ABANDONED
+enum { QSTATE_INACTIVE = 0, QSTATE_ACTIVE = 1, QSTATE_COMPLETED = 2, QSTATE_ABANDONED = 3 };
 
 static uint64 NowMs() { return (uint64)GetTickCount64(); }
 
@@ -23,8 +28,10 @@ eQuestResult QuestRuntime::StartQuest(ShinePlayer* pkP, PlayerLog& rL,
         return QR_WRONG_NPC;
     QuestProgress p; p.uiHandle = uiHandle; p.uiStartedAtMs = NowMs();
     rL.kActive[uiHandle] = p;
-    SHINELOG_INFO("Quest %u started for player level=%u via NPC '%s'",
-                  uiHandle, (uint32)pkP->GetLevel(), rNpc.c_str());
+    // Persist the new ACTIVE row.
+    CharDBClient::Get().QuestSet(pkP->GetCharID(), uiHandle, QSTATE_ACTIVE, 0);
+    SHINELOG_INFO("Quest %u started cid=%u via NPC '%s'",
+                  uiHandle, pkP->GetCharID(), rNpc.c_str());
     return QR_OK;
 }
 
@@ -41,6 +48,7 @@ eQuestResult QuestRuntime::CompleteQuest(ShinePlayer* pkP, PlayerLog& rL, Invent
         uint64 limit = (uint64)h->uiTimeLimitMin * 60000ULL;
         if (NowMs() - it->second.uiStartedAtMs > limit) {
             rL.kActive.erase(it);
+            CharDBClient::Get().QuestSet(pkP->GetCharID(), uiHandle, QSTATE_ABANDONED, 0);
             return QR_TIMED_OUT;
         }
     }
@@ -57,6 +65,7 @@ eQuestResult QuestRuntime::CompleteQuest(ShinePlayer* pkP, PlayerLog& rL, Invent
                       r.kType.c_str(), r.uiQuantity, r.kItemName.c_str(), (uint32)r.uiItemUpgrade);
     }
     rL.kActive.erase(it);
+    CharDBClient::Get().QuestSet(pkP->GetCharID(), uiHandle, QSTATE_COMPLETED, 0);
     return QR_OK;
 }
 

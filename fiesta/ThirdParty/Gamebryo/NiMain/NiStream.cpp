@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -27,7 +24,6 @@
 
 //---------------------------------------------------------------------------
 // Version Information
-//
 // Header for NIF.  First string in header has version number at the end of
 // string.  The version number has format "d.d.d.d" where each '.' separated
 // element is a number between 0 and 255.  The elements indicate: 

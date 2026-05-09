@@ -1,35 +1,26 @@
 // Server/Zone/EstateSystem.h
-// 39 -- Estate / MiniHouse / personal vendor (Booth).
-//
-// EVIDENCE: PDB_CONFIRMED  symbol: MiniHouse, MiniHouseFurniture,
+// Estate / MiniHouse / personal vendor (Booth).
 //                                  MiniHouseEndure, MiniHouseObjAni
-// EVIDENCE: DATA_CONFIRMED  source: MiniHouse.shn, MiniHouseFurniture.shn,
 //                                  MiniHouseDummy.shn, MiniHouseEndure.shn,
 //                                  MiniHouseFurnitureObjEffect.shn,
 //                                  MiniHouseObjAni.shn
-// EVIDENCE: PROJECT_REQUIREMENT source: "estates are part of the
 //                                  mini house/vendor system. U could set
 //                                  up ur own shop and sell stuff. Or go
 //                                  into ur estate and decorate ur house
 //                                  with furniture..." (2026-02 user note).
-//
 // What lives here:
-//
 //   1. *Estate* -- a per-character instanced room. The character spawns
 //      one when they place the housing-deed item; the engine allocates
 //      a room handle (auto-incrementing) and the player can re-enter via
 //      a portal NPC. Furniture placed in the room is persisted to
 //      `tEstateFurniture` (CharDB).
-//
 //   2. *Furniture* -- ShineItem rows tagged with FurnID. When placed they
 //      apply a `MiniHouseFurnitureObjEffect` aura and can broadcast a
 //      bound `MiniHouseObjAni` animation slot.
-//
 //   3. *Durability* -- `MiniHouseEndure` table. Each estate has an Endure
 //      value that decays hourly while the house is "live" and is restored
 //      when the player pays a maintenance fee (via the same NPC that
 //      spawned the deed).
-//
 //   4. *Vendor (Booth)* -- The estate doubles as a vendor stall. When the
 //      owner toggles vendor mode, items priced via `StreetBoothSell` are
 //      visible to other players who can browse the estate; this funnels

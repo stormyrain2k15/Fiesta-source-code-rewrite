@@ -1,23 +1,17 @@
 // Server/Shared/ConfigParser.h
-// 00 -- typed-record config parser for the original ServerInfo.txt /
+// typed-record config parser for the original ServerInfo.txt /
 // LoginServerInfo.txt / ZoneServerInfo.txt format. Real syntax (from the
 // project owner's supplied templates):
-//
 //   #DEFINE NAME
 //     <STRING>
 //     <INTEGER>
 //     ...
 //   #ENDDEFINE
-//
 //   NAME "string", 1, 2, "another"          ; trailing comment
-//
 //   #include "../9Data/ServerInfo/ServerInfo.txt"
 //   #END
-//
 // Lines starting with ';' are comments. Trailing ';' comments on data lines
 // are honored. Records may repeat (multiple SERVER_INFO / ODBC_INFO rows).
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied ServerInfo.txt /
 // LoginServerInfo.txt templates (May 2026).
 #ifndef FIESTA_SHARED_CONFIGPARSER_H
 #define FIESTA_SHARED_CONFIGPARSER_H

@@ -1,5 +1,4 @@
 // Server/Zone/GroupTables.cpp
-//
 // Each Bind() walks the corresponding ShnFile's rows once and builds a
 // typed vector + index map. Column reads are by NAME (`ShnGetU32(t, i,
 // "ColName")`) so a future drop that renames or reorders columns lights up

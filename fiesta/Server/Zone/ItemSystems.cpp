@@ -1,20 +1,20 @@
-// Server/Zone/ItemSystems.cpp
 #include "ItemSystems.h"
 #include "DropResolver.h"
 #include "Inventory.h"
 #include "GroupTables.h"
 #include "ShineObject.h"
+#include "TypedSchemaConsumers.h"
+#include "GameLogClient.h"
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
 #include "../DataReader/Schemas.h"
-#include "../DataReader/Tables.h"  // back-compat aliases
+#include "../DataReader/Tables.h"
 #include <math.h>
 
 namespace fiesta {
 
 static well512 s_kRng;
 
-// 16
 bool ShineItemUpgrade::TryUpgrade(ShineItem& r) {
     int32 pct = AccUpGradeDataBox::SuccessRatePct(r.uiEnchant);
     if ((int32)(s_kRng.NextRange(100)) < pct) { r.uiEnchant += 1; return true; }
@@ -33,37 +33,36 @@ uint32 WeaponTitle::ResolveTitle(uint32 kills) {
     if (kills >    10)  return 1; return 0;
 }
 
-// 17
-//
 // ShineItemUse fires the per-item ItemUseSkill (a server-resolved skill
-// trigger, e.g. "POT_HEAL_LOW" -> SkillSystem) and honours `bAutoMon`
-// (mover/mount auto-summon on use). The qty decrement is final unless
-// the item is an equippable / non-consumable, in which case we leave the
-// stack untouched.
+// trigger; e.g. "POT_HEAL_LOW" -> SkillSystem) and routes the item's
+// ItemFunc into the ItemAction (Condition + Effect) pipeline. Consumable
+// stacks decrement; equippables are passive.
 bool ShineItemUse::TryUse(ShinePlayer* pk, ShineItem& r) {
     if (!pk) return false;
     if (!ItemAuthority::CanUse(pk, r)) return false;
     const ItemInfoRow* p = ItemTables::Get().FindItem((uint32)r.uiInxName);
+
+    // ItemAction chain: ItemFunc points at an ItemAction row whose
+    // Condition + Effect halves drive the actual stat mutation (heal /
+    // sp restore / fame / money). Range=0 since the player is the
+    // implicit subject and target.
+    if (p && p->uiItemFunc) {
+        const ItemActionRow* pkA = ItemTables::Get().FindAction(p->uiItemFunc);
+        if (pkA) {
+            if (ItemActionResolver::ConditionFires((uint16)pkA->uiCondition, pk, pk, 0)) {
+                ItemActionResolver::EffectApply((uint16)pkA->uiEffect, pk, pk);
+            }
+        }
+    }
     if (p && !p->kItemUseSkill.empty()) {
-        // Trigger the bound skill. The actual cast resolution lives in
-        // SkillSystem; we forward by skill-inx-name. The skill's own
-        // cooldown is the authoritative gate.
-        SHINELOG_DEBUG("ShineItemUse: trigger skill '%s' from item %u",
-                       p->kItemUseSkill.c_str(), (uint32)r.uiInxName);
+        // Bound skill trigger forwarded by inx-name; SkillSystem owns the
+        // per-skill cooldown. Gold/fame mutations are owned by the
+        // ItemAction chain above.
     }
-    if (p && p->bAutoMon) {
-        // Auto-summon mover (mount/pet egg). The actual spawn happens in
-        // CraftAndPet's mount manager; here we mark the player's
-        // "intended mover" so the next tick can pick it up.
-        SHINELOG_DEBUG("ShineItemUse: AutoMon trigger from item %u",
-                       (uint32)r.uiInxName);
-    }
-    // Consumables decrement; equippables are passive Use=info-popup.
     if (!p || p->uiEquip == 0) {
         if (r.uiQty > 1) r.uiQty -= 1;
-        else r.uiQty = 0;             // stack is fully consumed
+        else r.uiQty = 0;
     }
-    SHINELOG_DEBUG("ShineItemUse cid=%u inx=%u", pk->GetCharID(), r.uiInxName);
     return true;
 }
 void ChargedItem::Tick(ShinePlayer*) {}
@@ -73,7 +72,6 @@ const ChargedEffectRow* ChargedItemEffectDataBox::Find(uint32 inx) {
 }
 bool ItemMall::BuyById(ShinePlayer* pk, uint32, uint16 qty) { return pk && qty > 0; }
 
-// 18
 void ItemDropTable::Get(MobID s, std::vector<DropEntry>& rOut) {
     // Bridge to the data-driven DropResolver. This converts each rolled
     // ShineItem back into a flat (uiInxName, uiWeight=1k, uiQty) entry so
@@ -112,11 +110,16 @@ void ItemDropFromMob::Trigger(ShineMob* pkMob, ShinePlayer* pkKiller) {
         const uint32 vanish = ItemTables::Get().VanishSecs(kItems[i].uiInxName);
         if (pkKiller && (mode == 0 /*FREE*/ || mode == 1 /*MASTER w/ no party*/)) {
             RewardInven::Push(pkKiller, (ItemID)kItems[i].uiInxName, kItems[i].uiQty);
+            // Log the acquisition so World00_GameLog.tDrop tracks every
+            // item that crossed from a mob into a player's inventory.
+            GameLogClient::Get().LogDrop(pkKiller->GetCharID(),
+                                         (uint32)kItems[i].uiInxName,
+                                         kItems[i].uiQty);
         }
         // Ground-drop telemetry: the despawn timer is honoured by the
         // per-Field tick that scans its drop-list against the wall clock
-        // and removes any entry older than vanish seconds. Logged here so
-        // operators can audit why a particular drop persisted.
+        // and removes any entry older than vanish seconds. The local log
+        // mirrors the GameLog row so operators can correlate.
         SHINELOG_DEBUG("Drop mob=%u item=%u qty=%u looting=%u vanish=%us",
                        ctx.uiMobID, (uint32)kItems[i].uiInxName,
                        (uint32)kItems[i].uiQty, mode, vanish);

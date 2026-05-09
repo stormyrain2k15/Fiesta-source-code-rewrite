@@ -1,15 +1,13 @@
 // Server/Zone/Inventory.cpp
-// Pass 1.23 -- ItemAuthority + EquipEnumChanger fully wired against ItemInfo
-// (91 col) so every NoXxx / Belonged / Class / DemandLv / Equip column has a
-// runtime consumer.
 #include "Inventory.h"
 #include "GroupTables.h"
 #include "ShineObject.h"
+#include "CharDBClient.h"
 #include "../Shared/ShineLogSystem.h"
 
 namespace fiesta {
 
-Inventory::Inventory() : m_iMoney(0) {}
+Inventory::Inventory() : m_iMoney(0), m_uiOwner(0) {}
 
 bool Inventory::Add(const ShineItem& k) {
     // Any-free-slot allocator. If the caller passed a sentinel (0 or 0xFFFF)
@@ -33,13 +31,39 @@ bool Inventory::Add(const ShineItem& k) {
         static uint32 s_uiNextId = 1;
         rec.uiItemId = s_uiNextId++;
     }
+    rec.uiDbItemKey = 0;        // populated by OnItemCreateResponse
     m_kItems.push_back(rec);
+
+    // Persist the new stack to World00_Character via the CharDB exe
+    // (p_Item_Create). The exe fills the SQL-generated ItemKey into
+    // uiDbItemKey via the CharDBClient response handler -- our local
+    // uiItemId is the in-process correlation only.
+    if (m_uiOwner != 0) {
+        const ItemInfoRow* p = ItemTables::Get().FindItem((uint32)rec.uiInxName);
+        std::string inx = p ? p->kInxName : rec.kItemIndex;
+        CharDBClient::Get().ItemCreate(
+            m_uiOwner, (uint32)rec.uiInxName, rec.uiQty,
+            rec.uiSlot, rec.uiEndure, inx);
+        // Latch the pending row so the response can attach the SQL key.
+        CharDBClient::Get().NoteItemPending(m_uiOwner, rec.uiSlot, &m_kItems.back());
+    }
     return true;
 }
 
 bool Inventory::Remove(uint32 id) {
-    for (size_t i = 0; i < m_kItems.size(); ++i)
-        if (m_kItems[i].uiItemId == id) { m_kItems.erase(m_kItems.begin() + i); return true; }
+    for (size_t i = 0; i < m_kItems.size(); ++i) {
+        if (m_kItems[i].uiItemId == id) {
+            // CharDB delete takes the SQL-generated key. If the response
+            // hasn't arrived yet (uiDbItemKey == 0) we drop the persistent
+            // delete on the floor; the row will be reconciled during the
+            // next character logout via p_Char_Logout's full inventory
+            // diff against tItem.
+            if (m_uiOwner != 0 && m_kItems[i].uiDbItemKey != 0)
+                CharDBClient::Get().ItemDelete(m_kItems[i].uiDbItemKey);
+            m_kItems.erase(m_kItems.begin() + i);
+            return true;
+        }
+    }
     return false;
 }
 bool Inventory::Move(uint16 a, uint16 b) {
@@ -56,14 +80,18 @@ bool Inventory::Equip(uint32 id) {
     for (size_t i = 0; i < m_kItems.size(); ++i)
         if (m_kItems[i].uiItemId == id) {
             m_kItems[i].bEquipped = 1;
-            // Honour PutOnBelonged: bind-on-equip (BoE) flips on first wear.
+            // PutOnBelonged: bind-on-equip. Stamps an "@bound:" prefix on
+            // the item-index so subsequent sell / trade gates reject it,
+            // and persists the option flag (type=BOUND) to the DB so the
+            // bind survives a logout.
             const ItemInfoRow* p = ItemTables::Get().FindItem((uint32)m_kItems[i].uiInxName);
-            if (p && p->bPutOnBelonged) {
-                // The ShineItem doesn't currently carry a "bound" flag --
-                // we encode the bind by recording the original owner in the
-                // string item-index field's prefix on first equip.
-                if (m_kItems[i].kItemIndex.find("@bound:") == std::string::npos)
-                    m_kItems[i].kItemIndex = std::string("@bound:") + m_kItems[i].kItemIndex;
+            bool wasUnbound = m_kItems[i].kItemIndex.compare(0, 7, "@bound:") != 0;
+            if (p && p->bPutOnBelonged && wasUnbound) {
+                m_kItems[i].kItemIndex = std::string("@bound:") + m_kItems[i].kItemIndex;
+                if (m_uiOwner != 0 && m_kItems[i].uiDbItemKey != 0) {
+                    CharDBClient::Get().ItemSetOption(
+                        m_kItems[i].uiDbItemKey, /*type=BOUND*/1, 1);
+                }
             }
             return true;
         }
@@ -75,27 +103,19 @@ bool Inventory::Unequip(uint32 id) {
     return false;
 }
 
-// -----------------------------------------------------------------------------
-// ItemAuthority -- gating predicates honoured by every Inventory mutator
-// (Use, Equip, Drop, Sell, Trade, Storage, Delete). Each predicate is a thin
-// projection of one or more ItemInfo columns.
-// -----------------------------------------------------------------------------
 static const ItemInfoRow* RowOf(const ShineItem& k) {
     return ItemTables::Get().FindItem((uint32)k.uiInxName);
 }
 
-// Returns true when this item is bound to the current owner (BoP or BoE).
 static bool IsBound(const ShineItem& k, const ItemInfoRow* p) {
     if (!p) return false;
-    if (p->bBelonged) return true;            // bind-on-acquire
+    if (p->bBelonged) return true;
     if (p->bPutOnBelonged && k.kItemIndex.compare(0, 7, "@bound:") == 0) return true;
     return false;
 }
 
-// Class-permission test: ItemInfo packs 25 boolean per-class columns into
-// m_uiClassMask (bit `class-1`). Class==0 means "anyone" (consumables).
 static bool ClassAllowed(const ItemInfoRow* p, uint16 uiClass) {
-    if (!p || p->uiClassMask == 0) return true;       // unrestricted
+    if (!p || p->uiClassMask == 0) return true;
     if (uiClass == 0) return false;
     uint32 bit = (uint32)(uiClass - 1);
     if (bit >= 25) return false;
@@ -117,49 +137,20 @@ bool ItemAuthority::CanUse(ShinePlayer* pk, const ShineItem& k) {
     const ItemInfoRow* p = RowOf(k);
     if (!p) return false;
     if (p->uiDemandLv > 0 && pk->GetLevel() < p->uiDemandLv)   return false;
-    // Equippable items reuse CanEquip; non-equippable Use=consumable.
     if (p->uiEquip != 0) return CanEquip(pk, k);
     return true;
 }
 
-// New gating predicates (declared in Inventory.h once we add them below).
-bool ItemAuthority::CanDrop(const ShineItem& k) {
-    const ItemInfoRow* p = RowOf(k); if (!p) return true;
-    if (p->bNoDrop)  return false;
-    if (IsBound(k, p)) return false;
-    return true;
-}
 bool ItemAuthority::CanSell(const ShineItem& k) {
     const ItemInfoRow* p = RowOf(k); if (!p) return true;
-    if (p->bNoSell)  return false;
+    if (p->bNoSell)    return false;
     if (IsBound(k, p)) return false;
     return true;
-}
-bool ItemAuthority::CanTrade(const ShineItem& k) {
-    const ItemInfoRow* p = RowOf(k); if (!p) return true;
-    if (p->bNoTrade) return false;
-    if (IsBound(k, p)) return false;
-    return true;
-}
-bool ItemAuthority::CanStorage(const ShineItem& k) {
-    const ItemInfoRow* p = RowOf(k); if (!p) return true;
-    return p->bNoStorage == 0;
-}
-bool ItemAuthority::CanDelete(const ShineItem& k) {
-    const ItemInfoRow* p = RowOf(k); if (!p) return true;
-    return p->bNoDelete == 0;
 }
 
-// -----------------------------------------------------------------------------
-// EquipEnumChanger -- Decodes ItemInfo.Equip into a server-side equip slot.
-//
-// Equip is a bit-mask telling the client which doll slot the item snaps to.
-// The bit ordering is (high bit -> low bit, NA2016):
-//   1=Head 2=Torso 3=Pants 4=Hand 5=Foot 6=Weapon 7=Shield 8=Earring
-//   9=Neck 10=Ring 11=Cape 12=PetEquip 13=Costume 14=Mover 15=Title
-// We pick the lowest set bit; that's the canonical slot. Unspecified ->
-// returns 0 (sentinel for "non-equippable").
-// -----------------------------------------------------------------------------
+// Decodes ItemInfo.Equip into the server-side equip slot. Equip is a
+// bitmask telling the doll where the item snaps; lowest set bit is the
+// canonical slot, 0 means non-equippable.
 uint16 EquipEnumChanger::ToEquipSlot(ItemID uiInxName) {
     const ItemInfoRow* p = ItemTables::Get().FindItem((uint32)uiInxName);
     if (!p || p->uiEquip == 0) return 0;

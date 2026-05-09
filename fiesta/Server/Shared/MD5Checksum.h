@@ -1,6 +1,5 @@
 // Server/Shared/MD5Checksum.h
-// 01 Foundation -- MD5 used for SHN data file checksum + token seed.
-// EVIDENCE: PDB_CONFIRMED  symbol: MD5Checksum, ShnDataFileCheckSum
+// MD5 used for SHN data file checksum + token seed.
 #ifndef FIESTA_MD5CHECKSUM_H
 #define FIESTA_MD5CHECKSUM_H
 #include "ShineTypes.h"

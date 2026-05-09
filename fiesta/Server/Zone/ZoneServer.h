@@ -1,7 +1,6 @@
 // Server/Zone/ZoneServer.h
-// 06 -- Zone server: holds Field/Layer/Map registry, all ShineObject lifecycles,
+// Zone server: holds Field/Layer/Map registry, all ShineObject lifecycles,
 // every gameplay subsystem singleton.
-// EVIDENCE: PDB_CONFIRMED  symbol: ClientSession (Zone), ShineObject, ShinePlayer, Manager
 #ifndef FIESTA_ZONE_ZONESERVER_H
 #define FIESTA_ZONE_ZONESERVER_H
 #include "../Shared/Socket_Acceptor.h"

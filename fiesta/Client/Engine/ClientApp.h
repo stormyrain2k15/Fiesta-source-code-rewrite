@@ -1,7 +1,5 @@
 // Client/Engine/ClientApp.h
-// 42 -- client app: brings Gamebryo up, owns the render loop, dispatches network.
-// EVIDENCE: PDB_CONFIRMED  symbol: ClientApp, RenderLoop, Fiesta.pdb
-//
+// client app: brings Gamebryo up, owns the render loop, dispatches network.
 // Gamebryo (Ni*) is consumed AS-IS from /app/fiesta/ThirdParty/Gamebryo. No
 // modifications to engine source. Include paths (set in your VS project):
 //   ThirdParty/Gamebryo/NiMain          -> NiMain.h

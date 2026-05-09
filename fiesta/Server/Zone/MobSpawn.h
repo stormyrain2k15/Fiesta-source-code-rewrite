@@ -1,5 +1,5 @@
 // Server/Zone/MobSpawn.h
-// 12 -- ShineMob construction helpers. All callers should funnel through
+// ShineMob construction helpers. All callers should funnel through
 // SpawnMob() so the per-species level / max HP / aggro radii come straight
 // from MobInfo.shn / MobInfoServer.shn instead of being filled by the
 // caller.

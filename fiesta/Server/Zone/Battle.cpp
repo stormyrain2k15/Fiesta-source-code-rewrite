@@ -1,5 +1,5 @@
 // Server/Zone/Battle.cpp
-// 12 -- the damage pipeline, written against the BATTLESTAT model.
+// the damage pipeline, written against the BATTLESTAT model.
 // All numeric tunables live in BattleTunables.h; level-gap and mob-resist
 // lookups live in LevelGapTable / MobResistTable.
 #include "Battle.h"
@@ -13,6 +13,7 @@
 #include "ExtendedTables.h"
 #include "ItemSystems.h"
 #include "QuestSystem.h"
+#include "GameLogClient.h"
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
 
@@ -293,11 +294,18 @@ void Battle::Kill(ShineObject* pkA, ShineObject* pkT) {
                                              pkMob->m_uiSpecies);
 
             // 4) Friend point: aggregate from FriendPointReward when the
-            //    bonus-kill threshold matches (this is fire-and-forget; the
-            //    bookkeeping table handles dedupe).
+            //    bonus-kill threshold matches (the bookkeeping table
+            //    handles dedupe).
             const FriendPointRewardTable::Row* fr =
                 FriendPointRewardTable::Get().Find(1);
             (void)fr;
+
+            // 5) Append the kill to World00_GameLog. The GameLog exe pipes
+            //    the row through SQLP_GameLog::LogKill -> p_Log_Combat.
+            GameLogClient::Get().LogKill(
+                pkKiller->GetCharID(),
+                (MobID)pkMob->m_uiSpecies,
+                (uint16)pkKiller->GetMapID());
         }
 
         // 5) MobChat death emote: pick a "DEAD" line and broadcast to

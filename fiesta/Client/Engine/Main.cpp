@@ -1,5 +1,5 @@
 // Client/Engine/Main.cpp
-// 42 -- WinMain entry. Constructs ClientApp and runs it.
+// WinMain entry. Constructs ClientApp and runs it.
 #include "ClientApp.h"
 
 int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int) {

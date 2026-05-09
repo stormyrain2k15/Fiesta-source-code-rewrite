@@ -1,9 +1,7 @@
 // Server/Zone/EquipSummaryBuilder.h
-// 15 -- composes an EQUIPSUMMARY by walking equipped slots, doing ItemInfo.shn
+// composes an EQUIPSUMMARY by walking equipped slots, doing ItemInfo.shn
 // lookups, and adding upgrade-level bonuses computed from BasicUpInx /
 // AddUpInx.
-//
-// EVIDENCE: PDB_CONFIRMED   symbol: ItemTotalInformation::ToBattleStat,
 //                                   EquipEnumChanger.
 #ifndef FIESTA_ZONE_EQUIPSUMMARYBUILDER_H
 #define FIESTA_ZONE_EQUIPSUMMARYBUILDER_H

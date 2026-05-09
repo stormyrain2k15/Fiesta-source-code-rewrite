@@ -1,5 +1,5 @@
 // Server/Zone/Main.cpp
-// 06 -- Zone service exe entry. ZoneNN ID is read from ZoneServerInfo.txt.
+// Zone service exe entry. ZoneNN ID is read from ZoneServerInfo.txt.
 #include "../Shared/WinService.h"
 #include "../Shared/ServerInfo.h"
 #include "../Shared/ShineLogSystem.h"
@@ -14,6 +14,7 @@
 #include "MarketSystems.h"
 #include "GuildSystem.h"
 #include "CharDBClient.h"
+#include "GameLogClient.h"
 #include "WMClient.h"
 #include "ChargedEffect.h"
 #include "GroupTables.h"
@@ -65,12 +66,10 @@ public:
         BindAllMiscTables();
         BindAllMoreTables();
         BindAllExtendedTables();
-        // Pass 1.25 -- consume every typed-schema row whose Schemas.h struct
         // had no runtime reader: ItemActionEffect / ItemActionCondition /
         // CharacterTitleData / ActionRangeFactor / GTIServer / StateField /
         // MIDungeon+MIDServer / SubAbState.
         BindTypedSchemaConsumers();
-        // Pass 1.26 -- diff each binder's read-set against the SHN's actual
         // columns. Any column that was parsed but never asked-for shows up
         // as a WARN line in the boot log. Same pass for the World/*.txt
         // (TableScript) loaders so MobRegen / MobRoam / MobAttackSequence /
@@ -128,6 +127,12 @@ public:
             m_kInfo.GetString("CharDB.Ip",   "127.0.0.1"),
             m_kInfo.GetU16   ("CharDB.Port", 27602));
 
+        // Outbound link to the GameLog DB exe. Battle::Kill, drop pickups
+        // and trade flushes route through this connection.
+        GameLogClient::Get().Connect(&m_kIOCP,
+            m_kInfo.GetString("GameLog.Ip",   "127.0.0.1"),
+            m_kInfo.GetU16   ("GameLog.Port", 27603));
+
         // Outbound link to WorldManager. Same non-fatal posture.
         WMClient::Get().Connect(&m_kIOCP,
             m_kInfo.GetString("WM.Ip",   "127.0.0.1"),
@@ -160,6 +165,7 @@ public:
     virtual void OnStop() {
         m_kAcceptor.Stop(); m_kIOCP.Stop();
         WMClient::Get().Disconnect();
+        GameLogClient::Get().Disconnect();
         CharDBClient::Get().Disconnect();
         ZoneServer::Get().Shutdown();
         DataBox::Get().Shutdown();

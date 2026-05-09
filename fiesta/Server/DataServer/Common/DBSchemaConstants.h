@@ -1,14 +1,11 @@
 // Server/DataServer/Common/DBSchemaConstants.h
-// EVIDENCE: DATA_CONFIRMED  source: extracted from World00_Character.bak / Account.bak /
 //                                   AccountLog.bak / OperatorTool.bak / StatisticsData.bak /
 //                                   Options.bak / World00_GameLog.bak (2026-02 drop).
-//
 // Authoritative table + column-name catalog. Each sub-namespace mirrors one real
 // SQL Server table; every constant is the literal column or table identifier as
 // it appears in the original schema. SQLP composes SQL by concatenating these
 // constants, so any typo here would surface immediately in `up_*` / `p_*`
 // stored-procedure dispatch.
-//
 // VS2010-compatible: only `static const char* const` storage in headers.
 #ifndef FIESTA_DBSCHEMA_CONST_H
 #define FIESTA_DBSCHEMA_CONST_H

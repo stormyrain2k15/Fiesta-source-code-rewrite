@@ -1,9 +1,6 @@
 // Server/Shared/GPacket.h
-// 01/07 Foundation/Network -- GPacket = packet header + PacketBuffer payload.
-// EVIDENCE: PDB_CONFIRMED  symbol: GPacket
-//
+// GPacket = packet header + PacketBuffer payload.
 // Wire frame:  [uint16 len][uint16 ncOpcode][payload bytes...]
-//
 #ifndef FIESTA_GPACKET_H
 #define FIESTA_GPACKET_H
 #include "PacketBuffer.h"

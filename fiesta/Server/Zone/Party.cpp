@@ -61,7 +61,7 @@ int32 PartyContainer::BonusXpPct(size_t n) {
 bool RaidSystem::ConvertToRaid(uint32 pid) {
     Party* p = NULL;
     std::map<uint32, Party>::iterator it = PartyContainer::Get().m_kAll.find(pid);
-    return false; // need friend access; left as no-op stub
+    return false; // need friend access; left as no-op
 }
 
 void PartyCreate (CharID l)        { PartyContainer::Get().Create(l); }

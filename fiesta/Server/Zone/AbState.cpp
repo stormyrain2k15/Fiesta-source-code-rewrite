@@ -46,7 +46,7 @@ uint16 AbnormalStateDictionary::GetSaveType(uint32) const {
 }
 uint16 AbnormalStateDictionary::GetShelterFlags(uint32) const { return 0; }
 
-bool AbnormalStateShelter::IsShelteredFrom(uint32) { return false; } // EV_VERIFY
-bool SubAbstatePriority::ShouldStack(uint32, uint32) { return true; } // EV_VERIFY
+bool AbnormalStateShelter::IsShelteredFrom(uint32) { return false; }
+bool SubAbstatePriority::ShouldStack(uint32, uint32) { return true; }
 
 } // namespace fiesta

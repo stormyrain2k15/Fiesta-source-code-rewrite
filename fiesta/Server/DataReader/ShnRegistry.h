@@ -1,17 +1,13 @@
 // Server/DataReader/ShnRegistry.h
-// 02 -- universal SHN loader.
-//
+// universal SHN loader.
 // Owns one parsed `ShnFile` per logical name. Every other system that needs
 // data from any of the 199 .shn files in `Data/Shine/` calls
 // `ShnRegistry::Get().GetTable("Foo")` and either reads rows directly or
 // hands the result to a typed group accessor (`MobTables`, `ItemTables`,
 // `SkillTables`, ...) for column-mapped lookup.
-//
 // Loading is one-shot at boot. The registry walks the supplied root, parses
 // every `*.shn`, and caches the result in-memory. The original game shipped
 // ~25 MB of SHN data; in-process residency is fine.
-//
-// EVIDENCE: PROJECT_REQUIREMENT  source: "use every file in the folders as
 //                                         intended" (2026-02 user note).
 #ifndef FIESTA_DATAREADER_SHNREGISTRY_H
 #define FIESTA_DATAREADER_SHNREGISTRY_H
@@ -60,7 +56,7 @@ uint32      ShnGetU32(const ShnFile& rTab, size_t uiRow, const std::string& rCol
 int32       ShnGetI32(const ShnFile& rTab, size_t uiRow, const std::string& rColumn);
 float       ShnGetF32(const ShnFile& rTab, size_t uiRow, const std::string& rColumn);
 
-// ----- Column auditor (pass 1.26) ------------------------------------------
+// ----- Column auditor ------------------------------------------
 // Hooked transparently inside `GetTable()` and `ShnGet*`. Call EmitReport
 // at the end of boot to log each column the binders never read.
 void ShnAudit_BeginTable(const std::string& rT);

@@ -1,6 +1,7 @@
 // Server/Zone/ChargedEffect.cpp
 #include "ChargedEffect.h"
 #include "ShineObject.h"
+#include "AbState.h"
 #include "GroupTables.h"
 #include "../DataReader/ShnFile.h"
 #include "../Shared/GTimer.h"
@@ -99,6 +100,16 @@ bool ChargedEffectManager::OnItemReceived(ShinePlayer* pkP, const std::string& r
     kInst.bDeletable    = IsDeletable(pkRow->uiHandle);
 
     m_kActive[pkP->GetCharID()].push_back(kInst);
+    // The charged effect feeds an AbnormalState entry whose stack count
+    // mirrors uiStaStrength -- consumers in BattleStat read the stack to
+    // scale the effect's contribution. KeepTime_Hour gates expiry; we
+    // re-use the same window for the AbState row so the two cadences
+    // stay in lock-step.
+    if (pkRow->uiStaStrength > 0) {
+        int32 dur = (int32)((uint32)pkRow->uiKeepTime_Hour * 3600u * 1000u);
+        if (dur < 0) dur = 0x7FFFFFFF;
+        pkP->AbState().Apply((uint32)pkRow->uiHandle, dur, (uint16)pkRow->uiStaStrength);
+    }
     SHINELOG_INFO("ChargedEffect: cid=%u item='%s' effect=%d val=%u keep=%uh",
                   pkP->GetCharID(), rItemID.c_str(), (int)kInst.eEffect,
                   (uint32)kInst.uiEffectValue, (uint32)pkRow->uiKeepTime_Hour);

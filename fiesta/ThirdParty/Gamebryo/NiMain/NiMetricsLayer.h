@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -54,7 +51,6 @@
 // These macros should be used rather than calling
 // NiMetricsLayer directly so that, in non-metrics builds, all of the metrics
 // gathering code can be easily compiled out.
-//
 // AddValue and AddEvent are the most frequently used in instrumented code.
 // StartTimer/EndTimer are called automatically by NiMetricsTimers.
 // PreDisplay/Update/Flush are all called at the application level.

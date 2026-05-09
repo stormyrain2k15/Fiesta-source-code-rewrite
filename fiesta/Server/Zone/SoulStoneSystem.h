@@ -1,22 +1,15 @@
 // Server/Zone/SoulStoneSystem.h
-// 14 -- HP and SP soul stones.
-//
+// HP and SP soul stones.
 // FINAL MODEL (all values data-driven from ParamXxxServer.txt):
-//
 //   * Two flat counters per character row: `uiHpCount` and `uiSpCount`.
 //     NOT inventory items, NOT per-tier counters -- just two integers.
-//
 //   * Tier is implicit: heal amount + cap + vendor price are looked up
 //     per (class, level) from `ClassParamTable` columns
 //     `SoulHP / MAXSoulHP / PriceHPStone` and `SoulSP / MAXSoulSP /
 //     PriceSPStone`. The character file already has 145 rows per class.
-//
 //   * HP and SP cooldowns are INDEPENDENT.
-//
 //   * Vendors: NPCs with `Role=Merchant RoleArg0=SoulStone` in
 //     `World/NPC.txt`. `SoulStoneVendor::Buy` debits Vis + grants stones.
-//
-// EVIDENCE: DATA_CONFIRMED   World/Param*Server.txt SoulHP/MAXSoulHP/...
 //           PDB_CONFIRMED   SoulStoneCount, SoulStoneUse_Req.
 #ifndef FIESTA_ZONE_SOULSTONESYSTEM_H
 #define FIESTA_ZONE_SOULSTONESYSTEM_H

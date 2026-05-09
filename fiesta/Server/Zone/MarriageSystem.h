@@ -1,35 +1,25 @@
 // Server/Zone/MarriageSystem.h
-// 26 -- Marriage / HolyPromise / Wedding ceremony.
-//
-// EVIDENCE: PDB_CONFIRMED  symbol: HolyPromise, HolyPromiseServer,
+// Marriage / HolyPromise / Wedding ceremony.
 //                                  HolyPromiseSummonGate, MarriageRecord
-// EVIDENCE: DATA_CONFIRMED  source: HolyPromiseReward.shn,
 //                                  ScenarioBookShelf/Wedding/Wedding.ps
-//
 // Lifecycle:
-//
 //   1. *Propose*       - one player asks another. Both must be opposite
 //                        sides of the holy-promise gate (no requirement
 //                        on race/class/sex; the original game allowed
 //                        cross-faction). A pending MarriageRecord is
 //                        created with state PROPOSED.
-//
 //   2. *Accept/Reject* - target accepts -> state ENGAGED, both pay the
 //                        ceremony fee. Reject -> record purged.
-//
 //   3. *Ceremony*      - happens at the wedding NPC; the script
 //                        `Wedding.ps` runs and on completion the state
 //                        moves to MARRIED and HolyPromiseReward.shn is
 //                        consulted for the (count -> reward) gift bag.
-//
 //   4. *Summon*        - either spouse can call `Summon(spouse)` once
 //                        per cooldown; the request hops through
 //                        HolyPromiseSummonGate which broadcasts a Y/N
 //                        to the partner.
-//
 //   5. *Divorce*       - either party may cancel; record state DIVORCED.
 //                        The pair is unmarked across both characters.
-//
 // Persistence: marriage state lives on tCharacter (SpouseId column) and
 // is hydrated on login via CharDBClient. Ceremony promise count is in
 // tHolyPromise (CharDB).

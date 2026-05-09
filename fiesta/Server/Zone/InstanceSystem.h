@@ -1,24 +1,18 @@
 // Server/Zone/InstanceSystem.h
-// 25 -- unified runtime for instance dungeons.
-//
+// unified runtime for instance dungeons.
 // One named instance is backed by **two source files** living in different
 // folders -- both are read by this single system:
-//
 //   1. Lua side: LuaScript/ID/<Name>/<Name>.lua + Functions/{Progress,Routine,SubFunc}.lua
 //   2. PS  side: ScenarioBookShelf/ID/<Name>.ps      (when present)
-//
 // At zone start the engine asks `InstanceSystem` to load every known
 // instance name (the registry from `ScriptLoader::KnownInstanceNames()`).
 // `Load(name)` calls both `ScriptLoader::LoadInstance` and
 // `ScenarioBookShelf::Load("ID", name)`. Either can be missing for a
 // given dungeon; the runtime treats the union as the authoritative
 // definition.
-//
 // At ENTER time, the instance lifecycle picks Lua first (if its
 // `Functions/Progress.lua` declares the standard hooks); PS scenario is
 // the fallback / KQ-style scenario host.
-//
-// EVIDENCE: DATA_CONFIRMED  source: KingSlime + WarBL + IyzelTower
 //                                   ship both .lua and .ps definitions.
 #ifndef FIESTA_ZONE_INSTANCESYSTEM_H
 #define FIESTA_ZONE_INSTANCESYSTEM_H

@@ -1,7 +1,6 @@
 // Server/Zone/FieldTable.h
-// 10 -- typed loader for World/Field.txt (FieldList table).
+// typed loader for World/Field.txt (FieldList table).
 // Source format: TableScript (#Table FieldList / #ColumnType / #Record ...).
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied World/Field.txt.
 #ifndef FIESTA_ZONE_FIELDTABLE_H
 #define FIESTA_ZONE_FIELDTABLE_H
 #include "../Shared/ShineTypes.h"

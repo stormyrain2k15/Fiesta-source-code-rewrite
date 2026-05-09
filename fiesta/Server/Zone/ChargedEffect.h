@@ -1,20 +1,15 @@
 // Server/Zone/ChargedEffect.h
-// 17 -- "Charged" item / website-shop boosters with a time-limited effect.
-//
-// EVIDENCE: PDB_CONFIRMED  symbol: ChargedEffect, ChargedDeletableBuff,
+// "Charged" item / website-shop boosters with a time-limited effect.
 //                                  ChargedItemEffectInst
-// EVIDENCE: DATA_CONFIRMED  source: ChargedEffect.shn (Handle, ItemID,
 //                                  KeepTime_Hour, EffectEnum, EffectValue,
 //                                  StaStrength) +
 //                                  ChargedDeletableBuff.shn (CDI_IDX).
-//
 // The original game shipped without an in-engine cash shop -- charged items
 // arrived in a player's inventory through the **external** billing portal /
 // gift / event reward path. When the engine sees one of those item ids in
 // inventory, it activates the matching ChargedEffect row for the configured
 // `KeepTime_Hour`. The effect is a typed buff (HP regen, EXP gain, drop rate,
 // movement, ...) -- the enum mirror is built directly from `EffectEnum`.
-//
 // `ChargedDeletableBuff` lists the abstate ids that the player is allowed to
 // cancel manually before the keep-time runs out (consumables, world buffs).
 #ifndef FIESTA_ZONE_CHARGEDEFFECT_H

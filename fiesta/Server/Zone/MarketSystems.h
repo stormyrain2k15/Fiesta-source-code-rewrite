@@ -1,6 +1,5 @@
 // Server/Zone/MarketSystems.h
-// 29 + 30 -- Auction / TradeBoard / Trade / StreetBooth.
-// EVIDENCE: PDB_CONFIRMED  symbol: AuctionSystem, TradeBoard, TradeOnBoard, TradeOffBoard,
+// Auction / TradeBoard / Trade / StreetBooth.
 //                                  Trade, TradeMisc, StreetBooth, StreetBoothBuy/Sell, BoothManager
 #ifndef FIESTA_ZONE_MARKETSYSTEMS_H
 #define FIESTA_ZONE_MARKETSYSTEMS_H

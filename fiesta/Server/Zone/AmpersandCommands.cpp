@@ -1,5 +1,5 @@
 // Server/Zone/AmpersandCommands_Generated.cpp
-#include "AmpersandCommands_Generated.h"
+#include "AmpersandCommands.h"
 #include "../Shared/ShineLogSystem.h"
 namespace fiesta {
 // Default handler: log and succeed. Per-command bodies wire in pass 2.

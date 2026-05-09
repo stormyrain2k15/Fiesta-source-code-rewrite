@@ -1,5 +1,5 @@
 // Server/DataReader/DataReader.cpp
-// 02 -- top-level data loader. Tries .shn (real binary, decrypt + parse) first,
+// top-level data loader. Tries .shn (real binary, decrypt + parse) first,
 // falls back to .txt for tabular mirrors. Quest SHNs are refused via
 // ShnDataFileCheckSum::IsAllowed (spec rule 02).
 #include "DataReader.h"

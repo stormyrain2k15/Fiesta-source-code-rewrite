@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -37,7 +34,6 @@
 
 //---------------------------------------------------------------------------
 // NiMemEventType.
-//
 // Determine the overall allocation type. When an object is allocated with
 // an allocation routine, it should be deallocated with its corresponding
 // deallocation routine.
@@ -74,11 +70,9 @@ enum NiMemEventType
 
 //---------------------------------------------------------------------------
 // Allocation macros and functions.
-//
 // NiNew and NiDelete are ONLY used for NiMemObject-derived classes.
 // This lets Gamebryo store the file, line, function information depending
 // on the build target.
-//
 // NiAlloc/NiMalloc/NiCalloc/NiRealloc and NiFree should be used for 
 // any non-NiMemObject object or intrinsic type. Note that they do not call
 // global new or delete, nor will they call constructors or destructors.

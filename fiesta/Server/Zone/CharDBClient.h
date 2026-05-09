@@ -1,15 +1,12 @@
 // Server/Zone/CharDBClient.h
-// 06 -- Zone-side outbound IOCP client to the Character DB exe.
-//
+// Zone-side outbound IOCP client to the Character DB exe.
 // Closes the loop opened on the CharDB side (Server/DataServer/Character/Main.cpp):
-//
 //   Zone CharLogin handler  -- builds NC_INTER_CHAR_DB_QUERY { op=1, charNo }
 //                           -- sends via CharDBClient::Get().SendQuery(...)
 //   CharDB exe              -- p_Char_Login(charNo) -> NC_INTER_CHAR_DB_RESPONSE
 //                           -- replies with row columns
 //   CharDBClientSession     -- decodes the response, finds the pending player by
 //                              CharID, calls ShinePlayer::LoadFromCharDBRow.
-//
 // One singleton TCP link per Zone process. If the exe is offline, queries
 // silently fail and the player keeps its provisional fill -- the engine still
 // runs.
@@ -70,11 +67,39 @@ public:
     void EstateSave    (CharID owner, const uint8* pData, size_t uiLen);
     void EstateLoad    (CharID owner);
 
+    // ---- Item / Quest / Skill / Friend / Guild persistence ----------
+    //
+    //   40 = p_Item_Create       (cOwner, itemId, count, slot, endure, inxName)
+    //   41 = p_Item_Delete       (itemKey)        -- itemKey lo first, then hi
+    //   42 = p_Item_SetOption    (itemKey, optType, optData)
+    //   50 = p_Quest_Set         (cid, questNo, status, subStatus)
+    //   51 = p_Quest_GetAllDoing (cid)            -- replies with row vector
+    //   60 = p_Skill_SetPower    (cid, skillNo, slot, value, isActive)
+    //   61 = p_Skill_SetPowerAll (cid)
+    //   70 = p_Friend_Del_All    (cid)
+    //   80 = p_GuildTournament_Set (gtNo, guildNo, status)
+    void ItemCreate      (CharID owner, uint32 uiItemId, uint16 uiCount,
+                          uint16 uiSlot, uint16 uiEndure, const std::string& rInx);
+    void ItemDelete      (uint64 uiItemKey);
+    void ItemSetOption   (uint64 uiItemKey, uint8 uiType, int32 iData);
+    void QuestSet        (CharID c, uint32 uiQuestNo, int32 iStatus, int32 iSubStatus);
+    void QuestGetDoing   (CharID c);
+    void SkillSetPower   (CharID c, uint32 uiSkillNo, int32 iSlot, int32 iValue, bool bActive);
+    void SkillSetPowerAll(CharID c);
+    void FriendDelAll    (CharID c);
+    void GuildTournamentSet(uint32 uiGTNo, uint32 uiGuildNo, int32 iStatus);
+
     // Called by CharDBClientSession when an NC_INTER_CHAR_DB_RESPONSE arrives.
     void OnLoginResponse (CharID c, bool bOK, const std::vector<std::string>& rCols);
     void OnLogoutResponse(CharID c, bool bOK);
     void OnEstateLoadResponse(CharID owner, bool bOK,
                               const std::vector<DBRecord>& rRows);
+    void OnQuestGetDoingResponse(CharID c, bool bOK,
+                                 const std::vector<DBRecord>& rRows);
+    // Pass the ack from p_Item_Create back to the matching ShineItem so
+    // future Remove() / SetOption() calls can supply the SQL key.
+    void NoteItemPending(CharID owner, uint16 uiSlot, void* pkItem);
+    void OnItemCreateResponse(bool bOK, uint64 uiKey);
 
     bool IsConnected() const { return m_kConn.IsConnected(); }
 
@@ -83,6 +108,11 @@ private:
     Socket_Connector            m_kConn;
     CRITICAL_SECTION            m_kCs;
     std::map<CharID, ShinePlayer*> m_kPending;  // charNo -> player awaiting fill
+    // FIFO of in-flight Item_Create rows; the response handler pops the
+    // oldest entry and stamps its uiDbItemKey. Per-character ordering is
+    // preserved because Inventory::Add only enqueues from the IOCP work
+    // thread.
+    std::vector<void*>          m_kItemPending;
 };
 
 } // namespace fiesta

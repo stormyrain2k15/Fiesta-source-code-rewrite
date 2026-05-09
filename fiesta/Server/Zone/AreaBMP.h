@@ -1,9 +1,7 @@
 // Server/Zone/AreaBMP.h
-// 13 -- 1-bit / grayscale bitmaps that define the on-ground shape of AOE skills.
+// 1-bit / grayscale bitmaps that define the on-ground shape of AOE skills.
 // Files live under AreaBMP/<SkillName>_*.bmp. Each pixel is a cell in the
 // skill's footprint (origin = caster, scale per-cell from skill metadata).
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied AreaBMP/ tree.
 #ifndef FIESTA_ZONE_AREABMP_H
 #define FIESTA_ZONE_AREABMP_H
 #include "../Shared/ShineTypes.h"

@@ -1,6 +1,5 @@
 // Server/Zone/MoveManager.h
-// 11 -- movement / action / visibility (NearScan).
-// EVIDENCE: PDB_CONFIRMED  symbol: MoveManager, Action, ActionTargetTypeValidator, NearScan
+// movement / action / visibility (NearScan).
 #ifndef FIESTA_ZONE_MOVEMANAGER_H
 #define FIESTA_ZONE_MOVEMANAGER_H
 #include "ShineObject.h"
@@ -23,7 +22,7 @@ public:
 
 class NearScan {
 public:
-    // EV_VERIFY -- exact visibility radius is per-map; provisional 30.0 units.
+-- exact visibility radius is per-map; provisional 30.0 units.
     static void Run(Field& rField, const Vec3& kFrom, std::vector<ShineObject*>& rOut);
 };
 

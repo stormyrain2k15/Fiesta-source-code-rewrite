@@ -1,6 +1,5 @@
 // Server/Shared/IOCPManager.h
-// 01/07 -- IO completion port worker pool.
-// EVIDENCE: PDB_CONFIRMED  symbol: IOCP, CSessionWorkerManager
+// IO completion port worker pool.
 #ifndef FIESTA_IOCPMANAGER_H
 #define FIESTA_IOCPMANAGER_H
 #include "ShineTypes.h"

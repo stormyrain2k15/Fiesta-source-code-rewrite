@@ -1,6 +1,5 @@
 // Server/WorldManager/WorldManagerServer.h
-// 05 -- world manager: routes between Login, Zone, optool, and the social/party servers.
-// EVIDENCE: PDB_CONFIRMED  symbol: WorldManagerServer, WMClientSession, WMZoneSession,
+// world manager: routes between Login, Zone, optool, and the social/party servers.
 //                                  WMLoginSession, WMCharDBSession, WMOPToolSession,
 //                                  PartyFinderServer, RankingServer, ChatStealServer
 #ifndef FIESTA_WMSERVER_H
@@ -103,12 +102,10 @@ public:
 // ship in this tree (the original was a thin Win32 admin panel). The WM still
 // listens for an external admin tool to connect -- but only over loopback,
 // and only with a successful `p_Operator_Logon` against the OperatorTool DB.
-//
 // Once authed, the panel can drive every cross-DB / cross-zone admin action:
 //   ban / kick / jail / unjail / sysmsg broadcast / give-item / take-item /
 //   read-only DB query (any of Account / AccountLog / World00_Character /
 //   World00_GameLog / OperatorTool / StatisticsData / Options).
-//
 // Nothing in the engine depends on the OPTool being connected; the session is
 // purely opt-in.
 class WMOPToolSession : public IOCPSession {

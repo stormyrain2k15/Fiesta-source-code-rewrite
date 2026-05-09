@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -103,22 +100,16 @@ int NiScreenLODData::GetLODLevel(const NiCamera* pkCamera,
     NIASSERT(pkLOD);
 
 // The Rigerous solution for screen area is
-//
 // 4.0 * NI_PI * BoundRadius Squared
 // ------------------------------------
 // Distance Square * (Left - Right) * (Top - Bottom)
-//
-//
 // We will be using simplifed algorithm that uses the proportion of
 // (bound radius / Distance) / (Minimum Screen axis)
-//
 //  fMinScreenDimmension = NiMin( (fRight - fLeft) / 2.0f, 
 //      (Top - Bottom) / 2.0f );
 //  fProportion =  (fRatio / fMinScreenDimmension) 
-//
 // With the final simplification of inverting the screene dimminsion we can 
 // turn the final division into a multiplication and gain performance
-//
 //  fInvMinScreenDimmension = NiMax(  2.0f / (fRight - fLeft),  
 //      2.0f / (Top - Bottom));
 //  fProportion =  fRatio * fMinScreenDimmension; 

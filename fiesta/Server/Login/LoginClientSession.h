@@ -1,6 +1,5 @@
 // Server/Login/LoginClientSession.h
-// 04 -- one connected login client.
-// EVIDENCE: PDB_CONFIRMED  symbol: LoginClientSession, ClientVersionKeyInfo, OTPLogin, NC_USER_*
+// one connected login client.
 #ifndef FIESTA_LOGIN_LOGINCLIENTSESSION_H
 #define FIESTA_LOGIN_LOGINCLIENTSESSION_H
 #include "../Shared/Socket_Acceptor.h"

@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -19,11 +16,9 @@
 
 class NiNode;
 
-//
 // IMPORTANT!  There can be only active instance of NiAudioListener.  This
 // listener is created as part of the startup process of NiAudioSystem
 // and is destroyed with the shutdown process.
-//
 
 class NIAUDIO_ENTRY NiAudioListener : public NiAVObject
 {

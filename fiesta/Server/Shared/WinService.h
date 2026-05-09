@@ -1,6 +1,5 @@
 // Server/Shared/WinService.h
-// 00 Bootstrap -- Windows Service host base. Each service exe subclasses this.
-// EVIDENCE: PDB_CONFIRMED  symbol: WinService, ServerInfo
+// Windows Service host base. Each service exe subclasses this.
 #ifndef FIESTA_WINSERVICE_H
 #define FIESTA_WINSERVICE_H
 #include "ShineTypes.h"

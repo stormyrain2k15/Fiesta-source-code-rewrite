@@ -1,6 +1,5 @@
 // Server/Common/ProtocolAnalysis.h
-// 07 Network -- runtime opcode hit counter / capture aid.
-// EVIDENCE: PDB_CONFIRMED  symbol: ProtocolAnalysis
+// runtime opcode hit counter / capture aid.
 #ifndef FIESTA_PROTOCOLANALYSIS_H
 #define FIESTA_PROTOCOLANALYSIS_H
 #include "../Shared/ShineTypes.h"

@@ -1,5 +1,4 @@
-// Server/DataReader/Schemas.h  -- GENERATED from documentation integration pack
-// EVIDENCE: DATA_CONFIRMED  source: docs/SHN Documentation/<TableName>.md
+// Server/DataReader/Schemas.h
 // Field ordinals + types are taken verbatim from public SHN documentation.
 // Field bodies/comments are short factual labels only.
 #ifndef FIESTA_DATAREADER_SCHEMAS_H
@@ -714,8 +713,6 @@ extern GradeItemOptionTab g_GradeItemOptionTab;
 // Minimal-field stubs so DropResolver / EquipSummaryBuilder compile against
 // real ITableBase plumbing. Full schemas are filled in by the SchemaGen
 // pass once the SHN headers are confirmed.
-//
-// EVIDENCE: PDB_CONFIRMED  symbol: cMobInfoServer, cItemDropTable, cRandomOption.
 // =============================================================================
 struct MobInfoServerRow {
     uint16 InxNo;            // mob species id (links to MobInfo.shn.InxNo)
@@ -726,7 +723,6 @@ struct MobInfoServerRow {
     uint16 AttackSeqIdx;     // links to MobAttackSequence id
     uint16 ActionSetIdx;     // links to MobSetting/Action id
 
-    // EVIDENCE: DATA_CONFIRMED  source: MobInfoServer.shn columns 7/11/15.
     // EnemyDetectType: 0=passive, !=0 active; AggroList consults this gate.
     // DetectCha:       aggro radius (game units); the AI uses this as the
     //                  "noticed me" distance before any level-gap test.

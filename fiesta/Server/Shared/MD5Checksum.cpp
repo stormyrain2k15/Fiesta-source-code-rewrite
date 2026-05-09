@@ -1,5 +1,5 @@
 // Server/Shared/MD5Checksum.cpp
-// 01 Foundation -- standard MD5 (RFC 1321) original implementation.
+// standard MD5 (RFC 1321) original implementation.
 #include "MD5Checksum.h"
 #include <string.h>
 #include <stdio.h>

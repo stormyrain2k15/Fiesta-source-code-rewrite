@@ -1,6 +1,5 @@
 // Server/Shared/ShineTypes.h
-// 01 Foundation -- common typedefs / evidence macros / build switches.
-// EVIDENCE: PDB_CONFIRMED  (typedef shapes appear throughout the PDB symbol set)
+// common typedefs / evidence macros / build switches.
 #ifndef FIESTA_SHINE_TYPES_H
 #define FIESTA_SHINE_TYPES_H
 
@@ -48,7 +47,7 @@ const CharID  INVALID_CHARID = 0;
 #define EV_RUNTIME
 #define EV_HEX
 #define EV_GAMEPLAY
-#define EV_VERIFY
+#define
 
 } // namespace fiesta
 

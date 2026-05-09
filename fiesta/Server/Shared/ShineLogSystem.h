@@ -1,6 +1,5 @@
 // Server/Shared/ShineLogSystem.h
-// 01 Foundation -- structured log writer. Every service uses this.
-// EVIDENCE: PDB_CONFIRMED  symbol: ShineLogSystem, EasyLogSys
+// structured log writer. Every service uses this.
 #ifndef FIESTA_SHINELOGSYSTEM_H
 #define FIESTA_SHINELOGSYSTEM_H
 #include "ShineTypes.h"

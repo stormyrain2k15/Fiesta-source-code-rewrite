@@ -1,6 +1,5 @@
 // Server/Zone/SkillSystem.h
-// 13 -- skills / cooldowns / multi-hit / AoE / toggle.
-// EVIDENCE: PDB_CONFIRMED  symbol: Skill, CharacterSkill, SkillDataBox, DefSkillData,
+// skills / cooldowns / multi-hit / AoE / toggle.
 //                                  MultiHitTable, MultiTypeHandle, ToggleSkill, ActiveSkillInfoServer
 #ifndef FIESTA_ZONE_SKILLSYSTEM_H
 #define FIESTA_ZONE_SKILLSYSTEM_H
@@ -17,6 +16,8 @@ struct SkillCooldown { SkillID uiSid; uint64 uiReadyAtMs; };
 
 class CharacterSkill {
 public:
+    CharacterSkill() : m_uiOwner(0) {}
+    void   SetOwner(CharID c);
     bool   Has(SkillID s) const;
     void   Learn(SkillID s, uint16 uiLevel);
     uint16 GetLevel(SkillID s) const;
@@ -25,6 +26,7 @@ public:
 private:
     std::map<SkillID, uint16>  m_kKnown;
     std::vector<SkillCooldown> m_kCooldowns;
+    CharID                     m_uiOwner;
 };
 
 class SkillDataBox {

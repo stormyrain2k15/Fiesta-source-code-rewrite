@@ -1,6 +1,5 @@
 // Server/Zone/MapField.h
-// 10 -- map / field / layer / collision / portal management.
-// EVIDENCE: PDB_CONFIRMED  symbol: Field, Layer, MapDataBox, MapBlockInformation,
+// map / field / layer / collision / portal management.
 //                                  BlockImage, MapNavigator, FindWay, Link, TownPortal
 #ifndef FIESTA_ZONE_MAPFIELD_H
 #define FIESTA_ZONE_MAPFIELD_H
@@ -48,7 +47,7 @@ private:
 class MapNavigator {
 public:
     // Provisional path approximation: straight-line sampling + block test.
-    // EV_VERIFY -- replace with FindWay() when MapBlockInformation/BlockImage are pinned.
+-- replace with FindWay() when MapBlockInformation/BlockImage are pinned.
     static bool FindWay(Field& rField, const Vec3& a, const Vec3& b, std::vector<Vec3>& rPath);
 };
 

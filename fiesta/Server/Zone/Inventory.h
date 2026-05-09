@@ -1,6 +1,5 @@
 // Server/Zone/Inventory.h
-// 15 -- Inventory / Equipment / item authority.
-// EVIDENCE: PDB_CONFIRMED  symbol: Inventory, ItemTotalInformation, ShineItem, ItemAuthority,
+// Inventory / Equipment / item authority.
 //                                  EquipEnumChanger
 #ifndef FIESTA_ZONE_INVENTORY_H
 #define FIESTA_ZONE_INVENTORY_H
@@ -13,7 +12,12 @@ namespace fiesta {
 class ShinePlayer;
 
 struct ShineItem {
+    ShineItem() : uiItemId(0), uiDbItemKey(0), uiInxName(0), uiSlot(0),
+                  uiQty(0), uiEndure(0), uiEnchant(0), bEquipped(0)
+    { for (int i = 0; i < 5; ++i) aRandomOption[i] = 0; }
     uint32 uiItemId;
+    uint64 uiDbItemKey;  // server-side IDENTITY from p_Item_Create; used as the
+                         // delete / set-option key in subsequent CharDB calls
     ItemID uiInxName;
     uint16 uiSlot;       // 0..N inventory slot
     uint16 uiQty;
@@ -33,6 +37,8 @@ struct ShineItem {
 class Inventory {
 public:
     Inventory();
+    void   SetOwner(CharID c) { m_uiOwner = c; }
+    CharID GetOwner() const   { return m_uiOwner; }
     bool   Add    (const ShineItem& kItem);
     bool   Remove (uint32 uiItemId);
     bool   Move   (uint16 uiFromSlot, uint16 uiToSlot);
@@ -44,20 +50,14 @@ public:
 private:
     std::vector<ShineItem> m_kItems;
     int64                  m_iMoney;
+    CharID                 m_uiOwner;
 };
 
 class ItemAuthority {
 public:
     static bool CanEquip(ShinePlayer* pk, const ShineItem& kItem);
     static bool CanUse  (ShinePlayer* pk, const ShineItem& kItem);
-    // Per-policy gates. Each is a thin wrapper around one ItemInfo flag
-    // (NoDrop / NoSell / NoTrade / NoStorage / NoDelete) plus a bound-state
-    // check that honours Belonged + PutOnBelonged.
-    static bool CanDrop   (const ShineItem& kItem);
-    static bool CanSell   (const ShineItem& kItem);
-    static bool CanTrade  (const ShineItem& kItem);
-    static bool CanStorage(const ShineItem& kItem);
-    static bool CanDelete (const ShineItem& kItem);
+    static bool CanSell (const ShineItem& kItem);
 };
 
 class EquipEnumChanger {

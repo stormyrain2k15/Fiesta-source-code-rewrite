@@ -1,13 +1,10 @@
 // EMERGENT GAME TECHNOLOGIES PROPRIETARY INFORMATION
-//
 // This software is supplied under the terms of a license agreement or
 // nondisclosure agreement with Emergent Game Technologies and may not 
 // be copied or disclosed except in accordance with the terms of that 
 // agreement.
-//
 //      Copyright (c) 1996-2007 Emergent Game Technologies.
 //      All Rights Reserved.
-//
 // Emergent Game Technologies, Chapel Hill, North Carolina 27517
 // http://www.emergent.net
 
@@ -20,12 +17,9 @@ class NiCamera;
 class NiLODNode;
 
 // NiScreenLODData Notes::
-// 
 //  There are a few assumptions made by NiScreenLODData that optimize it
 // for size and speed.
-//
 //  Inherent Ordering.
-//
 //      It is assumed that the LOD node has it's children ordered from 
 // Highest level of detail(child 0) to the lowest level of detail (Child N).
 // It also assumes that only 1 child will ever be visible at any given time
@@ -33,17 +27,13 @@ class NiLODNode;
 // assumptions the NiScreenLODData needs to only save the far boundary for
 // each LOD level. A particular LOD level will be drawn until it's screen
 // space boundary is small then a "Far" proportion.
-//
-// 
 //  Lowest Detail LOD has No Proportion
-//
 //      The lowest level of detail is assumed to have a far proportion of
 // zero because it should always be show. For this reason lowest level of
 // detail has no proportion. The number of proportions will be one less
 // than the number of LOD levels. (m_uiNumProportions = (Num LOD -1)).
 // You are only storing the bound conditions between LOD levels and the
 // lowest LOD has no far boundary.
-//
 class NIMAIN_ENTRY NiScreenLODData : public NiLODData
 {
     NiDeclareRTTI;

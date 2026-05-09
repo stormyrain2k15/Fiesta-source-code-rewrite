@@ -1,11 +1,9 @@
 // Server/Common/NETCOMMAND.h
-// 07 Network -- canonical NC opcode enum.
-//
+// canonical NC opcode enum.
 // Numeric values pinned from FiestaShark live captures + recovered Login.pdb /
 // WorldManager.pdb / 5ZoneServer2.pdb symbol set (5087 unique symbols).
 // Opcodes marked CONFIRMED are from live captures. Opcodes left at the per-
 // family base allocation are name-only -- pin via capture as you see them.
-//
 // EDIT-IN-PLACE values:
 //   * Family bases below: change if a server build moves a whole subsystem.
 //   * `kClientID` / `kClientBuildToken` in Login/ClientVersionKeyInfo.h
@@ -349,7 +347,13 @@ enum NETCOMMAND {
     NC_INTER_OPTOOL_UNJAIL_PUSH     = NC_FAMILY_INTERSVR + 0x0D,
     NC_INTER_OPTOOL_SYSMSG_PUSH     = NC_FAMILY_INTERSVR + 0x0E,
     NC_INTER_OPTOOL_GIVEITEM_PUSH   = NC_FAMILY_INTERSVR + 0x0F,
-    NC_INTER_OPTOOL_TAKEITEM_PUSH   = NC_FAMILY_INTERSVR + 0x10
+    NC_INTER_OPTOOL_TAKEITEM_PUSH   = NC_FAMILY_INTERSVR + 0x10,
+    // GameLog DB exe (World00_GameLog) -- Zone -> GameLog dispatcher.
+    NC_INTER_GAMELOG_QUERY          = NC_FAMILY_INTERSVR + 0x11,
+    NC_INTER_GAMELOG_RESPONSE       = NC_FAMILY_INTERSVR + 0x12,
+    // AccountLog DB exe (World00_AccountLog) -- Zone/WM -> AccountLog.
+    NC_INTER_ACCTLOG_QUERY          = NC_FAMILY_INTERSVR + 0x13,
+    NC_INTER_ACCTLOG_RESPONSE       = NC_FAMILY_INTERSVR + 0x14
 };
 
 } // namespace fiesta

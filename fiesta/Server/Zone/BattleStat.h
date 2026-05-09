@@ -1,10 +1,8 @@
 // Server/Zone/BattleStat.h
-// 12 -- compiled per-object stat block.
+// compiled per-object stat block.
 // Built once on zone login then kept hot in memory; rebuilt on equip/unequip,
 // level up, buff apply/remove. Field names mirror the supplied
 // MoverMain.shn / MoverAbility.shn / ItemInfo.shn / AbStateInfo.shn columns.
-//
-// EVIDENCE: PDB_CONFIRMED + DATA_CONFIRMED (from F2/Battle/battlestat.h shape).
 #ifndef FIESTA_ZONE_BATTLESTAT_H
 #define FIESTA_ZONE_BATTLESTAT_H
 #include "../Shared/ShineTypes.h"

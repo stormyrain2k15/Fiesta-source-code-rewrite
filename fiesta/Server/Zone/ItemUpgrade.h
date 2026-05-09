@@ -1,6 +1,5 @@
 // Server/Zone/ItemUpgrade.h
-// 15 -- the +N enhancement / upgrade flow.
-//
+// the +N enhancement / upgrade flow.
 // Inputs (ItemInfo.shn columns):
 //   * UpLimit       -- maximum +N this item type can reach.
 //   * UpSucRatio    -- success probability per-mille (1000 = 100.00%).
@@ -9,10 +8,7 @@
 //                      (refer to docs/SHN Documentation/UpResource.md).
 //   * BasicUpInx    -- bonus delta on a successful +N -> +N+1.
 //   * AddUpInx      -- additional delta starting from +2 onwards.
-//
 // Outputs: success/fail/destroy/downgrade applied to the item in-place.
-//
-// EVIDENCE: PDB_CONFIRMED   symbol: ItemUpgrade, ItemEnchantTryResult.
 #ifndef FIESTA_ZONE_ITEMUPGRADE_H
 #define FIESTA_ZONE_ITEMUPGRADE_H
 #include "Inventory.h"

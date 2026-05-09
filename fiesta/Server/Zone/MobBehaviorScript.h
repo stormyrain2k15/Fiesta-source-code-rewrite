@@ -1,16 +1,12 @@
 // Server/Zone/MobBehaviorScript.h
-// 19 -- runtime wrapper around a parsed MobBehaviorDescript/*.ps PsScriptFile.
+// runtime wrapper around a parsed MobBehaviorDescript/*.ps PsScriptFile.
 // The DSL drives mob AI choice (which target to chase, when to chat/break, etc).
-//
 // This module loads + parses the file via PsScriptFile, then exposes:
 //   - the named blocks (e.g. "main", "Regen1stLayer")
 //   - a Step(blockName, ctx) entry point that an AI tick can call.
-//
 // The per-statement behaviour is implemented inline (chat, mobregen, call,
 // break, if/then/else, infinite). Verbs not yet handled return without effect
 // but log a one-shot warning -- this lets data drive the AI without aborting.
-//
-// EVIDENCE: DATA_CONFIRMED  source: project-owner-supplied MobBehaviorDescript/.
 #ifndef FIESTA_ZONE_MOBBEHAVIORSCRIPT_H
 #define FIESTA_ZONE_MOBBEHAVIORSCRIPT_H
 #include "../Shared/ShineTypes.h"

@@ -1,6 +1,5 @@
 // Server/Common/ProtocolParser.h
-// 07 Network -- per-session opcode dispatcher.
-// EVIDENCE: PDB_CONFIRMED  symbol: ProtocolParser, ProtocolAnalysis
+// per-session opcode dispatcher.
 #ifndef FIESTA_PROTOCOLPARSER_H
 #define FIESTA_PROTOCOLPARSER_H
 #include "../Shared/ShineTypes.h"
