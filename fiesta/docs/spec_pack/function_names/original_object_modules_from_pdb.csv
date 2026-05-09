@@ -1,0 +1,622 @@
+service,module,inferred_system,path
+Account,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\UKItemShop.obj,Item / Inventory; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\UKItemShop.obj
+Account,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\TutorialCharacterData.obj,Character / Stats / Class; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\TutorialCharacterData.obj
+Account,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\DefaultCharacterData.obj,Character / Stats / Class; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\DefaultCharacterData.obj
+Account,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\Statistics.obj,Character / Stats / Class; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\Statistics.obj
+Account,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\SessionWorkerManager.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\SessionWorkerManager.obj
+Account,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\SessionWorker.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\SessionWorker.obj
+Account,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\Session_Manager.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\Session_Manager.obj
+Account,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\Session.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\Session.obj
+Account,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\Protocol_Functions.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\Protocol_Functions.obj
+Account,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\PF_Character_SubFuntions.obj,Character / Stats / Class; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\PF_Character_SubFuntions.obj
+Account,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\PF_Account.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\PF_Account.obj
+Account,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\Main.obj,Mob / AI / Spawn; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\Main.obj
+Account,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\DataServer.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\Account Release US\DataServer.obj
+Account,E:\ProjectF2\CSCode\Release US\Shine.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\Shine.obj
+Account,E:\ProjectF2\CSCode\Release US\DataReader.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\DataReader.obj
+Account,E:\ProjectF2\CSCode\Release US\ShnDataFileCheckSum.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\ShnDataFileCheckSum.obj
+Account,E:\ProjectF2\CSCode\Release US\WeaponTitle.obj,Character / Stats / Class,E:\ProjectF2\CSCode\Release US\WeaponTitle.obj
+Account,E:\ProjectF2\CSCode\Release US\CGdp.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\CGdp.obj
+Account,E:\ProjectF2\CSCode\Release US\CToken.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\CToken.obj
+Account,E:\ProjectF2\CSCode\Release US\MD5Checksum.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\MD5Checksum.obj
+Account,E:\ProjectF2\CSCode\Release US\ItemAuthority.obj,Item / Inventory,E:\ProjectF2\CSCode\Release US\ItemAuthority.obj
+Account,E:\ProjectF2\CSCode\Release US\Tinystr.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\Tinystr.obj
+Account,E:\ProjectF2\CSCode\Release US\TinyXML.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\TinyXML.obj
+Account,E:\ProjectF2\CSCode\Release US\TinyXMLError.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\TinyXMLError.obj
+Account,E:\ProjectF2\CSCode\Release US\TinyXMLParser.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\TinyXMLParser.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\BinaryDataCollection.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\BinaryDataCollection.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\BTree.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\BTree.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\CardDeck.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\CardDeck.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\Inventory.obj,Item / Inventory,E:\ProjectF2\Server\1SharedCode\Release US\Inventory.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\ItemAttributeClass.obj,Item / Inventory; Character / Stats / Class,E:\ProjectF2\Server\1SharedCode\Release US\ItemAttributeClass.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\ItemDataBox.obj,Item / Inventory,E:\ProjectF2\Server\1SharedCode\Release US\ItemDataBox.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\ItemTotalInformation.obj,Item / Inventory,E:\ProjectF2\Server\1SharedCode\Release US\ItemTotalInformation.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\ItemVariation.obj,Item / Inventory,E:\ProjectF2\Server\1SharedCode\Release US\ItemVariation.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\ShineLogSystem.obj,Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US\ShineLogSystem.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\MapDataBox.obj,Map / Field / Movement,E:\ProjectF2\Server\1SharedCode\Release US\MapDataBox.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\RandomBox.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\RandomBox.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\ShineAssert.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\ShineAssert.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\StackWalker.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\StackWalker.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\well512.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\well512.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\Debugger.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\Debugger.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\EHCrashHandler.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\EHCrashHandler.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\MiniDump.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\MiniDump.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\IOCP.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\IOCP.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\IOCP_Process.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\IOCP_Process.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\InetAddress.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\InetAddress.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\IOBuffer.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\IOBuffer.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor_Process.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor_Process.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\Socket_IOCP.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_IOCP.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Session.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Session.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Session_Manager.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Session_Manager.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\GPacket.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\GPacket.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\Packet_Parser.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Packet_Parser.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\SendPacket.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\SendPacket.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\Database.obj,Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US\Database.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\DBRecord.obj,Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US\DBRecord.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\CCsl.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\CCsl.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\String.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\String.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\GTimer.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\GTimer.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\WinService.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\WinService.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\ServerInfo.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\ServerInfo.obj
+Account,E:\ProjectF2\Server\1SharedCode\Release US\WebConnect.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\WebConnect.obj
+Account,E:\ProjectF2\Server\2DataServer\SQL_Procedures\Release US\SQLP_Account.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\SQL_Procedures\Release US\SQLP_Account.obj
+Account,E:\ProjectF2\Server\2DataServer\SQL_Procedures\Release US\SQLP_IPChecker.obj,Database / SQL / Logging; Security / Filters / Anti-spam,E:\ProjectF2\Server\2DataServer\SQL_Procedures\Release US\SQLP_IPChecker.obj
+Account,E:\ProjectF2\Server\2DataServer\GameDB\Release US\GameDB_Connect.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\GameDB\Release US\GameDB_Connect.obj
+Account,E:\ProjectF2\Server\2DataServer\Soap\Release\_UK_Soap_C.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\Soap\Release\_UK_Soap_C.obj
+Account,E:\ProjectF2\Server\2DataServer\Soap\Release\_UK_Soap_SingleSignOnServiceSoapBindingProxy.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\Soap\Release\_UK_Soap_SingleSignOnServiceSoapBindingProxy.obj
+Account,E:\ProjectF2\Server\2DataServer\Soap\Release\stdsoap2.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\Soap\Release\stdsoap2.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\UKItemShop.obj,Item / Inventory; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\UKItemShop.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\TutorialCharacterData.obj,Character / Stats / Class; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\TutorialCharacterData.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\DefaultCharacterData.obj,Character / Stats / Class; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\DefaultCharacterData.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\Statistics.obj,Character / Stats / Class; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\Statistics.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\SessionWorkerManager.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\SessionWorkerManager.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\SessionWorker.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\SessionWorker.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\Session_Manager.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\Session_Manager.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\Session.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\Session.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\Protocol_Functions.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\Protocol_Functions.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\PF_Character_SubFuntions.obj,Character / Stats / Class; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\PF_Character_SubFuntions.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\PF_AccountLog.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\PF_AccountLog.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\Main.obj,Mob / AI / Spawn; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\Main.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\DataServer.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\DataServer\AccountLog Release US\DataServer.obj
+AccountLog,E:\ProjectF2\CSCode\Release US\Shine.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\Shine.obj
+AccountLog,E:\ProjectF2\CSCode\Release US\DataReader.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\DataReader.obj
+AccountLog,E:\ProjectF2\CSCode\Release US\ShnDataFileCheckSum.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\ShnDataFileCheckSum.obj
+AccountLog,E:\ProjectF2\CSCode\Release US\WeaponTitle.obj,Character / Stats / Class,E:\ProjectF2\CSCode\Release US\WeaponTitle.obj
+AccountLog,E:\ProjectF2\CSCode\Release US\CGdp.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\CGdp.obj
+AccountLog,E:\ProjectF2\CSCode\Release US\CToken.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\CToken.obj
+AccountLog,E:\ProjectF2\CSCode\Release US\MD5Checksum.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\MD5Checksum.obj
+AccountLog,E:\ProjectF2\CSCode\Release US\ItemAuthority.obj,Item / Inventory,E:\ProjectF2\CSCode\Release US\ItemAuthority.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\BinaryDataCollection.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\BinaryDataCollection.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\BTree.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\BTree.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\CardDeck.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\CardDeck.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\Inventory.obj,Item / Inventory,E:\ProjectF2\Server\1SharedCode\Release US\Inventory.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\ItemAttributeClass.obj,Item / Inventory; Character / Stats / Class,E:\ProjectF2\Server\1SharedCode\Release US\ItemAttributeClass.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\ItemDataBox.obj,Item / Inventory,E:\ProjectF2\Server\1SharedCode\Release US\ItemDataBox.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\ItemTotalInformation.obj,Item / Inventory,E:\ProjectF2\Server\1SharedCode\Release US\ItemTotalInformation.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\ItemVariation.obj,Item / Inventory,E:\ProjectF2\Server\1SharedCode\Release US\ItemVariation.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\ShineLogSystem.obj,Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US\ShineLogSystem.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\MapDataBox.obj,Map / Field / Movement,E:\ProjectF2\Server\1SharedCode\Release US\MapDataBox.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\RandomBox.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\RandomBox.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\ShineAssert.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\ShineAssert.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\StackWalker.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\StackWalker.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\well512.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\well512.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\Debugger.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\Debugger.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\EHCrashHandler.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\EHCrashHandler.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\MiniDump.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\MiniDump.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\IOCP.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\IOCP.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\IOCP_Process.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\IOCP_Process.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\InetAddress.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\InetAddress.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\IOBuffer.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\IOBuffer.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor_Process.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor_Process.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\Socket_IOCP.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_IOCP.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Session.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Session.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Session_Manager.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Session_Manager.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\GPacket.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\GPacket.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\Packet_Parser.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Packet_Parser.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\SendPacket.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\SendPacket.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\Database.obj,Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US\Database.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\DBRecord.obj,Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US\DBRecord.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\CCsl.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\CCsl.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\String.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\String.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\GTimer.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\GTimer.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\WinService.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\WinService.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\ServerInfo.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\ServerInfo.obj
+AccountLog,E:\ProjectF2\Server\1SharedCode\Release US\cLogSystem.obj,Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US\cLogSystem.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\SQL_Procedures\Release US\SQLP_AccountLog.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\SQL_Procedures\Release US\SQLP_AccountLog.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\SQL_Procedures\Release US\SQLP_Event_L20.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\SQL_Procedures\Release US\SQLP_Event_L20.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\SQL_Procedures\Release US\SQLP_Report.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\SQL_Procedures\Release US\SQLP_Report.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\SQL_Procedures\Release US\SQLP_Statistics.obj,Character / Stats / Class; Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\SQL_Procedures\Release US\SQLP_Statistics.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\GameDB\Release US\GameDB_Connect.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\GameDB\Release US\GameDB_Connect.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\Soap\Release\_UK_Soap_C.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\Soap\Release\_UK_Soap_C.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\Soap\Release\_UK_Soap_SingleSignOnServiceSoapBindingProxy.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\Soap\Release\_UK_Soap_SingleSignOnServiceSoapBindingProxy.obj
+AccountLog,E:\ProjectF2\Server\2DataServer\Soap\Release\stdsoap2.obj,Database / SQL / Logging,E:\ProjectF2\Server\2DataServer\Soap\Release\stdsoap2.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\OTPLogin.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\OTPLogin.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginWorldManagerSessionManager.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginWorldManagerSessionManager.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginWorldManagerSession.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginWorldManagerSession.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginOPToolSessionManager.obj,GM / Admin / Optool / Prison; Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginOPToolSessionManager.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginOPToolSession.obj,GM / Admin / Optool / Prison; Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginOPToolSession.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginClientSessionManager.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginClientSessionManager.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginClientSession.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginClientSession.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginBaseSessionManager.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginBaseSessionManager.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginBaseSession.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginBaseSession.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginAccountLogDBSession.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginAccountLogDBSession.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginAccountDBSession.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginAccountDBSession.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\PF_WorldManager.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\PF_WorldManager.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\PF_OPTool.obj,GM / Admin / Optool / Prison; Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\PF_OPTool.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\PF_Client.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\PF_Client.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\PF_AccountLogDB.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\PF_AccountLogDB.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\PF_AccountDB.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\PF_AccountDB.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\Main.obj,Mob / AI / Spawn; Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\Main.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginServerMacro.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginServerMacro.obj
+Login,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginServer.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\3LoginServer2\Release US LoginServer\LoginServer.obj
+Login,E:\ProjectF2\CSCode\Release US LoginServer\PacketEncrypt.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\CSCode\Release US LoginServer\PacketEncrypt.obj
+Login,E:\ProjectF2\CSCode\Release US LoginServer\Shine.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\CSCode\Release US LoginServer\Shine.obj
+Login,E:\ProjectF2\CSCode\Release US LoginServer\CGdp.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\CSCode\Release US LoginServer\CGdp.obj
+Login,E:\ProjectF2\CSCode\Release US LoginServer\CToken.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\CSCode\Release US LoginServer\CToken.obj
+Login,E:\ProjectF2\CSCode\Release US LoginServer\MD5Checksum.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\CSCode\Release US LoginServer\MD5Checksum.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\ShineLogSystem.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\ShineLogSystem.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\ShineAssert.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\ShineAssert.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\StackWalker.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\StackWalker.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\Debugger.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\Debugger.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\EHCrashHandler.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\EHCrashHandler.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\MiniDump.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\MiniDump.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\IOCP.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\IOCP.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\IOCP_Process.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\IOCP_Process.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\InetAddress.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\InetAddress.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\IOBuffer.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\IOBuffer.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\Socket_Acceptor.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\Socket_Acceptor.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\Socket_Acceptor_Process.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\Socket_Acceptor_Process.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\Socket_IOCP.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\Socket_IOCP.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\GPacket.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\GPacket.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\SendPacket.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\SendPacket.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\CCsl.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\CCsl.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\String.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\String.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\GTimer.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\GTimer.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\WinService.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\WinService.obj
+Login,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\ServerInfo.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US LoginServer\ServerInfo.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\XTrap4Server.obj,Network / Protocol / IOCP; Security / Filters / Anti-spam,E:\ProjectF2\Server\4WorldManagerServer2\Release US\XTrap4Server.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\network.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\network.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\net_udp.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\net_udp.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\net_tcp.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\net_tcp.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\net_select.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\net_select.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\net_error.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\net_error.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PrisonServer.obj,GM / Admin / Optool / Prison; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PrisonServer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PartyFinderServer.obj,Party / Raid / Party Finder; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PartyFinderServer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\NpcScheduleServer.obj,NPC / Dialog / Shops; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\NpcScheduleServer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\MatchInstanceDungeonServer.obj,Lua / Instance / KQ; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\MatchInstanceDungeonServer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\KQServer.obj,Lua / Instance / KQ; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\KQServer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\HolyPromiseServer.obj,Wedding / HolyPromise; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\HolyPromiseServer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\GuildServer.obj,Guild / Academy / Tournament; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\GuildServer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\GambleSystemServer.obj,Gamble / Slot Machine; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\GambleSystemServer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\EventAttendanceServer.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\EventAttendanceServer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\DataFileServer.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\DataFileServer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\DailyQuestTimer.obj,Mob / AI / Spawn; Quest / PineScript / Scenario; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\DailyQuestTimer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\ChatStealServer.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\ChatStealServer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMZoneSessionManager.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMZoneSessionManager.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMZoneSession.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMZoneSession.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMOPToolSessionManager.obj,GM / Admin / Optool / Prison; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMOPToolSessionManager.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMOPToolSession.obj,GM / Admin / Optool / Prison; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMOPToolSession.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMLoginSession.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMLoginSession.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMGameLogDBSession.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMGameLogDBSession.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMClientSessionManager.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMClientSessionManager.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMClientSession.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMClientSession.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMCharDBSession.obj,Character / Stats / Class; Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMCharDBSession.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMBaseSessionManager.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMBaseSessionManager.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMBaseSession.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMBaseSession.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMAccountLogDBSession.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMAccountLogDBSession.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMAccountDBSession.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WMAccountDBSession.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_Zone.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_Zone.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_OPTool.obj,GM / Admin / Optool / Prison; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_OPTool.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_Login.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_Login.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_GameLogDB.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_GameLogDB.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_Client.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_Client.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_CharDB.obj,Character / Stats / Class; Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_CharDB.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_AccountLogDB.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_AccountLogDB.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_AccountDB.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\4WorldManagerServer2\Release US\PF_AccountDB.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WorldManagerServerMacro.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WorldManagerServerMacro.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WorldManagerServer.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\WorldManagerServer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\Main.obj,Mob / AI / Spawn; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\Main.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\RankingServer.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\RankingServer.obj
+WorldManager,E:\ProjectF2\Server\4WorldManagerServer2\Release US\GMEventManager.obj,GM / Admin / Optool / Prison; Network / Protocol / IOCP,E:\ProjectF2\Server\4WorldManagerServer2\Release US\GMEventManager.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\PacketEncrypt.obj,Network / Protocol / IOCP,E:\ProjectF2\CSCode\Release US\PacketEncrypt.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\Shine.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\Shine.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\DataReader.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\DataReader.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\ShnDataFileCheckSum.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\ShnDataFileCheckSum.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\Friend.obj,Master Apprentice / Social,E:\ProjectF2\CSCode\Release US\Friend.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\KQ.obj,Lua / Instance / KQ,E:\ProjectF2\CSCode\Release US\KQ.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\CGdp.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\CGdp.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\CToken.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\CToken.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\Guild.obj,Guild / Academy / Tournament,E:\ProjectF2\CSCode\Release US\Guild.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\PartyFinder.obj,Party / Raid / Party Finder,E:\ProjectF2\CSCode\Release US\PartyFinder.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\HolyPromise.obj,Wedding / HolyPromise,E:\ProjectF2\CSCode\Release US\HolyPromise.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\MD5Checksum.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\MD5Checksum.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\ChatRestrict.obj,Security / Filters / Anti-spam,E:\ProjectF2\CSCode\Release US\ChatRestrict.obj
+WorldManager,E:\ProjectF2\CSCode\Release US\SingleDataMap.obj,Map / Field / Movement,E:\ProjectF2\CSCode\Release US\SingleDataMap.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\BinaryDataCollection.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\BinaryDataCollection.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\CardDeck.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\CardDeck.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\CharClassDataBox.obj,Character / Stats / Class,E:\ProjectF2\Server\1SharedCode\Release US\CharClassDataBox.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\ItemVariation.obj,Item / Inventory,E:\ProjectF2\Server\1SharedCode\Release US\ItemVariation.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\ShineLogSystem.obj,Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US\ShineLogSystem.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\RandomBox.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\RandomBox.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\ShineAssert.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\ShineAssert.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\StackWalker.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\StackWalker.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\well512.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\well512.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\Debugger.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\Debugger.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\EHCrashHandler.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\EHCrashHandler.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\MiniDump.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\MiniDump.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\IOCP.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\IOCP.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\IOCP_Process.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\IOCP_Process.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\InetAddress.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\InetAddress.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\IOBuffer.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\IOBuffer.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor_Process.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor_Process.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\Socket_IOCP.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_IOCP.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\GPacket.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\GPacket.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\SendPacket.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\SendPacket.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\CCsl.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\CCsl.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\String.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\String.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\GTimer.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\GTimer.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\WinService.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\WinService.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\ServerInfo.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\ServerInfo.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\PartySlot.obj,Party / Raid / Party Finder,E:\ProjectF2\Server\1SharedCode\Release US\PartySlot.obj
+WorldManager,E:\ProjectF2\Server\1SharedCode\Release US\RaidSystem.obj,Mob / AI / Spawn; Party / Raid / Party Finder,E:\ProjectF2\Server\1SharedCode\Release US\RaidSystem.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\CardCollection.obj,Card Collection,E:\ProjectF2\Server\5ZoneServer2\Release US\CardCollection.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\AIScript.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\AIScript.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\SlotMachine.obj,Gamble / Slot Machine,E:\ProjectF2\Server\5ZoneServer2\Release US\SlotMachine.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineGambleDiceTaiSai.obj,Gamble / Slot Machine; Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineGambleDiceTaiSai.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GambleDiceTaiSaiObject.obj,Gamble / Slot Machine; Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\GambleDiceTaiSaiObject.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GambleSystem.obj,Gamble / Slot Machine,E:\ProjectF2\Server\5ZoneServer2\Release US\GambleSystem.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GambleObjectManager.obj,Gamble / Slot Machine,E:\ProjectF2\Server\5ZoneServer2\Release US\GambleObjectManager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GambleObject.obj,Gamble / Slot Machine,E:\ProjectF2\Server\5ZoneServer2\Release US\GambleObject.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\QuestEvent.obj,Quest / PineScript / Scenario,E:\ProjectF2\Server\5ZoneServer2\Release US\QuestEvent.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\EasyLogSys.obj,Database / SQL / Logging,E:\ProjectF2\Server\5ZoneServer2\Release US\EasyLogSys.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\HttpConnect.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\HttpConnect.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Html.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\Html.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lzio.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lzio.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lvm.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lvm.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lundump.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lundump.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ltm.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ltm.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ltablib.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ltablib.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ltable.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ltable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lstrlib.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lstrlib.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lstring.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lstring.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lstate.obj,Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\lstate.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lparser.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lparser.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\loslib.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\loslib.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lopcodes.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lopcodes.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lobject.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lobject.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\loadlib.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\loadlib.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lmem.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lmem.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lmathlib.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lmathlib.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\llex.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\llex.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\liolib.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\liolib.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\linit.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\linit.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lgc.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lgc.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lfunc.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lfunc.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ldump.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ldump.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ldo.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ldo.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ldebug.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ldebug.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ldblib.obj,Database / SQL / Logging,E:\ProjectF2\Server\5ZoneServer2\Release US\ldblib.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lctype.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lctype.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lcorolib.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lcorolib.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lcode.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lcode.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lbitlib.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lbitlib.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lbaselib.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lbaselib.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lauxlib.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lauxlib.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\lapi.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\lapi.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\LuaScript.obj,Lua / Instance / KQ,E:\ProjectF2\Server\5ZoneServer2\Release US\LuaScript.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\BossFieldData.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\BossFieldData.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemActions.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemActions.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemActionObserve.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemActionObserve.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemActionEffects.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemActionEffects.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemActionConditions.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemActionConditions.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ActionTargetTypeValidator.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ActionTargetTypeValidator.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\RaidTask.obj,Mob / AI / Spawn; Party / Raid / Party Finder,E:\ProjectF2\Server\5ZoneServer2\Release US\RaidTask.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildZone.obj,Guild / Academy / Tournament,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildZone.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\observer.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\observer.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\CharacterTitleZone.obj,Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\CharacterTitleZone.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\TestShineObjectUtil.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\TestShineObjectUtil.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\TestBase.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\TestBase.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\test_UtilFunction.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\test_UtilFunction.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\test_guildtournamentsystem.obj,Guild / Academy / Tournament,E:\ProjectF2\Server\5ZoneServer2\Release US\test_guildtournamentsystem.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\test_DynamicCast.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\test_DynamicCast.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\test_CharracterSkill.obj,Skill / Battle / Roe; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\test_CharracterSkill.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\test_Battle.obj,Skill / Battle / Roe,E:\ProjectF2\Server\5ZoneServer2\Release US\test_Battle.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\test_AttackSequence.obj,Skill / Battle / Roe,E:\ProjectF2\Server\5ZoneServer2\Release US\test_AttackSequence.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\test_ABState.obj,Skill / Battle / Roe; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\test_ABState.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\VirtualMap.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\VirtualMap.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MapNavigator.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\MapNavigator.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ProdSucRateTable.obj,Gather / Produce,E:\ProjectF2\Server\5ZoneServer2\Release US\ProdSucRateTable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MysteryVaultTable.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\MysteryVaultTable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\LevelGapDamageTable.obj,Skill / Battle / Roe; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\LevelGapDamageTable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\itemActionTable.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\itemActionTable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildTournamentTable.obj,Guild / Academy / Tournament,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildTournamentTable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\BelongDiceTable.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\BelongDiceTable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\AccUpgradeTable.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\AccUpgradeTable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Trigger.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\Trigger.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\NPCAction.obj,NPC / Dialog / Shops,E:\ProjectF2\Server\5ZoneServer2\Release US\NPCAction.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Manager.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\Manager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Condition.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\Condition.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Action.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\Action.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\QuestZone.obj,Quest / PineScript / Scenario,E:\ProjectF2\Server\5ZoneServer2\Release US\QuestZone.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShinePrison.obj,GM / Admin / Optool / Prison,E:\ProjectF2\Server\5ZoneServer2\Release US\ShinePrison.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\AnnounceSystem.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\AnnounceSystem.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ZoneServerEvent.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ZoneServerEvent.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ZoneServer.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ZoneServer.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ZoneIPContainer.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\ZoneIPContainer.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ZoneConnectSession.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\5ZoneServer2\Release US\ZoneConnectSession.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ZoneBaseSessionManager.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\5ZoneServer2\Release US\ZoneBaseSessionManager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ZoneBaseSession.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\5ZoneServer2\Release US\ZoneBaseSession.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\WorldManagerSession.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\5ZoneServer2\Release US\WorldManagerSession.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Wedding.obj,Wedding / HolyPromise,E:\ProjectF2\Server\5ZoneServer2\Release US\Wedding.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\WeaponTitleZone.obj,Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\WeaponTitleZone.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\UtilFunction.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\UtilFunction.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\UsedItemEffect.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\UsedItemEffect.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\UpgradeDataBox.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\UpgradeDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\TreasureChestMaker.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\TreasureChestMaker.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\TradeOnBoard.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\TradeOnBoard.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\TradeOffBoard.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\TradeOffBoard.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\TradeMisc.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\TradeMisc.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\TradeBoard.obj,Auction / Market,E:\ProjectF2\Server\5ZoneServer2\Release US\TradeBoard.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Trade.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\Trade.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\tokenizer.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\tokenizer.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\TickTimer.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\TickTimer.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ThirdPromote.obj,Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\ThirdPromote.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\TargetAnalyser.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\TargetAnalyser.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\SubAbstatePriority.obj,Skill / Battle / Roe; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\SubAbstatePriority.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\StreetBoothSell.obj,Street Booth / Personal Shop,E:\ProjectF2\Server\5ZoneServer2\Release US\StreetBoothSell.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\StreetBoothBuy.obj,Street Booth / Personal Shop,E:\ProjectF2\Server\5ZoneServer2\Release US\StreetBoothBuy.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\StreetBooth.obj,Street Booth / Personal Shop,E:\ProjectF2\Server\5ZoneServer2\Release US\StreetBooth.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\StateItemDataBox.obj,Item / Inventory; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\StateItemDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\StatDistribute.obj,Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\StatDistribute.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\SpyNet.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\SpyNet.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\SparrowWing.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\SparrowWing.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\SpamerPenaltyDataBox.obj,Security / Filters / Anti-spam,E:\ProjectF2\Server\5ZoneServer2\Release US\SpamerPenaltyDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\SoulStone.obj,Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\SoulStone.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\SlantedCoordList.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\SlantedCoordList.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\SkillDataBox.obj,Skill / Battle / Roe,E:\ProjectF2\Server\5ZoneServer2\Release US\SkillDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Skill.obj,Skill / Battle / Roe,E:\ProjectF2\Server\5ZoneServer2\Release US\Skill.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineRtti.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineRtti.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineRadian.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineRadian.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineQuestDiary.obj,Quest / PineScript / Scenario,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineQuestDiary.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShinePlayerObj.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\ShinePlayerObj.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShinePlayerInform.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\ShinePlayerInform.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObjectRoutine.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObjectRoutine.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObjectPlayer.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObjectPlayer.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObjectMover.obj,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObjectMover.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObjectMob.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObjectMob.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObjectAdminFunc.obj,GM / Admin / Optool / Prison,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObjectAdminFunc.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObject_MobileObject.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObject_MobileObject.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObjectPet.obj,Pet / Minimon / MiniHouse / Mover,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObjectPet.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObject.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineObject.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineMiniHouseObj.obj,Pet / Minimon / MiniHouse / Mover,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineMiniHouseObj.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemUse.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemUse.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemUpgrade.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemUpgrade.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemUnEquip.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemUnEquip.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemSplit.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemSplit.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemSell.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemSell.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemRepurchase.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemRepurchase.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemReloc.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemReloc.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemPick.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemPick.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemOperate.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemOperate.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemEquip.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemEquip.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemDrop.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemDrop.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemDismantle.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemDismantle.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemCreate.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemCreate.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemBuy.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItemBuy.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItem.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineItem.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineDiceTaiSai.obj,Gamble / Slot Machine; Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\ShineDiceTaiSai.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\SetItemData.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\SetItemData.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ServerMenuActor.obj,NPC / Dialog / Shops,E:\ProjectF2\Server\5ZoneServer2\Release US\ServerMenuActor.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\SellItemManager.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\SellItemManager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ScriptScene.obj,Quest / PineScript / Scenario,E:\ProjectF2\Server\5ZoneServer2\Release US\ScriptScene.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ScriptInterrupt.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ScriptInterrupt.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ScenarioBookShelf.obj,Quest / PineScript / Scenario,E:\ProjectF2\Server\5ZoneServer2\Release US\ScenarioBookShelf.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\RuleOfEngagement.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\RuleOfEngagement.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\RewardInven.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\RewardInven.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\RecallPointTable.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\RecallPointTable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\QuestFramework.obj,Quest / PineScript / Scenario,E:\ProjectF2\Server\5ZoneServer2\Release US\QuestFramework.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ProtocolParser.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\5ZoneServer2\Release US\ProtocolParser.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ProtocolAnalysis.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\5ZoneServer2\Release US\ProtocolAnalysis.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PowedNumber.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\PowedNumber.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PineScriptMore.obj,Quest / PineScript / Scenario,E:\ProjectF2\Server\5ZoneServer2\Release US\PineScriptMore.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PineScriptMobRegen.obj,Mob / AI / Spawn; Quest / PineScript / Scenario,E:\ProjectF2\Server\5ZoneServer2\Release US\PineScriptMobRegen.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PineScriptFunction.obj,Quest / PineScript / Scenario,E:\ProjectF2\Server\5ZoneServer2\Release US\PineScriptFunction.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PineScript.obj,Quest / PineScript / Scenario,E:\ProjectF2\Server\5ZoneServer2\Release US\PineScript.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PF_Zone.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\PF_Zone.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PF_WorldManager.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\5ZoneServer2\Release US\PF_WorldManager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PF_OpTool.obj,GM / Admin / Optool / Prison,E:\ProjectF2\Server\5ZoneServer2\Release US\PF_OpTool.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PF_GameLogDB.obj,Database / SQL / Logging,E:\ProjectF2\Server\5ZoneServer2\Release US\PF_GameLogDB.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PF_Client.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\PF_Client.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PF_CharDB.obj,Character / Stats / Class; Database / SQL / Logging,E:\ProjectF2\Server\5ZoneServer2\Release US\PF_CharDB.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PetRelatedSkill.obj,Skill / Battle / Roe; Pet / Minimon / MiniHouse / Mover,E:\ProjectF2\Server\5ZoneServer2\Release US\PetRelatedSkill.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PetProtoFunc.obj,Pet / Minimon / MiniHouse / Mover,E:\ProjectF2\Server\5ZoneServer2\Release US\PetProtoFunc.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PetData.obj,Pet / Minimon / MiniHouse / Mover,E:\ProjectF2\Server\5ZoneServer2\Release US\PetData.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PerformanceChecker.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\PerformanceChecker.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PathFinder.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\PathFinder.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PartyLeave.obj,Party / Raid / Party Finder,E:\ProjectF2\Server\5ZoneServer2\Release US\PartyLeave.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PartyKickOut.obj,Party / Raid / Party Finder,E:\ProjectF2\Server\5ZoneServer2\Release US\PartyKickOut.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PartyJoin.obj,Party / Raid / Party Finder,E:\ProjectF2\Server\5ZoneServer2\Release US\PartyJoin.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PartyCreate.obj,Party / Raid / Party Finder,E:\ProjectF2\Server\5ZoneServer2\Release US\PartyCreate.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PartyContainer.obj,Mob / AI / Spawn; Party / Raid / Party Finder,E:\ProjectF2\Server\5ZoneServer2\Release US\PartyContainer.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PartyBreak.obj,Party / Raid / Party Finder,E:\ProjectF2\Server\5ZoneServer2\Release US\PartyBreak.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ParameterContainer.obj,Mob / AI / Spawn; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\ParameterContainer.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\PacketBuffer.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\5ZoneServer2\Release US\PacketBuffer.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\OPToolSession.obj,GM / Admin / Optool / Prison; Network / Protocol / IOCP,E:\ProjectF2\Server\5ZoneServer2\Release US\OPToolSession.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\NPCManager.obj,NPC / Dialog / Shops,E:\ProjectF2\Server\5ZoneServer2\Release US\NPCManager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\NPCItemList.obj,Item / Inventory; NPC / Dialog / Shops,E:\ProjectF2\Server\5ZoneServer2\Release US\NPCItemList.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\NPCAct.obj,NPC / Dialog / Shops,E:\ProjectF2\Server\5ZoneServer2\Release US\NPCAct.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\NearScan.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\NearScan.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MultiTypeHandle.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\MultiTypeHandle.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MultiHitTable.obj,Skill / Battle / Roe,E:\ProjectF2\Server\5ZoneServer2\Release US\MultiHitTable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MoverUpgradeData.obj,Item / Inventory; Map / Field / Movement; Pet / Minimon / MiniHouse / Mover,E:\ProjectF2\Server\5ZoneServer2\Release US\MoverUpgradeData.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MoverDataBox.obj,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover,E:\ProjectF2\Server\5ZoneServer2\Release US\MoverDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MoveManager.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\MoveManager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobTraceStack.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MobTraceStack.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobTargetAggresive.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MobTargetAggresive.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobTacticElement.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MobTacticElement.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobScattering.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MobScattering.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobRoam.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MobRoam.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobHuntLog.obj,Mob / AI / Spawn; Database / SQL / Logging,E:\ProjectF2\Server\5ZoneServer2\Release US\MobHuntLog.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobHatchery.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MobHatchery.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobDropItemList.obj,Item / Inventory; Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MobDropItemList.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobDeadCount.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MobDeadCount.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobConditionChecker.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MobConditionChecker.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobChat.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MobChat.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobBrainBout.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MobBrainBout.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobBrain.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MobBrain.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MobAttackSequence.obj,Skill / Battle / Roe; Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MobAttackSequence.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MiscDataTable.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\MiscDataTable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MinimonDataBox.obj,Pet / Minimon / MiniHouse / Mover,E:\ProjectF2\Server\5ZoneServer2\Release US\MinimonDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MiniHouseObjAniDataBox.obj,Pet / Minimon / MiniHouse / Mover,E:\ProjectF2\Server\5ZoneServer2\Release US\MiniHouseObjAniDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MiniHouseInterior.obj,Pet / Minimon / MiniHouse / Mover,E:\ProjectF2\Server\5ZoneServer2\Release US\MiniHouseInterior.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MiniHouseEndureDataBox.obj,Pet / Minimon / MiniHouse / Mover,E:\ProjectF2\Server\5ZoneServer2\Release US\MiniHouseEndureDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MIDRewardDataBox.obj,Lua / Instance / KQ,E:\ProjectF2\Server\5ZoneServer2\Release US\MIDRewardDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MapClusterManager.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\MapClusterManager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MapBlockInformation.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\MapBlockInformation.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Main.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\Main.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\MagicContainer.obj,Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\MagicContainer.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Link.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\Link.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Layer.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\Layer.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\KQRewardDataBox.obj,Lua / Instance / KQ,E:\ProjectF2\Server\5ZoneServer2\Release US\KQRewardDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\KQContribute.obj,Lua / Instance / KQ,E:\ProjectF2\Server\5ZoneServer2\Release US\KQContribute.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\KingdomQuest.obj,Quest / PineScript / Scenario; Lua / Instance / KQ,E:\ProjectF2\Server\5ZoneServer2\Release US\KingdomQuest.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemsInChest.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemsInChest.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemRandomOption.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemRandomOption.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemMall.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemMall.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemLotInspector.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemLotInspector.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemGroupClassifier.obj,Item / Inventory; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemGroupClassifier.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemDropTable.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemDropTable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemDropFromMob.obj,Item / Inventory; Mob / AI / Spawn,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemDropFromMob.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemBreaker.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\ItemBreaker.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\InventoryLocking.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\InventoryLocking.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\InstanceDungeon_util.obj,Lua / Instance / KQ,E:\ProjectF2\Server\5ZoneServer2\Release US\InstanceDungeon_util.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\InstanceDungeon.obj,Lua / Instance / KQ,E:\ProjectF2\Server\5ZoneServer2\Release US\InstanceDungeon.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\HolyPromise.obj,Wedding / HolyPromise,E:\ProjectF2\Server\5ZoneServer2\Release US\HolyPromise.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\HitMeList.obj,Skill / Battle / Roe,E:\ProjectF2\Server\5ZoneServer2\Release US\HitMeList.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildWarManager.obj,Guild / Academy / Tournament,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildWarManager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildTournamentSystem.obj,Guild / Academy / Tournament,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildTournamentSystem.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildTournament.obj,Guild / Academy / Tournament,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildTournament.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildStorageManager.obj,Guild / Academy / Tournament,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildStorageManager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildReAttribute.obj,Guild / Academy / Tournament,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildReAttribute.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildGradeGrowth.obj,Guild / Academy / Tournament,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildGradeGrowth.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildAcademyRewardStorageManager.obj,Guild / Academy / Tournament,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildAcademyRewardStorageManager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildAcademy.obj,Guild / Academy / Tournament,E:\ProjectF2\Server\5ZoneServer2\Release US\GuildAcademy.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GMEventManager.obj,GM / Admin / Optool / Prison,E:\ProjectF2\Server\5ZoneServer2\Release US\GMEventManager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GatherNProduce.obj,Gather / Produce,E:\ProjectF2\Server\5ZoneServer2\Release US\GatherNProduce.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\FieldLevelDataBox.obj,Map / Field / Movement; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\FieldLevelDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GameLogSession.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\5ZoneServer2\Release US\GameLogSession.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\GameDBSession.obj,Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\5ZoneServer2\Release US\GameDBSession.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\FunctionCallingAnalyzer.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\FunctionCallingAnalyzer.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Field.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\Field.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\FacebookEventReward.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\FacebookEventReward.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\EquipEnumChanger.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\EquipEnumChanger.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\DuplicatedMenuTable.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\DuplicatedMenuTable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\DropLocationManager.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\DropLocationManager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\DropItemAnalyzer.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\DropItemAnalyzer.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\DivideBy1000.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\DivideBy1000.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\DirectDistanceTable.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\DirectDistanceTable.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\DefSkillData.obj,Skill / Battle / Roe,E:\ProjectF2\Server\5ZoneServer2\Release US\DefSkillData.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\DamageBySoul.obj,Skill / Battle / Roe,E:\ProjectF2\Server\5ZoneServer2\Release US\DamageBySoul.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\DamageByAngle.obj,Skill / Battle / Roe,E:\ProjectF2\Server\5ZoneServer2\Release US\DamageByAngle.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\CurrentMenu.obj,NPC / Dialog / Shops,E:\ProjectF2\Server\5ZoneServer2\Release US\CurrentMenu.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ClientSession.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\5ZoneServer2\Release US\ClientSession.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Chat.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\Chat.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ChasePathSplit.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\ChasePathSplit.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\CharSave.obj,Character / Stats / Class; Database / SQL / Logging,E:\ProjectF2\Server\5ZoneServer2\Release US\CharSave.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\CharQuest.obj,Character / Stats / Class; Quest / PineScript / Scenario,E:\ProjectF2\Server\5ZoneServer2\Release US\CharQuest.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\CharMapMarking.obj,Map / Field / Movement; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\CharMapMarking.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\CharLogin.obj,Character / Stats / Class; Network / Protocol / IOCP; Database / SQL / Logging,E:\ProjectF2\Server\5ZoneServer2\Release US\CharLogin.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ChargedItemEffectList.obj,Item / Inventory; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\ChargedItemEffectList.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\ChargedItemEffectDataBox.obj,Item / Inventory; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\ChargedItemEffectDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\CharDataTransmission.obj,Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\CharDataTransmission.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\CharDataSkill.obj,Skill / Battle / Roe; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\CharDataSkill.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\CharDataLoad.obj,Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\CharDataLoad.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\CharClass.obj,Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\CharClass.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\CharacterSkill.obj,Skill / Battle / Roe; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\CharacterSkill.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\CallBackEvent.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\CallBackEvent.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\BriefInfoExchange.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\BriefInfoExchange.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\BRAccUpgradeDataBox.obj,Item / Inventory,E:\ProjectF2\Server\5ZoneServer2\Release US\BRAccUpgradeDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\BoothManager.obj,Street Booth / Personal Shop,E:\ProjectF2\Server\5ZoneServer2\Release US\BoothManager.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\BmpDataBox.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\BmpDataBox.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\BlockingDistribute.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\BlockingDistribute.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\BlockImage.obj,Map / Field / Movement,E:\ProjectF2\Server\5ZoneServer2\Release US\BlockImage.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\BitSet.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\BitSet.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\BattleObject.obj,Skill / Battle / Roe,E:\ProjectF2\Server\5ZoneServer2\Release US\BattleObject.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\BattleHelpData.obj,Skill / Battle / Roe,E:\ProjectF2\Server\5ZoneServer2\Release US\BattleHelpData.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\Battle.obj,Skill / Battle / Roe,E:\ProjectF2\Server\5ZoneServer2\Release US\Battle.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\BadNameFilterData.obj,Security / Filters / Anti-spam,E:\ProjectF2\Server\5ZoneServer2\Release US\BadNameFilterData.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\AxialListIterator.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\5ZoneServer2\Release US\AxialListIterator.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\AuctionSystem.obj,Auction / Market,E:\ProjectF2\Server\5ZoneServer2\Release US\AuctionSystem.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\AttackRhythm.obj,Skill / Battle / Roe,E:\ProjectF2\Server\5ZoneServer2\Release US\AttackRhythm.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\AmpersandCommand.obj,GM / Admin / Optool / Prison,E:\ProjectF2\Server\5ZoneServer2\Release US\AmpersandCommand.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\AbnormalStateShelter.obj,Skill / Battle / Roe; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\AbnormalStateShelter.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\AbnormalStateDictionary.obj,Skill / Battle / Roe; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\AbnormalStateDictionary.obj
+Zone,E:\ProjectF2\Server\5ZoneServer2\Release US\AbnormalState.obj,Skill / Battle / Roe; Character / Stats / Class,E:\ProjectF2\Server\5ZoneServer2\Release US\AbnormalState.obj
+Zone,E:\ProjectF2\CSCode\Release US\ItemMixData.obj,Item / Inventory,E:\ProjectF2\CSCode\Release US\ItemMixData.obj
+Zone,E:\ProjectF2\CSCode\Release US\PacketEncrypt.obj,Network / Protocol / IOCP,E:\ProjectF2\CSCode\Release US\PacketEncrypt.obj
+Zone,E:\ProjectF2\CSCode\Release US\Shine.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\Shine.obj
+Zone,E:\ProjectF2\CSCode\Release US\DataReader.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\DataReader.obj
+Zone,E:\ProjectF2\CSCode\Release US\ShnDataFileCheckSum.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\ShnDataFileCheckSum.obj
+Zone,E:\ProjectF2\CSCode\Release US\CharacterTitle.obj,Character / Stats / Class,E:\ProjectF2\CSCode\Release US\CharacterTitle.obj
+Zone,E:\ProjectF2\CSCode\Release US\WeaponTitle.obj,Character / Stats / Class,E:\ProjectF2\CSCode\Release US\WeaponTitle.obj
+Zone,E:\ProjectF2\CSCode\Release US\Quest.obj,Quest / PineScript / Scenario,E:\ProjectF2\CSCode\Release US\Quest.obj
+Zone,E:\ProjectF2\CSCode\Release US\QuestData.obj,Quest / PineScript / Scenario,E:\ProjectF2\CSCode\Release US\QuestData.obj
+Zone,E:\ProjectF2\CSCode\Release US\QuestParserScript.obj,Quest / PineScript / Scenario,E:\ProjectF2\CSCode\Release US\QuestParserScript.obj
+Zone,E:\ProjectF2\CSCode\Release US\CGdp.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\CGdp.obj
+Zone,E:\ProjectF2\CSCode\Release US\CToken.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\CToken.obj
+Zone,E:\ProjectF2\CSCode\Release US\FindWay.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\FindWay.obj
+Zone,E:\ProjectF2\CSCode\Release US\AreaInfoData.obj,Mob / AI / Spawn,E:\ProjectF2\CSCode\Release US\AreaInfoData.obj
+Zone,E:\ProjectF2\CSCode\Release US\ChargedItem.obj,Item / Inventory; Character / Stats / Class,E:\ProjectF2\CSCode\Release US\ChargedItem.obj
+Zone,E:\ProjectF2\CSCode\Release US\MD5Checksum.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\MD5Checksum.obj
+Zone,E:\ProjectF2\CSCode\Release US\DiceTaiSai.obj,Gamble / Slot Machine; Mob / AI / Spawn,E:\ProjectF2\CSCode\Release US\DiceTaiSai.obj
+Zone,E:\ProjectF2\CSCode\Release US\strutil.obj,Unclassified / shared / STL / helper,E:\ProjectF2\CSCode\Release US\strutil.obj
+Zone,E:\ProjectF2\CSCode\Release US\ItemAuthority.obj,Item / Inventory,E:\ProjectF2\CSCode\Release US\ItemAuthority.obj
+Zone,E:\ProjectF2\CSCode\Release US\SingleDataMap.obj,Map / Field / Movement,E:\ProjectF2\CSCode\Release US\SingleDataMap.obj
+Zone,E:\ProjectF2\CSCode\Release US\Booth.obj,Street Booth / Personal Shop,E:\ProjectF2\CSCode\Release US\Booth.obj
+Zone,E:\ProjectF2\CSCode\Release US\BoothItemTypeMatchingInfo.obj,Street Booth / Personal Shop; Item / Inventory; Skill / Battle / Roe,E:\ProjectF2\CSCode\Release US\BoothItemTypeMatchingInfo.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\BinaryDataCollection.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\BinaryDataCollection.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\BTree.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\BTree.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\CardDeck.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\CardDeck.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\CharClassDataBox.obj,Character / Stats / Class,E:\ProjectF2\Server\1SharedCode\Release US\CharClassDataBox.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\Inventory.obj,Item / Inventory,E:\ProjectF2\Server\1SharedCode\Release US\Inventory.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\ItemAttributeClass.obj,Item / Inventory; Character / Stats / Class,E:\ProjectF2\Server\1SharedCode\Release US\ItemAttributeClass.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\ItemDataBox.obj,Item / Inventory,E:\ProjectF2\Server\1SharedCode\Release US\ItemDataBox.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\ItemTotalInformation.obj,Item / Inventory,E:\ProjectF2\Server\1SharedCode\Release US\ItemTotalInformation.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\ItemVariation.obj,Item / Inventory,E:\ProjectF2\Server\1SharedCode\Release US\ItemVariation.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\ShineLogSystem.obj,Database / SQL / Logging,E:\ProjectF2\Server\1SharedCode\Release US\ShineLogSystem.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\MainOption.obj,Mob / AI / Spawn,E:\ProjectF2\Server\1SharedCode\Release US\MainOption.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\MapDataBox.obj,Map / Field / Movement,E:\ProjectF2\Server\1SharedCode\Release US\MapDataBox.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\MobDataBox.obj,Mob / AI / Spawn,E:\ProjectF2\Server\1SharedCode\Release US\MobDataBox.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\MobResistTable.obj,Mob / AI / Spawn,E:\ProjectF2\Server\1SharedCode\Release US\MobResistTable.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\RandomBox.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\RandomBox.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\ShineAssert.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\ShineAssert.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\ShineScript.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\ShineScript.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\StackWalker.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\StackWalker.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\well512.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\well512.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\Debugger.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\Debugger.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\EHCrashHandler.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\EHCrashHandler.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\MiniDump.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\MiniDump.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\IOCP.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\IOCP.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\IOCP_Process.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\IOCP_Process.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\InetAddress.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\InetAddress.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\IOBuffer.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\IOBuffer.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor_Process.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_Acceptor_Process.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\Socket_IOCP.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\Socket_IOCP.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\GPacket.obj,Network / Protocol / IOCP,E:\ProjectF2\Server\1SharedCode\Release US\GPacket.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\CCsl.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\CCsl.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\String.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\String.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\GTimer.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\GTimer.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\WinService.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\WinService.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\OptionReader.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\OptionReader.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\ORColumnHeader.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\ORColumnHeader.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\ORKeyList.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\ORKeyList.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\ORRecord.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\ORRecord.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\ORToken.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\ORToken.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\ServerInfo.obj,Unclassified / shared / STL / helper,E:\ProjectF2\Server\1SharedCode\Release US\ServerInfo.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\PartySlot.obj,Party / Raid / Party Finder,E:\ProjectF2\Server\1SharedCode\Release US\PartySlot.obj
+Zone,E:\ProjectF2\Server\1SharedCode\Release US\RaidSystem.obj,Mob / AI / Spawn; Party / Raid / Party Finder,E:\ProjectF2\Server\1SharedCode\Release US\RaidSystem.obj

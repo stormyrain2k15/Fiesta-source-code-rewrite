@@ -1,0 +1,92 @@
+doc,category
+GM_Commands.md,GM / Admin / Optool / Prison
+database.md,Database / SQL / Logging
+server_and_client_setup.md,Unclassified / shared / STL / helper
+Lua Scripting/documentation.md,Lua / Instance / KQ
+Lua Scripting/setup.md,Lua / Instance / KQ
+SHN Documentation/AbState.md,Skill / Battle / Roe; Character / Stats / Class
+SHN Documentation/AbStateView.md,Skill / Battle / Roe; Character / Stats / Class
+SHN Documentation/ActionEffectAbState.md,Skill / Battle / Roe; Character / Stats / Class
+SHN Documentation/ActionEffectItem.md,Item / Inventory
+SHN Documentation/ActionRangeFactor.md,Unclassified / shared / STL / helper
+SHN Documentation/ActionViewInfo.md,Unclassified / shared / STL / helper
+SHN Documentation/ActiveSkill.md,Skill / Battle / Roe
+SHN Documentation/ActiveSkillServer.md,Skill / Battle / Roe
+SHN Documentation/ActiveSkillView.md,Skill / Battle / Roe
+SHN Documentation/AdminLvSet.md,GM / Admin / Optool / Prison
+SHN Documentation/AnnounceData.md,Unclassified / shared / STL / helper
+SHN Documentation/AttendReward.md,Unclassified / shared / STL / helper
+SHN Documentation/AttendSchedule.md,Unclassified / shared / STL / helper
+SHN Documentation/AuctionCost.md,Auction / Market
+SHN Documentation/AuctionGroupView.md,Auction / Market
+SHN Documentation/AuctionLimit.md,Auction / Market
+SHN Documentation/AuctionPeriod.md,Auction / Market
+SHN Documentation/BasicInfoLink.md,Map / Field / Movement
+SHN Documentation/BasicInfoTip.md,Unclassified / shared / STL / helper
+SHN Documentation/BasicInfoTipCycle.md,Unclassified / shared / STL / helper
+SHN Documentation/BasicInfoTitle.md,Character / Stats / Class
+SHN Documentation/CharacterTitleData.md,Character / Stats / Class
+SHN Documentation/CharacterTitleStateServer.md,Character / Stats / Class
+SHN Documentation/CharacterTitleStateView.md,Character / Stats / Class
+SHN Documentation/ChargedEffect.md,Character / Stats / Class
+SHN Documentation/ChargedIconItem.md,Item / Inventory; Character / Stats / Class
+SHN Documentation/ChargedMessageItem.md,Item / Inventory; Character / Stats / Class
+SHN Documentation/ClassName.md,Character / Stats / Class
+SHN Documentation/CollectCard.md,Card Collection
+SHN Documentation/CollectCardDropRate.md,Card Collection
+SHN Documentation/CollectCardGroupDesc.md,Card Collection
+SHN Documentation/CollectCardMobGroup.md,Card Collection; Mob / AI / Spawn
+SHN Documentation/CollectCardReward.md,Card Collection
+SHN Documentation/CollectCardStarRate.md,Card Collection
+SHN Documentation/CollectCardTitle.md,Card Collection; Character / Stats / Class
+SHN Documentation/CollectCardView.md,Card Collection
+SHN Documentation/GTIBreedSubJect.md,Unclassified / shared / STL / helper
+SHN Documentation/GTIGetRate.md,Unclassified / shared / STL / helper
+SHN Documentation/GTIGetRateGap.md,Unclassified / shared / STL / helper
+SHN Documentation/GTIServer.md,Unclassified / shared / STL / helper
+SHN Documentation/GTIView.md,Unclassified / shared / STL / helper
+SHN Documentation/GradeItemOption.md,Item / Inventory
+SHN Documentation/GuildTournament.md,Guild / Academy / Tournament
+SHN Documentation/HairInfo.md,Mob / AI / Spawn
+SHN Documentation/ItemAction.md,Item / Inventory
+SHN Documentation/ItemActionCondition.md,Item / Inventory
+SHN Documentation/ItemActionEffect.md,Item / Inventory
+SHN Documentation/ItemActionEffectDesc.md,Item / Inventory
+SHN Documentation/ItemInfo.md,Item / Inventory
+SHN Documentation/ItemInfoServer.md,Item / Inventory
+SHN Documentation/ItemMerchant.md,Item / Inventory; NPC / Dialog / Shops
+SHN Documentation/ItemUseEffect.md,Item / Inventory
+SHN Documentation/ItemViewInfo.md,Item / Inventory
+SHN Documentation/MHEmotion.md,Unclassified / shared / STL / helper
+SHN Documentation/MIDDesc.md,Lua / Instance / KQ
+SHN Documentation/MIDGroup.md,Lua / Instance / KQ
+SHN Documentation/MIDServer.md,Lua / Instance / KQ
+SHN Documentation/MIDWaitTime.md,Mob / AI / Spawn; Lua / Instance / KQ
+SHN Documentation/MIDungeon.md,Lua / Instance / KQ
+SHN Documentation/MapInfo.md,Map / Field / Movement
+SHN Documentation/MapViewInfo.md,Map / Field / Movement
+SHN Documentation/MobInfo.md,Mob / AI / Spawn
+SHN Documentation/MobInfoServer.md,Mob / AI / Spawn
+SHN Documentation/MobResist.md,Mob / AI / Spawn
+SHN Documentation/MobViewInfo.md,Mob / AI / Spawn
+SHN Documentation/MobWeapon.md,Mob / AI / Spawn
+SHN Documentation/NPCViewInfo.md,NPC / Dialog / Shops
+SHN Documentation/ProdSucRate.md,Gather / Produce
+SHN Documentation/QuestData.md,Quest / PineScript / Scenario
+SHN Documentation/QuestSpecies.md,Quest / PineScript / Scenario
+SHN Documentation/SNSCT.md,Master Apprentice / Social
+SHN Documentation/SNSGT.md,Master Apprentice / Social
+SHN Documentation/SNSJC.md,Master Apprentice / Social
+SHN Documentation/SNSLVUP.md,Master Apprentice / Social
+SHN Documentation/SNSMAIN.md,Mob / AI / Spawn; Master Apprentice / Social
+SHN Documentation/SNSMOBKILL.md,Mob / AI / Spawn; Master Apprentice / Social
+SHN Documentation/SNSPVP.md,Master Apprentice / Social
+SHN Documentation/SNSRWEXP.md,Character / Stats / Class; Master Apprentice / Social
+SHN Documentation/SNSRWITEM.md,Item / Inventory; Master Apprentice / Social
+SHN Documentation/SNSVIEW.md,Master Apprentice / Social
+SHN Documentation/ScriptMsg.md,Unclassified / shared / STL / helper
+SHN Documentation/SetEffect.md,Unclassified / shared / STL / helper
+SHN Documentation/SetItemName.md,Item / Inventory
+SHN Documentation/StateField.md,Map / Field / Movement; Character / Stats / Class
+SHN Documentation/StateMob.md,Mob / AI / Spawn; Character / Stats / Class
+SHN Documentation/SubAbState.md,Skill / Battle / Roe; Character / Stats / Class

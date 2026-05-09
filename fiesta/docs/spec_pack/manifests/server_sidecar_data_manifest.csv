@@ -1,0 +1,1512 @@
+file,ext,category
+SubAbStateClass.txt,.txt,Skill / Battle / Roe; Character / Stats / Class
+ServerInfo/ServerInfo.txt,.txt,Unclassified / shared / STL / helper
+ServerInfo/_ServerGroup.txt,.txt,Unclassified / shared / STL / helper
+Shine/DefaultCharacterData.txt,.txt,Character / Stats / Class
+Shine/TutorialCharacterData.txt,.txt,Character / Stats / Class
+Shine/AbState/AbStateInfo.dat,.dat,Skill / Battle / Roe; Character / Stats / Class
+Shine/AbState/StaArcDmgDown.dat,.dat,Skill / Battle / Roe; Character / Stats / Class
+Shine/AbState/StaCleDefDown.dat,.dat,Skill / Battle / Roe; Character / Stats / Class
+Shine/AbState/StaCleHold.dat,.dat,Skill / Battle / Roe; Character / Stats / Class
+Shine/AbState/StaDodge.dat,.dat,Skill / Battle / Roe; Character / Stats / Class
+Shine/AbState/StaHardSkin.dat,.dat,Skill / Battle / Roe; Character / Stats / Class
+Shine/AbState/StaLightDmg.dat,.dat,Skill / Battle / Roe; Character / Stats / Class
+Shine/AbState/StaMagSpdDown.dat,.dat,Skill / Battle / Roe; Character / Stats / Class
+Shine/AbState/StaRingShield.dat,.dat,Skill / Battle / Roe; Character / Stats / Class
+Shine/AbState/StaShield.dat,.dat,Skill / Battle / Roe; Character / Stats / Class
+Shine/AbState/StaVine.dat,.dat,Skill / Battle / Roe; Character / Stats / Class
+Shine/AreaBMP/ArkAstanica_Skill01_W.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/ArkAstron_Skill02_W.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/ArkAstron_Skill02_W_Test.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/B_Albireo_Skill01_W.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/B_Albireo_Skill02_W.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/Chimera_Skill_W03_2.BMP,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/Eglack_Skill05_W.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/FinalLight.bmp,.bmp,Unclassified / shared / STL / helper
+Shine/AreaBMP/KDFargels_DKnight_Skill01_W_G.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/KDFargels_DKnight_Skill02_W_G.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/KDFargels_Skill01_W_g.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/KDFargels_Skill02_W_g.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/KDFargels_Spearman_Skill01_W.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/LightShot01.bmp,.bmp,Unclassified / shared / STL / helper
+Shine/AreaBMP/LightShot02.bmp,.bmp,Unclassified / shared / STL / helper
+Shine/AreaBMP/LightShot03.bmp,.bmp,Unclassified / shared / STL / helper
+Shine/AreaBMP/SD_DragonSkill05_W.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SD_DragonSkill07_W_g.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SD_DragonSkill07_W_g1.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SD_DragonSkill07_W_g2.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SD_DragonSkill07_W_g3.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SD_DragonSkill07_W_g4.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SD_KingCrabSkill06_W_g.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SD_KingCrabSkill08_W.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_FAvanas_Skill01_W.BMP,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_FAvanas_Skill02_W.BMP,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_FAvanas_Skill03_W.BMP,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_FCitrie_Skill07_W.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_FFocalor_Skill04_W.BMP,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_FFocalor_Skill05_N.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_FFocalor_Skill05_N_01.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_FFocalor_Skill05_N_02.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_FFocalor_Skill05_N_03.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_FFocalor_Skill05_N_04.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_FFocalor_Skill05_N_05.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_IFocalor_Skill04_W_01.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_IFocalor_Skill04_W_02.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_IFocalor_Skill04_W_03.BMP,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_IFocalor_Skill04_W_04.BMP,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/SW_IFocalor_Skill04_W_05.BMP,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/S_Anais_Skill02_W_01.bmp,.bmp,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/AreaBMP/S_Anais_Skill02_W_02.bmp,.bmp,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/AreaBMP/S_Anais_Skill02_W_03.bmp,.bmp,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/AreaBMP/S_FreloanLeg_Skill01_W.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/S_Freloan_Skill01_W_01.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/S_Freloan_Skill01_W_02.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/S_Freloan_Skill01_W_03.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/S_Freloan_Skill01_W_04.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/S_Freloan_Skill01_W_05.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/S_Freloan_Skill02_W.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/S_Varamus_Skill02_W.bmp,.bmp,Skill / Battle / Roe
+Shine/AreaBMP/Thumbs.db,.db,Database / SQL / Logging
+Shine/AreaBMP/WarH_BossRoom.bmp,.bmp,Unclassified / shared / STL / helper
+Shine/BlockInfo/Adl.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/Adl.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/AdlF.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/AdlF.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/AdlF.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/AdlFH.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/AdlFH.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/AdlFH.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/AdlThorn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/AdlVal01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/AlDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/AlDn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/ArkDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/ArkDn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/BFGate01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/BFGate01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/BFGate02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/BFGate02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/BFGate03.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/BFGate04.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/BH_Albi.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/BH_Cracker.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/BH_Helga.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/B_Albi.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/B_Cracker.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/BerFrz01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/BerKal01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/BerVale01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Bera.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/Bera.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/CemDn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/CemDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/CemDn02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/CemDn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Croad01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Croad01D.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/DarkCave.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/DarkTown.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/E_Hwin.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/E_Hwin.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/E_Olympic.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/E_Olympic.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EchoCave.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/EchoCave.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Eld.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/Eld.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/Eld.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/Eld.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EldCem01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/EldCem01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EldCem02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/EldCem02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EldFor01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/EldFor01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EldGbl01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/EldGbl01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EldGbl01D.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EldGbl02.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/EldGbl02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/EldGbl02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EldPri.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/EldPri.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EldPri01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/EldPri01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EldPri02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/EldPri02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EldPri02D.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EldPriDn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/EldPriDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EldPriDn02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/EldPriDn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EldSleep01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/EldSleep01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/ElfDn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/ElfDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/ElfDn02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/ElfDn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EventF.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/EventF01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Fbattle01.bdt,.bdt,Skill / Battle / Roe; Map / Field / Movement
+Shine/BlockInfo/Fbattle01.shbd,.shbd,Skill / Battle / Roe; Map / Field / Movement
+Shine/BlockInfo/Fbattle02.bdt,.bdt,Skill / Battle / Roe; Map / Field / Movement
+Shine/BlockInfo/Fbattle02.shbd,.shbd,Skill / Battle / Roe; Map / Field / Movement
+Shine/BlockInfo/Fbattle03.bdt,.bdt,Skill / Battle / Roe; Map / Field / Movement
+Shine/BlockInfo/Fbattle03.shbd,.shbd,Skill / Battle / Roe; Map / Field / Movement
+Shine/BlockInfo/Fbattle04.shbd,.shbd,Skill / Battle / Roe; Map / Field / Movement
+Shine/BlockInfo/FireDn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/FireDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/FireDn02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/FireDn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/ForDn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/ForDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/ForDn02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/ForDn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/GBHouse.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Gate.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/GblDn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/GblDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/GblDn02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/GblDn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/GoldCave.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/GoldCave.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/GuildT01.bdt,.bdt,Map / Field / Movement; Guild / Academy / Tournament
+Shine/BlockInfo/GuildT01.sbi,.sbi,Map / Field / Movement; Guild / Academy / Tournament
+Shine/BlockInfo/GuildT01.shbd,.shbd,Map / Field / Movement; Guild / Academy / Tournament
+Shine/BlockInfo/GuildT02.bdt,.bdt,Map / Field / Movement; Guild / Academy / Tournament
+Shine/BlockInfo/GuildT02.sbi,.sbi,Map / Field / Movement; Guild / Academy / Tournament
+Shine/BlockInfo/GuildT02.shbd,.shbd,Map / Field / Movement; Guild / Academy / Tournament
+Shine/BlockInfo/GuildT03.bdt,.bdt,Map / Field / Movement; Guild / Academy / Tournament
+Shine/BlockInfo/GuildT03.sbi,.sbi,Map / Field / Movement; Guild / Academy / Tournament
+Shine/BlockInfo/GuildT03.shbd,.shbd,Map / Field / Movement; Guild / Academy / Tournament
+Shine/BlockInfo/GuildT04.sbi,.sbi,Map / Field / Movement; Guild / Academy / Tournament
+Shine/BlockInfo/GuildT04.shbd,.shbd,Map / Field / Movement; Guild / Academy / Tournament
+Shine/BlockInfo/IDGate01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/In_MiniHouse.shbd,.shbd,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+Shine/BlockInfo/In_MiniHouse01.shbd,.shbd,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+Shine/BlockInfo/Job1_Dn01.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/Job1_Dn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/Job1_Dn01.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/Job1_Dn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Job2_Dn01.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/Job2_Dn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/Job2_Dn01.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/Job2_Dn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Job2_Dn02.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/Job2_Dn02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/Job2_Dn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDAntiHenis.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/KDAntiHenis.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDArena.shab,.shab,Map / Field / Movement
+Shine/BlockInfo/KDArena.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDCake.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/KDCake.shab,.shab,Map / Field / Movement
+Shine/BlockInfo/KDCake.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDEddyHill.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDEddyHill.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/KDEddyHill.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDEddyHillblock.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDEgg.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDEnMaze.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDEnMaze.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/KDEnMaze.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDFargels.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/KDFargels.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDGoldHill.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDGoldHill.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/KDGoldHill.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDGreenHill.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/KDGreenHill.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDHBat1.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDHBat1.shab,.shab,Map / Field / Movement
+Shine/BlockInfo/KDHBat1.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDHDragon.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDHDragon.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDHero.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDHero.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDHoneying.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDHoneying.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/KDHoneying.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDHoneyingHill.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDKingkong.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDKingkong.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDMDragon.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDMDragon.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDMine.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDPrtShip.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDPrtShip.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDRockCan.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDRockCan.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDSoccer.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/KDSoccer.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/KDSoccer.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDSoccer_W.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/KDSoccer_W.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/KDSoccer_W.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDSpider.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDSpider.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDSpiderHall.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDSpring.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/KDSpring.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDTail.shbd,.shbd,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/KDTrDn.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDTrDn.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDUnHall.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/KDUnHall.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDVictor.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/KDVictor.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/KDWater.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/KDWater.shab,.shab,Map / Field / Movement
+Shine/BlockInfo/KDWater.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/LField02D.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Leviathan.shab,.shab,Map / Field / Movement
+Shine/BlockInfo/Leviathan.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Linkfield01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/Linkfield02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/MHBasic.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/MHBasic.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/MHBasic.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/M_plays01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Moebius.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/OX_field.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/OX_field.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/OX_field.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/OX_field.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/PriDn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/PriDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/PriDn02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/PriDn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/PsyIn.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/PsyInDn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/PsyOut.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/QField01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/QField02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/QField03.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/QField04.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/R_Helga01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/R_Helga01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Rou.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/Rou.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/Rou.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Rou.shmd,.shmd,Map / Field / Movement
+Shine/BlockInfo/RouCos01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/RouCos01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/RouCos01.shmd,.shmd,Map / Field / Movement
+Shine/BlockInfo/RouCos02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/RouCos02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/RouCos03.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/RouCos03.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/RouCos04.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/RouCos04.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/RouN.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/RouN.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/RouT.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/RouTemDn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/RouTemDn01.shab,.shab,Map / Field / Movement
+Shine/BlockInfo/RouTemDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/RouTemDn02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/RouTemDn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/RouVal01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/RouVal01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/RouVal02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/RouVal02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/SD_Vale01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Siren.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/Siren.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/SwaDn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/SwaDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/SwaDn02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/SwaDn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Swar.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Tower01.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/Tower01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Tower02.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/Tower02.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/Tower02.shab,.shab,Map / Field / Movement
+Shine/BlockInfo/Tower02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Tower03.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/Tower03.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/Tower03.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Urg.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/Urg.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/Urg.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/UrgD.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/UrgDark01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/UrgDragon.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/UrgDragon.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/UrgDragon.shab,.shab,Map / Field / Movement
+Shine/BlockInfo/UrgDragon.shad,.shad,Map / Field / Movement
+Shine/BlockInfo/UrgDragon.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/UrgFire.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/UrgFire01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/UrgFire01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/UrgFireDn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/UrgFireDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/UrgSwa01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/UrgSwa01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/UrgSwaDn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/UrgSwaDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Urg_Alruin.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/Urg_Alruin.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/ValDn01.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/ValDn01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/ValDn02.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/ValDn02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/WarBL.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/WarBL.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/WarH.aid,.aid,Mob / AI / Spawn; Map / Field / Movement
+Shine/BlockInfo/WarH.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/WarH.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/WarL.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/WarL.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/WarN.sbi,.sbi,Map / Field / Movement
+Shine/BlockInfo/WarN.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/Wedding.bdt,.bdt,Map / Field / Movement; Wedding / HolyPromise
+Shine/BlockInfo/WindyCave.bdt,.bdt,Map / Field / Movement
+Shine/BlockInfo/WindyCave.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/linkfield01.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/linkfield02.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/up-mi.shbd,.shbd,Map / Field / Movement
+Shine/BlockInfo/wedding.sbi,.sbi,Map / Field / Movement; Wedding / HolyPromise
+Shine/BlockInfo/wedding.shbd,.shbd,Map / Field / Movement; Wedding / HolyPromise
+Shine/LuaScript/common.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/AIScript/BH_Albireo.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/BH_Helga.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/BH_Helga.luac,.luac,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/BH_Humar.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/BH_Humar.luac,.luac,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/B_Albireo.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/BallEgg.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/Chimera.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/ClassChangeMaster01.lua,.lua,Mob / AI / Spawn; Character / Stats / Class; Lua / Instance / KQ; Master Apprentice / Social
+Shine/LuaScript/AIScript/ClassChangeMaster02.lua,.lua,Mob / AI / Spawn; Character / Stats / Class; Lua / Instance / KQ; Master Apprentice / Social
+Shine/LuaScript/AIScript/ClassChangeMaster03.lua,.lua,Mob / AI / Spawn; Character / Stats / Class; Lua / Instance / KQ; Master Apprentice / Social
+Shine/LuaScript/AIScript/Defense.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/E_CacaoBud.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/E_HwinIn.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/E_HwinOut.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/E_MomSlime.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/E_Ski_CongressNPC.lua,.lua,Mob / AI / Spawn; NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/AIScript/E_XTreeBig.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/Egg2014_GoldEgg.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/Oluming.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/Psy_Psyken.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/Toryming.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/AIScript/Xiaoming.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/AdlF/AdlF.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlF/AdlF_Gate.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlF/AdlF_Guarder.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlF/AdlF_Karen.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlF/AdlF_Loussier.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlF/AdlF_MagicStone.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlF/AdlF_Zone1.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlF/AdlF_Zone2.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlF/AdlF_Zone3.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlF/AdlF_Zone4.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlFH/AdlFH.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlFH/AdlFH_Gate.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlFH/AdlFH_Guarder.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlFH/AdlFH_Karen.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlFH/AdlFH_Loussier.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlFH/AdlFH_MagicStone.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlFH/AdlFH_Zone1.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlFH/AdlFH_Zone2.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlFH/AdlFH_Zone3.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/AdlFH/AdlFH_Zone4.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Bla/Bla.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Bla/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Bla/Data/Chat.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Bla/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Bla/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Bla/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/Bla/Data/Stuff.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Bla/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Bla/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Bla/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCH/CrystalCH.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCH/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCH/Data/Chat.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCH/Data/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCH/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCH/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCH/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCH/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCH/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCH/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCastle/CrystalCastle.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCastle/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCastle/Data/Chat.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCastle/Data/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCastle/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCastle/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCastle/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCastle/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCastle/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/CrystalCastle/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYard/GraveYard.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYard/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYard/Data/Chat.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYard/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYard/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYard/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYard/Data/Stuff.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYard/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYard/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYard/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYardH/GraveYardH.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYardH/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYardH/Data/Chat.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYardH/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYardH/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYardH/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYardH/Data/Stuff.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYardH/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYardH/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/GraveYardH/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTower/IyzelTower.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTower/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTower/Data/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTower/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTower/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTower/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTower/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTower/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTower/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTowerH/IyzelTowerH.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTowerH/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTowerH/Data/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTowerH/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTowerH/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTowerH/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTowerH/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTowerH/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/IyzelTowerH/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Leviathan/Leviathan.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Leviathan/Data/Chat.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Leviathan/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Leviathan/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Leviathan/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/Leviathan/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Leviathan/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Leviathan/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/LeviathanH/LeviathanH.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/LeviathanH/Data/Chat.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/LeviathanH/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/LeviathanH/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/LeviathanH/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/LeviathanH/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/LeviathanH/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/LeviathanH/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/SD_Vale01.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/Data/Chat.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/Data/SkillInfo_KingCrab.lua,.lua,Skill / Battle / Roe; Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/Data/SkillInfo_KingSlime.lua,.lua,Skill / Battle / Roe; Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/Data/SkillInfo_MiniDragon.lua,.lua,Skill / Battle / Roe; Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/Functions/Routine_KingCrab.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/Functions/Routine_KingSlime.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/Functions/Routine_MiniDragon.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SD_Vale01/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLab/SecretLab.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLab/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLab/Data/Chat.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLab/Data/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLab/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLab/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLab/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLab/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLab/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLab/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLabH/SecretLabH.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLabH/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLabH/Data/Chat.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLabH/Data/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLabH/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLabH/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLabH/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLabH/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLabH/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SecretLabH/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Siren/Siren.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Siren/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Siren/Data/Chat.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Siren/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Siren/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Siren/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/Siren/Data/Stuff.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Siren/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Siren/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/Siren/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SirenH/SirenH.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SirenH/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SirenH/Data/Chat.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SirenH/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SirenH/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SirenH/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/SirenH/Data/Stuff.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SirenH/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SirenH/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/SirenH/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarBL/WarBL.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarBL/WarBLData.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarBL/WarBLDeInitFuntion.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarBL/WarBLEventMobRoutine.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/WarBL/WarBLEventRoutine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarBL/WarBLInitFuntion.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarBLH/WarBLH.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarBLH/WarBLHData.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarBLH/WarBLHDeInitFuntion.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarBLH/WarBLHEventMobRoutine.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/WarBLH/WarBLHEventRoutine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarBLH/WarBLHInitFuntion.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarH/WarH.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarH/WarHData.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarH/WarHDeInitFunction.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarH/WarHEventMobRoutine.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/WarH/WarHEventRoutine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarH/WarHFunction.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarH/WarHInitFunction.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarHH/WarHH.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarHH/WarHHData.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarHH/WarHHDeInitFunction.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarHH/WarHHEventMobRoutine.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/WarHH/WarHHEventRoutine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarHH/WarHHFunction.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarHH/WarHHInitFunction.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarL/WarL.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarL/WarLData.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarL/WarLDeInitFuntion.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarL/WarLEventMobRoutine.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/WarL/WarLEventRoutine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarL/WarLInitFuntion.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarLH/WarLH.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarLH/WarLHData.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarLH/WarLHDeInitFuntion.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarLH/WarLHEventMobRoutine.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/ID/WarLH/WarLHEventRoutine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarLH/WarLHInitFuntion.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarN/WarN.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarN/WarNData.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarN/WarNFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarN/WarNRoutine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarNH/WarNH.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarNH/WarNHData.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarNH/WarNHFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/ID/WarNH/WarNHRoutine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/AntiHenis/AntiHenis.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/AntiHenis/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/AntiHenis/Data/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/KQ/AntiHenis/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/AntiHenis/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/AntiHenis/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/AntiHenis/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/AntiHenis/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/AntiHenis/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/EmperorSlime/EmperorSlime.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/EmperorSlime/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/EmperorSlime/Data/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/KQ/EmperorSlime/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/EmperorSlime/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/EmperorSlime/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/EmperorSlime/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/EmperorSlime/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/EmperorSlime/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/GoldHill/GoldHill.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/GoldHill/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/GoldHill/Data/ItemDrop.lua,.lua,Item / Inventory; Lua / Instance / KQ
+Shine/LuaScript/KQ/GoldHill/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/GoldHill/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/GoldHill/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/GoldHill/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/GoldHill/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/GoldHill/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/HMiniDragon/HMiniDragon.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/HMiniDragon/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/HMiniDragon/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/HMiniDragon/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/HMiniDragon/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/HMiniDragon/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/HMiniDragon/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/HMiniDragon/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/KDArena.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/KDArena1.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/KDArena2.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/KDArena3.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/KDArena4.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/KDArena5.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/KDArena6.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/CommonData/Monster.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/CommonData/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/CommonData/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Data1/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Data1/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Data2/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Data2/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Data3/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Data3/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Data4/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Data4/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Data5/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Data5/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Data6/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Data6/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDArena/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDCake/KDCake.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDCake/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDCake/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDCake/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDCake/Data/Servant.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDCake/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDCake/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDCake/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDEgg/KDEgg.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDEgg/KDEggData.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDEgg/KDEggFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDEgg/KDEggObjectRoutine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDFargels/KDFargels.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDFargels/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDFargels/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDFargels/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDFargels/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDFargels/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDFargels/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDFargels/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDMine/KDMine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDMine/KDMineData.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDMine/KDMineFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDMine/KDMineObjectRoutine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer/KDSoccer.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer/Data/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer_W/KDSoccer_W.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer_W/Data/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer_W/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer_W/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer_W/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer_W/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer_W/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSoccer_W/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSpring/KDSpring.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSpring/KDSpring_Data.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDSpring/KDSpring_StepFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDWater/KDWater.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDWater/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDWater/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDWater/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/KDWater/Data/Servant.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDWater/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDWater/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KDWater/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KingSlime/KingSlime.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KingSlime/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KingSlime/Data/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/KQ/KingSlime/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KingSlime/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KingSlime/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/KingSlime/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KingSlime/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/KingSlime/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/Kingkong/Kingkong.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/Kingkong/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/Kingkong/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/Kingkong/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/Kingkong/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/Kingkong/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/Kingkong/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/Kingkong/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/LegendOfBijou/LegendOfBijou.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/LegendOfBijou/Data/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/KQ/LegendOfBijou/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/LegendOfBijou/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/LegendOfBijou/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/LegendOfBijou/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/LegendOfBijou/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/LegendOfBijou/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MaraPirate/MaraPirate.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MaraPirate/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MaraPirate/Data/NPC.lua,.lua,NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/LuaScript/KQ/MaraPirate/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MaraPirate/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MaraPirate/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/MaraPirate/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MaraPirate/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MaraPirate/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MiniDragon/MiniDragon.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MiniDragon/Data/Boss.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MiniDragon/Data/Name.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MiniDragon/Data/Process.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MiniDragon/Data/Regen.lua,.lua,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/LuaScript/KQ/MiniDragon/Functions/Progress.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MiniDragon/Functions/Routine.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/KQ/MiniDragon/Functions/SubFunc.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/PetSystem/PetBase.lua,.lua,Lua / Instance / KQ; Pet / Minimon / MiniHouse / Mover
+Shine/LuaScript/PetSystem/PetBaseActionData.lua,.lua,Lua / Instance / KQ; Pet / Minimon / MiniHouse / Mover
+Shine/LuaScript/PetSystem/PetBaseIdleActionFunc.lua,.lua,Lua / Instance / KQ; Pet / Minimon / MiniHouse / Mover
+Shine/LuaScript/PetSystem/PetBaseRoutineFunc.lua,.lua,Lua / Instance / KQ; Pet / Minimon / MiniHouse / Mover
+Shine/LuaScript/PetSystem/PetBaseSettingFunc.lua,.lua,Lua / Instance / KQ; Pet / Minimon / MiniHouse / Mover
+Shine/LuaScript/PetSystem/PetBaseSubFunc.lua,.lua,Lua / Instance / KQ; Pet / Minimon / MiniHouse / Mover
+Shine/LuaScript/PetSystem/PetCommon.lua,.lua,Lua / Instance / KQ; Pet / Minimon / MiniHouse / Mover
+Shine/LuaScript/PetSystem/SubFunc.lua,.lua,Lua / Instance / KQ; Pet / Minimon / MiniHouse / Mover
+Shine/LuaScript/Promote/Job2_Forest/Job2_Forest.lua,.lua,Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Forest/Data/Chat.lua,.lua,Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Forest/Data/Name.lua,.lua,Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Forest/Data/Process.lua,.lua,Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Forest/Data/Regen.lua,.lua,Mob / AI / Spawn; Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Forest/Functions/Progress.lua,.lua,Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Forest/Functions/Routine.lua,.lua,Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Forest/Functions/SubFunc.lua,.lua,Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Gamb/Job2_Gamb.lua,.lua,Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Gamb/Data/Name.lua,.lua,Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Gamb/Data/Process.lua,.lua,Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Gamb/Data/Regen.lua,.lua,Mob / AI / Spawn; Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Gamb/Functions/Progress.lua,.lua,Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Gamb/Functions/Routine.lua,.lua,Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Promote/Job2_Gamb/Functions/SubFunc.lua,.lua,Character / Stats / Class; Lua / Instance / KQ
+Shine/LuaScript/Tutorial/Tutorial.lua,.lua,Lua / Instance / KQ
+Shine/LuaScript/Tutorial/TutorialData.lua,.lua,Lua / Instance / KQ
+Shine/MobAttackSequence/AdlFH_Eglack.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/AdlFH_EglackMad.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/AdlFH_Fknuckleman.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/AdlFH_Salare.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/AdlF_Fknuckleman.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A100.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A101.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A102.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A103.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A104.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A105.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A106.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A107.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A108.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A109.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A110.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A60.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A61.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A62.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A63.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A64.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A65.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A66.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A67.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A68.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A69.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A70.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A90.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A92.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A94.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A95.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A96.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A98.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_A99.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C100.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C101.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C102.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C103.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C104.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C105.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C106.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C107.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C108.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C109.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C110.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C60.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C61.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C62.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C63.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C64.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C65.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C66.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C67.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C68.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C69.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C70.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C90.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C94.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C95.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C96.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C97.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C98.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_C99.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F100.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F101.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F102.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F103.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F104.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F105.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F106.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F107.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F108.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F109.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F110.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F60.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F61.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F62.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F63.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F64.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F65.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F66.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F67.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F68.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F69.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F70.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F90.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F92.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F94.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F95.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F96.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F97.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F98.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_F99.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_A10.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_A100.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_A110.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_A120.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_A20.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_A30.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_A40.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_A50.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_A60.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_A70.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_A80.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_A90.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_C10.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_C100.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_C110.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_C120.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_C20.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_C30.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_C40.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_C50.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_C60.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_C70.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_C80.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_C90.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_F10.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_F100.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_F110.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_F120.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_F20.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_F30.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_F40.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_F50.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_F60.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_F70.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_F80.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_F90.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_M10.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_M100.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_M110.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_M120.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_M20.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_M30.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_M40.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_M50.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_M60.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_M70.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_M80.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_G_M90.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M100.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M101.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M102.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M103.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M104.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M105.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M106.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M107.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M108.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M109.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M110.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M60.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M61.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M62.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M63.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M64.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M65.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M66.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M67.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M68.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M69.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M70.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M90.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M91.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M92.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M95.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M96.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M97.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M98.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Anti_Henis_M99.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/BH_Albireo.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/BH_Guardian.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/BH_Helga.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/BH_Humar.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/BH_Looter.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/B_Albireo.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/B_CrackerGuardian.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/B_CrackerHumar.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/B_CrackerLooter.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/BomBoogy01.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/BomBoogy02.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/BomBoogy03.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/BomBoogy04.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/BoogyGuardian.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/C_JewelGolem.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Chimera.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/DT_FFocalor.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/DT_FFocalor_C.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/DT_IFocalor_C.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/DT_Ifocalor.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/DT_SFocalor.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/DT_SFocalor_C.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/DT_TFocalor.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/DT_TFocalor_C.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Eglack.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/EglackMad.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/EmperorCrab.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Event_H_MiniDragon.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/FireTotem.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Firepamelia.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Helga.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ID_BigMudMan.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn; GM / Admin / Optool / Prison
+Shine/MobAttackSequence/ID_EarthCalerben.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ID_EarthNerpa.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ID_FandomCornelius.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ID_FireShella.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ID_FireTaitan.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ID_FlameSpirit.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ID_GiantMagmaton.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn; GM / Admin / Optool / Prison
+Shine/MobAttackSequence/ID_Kruge.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ID_NestAlca.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ID_NestBaridon.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ID_NestGuardian.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ID_NestMadSlug.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ID_NestWeasel.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ID_Weasel.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/KDFargels.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/KQ_H_MiniDragon.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn; Lua / Instance / KQ
+Shine/MobAttackSequence/KQ_KalBanObeb.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn; Lua / Instance / KQ
+Shine/MobAttackSequence/Karen.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/KillerHide.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/KingBoogy.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/LabH_19.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/LabH_20.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/LabH_23.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/LabH_25.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Lab_19.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Lab_20.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Lab_23.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Lab_25.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/LevH_EmperorCrab.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/LevH_ID_NestAlca.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/LevH_ID_NestBaridon.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/LevH_KingBoogy.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/LevH_ViciousLeviathan.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/LevH_ViciousLeviathan01.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/MasicStaff.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/P_Psy_Mist1.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/P_Psy_Mist2.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/P_Psy_Mist3.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Psy_Mist.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Psy_Psyken.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Psy_Wraith.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Psyken.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/SD_Dragon.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/SD_KingCrab.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/SD_KingSlime.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Salare.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/Silberk.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_ArchMageBook00.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_ArchMageBook01.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_Boar.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_DesertWolf.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_DustGolem.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_FlyingStaff00.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_FlyingStaff01.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_GangImp.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_Ghost.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_HungryWolf.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_IceViVi.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_Imp.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_IronGolem.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_IronSlime00.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_IronSlime01.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_Kamaris01.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_Kamaris02.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_Kebing.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_KingCall.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_KingSpider.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_OldFox.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_PoisonGolem.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_Prock.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_Ratman.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_SkelArcher00.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_SkelArcher01.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_SkelArcher02.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_SkelWarrior.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_Skeleton.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_Spider00.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_Spider01.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_StoneGolem.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/T_Zombie.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/TestFireTotem.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/TestSilberk02.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/UrgDTH_ID_BigMudMan.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn; GM / Admin / Optool / Prison
+Shine/MobAttackSequence/UrgDTH_ID_EarthCalerben.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/UrgDTH_ID_EarthNerpa.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/UrgDTH_ID_FandomCornelius.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/UrgDTH_ID_FireShella.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/UrgDTH_ID_FireTaitan.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/UrgDTH_ID_FlameSpirit.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/UrgDTH_ID_GiantMagmaton.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn; GM / Admin / Optool / Prison
+Shine/MobAttackSequence/UrgDTH_ID_Kruge.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/UrgDTH_ID_Weasel.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ViciousLeviathan.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobAttackSequence/ViciousLeviathan01.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobBehaviorDescript/DefaultBehavior.ps,.ps,Mob / AI / Spawn
+Shine/MobBehaviorDescript/KQ/BossRobo.ps,.ps,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/MobBehaviorDescript/KQ/EndlessMaze.ps,.ps,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/MobBehaviorDescript/KQ/GordonMaster.ps,.ps,Mob / AI / Spawn; Lua / Instance / KQ; Master Apprentice / Social
+Shine/MobBehaviorDescript/KQ/KingSlime.ps,.ps,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/MobBehaviorDescript/KQ/MaraPirate.ps,.ps,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/MobBehaviorDescript/KQ/TravelerDungeon.ps,.ps,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/MobBehaviorDescript/KQ/UnderHall.ps,.ps,Mob / AI / Spawn; Lua / Instance / KQ
+Shine/MobRegen/Adl.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/AdlThorn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/AdlVal01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/AlDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/AlDn02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/ArkDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/ArkDn02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/BH_Albi.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/BH_Cracker.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/BH_Helga.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/B_Albi.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/B_Cracker.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/BerFrz01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/BerKal01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/BerVale01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Bera.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/CemDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/CemDn02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/E_Hwin.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/E_Olympic.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/EchoCave.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Eld.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/EldCem01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/EldCem02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/EldFor01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/EldGbl01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/EldGbl02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/EldPri01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/EldPri02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/EldPriDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/EldPriDn02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/EldSleep01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/ElfDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/ElfDn02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Fbattle01.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobRegen/Fbattle02.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobRegen/Fbattle03.txt,.txt,Skill / Battle / Roe; Mob / AI / Spawn
+Shine/MobRegen/FireDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/FireDn02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/ForDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/ForDn02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/GBHouse.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/GblDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/GblDn02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/GoldCave.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/GuildT0400.txt,.txt,Mob / AI / Spawn; Guild / Academy / Tournament
+Shine/MobRegen/GuildT0401.txt,.txt,Mob / AI / Spawn; Guild / Academy / Tournament
+Shine/MobRegen/GuildT0402.txt,.txt,Mob / AI / Spawn; Guild / Academy / Tournament
+Shine/MobRegen/GuildT0403.txt,.txt,Mob / AI / Spawn; Guild / Academy / Tournament
+Shine/MobRegen/GuildT0404.txt,.txt,Mob / AI / Spawn; Guild / Academy / Tournament
+Shine/MobRegen/GuildT0405.txt,.txt,Mob / AI / Spawn; Guild / Academy / Tournament
+Shine/MobRegen/GuildT0406.txt,.txt,Mob / AI / Spawn; Guild / Academy / Tournament
+Shine/MobRegen/GuildT0407.txt,.txt,Mob / AI / Spawn; Guild / Academy / Tournament
+Shine/MobRegen/KDHBat1.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/KingdomQuest.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/Linkfield01.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobRegen/Linkfield02.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobRegen/PriDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/PriDn02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/PsyIn.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/PsyInDn02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/PsyOut.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/QField01.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobRegen/QField02.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobRegen/QField03.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobRegen/QField04.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobRegen/R_Helga01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Rou.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/RouCos01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/RouCos02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/RouCos03.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/RouN.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/RouTemDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/RouTemDn02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/RouVal01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/RouVal02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/SwaDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/SwaDn02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Urg.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/UrgDark01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/UrgFire01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/UrgFireDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/UrgSwa01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/UrgSwaDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Urg_Alruin.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/ValDn01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/ValDn02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/WindyCave.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Instant/AdlF.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Instant/AdlFH.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Instant/Leviathan.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Instant/Siren.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Instant/Tower01.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Instant/Tower02.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Instant/Tower03.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Instant/UrgDragon.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/Instant/WarN.txt,.txt,Mob / AI / Spawn
+Shine/MobRegen/KingdomQuest/Job2_Dn01.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/Job2_Dn02.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDAntiHenis.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDEchoCave.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDEddyHill(old).txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDEddyHill.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDEnMaze.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDFargels.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDGoldHill(Making).txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDGoldHill.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDGreenHill.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDHBat1.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDHDragon.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDHero.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDHoneying.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDKingkong.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDKingkong2.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDKingkong3.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDMDragon.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDPrtShip.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDRockCan.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDSoccer_W.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDSpider.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDTrDn.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDUnHall.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDUnHall2.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KDVictor.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KD_Kingkong.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRegen/KingdomQuest/KQ_HONEYING.txt,.txt,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/MobRoam/AdlThornR01.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/AdlThornR02.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/AdlThornR03.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/AdlThornR04.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/AdlThornR05.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/AdlThornR06.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/AdlThornR07.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/AdlThornR08.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/AdlThornR09.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/AdlThornR10.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/AdlThornR11.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/AdlThornR12.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/BerValeDw01.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/BerValeDw02.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/BerValeDw03.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/BerValeDw04.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/BerValeGaruda.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/GB_Waitress01.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/GB_Waitress02.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/GB_Waitress03.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/GB_Waitress04.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/GB_Waitress05.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/GB_Waitress06.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/GB_Waitress07.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/GB_Waitress08.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/GB_Waitress09.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/GB_Waitress10.txt,.txt,Mob / AI / Spawn
+Shine/MobRoam/Kal01_HERO1.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/Action.xls,.xls,Mob / AI / Spawn
+Shine/MobSetting/Action/B_Slime.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/BallCake01.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/BallWater.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/C_Gate01.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/ChristmasTree.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/DT_EntranceGate.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/DT_ExitGate.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/DT_RadionOre.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/E_SixYear_Dance.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/E_SkiFlag_Blue.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/E_SkiFlag_Gold.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/E_SkiFlag_Red.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/E_Ski_IDHoneying.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/E_Ski_Snowman.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/Egg2014_BigEgg.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/GTI_BoxAll.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/GTI_BoxTeamA.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/GTI_BoxTeamB.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/Gate_AdlF.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/Gate_Lab.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/IDLeviathanGate01.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/IDMapLinkGate00.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobSetting/Action/IDMapLinkGate01.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobSetting/Action/IDMapLinkGate02.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobSetting/Action/IDMapLinkGate03.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobSetting/Action/KDSoccer_Ball.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/KDSoccer_Ball_14.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/KDSoccer_Invincible.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/KDSoccer_SpeedUp.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/KarenGate.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/LightField01.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobSetting/Action/LightField02.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobSetting/Action/LightField03.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobSetting/Action/LightField04.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobSetting/Action/LightField05.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobSetting/Action/LightOrb01.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/LightOrb02.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/LightOrb03.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/LightOrb04.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/LightOrb05.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/LightOrb06.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/LightOrb07.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/LightOrb08.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/LightOrb09.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/LightOrb10.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/MapLinkGate.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobSetting/Action/MapLinkGate01.txt,.txt,Mob / AI / Spawn; Map / Field / Movement
+Shine/MobSetting/Action/MultiProtect.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/MultiProtect02.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/MultiProtect03.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/SpImShield.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/SpUpShoes.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/T_Gate01.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/T_Gate02.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/WarBL_EntranceGate.txt,.txt,Mob / AI / Spawn
+Shine/MobSetting/Action/WarH_EntranceGate.txt,.txt,Mob / AI / Spawn
+Shine/NPCItemList/AdlAertsina.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/AdlLoussier.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/AdlSkillEdwina.txt,.txt,Item / Inventory; Skill / Battle / Roe; NPC / Dialog / Shops
+Shine/NPCItemList/AdlSmithAlexia.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/AlruinItemMctGeric.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/AlruinSkillPaela.txt,.txt,Item / Inventory; Skill / Battle / Roe; NPC / Dialog / Shops
+Shine/NPCItemList/AlruinSmithMacurdos.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/BeraGuardArcher.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/BeraItemEdmong.txt,.txt,Item / Inventory; Mob / AI / Spawn; NPC / Dialog / Shops
+Shine/NPCItemList/BeraItemMilly.txt,.txt,Item / Inventory; Mob / AI / Spawn; NPC / Dialog / Shops
+Shine/NPCItemList/BeraSkillHal.txt,.txt,Item / Inventory; Skill / Battle / Roe; NPC / Dialog / Shops
+Shine/NPCItemList/BeraSmithMcDilan.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/Chaoming.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/Daliy_Merchant.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/E_HwinQuest.txt,.txt,Item / Inventory; NPC / Dialog / Shops; Quest / PineScript / Scenario
+Shine/NPCItemList/E_Ski_MerchantNPC.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/E_Ski_RentMachine.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/E_XXiaoming.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/Egg2014_HoshemingNPC.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/Egg_Digger.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/EldArcGuard03.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/EldFurnitureForestTall.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/EldItemMctKenton.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/EldItemMctNina.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/EldPalSkillKeest.txt,.txt,Item / Inventory; Skill / Battle / Roe; NPC / Dialog / Shops
+Shine/NPCItemList/EldScoSkillDeikid.txt,.txt,Item / Inventory; Skill / Battle / Roe; NPC / Dialog / Shops
+Shine/NPCItemList/EldSmithKarls.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/EldWarSkillMarty.txt,.txt,Item / Inventory; Skill / Battle / Roe; NPC / Dialog / Shops
+Shine/NPCItemList/EldWeaponTitleMctBran.txt,.txt,Item / Inventory; NPC / Dialog / Shops; Character / Stats / Class
+Shine/NPCItemList/EldWizSkillWishis.txt,.txt,Item / Inventory; Skill / Battle / Roe; NPC / Dialog / Shops
+Shine/NPCItemList/GB_CoinStore.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/GB_MasterRoan.txt,.txt,Item / Inventory; NPC / Dialog / Shops; Master Apprentice / Social
+Shine/NPCItemList/GuildItemMct.txt,.txt,Item / Inventory; NPC / Dialog / Shops; Guild / Academy / Tournament
+Shine/NPCItemList/HednisSkillGrunt.txt,.txt,Item / Inventory; Skill / Battle / Roe; NPC / Dialog / Shops
+Shine/NPCItemList/HednisSmithRohan.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/IM_Arena01.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/IM_Arena02.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/IM_Arena_TE.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/ItemMctJelluin.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/Joker.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/KDSoccer_MctNPC.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/KDSoccer_MctNPC_14.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/KQSpring_Bman.txt,.txt,Item / Inventory; NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/NPCItemList/KQSpring_Rman.txt,.txt,Item / Inventory; NPC / Dialog / Shops; Lua / Instance / KQ
+Shine/NPCItemList/LC_Machine.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/LC_MachineBlue.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/LC_MachineRed.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/MineDigger.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/NPCItemList.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/NPCItemList.xls,.xls,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/RouFurnitureForestTom.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/RouItemMctPey.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/RouSkillRubi.txt,.txt,Item / Inventory; Skill / Battle / Roe; NPC / Dialog / Shops
+Shine/NPCItemList/RouSmithJames.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/RouSoulMctJulia.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/RouT_Skill.txt,.txt,Item / Inventory; Skill / Battle / Roe; NPC / Dialog / Shops
+Shine/NPCItemList/RouT_Smith.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/RouWeaponTitleMctZach.txt,.txt,Item / Inventory; NPC / Dialog / Shops; Character / Stats / Class
+Shine/NPCItemList/SD_Futureming.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/Swimming.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/SwimmingB.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/SwimmingR.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/TempSkill.txt,.txt,Item / Inventory; Skill / Battle / Roe; NPC / Dialog / Shops
+Shine/NPCItemList/Tiros.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/UrgSwaItemMct.txt,.txt,Item / Inventory; Mob / AI / Spawn; NPC / Dialog / Shops
+Shine/NPCItemList/UruFurnitureForestTeem.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/UruItemMctVellon.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/UruSkillChyburn.txt,.txt,Item / Inventory; Skill / Battle / Roe; NPC / Dialog / Shops
+Shine/NPCItemList/UruSmithHans.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/WeddingDreian.txt,.txt,Item / Inventory; NPC / Dialog / Shops; Wedding / HolyPromise
+Shine/NPCItemList/XiaomingB_7th.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/XiaomingR_7th.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/NPCItemList/Xiaoming_7th.txt,.txt,Item / Inventory; NPC / Dialog / Shops
+Shine/ScenarioBookShelf/Guild/GuildTournament.ps,.ps,Quest / PineScript / Scenario; Guild / Academy / Tournament
+Shine/ScenarioBookShelf/Guild/GuildTournament1.ps,.ps,Quest / PineScript / Scenario; Guild / Academy / Tournament
+Shine/ScenarioBookShelf/ID/d_NestOfLeviathan.ps,.ps,Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/ID/d_graveyard.ps,.ps,Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/KQ/ConditionOfHero.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/GordonMaster.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ; Master Apprentice / Social
+Shine/ScenarioBookShelf/KQ/HMiniDragon.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/Honeying.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/KQHBat1.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/KQHBat2.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/KQHBat3.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/KQHBat4.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/KQHBat5.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/KickOut.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/Kingkong.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/MiniDragon.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/Quest.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/RoumenGate.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/TesScript.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/UnderHall(Bak).ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/UnderHall.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/UnderHall2.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/ConditionOfHero/Shineonline_SSF/Project_G/Server/9Data/Shine/ScenarioBookShelf/KQ/ConditionOfHero.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/KingSlime/Fail.ps,.ps,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/KingSlime/Main.ps,.ps,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/KingSlime/Suc.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/UnderHall/Fail.ps,.ps,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/UnderHall/Main.ps,.ps,Mob / AI / Spawn; Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/KQ/UnderHall/Suc.ps,.ps,Quest / PineScript / Scenario; Lua / Instance / KQ
+Shine/ScenarioBookShelf/Map/Monkey.ps,.ps,Map / Field / Movement; Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Map/MonkeyBreed01.ps,.ps,Map / Field / Movement; Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Map/MonkeyBreed02.ps,.ps,Map / Field / Movement; Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Map/MonkeyBreed03.ps,.ps,Map / Field / Movement; Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Map/OXFieldInit.ps,.ps,Map / Field / Movement; Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Promote/JobChange1.ps,.ps,Character / Stats / Class; Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Promote/JobChange2-1.ps,.ps,Character / Stats / Class; Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Quest/ConditionOfHero.ps,.ps,Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Quest/GoldHill.ps,.ps,Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Quest/KickOut.ps,.ps,Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Quest/Kingkong.ps,.ps,Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Quest/MaraPirate.ps,.ps,Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Quest/MiniDragon.ps,.ps,Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Quest/Quest.ps,.ps,Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Quest/TesScript.ps,.ps,Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Quest/UnderHall.ps,.ps,Quest / PineScript / Scenario
+Shine/ScenarioBookShelf/Wedding/Wedding.ps,.ps,Quest / PineScript / Scenario; Wedding / HolyPromise
+Shine/Script/AdlF.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/AdlFH.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/D_Graveyard.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/Defense.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/Defense01.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/ETC.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/Event.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/GraveYard.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/GraveYardH.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/Honeying.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/JobChange1.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/JobChange2-1.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/JobChange2-2.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/JobChange2-3.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/KDArena.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/KDEgg.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/KDFargels.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/KDGreenHill.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/KDMine.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/KDSpring.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/KQAntiHenis100.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQConditionOfHero.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQGoldHill.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQGordonMaster.txt,.txt,Lua / Instance / KQ; Master Apprentice / Social
+Shine/Script/KQHBat1.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQHBat2.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQHBat3.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQHBat4.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQHBat5.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQHoneying.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQKingSlime.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQKingkong.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQMaraPirate.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQMiniDragon.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQUnderHall.txt,.txt,Lua / Instance / KQ
+Shine/Script/KQUnderHall2.txt,.txt,Lua / Instance / KQ
+Shine/Script/LegendOfBijou.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/MapName.txt,.txt,Map / Field / Movement
+Shine/Script/MenuString.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/Scenario.txt,.txt,Quest / PineScript / Scenario
+Shine/Script/Script.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/Script.xls,.xls,Unclassified / shared / STL / helper
+Shine/Script/Siren.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/Tower01.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/Tower02.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/Tower03.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/WarBL.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/WarH.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/WarL.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/WarN.txt,.txt,Unclassified / shared / STL / helper
+Shine/Script/Wedding.txt,.txt,Wedding / HolyPromise
+Shine/Script/d_NestOfLeviathan.txt,.txt,Unclassified / shared / STL / helper
+Shine/World/ChrCommon.txt,.txt,Unclassified / shared / STL / helper
+Shine/World/DamageByAngle.txt,.txt,Skill / Battle / Roe
+Shine/World/DamageBySoul.txt,.txt,Skill / Battle / Roe
+Shine/World/ExpRecalculation.txt,.txt,Character / Stats / Class
+Shine/World/Field.txt,.txt,Map / Field / Movement
+Shine/World/ItemDropGroup.txt,.txt,Item / Inventory
+Shine/World/ItemDropTable.txt,.txt,Item / Inventory
+Shine/World/ItemOptions.txt,.txt,Item / Inventory
+Shine/World/ItemUseFunction.txt,.txt,Item / Inventory
+Shine/World/Karen.txt,.txt,Unclassified / shared / STL / helper
+Shine/World/MiscDataTable.txt,.txt,Unclassified / shared / STL / helper
+Shine/World/MobChat.txt,.txt,Mob / AI / Spawn
+Shine/World/NPC.txt,.txt,NPC / Dialog / Shops
+Shine/World/NPCAction.txt,.txt,NPC / Dialog / Shops
+Shine/World/ParamArcherServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamAssassinServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamChaserServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamClericServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamCleverFighterServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamCloserServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamCruelServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamEnchanterServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamFighterServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamGladiatorServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamGuardianServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamHawkArcherServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamHighClericServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamHolyKnightServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamJokerServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamKnightServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamMageServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamPaladinServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamRangerServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamSaviorServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamScoutServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamSentinelServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamSharpShooterServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamWarriorServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamWarrockServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamWizMageServer.txt,.txt,Character / Stats / Class
+Shine/World/ParamWizardServer.txt,.txt,Character / Stats / Class
+Shine/World/PineScript.txt,.txt,Quest / PineScript / Scenario
+Shine/World/Quest.txt,.txt,Quest / PineScript / Scenario
+Shine/World/QuestParser.txt,.txt,Quest / PineScript / Scenario
+Shine/World/RandomOptionTable.txt,.txt,Item / Inventory
+Shine/World/RecallCoord.txt,.txt,Unclassified / shared / STL / helper
+Shine/World/SubLayerInteract.txt,.txt,Map / Field / Movement
+Shine/World/TreasureReward.txt,.txt,Unclassified / shared / STL / helper

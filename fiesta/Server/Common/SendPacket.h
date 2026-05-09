@@ -1,0 +1,24 @@
+// Server/Common/SendPacket.h
+// 07 Network -- helper SendPacket(session, opcode, builder) symmetric with PDB symbol SendPacket.
+// EVIDENCE: PDB_CONFIRMED  symbol: SendPacket
+#ifndef FIESTA_SENDPACKET_H
+#define FIESTA_SENDPACKET_H
+#include "../Shared/ShineTypes.h"
+#include "../Shared/GPacket.h"
+#include "../Shared/Socket_Acceptor.h"
+#include "NETCOMMAND.h"
+
+namespace fiesta {
+
+inline bool SendPacket(IOCPSession* pkSess, NCOpcode nc) {
+    if (!pkSess) return false;
+    GPacket pk(nc); return pkSess->SendPacket(pk);
+}
+
+inline bool SendPacket(IOCPSession* pkSess, NCOpcode nc, const void* pv, size_t n) {
+    if (!pkSess) return false;
+    GPacket pk(nc, pv, n); return pkSess->SendPacket(pk);
+}
+
+} // namespace fiesta
+#endif

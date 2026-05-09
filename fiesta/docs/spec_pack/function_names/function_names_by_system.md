@@ -1,0 +1,5732 @@
+# Original Function/Symbol Names Grouped By System
+
+This is a filtered PDB-derived reuse list. The CSV files contain the full extract; this markdown keeps each group readable. Keep these names when rebuilding where possible.
+
+## Auction / Market
+
+- `Account` — `CSQLPAuction::SQL_AUCTION_BUY` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_EXPIRE_TIME` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_MY_REGISTER_GOOD_LIST` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_MY_REGISTER_GOOD_LIST_ITEM_DATA` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_MY_STORAGE_BOX` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_MY_STORAGE_BOX_ITEM_DATA` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_MY_STORAGE_ITEM_DETAIL_INFO` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_MY_STORAGE_ITEM_DETAIL_INFO_DATA` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_REGISTER_CANCEL_GOOD` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_REGISTER_GOOD` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_SEARCH` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_SEARCH_ITEM_COUNT` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_SEARCH_ITEM_DATA` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_STORAGE_BOX_WITHDRAW_ITEM` — class method / original symbol
+- `Account` — `CSQLPAuction::SQL_AUCTION_STORAGE_BOX_WITHDRAW_MONEY` — class method / original symbol
+- `Account` — `NC_AUCTION` — symbol / original name candidate
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_BUY` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_EXPIRE_TIME` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_MY_REGISTER_GOOD_LIST` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_MY_REGISTER_GOOD_LIST_ITEM_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_MY_STORAGE_BOX` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_MY_STORAGE_BOX_ITEM_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_MY_STORAGE_ITEM_DETAIL_INFO` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_MY_STORAGE_ITEM_DETAIL_INFO_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_REGISTER_CANCEL_GOOD` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_REGISTER_GOOD` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_SEARCH` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_SEARCH_ITEM_COUNT` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_SEARCH_ITEM_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_STORAGE_BOX_WITHDRAW_ITEM` — class method / original symbol
+- `AccountLog` — `CSQLPAuction::SQL_AUCTION_STORAGE_BOX_WITHDRAW_MONEY` — class method / original symbol
+- `AccountLog` — `NC_AUCTION` — symbol / original name candidate
+- `Client` — `GameFrameWork::On_NC_TRADE_BOARDLOCK_ACK` — class method / original symbol
+- `Client` — `GameFrameWork::On_NC_TRADE_BOARDUNLOCK_CMD` — class method / original symbol
+- `Client` — `ITableBase<MarketSearchInfo,MarketSearchInfoTab>::GetTotal` — class method / original symbol
+- `Client` — `ItemMarket::Clear` — class method / original symbol
+- `Client` — `ItemMarket::GetItemSellInfoList` — class method / original symbol
+- `Client` — `ItemMarket::SetItem` — class method / original symbol
+- `Client` — `ItemMarket::ms_kItemSellInfoList$initializer$` — class method / original symbol
+- `Client` — `Market::Add` — class method / original symbol
+- `Client` — `Market::AddRepurchase` — class method / original symbol
+- `Client` — `Market::Clear` — class method / original symbol
+- `Client` — `Market::DeleteRepurchase` — class method / original symbol
+- `Client` — `Market::FindRepurchase` — class method / original symbol
+- `Client` — `Market::GetAcc` — class method / original symbol
+- `Client` — `Market::GetArcActSkill` — class method / original symbol
+- `Client` — `Market::GetArcPasSkill` — class method / original symbol
+- `Client` — `Market::GetArmor` — class method / original symbol
+- `Client` — `Market::GetCleActSkill` — class method / original symbol
+- `Client` — `Market::GetClePasSkill` — class method / original symbol
+- `Client` — `Market::GetEnchantItem` — class method / original symbol
+- `Client` — `Market::GetFigActSkill` — class method / original symbol
+- `Client` — `Market::GetFigPasSkill` — class method / original symbol
+- `Client` — `Market::GetHPSoulStoneInfo` — class method / original symbol
+- `Client` — `Market::GetJokActSkill` — class method / original symbol
+- `Client` — `Market::GetJokPasSkill` — class method / original symbol
+- `Client` — `Market::GetMagActSkill` — class method / original symbol
+- `Client` — `Market::GetMagPasSkill` — class method / original symbol
+- `Client` — `Market::GetProdSkill` — class method / original symbol
+- `Client` — `Market::GetRepurchase` — class method / original symbol
+- `Client` — `Market::GetSPSoulStoneInfo` — class method / original symbol
+- `Client` — `Market::GetSenActSkill` — class method / original symbol
+- `Client` — `Market::GetSenPasSkill` — class method / original symbol
+- `Client` — `Market::GetTotalAcc` — class method / original symbol
+- `Client` — `Market::GetTotalArcActiveSkill` — class method / original symbol
+- `Client` — `Market::GetTotalArcPassiveSkill` — class method / original symbol
+- `Client` — `Market::GetTotalArmor` — class method / original symbol
+- `Client` — `Market::GetTotalCleActiveSkill` — class method / original symbol
+- `Client` — `Market::GetTotalClePassiveSkill` — class method / original symbol
+- `Client` — `Market::GetTotalEnchantItem` — class method / original symbol
+- `Client` — `Market::GetTotalFigActiveSkill` — class method / original symbol
+- `Client` — `Market::GetTotalFigPassiveSkill` — class method / original symbol
+- `Client` — `Market::GetTotalJokActiveSkill` — class method / original symbol
+- `Client` — `Market::GetTotalJokPassiveSkill` — class method / original symbol
+- `Client` — `Market::GetTotalMagActiveSkill` — class method / original symbol
+- `Client` — `Market::GetTotalMagPassiveSkill` — class method / original symbol
+- `Client` — `Market::GetTotalProdSkill` — class method / original symbol
+- `Client` — `Market::GetTotalRepurchase` — class method / original symbol
+- `Client` — `Market::GetTotalSenActiveSkill` — class method / original symbol
+- `Client` — `Market::GetTotalSenPassiveSkill` — class method / original symbol
+- `Client` — `Market::GetTotalWeapon` — class method / original symbol
+- `Client` — `Market::GetTotalWeapontitleItem` — class method / original symbol
+- `Client` — `Market::GetWeaopn` — class method / original symbol
+- `Client` — `Market::GetWeapontitleItem` — class method / original symbol
+- `Client` — `Market::SetItemEnchant` — class method / original symbol
+- `Client` — `Market::SetRepurchaseItem` — class method / original symbol
+- `Client` — `Market::SetSkill` — class method / original symbol
+- `Client` — `Market::SetSoulStone` — class method / original symbol
+- `Client` — `Market::SetWeapon` — class method / original symbol
+- `Client` — `Market::SetWeapon::__l2::ItemSort` — class method / original symbol
+- `Client` — `MarketSearchItem::Clear` — class method / original symbol
+- `Client` — `MarketSearchItem::GetItem` — class method / original symbol
+- `Client` — `MarketSearchItem::GetItemHandle` — class method / original symbol
+- `Client` — `MarketSearchItem::GetOwnerHandle` — class method / original symbol
+- `Client` — `MarketSearchItem::GetPrice` — class method / original symbol
+- `Client` — `MarketSearchItem::IsAvailable` — class method / original symbol
+- `Client` — `MarketSearchItem::MarketSearchItem` — class method / original symbol
+- `Client` — `MarketSearchItem::Set` — class method / original symbol
+- `Client` — `MarketSearchItem::`scalar deleting destructor'` — class method / original symbol
+- `Client` — `MarketSearchItem::~MarketSearchItem` — class method / original symbol
+- `Client` — `MarketSearchWin::CloseSearchingMsgBox` — class method / original symbol
+- `Client` — `MarketSearchWin::Create` — class method / original symbol
+- `Client` — `MarketSearchWin::CreateWin` — class method / original symbol
+- `Client` — `MarketSearchWin::DelayTimeCheck` — class method / original symbol
+- `Client` — `MarketSearchWin::DirectMessage` — class method / original symbol
+- `Client` — `MarketSearchWin::GetItemFontTable` — class method / original symbol
+- `Client` — `MarketSearchWin::InitCategoryComboBoxUI` — class method / original symbol
+- `Client` — `MarketSearchWin::InitItemSearchUI` — class method / original symbol
+- `Client` — `MarketSearchWin::IsFindBooth` — class method / original symbol
+- `Client` — `MarketSearchWin::MakeDefaultAll` — class method / original symbol
+- `Client` — `MarketSearchWin::MarketSearchWin` — class method / original symbol
+- `Client` — `MarketSearchWin::MarketSort::CompItemHandle` — class method / original symbol
+- `Client` — `MarketSearchWin::MarketSort::CompLevel` — class method / original symbol
+- `Client` — `MarketSearchWin::MarketSort::CompMainGroup` — class method / original symbol
+- `Client` — `MarketSearchWin::MarketSort::CompMoney` — class method / original symbol
+- `Client` — `MarketSearchWin::MarketSort::CompName` — class method / original symbol
+- `Client` — `MarketSearchWin::MarketSort::CompSubGroup` — class method / original symbol
+- `Client` — `MarketSearchWin::OnClose` — class method / original symbol
+- `Client` — `MarketSearchWin::OnCommand` — class method / original symbol
+- `Client` — `MarketSearchWin::OnSearch` — class method / original symbol
+- `Client` — `MarketSearchWin::OnSearchBooth` — class method / original symbol
+- `Client` — `MarketSearchWin::OnShowWin` — class method / original symbol
+- `Client` — `MarketSearchWin::OnSomeoneBoothOpen` — class method / original symbol
+- `Client` — `MarketSearchWin::RefreshItemViewList` — class method / original symbol
+- `Client` — `MarketSearchWin::RefreshItemViewSlide` — class method / original symbol
+- `Client` — `MarketSearchWin::RemoveAllList` — class method / original symbol
+- `Client` — `MarketSearchWin::SetCategoryFromBtn` — class method / original symbol
+- `Client` — `MarketSearchWin::SetListIcon` — class method / original symbol
+- `Client` — `MarketSearchWin::SetListItem` — class method / original symbol
+- `Client` — `MarketSearchWin::SetListItems` — class method / original symbol
+- `Client` — `MarketSearchWin::SetSearchBooth` — class method / original symbol
+- `Client` — `MarketSearchWin::SetSearchingMsgBox` — class method / original symbol
+- `Client` — `MarketSearchWin::ShowWTCombo` — class method / original symbol
+- `Client` — `MarketSearchWin::Sort` — class method / original symbol
+- `Client` — `MarketSearchWin::SortByDefault::operator()` — class method / original symbol
+- `Client` — `MarketSearchWin::SortByLevel::operator()` — class method / original symbol
+- `Client` — `MarketSearchWin::SortByLevelDesc::operator()` — class method / original symbol
+- `Client` — `MarketSearchWin::SortByMoney::operator()` — class method / original symbol
+- `Client` — `MarketSearchWin::SortByMoneyDesc::operator()` — class method / original symbol
+- `Client` — `MarketSearchWin::SortByName::operator()` — class method / original symbol
+- `Client` — `MarketSearchWin::SortByNameDesc::operator()` — class method / original symbol
+- `Client` — `MarketSearchWin::UpdateMeWin` — class method / original symbol
+- `Client` — `MarketSearchWin::UpdateViewList` — class method / original symbol
+- `Client` — `MarketSearchWin::`scalar deleting destructor'` — class method / original symbol
+- `Client` — `MarketSearchWin::~MarketSearchWin` — class method / original symbol
+- `Client` — `NPCItemWin::ReSetItemMarket` — class method / original symbol
+- `Client` — `NiPointer<MarketSearchWin>::~NiPointer<MarketSearchWin>` — class method / original symbol
+- `Client` — ``dynamic atexit destructor for 'ItemMarket::ms_kItemSellInfoList''` — class method / original symbol
+- `Client` — ``dynamic initializer for 'ItemMarket::ms_kItemSellInfoList''` — class method / original symbol
+- `Client` — `std::_Adjust_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByDefault>` — class method / original symbol
+- `Client` — `std::_Adjust_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByLevel>` — class method / original symbol
+- `Client` — `std::_Adjust_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByLevelDesc>` — class method / original symbol
+- `Client` — `std::_Adjust_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByMoney>` — class method / original symbol
+- `Client` — `std::_Adjust_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByMoneyDesc>` — class method / original symbol
+- `Client` — `std::_Adjust_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByName>` — class method / original symbol
+- `Client` — `std::_Adjust_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByNameDesc>` — class method / original symbol
+- `Client` — `std::_Insertion_sort1<MarketSearchItem * *,MarketSearchWin::SortByDefault,MarketSearchItem *>` — class method / original symbol
+- `Client` — `std::_Insertion_sort1<MarketSearchItem * *,MarketSearchWin::SortByLevel,MarketSearchItem *>` — class method / original symbol
+- `Client` — `std::_Insertion_sort1<MarketSearchItem * *,MarketSearchWin::SortByLevelDesc,MarketSearchItem *>` — class method / original symbol
+- `Client` — `std::_Insertion_sort1<MarketSearchItem * *,MarketSearchWin::SortByMoney,MarketSearchItem *>` — class method / original symbol
+- `Client` — `std::_Insertion_sort1<MarketSearchItem * *,MarketSearchWin::SortByMoneyDesc,MarketSearchItem *>` — class method / original symbol
+- `Client` — `std::_Insertion_sort1<MarketSearchItem * *,MarketSearchWin::SortByName,MarketSearchItem *>` — class method / original symbol
+- `Client` — `std::_Insertion_sort1<MarketSearchItem * *,MarketSearchWin::SortByNameDesc,MarketSearchItem *>` — class method / original symbol
+- `Client` — `std::_Make_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByDefault>` — class method / original symbol
+- `Client` — `std::_Make_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByLevel>` — class method / original symbol
+- `Client` — `std::_Make_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByLevelDesc>` — class method / original symbol
+- `Client` — `std::_Make_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByMoney>` — class method / original symbol
+- `Client` — `std::_Make_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByMoneyDesc>` — class method / original symbol
+- `Client` — `std::_Make_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByName>` — class method / original symbol
+- `Client` — `std::_Make_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByNameDesc>` — class method / original symbol
+- `Client` — `std::_Med3<MarketSearchItem * *,MarketSearchWin::SortByDefault>` — class method / original symbol
+- `Client` — `std::_Med3<MarketSearchItem * *,MarketSearchWin::SortByLevel>` — class method / original symbol
+- `Client` — `std::_Med3<MarketSearchItem * *,MarketSearchWin::SortByLevelDesc>` — class method / original symbol
+- `Client` — `std::_Med3<MarketSearchItem * *,MarketSearchWin::SortByMoney>` — class method / original symbol
+- `Client` — `std::_Med3<MarketSearchItem * *,MarketSearchWin::SortByMoneyDesc>` — class method / original symbol
+- `Client` — `std::_Med3<MarketSearchItem * *,MarketSearchWin::SortByName>` — class method / original symbol
+- `Client` — `std::_Med3<MarketSearchItem * *,MarketSearchWin::SortByNameDesc>` — class method / original symbol
+- `Client` — `std::_Median<MarketSearchItem * *,MarketSearchWin::SortByDefault>` — class method / original symbol
+- `Client` — `std::_Median<MarketSearchItem * *,MarketSearchWin::SortByLevel>` — class method / original symbol
+- `Client` — `std::_Median<MarketSearchItem * *,MarketSearchWin::SortByLevelDesc>` — class method / original symbol
+- `Client` — `std::_Median<MarketSearchItem * *,MarketSearchWin::SortByMoney>` — class method / original symbol
+- `Client` — `std::_Median<MarketSearchItem * *,MarketSearchWin::SortByMoneyDesc>` — class method / original symbol
+- `Client` — `std::_Median<MarketSearchItem * *,MarketSearchWin::SortByName>` — class method / original symbol
+- `Client` — `std::_Median<MarketSearchItem * *,MarketSearchWin::SortByNameDesc>` — class method / original symbol
+- `Client` — `std::_Push_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByDefault>` — class method / original symbol
+- `Client` — `std::_Push_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByLevel>` — class method / original symbol
+- `Client` — `std::_Push_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByLevelDesc>` — class method / original symbol
+- `Client` — `std::_Push_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByMoney>` — class method / original symbol
+- `Client` — `std::_Push_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByMoneyDesc>` — class method / original symbol
+- `Client` — `std::_Push_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByName>` — class method / original symbol
+- `Client` — `std::_Push_heap<MarketSearchItem * *,int,MarketSearchItem *,MarketSearchWin::SortByNameDesc>` — class method / original symbol
+- `Client` — `std::_Sort<MarketSearchItem * *,int,MarketSearchWin::SortByDefault>` — class method / original symbol
+- `Client` — `std::_Sort<MarketSearchItem * *,int,MarketSearchWin::SortByLevel>` — class method / original symbol
+- `Client` — `std::_Sort<MarketSearchItem * *,int,MarketSearchWin::SortByLevelDesc>` — class method / original symbol
+- `Client` — `std::_Sort<MarketSearchItem * *,int,MarketSearchWin::SortByMoney>` — class method / original symbol
+- `Client` — `std::_Sort<MarketSearchItem * *,int,MarketSearchWin::SortByMoneyDesc>` — class method / original symbol
+- `Client` — `std::_Sort<MarketSearchItem * *,int,MarketSearchWin::SortByName>` — class method / original symbol
+- `Client` — `std::_Sort<MarketSearchItem * *,int,MarketSearchWin::SortByNameDesc>` — class method / original symbol
+- `Client` — `std::_Sort_heap<MarketSearchItem * *,MarketSearchWin::SortByDefault>` — class method / original symbol
+- `Client` — `std::_Sort_heap<MarketSearchItem * *,MarketSearchWin::SortByLevel>` — class method / original symbol
+- `Client` — `std::_Sort_heap<MarketSearchItem * *,MarketSearchWin::SortByLevelDesc>` — class method / original symbol
+- `Client` — `std::_Sort_heap<MarketSearchItem * *,MarketSearchWin::SortByMoney>` — class method / original symbol
+- `Client` — `std::_Sort_heap<MarketSearchItem * *,MarketSearchWin::SortByMoneyDesc>` — class method / original symbol
+- `Client` — `std::_Sort_heap<MarketSearchItem * *,MarketSearchWin::SortByName>` — class method / original symbol
+- `Client` — `std::_Sort_heap<MarketSearchItem * *,MarketSearchWin::SortByNameDesc>` — class method / original symbol
+- `Client` — `std::_Unguarded_partition<MarketSearchItem * *,MarketSearchWin::SortByDefault>` — class method / original symbol
+- `Client` — `std::_Unguarded_partition<MarketSearchItem * *,MarketSearchWin::SortByLevel>` — class method / original symbol
+- `Client` — `std::_Unguarded_partition<MarketSearchItem * *,MarketSearchWin::SortByLevelDesc>` — class method / original symbol
+- `Client` — `std::_Unguarded_partition<MarketSearchItem * *,MarketSearchWin::SortByMoney>` — class method / original symbol
+- `Client` — `std::_Unguarded_partition<MarketSearchItem * *,MarketSearchWin::SortByMoneyDesc>` — class method / original symbol
+- `Client` — `std::_Unguarded_partition<MarketSearchItem * *,MarketSearchWin::SortByName>` — class method / original symbol
+- `Client` — `std::_Unguarded_partition<MarketSearchItem * *,MarketSearchWin::SortByNameDesc>` — class method / original symbol
+- `Client` — `std::allocator<MarketSearchItem *>::allocate` — class method / original symbol
+- `Client` — `std::vector<MarketSearchItem *,std::allocator<MarketSearchItem *> >::_Reserve` — class method / original symbol
+- `Client` — `std::vector<MarketSearchItem *,std::allocator<MarketSearchItem *> >::push_back` — class method / original symbol
+- `Client` — `std::vector<MarketSearchItem *,std::allocator<MarketSearchItem *> >::reserve` — class method / original symbol
+- `Login` — `NC_AUCTION` — symbol / original name candidate
+- `WorldManager` — `NC_AUCTION` — symbol / original name candidate
+- `Zone` — `?sp_NC_TRADE_BOARDLOCK_REQ@ShinePlayer@ShineObjectClass@@QAEXPATNETCOMMAND@@HG@Z` — packet framework/helper
+- `Zone` — `?tb_FillCen@TradeBoard@@QAEXPAUTB_FillBufferArgument@1@0PAV1@00PAUPROTO_NC_ITEMDB_ITEMTRADE_REQ@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?tb_FillTradeBuffer@TradeBoard@@QAEEPAUTB_FillBufferArgument@1@0PAUPROTO_NC_ITEMDB_ITEMTRADE_REQ@@PAG@Z` — packet/protocol struct or template reference
+- `Zone` — `MarketSearchInfo::DataVersion` — class method / original symbol
+- `Zone` — `NC_AUCTION` — symbol / original name candidate
+- `Zone` — `NC_TRADE_BOARDLOCKFAIL_ACK` — symbol / original name candidate
+- `Zone` — `NC_TRADE_BOARDLOCK_ACK` — symbol / original name candidate
+- `Zone` — `NC_TRADE_BOARDLOCK_REQ` — symbol / original name candidate
+- `Zone` — `NC_TRADE_BOARDUNLOCK_CMD` — symbol / original name candidate
+- `Zone` — `ShineObjectClass::ShineObject::so_TradeBoard` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_TradeBoardreset` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_TradeBoardUnlock` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_TradeBoard` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_TradeBoardreset` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_TradeBoardUnlock` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_TRADE_BOARDLOCK_REQ` — Zone/Player client packet request handler
+- `Zone` — `TradeBoard::<unnamed-type-tb_Bit>` — class method / original symbol
+- `Zone` — `TradeBoard::<unnamed-type-tb_board>` — class method / original symbol
+- `Zone` — `TradeBoard::TB_FillBufferArgument` — class method / original symbol
+- `Zone` — `TradeBoard::TradeBoard` — class method / original symbol
+- `Zone` — `TradeBoard::tb_CanTradeItem` — class method / original symbol
+- `Zone` — `TradeBoard::tb_Clear` — class method / original symbol
+- `Zone` — `TradeBoard::tb_FillCen` — class method / original symbol
+- `Zone` — `TradeBoard::tb_FillTradeBuffer` — class method / original symbol
+- `Zone` — `TradeBoard::tb_Get` — class method / original symbol
+- `Zone` — `TradeBoard::tb_Home` — class method / original symbol
+- `Zone` — `TradeBoard::tb_Next` — class method / original symbol
+- `Zone` — `TradeBoard::tb_OffBoard` — class method / original symbol
+- `Zone` — `TradeBoard::tb_OnBoard` — class method / original symbol
+- `Zone` — `TradeBoard::~TradeBoard` — class method / original symbol
+- `Zone` — ``ShineObjectClass::ShinePlayer::sp_NC_TRADE_BOARDLOCK_REQ'::`2'::`dynamic atexit destructor for 'cmc''` — Zone/Player client packet request handler
+- `Zone` — `sp_NC_TRADE_BOARDLOCK_REQ` — symbol / original name candidate
+
+## Card Collection
+
+- `Account` — `ItemAttrCls_CardCollect::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `ItemAttrCls_CardCollect::iac_DropItemMake` — class method / original symbol
+- `Account` — `ItemAttrCls_CardCollect::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_CardCollect::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_CardCollect::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_CardCollect::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_CardCollect::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_CardCollect_Close::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `ItemAttrCls_CardCollect_Close::iac_DropItemMake` — class method / original symbol
+- `Account` — `ItemAttrCls_CardCollect_Close::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_CardCollect_Close::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_CardCollect_Close::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_CardCollect_Close::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_CardCollect_Close::iac_itemcreate` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect::`scalar deleting destructor'` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect::iac_DropItemMake` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect::iac_GetAttrSize` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect::iac_ItemClass` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect::iac_fill2buffer` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect::iac_fill2struct` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect::iac_itemcreate` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect_Close::`scalar deleting destructor'` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect_Close::iac_DropItemMake` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect_Close::iac_GetAttrSize` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect_Close::iac_ItemClass` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect_Close::iac_fill2buffer` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect_Close::iac_fill2struct` — class method / original symbol
+- `AccountLog` — `ItemAttrCls_CardCollect_Close::iac_itemcreate` — class method / original symbol
+- `WorldManager` — `?fc_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@CParserCharDB@@QAEHPAVCWMCharDBSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_CHAR_CARDCOLLECT_CMD@CParserCharDB@@QAEHPAVCWMCharDBSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_CHAR_CARDCOLLECT_REWARD_CMD@CParserCharDB@@QAEHPAVCWMCharDBSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `CParserCharDB::fc_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD` — class method / original symbol
+- `WorldManager` — `CParserCharDB::fc_NC_CHAR_CARDCOLLECT_CMD` — class method / original symbol
+- `WorldManager` — `CParserCharDB::fc_NC_CHAR_CARDCOLLECT_REWARD_CMD` — class method / original symbol
+- `WorldManager` — `NC_BAT_SOULCOLLECT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_CARDCOLLECT_BOOKMARK_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_CARDCOLLECT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_CARDCOLLECT_REWARD_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_CLIENT_CARDCOLLECT_BOOKMARK_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_CLIENT_CARDCOLLECT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_CLIENT_CARDCOLLECT_REWARD_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_ZONE_CARDCOLLECT_BOOKMARK_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_ZONE_CARDCOLLECT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_ZONE_CARDCOLLECT_REWARD_CMD` — symbol / original name candidate
+- `WorldManager` — `PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD::CardBookmarkInfo` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAR_CARDCOLLECT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAR_CARDCOLLECT_CMD::CardInform` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAR_CARDCOLLECT_REWARD_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `UCardBookmarkInfo@PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_CHAR_CARDCOLLECT_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_CHAR_CARDCOLLECT_REWARD_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `fc_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_CHAR_CARDCOLLECT_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_CHAR_CARDCOLLECT_REWARD_CMD` — symbol / original name candidate
+- `Zone` — `??$_Uninit_move@PAUCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@PAU12@V?$allocator@UCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@@std@@U12@@std@@YAPAUCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@PAU12@00AAV?$allocator@UCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@@0@0U_Nonscalar_ptr_iterator_tag@0@@Z` — packet/protocol struct or template reference
+- `Zone` — `?_Reserve@?$vector@UCardBookmarkInfo@PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@V?$allocator@UCardBookmarkInfo@PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@@std@@@std@@IAEXI@Z` — packet/protocol struct or template reference
+- `Zone` — `?_Reserve@?$vector@UCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@V?$allocator@UCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@@std@@@std@@IAEXI@Z` — packet/protocol struct or template reference
+- `Zone` — `?allocate@?$allocator@UCardBookmarkInfo@PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@@std@@QAEPAUCardBookmarkInfo@PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@I@Z` — packet/protocol struct or template reference
+- `Zone` — `?allocate@?$allocator@UCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@@std@@QAEPAUCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@I@Z` — packet/protocol struct or template reference
+- `Zone` — `?cca_Load@CardCollectionAlbum@CardCollection@@QAEXPAUPROTO_NC_CHAR_CARDCOLLECT_CMD@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?ccb_Load@CardCollectionBookmark@CardCollection@@QAEXPAUPROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?ccr_Load@CardCollectionReward@CardCollection@@QAEXPAUPROTO_NC_CHAR_CARDCOLLECT_REWARD_CMD@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?gds_NC_COLLECT_BOOKMARK_REGIST_DB_ACK@GameDBSession@@QAEXPATNETCOMMAND@@H@Z` — packet framework/helper
+- `Zone` — `?gds_NC_COLLECT_PEEPING_DB_COLLECT_ACK@GameDBSession@@QAEXPATNETCOMMAND@@H@Z` — packet framework/helper
+- `Zone` — `?gds_NC_COLLECT_PEEPING_DB_COLLECT_BOOKMARK_ACK@GameDBSession@@QAEXPATNETCOMMAND@@H@Z` — packet framework/helper
+- `Zone` — `?gds_NC_COLLECT_REGIST_ACK@GameDBSession@@QAEXPATNETCOMMAND@@H@Z` — packet framework/helper
+- `Zone` — `?gds_NC_COLLECT_REWARD_DB_ACK@GameDBSession@@QAEXPATNETCOMMAND@@H@Z` — packet framework/helper
+- `Zone` — `?push_back@?$vector@UCardBookmarkInfo@PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@V?$allocator@UCardBookmarkInfo@PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@@std@@@std@@QAEXABUCardBookmarkInfo@PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?push_back@?$vector@UCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@V?$allocator@UCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@@std@@@std@@QAEXABUCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?reserve@?$vector@UCardBookmarkInfo@PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@V?$allocator@UCardBookmarkInfo@PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@@std@@@std@@QAEXI@Z` — packet/protocol struct or template reference
+- `Zone` — `?reserve@?$vector@UCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@V?$allocator@UCardInform@PROTO_NC_CHAR_CARDCOLLECT_CMD@@@std@@@std@@QAEXI@Z` — packet/protocol struct or template reference
+- `Zone` — `?so_ply_CardBookmarkRegist@ShineObject@ShineObjectClass@@UAEXPAUPROTO_NC_COLLECT_BOOKMARK_REGIST_ACK@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?so_ply_CardBookmarkRegist@ShinePlayer@ShineObjectClass@@UAEXPAUPROTO_NC_COLLECT_BOOKMARK_REGIST_ACK@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?so_ply_CardCollect@ShineObject@ShineObjectClass@@UAEXPAUPROTO_NC_CHAR_CARDCOLLECT_CMD@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?so_ply_CardCollect@ShinePlayer@ShineObjectClass@@UAEXPAUPROTO_NC_CHAR_CARDCOLLECT_CMD@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?so_ply_CardCollectBookMark@ShineObject@ShineObjectClass@@UAEXPAUPROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?so_ply_CardCollectBookMark@ShinePlayer@ShineObjectClass@@UAEXPAUPROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?so_ply_CardCollectReward@ShineObject@ShineObjectClass@@UAEXPAUPROTO_NC_CHAR_CARDCOLLECT_REWARD_CMD@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?so_ply_CardCollectReward@ShinePlayer@ShineObjectClass@@UAEXPAUPROTO_NC_CHAR_CARDCOLLECT_REWARD_CMD@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?so_ply_CollectCardOpen@ShineObject@ShineObjectClass@@UAEXPAUPROTO_NC_ITEMDB_ITEMINFO_ACK@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?so_ply_CollectCardOpen@ShinePlayer@ShineObjectClass@@UAEXPAUPROTO_NC_ITEMDB_ITEMINFO_ACK@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?sp_NC_COLLECT_BOOKMARK_REGIST_REQ@ShinePlayer@ShineObjectClass@@QAEXPATNETCOMMAND@@HG@Z` — packet framework/helper
+- `Zone` — `?sp_NC_COLLECT_CARDREGIST_REQ@ShinePlayer@ShineObjectClass@@QAEXPATNETCOMMAND@@HG@Z` — packet framework/helper
+- `Zone` — `?sp_NC_COLLECT_PEEPING_REQ@ShinePlayer@ShineObjectClass@@QAEXPATNETCOMMAND@@HG@Z` — packet framework/helper
+- `Zone` — `?sp_NC_COLLECT_REWARD_REQ@ShinePlayer@ShineObjectClass@@QAEXPATNETCOMMAND@@HG@Z` — packet framework/helper
+- `Zone` — `?wms_NC_CHAR_ZONE_CARDCOLLECT_BOOKMARK_CMD@WorldManagerSession@@QAEXPATNETCOMMAND@@H@Z` — packet framework/helper
+- `Zone` — `?wms_NC_CHAR_ZONE_CARDCOLLECT_CMD@WorldManagerSession@@QAEXPATNETCOMMAND@@H@Z` — packet framework/helper
+- `Zone` — `?wms_NC_CHAR_ZONE_CARDCOLLECT_REWARD_CMD@WorldManagerSession@@QAEXPATNETCOMMAND@@H@Z` — packet framework/helper
+- `Zone` — `BinaryDataBox<CollectCard>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCard>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCard>::~BinaryDataBox<CollectCard>` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardDropRate>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardDropRate>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardDropRate>::~BinaryDataBox<CollectCardDropRate>` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardMobGroup>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardMobGroup>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardMobGroup>::~BinaryDataBox<CollectCardMobGroup>` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardReward>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardReward>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardReward>::~BinaryDataBox<CollectCardReward>` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardStarRate>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardStarRate>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardStarRate>::~BinaryDataBox<CollectCardStarRate>` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardTitle>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardTitle>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<CollectCardTitle>::~BinaryDataBox<CollectCardTitle>` — data table loader/index/helper
+- `Zone` — `CardCollection::CardCollectionAlbum::CardCollectionAlbum` — class method / original symbol
+- `Zone` — `CardCollection::CardCollectionAlbum::cca_IsRewardCondition` — class method / original symbol
+- `Zone` — `CardCollection::CardCollectionAlbum::cca_Load` — class method / original symbol
+- `Zone` — `CardCollection::CardCollectionAlbum::~CardCollectionAlbum` — class method / original symbol
+- `Zone` — `CardCollection::CardCollectionBookmark::CardCollectionBookmark` — class method / original symbol
+- `Zone` — `CardCollection::CardCollectionBookmark::ccb_Load` — class method / original symbol
+- `Zone` — `CardCollection::CardCollectionBookmark::~CardCollectionBookmark` — class method / original symbol
+- `Zone` — `CardCollection::CardCollectionReward::CardCollectionReward` — class method / original symbol
+- `Zone` — `CardCollection::CardCollectionReward::ccr_Load` — class method / original symbol
+- `Zone` — `CardCollection::CardCollectionReward::~CardCollectionReward` — class method / original symbol
+- `Zone` — `GameDBSession::gds_NC_COLLECT_BOOKMARK_REGIST_DB_ACK` — GameDB/DB packet ack handler
+- `Zone` — `GameDBSession::gds_NC_COLLECT_PEEPING_DB_COLLECT_ACK` — GameDB/DB packet ack handler
+- `Zone` — `GameDBSession::gds_NC_COLLECT_PEEPING_DB_COLLECT_BOOKMARK_ACK` — GameDB/DB packet ack handler
+- `Zone` — `GameDBSession::gds_NC_COLLECT_REGIST_ACK` — GameDB/DB packet ack handler
+- `Zone` — `GameDBSession::gds_NC_COLLECT_REWARD_DB_ACK` — GameDB/DB packet ack handler
+- `Zone` — `ItemAttrCls_CardCollect::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `ItemAttrCls_CardCollect::iac_DropItemMake` — class method / original symbol
+- `Zone` — `ItemAttrCls_CardCollect::iac_GetAttrSize` — class method / original symbol
+- `Zone` — `ItemAttrCls_CardCollect::iac_ItemClass` — class method / original symbol
+- `Zone` — `ItemAttrCls_CardCollect::iac_fill2buffer` — class method / original symbol
+- `Zone` — `ItemAttrCls_CardCollect::iac_fill2struct` — class method / original symbol
+- `Zone` — `ItemAttrCls_CardCollect::iac_itemcreate` — class method / original symbol
+- `Zone` — `ItemAttrCls_CardCollect_Close::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `ItemAttrCls_CardCollect_Close::iac_DropItemMake` — class method / original symbol
+- `Zone` — `ItemAttrCls_CardCollect_Close::iac_GetAttrSize` — class method / original symbol
+- `Zone` — `ItemAttrCls_CardCollect_Close::iac_ItemClass` — class method / original symbol
+- `Zone` — `ItemAttrCls_CardCollect_Close::iac_fill2buffer` — class method / original symbol
+- `Zone` — `ItemAttrCls_CardCollect_Close::iac_fill2struct` — class method / original symbol
+- `Zone` — `ItemAttrCls_CardCollect_Close::iac_itemcreate` — class method / original symbol
+- `Zone` — `NC_BAT_SOULCOLLECT_CMD` — symbol / original name candidate
+- `Zone` — `NC_COLLECT_BOOKMARK_REGIST_ACK` — symbol / original name candidate
+- `Zone` — `NC_COLLECT_BOOKMARK_REGIST_REQ` — symbol / original name candidate
+- `Zone` — `NC_COLLECT_CARDOPEN_CMD` — symbol / original name candidate
+- `Zone` — `NC_COLLECT_PEEPING_COLLECT_ACK` — symbol / original name candidate
+- `Zone` — `NC_COLLECT_PEEPING_COLLECT_BOOKMARK_ACK` — symbol / original name candidate
+- `Zone` — `NC_COLLECT_REGIST_REQ` — symbol / original name candidate
+- `Zone` — `NC_COLLECT_REWARD_ACK` — symbol / original name candidate
+- `Zone` — `NC_COLLECT_REWARD_DB_REQ` — symbol / original name candidate
+- `Zone` — `PROTO_NC_CHAR_ZONE_CARDCOLLECT_BOOKMARK_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_CHAR_ZONE_CARDCOLLECT_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_CHAR_ZONE_CARDCOLLECT_REWARD_CMD` — packet/protocol struct or template reference
+- `Zone` — `SHND::CommonData<CollectCard,SHND::CmpCardCollect<CollectCard> >::CommonData<CollectCard,SHND::CmpCardCollect<CollectCard> >` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCard,SHND::CmpCardCollect<CollectCard> >::cd_Find` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCard,SHND::CmpCardCollect<CollectCard> >::cd_Load` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCard,SHND::CmpCollectCard_ItemIndex>::CommonData<CollectCard,SHND::CmpCollectCard_ItemIndex>` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCard,SHND::CmpCollectCard_ItemIndex>::cd_Find` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCard,SHND::CmpCollectCard_ItemIndex>::cd_Load` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCard,SHND::CmpCollectCard_MobGroup>::CommonData<CollectCard,SHND::CmpCollectCard_MobGroup>` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCard,SHND::CmpCollectCard_MobGroup>::cd_Find` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCard,SHND::CmpCollectCard_MobGroup>::cd_Load` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCardDropRate,SHND::CmpCardCollect<CollectCardDropRate> >::cd_Load` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCardMobGroup,SHND::CmpCollectCardMobGroup>::CommonData<CollectCardMobGroup,SHND::CmpCollectCardMobGroup>` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCardMobGroup,SHND::CmpCollectCardMobGroup>::cd_Find` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCardMobGroup,SHND::CmpCollectCardMobGroup>::cd_Load` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCardReward,SHND::CmpCollectCardReward>::CommonData<CollectCardReward,SHND::CmpCollectCardReward>` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCardReward,SHND::CmpCollectCardReward>::cd_Find` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCardReward,SHND::CmpCollectCardReward>::cd_Load` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCardStarRate,SHND::CmpCollectCardStarRate>::CommonData<CollectCardStarRate,SHND::CmpCollectCardStarRate>` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCardStarRate,SHND::CmpCollectCardStarRate>::cd_Find` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCardStarRate,SHND::CmpCollectCardStarRate>::cd_Load` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCardTitle,SHND::CmpCollectCardTitle>::CommonData<CollectCardTitle,SHND::CmpCollectCardTitle>` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCardTitle,SHND::CmpCollectCardTitle>::cd_Find` — data table loader/index/helper
+- `Zone` — `SHND::CommonData<CollectCardTitle,SHND::CmpCollectCardTitle>::cd_Load` — data table loader/index/helper
+- `Zone` — `SHND::IndexedCommonData<CollectCard,SHND::CmpCardCollect<CollectCard>,unsigned short>::cd_Load` — data table loader/index/helper
+- `Zone` — `SHND::IndexedCommonData<CollectCard,SHND::CmpCardCollect<CollectCard>,unsigned short>::icd_Indexing` — data table loader/index/helper
+- `Zone` — `SHND::IndexedCommonData<CollectCard,SHND::CmpCardCollect<CollectCard>,unsigned short>::~IndexedCommonData<CollectCard,SHND::CmpCardCollect<CollectCard>,unsigned short>` — data table loader/index/helper
+- `Zone` — `SHND::`dynamic atexit destructor for 'g_CollectCardDropRate_CardID''` — class method / original symbol
+- `Zone` — `SHND::`dynamic atexit destructor for 'g_CollectCardMobGroup_MobGroup''` — class method / original symbol
+- `Zone` — `SHND::`dynamic atexit destructor for 'g_CollectCardReward''` — class method / original symbol
+- `Zone` — `SHND::`dynamic atexit destructor for 'g_CollectCardStarRate''` — class method / original symbol
+- `Zone` — `SHND::`dynamic atexit destructor for 'g_CollectCardTitle''` — class method / original symbol
+- `Zone` — `SHND::`dynamic atexit destructor for 'g_CollectCard_CardID''` — class method / original symbol
+- `Zone` — `SHND::`dynamic atexit destructor for 'g_CollectCard_ItemIndex''` — class method / original symbol
+- `Zone` — `SHND::`dynamic atexit destructor for 'g_CollectCard_MobGroup''` — class method / original symbol
+- `Zone` — `SHND::`dynamic initializer for 'g_CollectCardDropRate_CardID''` — class method / original symbol
+- `Zone` — `SHND::`dynamic initializer for 'g_CollectCardMobGroup_MobGroup''` — class method / original symbol
+- `Zone` — `SHND::`dynamic initializer for 'g_CollectCardReward''` — class method / original symbol
+- `Zone` — `SHND::`dynamic initializer for 'g_CollectCardStarRate''` — class method / original symbol
+- `Zone` — `SHND::`dynamic initializer for 'g_CollectCardTitle''` — class method / original symbol
+- `Zone` — `SHND::`dynamic initializer for 'g_CollectCard_CardID''` — class method / original symbol
+- `Zone` — `SHND::`dynamic initializer for 'g_CollectCard_ItemIndex''` — class method / original symbol
+- `Zone` — `SHND::`dynamic initializer for 'g_CollectCard_MobGroup''` — class method / original symbol
+- `Zone` — `SHND::g_CollectCardDropRate_CardID` — class method / original symbol
+- `Zone` — `SHND::g_CollectCardMobGroup_MobGroup` — class method / original symbol
+- `Zone` — `SHND::g_CollectCardReward` — class method / original symbol
+- `Zone` — `SHND::g_CollectCardStarRate` — class method / original symbol
+- `Zone` — `SHND::g_CollectCardTitle` — class method / original symbol
+- `Zone` — `SHND::g_CollectCard_CardID` — class method / original symbol
+- `Zone` — `SHND::g_CollectCard_ItemIndex` — class method / original symbol
+- `Zone` — `SHND::g_CollectCard_MobGroup` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_CardCollect` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_CardCollectBookMark` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_CardCollectReward` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_CollectCardOpen` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_CardCollect` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_CardCollectBookMark` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_CardCollectReward` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_CollectCardOpen` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_CardCollectionSend` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_COLLECT_BOOKMARK_REGIST_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_COLLECT_CARDREGIST_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_COLLECT_PEEPING_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_COLLECT_REWARD_REQ` — Zone/Player client packet request handler
+- `Zone` — `WorldManagerSession::wms_NC_CHAR_ZONE_CARDCOLLECT_BOOKMARK_CMD` — WorldManager/Zone protocol handler
+- `Zone` — `WorldManagerSession::wms_NC_CHAR_ZONE_CARDCOLLECT_CMD` — WorldManager/Zone protocol handler
+- `Zone` — `WorldManagerSession::wms_NC_CHAR_ZONE_CARDCOLLECT_REWARD_CMD` — WorldManager/Zone protocol handler
+- `Zone` — `std::_Uninit_move<CollectCard *,CollectCard *,std::allocator<CollectCard>,CollectCard>` — class method / original symbol
+- `Zone` — `std::_Uninit_move<CollectCardDropRate *,CollectCardDropRate *,std::allocator<CollectCardDropRate>,CollectCardDropRate>` — class method / original symbol
+- `Zone` — `std::_Uninit_move<CollectCardMobGroup *,CollectCardMobGroup *,std::allocator<CollectCardMobGroup>,CollectCardMobGroup>` — class method / original symbol
+- `Zone` — `std::_Uninit_move<CollectCardReward *,CollectCardReward *,std::allocator<CollectCardReward>,CollectCardReward>` — class method / original symbol
+- `Zone` — `std::_Uninit_move<CollectCardStarRate *,CollectCardStarRate *,std::allocator<CollectCardStarRate>,CollectCardStarRate>` — class method / original symbol
+- `Zone` — `std::_Uninit_move<CollectCardTitle *,CollectCardTitle *,std::allocator<CollectCardTitle>,CollectCardTitle>` — class method / original symbol
+- `Zone` — `std::_Uninit_move<PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD::CardBookmarkInfo *,PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD::CardBookmarkInfo *,std::allocator<PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD::CardBookmarkInfo>,PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD::CardBookmarkInfo>` — packet/protocol struct or template reference
+- `Zone` — `std::_Uninit_move<PROTO_NC_CHAR_CARDCOLLECT_CMD::CardInform *,PROTO_NC_CHAR_CARDCOLLECT_CMD::CardInform *,std::allocator<PROTO_NC_CHAR_CARDCOLLECT_CMD::CardInform>,PROTO_NC_CHAR_CARDCOLLECT_CMD::CardInform>` — packet/protocol struct or template reference
+- `Zone` — `std::allocator<CollectCard *>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<CollectCard>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<CollectCardDropRate>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<CollectCardMobGroup>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<CollectCardReward>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<CollectCardStarRate>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<CollectCardTitle>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD::CardBookmarkInfo>::allocate` — packet/protocol struct or template reference
+- `Zone` — `std::allocator<PROTO_NC_CHAR_CARDCOLLECT_CMD::CardInform>::allocate` — packet/protocol struct or template reference
+- `Zone` — `std::vector<CollectCard *,std::allocator<CollectCard *> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<CollectCard,std::allocator<CollectCard> >::_Reserve` — class method / original symbol
+- `Zone` — `std::vector<CollectCard,std::allocator<CollectCard> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<CollectCardDropRate,std::allocator<CollectCardDropRate> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<CollectCardMobGroup,std::allocator<CollectCardMobGroup> >::_Reserve` — class method / original symbol
+- `Zone` — `std::vector<CollectCardMobGroup,std::allocator<CollectCardMobGroup> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<CollectCardReward,std::allocator<CollectCardReward> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<CollectCardStarRate,std::allocator<CollectCardStarRate> >::_Reserve` — class method / original symbol
+- `Zone` — `std::vector<CollectCardStarRate,std::allocator<CollectCardStarRate> >::push_back` — class method / original symbol
+- `Zone` — `std::vector<CollectCardStarRate,std::allocator<CollectCardStarRate> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<CollectCardTitle,std::allocator<CollectCardTitle> >::_Reserve` — class method / original symbol
+- `Zone` — `std::vector<CollectCardTitle,std::allocator<CollectCardTitle> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD::CardBookmarkInfo,std::allocator<PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD::CardBookmarkInfo> >::_Reserve` — packet/protocol struct or template reference
+- `Zone` — `std::vector<PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD::CardBookmarkInfo,std::allocator<PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD::CardBookmarkInfo> >::push_back` — packet/protocol struct or template reference
+- `Zone` — `std::vector<PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD::CardBookmarkInfo,std::allocator<PROTO_NC_CHAR_CARDCOLLECT_BOOKMARK_CMD::CardBookmarkInfo> >::reserve` — packet/protocol struct or template reference
+- `Zone` — `std::vector<PROTO_NC_CHAR_CARDCOLLECT_CMD::CardInform,std::allocator<PROTO_NC_CHAR_CARDCOLLECT_CMD::CardInform> >::_Reserve` — packet/protocol struct or template reference
+- `Zone` — `std::vector<PROTO_NC_CHAR_CARDCOLLECT_CMD::CardInform,std::allocator<PROTO_NC_CHAR_CARDCOLLECT_CMD::CardInform> >::push_back` — packet/protocol struct or template reference
+- `Zone` — `std::vector<PROTO_NC_CHAR_CARDCOLLECT_CMD::CardInform,std::allocator<PROTO_NC_CHAR_CARDCOLLECT_CMD::CardInform> >::reserve` — packet/protocol struct or template reference
+
+## Character / Stats / Class
+
+- `Account` — `?fc_NC_USP_USER_CHARACTER_DELETE@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USP_USER_CHARACTER_INSERT@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `AssertClass::ac_DateTime` — class method / original symbol
+- `Account` — `CCsl::CSL_PARAMETER` — class method / original symbol
+- `Account` — `CCsl::CSL_PARAMETER_LIST` — class method / original symbol
+- `Account` — `CCsl::Parameter_filename` — class method / original symbol
+- `Account` — `CDefaultCharacterData::DEFAULT_CHARACTER` — class method / original symbol
+- `Account` — `CDefaultCharacterData::DEFAULT_QUEST` — class method / original symbol
+- `Account` — `CDefaultCharacterData::DEFAULT_SHORTCUT` — class method / original symbol
+- `Account` — `CDefaultCharacterData::SCRIPTOR_ID` — class method / original symbol
+- `Account` — `CIOCP::STATUS` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USP_USER_CHARACTER_DELETE` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USP_USER_CHARACTER_INSERT` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USP_USER_CHARACTER_DELETE` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USP_USER_CHARACTER_INSERT` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_CHARGED_BUFF` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_CHAT_RESTRICT_ADD` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_CHAT_RESTRICT_DEL` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_CHAT_RESTRICT_DEL_ALL` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_LOCATION` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_LOGIN` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_OPTION_DATA_IMPROVE_GET_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_OPTION_DATA_IMPROVE_GET_GAME_OPTION_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_OPTION_DATA_IMPROVE_GET_SHORT_CUT_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_OPTION_DATA_IMPROVE_INIT_GAME_OPTION_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_OPTION_DATA_IMPROVE_SET_GAME_OPTION_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_OPTION_DATA_IMPROVE_SET_SHORT_CUT_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_REGNUM_VARIFICATION` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_SAVE_STAT` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_STATE` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_STATE_DEL` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_TITLE` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_WEDDING_STATUS` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CLIENT_LOADING_BUG_DETECT` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CLIENT_LOADING_BUG_DETECT_ERROR_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CREATE_CHARACTER_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CREATE_CHARACTER_DEFAULT_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_AUTO_MON_LIST` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_AUTO_SCROLL` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_CHAR_ID_CHANGE_LIST` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_CHAR_ID_NO` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_CHAT_COLOR` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_DIFF_FRIEND_POINT` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_EVENT_ATTENDANCE_CHECK_LIST` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_EVENT_ATTENDANCE_DAY_COUNT` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_EVENT_ATTENDANCE_REWORD_LIST` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_FRIEND_POINT` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_INDUN_RANK` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_INDUN_RANK_HEALINGDONE` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_INDUN_RANK_MYRANK` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_TUTORIAL_INFO` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_UI_STATE_SAVE` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_MINIHOUSE_DEL_GATE` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_MINIHOUSE_GET_GATE_LIST` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_MINIHOUSE_GET_GATE_LIST_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_MINIHOUSE_SET_GATE` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_MINIHOUSE_SET_VISITOR_COUNT` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_NEWBIE_GUIDE_GET_VIEW_INFO` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_NEWBIE_GUIDE_SET_VIEW_INFO` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_PROMOTION` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SETALL_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SETSHAPE_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_AUTO_BUFF_SCROLL` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_AUTO_CHARGED_SCROLL` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_AUTO_MON` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_CHAR_FREESTAT_ALL` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_CHAR_ID_CHANGE_FLAG` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_CHAR_ID_CHANGE_FLAG_ALL` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_CHAT_COLOR_BALLOON` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_CHAT_COLOR_FONT` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_EVENT_ATTENDANCE_INFO` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_EVENT_ATTENDANCE_REWORD` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_FRIEND_POINT` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_INDUN_RANK` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_TUTORIAL_INFO` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SPAMMER_SET_CHAT_BAN` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_TUTORIAL_CAN_SKIP` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_USER_DEPOSIT` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_USER_WITHDRAW` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_SET_LEVEL_UP` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_MEMBER_SET_EXP_RATIO` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_SET_EXP` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_SET_STONE_LEVEL` — class method / original symbol
+- `Account` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_DEL_CHAR` — class method / original symbol
+- `Account` — `CSQLPStatistics::SQL_DAYCLASSLEVELPLAY_DATA` — class method / original symbol
+- `Account` — `CSQLPStatistics::SQL_DAYCLASSLEVEL_DATA` — class method / original symbol
+- `Account` — `CSQLPStatistics::SQL_DAYCONNECTUSER_DATA` — class method / original symbol
+- `Account` — `CSQLPStatistics::SQL_DAYUSER_DATA` — class method / original symbol
+- `Account` — `CSQLPStatistics::SQL_SAMETIMECHAR_DATA` — class method / original symbol
+- `Account` — `CSQLPStatistics::SQL_SAME_TIME_CHAR_CLASS_DATA` — class method / original symbol
+- `Account` — `CSQLPUserConnection::SQL_USER_CONNECTION_CHANGE_CHARID_USED` — class method / original symbol
+- `Account` — `CSQLPUserConnection::SQL_USER_CONNECTION_SET_CHAR_ID_CHANGE` — class method / original symbol
+- `Account` — `CSessionWorker::SESSION_WORKER_STATUS` — class method / original symbol
+- `Account` — `CTutorialCharacterData::SCRIPTOR_ID` — class method / original symbol
+- `Account` — `CTutorialCharacterData::TUTORIAL_CHARACTER` — class method / original symbol
+- `Account` — `CWeaponTitle::GetLevel` — class method / original symbol
+- `Account` — `CWebHttpConnect::SetParameter` — class method / original symbol
+- `Account` — `DBRecord::getStatement` — class method / original symbol
+- `Account` — `EHExceptionRecord::EHParameters` — class method / original symbol
+- `Account` — `FUNC_STATIC` — symbol / original name candidate
+- `Account` — `MiniDumper::TopLevelFilter` — class method / original symbol
+- `Account` — `NC_BRIEFINFO_CHARACTER_CMD` — symbol / original name candidate
+- `Account` — `NC_BRIEFINFO_LOGINCHARACTER_CMD` — symbol / original name candidate
+- `Account` — `NC_CHAR` — symbol / original name candidate
+- `Account` — `NC_CHARGED` — symbol / original name candidate
+- `Account` — `NC_CHARSAVE` — symbol / original name candidate
+- `Account` — `NC_CHAR_OPTION` — symbol / original name candidate
+- `Account` — `NC_MISC_CHAR_LOGOFF_STATISTICS` — symbol / original name candidate
+- `Account` — `NC_MISC_SERVERPARAMETER_ACK` — symbol / original name candidate
+- `Account` — `NC_MISC_SERVERPARAMETER_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_CHARACTER_DELETE_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_CHARACTER_DELETE_CMD` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_CHARACTER_DELETE_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_WM_SEND_PACKET_STATISTICS_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_WM_SEND_PACKET_STATISTICS_CLR` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_WM_SEND_PACKET_STATISTICS_REQ` — symbol / original name candidate
+- `Account` — `NC_PROMOTION` — symbol / original name candidate
+- `Account` — `NC_SOULSTONE` — symbol / original name candidate
+- `Account` — `NC_USER_WORLD_STATUS_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_WORLD_STATUS_REQ` — symbol / original name candidate
+- `Account` — `NC_USP_USER_CHARACTER_DELETE` — symbol / original name candidate
+- `Account` — `NC_USP_USER_CHARACTER_INSERT` — symbol / original name candidate
+- `Account` — `PROTO_NC_CHAR_ARENA_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_BASE_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_BASE_CMD::<unnamed-type-flags>` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_BASE_CMD::<unnamed-type-flags>::<unnamed-type-str>` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_BASE_CMD::LoginLocation` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_CHARGEDBUFF_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_CHARTITLE_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_CHESTINFO_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_EMBLEM_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_FRIEND_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_FRIEND_CMD_INFO` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_GUILD_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_HOUSE_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_MASPUP_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_NEWBIE_GUIDE_VIEW_LIST_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_OPTION_GAME` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_OPTION_SHORTCUTDATA` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_OPTION_SHORTCUTSIZE` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_OPTION_SOUND` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_OPTION_VIDEO` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_OPTION_WINDOWPOS` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_PET_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_QUEST_DOING_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_QUEST_READ_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_QUEST_REPEAT_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_SEAWAR_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_SHAPE_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_SINGLE_OPTION_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_WEDDINGDATA_ACK` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_WEDDINGDATA_ACK::<unnamed-type-Partner>` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_WEDDINGDATA_ACK::<unnamed-type-Status>` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_WEDDING_PARTNER_INFO_ACK` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_WEDDING_PARTNER_INFO_ACK::<unnamed-type-PartnerInfo>` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_USP_USER_CHARACTER_DELETE` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_USP_USER_CHARACTER_INSERT` — packet/protocol struct or template reference
+- `Account` — `QUEST_DATA::QUEST_REWARD::VALUE::CharacterTitle` — class method / original symbol
+- `Account` — `ShineObjectClass::ShineObject` — class method / original symbol
+- `Account` — `T<unnamed-type-flags>@PROTO_NC_CHAR_BASE_CMD@@` — packet/protocol struct or template reference
+- `Account` — `TiXmlBase::GetChar` — class method / original symbol
+- `Account` — `U<unnamed-type-Partner>@PROTO_NC_CHAR_WEDDINGDATA_ACK@@` — packet/protocol struct or template reference
+- `Account` — `U<unnamed-type-PartnerInfo>@PROTO_NC_CHAR_WEDDING_PARTNER_INFO_ACK@@` — packet/protocol struct or template reference
+- `Account` — `U<unnamed-type-Status>@PROTO_NC_CHAR_WEDDINGDATA_ACK@@` — packet/protocol struct or template reference
+- `Account` — `U<unnamed-type-str>@<unnamed-type-flags>@PROTO_NC_CHAR_BASE_CMD@@` — packet/protocol struct or template reference
+- `Account` — `ULoginLocation@PROTO_NC_CHAR_BASE_CMD@@` — Login protocol handler
+- `Account` — `UPROTO_NC_CHAR_ARENA_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_BASE_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_CHARGEDBUFF_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_CHESTINFO_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_EMBLEM_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_FRIEND_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_FRIEND_CMD_INFO@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_GUILD_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_HOUSE_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_MASPUP_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_NEWBIE_GUIDE_VIEW_LIST_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_OPTION_GAME@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_OPTION_SHORTCUTDATA@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_OPTION_SHORTCUTSIZE@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_OPTION_SOUND@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_OPTION_VIDEO@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_OPTION_WINDOWPOS@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_PET_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_QUEST_DOING_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_QUEST_READ_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_QUEST_REPEAT_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_SEAWAR_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_SINGLE_OPTION_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_WEDDINGDATA_ACK@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_WEDDING_PARTNER_INFO_ACK@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_USP_USER_CHARACTER_DELETE@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_USP_USER_CHARACTER_INSERT@@` — packet/protocol struct or template reference
+- `Account` — `UnDecorator::fExplicitTemplateParams` — class method / original symbol
+- `Account` — `UnDecorator::m_pGetParameter` — class method / original symbol
+- `Account` — `WEAPON_TITLE_DATA::DataVersion` — class method / original symbol
+- `Account` — `WEAPON_TITLE_DATA::WTSP_LIST` — class method / original symbol
+- `Account` — `WEAPON_TITLE_DATA::WTSP_REFERENCE` — class method / original symbol
+- `Account` — `WinService::queryServiceStatus` — class method / original symbol
+- `Account` — `_String_val<char,std::allocator<char> >` — class method / original symbol
+- `Account` — `_String_val<wchar_t,std::allocator<wchar_t> >` — class method / original symbol
+- `Account` — `cWell512Random::well512_InitState` — class method / original symbol
+- `Account` — `fc_NC_USP_USER_CHARACTER_DELETE` — symbol / original name candidate
+- `Account` — `fc_NC_USP_USER_CHARACTER_INSERT` — symbol / original name candidate
+- `Account` — `std::_Allocator_base<char>` — class method / original symbol
+- `Account` — `std::_Allocator_base<wchar_t>` — class method / original symbol
+- `Account` — `std::_Iosb<int>::_Iostate` — class method / original symbol
+- `Account` — `std::_Iterator012<std::random_access_iterator_tag,char,int,char const *,char const &,std::_Iterator_base0>` — class method / original symbol
+- `Account` — `std::_Iterator012<std::random_access_iterator_tag,wchar_t,int,wchar_t const *,wchar_t const &,std::_Iterator_base0>` — class method / original symbol
+- `Account` — `std::_String_val<char,std::allocator<char> >` — class method / original symbol
+- `Account` — `std::_String_val<char,std::allocator<char> >::<unnamed-tag>` — class method / original symbol
+- `Account` — `std::_String_val<char,std::allocator<char> >::_Bxty` — class method / original symbol
+- `Account` — `std::_String_val<wchar_t,std::allocator<wchar_t> >` — class method / original symbol
+- `Account` — `std::_String_val<wchar_t,std::allocator<wchar_t> >::<unnamed-tag>` — class method / original symbol
+- `Account` — `std::_String_val<wchar_t,std::allocator<wchar_t> >::_Bxty` — class method / original symbol
+- `Account` — `std::_Yarn<char>` — class method / original symbol
+- `Account` — `std::`dynamic atexit destructor for 'classic_locale''` — class method / original symbol
+- `Account` — `std::`dynamic initializer for 'classic_locale''` — class method / original symbol
+- `Account` — `std::allocator<char>` — class method / original symbol
+- `Account` — `std::allocator<char>::allocate` — class method / original symbol
+- `Account` — `std::allocator<char>::rebind<char>` — class method / original symbol
+- `Account` — `std::allocator<wchar_t>` — class method / original symbol
+- `Account` — `std::allocator<wchar_t>::rebind<wchar_t>` — class method / original symbol
+- `Account` — `std::codecvt<char,char,int>` — class method / original symbol
+- `Account` — `std::codecvt<char,char,int>::id` — class method / original symbol
+- `Account` — `std::codecvt<unsigned short,char,int>` — class method / original symbol
+- `Account` — `std::codecvt<unsigned short,char,int>::id` — class method / original symbol
+- `Account` — `std::codecvt<wchar_t,char,int>` — class method / original symbol
+- `Account` — `std::codecvt<wchar_t,char,int>::id` — class method / original symbol
+- `Account` — `std::ctype<char>` — class method / original symbol
+- `Account` — `std::ctype<char>::id` — class method / original symbol
+- `Account` — `std::ctype<wchar_t>` — class method / original symbol
+- `Account` — `std::ctype<wchar_t>::id` — class method / original symbol
+- `Account` — `std::ctype_byname<char>` — class method / original symbol
+- `Account` — `std::iterator<std::input_iterator_tag,char,__int64,char *,char &>` — class method / original symbol
+- `Account` — `std::numeric_limits<char>` — class method / original symbol
+- `Account` — `std::numeric_limits<signed char>` — class method / original symbol
+- `Account` — `std::numeric_limits<unsigned char>` — class method / original symbol
+- `Account` — `std::numeric_limits<wchar_t>` — class method / original symbol
+- `Account` — `std::numpunct<char>` — class method / original symbol
+- `Account` — `std::numpunct<char>::id` — class method / original symbol
+- `Account` — `~PROTO_NC_CHAR_BASE_CMD` — packet/protocol struct or template reference
+- `Account` — `~PROTO_NC_CHAR_FRIEND_CMD` — packet/protocol struct or template reference
+- `Account` — `~PROTO_NC_CHAR_FRIEND_CMD_INFO` — packet/protocol struct or template reference
+- `Account` — `~PROTO_NC_CHAR_GUILD_CMD` — packet/protocol struct or template reference
+- `Account` — `~PROTO_NC_CHAR_WEDDINGDATA_ACK` — packet/protocol struct or template reference
+- `Account` — `~_String_val<char,std::allocator<char> >` — class method / original symbol
+- `Account` — `~_String_val<wchar_t,std::allocator<wchar_t> >` — class method / original symbol
+- `AccountLog` — `CStatistics::CStatistics` — class method / original symbol
+- `AccountLog` — `std::allocator<char>::allocate` — class method / original symbol
+
+## Database / SQL / Logging
+
+- `Account` — `CGameDB_Connect::DBClose` — class method / original symbol
+- `Account` — `CGameDB_Connect::DBConnect` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_MISC_CONNECTFROMWHERE_DB_REQ` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_MISC_WEB_DB_KEY_REQ` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USER_LOGOUT_DB` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_GSP_USER_INSERT` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USERKEY_DATA` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_ACCOUNT_DATA_FULL` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_GET_AUTH_LIST` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_GET_CREATE_DATE` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_GET_USER_ID` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_GET_USER_NO` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_INSERT_TW` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_RETURN_GET_DATE_LAST_LOG` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_RETURN_SET` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_SET_PLAYMIN` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USP_USER_GETOPTION` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USP_USER_GETUSER` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USP_USER_PAYAGREEMENT` — class method / original symbol
+- `Account` — `CSQLPAccount::p_UserKey_Get_FromAccount` — class method / original symbol
+- `Account` — `CSQLPAccount::usp_Event_addCash` — class method / original symbol
+- `Account` — `CSQLPAccount::usp_ReturnUser_GetDatediffLastlog` — class method / original symbol
+- `Account` — `CSQLPAccount::usp_UserTWInsert` — class method / original symbol
+- `Account` — `CSQLPAccount::usp_User_GetDatediffCreated` — class method / original symbol
+- `Account` — `CSQLPAccountLog::ACCOUNTLOG_TYPE` — class method / original symbol
+- `Account` — `CSQLPAccountLog::SQL_ACCOUNTLOG_DATA` — class method / original symbol
+- `Account` — `CSQLPAccountLog::SQL_EVENT_LONG_TIME_PLAY` — class method / original symbol
+- `Account` — `CSQLPAccountLog::SQL_GET_DATE_LAST_LOGOUT` — class method / original symbol
+- `Account` — `CSQLPAccountLog::SQL_HACKSCAN_INFO` — class method / original symbol
+- `Account` — `CSQLPAccountLog::SQL_SETLOGOUT_DATA` — class method / original symbol
+- `Account` — `CSQLPCollection::SQL_COLLECTION_GETCARDLIST` — class method / original symbol
+- `Account` — `CSQLPCollection::SQL_COLLECTION_GETCARDSERIALLIST` — class method / original symbol
+- `Account` — `CSQLPCollection::SQL_COLLECTION_GETFAVORITESLIST` — class method / original symbol
+- `Account` — `CSQLPCollection::SQL_COLLECTION_GETREWARDLIST` — class method / original symbol
+- `Account` — `CSQLPCollection::SQL_COLLECTION_SETCARD` — class method / original symbol
+- `Account` — `CSQLPCollection::SQL_COLLECTION_SETCARDSERIAL` — class method / original symbol
+- `Account` — `CSQLPCollection::SQL_COLLECTION_SETFAVORITES` — class method / original symbol
+- `Account` — `CSQLPCollection::SQL_COLLECTION_SETREWARD` — class method / original symbol
+- `Account` — `CSQLPEventL20::SQL_EVENT_L20` — class method / original symbol
+- `Account` — `CSQLPEventWorldCup::_SQL_WORLDCUP_ENTER` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPE0` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPE1` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPE2` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPE3` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPE4` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPE5` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPE6` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPE7` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPE8` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPE9` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPEA` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPEB` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPEC` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPED` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPEE` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPEF` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPEG` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPEH` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPEI` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPEJ` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPEK` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_DATA_TYPEL` — class method / original symbol
+- `Account` — `CSQLPGameLog::SQL_GAMELOG_SET_CHANNEL` — class method / original symbol
+- `Account` — `CSQLPIPChecker::usp_Pcbang_chkIP` — class method / original symbol
+- `Account` — `CSQLPMasPup::SQL_MASPUP` — class method / original symbol
+- `Account` — `CSQLPMasPup::SQL_MASPUP_GETDEL_ALL` — class method / original symbol
+- `Account` — `CSQLPOperatorTool::SQL_OPERATOR_DATA` — class method / original symbol
+- `Account` — `CSQLPOperatorTool::SQL_OPLOG_DATA` — class method / original symbol
+- `Account` — `CSQLPOperatorTool::tagSQL_MENU_AUTH` — class method / original symbol
+- `Account` — `CSQLPReport::tagREPORTDATAGETOPT` — class method / original symbol
+- `Account` — `CSQLPReport::tagREPORTDEAL` — class method / original symbol
+- `Account` — `CSQLPUserConnection::SQL_USER_CONNECTION_SET_ACCLOG_UP` — class method / original symbol
+- `Account` — `CSQLPUserConnection::SQL_USER_CONNECTION_SET_LOGOUT` — class method / original symbol
+- `Account` — `CSQLPUserConnection::SQL_USER_CONNECTION_SET_WORLD_DOWN` — class method / original symbol
+- `Account` — `CServerInfo::GetODBCInfo` — class method / original symbol
+- `Account` — `CServerInfo::ODBC_INFO` — class method / original symbol
+- `Account` — `CToken::SaveTokenPositon` — class method / original symbol
+- `Account` — `DBRecord::DBRecord` — class method / original symbol
+- `Account` — `DBRecord::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `DBRecord::bindColumns` — class method / original symbol
+- `Account` — `DBRecord::close` — class method / original symbol
+- `Account` — `DBRecord::endFetch` — class method / original symbol
+- `Account` — `DBRecord::fetch` — class method / original symbol
+- `Account` — `DBRecord::openDB` — class method / original symbol
+- `Account` — `DBRecord::operator>>` — class method / original symbol
+- `Account` — `DBRecord::query` — class method / original symbol
+- `Account` — `DBRecord::~DBRecord` — class method / original symbol
+- `Account` — `DataServer::DataServer` — class method / original symbol
+- `Account` — `DataServer::OnStart_Service` — class method / original symbol
+- `Account` — `DataServer::OnStop_Service` — class method / original symbol
+- `Account` — `DataServer::ParseCmd` — class method / original symbol
+- `Account` — `DataServer::ReadDefineScriptor` — class method / original symbol
+- `Account` — `DataServer::Start` — class method / original symbol
+- `Account` — `DataServer::Start_Acceptor` — class method / original symbol
+- `Account` — `DataServer::ViewStartInfo` — class method / original symbol
+- `Account` — `DataServer::ViewStopInfo` — class method / original symbol
+- `Account` — `DataServer::~DataServer` — class method / original symbol
+- `Account` — `Database::CommitTran` — class method / original symbol
+- `Account` — `Database::Database` — class method / original symbol
+- `Account` — `Database::InitEnv` — class method / original symbol
+- `Account` — `Database::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `Database::bInit` — class method / original symbol
+- `Account` — `Database::close` — class method / original symbol
+- `Account` — `Database::handleEnv` — class method / original symbol
+- `Account` — `Database::handleEnvRef` — class method / original symbol
+- `Account` — `Database::openDB` — class method / original symbol
+- `Account` — `Database::~Database` — class method / original symbol
+- `Account` — `FEATURE_UNC_SAVEDFILECHECK` — symbol / original name candidate
+- `Account` — `NC_AVATAR_RENAME_DB_ACK` — symbol / original name candidate
+- `Account` — `NC_AVATAR_RENAME_DB_REQ` — symbol / original name candidate
+- `Account` — `NC_LOG` — symbol / original name candidate
+- `Account` — `NC_MISC_CONNECTFROMWHERE_DB_ACK` — symbol / original name candidate
+- `Account` — `NC_MISC_CONNECTFROMWHERE_DB_REQ` — symbol / original name candidate
+- `Account` — `NC_MISC_DB_CLIENT_LOADING_BUG_DETECT_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_EVENT_L20_DB_ACK` — symbol / original name candidate
+- `Account` — `NC_MISC_EVENT_L20_DB_REQ` — symbol / original name candidate
+- `Account` — `NC_MISC_HACK_SCAN_STORE_DB_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_PINGTEST_CLIENT_ZONE_DB` — symbol / original name candidate
+- `Account` — `NC_MISC_PINGTEST_TOOL_WM_CLIENT_ZONE_DB` — symbol / original name candidate
+- `Account` — `NC_MISC_PINGTEST_TOOL_WM_DB` — symbol / original name candidate
+- `Account` — `NC_MISC_PINGTEST_TOOL_WM_ZONE_DB` — symbol / original name candidate
+- `Account` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_DB_ACK` — symbol / original name candidate
+- `Account` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_DB_REQ` — symbol / original name candidate
+- `Account` — `NC_MISC_SPAMMER_SET_DB_CHAT_BAN_ACK` — symbol / original name candidate
+- `Account` — `NC_MISC_SPAMMER_SET_DB_CHAT_BAN_REQ` — symbol / original name candidate
+- `Account` — `NC_MISC_WEB_DB_KEY_ACK` — symbol / original name candidate
+- `Account` — `NC_MISC_WEB_DB_KEY_REQ` — symbol / original name candidate
+- `Account` — `NC_SYSLOG` — symbol / original name candidate
+- `Account` — `NC_USER_LOGOUT_DB` — symbol / original name candidate
+- `Account` — `NC_USER_LOGOUT_LAST_DAY_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_LOGOUT_LAST_DAY_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_NORMALLOGOUT_CMD` — symbol / original name candidate
+- `Account` — `PROTO_NC_CHAT_RESTRICT_DB_LIST_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_DATA_SEND1<PROTO_NC_MISC_CONNECTFROMWHERE_DB_ACK>` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_MISC_CONNECTFROMWHERE_DB_ACK` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_MISC_CONNECTFROMWHERE_DB_REQ` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_MISC_WEB_DB_KEY_ACK` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_MISC_WEB_DB_KEY_REQ` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_USER_LOGOUT_DB` — packet/protocol struct or template reference
+- `Account` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_MISC_CONNECTFROMWHERE_DB_ACK@@@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAT_RESTRICT_DB_LIST_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_MISC_CONNECTFROMWHERE_DB_ACK@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_MISC_CONNECTFROMWHERE_DB_REQ@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_MISC_WEB_DB_KEY_ACK@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_MISC_WEB_DB_KEY_REQ@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_USER_LOGOUT_DB@@` — packet/protocol struct or template reference
+- `Account` — `WinService::EventLogType` — class method / original symbol
+- `Account` — `cShineLogSystem::SLS_AddLog` — class method / original symbol
+- `Account` — `cShineLogSystem::SLS_SetLogName` — class method / original symbol
+- `Account` — `fc_NC_MISC_CONNECTFROMWHERE_DB_REQ` — symbol / original name candidate
+- `Account` — `fc_NC_MISC_WEB_DB_KEY_REQ` — symbol / original name candidate
+- `Account` — `fc_NC_USER_LOGOUT_DB` — symbol / original name candidate
+- `Account` — `std::_Ptr_clog` — class method / original symbol
+- `Account` — `std::_Ptr_wclog` — class method / original symbol
+- `Account` — `std::logic_error` — class method / original symbol
+- `Account` — `std::logic_error::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `std::logic_error::logic_error` — class method / original symbol
+- `Account` — `~PROTO_NC_CHAT_RESTRICT_DB_LIST_CMD` — packet/protocol struct or template reference
+- `AccountLog` — `CGameDB_AccountLog::~CGameDB_AccountLog` — class method / original symbol
+- `AccountLog` — `CGameDB_Connect::DBClose` — class method / original symbol
+- `AccountLog` — `CGameDB_Connect::DBConnect` — class method / original symbol
+- `AccountLog` — `CGameDB_Connect::~CGameDB_Connect` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::SaveSysLog` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_DATA_REPORT_ADD_REQ` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_DATA_REPORT_CANCEL_REQ` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_DATA_REPORT_GET_REQ` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_LOG_USER_LOGOUT` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_MISC_CONNECTER_ACK` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_MISC_EVENT_L20_DB_REQ` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_MISC_EVENT_LONG_TIME_PLAY_CMD` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_MISC_HACK_SCAN_STORE_DB_CMD` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_SYSLOG_ACCOUNT_LOGOUT` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_SYSLOG_SERVER_CCU` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_USER_LOGOUT_LAST_DAY_REQ` — class method / original symbol
+- `AccountLog` — `CParserAccountLog::CParserAccountLog` — class method / original symbol
+- `AccountLog` — `CParserAccountLog::~CParserAccountLog` — class method / original symbol
+- `AccountLog` — `CSQLPAccount::SQL_USER_ACCOUNT_DATA_FULL` — class method / original symbol
+- `AccountLog` — `CSQLPAccount::SQL_USER_GET_USER_ID` — class method / original symbol
+- `AccountLog` — `CSQLPAccount::SQL_USER_GET_USER_NO` — class method / original symbol
+- `AccountLog` — `CSQLPAccount::SQL_USER_INSERT_TW` — class method / original symbol
+- `AccountLog` — `CSQLPAccount::SQL_USER_SET_PLAYMIN` — class method / original symbol
+- `AccountLog` — `CSQLPAccount::SQL_USP_USER_GETOPTION` — class method / original symbol
+- `AccountLog` — `CSQLPAccount::SQL_USP_USER_GETUSER` — class method / original symbol
+- `AccountLog` — `CSQLPAccountLog::p_AccountLog_Add` — class method / original symbol
+- `AccountLog` — `CSQLPAccountLog::p_AccountLog_TextLogWrite` — class method / original symbol
+- `AccountLog` — `CSQLPAccountLog::p_Set_Event_Long_Time_Play` — class method / original symbol
+- `AccountLog` — `CSQLPAccountLog::usp_AccountLog_GetDateDiffLastlogout` — class method / original symbol
+- `AccountLog` — `CSQLPAccountLog::usp_Log_setLogout` — class method / original symbol
+- `AccountLog` — `CSQLPEventL20::p_Event_L20_Get` — class method / original symbol
+- `AccountLog` — `CSQLPEventL20::p_Event_L20_Set` — class method / original symbol
+- `AccountLog` — `CSQLPReport::CSQLPReport` — class method / original symbol
+- `AccountLog` — `CSQLPReport::`scalar deleting destructor'` — class method / original symbol
+- `AccountLog` — `CSQLPReport::p_Report_Add` — class method / original symbol
+- `AccountLog` — `CSQLPReport::p_Report_Del` — class method / original symbol
+- `AccountLog` — `CSQLPReport::p_Report_Get` — class method / original symbol
+- `AccountLog` — `CSQLPReport::tagREPORTDATAGETOPT` — class method / original symbol
+- `AccountLog` — `CSQLPReport::tagREPORTDEAL` — class method / original symbol
+- `AccountLog` — `CSQLPReport::~CSQLPReport` — class method / original symbol
+- `AccountLog` — `CServerInfo::GetODBCInfo` — class method / original symbol
+- `AccountLog` — `CToken::SaveTokenPositon` — class method / original symbol
+- `AccountLog` — `DBRecord::DBRecord` — class method / original symbol
+- `AccountLog` — `DBRecord::`scalar deleting destructor'` — class method / original symbol
+- `AccountLog` — `DBRecord::bindColumns` — class method / original symbol
+- `AccountLog` — `DBRecord::close` — class method / original symbol
+- `AccountLog` — `DBRecord::endFetch` — class method / original symbol
+- `AccountLog` — `DBRecord::fetch` — class method / original symbol
+- `AccountLog` — `DBRecord::openDB` — class method / original symbol
+- `AccountLog` — `DBRecord::operator>>` — class method / original symbol
+- `AccountLog` — `DBRecord::query` — class method / original symbol
+- `AccountLog` — `DBRecord::~DBRecord` — class method / original symbol
+- `AccountLog` — `DFX_BRANCH_SYNC_COUNTER_VALUE=0 -D_MT=1 -FIddbanned.h -If:\dd\vctools\crt\postbuild\mt -If:\dd\vctools\crt_bld\SELF_X86\crt\src -If:\bin` — symbol / original name candidate
+- `AccountLog` — `DataServer::DataServer` — class method / original symbol
+- `AccountLog` — `DataServer::OnStart_Service` — class method / original symbol
+- `AccountLog` — `DataServer::OnStop_Service` — class method / original symbol
+- `AccountLog` — `DataServer::ParseCmd` — class method / original symbol
+- `AccountLog` — `DataServer::ReadDefineScriptor` — class method / original symbol
+- `AccountLog` — `DataServer::Start` — class method / original symbol
+- `AccountLog` — `DataServer::Start_Acceptor` — class method / original symbol
+- `AccountLog` — `DataServer::ViewStartInfo` — class method / original symbol
+- `AccountLog` — `DataServer::ViewStopInfo` — class method / original symbol
+- `AccountLog` — `DataServer::~DataServer` — class method / original symbol
+- `AccountLog` — `Database::CommitTran` — class method / original symbol
+- `AccountLog` — `Database::Database` — class method / original symbol
+- `AccountLog` — `Database::InitEnv` — class method / original symbol
+- `AccountLog` — `Database::`scalar deleting destructor'` — class method / original symbol
+- `AccountLog` — `Database::bInit` — class method / original symbol
+- `AccountLog` — `Database::close` — class method / original symbol
+- `AccountLog` — `Database::handleEnv` — class method / original symbol
+- `AccountLog` — `Database::handleEnvRef` — class method / original symbol
+- `AccountLog` — `Database::openDB` — class method / original symbol
+- `AccountLog` — `Database::~Database` — class method / original symbol
+- `AccountLog` — `FEATURE_UNC_SAVEDFILECHECK` — symbol / original name candidate
+- `AccountLog` — `NC_SYSLOG` — symbol / original name candidate
+- `AccountLog` — `NC_SYSLOG_ACCOUNT_LOGOUT` — symbol / original name candidate
+- `AccountLog` — `NC_SYSLOG_SERVER_CCU` — symbol / original name candidate
+- `AccountLog` — `YNC_COUNTER_VALUE=0 -D_MT=1 -FIddbanned.h -If:\dd\vctools\crt\postbuild\mt -If:\dd\vctools\crt_bld\SELF_X86\crt\src -If:` — symbol / original name candidate
+- `AccountLog` — `cLogSystem::cLogSystem` — class method / original symbol
+- `AccountLog` — `cLogSystem::ls_CreateDirectory` — class method / original symbol
+- `AccountLog` — `cLogSystem::ls_LogReservation` — class method / original symbol
+- `AccountLog` — `cLogSystem::ls_LogSystemInit` — class method / original symbol
+- `AccountLog` — `cLogSystem::ls_LogSystemProcess` — class method / original symbol
+- `AccountLog` — `cLogSystem::ls_ValidTimeCheck` — class method / original symbol
+- `AccountLog` — `cLogSystem::~cLogSystem` — class method / original symbol
+- `AccountLog` — `cShineLogSystem::SLS_AddLog` — class method / original symbol
+- `AccountLog` — `cShineLogSystem::SLS_SetLogName` — class method / original symbol
+- `AccountLog` — `std::_Ptr_clog` — class method / original symbol
+- `AccountLog` — `std::_Ptr_wclog` — class method / original symbol
+- `AccountLog` — `std::logic_error` — class method / original symbol
+- `AccountLog` — `std::logic_error::`scalar deleting destructor'` — class method / original symbol
+- `AccountLog` — `std::logic_error::logic_error` — class method / original symbol
+
+## GM / Admin / Optool / Prison
+
+- `Account` — `?fc_NC_OPTOOL_CLOSE_SERVER_REQ@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_OPTOOL_CONNECT_BRIF_REQ@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_OPTOOL_S2SCONNECT_LIST_REQ@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `CPFs::fc_NC_OPTOOL_CLOSE_SERVER_REQ` — class method / original symbol
+- `Account` — `CPFs::fc_NC_OPTOOL_CONNECT_BRIF_REQ` — class method / original symbol
+- `Account` — `CPFs::fc_NC_OPTOOL_S2SCONNECT_LIST_REQ` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_CREATE_ACC_OPTOOL` — class method / original symbol
+- `Account` — `NC_DATA_PRISON_ADD` — symbol / original name candidate
+- `Account` — `NC_DATA_PRISON_ALTER` — symbol / original name candidate
+- `Account` — `NC_DATA_PRISON_GET` — symbol / original name candidate
+- `Account` — `NC_DATA_PRISON_UPDATE_MIN` — symbol / original name candidate
+- `Account` — `NC_MISC_GM_CHAT_COLOR_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_ACK_CLIENT_NUM_OF_USER_LIMIT` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_CLOSE_SERVER_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_CLOSE_SERVER_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_CONNECT_BRIF_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_CONNECT_BRIF_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_FIND_USER_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_FIND_USER_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_KICK_USER_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_KICK_USER_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_LOGIN_USER_RATABLE_GET_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_LOGIN_USER_RATABLE_GET_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_LOGIN_USER_RATABLE_SET_CMD` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_CLR` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_NULL` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_REQ_CLIENT_NUM_OF_USER_LIMIT` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_S2SCONNECT_LIST_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_S2SCONNECT_LIST_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_SET_CLIENT_NUM_OF_USER_LIMIT` — symbol / original name candidate
+- `Account` — `NC_PRISON` — symbol / original name candidate
+- `Account` — `PROTO_NC_OPTOOL_CLOSE_SERVER_ACK` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_OPTOOL_CONNECT_BRIF_ACK` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_OPTOOL_CONNECT_BRIF_REQ` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_OPTOOL_S2SCONNECT_LIST_ACK` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_OPTOOL_S2SCONNECT_LIST_REQ` — packet/protocol struct or template reference
+- `Account` — `StackWalkerInternal::tagMODULEENTRY32` — class method / original symbol
+- `Account` — `UPROTO_NC_OPTOOL_CLOSE_SERVER_ACK@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_OPTOOL_CONNECT_BRIF_ACK@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_OPTOOL_CONNECT_BRIF_REQ@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_OPTOOL_S2SCONNECT_LIST_ACK@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_OPTOOL_S2SCONNECT_LIST_REQ@@` — packet/protocol struct or template reference
+- `Account` — `fc_NC_OPTOOL_CLOSE_SERVER_REQ` — symbol / original name candidate
+- `Account` — `fc_NC_OPTOOL_CONNECT_BRIF_REQ` — symbol / original name candidate
+- `Account` — `fc_NC_OPTOOL_S2SCONNECT_LIST_REQ` — symbol / original name candidate
+- `AccountLog` — `?fc_NC_OPTOOL_CLOSE_SERVER_REQ@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `AccountLog` — `?fc_NC_OPTOOL_CONNECT_BRIF_REQ@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `AccountLog` — `?fc_NC_OPTOOL_S2SCONNECT_LIST_REQ@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `AccountLog` — `CPFs::fc_NC_OPTOOL_CLOSE_SERVER_REQ` — class method / original symbol
+- `AccountLog` — `CPFs::fc_NC_OPTOOL_CONNECT_BRIF_REQ` — class method / original symbol
+- `AccountLog` — `CPFs::fc_NC_OPTOOL_S2SCONNECT_LIST_REQ` — class method / original symbol
+- `AccountLog` — `CSQLPAccount::SQL_USER_CREATE_ACC_OPTOOL` — class method / original symbol
+- `AccountLog` — `NC_DATA_PRISON_ADD` — symbol / original name candidate
+- `AccountLog` — `NC_DATA_PRISON_ALTER` — symbol / original name candidate
+- `AccountLog` — `NC_DATA_PRISON_GET` — symbol / original name candidate
+- `AccountLog` — `NC_DATA_PRISON_UPDATE_MIN` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_PRISON` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_PRISON_RELEASE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GMAE_LOGOUT_ZONEINFO` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_GM_CHAT_COLOR_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_ACK_CLIENT_NUM_OF_USER_LIMIT` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_CLOSE_SERVER_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_CLOSE_SERVER_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_CONNECT_BRIF_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_CONNECT_BRIF_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_FIND_USER_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_FIND_USER_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_KICK_USER_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_KICK_USER_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_LOGIN_USER_RATABLE_GET_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_LOGIN_USER_RATABLE_GET_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_LOGIN_USER_RATABLE_SET_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_CLR` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_NULL` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_REQ_CLIENT_NUM_OF_USER_LIMIT` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_S2SCONNECT_LIST_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_S2SCONNECT_LIST_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_SET_CLIENT_NUM_OF_USER_LIMIT` — symbol / original name candidate
+- `AccountLog` — `NC_PRISON` — symbol / original name candidate
+- `AccountLog` — `PROTO_NC_OPTOOL_CLOSE_SERVER_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_OPTOOL_CONNECT_BRIF_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_OPTOOL_CONNECT_BRIF_REQ` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_OPTOOL_S2SCONNECT_LIST_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_OPTOOL_S2SCONNECT_LIST_REQ` — packet/protocol struct or template reference
+- `AccountLog` — `StackWalkerInternal::tagMODULEENTRY32` — class method / original symbol
+- `AccountLog` — `UPROTO_NC_OPTOOL_CLOSE_SERVER_ACK@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_OPTOOL_CONNECT_BRIF_ACK@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_OPTOOL_CONNECT_BRIF_REQ@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_OPTOOL_S2SCONNECT_LIST_ACK@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_OPTOOL_S2SCONNECT_LIST_REQ@@` — packet/protocol struct or template reference
+- `AccountLog` — `fc_NC_OPTOOL_CLOSE_SERVER_REQ` — symbol / original name candidate
+- `AccountLog` — `fc_NC_OPTOOL_CONNECT_BRIF_REQ` — symbol / original name candidate
+- `AccountLog` — `fc_NC_OPTOOL_S2SCONNECT_LIST_REQ` — symbol / original name candidate
+- `Login` — `?Send_NC_MISC_S2SCONNECTION_RDY@CLoginOPToolSession@@QAEHXZ` — symbol / original name candidate
+- `Login` — `?fc_NC_MISC_HEARTBEAT_ACK@CParserOPTool@@QAEHPAVCLoginOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_MISC_HEARTBEAT_REQ@CParserOPTool@@QAEHPAVCLoginOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_MISC_S2SCONNECTION_REQ@CParserOPTool@@QAEHPAVCLoginOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_OPTOOL_CLOSE_SERVER_REQ@CParserOPTool@@QAEHPAVCLoginOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_OPTOOL_CONNECT_BRIF_REQ@CParserOPTool@@QAEHPAVCLoginOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_OPTOOL_LOGIN_USER_RATABLE_GET_REQ@CParserOPTool@@QAEHPAVCLoginOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_OPTOOL_LOGIN_USER_RATABLE_SET_CMD@CParserOPTool@@QAEHPAVCLoginOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_CLR@CParserOPTool@@QAEHPAVCLoginOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_REQ@CParserOPTool@@QAEHPAVCLoginOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_OPTOOL_S2SCONNECT_LIST_REQ@CParserOPTool@@QAEHPAVCLoginOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `CLoginOPToolSession::CLoginOPToolSession` — class method / original symbol
+- `Login` — `CLoginOPToolSession::Send_NC_MISC_S2SCONNECTION_RDY` — Login protocol handler
+- `Login` — `CLoginOPToolSession::~CLoginOPToolSession` — class method / original symbol
+- `Login` — `CLoginOPToolSessionManager::CLoginOPToolSessionManager` — class method / original symbol
+- `Login` — `CLoginOPToolSessionManager::FreeSessions` — class method / original symbol
+- `Login` — `CLoginOPToolSessionManager::InitSessions` — class method / original symbol
+- `Login` — `CLoginOPToolSessionManager::~CLoginOPToolSessionManager` — class method / original symbol
+- `Login` — `CParserOPTool::CParserOPTool` — class method / original symbol
+- `Login` — `CParserOPTool::CheckConnectionValidation` — class method / original symbol
+- `Login` — `CParserOPTool::Parser` — class method / original symbol
+- `Login` — `CParserOPTool::fc_NC_MISC_HEARTBEAT_ACK` — class method / original symbol
+- `Login` — `CParserOPTool::fc_NC_MISC_HEARTBEAT_REQ` — class method / original symbol
+- `Login` — `CParserOPTool::fc_NC_MISC_S2SCONNECTION_REQ` — class method / original symbol
+- `Login` — `CParserOPTool::fc_NC_OPTOOL_CLOSE_SERVER_REQ` — class method / original symbol
+- `Login` — `CParserOPTool::fc_NC_OPTOOL_CONNECT_BRIF_REQ` — class method / original symbol
+- `Login` — `CParserOPTool::fc_NC_OPTOOL_LOGIN_USER_RATABLE_GET_REQ` — class method / original symbol
+- `Login` — `CParserOPTool::fc_NC_OPTOOL_LOGIN_USER_RATABLE_SET_CMD` — class method / original symbol
+- `Login` — `CParserOPTool::fc_NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_CLR` — class method / original symbol
+- `Login` — `CParserOPTool::fc_NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_REQ` — class method / original symbol
+- `Login` — `CParserOPTool::fc_NC_OPTOOL_S2SCONNECT_LIST_REQ` — class method / original symbol
+- `Login` — `CParserOPTool::fc_dummyfunction` — class method / original symbol
+- `Login` — `CParserOPTool::~CParserOPTool` — class method / original symbol
+- `Login` — `LoginServer::Listen_OPTool` — class method / original symbol
+- `Login` — `NC_LOG_GAME_PRISON` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_PRISON_RELEASE` — symbol / original name candidate
+- `Login` — `NC_LOG_GMAE_LOGOUT_ZONEINFO` — symbol / original name candidate
+- `Login` — `NC_MISC_GM_CHAT_COLOR_REQ` — symbol / original name candidate
+- `Login` — `NC_OPTOOL` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_ACK_CLIENT_NUM_OF_USER_LIMIT` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_CLOSE_SERVER_ACK` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_CLOSE_SERVER_REQ` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_CONNECT_BRIF_ACK` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_CONNECT_BRIF_REQ` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_FIND_USER_ACK` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_FIND_USER_REQ` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_KICK_USER_ACK` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_KICK_USER_REQ` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_LOGIN_USER_RATABLE_GET_ACK` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_LOGIN_USER_RATABLE_GET_REQ` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_LOGIN_USER_RATABLE_SET_CMD` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_ACK` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_CLR` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_REQ` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_NULL` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_REQ_CLIENT_NUM_OF_USER_LIMIT` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_S2SCONNECT_LIST_ACK` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_S2SCONNECT_LIST_REQ` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_SET_CLIENT_NUM_OF_USER_LIMIT` — symbol / original name candidate
+- `Login` — `NC_PRISON` — symbol / original name candidate
+- `Login` — `PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CParserOPTool::*)(CLoginOPToolSession *,NETPACKET *,int)>` — class method / original symbol
+- `Login` — `PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CParserOPTool::*)(CLoginOPToolSession *,NETPACKET *,int)>::`scalar deleting destructor'` — class method / original symbol
+- `Login` — `PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CParserOPTool::*)(CLoginOPToolSession *,NETPACKET *,int)>::pft_Store` — class method / original symbol
+- `Login` — `PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CParserOPTool::*)(CLoginOPToolSession *,NETPACKET *,int)>::~PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CParserOPTool::*)(CLoginOPToolSession *,NETPACKET *,int)>` — class method / original symbol
+- `Login` — `PROTO_NC_DATA_SEND1<PROTO_NC_OPTOOL_LOGIN_USER_RATABLE_GET_ACK>` — packet/protocol struct or template reference
+- `Login` — `PROTO_NC_DATA_SEND1<PROTO_NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_ACK>` — packet/protocol struct or template reference
+- `Login` — `PROTO_NC_OPTOOL_CLOSE_SERVER_ACK` — packet/protocol struct or template reference
+- `Login` — `PROTO_NC_OPTOOL_CONNECT_BRIF_ACK` — packet/protocol struct or template reference
+- `Login` — `PROTO_NC_OPTOOL_CONNECT_BRIF_REQ` — packet/protocol struct or template reference
+- `Login` — `PROTO_NC_OPTOOL_LOGIN_USER_RATABLE_GET_ACK` — packet/protocol struct or template reference
+- `Login` — `PROTO_NC_OPTOOL_LOGIN_USER_RATABLE_GET_REQ` — packet/protocol struct or template reference
+- `Login` — `PROTO_NC_OPTOOL_LOGIN_USER_RATABLE_SET_CMD` — packet/protocol struct or template reference
+- `Login` — `PROTO_NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_ACK` — packet/protocol struct or template reference
+- `Login` — `PROTO_NC_OPTOOL_S2SCONNECT_LIST_ACK` — packet/protocol struct or template reference
+- `Login` — `PROTO_NC_OPTOOL_S2SCONNECT_LIST_REQ` — packet/protocol struct or template reference
+- `Login` — `StackWalkerInternal::tagMODULEENTRY32` — class method / original symbol
+- `Login` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_OPTOOL_LOGIN_USER_RATABLE_GET_ACK@@@@` — packet/protocol struct or template reference
+- `Login` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_ACK@@@@` — packet/protocol struct or template reference
+- `Login` — `UPROTO_NC_OPTOOL_CLOSE_SERVER_ACK@@` — packet/protocol struct or template reference
+- `Login` — `UPROTO_NC_OPTOOL_CONNECT_BRIF_ACK@@` — packet/protocol struct or template reference
+- `Login` — `UPROTO_NC_OPTOOL_CONNECT_BRIF_REQ@@` — packet/protocol struct or template reference
+- `Login` — `UPROTO_NC_OPTOOL_LOGIN_USER_RATABLE_GET_ACK@@` — packet/protocol struct or template reference
+- `Login` — `UPROTO_NC_OPTOOL_LOGIN_USER_RATABLE_GET_REQ@@` — packet/protocol struct or template reference
+- `Login` — `UPROTO_NC_OPTOOL_LOGIN_USER_RATABLE_SET_CMD@@` — packet/protocol struct or template reference
+- `Login` — `UPROTO_NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_ACK@@` — packet/protocol struct or template reference
+- `Login` — `UPROTO_NC_OPTOOL_S2SCONNECT_LIST_ACK@@` — packet/protocol struct or template reference
+- `Login` — `UPROTO_NC_OPTOOL_S2SCONNECT_LIST_REQ@@` — packet/protocol struct or template reference
+- `Login` — `fc_NC_OPTOOL_CLOSE_SERVER_REQ` — symbol / original name candidate
+- `Login` — `fc_NC_OPTOOL_CONNECT_BRIF_REQ` — symbol / original name candidate
+- `Login` — `fc_NC_OPTOOL_CONNECT_BRIF_REQ_AddCount` — symbol / original name candidate
+- `Login` — `fc_NC_OPTOOL_LOGIN_USER_RATABLE_GET_REQ` — symbol / original name candidate
+- `Login` — `fc_NC_OPTOOL_LOGIN_USER_RATABLE_SET_CMD` — symbol / original name candidate
+- `Login` — `fc_NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_CLR` — symbol / original name candidate
+- `Login` — `fc_NC_OPTOOL_LOGON_PROCESS_TIME_VIEW_REQ` — symbol / original name candidate
+- `Login` — `fc_NC_OPTOOL_S2SCONNECT_LIST_REQ` — symbol / original name candidate
+- `Login` — `~PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CParserOPTool::*)(CLoginOPToolSession *,NETPACKET *,int)>` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PRISON_ADD_GM_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PRISON_ALTER_GM_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PRISON_END_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PRISON_GET_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::CParserOPTool` — class method / original symbol
+- `WorldManager` — `CParserOPTool::CheckConnectionValidation` — class method / original symbol
+- `WorldManager` — `CParserOPTool::Parser` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_ACT_NOTICE_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_EVENT_ADD_EVENT_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_EVENT_DEL_EVENT_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_EVENT_GET_ALL_EVENT_INFO_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_EVENT_SET_ALL_READY_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_EVENT_UPDATE_EVENT_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_MISC_HEARTBEAT_ACK` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_MISC_HEARTBEAT_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_MISC_PINGTEST_TOOL_WM_CLIENT_ZONE_DB` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_MISC_PINGTEST_TOOL_WM_DB` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_MISC_PINGTEST_TOOL_WM_ZONE` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_MISC_PINGTEST_TOOL_WM_ZONE_DB` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_MISC_S2SCONNECTION_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_OPTOOL_CLOSE_SERVER_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_OPTOOL_CONNECT_BRIF_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_OPTOOL_FIND_USER_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_OPTOOL_KICK_USER_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_OPTOOL_REQ_CLIENT_NUM_OF_USER_LIMIT` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_OPTOOL_S2SCONNECT_LIST_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_OPTOOL_SET_CLIENT_NUM_OF_USER_LIMIT` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_dummyfunction` — class method / original symbol
+- `WorldManager` — `CParserOPTool::~CParserOPTool` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_MISC_GM_CHAT_COLOR_REQ` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_ZONE_PRISON_GO_ACK` — class method / original symbol
+- `WorldManager` — `CPrisonServer::AddPrison` — class method / original symbol
+- `WorldManager` — `CPrisonServer::AlterPrison` — class method / original symbol
+- `WorldManager` — `CPrisonServer::CancelPrison` — class method / original symbol
+- `WorldManager` — `CPrisonServer::CheckPrisonTime` — class method / original symbol
+- `WorldManager` — `CPrisonServer::CreateSingleton` — class method / original symbol
+- `WorldManager` — `CPrisonServer::EndPrison` — class method / original symbol
+- `WorldManager` — `CPrisonServer::FindPrison` — class method / original symbol
+- `WorldManager` — `CPrisonServer::LogOutPrison` — class method / original symbol
+- `WorldManager` — `CPrisonServer::OnPrisonTimer` — class method / original symbol
+- `WorldManager` — `CPrisonServer::Send_NC_DATA_PRISON_UPDATE_MIN_CMD` — class method / original symbol
+- `WorldManager` — `CPrisonServer::`scalar deleting destructor'` — class method / original symbol
+- `WorldManager` — `CWMOPToolSession::CWMOPToolSession` — class method / original symbol
+- `WorldManager` — `CWMOPToolSession::Send_NC_MISC_S2SCONNECTION_RDY` — WorldManager/Zone protocol handler
+- `WorldManager` — `CWMOPToolSession::~CWMOPToolSession` — class method / original symbol
+- `WorldManager` — `CWMOPToolSessionManager::ActiveSession` — class method / original symbol
+- `WorldManager` — `CWMOPToolSessionManager::CWMOPToolSessionManager` — class method / original symbol
+- `WorldManager` — `CWMOPToolSessionManager::FreeSessions` — class method / original symbol
+- `WorldManager` — `CWMOPToolSessionManager::GetSession` — class method / original symbol
+- `WorldManager` — `CWMOPToolSessionManager::InactiveSession` — class method / original symbol
+- `WorldManager` — `CWMOPToolSessionManager::InitSessions` — class method / original symbol
+- `WorldManager` — `CWMOPToolSessionManager::~CWMOPToolSessionManager` — class method / original symbol
+- `WorldManager` — `PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CParserOPTool::*)(CWMOPToolSession *,NETPACKET *,int)>::`scalar deleting destructor'` — class method / original symbol
+- `WorldManager` — `PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CParserOPTool::*)(CWMOPToolSession *,NETPACKET *,int)>::pft_Store` — class method / original symbol
+- `WorldManager` — `PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CParserOPTool::*)(CWMOPToolSession *,NETPACKET *,int)>::~PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CParserOPTool::*)(CWMOPToolSession *,NETPACKET *,int)>` — class method / original symbol
+
+## Gamble / Slot Machine
+
+- `Account` — `CSQLPCharacter::SQL_GAMBLE_TAISAI_DICE_RANK` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GAMBLE_TAISAI_DICE_ROLL` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GAMBLE_TAISAI_DICE_ROLL_LOG` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GAMBLE_TAISAI_DICE_ROLL_RESULT` — class method / original symbol
+- `Account` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_COIN_ADD` — class method / original symbol
+- `Account` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_COIN_DATA` — class method / original symbol
+- `Account` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_COIN_TO_MONEY` — class method / original symbol
+- `Account` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_EXCHANGEDCOIN_DATA` — class method / original symbol
+- `Account` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_MONEY_TO_COIN` — class method / original symbol
+- `Account` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_SLOT_MACHINE_GET_JACKPOT_COIN` — class method / original symbol
+- `Account` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_SLOT_MACHINE_GET_JACKPOT_RANKING` — class method / original symbol
+- `Account` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_SLOT_MACHINE_SET_RESULT` — class method / original symbol
+- `Account` — `NC_GAMBLE` — symbol / original name candidate
+- `AccountLog` — `CSQLPCharacter::SQL_GAMBLE_TAISAI_DICE_RANK` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_GAMBLE_TAISAI_DICE_ROLL` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_GAMBLE_TAISAI_DICE_ROLL_LOG` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_GAMBLE_TAISAI_DICE_ROLL_RESULT` — class method / original symbol
+- `AccountLog` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_COIN_ADD` — class method / original symbol
+- `AccountLog` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_COIN_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_COIN_TO_MONEY` — class method / original symbol
+- `AccountLog` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_EXCHANGEDCOIN_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_MONEY_TO_COIN` — class method / original symbol
+- `AccountLog` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_SLOT_MACHINE_GET_JACKPOT_COIN` — class method / original symbol
+- `AccountLog` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_SLOT_MACHINE_GET_JACKPOT_RANKING` — class method / original symbol
+- `AccountLog` — `CSQLPGambleHouse::SQL_GAMBLEHOUSE_SLOT_MACHINE_SET_RESULT` — class method / original symbol
+- `AccountLog` — `NC_GAMBLE` — symbol / original name candidate
+- `Login` — `NC_GAMBLE` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_GAMBLE_WORLD_PREVMAPNAME_CMD@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `CGambleSystemServer::CGambleSystemServer` — class method / original symbol
+- `WorldManager` — `CGambleSystemServer::GetSendExchangeCoinInitTime` — class method / original symbol
+- `WorldManager` — `CGambleSystemServer::InitSendExchangeCoinInitTime` — class method / original symbol
+- `WorldManager` — `CGambleSystemServer::SendExchangeCoinInit` — class method / original symbol
+- `WorldManager` — `CGambleSystemServer::~CGambleSystemServer` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_GAMBLE_WORLD_PREVMAPNAME_CMD` — class method / original symbol
+- `WorldManager` — `NC_GAMBLE` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_BUY_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_BUY_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_CHANGE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_DB_ADD_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_DB_ADD_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_DB_BUY_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_DB_BUY_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_DB_SELL_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_DB_SELL_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_DB_USE_COINITEM_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_DB_USE_COINITEM_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_EXCHANGEMACHINE_UI_OPEN_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_SELL_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_SELL_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_USE_COINITEM_MESSAGE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_VIPCARD_UI_OPEN_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_COIN_VIPCARD_UI_OPEN_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_ALL_RANK_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_ALL_RANK_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_BETTING_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_BETTING_CANCEL_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_BETTING_CANCEL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_BETTING_CANCEL_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_BETTING_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_BETTING_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_BET_START_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_CURR_RANK_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_CURR_RANK_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_DB_ALL_RANK_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_DB_ALL_RANK_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_DB_DICE_ROLL_RESULT_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_DB_DICE_ROLL_RESULT_LOG_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_DB_DICE_ROLL_RESULT_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_DICE_ROLL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_DICE_ROLL_RESULT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_DICE_ROLL_RESULT_EMOTION_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_GAME_BETTING_INFO_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_GAME_JOIN_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_GAME_JOIN_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_GAME_JOIN_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_GAME_LEAVE_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_GAME_LEAVE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_GAME_LEAVE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_LARGE_AMOUNT_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_LARGE_AMOUNT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_LARGE_AMOUNT_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_DICE_TAISAI_TIMER_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_ENTER_PLAYER_DIRECT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_EXCHANGECOIN_CHANGE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_EXCHANGEDCOIN_DB_INFO_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_EXCHANGEDCOIN_DB_INFO_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_EXCHANGEDCOIN_INIT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_GAMBLEHOUSE_EXIT_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_GAMBLEHOUSE_EXIT_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_NULL` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_PLAYERACT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_DB_GAMEINFO_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_DB_GAMEINFO_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_DB_RESULT_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_DB_RESULT_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_GAME_JOIN_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_GAME_JOIN_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_GAME_LEAVE_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_GAME_LEAVE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_JACKPOTINFO_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_JACKPOTRANKING_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_JACKPOTRANKING_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_SOMEONE_GET_JACKPOT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_STAND_UP_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_START_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_START_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_STOPBUTTON_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_STOPBUTTON_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_WHEELSTOP_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_WHEELSTOP_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_WINRANKING_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_SLOTMACHINE_WINRANKING_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_TYPE_AND_WHERE_STAND_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_TYPE_AND_WHERE_STAND_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_WORLD_PREVMAPNAME_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GAMBLE_ZONE_PREVMAPNAME_CMD` — symbol / original name candidate
+- `WorldManager` — `PROTO_NC_GAMBLE_EXCHANGEDCOIN_INIT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_GAMBLE_WORLD_PREVMAPNAME_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_GAMBLE_ZONE_PREVMAPNAME_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_GAMBLE_EXCHANGEDCOIN_INIT_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_GAMBLE_WORLD_PREVMAPNAME_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_GAMBLE_ZONE_PREVMAPNAME_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `fc_NC_GAMBLE_WORLD_PREVMAPNAME_CMD` — symbol / original name candidate
+- `WorldManager` — `~PROTO_NC_GAMBLE_WORLD_PREVMAPNAME_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_GAMBLE_ZONE_PREVMAPNAME_CMD` — packet/protocol struct or template reference
+- `Zone` — `BinaryDataBox<GBSMAll>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMAll>::~BinaryDataBox<GBSMAll>` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMBetCoin>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMCardRate>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMCardRate>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMCardRate>::~BinaryDataBox<GBSMCardRate>` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMCenter>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMCenter>::~BinaryDataBox<GBSMCenter>` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMGroup>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMGroup>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMGroup>::~BinaryDataBox<GBSMGroup>` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMJackpotRate>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMJackpotRate>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMJackpotRate>::~BinaryDataBox<GBSMJackpotRate>` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMLine>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMLine>::~BinaryDataBox<GBSMLine>` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMNPC>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GBSMNPC>::~BinaryDataBox<GBSMNPC>` — data table loader/index/helper
+- `Zone` — `CGambleObject::go_SMC_WinRank` — class method / original symbol
+- `Zone` — `CGambleObject::go_SMS_PacketMake_JackpotRank` — packet framework/helper
+- `Zone` — `CGambleObject::go_SMS_PacketMake_WintRank` — packet framework/helper
+- `Zone` — `GameDBSession::gds_NC_GAMBLE_SLOTMACHINE_DB_RESULT_ACK` — GameDB/DB packet ack handler
+- `Zone` — `SHND::CommonData<GBReward,SHND::CmpGambleItemReward>::cd_Find` — data table loader/index/helper
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_GodOfSlotMachine` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_SlotMachineDBResult` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_GodOfSlotMachine` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_SlotMachineDBResult` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_GAMBLE_SLOTMACHINE_GAME_JOIN_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_GAMBLE_SLOTMACHINE_GAME_LEAVE_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_GAMBLE_SLOTMACHINE_JACKPOTRANKING_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_GAMBLE_SLOTMACHINE_START_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_GAMBLE_SLOTMACHINE_STOPBUTTON_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_GAMBLE_SLOTMACHINE_WHEELSTOP_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_GAMBLE_SLOTMACHINE_WINRANKING_REQ` — Zone/Player client packet request handler
+- `Zone` — `SlotMachine::SlotMachineAnalyse::sma_1LineMatch` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineAnalyse::sma_CenterMatch` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineAnalyse::sma_Load` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineAnalyse::sma_ScreenMatch` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineAnalyse::~SlotMachineAnalyse` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineCluster::SlotMachineCluster` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineCluster::go_Enter_Player` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineCluster::go_FindSubGambleObject` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineCluster::go_Init` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineCluster::go_Out_Player` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineCluster::go_PlayerUnmarking` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineCluster::go_Routine` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineCluster::go_SendGameInfo` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineCluster::~SlotMachineCluster` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineJackPotRanking::SlotMachineInfo::~SlotMachineInfo` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineJackPotRanking::smjpr_GetJackpotPrice` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineJackPotRanking::smjpr_JackPotRankingSet` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineJackPotRanking::smjpr_JackPotRateCalc` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineJackPotRanking::smjpr_JackpotAccumulate` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineJackPotRanking::smjpr_Load` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineJackPotRanking::smjpr_PacketMake` — packet framework/helper
+- `Zone` — `SlotMachine::SlotMachineJackPotRanking::smjpr_PacketMake_JackPotPrice` — packet framework/helper
+- `Zone` — `SlotMachine::SlotMachineJackPotRanking::smjpr_RankingSet` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineJackPotRanking::smjpr_SendJackPotPriceTo` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreen::SMS_Start` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreen::SMS_StopButton` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreen::SMS_WheelStop` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreen::SMS_WinRank` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreen::SlotMachineScreen` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreen::go_Enter_Player` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreen::go_Init` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreen::go_IsFullCheck` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreen::go_PlayerUnmarking` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreen::go_Routine` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreen::go_SMS_PacketMake_JackpotRank` — packet framework/helper
+- `Zone` — `SlotMachine::SlotMachineScreen::go_SMS_PacketMake_WintRank` — packet framework/helper
+- `Zone` — `SlotMachine::SlotMachineScreen::sms_LineRate` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreen::sms_PlayerReady` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreen::~SlotMachineScreen` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreenManager::SlotMachineScreenManager` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreenManager::smsm_Action` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreenManager::smsm_BettingAtOnce` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreenManager::smsm_Load` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreenManager::smsm_NPCData` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreenManager::smsm_Shuffle` — class method / original symbol
+- `Zone` — `SlotMachine::SlotMachineScreenManager::~SlotMachineScreenManager` — class method / original symbol
+- `Zone` — `std::_Adjust_heap<SLOTMACHINE_JackPotRank *,int,SLOTMACHINE_JackPotRank>` — class method / original symbol
+- `Zone` — `std::_Copy_impl<SLOTMACHINE_JackPotRank *,SLOTMACHINE_JackPotRank *>` — class method / original symbol
+- `Zone` — `std::_Insertion_sort1<SLOTMACHINE_JackPotRank *,SLOTMACHINE_JackPotRank>` — class method / original symbol
+- `Zone` — `std::_Make_heap<SLOTMACHINE_JackPotRank *,int,SLOTMACHINE_JackPotRank>` — class method / original symbol
+- `Zone` — `std::_Med3<SLOTMACHINE_JackPotRank *>` — class method / original symbol
+- `Zone` — `std::_Median<SLOTMACHINE_JackPotRank *>` — class method / original symbol
+- `Zone` — `std::_Move<SLOTMACHINE_JackPotRank *,SLOTMACHINE_JackPotRank *>` — class method / original symbol
+- `Zone` — `std::_Move_backward<SLOTMACHINE_JackPotRank *,SLOTMACHINE_JackPotRank *>` — class method / original symbol
+- `Zone` — `std::_Push_heap<SLOTMACHINE_JackPotRank *,int,SLOTMACHINE_JackPotRank>` — class method / original symbol
+- `Zone` — `std::_Sort<SLOTMACHINE_JackPotRank *,int>` — class method / original symbol
+- `Zone` — `std::_Sort_heap<SLOTMACHINE_JackPotRank *>` — class method / original symbol
+- `Zone` — `std::_Unguarded_partition<SLOTMACHINE_JackPotRank *>` — class method / original symbol
+- `Zone` — `std::_Uninit_copy<SLOTMACHINE_JackPotRank *,SLOTMACHINE_JackPotRank *,std::allocator<SLOTMACHINE_JackPotRank> >` — class method / original symbol
+- `Zone` — `std::_Uninit_copy<std::_Vector_const_iterator<std::_Vector_val<SLOTMACHINE_JackPotRank,std::allocator<SLOTMACHINE_JackPotRank> > >,SLOTMACHINE_JackPotRank *,std::allocator<SLOTMACHINE_JackPotRank> >` — class method / original symbol
+- `Zone` — `std::_Uninit_def_fill_n<SLOTMACHINE_JackPotRank *,unsigned int,SLOTMACHINE_JackPotRank,std::allocator<SLOTMACHINE_JackPotRank>,SLOTMACHINE_JackPotRank>` — class method / original symbol
+- `Zone` — `std::_Uninit_move<GBSMAll *,GBSMAll *,std::allocator<GBSMAll>,GBSMAll>` — class method / original symbol
+- `Zone` — `std::_Uninit_move<GBSMCenter *,GBSMCenter *,std::allocator<GBSMCenter>,GBSMCenter>` — class method / original symbol
+- `Zone` — `std::_Uninit_move<GBSMJackpotRate *,GBSMJackpotRate *,std::allocator<GBSMJackpotRate>,GBSMJackpotRate>` — class method / original symbol
+- `Zone` — `std::_Uninit_move<GBSMLine *,GBSMLine *,std::allocator<GBSMLine>,GBSMLine>` — class method / original symbol
+- `Zone` — `std::_Uninit_move<SLOTMACHINE_JackPotRank *,SLOTMACHINE_JackPotRank *,std::allocator<SLOTMACHINE_JackPotRank>,SLOTMACHINE_JackPotRank>` — class method / original symbol
+- `Zone` — `std::_Uninit_move<SlotMachine::SlotMachineScreenManager::NPCvsBetType *,SlotMachine::SlotMachineScreenManager::NPCvsBetType *,std::allocator<SlotMachine::SlotMachineScreenManager::NPCvsBetType>,SlotMachine::SlotMachineScreenManager::NPCvsBetType>` — class method / original symbol
+- `Zone` — `std::allocator<GBSMAll>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<GBSMCenter>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<GBSMJackpotRate>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<GBSMLine>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<SLOTMACHINE_JackPotRank>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<SlotMachine::SlotMachineJackPotRanking::SlotMachineInfo>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<SlotMachine::SlotMachineScreenManager::NPCvsBetType>::allocate` — class method / original symbol
+- `Zone` — `std::vector<GBSMAll,std::allocator<GBSMAll> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<GBSMCenter,std::allocator<GBSMCenter> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<GBSMJackpotRate,std::allocator<GBSMJackpotRate> >::_Reserve` — class method / original symbol
+- `Zone` — `std::vector<GBSMJackpotRate,std::allocator<GBSMJackpotRate> >::push_back` — class method / original symbol
+- `Zone` — `std::vector<GBSMJackpotRate,std::allocator<GBSMJackpotRate> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<GBSMLine,std::allocator<GBSMLine> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<SLOTMACHINE_JackPotRank,std::allocator<SLOTMACHINE_JackPotRank> >::_Buy` — class method / original symbol
+- `Zone` — `std::vector<SLOTMACHINE_JackPotRank,std::allocator<SLOTMACHINE_JackPotRank> >::_Reserve` — class method / original symbol
+- `Zone` — `std::vector<SLOTMACHINE_JackPotRank,std::allocator<SLOTMACHINE_JackPotRank> >::_Tidy` — class method / original symbol
+- `Zone` — `std::vector<SLOTMACHINE_JackPotRank,std::allocator<SLOTMACHINE_JackPotRank> >::_Ucopy<SLOTMACHINE_JackPotRank *>` — class method / original symbol
+- `Zone` — `std::vector<SLOTMACHINE_JackPotRank,std::allocator<SLOTMACHINE_JackPotRank> >::operator=` — class method / original symbol
+- `Zone` — `std::vector<SLOTMACHINE_JackPotRank,std::allocator<SLOTMACHINE_JackPotRank> >::push_back` — class method / original symbol
+- `Zone` — `std::vector<SLOTMACHINE_JackPotRank,std::allocator<SLOTMACHINE_JackPotRank> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<SLOTMACHINE_JackPotRank,std::allocator<SLOTMACHINE_JackPotRank> >::resize` — class method / original symbol
+- `Zone` — `std::vector<SLOTMACHINE_JackPotRank,std::allocator<SLOTMACHINE_JackPotRank> >::vector<SLOTMACHINE_JackPotRank,std::allocator<SLOTMACHINE_JackPotRank> >` — class method / original symbol
+- `Zone` — `std::vector<SlotMachine::SlotMachineScreenManager::NPCvsBetType,std::allocator<SlotMachine::SlotMachineScreenManager::NPCvsBetType> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<SlotMachine::SlotMachineScreenManager::NPCvsBetType,std::allocator<SlotMachine::SlotMachineScreenManager::NPCvsBetType> >::~vector<SlotMachine::SlotMachineScreenManager::NPCvsBetType,std::allocator<SlotMachine::SlotMachineScreenManager::NPCvsBetType> >` — class method / original symbol
+
+## Gather / Produce
+
+- `Client` — `GatherInfo::DataVersion` — class method / original symbol
+- `Client` — `GatherInfoTable::GatherInfoTable` — class method / original symbol
+- `Client` — `GatherInfoTable::`scalar deleting destructor'` — class method / original symbol
+- `Client` — `GatheringTask::DirectMessage` — class method / original symbol
+- `Client` — `GatheringTask::FindGatherInfo` — class method / original symbol
+- `Client` — `GatheringTask::OnProcessNetMsg` — class method / original symbol
+- `Client` — `GatheringTask::OnStart` — class method / original symbol
+- `Client` — `GatheringTask::`scalar deleting destructor'` — class method / original symbol
+- `Client` — `GatheringWin::Create` — class method / original symbol
+- `Client` — `GatheringWin::CreateWin` — class method / original symbol
+- `Client` — `GatheringWin::DirectMessage` — class method / original symbol
+- `Client` — `GatheringWin::GatheringSuccess` — class method / original symbol
+- `Client` — `GatheringWin::GatheringWin` — class method / original symbol
+- `Client` — `GatheringWin::IsFinished` — class method / original symbol
+- `Client` — `GatheringWin::StartGathering` — class method / original symbol
+- `Client` — `GatheringWin::Stop` — class method / original symbol
+- `Client` — `GatheringWin::UpdateMeWin` — class method / original symbol
+- `Client` — `GatheringWin::`scalar deleting destructor'` — class method / original symbol
+- `Client` — `GatheringWin::~GatheringWin` — class method / original symbol
+- `Client` — `ITableBase<GatherInfo,GatherInfoTable>::BeforeTerminate` — class method / original symbol
+- `Client` — `ITableBase<GatherInfo,GatherInfoTable>::DataProcess` — class method / original symbol
+- `Client` — `ITableBase<GatherInfo,GatherInfoTable>::GetTotal` — class method / original symbol
+- `Client` — `ITableBase<GatherInfo,GatherInfoTable>::Load` — class method / original symbol
+- `Client` — `ITableBase<GatherInfo,GatherInfoTable>::`scalar deleting destructor'` — class method / original symbol
+- `Client` — `ITableBase<GatherInfo,GatherInfoTable>::ms_pkTable` — class method / original symbol
+- `Client` — `ITableBase<ProduceInfo,ProduceInfoTable>::BeforeTerminate` — class method / original symbol
+- `Client` — `ITableBase<ProduceInfo,ProduceInfoTable>::DataProcess` — class method / original symbol
+- `Client` — `ITableBase<ProduceInfo,ProduceInfoTable>::GetTotal` — class method / original symbol
+- `Client` — `ITableBase<ProduceInfo,ProduceInfoTable>::Load` — class method / original symbol
+- `Client` — `ITableBase<ProduceInfo,ProduceInfoTable>::`scalar deleting destructor'` — class method / original symbol
+- `Client` — `ITableBase<ProduceInfo,ProduceInfoTable>::ms_pkTable` — class method / original symbol
+- `Client` — `ITableBase<ProduceViewInfo,ProduceViewInfoTable>::BeforeTerminate` — class method / original symbol
+- `Client` — `ITableBase<ProduceViewInfo,ProduceViewInfoTable>::DataProcess` — class method / original symbol
+- `Client` — `ITableBase<ProduceViewInfo,ProduceViewInfoTable>::GetTotal` — class method / original symbol
+- `Client` — `ITableBase<ProduceViewInfo,ProduceViewInfoTable>::Load` — class method / original symbol
+- `Client` — `ITableBase<ProduceViewInfo,ProduceViewInfoTable>::`scalar deleting destructor'` — class method / original symbol
+- `Client` — `ITableBase<ProduceViewInfo,ProduceViewInfoTable>::ms_pkTable` — class method / original symbol
+- `Client` — `NC_ACT_GATHERCANCEL_CMD` — symbol / original name candidate
+- `Client` — `NC_ACT_GATHERCOMPLETE_ACK` — symbol / original name candidate
+- `Client` — `NC_ACT_GATHERCOMPLETE_REQ` — symbol / original name candidate
+- `Client` — `NC_ACT_GATHERSTART_ACK` — symbol / original name candidate
+- `Client` — `NC_ACT_GATHERSTART_REQ` — symbol / original name candidate
+- `Client` — `NC_ACT_PRODUCE_CASTABORT_CMD` — symbol / original name candidate
+- `Client` — `NC_ACT_PRODUCE_CAST_REQ` — symbol / original name candidate
+- `Client` — `NC_ACT_PRODUCE_CAST_SUC_ACK` — symbol / original name candidate
+- `Client` — `NC_ACT_PRODUCE_MAKE_CMD` — symbol / original name candidate
+- `Client` — `NC_ACT_SOMEONEGATHERCANCEL_CMD` — symbol / original name candidate
+- `Client` — `NC_ACT_SOMEONEGATHERCOMPLETE_CMD` — symbol / original name candidate
+- `Client` — `NC_ACT_SOMEONEGATHERSTART_CMD` — symbol / original name candidate
+- `Client` — `NC_ACT_SOMEONEPRODUCE_CASTCUT_CMD` — symbol / original name candidate
+- `Client` — `NC_ACT_SOMEONEPRODUCE_CAST_CMD` — symbol / original name candidate
+- `Client` — `NC_ACT_SOMEONEPRODUCE_MAKE_CMD` — symbol / original name candidate
+- `Client` — `NiPointer<GatheringWin>::~NiPointer<GatheringWin>` — class method / original symbol
+- `Client` — `PROTO_NC_ACT_GATHERCOMPLETE_ACK` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_ACT_GATHERSTART_ACK` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_ACT_GATHERSTART_REQ` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_ACT_PRODUCE_CAST_REQ` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_ACT_PRODUCE_MAKE_CMD` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_ACT_SOMEONEGATHERCANCEL_CMD` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_ACT_SOMEONEGATHERCOMPLETE_CMD` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_ACT_SOMEONEGATHERSTART_CMD` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_ACT_SOMEONEPRODUCE_CASTCUT_CMD` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_ACT_SOMEONEPRODUCE_CAST_CMD` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_ACT_SOMEONEPRODUCE_MAKE_CMD` — packet/protocol struct or template reference
+- `Client` — `ProduceInfo::DataVersion` — class method / original symbol
+- `Client` — `ProduceInfoTable::GetByID` — class method / original symbol
+- `Client` — `ProduceInfoTable::GetByProduct` — class method / original symbol
+- `Client` — `ProduceInfoTable::GetMaterialInfo` — class method / original symbol
+- `Client` — `ProduceInfoTable::MaterialInfo` — class method / original symbol
+- `Client` — `ProduceInfoTable::MaterialInfo::MaterialInfo` — class method / original symbol
+- `Client` — `ProduceInfoTable::ProduceInfoTable` — class method / original symbol
+- `Client` — `ProduceInfoTable::SetMaterialInfo` — class method / original symbol
+- `Client` — `ProduceInfoTable::`scalar deleting destructor'` — class method / original symbol
+- `Client` — `ProduceViewInfo::DataVersion` — class method / original symbol
+- `Client` — `ProduceViewInfoTable::GetByID` — class method / original symbol
+- `Client` — `ProduceViewInfoTable::ProduceViewInfoTable` — class method / original symbol
+- `Client` — `ProduceViewInfoTable::`scalar deleting destructor'` — class method / original symbol
+- `Client` — `ProductionWin::ProduceComplete` — class method / original symbol
+- `Client` — `ProductionWin::ProduceStartCurrentSelected` — class method / original symbol
+- `Client` — `ProductionWin::ProduceStop` — class method / original symbol
+- `Client` — `UPROTO_NC_ACT_GATHERCOMPLETE_ACK@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_ACT_GATHERSTART_ACK@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_ACT_GATHERSTART_REQ@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_ACT_PRODUCE_CAST_REQ@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_ACT_PRODUCE_MAKE_CMD@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_ACT_SOMEONEGATHERCANCEL_CMD@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_ACT_SOMEONEGATHERCOMPLETE_CMD@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_ACT_SOMEONEGATHERSTART_CMD@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_ACT_SOMEONEPRODUCE_CASTCUT_CMD@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_ACT_SOMEONEPRODUCE_CAST_CMD@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_ACT_SOMEONEPRODUCE_MAKE_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `NC_ACT_GATHERCANCEL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_GATHERCOMPLETE_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_GATHERCOMPLETE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_GATHERSTART_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_GATHERSTART_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_PRODUCE_CASTABORT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_PRODUCE_CAST_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_PRODUCE_CAST_SUC_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_PRODUCE_MAKE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_SOMEONEGATHERCANCEL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_SOMEONEGATHERCOMPLETE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_SOMEONEGATHERSTART_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_SOMEONEPRODUCE_CASTCUT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_SOMEONEPRODUCE_CAST_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_SOMEONEPRODUCE_MAKE_CMD` — symbol / original name candidate
+- `Zone` — `BinaryDataBox<GatherInfo>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<GatherInfo>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<ProduceInfo>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<ProduceInfo>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `GatherInfo::DataVersion` — class method / original symbol
+- `Zone` — `GatherProduce::GatherTable` — class method / original symbol
+- `Zone` — `GatherProduce::GatherTable::GatherIndex` — class method / original symbol
+- `Zone` — `GatherProduce::GatherTable::gt_Load` — class method / original symbol
+- `Zone` — `GatherProduce::RecipeBook` — class method / original symbol
+- `Zone` — `GatherProduce::RecipeBook::ProductIndex` — class method / original symbol
+- `Zone` — `GatherProduce::RecipeBook::ProductIndex::<unnamed-type-raw>` — class method / original symbol
+- `Zone` — `GatherProduce::RecipeBook::operator[]` — class method / original symbol
+- `Zone` — `GatherProduce::RecipeBook::rb_Compare` — class method / original symbol
+- `Zone` — `GatherProduce::RecipeBook::rb_Load` — class method / original symbol
+- `Zone` — `NC_ACT_GATHERCANCEL_CMD` — symbol / original name candidate
+- `Zone` — `NC_ACT_GATHERCOMPLETE_ACK` — symbol / original name candidate
+- `Zone` — `NC_ACT_GATHERCOMPLETE_REQ` — symbol / original name candidate
+- `Zone` — `NC_ACT_GATHERSTART_ACK` — symbol / original name candidate
+- `Zone` — `NC_ACT_GATHERSTART_REQ` — symbol / original name candidate
+- `Zone` — `NC_ACT_PRODUCE_CASTABORT_CMD` — symbol / original name candidate
+- `Zone` — `NC_ACT_PRODUCE_CAST_REQ` — symbol / original name candidate
+- `Zone` — `NC_ACT_PRODUCE_CAST_SUC_ACK` — symbol / original name candidate
+- `Zone` — `NC_ACT_PRODUCE_MAKE_CMD` — symbol / original name candidate
+- `Zone` — `NC_ACT_SOMEONEGATHERCANCEL_CMD` — symbol / original name candidate
+- `Zone` — `NC_ACT_SOMEONEGATHERCOMPLETE_CMD` — symbol / original name candidate
+- `Zone` — `NC_ACT_SOMEONEGATHERSTART_CMD` — symbol / original name candidate
+- `Zone` — `NC_ACT_SOMEONEPRODUCE_CASTCUT_CMD` — symbol / original name candidate
+- `Zone` — `NC_ACT_SOMEONEPRODUCE_CAST_CMD` — symbol / original name candidate
+- `Zone` — `NC_ACT_SOMEONEPRODUCE_MAKE_CMD` — symbol / original name candidate
+- `Zone` — `PROTO_NC_ACT_GATHERCOMPLETE_ACK` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_ACT_GATHERSTART_ACK` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_ACT_GATHERSTART_REQ` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_ACT_PRODUCE_CAST_REQ` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_ACT_PRODUCE_MAKE_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_ACT_SOMEONEGATHERCANCEL_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_ACT_SOMEONEGATHERCOMPLETE_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_ACT_SOMEONEGATHERSTART_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_ACT_SOMEONEPRODUCE_CASTCUT_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_ACT_SOMEONEPRODUCE_CAST_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_ACT_SOMEONEPRODUCE_MAKE_CMD` — packet/protocol struct or template reference
+- `Zone` — `ProduceInfo::DataVersion` — class method / original symbol
+- `Zone` — `UPROTO_NC_ACT_GATHERCOMPLETE_ACK@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_ACT_GATHERSTART_ACK@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_ACT_GATHERSTART_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_ACT_PRODUCE_CAST_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_ACT_PRODUCE_MAKE_CMD@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_ACT_SOMEONEGATHERCANCEL_CMD@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_ACT_SOMEONEGATHERCOMPLETE_CMD@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_ACT_SOMEONEGATHERSTART_CMD@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_ACT_SOMEONEPRODUCE_CASTCUT_CMD@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_ACT_SOMEONEPRODUCE_CAST_CMD@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_ACT_SOMEONEPRODUCE_MAKE_CMD@@` — packet/protocol struct or template reference
+- `Zone` — `sp_NC_ACT_GATHERCANCEL_CMD` — symbol / original name candidate
+- `Zone` — `sp_NC_ACT_GATHERCOMPLETE_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_ACT_GATHERSTART_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_ACT_PRODUCE_CASTABORT_CMD` — symbol / original name candidate
+- `Zone` — `sp_NC_ACT_PRODUCE_CAST_REQ` — symbol / original name candidate
+
+## Guild / Academy / Tournament
+
+- `Account` — `CSQLPGuild::GUILD_TOURNAMENT_TYPE` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_ACADEMY_MONEY` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_ALL_GRADUATE_LIST` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_ALL_RANK_LIST` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_GRADUATE_COUNT` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_GRADUATE_LIST` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_HISTORY_LIST` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_MYNO` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_MYNO_FETCH` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_RANK_LIST` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_LIST_GET_ALL` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_GET` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_GET_ALL` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_GET_COUNT` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_GUILD_JOIN` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_JOIN` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_LEAVE` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_SET_CHAT_BAN_TIME` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_NOTIFY` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_REWARD_DELETE_ALL` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_REWARD_DELETE_RECORD` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_REWARD_GET_ALL` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_REWARD_GET_RECORD` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_REWARD_GET_RECORD_OUT` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_REWARD_INSERT_RECORD` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_SET_DEPOSIT` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_SET_GRADUATE` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_SET_HISTORY` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_SET_MASTER` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_SET_RANKING` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_ACADEMY_SET_WITHDRAW` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_COUNT` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_DELETE` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_EMBLEM_GET_INFO` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_EMBLEM_SET_INFO` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_GET_HISTORY_LIST` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_GET_MYNO` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_GET_TOKEN` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_GRADE_GROWTH` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_INTRO` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_LIST` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_MAKE` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_MEMBER` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_MEMBER_GET` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_MEMBER_GET_ALL` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_MEMBER_GET_COUNT` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_MEMBER_INTRO` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_MEMBER_JOIN` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_MEMBER_LEAVE` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_MEMBER_SET_FLAGS` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_MEMBER_SET_GRADE` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_MONEY_ADD` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_MONEY_SUB` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_NOTIFY` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_SET_DISMISS` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_SET_FAME` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_SET_GRADE` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_SET_HISTORY` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_SET_MONEY` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_SET_NAME` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_SET_TOKEN` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_SET_TYPE` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_SET_WAR` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_SET_WAR_RESULT` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_TOKEN` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_DATA` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_FINAL_SELECTION` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_FINAL_SELECTION_LIST` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_GET` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_GET_PROPOSAL_MONEY` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_JOIN_LIST` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_JOIN_NEW` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_LIST_GET` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_REFUND_NOTICE_SET` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_SET` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_SET_RESULT` — class method / original symbol
+- `Account` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_SYNC_BASED_WORLD` — class method / original symbol
+- `Account` — `CSQLPGuild::tagSQL_GUILD_NAME` — class method / original symbol
+- `Account` — `LPSQL_GUILD_TOURNAMENT_SYNC_BASED_WORLD` — symbol / original name candidate
+- `Account` — `NC_AVATAR_GUILD_DATA_ACK` — symbol / original name candidate
+- `Account` — `NC_AVATAR_GUILD_DATA_REQ` — symbol / original name candidate
+- `Account` — `NC_AVATAR_GUILD_MEMBER_DATA_ACK` — symbol / original name candidate
+- `Account` — `NC_AVATAR_GUILD_MEMBER_DATA_REQ` — symbol / original name candidate
+- `Account` — `NC_GUILD` — symbol / original name candidate
+- `Account` — `NC_GUILD_ACADEMY` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_GUILD_CHANGE_MEMBER_GRADE_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_GUILD_CHANGE_MEMBER_GRADE_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_GUILD_DATA_CHANGE_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_GUILD_DATA_CHANGE_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_GUILD_DISMISS_CANCEL_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_GUILD_DISMISS_CANCEL_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_GUILD_TOURNAMENT_CHANGE_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_GUILD_TOURNAMENT_CHANGE_CMD` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_GUILD_TOURNAMENT_SCHEDULE_RESET_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_GUILD_TOURNAMENT_SCHEDULE_RESET_REQ` — symbol / original name candidate
+- `Account` — `PROTO_NC_GUILD_TOURNAMENT_DB_REWARD_CREATE_REQ` — packet/protocol struct or template reference
+- `Account` — `SQL_GUILD_TOURNAMENT_SYNC_BASED_WORLD` — symbol / original name candidate
+- `Account` — `UPROTO_NC_GUILD_TOURNAMENT_DB_REWARD_CREATE_REQ@@` — packet/protocol struct or template reference
+- `Account` — `USQL_GUILD_TOURNAMENT_SYNC_BASED_WORLD@CSQLPGuild@@` — symbol / original name candidate
+- `AccountLog` — `CSQLPGuild::GUILD_TOURNAMENT_TYPE` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_ACADEMY_MONEY` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_ALL_GRADUATE_LIST` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_ALL_RANK_LIST` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_GRADUATE_COUNT` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_GRADUATE_LIST` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_HISTORY_LIST` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_MYNO` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_MYNO_FETCH` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_GET_RANK_LIST` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_LIST_GET_ALL` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_GET` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_GET_ALL` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_GET_COUNT` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_GUILD_JOIN` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_JOIN` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_LEAVE` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_MEMBER_SET_CHAT_BAN_TIME` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_NOTIFY` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_REWARD_DELETE_ALL` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_REWARD_DELETE_RECORD` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_REWARD_GET_ALL` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_REWARD_GET_RECORD` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_REWARD_GET_RECORD_OUT` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_REWARD_INSERT_RECORD` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_SET_DEPOSIT` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_SET_GRADUATE` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_SET_HISTORY` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_SET_MASTER` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_SET_RANKING` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_ACADEMY_SET_WITHDRAW` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_COUNT` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_DELETE` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_EMBLEM_GET_INFO` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_EMBLEM_SET_INFO` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_GET_HISTORY_LIST` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_GET_MYNO` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_GET_TOKEN` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_GRADE_GROWTH` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_INTRO` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_LIST` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_MAKE` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_MEMBER` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_MEMBER_GET` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_MEMBER_GET_ALL` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_MEMBER_GET_COUNT` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_MEMBER_INTRO` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_MEMBER_JOIN` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_MEMBER_LEAVE` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_MEMBER_SET_FLAGS` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_MEMBER_SET_GRADE` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_MONEY_ADD` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_MONEY_SUB` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_NOTIFY` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_SET_DISMISS` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_SET_FAME` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_SET_GRADE` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_SET_HISTORY` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_SET_MONEY` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_SET_NAME` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_SET_TOKEN` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_SET_TYPE` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_SET_WAR` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_SET_WAR_RESULT` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_TOKEN` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_FINAL_SELECTION` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_FINAL_SELECTION_LIST` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_GET` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_GET_PROPOSAL_MONEY` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_JOIN_LIST` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_JOIN_NEW` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_LIST_GET` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_REFUND_NOTICE_SET` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_SET` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_SET_RESULT` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::SQL_GUILD_TOURNAMENT_SYNC_BASED_WORLD` — class method / original symbol
+- `AccountLog` — `CSQLPGuild::tagSQL_GUILD_NAME` — class method / original symbol
+- `AccountLog` — `LPSQL_GUILD_TOURNAMENT_SYNC_BASED_WORLD` — symbol / original name candidate
+- `AccountLog` — `NC_GUILD` — symbol / original name candidate
+- `AccountLog` — `NC_GUILD_ACADEMY` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_ARENA_GUILD` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_4_REWARD_FAME` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_4_TOURNAMENT_RESULT` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_CREATE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_DELETE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_GRADE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_G_REWARD_MONEY` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_G_REWARD_MONEY_DIVISION` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_G_REWARD_TOKEN` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_K_MONEY_WITHDRAW` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_M_BANISH` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_M_GRADE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_M_JOIN` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_M_LEAVE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_TYPE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_WAR_ACCEPT` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_WAR_DECLARE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_GUILD_WAR_RESULT` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GUILD_ACADEMY_CHAT_BAN` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GUILD_ACADEMY_CLEAR_REWARD_MONEY` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GUILD_ACADEMY_GRADUATE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GUILD_ACADEMY_GUILD_INVITE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GUILD_ACADEMY_JOIN` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GUILD_ACADEMY_LEAVE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GUILD_ACADEMY_MASTER_TELEPORT` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GUILD_ACADEMY_REWARD_MONEY` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GUILD_ACADEMY_SET_MASTER` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GUILD_ACADEMY_SET_REWARD_MONEY` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GUILD_ACADEMY_VANISH` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_GUILD_CHANGE_MEMBER_GRADE_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_GUILD_CHANGE_MEMBER_GRADE_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_GUILD_DATA_CHANGE_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_GUILD_DATA_CHANGE_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_GUILD_DISMISS_CANCEL_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_GUILD_DISMISS_CANCEL_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_GUILD_TOURNAMENT_CHANGE_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_GUILD_TOURNAMENT_CHANGE_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_GUILD_TOURNAMENT_SCHEDULE_RESET_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_GUILD_TOURNAMENT_SCHEDULE_RESET_REQ` — symbol / original name candidate
+- `AccountLog` — `PROTO_NC_GUILD_TOURNAMENT_DB_REWARD_CREATE_REQ` — packet/protocol struct or template reference
+- `AccountLog` — `SQL_GUILD_TOURNAMENT_SYNC_BASED_WORLD` — symbol / original name candidate
+- `AccountLog` — `UPROTO_NC_GUILD_TOURNAMENT_DB_REWARD_CREATE_REQ@@` — packet/protocol struct or template reference
+- `AccountLog` — `USQL_GUILD_TOURNAMENT_SYNC_BASED_WORLD@CSQLPGuild@@` — symbol / original name candidate
+- `Login` — `NC_GUILD` — symbol / original name candidate
+- `Login` — `NC_GUILD_ACADEMY` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_GUILD_CREATE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_GUILD_DELETE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_GUILD_GRADE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_GUILD_M_BANISH` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_GUILD_M_GRADE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_GUILD_M_JOIN` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_GUILD_M_LEAVE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_GUILD_TYPE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_GUILD_WAR_ACCEPT` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_GUILD_WAR_DECLARE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_GUILD_WAR_RESULT` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_GUILD_CHANGE_MEMBER_GRADE_ACK` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_GUILD_CHANGE_MEMBER_GRADE_REQ` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_GUILD_DATA_CHANGE_ACK` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_GUILD_DATA_CHANGE_REQ` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_GUILD_DISMISS_CANCEL_ACK` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_GUILD_DISMISS_CANCEL_REQ` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_GUILD_TOURNAMENT_CHANGE_ACK` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_GUILD_TOURNAMENT_CHANGE_CMD` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_GUILD_TOURNAMENT_SCHEDULE_RESET_ACK` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_GUILD_TOURNAMENT_SCHEDULE_RESET_REQ` — symbol / original name candidate
+
+## Item / Inventory
+
+- `Account` — `CItemAuthorityBase::CItemAuthorityBase` — class method / original symbol
+- `Account` — `CItemAuthorityBase::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `CItemAuthorityBase::~CItemAuthorityBase` — class method / original symbol
+- `Account` — `CharacterInventoryManager::cim_equip` — class method / original symbol
+- `Account` — `CharacterInventoryManager::cim_inven` — class method / original symbol
+- `Account` — `CharacterInventoryManager::cim_minihouse` — class method / original symbol
+- `Account` — `CharacterInventoryManager::cim_null` — class method / original symbol
+- `Account` — `CharacterInventoryManager::cim_quest` — class method / original symbol
+- `Account` — `ItemActionItemBox::iaib_Default$initializer$` — class method / original symbol
+- `Account` — `ItemAttrCls_ActionItem::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_ActionItem::iac_GetDeteleDateTime` — class method / original symbol
+- `Account` — `ItemAttrCls_ActionItem::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_ActionItem::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_ActionItem::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_ActionItem::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_ActiveSkill::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_ActiveSkill::iac_GetLot` — class method / original symbol
+- `Account` — `ItemAttrCls_ActiveSkill::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_ActiveSkill::iac_SetLot` — class method / original symbol
+- `Account` — `ItemAttrCls_ActiveSkill::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_ActiveSkill::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_ActiveSkill::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_Amount::iac_GetAmount` — class method / original symbol
+- `Account` — `ItemAttrCls_Amount::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_Amount::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Amount::iac_SetAmount` — class method / original symbol
+- `Account` — `ItemAttrCls_Amount::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_Amount::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_Amount::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_Amulet::iac_ClearItemOptionUpgrade` — class method / original symbol
+- `Account` — `ItemAttrCls_Amulet::iac_DropItemMake` — class method / original symbol
+- `Account` — `ItemAttrCls_Amulet::iac_GetDeteleDateTime` — class method / original symbol
+- `Account` — `ItemAttrCls_Amulet::iac_GetItemOptionStruct` — class method / original symbol
+- `Account` — `ItemAttrCls_Amulet::iac_GetItemOptionUpgrade` — class method / original symbol
+- `Account` — `ItemAttrCls_Amulet::iac_GetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttrCls_Amulet::iac_Getupgrade` — class method / original symbol
+- `Account` — `ItemAttrCls_Amulet::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Amulet::iac_SetItemOptionUpgrade` — class method / original symbol
+- `Account` — `ItemAttrCls_Amulet::iac_SetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttrCls_Amulet::iac_equipbriefinfo` — class method / original symbol
+- `Account` — `ItemAttrCls_Amulet::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_Armor::iac_DropItemMake` — class method / original symbol
+- `Account` — `ItemAttrCls_Armor::iac_GetDeteleDateTime` — class method / original symbol
+- `Account` — `ItemAttrCls_Armor::iac_GetItemOptionStruct` — class method / original symbol
+- `Account` — `ItemAttrCls_Armor::iac_GetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttrCls_Armor::iac_Getupgrade` — class method / original symbol
+- `Account` — `ItemAttrCls_Armor::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Armor::iac_SetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttrCls_Armor::iac_equipbriefinfo` — class method / original symbol
+- `Account` — `ItemAttrCls_Armor::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_BindItem::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_BindItem::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_BindItem::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_BindItem::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_BindItem::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_Boot::iac_GetDeteleDateTime` — class method / original symbol
+- `Account` — `ItemAttrCls_Boot::iac_GetItemOptionStruct` — class method / original symbol
+- `Account` — `ItemAttrCls_Boot::iac_GetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttrCls_Boot::iac_Getupgrade` — class method / original symbol
+- `Account` — `ItemAttrCls_Boot::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Boot::iac_SetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttrCls_Boot::iac_equipbriefinfo` — class method / original symbol
+- `Account` — `ItemAttrCls_Boot::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_Bracelet::iac_DropItemMake` — class method / original symbol
+- `Account` — `ItemAttrCls_Bracelet::iac_GetDeteleDateTime` — class method / original symbol
+- `Account` — `ItemAttrCls_Bracelet::iac_GetItemOptionStruct` — class method / original symbol
+- `Account` — `ItemAttrCls_Bracelet::iac_GetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttrCls_Bracelet::iac_Getupgrade` — class method / original symbol
+- `Account` — `ItemAttrCls_Bracelet::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Bracelet::iac_SetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttrCls_Bracelet::iac_equipbriefinfo` — class method / original symbol
+- `Account` — `ItemAttrCls_Bracelet::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_ByteLot::iac_DropItemMake` — class method / original symbol
+- `Account` — `ItemAttrCls_ByteLot::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_ByteLot::iac_GetLot` — class method / original symbol
+- `Account` — `ItemAttrCls_ByteLot::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_ByteLot::iac_SetLot` — class method / original symbol
+- `Account` — `ItemAttrCls_ByteLot::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_ByteLot::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_ByteLot::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_Capsule::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_Capsule::iac_GetUseableDateTime` — class method / original symbol
+- `Account` — `ItemAttrCls_Capsule::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Capsule::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_Capsule::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_Capsule::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumShield::iac_GetChargedNumber` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumShield::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumShield::iac_SetChargedNumber` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumShield::iac_equipbriefinfo` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumShield::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumShield::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumShield::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumWeapon::iac_GetChargedNumber` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumWeapon::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumWeapon::iac_SetChargedNumber` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumWeapon::iac_equipbriefinfo` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumWeapon::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumWeapon::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_CostumWeapon::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_Decoration::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_Decoration::iac_GetDeteleDateTime` — class method / original symbol
+- `Account` — `ItemAttrCls_Decoration::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Decoration::iac_equipbriefinfo` — class method / original symbol
+- `Account` — `ItemAttrCls_Decoration::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_Decoration::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_Decoration::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_DwrdLot::iac_DropItemMake` — class method / original symbol
+- `Account` — `ItemAttrCls_DwrdLot::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_DwrdLot::iac_GetLot` — class method / original symbol
+- `Account` — `ItemAttrCls_DwrdLot::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_DwrdLot::iac_SetLot` — class method / original symbol
+- `Account` — `ItemAttrCls_DwrdLot::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_DwrdLot::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_DwrdLot::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_Enchant::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_Enchant::iac_GetLot` — class method / original symbol
+- `Account` — `ItemAttrCls_Enchant::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Enchant::iac_SetLot` — class method / original symbol
+- `Account` — `ItemAttrCls_Enchant::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_Enchant::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_Enchant::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_Feed::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Furniture::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_Furniture::iac_GetDeteleDateTime` — class method / original symbol
+- `Account` — `ItemAttrCls_Furniture::iac_GetEndureEndTime` — class method / original symbol
+- `Account` — `ItemAttrCls_Furniture::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Furniture::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_Furniture::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_Furniture::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_GBCoin::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_GBCoin::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_GBCoin::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_GBCoin::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_GBCoin::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_ItemChest::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_ItemChest::iac_Getitemchest` — class method / original symbol
+- `Account` — `ItemAttrCls_ItemChest::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_ItemChest::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_ItemChest::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_ItemChest::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_KQStep::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_KQStep::iac_StepGet` — class method / original symbol
+- `Account` — `ItemAttrCls_KQStep::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_KingdomQuestItem::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_MiniHouseSkin::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_MiniHouseSkin::iac_GetDeteleDateTime` — class method / original symbol
+- `Account` — `ItemAttrCls_MiniHouseSkin::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_MiniHouseSkin::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_MiniHouseSkin::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_MiniHouseSkin::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_NotLot::iac_islotitem` — class method / original symbol
+- `Account` — `ItemAttrCls_NotLot::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_Pet::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_Pet::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Pet::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_Pet::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_Pet::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_QuestLot::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_QuestLot::iac_GetLot` — class method / original symbol
+- `Account` — `ItemAttrCls_QuestLot::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_QuestLot::iac_SetLot` — class method / original symbol
+- `Account` — `ItemAttrCls_QuestLot::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_QuestLot::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_QuestLot::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_RecallScroll::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Riding::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_Riding::iac_GetDeteleDateTime` — class method / original symbol
+- `Account` — `ItemAttrCls_Riding::iac_GetDuringRide` — class method / original symbol
+- `Account` — `ItemAttrCls_Riding::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Riding::iac_SetDuringRide` — class method / original symbol
+- `Account` — `ItemAttrCls_Riding::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_Riding::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_Riding::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_Shield::iac_GetDeteleDateTime` — class method / original symbol
+- `Account` — `ItemAttrCls_Shield::iac_GetItemOptionStruct` — class method / original symbol
+- `Account` — `ItemAttrCls_Shield::iac_GetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttrCls_Shield::iac_Getupgrade` — class method / original symbol
+- `Account` — `ItemAttrCls_Shield::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Shield::iac_SetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttrCls_Shield::iac_equipbriefinfo` — class method / original symbol
+- `Account` — `ItemAttrCls_Shield::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_SkillScroll::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_SkillScroll::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_SkillScroll::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_SkillScroll::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_SkillScroll::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_UpSource::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_UpgradeBlueGem::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_UpgradeGoldGem::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_UpgradeRedGem::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Weapon::iac_DropItemMake` — class method / original symbol
+- `Account` — `ItemAttrCls_Weapon::iac_GetDeteleDateTime` — class method / original symbol
+- `Account` — `ItemAttrCls_Weapon::iac_GetItemOptionStruct` — class method / original symbol
+- `Account` — `ItemAttrCls_Weapon::iac_GetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttrCls_Weapon::iac_Getupgrade` — class method / original symbol
+- `Account` — `ItemAttrCls_Weapon::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_Weapon::iac_SetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttrCls_Weapon::iac_equipbriefinfo` — class method / original symbol
+- `Account` — `ItemAttrCls_Weapon::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_WeaponTitlaLicence::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_WeaponTitlaLicence::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_WeaponTitlaLicence::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_WeaponTitlaLicence::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_WeaponTitlaLicence::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttrCls_WordLot::iac_DropItemMake` — class method / original symbol
+- `Account` — `ItemAttrCls_WordLot::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttrCls_WordLot::iac_GetLot` — class method / original symbol
+- `Account` — `ItemAttrCls_WordLot::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttrCls_WordLot::iac_SetLot` — class method / original symbol
+- `Account` — `ItemAttrCls_WordLot::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttrCls_WordLot::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttrCls_WordLot::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_ClearItemOptionUpgrade` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_DropItemMake` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_GetAmount` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_GetAttrSize` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_GetChargedNumber` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_GetDeteleDateTime` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_GetDuringRide` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_GetEndureEndTime` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_GetItemOptionStruct` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_GetItemOptionUpgrade` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_GetLot` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_GetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_GetUseableDateTime` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_Getitemchest` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_Getupgrade` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_ItemClass` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_SetAmount` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_SetChargedNumber` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_SetDeteleDateTime` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_SetDuringRide` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_SetEndTime` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_SetItemOptionUpgrade` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_SetLot` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_SetRandomOptionChangeCount` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_SetUseableDateTime` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_Setoption` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_StepGet` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_equipbriefinfo` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_fill2buffer` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_fill2struct` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_islotitem` — class method / original symbol
+- `Account` — `ItemAttributeClass::iac_itemcreate` — class method / original symbol
+- `Account` — `ItemBag::ib_staticcell$initializer$` — class method / original symbol
+- `Account` — ``dynamic atexit destructor for 'ItemActionItemBox::iaib_Default''` — class method / original symbol
+- `Account` — ``dynamic atexit destructor for 'ItemBag::ib_staticcell''` — class method / original symbol
+- `Account` — ``dynamic initializer for 'ItemActionItemBox::iaib_Default''` — class method / original symbol
+- `Account` — ``dynamic initializer for 'ItemBag::ib_staticcell''` — class method / original symbol
+
+## Lua / Instance / KQ
+
+- `Account` — `NC_INSTANCE_DUNGEON` — symbol / original name candidate
+- `Account` — `NC_KQ` — symbol / original name candidate
+- `Account` — `NC_MID` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_KQ_ALL_RESET_CMD` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_KQ_CHANGE_CMD` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_KQ_DELETE_CMD` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_KQ_SCHEDULE_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_KQ_SCHEDULE_REQ` — symbol / original name candidate
+- `Account` — `Singleton<WinService>::getInstance` — class method / original symbol
+- `Account` — `Singleton<WinService>::selfInstance` — class method / original symbol
+- `AccountLog` — `NC_INSTANCE_DUNGEON` — symbol / original name candidate
+- `AccountLog` — `NC_KQ` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_KQ_ENTER` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_KQ_LEAVE` — symbol / original name candidate
+- `AccountLog` — `NC_MID` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_KQ_ALL_RESET_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_KQ_CHANGE_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_KQ_DELETE_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_KQ_SCHEDULE_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_KQ_SCHEDULE_REQ` — symbol / original name candidate
+- `AccountLog` — `Singleton<WinService>::getInstance` — class method / original symbol
+- `AccountLog` — `Singleton<WinService>::selfInstance` — class method / original symbol
+- `Login` — `NC_INSTANCE_DUNGEON` — symbol / original name candidate
+- `Login` — `NC_KQ` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_KQ_ENTER` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_KQ_LEAVE` — symbol / original name candidate
+- `Login` — `NC_MID` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_KQ_ALL_RESET_CMD` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_KQ_CHANGE_CMD` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_KQ_DELETE_CMD` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_KQ_SCHEDULE_ACK` — symbol / original name candidate
+- `Login` — `NC_OPTOOL_KQ_SCHEDULE_REQ` — symbol / original name candidate
+- `Login` — `Singleton<WinService>::getInstance` — class method / original symbol
+- `Login` — `Singleton<WinService>::selfInstance` — class method / original symbol
+- `WorldManager` — `?Ack_NC_KQ_LIST_REFRESH@CKQServer@@QAEHPAVCWMClientSession@@@Z` — symbol / original name candidate
+- `WorldManager` — `?Recv_NC_KQ_JOIN_LIST_REQ@CKQServer@@QAEHPAVCWMClientSession@@PAUPROTO_NC_KQ_JOIN_LIST_REQ@@@Z` — WorldManager/Zone protocol handler
+- `WorldManager` — `?Recv_NC_KQ_TEAM_SELECT_REQ@CKQServer@@QAEHPAVCWMClientSession@@PAUPROTO_NC_KQ_TEAM_SELECT_REQ@@@Z` — WorldManager/Zone protocol handler
+- `WorldManager` — `?Recv_NC_KQ_VOTE_START_CHECK_REQ@CKQServer@@QAEHPAVCWMClientSession@@PAUPROTO_NC_KQ_VOTE_START_CHECK_REQ@@@Z` — WorldManager/Zone protocol handler
+- `WorldManager` — `?Recv_NC_KQ_VOTE_START_REQ@CKQServer@@QAEHPAVCWMClientSession@@PAUPROTO_NC_KQ_VOTE_START_REQ@@@Z` — WorldManager/Zone protocol handler
+- `WorldManager` — `?Recv_NC_KQ_VOTE_VOTING_REQ@CKQServer@@QAEHPAVCWMClientSession@@PAUPROTO_NC_KQ_VOTE_VOTING_REQ@@@Z` — WorldManager/Zone protocol handler
+- `WorldManager` — `?SendBroadcast_NC_KQ_JOIN_LIST_ACK@CKQServer@@QAEXK@Z` — symbol / original name candidate
+- `WorldManager` — `?Send_NC_KQ_JOINING_ALARM_CMD@CKQServer@@QAEHPADH@Z` — symbol / original name candidate
+- `WorldManager` — `?Send_NC_KQ_JOINING_ALARM_END_CMD@CKQServer@@QAEHH@Z` — symbol / original name candidate
+- `WorldManager` — `?Send_NC_KQ_JOINING_ALARM_LIST@CKQServer@@QAEHPAVCWMClientSession@@@Z` — symbol / original name candidate
+- `WorldManager` — `?Send_NC_KQ_NOTIFY_CMD_ToJoiner@CKQServer@@QAEHPADH@Z` — symbol / original name candidate
+- `WorldManager` — `?Send_NC_KQ_VOTE_BAN_MSG_LOGOFF_CMD@CKQServer@@QAEHPAVCWMClientSession@@@Z` — symbol / original name candidate
+- `WorldManager` — `?Send_NC_KQ_W2Z_DESTROY_CMD@CKQServer@@QAEHK@Z` — symbol / original name candidate
+- `WorldManager` — `?Send_NC_KQ_W2Z_MAKE_REQ@CKQServer@@QAEHPAUPROTO_KQ_INFO@@@Z` — symbol / original name candidate
+- `WorldManager` — `?Send_NC_KQ_W2Z_START_CMD@CKQServer@@QAEHH@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_CT_LUASCRIPT_SET_WORLD_CMD@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_INSTANCE_DUNGEON_EMPTY_DUNGEON_CMD@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_INSTANCE_DUNGEON_RANK_TAB_HEALINGDONE_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_INSTANCE_DUNGEON_RANK_TAB_MYRANK_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_INSTANCE_DUNGEON_RESET_COUNTDOWN_CMD@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_KQ_JOIN_CANCEL_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_KQ_JOIN_LIST_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_KQ_JOIN_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_KQ_LIST_REFRESH_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_KQ_LIST_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_KQ_SCHEDULE_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_KQ_TEAM_SELECT_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_KQ_VOTE_START_CHECK_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_KQ_VOTE_START_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_KQ_VOTE_VOTING_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_KQ_Z2W_END_CMD@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_KQ_Z2W_MAKE_ACK@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_OPTOOL_KQ_ALL_RESET_CMD@CParserOPTool@@QAEHPAVCWMOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_OPTOOL_KQ_CHANGE_CMD@CParserOPTool@@QAEHPAVCWMOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_OPTOOL_KQ_DELETE_CMD@CParserOPTool@@QAEHPAVCWMOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_OPTOOL_KQ_SCHEDULE_REQ@CParserOPTool@@QAEHPAVCWMOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `Ack_NC_KQ_LIST_REFRESH` — symbol / original name candidate
+- `WorldManager` — `CKQ::Add` — class method / original symbol
+- `WorldManager` — `CKQ::CKQ` — class method / original symbol
+- `WorldManager` — `CKQ::Clear` — class method / original symbol
+- `WorldManager` — `CKQ::Del` — class method / original symbol
+- `WorldManager` — `CKQ::Get` — class method / original symbol
+- `WorldManager` — `CKQ::GetBFIndex` — class method / original symbol
+- `WorldManager` — `CKQ::IsJoinable` — class method / original symbol
+- `WorldManager` — `CKQ::operator=` — class method / original symbol
+- `WorldManager` — `CKQ::~CKQ` — class method / original symbol
+- `WorldManager` — `CKQServer::Ack_NC_KQ_LIST_REFRESH` — class method / original symbol
+- `WorldManager` — `CKQServer::Add` — class method / original symbol
+- `WorldManager` — `CKQServer::AddNewScheduleList` — class method / original symbol
+- `WorldManager` — `CKQServer::AutoRefreshList` — class method / original symbol
+- `WorldManager` — `CKQServer::CKQServer` — class method / original symbol
+- `WorldManager` — `CKQServer::ClearVoteInfo` — class method / original symbol
+- `WorldManager` — `CKQServer::Del` — class method / original symbol
+- `WorldManager` — `CKQServer::DelOldShceduleList` — class method / original symbol
+- `WorldManager` — `CKQServer::DoSchedule` — class method / original symbol
+- `WorldManager` — `CKQServer::DoSetMakeRoom` — class method / original symbol
+- `WorldManager` — `CKQServer::DoSetStart` — class method / original symbol
+- `WorldManager` — `CKQServer::FreeJoiner` — class method / original symbol
+- `WorldManager` — `CKQServer::GetIsVote` — class method / original symbol
+- `WorldManager` — `CKQServer::GetJoinerIndex` — class method / original symbol
+- `WorldManager` — `CKQServer::GetJoinerTeamType` — class method / original symbol
+- `WorldManager` — `CKQServer::GetKQTeamData` — class method / original symbol
+- `WorldManager` — `CKQServer::GetNextScheduleTime` — class method / original symbol
+- `WorldManager` — `CKQServer::GetVoingEndTime` — class method / original symbol
+- `WorldManager` — `CKQServer::InVoting` — class method / original symbol
+- `WorldManager` — `CKQServer::InitAllVoteInfo` — class method / original symbol
+- `WorldManager` — `CKQServer::IsExisted` — class method / original symbol
+- `WorldManager` — `CKQServer::JoinerInfoUpdateByLogin` — class method / original symbol
+- `WorldManager` — `CKQServer::KQTeam_CanKQStart` — class method / original symbol
+- `WorldManager` — `CKQServer::KQTeam_DivideRandom` — class method / original symbol
+- `WorldManager` — `CKQServer::KQTeam_LeaveParty` — class method / original symbol
+- `WorldManager` — `CKQServer::KQ_JOINER_BF` — class method / original symbol
+- `WorldManager` — `CKQServer::KQ_JOINER_BF::KQ_JOINER_BF` — class method / original symbol
+- `WorldManager` — `CKQServer::KQ_JOINER_BF::~KQ_JOINER_BF` — class method / original symbol
+- `WorldManager` — `CKQServer::KQ_ONE_SCHEDULE_LIST` — class method / original symbol
+- `WorldManager` — `CKQServer::KQ_VOTE_INFO` — class method / original symbol
+- `WorldManager` — `CKQServer::Read` — class method / original symbol
+- `WorldManager` — `CKQServer::ReadIsVote` — class method / original symbol
+- `WorldManager` — `CKQServer::ReadTeam` — class method / original symbol
+- `WorldManager` — `CKQServer::ReadVoteRate` — class method / original symbol
+- `WorldManager` — `CKQServer::Recv_NC_KQ_JOIN_LIST_REQ` — class method / original symbol
+- `WorldManager` — `CKQServer::Recv_NC_KQ_TEAM_SELECT_REQ` — class method / original symbol
+- `WorldManager` — `CKQServer::Recv_NC_KQ_VOTE_START_CHECK_REQ` — class method / original symbol
+- `WorldManager` — `CKQServer::Recv_NC_KQ_VOTE_START_REQ` — class method / original symbol
+- `WorldManager` — `CKQServer::Recv_NC_KQ_VOTE_VOTING_REQ` — class method / original symbol
+- `WorldManager` — `CKQServer::SendBroadcast_NC_KQ_JOIN_LIST_ACK` — class method / original symbol
+- `WorldManager` — `CKQServer::Send_NC_KQ_JOINING_ALARM_CMD` — class method / original symbol
+- `WorldManager` — `CKQServer::Send_NC_KQ_JOINING_ALARM_END_CMD` — class method / original symbol
+- `WorldManager` — `CKQServer::Send_NC_KQ_JOINING_ALARM_LIST` — class method / original symbol
+- `WorldManager` — `CKQServer::Send_NC_KQ_NOTIFY_CMD_ToJoiner` — class method / original symbol
+- `WorldManager` — `CKQServer::Send_NC_KQ_VOTE_BAN_MSG_LOGOFF_CMD` — class method / original symbol
+- `WorldManager` — `CKQServer::Send_NC_KQ_W2Z_DESTROY_CMD` — class method / original symbol
+- `WorldManager` — `CKQServer::Send_NC_KQ_W2Z_MAKE_REQ` — class method / original symbol
+- `WorldManager` — `CKQServer::Send_NC_KQ_W2Z_START_CMD` — class method / original symbol
+- `WorldManager` — `CKQServer::SetDone` — class method / original symbol
+- `WorldManager` — `CKQServer::SetDoneSkip` — class method / original symbol
+- `WorldManager` — `CKQServer::SetJoining` — class method / original symbol
+- `WorldManager` — `CKQServer::VoteProcessing` — class method / original symbol
+- `WorldManager` — `CKQServer::~CKQServer` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_INSTANCE_DUNGEON_RANK_TAB_HEALINGDONE_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_INSTANCE_DUNGEON_RANK_TAB_MYRANK_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_KQ_JOIN_CANCEL_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_KQ_JOIN_CANCEL_REQ::__l4::PROTO_NC_KQ_JOIN_CANCEL_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_KQ_JOIN_LIST_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_KQ_JOIN_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_KQ_LIST_REFRESH_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_KQ_LIST_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_KQ_SCHEDULE_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_KQ_TEAM_SELECT_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_KQ_VOTE_START_CHECK_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_KQ_VOTE_START_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_KQ_VOTE_VOTING_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_OPTOOL_KQ_ALL_RESET_CMD` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_OPTOOL_KQ_CHANGE_CMD` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_OPTOOL_KQ_DELETE_CMD` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_OPTOOL_KQ_SCHEDULE_REQ` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_CT_LUASCRIPT_SET_WORLD_CMD` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_INSTANCE_DUNGEON_EMPTY_DUNGEON_CMD` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_INSTANCE_DUNGEON_RESET_COUNTDOWN_CMD` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_KQ_Z2W_END_CMD` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_KQ_Z2W_MAKE_ACK` — class method / original symbol
+- `WorldManager` — `CPrisonServer::GetInstance` — class method / original symbol
+- `WorldManager` — `CPrisonServer::m_pInstance` — class method / original symbol
+- `WorldManager` — `CWMClientSession::KQTeam_IsCanParty` — class method / original symbol
+- `WorldManager` — `KQTeam::DataVersion` — class method / original symbol
+- `WorldManager` — `KQVoteMajorityRate::DataVersion` — class method / original symbol
+- `WorldManager` — `NC_INSTANCE_DUNGEON` — symbol / original name candidate
+- `WorldManager` — `NC_KQ` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_JOIN_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_JOIN_CANCEL_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_JOIN_CANCEL_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_JOIN_LIST_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_JOIN_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_LIST_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_LIST_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_LIST_UPDATE_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_NOTIFY_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_NULL` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_SCHEDULE_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_SCHEDULE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_START_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_W2Z_DESTROY_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_W2Z_MAKE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_W2Z_START_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_Z2W_END_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_KQ_Z2W_MAKE_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_MID` — symbol / original name candidate
+- `WorldManager` — `NC_OPTOOL_KQ_CHANGE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_OPTOOL_KQ_SCHEDULE_REQ` — symbol / original name candidate
+- `WorldManager` — `PROTO_KQ_INFO::PROTO_KQ_INFO` — class method / original symbol
+- `WorldManager` — `PROTO_KQ_INFO::operator=` — class method / original symbol
+- `WorldManager` — `PROTO_KQ_INFO::~PROTO_KQ_INFO` — class method / original symbol
+- `WorldManager` — `PROTO_NC_KQ_JOIN_LIST_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_KQ_LIST_ADD_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_KQ_LIST_DELETE_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_KQ_LIST_TIME_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_KQ_LIST_UPDATE_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_KQ_TEAM_SELECT_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_KQ_VOTE_START_CHECK_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_KQ_VOTE_START_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_KQ_VOTE_VOTING_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `Recv_NC_KQ_JOIN_LIST_REQ` — symbol / original name candidate
+- `WorldManager` — `Recv_NC_KQ_TEAM_SELECT_REQ` — symbol / original name candidate
+- `WorldManager` — `Recv_NC_KQ_VOTE_START_CHECK_REQ` — symbol / original name candidate
+- `WorldManager` — `Recv_NC_KQ_VOTE_START_REQ` — symbol / original name candidate
+- `WorldManager` — `Recv_NC_KQ_VOTE_VOTING_REQ` — symbol / original name candidate
+- `WorldManager` — `SendBroadcast_NC_KQ_JOIN_LIST_ACK` — symbol / original name candidate
+- `WorldManager` — `Send_NC_KQ_JOINING_ALARM_CMD` — symbol / original name candidate
+- `WorldManager` — `Send_NC_KQ_JOINING_ALARM_END_CMD` — symbol / original name candidate
+- `WorldManager` — `Send_NC_KQ_JOINING_ALARM_LIST` — symbol / original name candidate
+- `WorldManager` — `Send_NC_KQ_LIST_TIME_ACK` — symbol / original name candidate
+- `WorldManager` — `Send_NC_KQ_NOTIFY_CMD` — symbol / original name candidate
+- `WorldManager` — `Send_NC_KQ_NOTIFY_CMD_ToJoinable` — symbol / original name candidate
+- `WorldManager` — `Send_NC_KQ_NOTIFY_CMD_ToJoiner` — symbol / original name candidate
+- `WorldManager` — `Send_NC_KQ_VOTE_BAN_MSG_LOGOFF_CMD` — symbol / original name candidate
+- `WorldManager` — `Send_NC_KQ_W2Z_DESTROY_CMD` — symbol / original name candidate
+- `WorldManager` — `Send_NC_KQ_W2Z_MAKE_REQ` — symbol / original name candidate
+- `WorldManager` — `Send_NC_KQ_W2Z_START_CMD` — symbol / original name candidate
+- `WorldManager` — `Singleton<WinService>::getInstance` — class method / original symbol
+- `WorldManager` — `Singleton<WinService>::selfInstance` — class method / original symbol
+- `WorldManager` — `UPROTO_NC_KQ_JOIN_LIST_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_KQ_LIST_ADD_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_KQ_LIST_DELETE_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_KQ_LIST_TIME_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_KQ_LIST_UPDATE_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_KQ_TEAM_SELECT_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_KQ_VOTE_START_CHECK_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_KQ_VOTE_START_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_KQ_VOTE_VOTING_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — ``CPrisonServer::CreateSingleton'::`2'::`dynamic atexit destructor for 'theInstance''` — class method / original symbol
+- `WorldManager` — `fc_NC_CT_LUASCRIPT_SET_WORLD_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_INSTANCE_DUNGEON_EMPTY_DUNGEON_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_INSTANCE_DUNGEON_RANK_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_INSTANCE_DUNGEON_RANK_MYRANK_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_INSTANCE_DUNGEON_RANK_SAVE_WORLD_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_INSTANCE_DUNGEON_RANK_TAB_HEALINGDONE_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_INSTANCE_DUNGEON_RANK_TAB_MYRANK_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_INSTANCE_DUNGEON_RANK_UPDATE_DB_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_INSTANCE_DUNGEON_RESET_COUNTDOWN_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_KQ_JOIN_CANCEL_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_KQ_JOIN_LIST_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_KQ_JOIN_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_KQ_LIST_REFRESH_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_KQ_LIST_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_KQ_SCHEDULE_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_KQ_TEAM_SELECT_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_KQ_VOTE_START_CHECK_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_KQ_VOTE_START_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_KQ_VOTE_VOTING_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_KQ_Z2W_END_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_KQ_Z2W_MAKE_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_OPTOOL_KQ_ALL_RESET_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_OPTOOL_KQ_CHANGE_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_OPTOOL_KQ_DELETE_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_OPTOOL_KQ_SCHEDULE_REQ` — symbol / original name candidate
+- `WorldManager` — `~PROTO_NC_KQ_VOTE_START_REQ` — packet/protocol struct or template reference
+
+## Map / Field / Movement
+
+- `Account` — `?fc_NC_OPTOOL_MAP_USER_LIST_REQ@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `BinaryDataBox<MapInfo>::`scalar deleting destructor'` — data table loader/index/helper
+- `Account` — `BinaryDataBox<MapInfo>::bdb_ReadData` — data table loader/index/helper
+- `Account` — `BinaryDataBox<MapInfo>::~BinaryDataBox<MapInfo>` — data table loader/index/helper
+- `Account` — `CDataReader::FIELD` — class method / original symbol
+- `Account` — `CGdp::GDP_CHUNK::<unnamed-tag>::<unnamed-type-TYPE_LINK>` — class method / original symbol
+- `Account` — `CPFs::fc_NC_OPTOOL_MAP_USER_LIST_REQ` — class method / original symbol
+- `Account` — `CPacket::RemoveAllUsedPacket` — packet framework/helper
+- `Account` — `CSQLPAccountLog::SQL_IPBLOCK_INFO` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_KQ_MAP` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_OPTION_DATA_IMPROVE_GET_KEY_MAP_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_OPTION_DATA_IMPROVE_INIT_KEY_MAP_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_CHAR_OPTION_DATA_IMPROVE_SET_KEY_MAP_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_CHAT_BLOCK_SPAM_FILTER_OPTION_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_MAPLINK_SCROLL_DEST` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_NC_CHAR_GET_CHAT_BLOCK_SPAMMER_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_NC_CHAR_OPTION_LOGIN_BLOCKDATA_ERR_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_NC_CHAR_SET_CHAT_BLOCK_SPAMER_DATA` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_SET_CHAT_BLOCK_SPAM_FILTER_OPTION_DATA` — class method / original symbol
+- `Account` — `LPSQL_NC_CHAR_GET_CHAT_BLOCK_SPAMER_DATA` — symbol / original name candidate
+- `Account` — `LPSQL_NC_CHAR_OPTION_LOGIN_BLOCKDATA_ERR_DATA` — symbol / original name candidate
+- `Account` — `LPSQL_NC_CHAR_SET_CHAT_BLOCK_SPAMER_DATA` — symbol / original name candidate
+- `Account` — `MapDataBox::CheckReadData` — data table loader/index/helper
+- `Account` — `MapDataBox::MapDataBox` — data table loader/index/helper
+- `Account` — `MapDataBox::mdb_Load` — data table loader/index/helper
+- `Account` — `MapDataBox::~MapDataBox` — data table loader/index/helper
+- `Account` — `MapInfo::DataVersion` — class method / original symbol
+- `Account` — `NC_BRIEFINFO_MAGICFIELDINFO_CMD` — symbol / original name candidate
+- `Account` — `NC_BRIEFINFO_MAGICFIELDSPREAD_CMD` — symbol / original name candidate
+- `Account` — `NC_BRIEFINFO_MOVER_CMD` — symbol / original name candidate
+- `Account` — `NC_BRIEFINFO_PLAYER_LIST_INFO_APPEAR_CMD` — symbol / original name candidate
+- `Account` — `NC_MAP` — symbol / original name candidate
+- `Account` — `NC_MISC_CHAT_BLOCK_SPAMER_BLOCKTIME_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_GET_CHAT_BLOCK_SPAM_FILTER_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_GET_CHAT_BLOCK_SPAM_FILTER_DB_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_SET_CHAT_BLOCK_SPAM_FILTER_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_SET_CHAT_BLOCK_SPAM_FILTER_DB_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_XTRAP2_OPTOOL_READ_CODEMAP_ACK` — symbol / original name candidate
+- `Account` — `NC_MISC_XTRAP2_OPTOOL_READ_CODEMAP_REQ` — symbol / original name candidate
+- `Account` — `NC_MISC_ZONERINGLINKTEST_RNG` — symbol / original name candidate
+- `Account` — `NC_MOVER` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_KQ_MAP_ALLOC_INFO_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_KQ_MAP_ALLOC_INFO_REQ` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_MAP_USER_LIST_ACK` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_MAP_USER_LIST_INFO` — symbol / original name candidate
+- `Account` — `NC_OPTOOL_MAP_USER_LIST_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_CH_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_CH_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_GER_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_GER_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_JP_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_JP_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_TW_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_TW_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_US_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_US_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `Account` — `PROTO_NC_CHAR_OPTION_KEYMAPPING` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_OPTOOL_MAP_USER_LIST_ACK` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_OPTOOL_MAP_USER_LIST_REQ` — packet/protocol struct or template reference
+- `Account` — `SQL_NC_CHAR_GET_CHAT_BLOCK_SPAMMER_DATA` — symbol / original name candidate
+- `Account` — `SQL_NC_CHAR_OPTION_LOGIN_BLOCKDATA_ERR_DATA` — symbol / original name candidate
+- `Account` — `SQL_NC_CHAR_SET_CHAT_BLOCK_SPAMER_DATA` — symbol / original name candidate
+- `Account` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_GET_PLAYER_CLASS` — class method / original symbol
+- `Account` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_GET_PLAYER_GENDER` — class method / original symbol
+- `Account` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_GET_PLAYER_LEVEL` — class method / original symbol
+- `Account` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_GET_PLAYER_RACE` — class method / original symbol
+- `Account` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_LINK` — class method / original symbol
+- `Account` — `ShineObjectClass::ShinePlayer` — class method / original symbol
+- `Account` — `TiXmlNode::LinkEndChild` — class method / original symbol
+- `Account` — `UNC_OPTOOL_MAP_USER_LIST_INFO@@` — symbol / original name candidate
+- `Account` — `UPROTO_NC_CHAR_OPTION_KEYMAPPING@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_OPTOOL_MAP_USER_LIST_ACK@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_OPTOOL_MAP_USER_LIST_REQ@@` — packet/protocol struct or template reference
+- `Account` — `USQL_NC_CHAR_GET_CHAT_BLOCK_SPAMMER_DATA@CSQLPCharacter@@` — symbol / original name candidate
+- `Account` — `USQL_NC_CHAR_OPTION_LOGIN_BLOCKDATA_ERR_DATA@CSQLPCharacter@@` — symbol / original name candidate
+- `Account` — `USQL_NC_CHAR_SET_CHAT_BLOCK_SPAMER_DATA@CSQLPCharacter@@` — symbol / original name candidate
+- `Account` — `WinService::removeService` — class method / original symbol
+- `Account` — `_HeapManager::Block` — class method / original symbol
+- `Account` — `fc_NC_OPTOOL_MAP_USER_LIST_REQ` — symbol / original name candidate
+- `Account` — `~NC_OPTOOL_MAP_USER_LIST_INFO` — symbol / original name candidate
+- `Account` — `~PROTO_NC_OPTOOL_MAP_USER_LIST_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `?fc_NC_OPTOOL_MAP_USER_LIST_REQ@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `AccountLog` — `?fc_NC_USER_GER_IS_IP_BLOCK_REQ@CPFsAccountLog@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `AccountLog` — `?fc_NC_USER_IS_IP_BLOCK_REQ@CPFsAccountLog@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `AccountLog` — `?fc_NC_USER_JP_IS_IP_BLOCK_REQ@CPFsAccountLog@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `AccountLog` — `?fc_NC_USER_TW_IS_IP_BLOCK_REQ@CPFsAccountLog@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `AccountLog` — `?fc_NC_USER_US_IS_IP_BLOCK_REQ@CPFsAccountLog@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `AccountLog` — `BinaryDataBox<MapInfo>::`scalar deleting destructor'` — data table loader/index/helper
+- `AccountLog` — `BinaryDataBox<MapInfo>::bdb_ReadData` — data table loader/index/helper
+- `AccountLog` — `BinaryDataBox<MapInfo>::~BinaryDataBox<MapInfo>` — data table loader/index/helper
+- `AccountLog` — `CDataReader::FIELD` — class method / original symbol
+- `AccountLog` — `CGdp::GDP_CHUNK::<unnamed-tag>::<unnamed-type-TYPE_LINK>` — class method / original symbol
+- `AccountLog` — `CPFs::fc_NC_OPTOOL_MAP_USER_LIST_REQ` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_USER_GER_IS_IP_BLOCK_REQ` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_USER_IS_IP_BLOCK_REQ` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_USER_JP_IS_IP_BLOCK_REQ` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_USER_TW_IS_IP_BLOCK_REQ` — class method / original symbol
+- `AccountLog` — `CPFsAccountLog::fc_NC_USER_US_IS_IP_BLOCK_REQ` — class method / original symbol
+- `AccountLog` — `CPacket::RemoveAllUsedPacket` — packet framework/helper
+- `AccountLog` — `CSQLPAccountLog::SQL_IPBLOCK_INFO` — class method / original symbol
+- `AccountLog` — `CSQLPAccountLog::p_IPBlock_IsBlock` — class method / original symbol
+- `AccountLog` — `CSQLPAccountLog::p_IPBlock_IsBlock_GER` — class method / original symbol
+- `AccountLog` — `CSQLPAccountLog::p_IPBlock_IsBlock_JP` — class method / original symbol
+- `AccountLog` — `CSQLPAccountLog::p_IPBlock_IsBlock_TW` — class method / original symbol
+- `AccountLog` — `CSQLPAccountLog::p_IPBlock_IsBlock_US` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_CHAR_KQ_MAP` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_CHAR_OPTION_DATA_IMPROVE_GET_KEY_MAP_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_CHAR_OPTION_DATA_IMPROVE_INIT_KEY_MAP_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_CHAR_OPTION_DATA_IMPROVE_SET_KEY_MAP_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_GET_CHAT_BLOCK_SPAM_FILTER_OPTION_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_MAPLINK_SCROLL_DEST` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_NC_CHAR_GET_CHAT_BLOCK_SPAMMER_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_NC_CHAR_OPTION_LOGIN_BLOCKDATA_ERR_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_NC_CHAR_SET_CHAT_BLOCK_SPAMER_DATA` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_SET_CHAT_BLOCK_SPAM_FILTER_OPTION_DATA` — class method / original symbol
+- `AccountLog` — `LPSQL_NC_CHAR_GET_CHAT_BLOCK_SPAMER_DATA` — symbol / original name candidate
+- `AccountLog` — `LPSQL_NC_CHAR_OPTION_LOGIN_BLOCKDATA_ERR_DATA` — symbol / original name candidate
+- `AccountLog` — `LPSQL_NC_CHAR_SET_CHAT_BLOCK_SPAMER_DATA` — symbol / original name candidate
+- `AccountLog` — `MapDataBox::CheckReadData` — data table loader/index/helper
+- `AccountLog` — `MapDataBox::MapDataBox` — data table loader/index/helper
+- `AccountLog` — `MapDataBox::mdb_Load` — data table loader/index/helper
+- `AccountLog` — `MapDataBox::~MapDataBox` — data table loader/index/helper
+- `AccountLog` — `MapInfo::DataVersion` — class method / original symbol
+- `AccountLog` — `NC_BRIEFINFO_MAGICFIELDINFO_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_BRIEFINFO_MAGICFIELDSPREAD_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_BRIEFINFO_MOVER_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_BRIEFINFO_PLAYER_LIST_INFO_APPEAR_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_LINK` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_MK_GETEXPINFIELD` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_MOVE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_MOVER_RAREMOVER` — symbol / original name candidate
+- `AccountLog` — `NC_MAP` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_CHAT_BLOCK_SPAMER_BLOCKTIME_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_GET_CHAT_BLOCK_SPAM_FILTER_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_GET_CHAT_BLOCK_SPAM_FILTER_DB_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_SET_CHAT_BLOCK_SPAM_FILTER_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_SET_CHAT_BLOCK_SPAM_FILTER_DB_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_XTRAP2_OPTOOL_READ_CODEMAP_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_XTRAP2_OPTOOL_READ_CODEMAP_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_ZONERINGLINKTEST_RNG` — symbol / original name candidate
+- `AccountLog` — `NC_MOVER` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_KQ_MAP_ALLOC_INFO_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_KQ_MAP_ALLOC_INFO_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_MAP_USER_LIST_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_MAP_USER_LIST_INFO` — symbol / original name candidate
+- `AccountLog` — `NC_OPTOOL_MAP_USER_LIST_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_USER_CH_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_USER_CH_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_USER_GER_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_USER_GER_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_USER_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_USER_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_USER_JP_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_USER_JP_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_USER_TW_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_USER_TW_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_USER_US_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_USER_US_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `AccountLog` — `PROTO_NC_CHAR_OPTION_KEYMAPPING` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_DATA_SEND1<PROTO_NC_USER_GER_IS_IP_BLOCK_ACK>` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_DATA_SEND1<PROTO_NC_USER_IS_IP_BLOCK_ACK>` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_DATA_SEND1<PROTO_NC_USER_TW_IS_IP_BLOCK_ACK>` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_OPTOOL_MAP_USER_LIST_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_OPTOOL_MAP_USER_LIST_REQ` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_USER_GER_IS_IP_BLOCK_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_USER_GER_IS_IP_BLOCK_REQ` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_USER_IS_IP_BLOCK_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_USER_IS_IP_BLOCK_REQ` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_USER_JP_IS_IP_BLOCK_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_USER_JP_IS_IP_BLOCK_REQ` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_USER_TW_IS_IP_BLOCK_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_USER_TW_IS_IP_BLOCK_REQ` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_USER_US_IS_IP_BLOCK_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_USER_US_IS_IP_BLOCK_REQ` — packet/protocol struct or template reference
+- `AccountLog` — `SQL_NC_CHAR_GET_CHAT_BLOCK_SPAMMER_DATA` — symbol / original name candidate
+- `AccountLog` — `SQL_NC_CHAR_OPTION_LOGIN_BLOCKDATA_ERR_DATA` — symbol / original name candidate
+- `AccountLog` — `SQL_NC_CHAR_SET_CHAT_BLOCK_SPAMER_DATA` — symbol / original name candidate
+- `AccountLog` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_GET_PLAYER_CLASS` — class method / original symbol
+- `AccountLog` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_GET_PLAYER_GENDER` — class method / original symbol
+- `AccountLog` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_GET_PLAYER_LEVEL` — class method / original symbol
+- `AccountLog` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_GET_PLAYER_RACE` — class method / original symbol
+- `AccountLog` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_LINK` — class method / original symbol
+- `AccountLog` — `ShineObjectClass::ShinePlayer` — class method / original symbol
+- `AccountLog` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_USER_GER_IS_IP_BLOCK_ACK@@@@` — packet/protocol struct or template reference
+- `AccountLog` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_USER_IS_IP_BLOCK_ACK@@@@` — packet/protocol struct or template reference
+- `AccountLog` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_USER_TW_IS_IP_BLOCK_ACK@@@@` — packet/protocol struct or template reference
+- `AccountLog` — `UNC_OPTOOL_MAP_USER_LIST_INFO@@` — symbol / original name candidate
+- `AccountLog` — `UPROTO_NC_CHAR_OPTION_KEYMAPPING@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_OPTOOL_MAP_USER_LIST_ACK@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_OPTOOL_MAP_USER_LIST_REQ@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_USER_GER_IS_IP_BLOCK_ACK@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_USER_GER_IS_IP_BLOCK_REQ@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_USER_IS_IP_BLOCK_ACK@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_USER_IS_IP_BLOCK_REQ@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_USER_JP_IS_IP_BLOCK_ACK@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_USER_JP_IS_IP_BLOCK_REQ@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_USER_TW_IS_IP_BLOCK_ACK@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_USER_TW_IS_IP_BLOCK_REQ@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_USER_US_IS_IP_BLOCK_ACK@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_USER_US_IS_IP_BLOCK_REQ@@` — packet/protocol struct or template reference
+- `AccountLog` — `USQL_NC_CHAR_GET_CHAT_BLOCK_SPAMMER_DATA@CSQLPCharacter@@` — symbol / original name candidate
+- `AccountLog` — `USQL_NC_CHAR_OPTION_LOGIN_BLOCKDATA_ERR_DATA@CSQLPCharacter@@` — symbol / original name candidate
+- `AccountLog` — `USQL_NC_CHAR_SET_CHAT_BLOCK_SPAMER_DATA@CSQLPCharacter@@` — symbol / original name candidate
+- `AccountLog` — `WinService::removeService` — class method / original symbol
+- `AccountLog` — `_HeapManager::Block` — class method / original symbol
+- `AccountLog` — `fc_NC_OPTOOL_MAP_USER_LIST_REQ` — symbol / original name candidate
+- `AccountLog` — `fc_NC_USER_GER_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `AccountLog` — `fc_NC_USER_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `AccountLog` — `fc_NC_USER_JP_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `AccountLog` — `fc_NC_USER_TW_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `AccountLog` — `fc_NC_USER_US_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `AccountLog` — `~NC_OPTOOL_MAP_USER_LIST_INFO` — symbol / original name candidate
+- `AccountLog` — `~PROTO_NC_DATA_SEND1<PROTO_NC_USER_GER_IS_IP_BLOCK_ACK>` — packet/protocol struct or template reference
+- `AccountLog` — `~PROTO_NC_DATA_SEND1<PROTO_NC_USER_IS_IP_BLOCK_ACK>` — packet/protocol struct or template reference
+- `AccountLog` — `~PROTO_NC_OPTOOL_MAP_USER_LIST_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `~PROTO_NC_USER_GER_IS_IP_BLOCK_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `~PROTO_NC_USER_GER_IS_IP_BLOCK_REQ` — packet/protocol struct or template reference
+- `AccountLog` — `~PROTO_NC_USER_IS_IP_BLOCK_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `~PROTO_NC_USER_IS_IP_BLOCK_REQ` — packet/protocol struct or template reference
+- `AccountLog` — `~PROTO_NC_USER_US_IS_IP_BLOCK_ACK` — packet/protocol struct or template reference
+- `AccountLog` — `~PROTO_NC_USER_US_IS_IP_BLOCK_REQ` — packet/protocol struct or template reference
+- `Login` — `??0?$PROTO_NC_DATA_SEND1@UPROTO_NC_USER_GER_IS_IP_BLOCK_REQ@@@@QAE@XZ` — packet/protocol struct or template reference
+- `Login` — `?fc_NC_OPTOOL_MAP_USER_LIST_REQ@CParserOPTool@@QAEHPAVCLoginOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_USER_GER_IS_IP_BLOCK_ACK@CParserAccountLogDB@@QAEHPAVCLoginAccountLogDBSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_USER_IS_IP_BLOCK_ACK@CParserAccountLogDB@@QAEHPAVCLoginAccountLogDBSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_USER_JP_IS_IP_BLOCK_ACK@CParserAccountLogDB@@QAEHPAVCLoginAccountLogDBSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_USER_TW_IS_IP_BLOCK_ACK@CParserAccountLogDB@@QAEHPAVCLoginAccountLogDBSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `?fc_NC_USER_US_IS_IP_BLOCK_ACK@CParserAccountLogDB@@QAEHPAVCLoginAccountLogDBSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Login` — `CGdp::GDP_CHUNK::<unnamed-tag>::<unnamed-type-TYPE_LINK>` — class method / original symbol
+- `Login` — `CPacket::RemoveAllUsedPacket` — packet framework/helper
+- `Login` — `CParserAccountLogDB::fc_NC_USER_GER_IS_IP_BLOCK_ACK` — class method / original symbol
+- `Login` — `CParserAccountLogDB::fc_NC_USER_IS_IP_BLOCK_ACK` — class method / original symbol
+- `Login` — `CParserAccountLogDB::fc_NC_USER_JP_IS_IP_BLOCK_ACK` — class method / original symbol
+- `Login` — `CParserAccountLogDB::fc_NC_USER_TW_IS_IP_BLOCK_ACK` — class method / original symbol
+- `Login` — `CParserAccountLogDB::fc_NC_USER_US_IS_IP_BLOCK_ACK` — class method / original symbol
+- `Login` — `CParserOPTool::fc_NC_OPTOOL_MAP_USER_LIST_REQ` — class method / original symbol
+- `Login` — `LoginServer::ProcessLink` — class method / original symbol
+- `Login` — `NC_USER_GER_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `Login` — `NC_USER_JP_IS_IP_BLOCK_REQ` — symbol / original name candidate
+- `Login` — `PROTO_NC_DATA_SEND1<PROTO_NC_USER_GER_IS_IP_BLOCK_REQ>::PROTO_NC_DATA_SEND1<PROTO_NC_USER_GER_IS_IP_BLOCK_REQ>` — packet/protocol struct or template reference
+- `Login` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_LINK` — class method / original symbol
+- `Login` — `WinService::removeService` — class method / original symbol
+- `Login` — `fc_NC_OPTOOL_MAP_USER_LIST_REQ` — symbol / original name candidate
+- `Login` — `fc_NC_USER_GER_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `Login` — `fc_NC_USER_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `Login` — `fc_NC_USER_JP_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `Login` — `fc_NC_USER_TW_IS_IP_BLOCK_ACK` — symbol / original name candidate
+- `Login` — `fc_NC_USER_US_IS_IP_BLOCK_ACK` — symbol / original name candidate
+
+## Master Apprentice / Social
+
+- `Account` — `BinaryDataBox<FriendPointReward>::`scalar deleting destructor'` — data table loader/index/helper
+- `Account` — `CSQLPEventFriend::<unnamed-tag>` — class method / original symbol
+- `Account` — `CSQLPEventFriend::_SQL_COMPLETE` — class method / original symbol
+- `Account` — `CSQLPEventFriend::_SQL_GIVEUP` — class method / original symbol
+- `Account` — `CSQLPEventFriend::_SQL_INITMSG` — class method / original symbol
+- `Account` — `CSQLPEventFriend::_SQL_REWARD` — class method / original symbol
+- `Account` — `CSQLPFriend::SQL_FRIEND` — class method / original symbol
+- `Account` — `CSQLPFriend::SQL_FRIEND_DEL` — class method / original symbol
+- `Account` — `CSQLPFriend::SQL_FRIEND_DELALL` — class method / original symbol
+- `Account` — `CSQLPFriend::SQL_FRIEND_GET` — class method / original symbol
+- `Account` — `FriendPointReward::DataVersion` — class method / original symbol
+- `Account` — `NC_EVENT_FRIEND` — symbol / original name candidate
+- `Account` — `NC_FRIEND` — symbol / original name candidate
+- `AccountLog` — `BinaryDataBox<FriendPointReward>::`scalar deleting destructor'` — data table loader/index/helper
+- `AccountLog` — `CSQLPEventFriend::<unnamed-tag>` — class method / original symbol
+- `AccountLog` — `CSQLPEventFriend::_SQL_COMPLETE` — class method / original symbol
+- `AccountLog` — `CSQLPEventFriend::_SQL_GIVEUP` — class method / original symbol
+- `AccountLog` — `CSQLPEventFriend::_SQL_INITMSG` — class method / original symbol
+- `AccountLog` — `CSQLPEventFriend::_SQL_REWARD` — class method / original symbol
+- `AccountLog` — `CSQLPFriend::SQL_FRIEND` — class method / original symbol
+- `AccountLog` — `CSQLPFriend::SQL_FRIEND_DEL` — class method / original symbol
+- `AccountLog` — `CSQLPFriend::SQL_FRIEND_DELALL` — class method / original symbol
+- `AccountLog` — `CSQLPFriend::SQL_FRIEND_GET` — class method / original symbol
+- `AccountLog` — `FriendPointReward::DataVersion` — class method / original symbol
+- `AccountLog` — `NC_EVENT_FRIEND` — symbol / original name candidate
+- `AccountLog` — `NC_FRIEND` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_FRIEND_ADD` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_FRIEND_DELETE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_UES_FRIEND_POINT` — symbol / original name candidate
+- `Login` — `NC_EVENT_FRIEND` — symbol / original name candidate
+- `Login` — `NC_FRIEND` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_FRIEND_ADD` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_FRIEND_DELETE` — symbol / original name candidate
+- `Login` — `NC_LOG_UES_FRIEND_POINT` — symbol / original name candidate
+- `WorldManager` — `??0PROTO_NC_FRIEND_SET_ACK_SEND@?BO@??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@QAE@XZ` — packet/protocol struct or template reference
+- `WorldManager` — `??0PROTO_NC_FRIEND_SET_ACK_SEND@?BP@??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@QAE@XZ` — packet/protocol struct or template reference
+- `WorldManager` — `??0PROTO_NC_FRIEND_SET_ACK_SEND@?CC@??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@QAE@XZ` — packet/protocol struct or template reference
+- `WorldManager` — `??0PROTO_NC_FRIEND_SET_ACK_SEND@?CD@??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@QAE@XZ` — packet/protocol struct or template reference
+- `WorldManager` — `??0PROTO_NC_FRIEND_SET_ACK_SEND@?CG@??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@QAE@XZ` — packet/protocol struct or template reference
+- `WorldManager` — `??0PROTO_NC_FRIEND_SET_CONFIRM_REQ_SEND@?BN@??fc_NC_FRIEND_SET_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@QAE@XZ` — packet/protocol struct or template reference
+- `WorldManager` — `?fc_NC_FRIEND_DEL_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_FRIEND_FIND_FRIENDS_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_FRIEND_POINT_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_FRIEND_SET_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `BinaryDataBox<FriendPointReward>::`scalar deleting destructor'` — data table loader/index/helper
+- `WorldManager` — `CFriend::Clear` — class method / original symbol
+- `WorldManager` — `CFriend::ClearReserve` — class method / original symbol
+- `WorldManager` — `CFriend::InviteReserve` — class method / original symbol
+- `WorldManager` — `CFriend::Logout` — class method / original symbol
+- `WorldManager` — `CFriendServer::Add` — class method / original symbol
+- `WorldManager` — `CFriendServer::CFriendServer` — class method / original symbol
+- `WorldManager` — `CFriendServer::Del` — class method / original symbol
+- `WorldManager` — `CFriendServer::Get` — class method / original symbol
+- `WorldManager` — `CFriendServer::IsAddable` — class method / original symbol
+- `WorldManager` — `CFriendServer::IsExist` — class method / original symbol
+- `WorldManager` — `CFriendServer::IsLogin` — class method / original symbol
+- `WorldManager` — `CFriendServer::IsMaxFriend` — class method / original symbol
+- `WorldManager` — `CFriendServer::Login` — class method / original symbol
+- `WorldManager` — `CFriendServer::Logout` — class method / original symbol
+- `WorldManager` — `CFriendServer::~CFriendServer` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_DEL_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_DEL_REQ::__l7::PROTO_NC_FRIEND_DB_DEL_REQ_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_FIND_FRIENDS_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_POINT_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK::__l19::PROTO_NC_FRIEND_REFUSE_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK::__l22::PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK::__l30::PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK::__l31::PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK::__l34::PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK::__l35::PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK::__l38::PROTO_NC_FRIEND_DB_SET_REQ_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK::__l38::PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK::__l9::PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_SET_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_SET_REQ::__l29::PROTO_NC_FRIEND_SET_CONFIRM_REQ_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_FRIEND_SET_REQ::__l4::PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CWMClientSession::FriendBroadLogout` — class method / original symbol
+- `WorldManager` — `CWMClientSession::FriendBroadLogout::__l4::PROTO_NC_FRIEND_LOGOUT_CMD_SEND` — WorldManager/Zone protocol handler
+- `WorldManager` — `CWMClientSession::FriendRefresh` — class method / original symbol
+- `WorldManager` — `CWMClientSession::FriendRefresh::__l19::PROTO_NC_FRIEND_DB_GET_REQ_SEND` — WorldManager/Zone protocol handler
+- `WorldManager` — `CWMClientSession::FriendRefresh::__l7::PROTO_NC_FRIEND_LOGIN_CMD_SEND` — WorldManager/Zone protocol handler
+- `WorldManager` — `CWMClientSession::FriendSendAllList` — class method / original symbol
+- `WorldManager` — `CWMClientSession::GetDiffFriendPoint` — class method / original symbol
+- `WorldManager` — `CWMClientSession::GetFindFriendDelayTime` — class method / original symbol
+- `WorldManager` — `CWMClientSession::GetFriendPoint` — class method / original symbol
+- `WorldManager` — `CWMClientSession::SetDiffFriendPoint` — class method / original symbol
+- `WorldManager` — `CWMClientSession::SetFindFriendDelayTime` — class method / original symbol
+- `WorldManager` — `CWMClientSession::SetFriendPoint` — class method / original symbol
+- `WorldManager` — `CWMClientSessionManager::AvatarErase::__l7::PROTO_NC_FRIEND_DEL_CMD_SEND` — WorldManager/Zone protocol handler
+- `WorldManager` — `FriendPointReward::DataVersion` — class method / original symbol
+- `WorldManager` — `NC_CT_ADD_FRIEND_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_EVENT_FRIEND` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_ADD_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_DB_DEL_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_DB_DEL_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_DB_GET_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_DB_GET_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_DB_POINT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_DB_SET_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_DB_SET_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_DEL_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_DEL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_DEL_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_FIND_FRIENDS_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_FIND_FRIENDS_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_GET_DIFF_FRIEND_POINT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_LIST_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_LOGIN_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_LOGOUT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_NULL` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_POINT_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_POINT_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_REFUSE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_SET_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_SET_CONFIRM_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_SET_CONFIRM_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_SET_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_UES_FRIEND_POINT_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_UES_FRIEND_POINT_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_FRIEND_ADD` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_FRIEND_DELETE` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_UES_FRIEND_POINT` — symbol / original name candidate
+- `WorldManager` — `PROTO_FRIEND_INFO::PROTO_FRIEND_INFO` — class method / original symbol
+- `WorldManager` — `PROTO_FRIEND_INFO::operator=` — class method / original symbol
+- `WorldManager` — `PROTO_FRIEND_INFO::~PROTO_FRIEND_INFO` — class method / original symbol
+- `WorldManager` — `PROTO_NC_CT_ADD_FRIEND_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_FRIEND_DEL_ACK>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_ADD_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_ADD_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DB_DEL_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DB_DEL_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DB_DEL_REQ_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DB_GET_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DB_GET_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DB_POINT` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DB_POINT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DB_SET_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DB_SET_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DEL_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DEL_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DEL_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DEL_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_DEL_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_FIND_FRIENDS_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_GET_DIFF_FRIEND_POINT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_LIST_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_LOGIN_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_LOGIN_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_LOGOUT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_LOGOUT_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_POINT_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_REFUSE_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_REFUSE_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_SET_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_SET_CONFIRM_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_SET_CONFIRM_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_SET_CONFIRM_REQ_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_SET_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_FRIEND_DEL_ACK@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_CT_ADD_FRIEND_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_ADD_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DB_DEL_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DB_DEL_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DB_DEL_REQ_SEND@?6??fc_NC_FRIEND_DEL_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DB_GET_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DB_GET_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DB_GET_REQ_SEND@?BD@??FriendRefresh@CWMClientSession@@QAEXXZ@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DB_POINT@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DB_POINT_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DB_SET_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DB_SET_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DB_SET_REQ_SEND@?CG@??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DEL_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DEL_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DEL_CMD_SEND@?6??AvatarErase@CWMClientSessionManager@@QAEXK@Z@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_DEL_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_FIND_FRIENDS_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_GET_DIFF_FRIEND_POINT_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_LIST_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_LOGIN_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_LOGIN_CMD_SEND@?6??FriendRefresh@CWMClientSession@@QAEXXZ@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_LOGOUT_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_LOGOUT_CMD_SEND@?3??FriendBroadLogout@CWMClientSession@@QAEXXZ@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_POINT_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_REFUSE_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_REFUSE_CMD_SEND@?BD@??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_SET_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_SET_ACK_SEND@?3??fc_NC_FRIEND_SET_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_SET_ACK_SEND@?8??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_SET_ACK_SEND@?BG@??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_SET_ACK_SEND@?BO@??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_SET_ACK_SEND@?BP@??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_SET_ACK_SEND@?CC@??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_SET_ACK_SEND@?CD@??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_SET_ACK_SEND@?CG@??fc_NC_FRIEND_SET_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_SET_CONFIRM_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_SET_CONFIRM_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_SET_CONFIRM_REQ_SEND@?BN@??fc_NC_FRIEND_SET_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_SET_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — ``CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK'::`30'::PROTO_NC_FRIEND_SET_ACK_SEND::PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — ``CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK'::`31'::PROTO_NC_FRIEND_SET_ACK_SEND::PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — ``CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK'::`34'::PROTO_NC_FRIEND_SET_ACK_SEND::PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — ``CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK'::`35'::PROTO_NC_FRIEND_SET_ACK_SEND::PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — ``CParserClient::fc_NC_FRIEND_SET_CONFIRM_ACK'::`38'::PROTO_NC_FRIEND_SET_ACK_SEND::PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — ``CParserClient::fc_NC_FRIEND_SET_REQ'::`29'::PROTO_NC_FRIEND_SET_CONFIRM_REQ_SEND::PROTO_NC_FRIEND_SET_CONFIRM_REQ_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `fc_NC_FRIEND_DB_DEL_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_FRIEND_DB_GET_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_FRIEND_DB_POINT_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_FRIEND_DB_SET_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_FRIEND_DEL_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_FRIEND_FIND_FRIENDS_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_FRIEND_POINT_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_FRIEND_SET_CONFIRM_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_FRIEND_SET_REQ` — symbol / original name candidate
+- `WorldManager` — `~PROTO_NC_DATA_SEND1<PROTO_NC_FRIEND_DEL_ACK>` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_ADD_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_ADD_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_DB_DEL_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_DB_DEL_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_DB_DEL_REQ_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_DB_GET_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_DEL_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_DEL_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_DEL_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_DEL_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_DEL_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_FIND_FRIENDS_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_LIST_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_LOGIN_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_LOGIN_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_LOGOUT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_LOGOUT_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_REFUSE_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_REFUSE_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_SET_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_SET_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_SET_CONFIRM_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_SET_CONFIRM_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_SET_CONFIRM_REQ_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_SET_REQ` — packet/protocol struct or template reference
+- `Zone` — `AxialListNearFriend::ali_Work` — class method / original symbol
+- `Zone` — `AxialListNearFriend::~AxialListNearFriend` — class method / original symbol
+- `Zone` — `AxialListNearScanFriend::AxialListNearScanFriend` — class method / original symbol
+- `Zone` — `PassiveMasteryVariable::PassiveMasteryVariable` — class method / original symbol
+- `Zone` — `TargetAnalyser::ta_friend` — class method / original symbol
+- `Zone` — `WorldManagerSession::wms_NC_CT_ADD_FRIEND_CMD` — WorldManager/Zone protocol handler
+
+## Mob / AI / Spawn
+
+- `Account` — `AssertClass::ac_AssertFail` — class method / original symbol
+- `Account` — `CCsl::GetDataInfo` — class method / original symbol
+- `Account` — `CGdp::GDP_CHUNK::<unnamed-tag>::<unnamed-type-TYPE_MAIN>` — class method / original symbol
+- `Account` — `CGdp::UpdateWriteDataInfo` — class method / original symbol
+- `Account` — `CIOSpinLock::Wait` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_PLAY_REMAIN_TIME_DATA` — class method / original symbol
+- `Account` — `CSQLPAccount::p_UserPlayRemainTime_Get_FromAccount` — class method / original symbol
+- `Account` — `CSQLPAccount::p_UserPlayRemainTime_Set_FromAccount` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_TAISAI_DICE_CHG_MACHINE_TO_MONEY_CARD` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_TAISAI_DICE_EXPECT` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_TAISAI_DICE_PAY` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_TAISAI_DICE_RANK` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_TAISAI_DICE_ROLL` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_TAISAI_DICE_ROLL_LOG` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_TAISAI_DICE_ROLL_RESULT` — class method / original symbol
+- `Account` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_GET_REMAIN_MONEY` — class method / original symbol
+- `Account` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_WITHDRAW_REMAIN_MONEY` — class method / original symbol
+- `Account` — `ChargedEffectContainer::<unnamed-type-cec_ProveOfBless>` — class method / original symbol
+- `Account` — `DataServer::MainThread` — class method / original symbol
+- `Account` — `DataServer::Start_MainThread` — class method / original symbol
+- `Account` — `IAL_BUILD=0 -DBETA=0 -DFX_VER_PRIVATEBUILD_STR=DDBLD782 -DURTBLDENV_FRIENDLY=Retail -DFX_BRANCH_SYNC_COUNTER_VALUE=0 -D_MT=1 -FIddbanned.h -If:\dd\vctools\crt\prebuild\rtc\mt -If:\dd\vctoo` — symbol / original name candidate
+- `Account` — `IOBufferContainer::IOBufferContainer` — class method / original symbol
+- `Account` — `IOBufferContainer::~IOBufferContainer` — class method / original symbol
+- `Account` — `MobDataBox::<unnamed-type-mdb_BinData>` — data table loader/index/helper
+- `Account` — `MobDataBox::MobDataBoxIndex` — data table loader/index/helper
+- `Account` — `MobDataBox::MobDataBoxIndex::<unnamed-type-MobIndexFlag>` — data table loader/index/helper
+- `Account` — `MobDataBox::MobDataBoxIndex::_MobWeaponIndex` — data table loader/index/helper
+- `Account` — `MobInfo::DataVersion` — class method / original symbol
+- `Account` — `MobInfoServer::DataVersion` — class method / original symbol
+- `Account` — `MobKillAble::DataVersion` — class method / original symbol
+- `Account` — `MobKillAnnounce::DataVersion` — class method / original symbol
+- `Account` — `MobKillLog::DataVersion` — class method / original symbol
+- `Account` — `MobLifeTime::DataVersion` — class method / original symbol
+- `Account` — `MobRegenAni::DataVersion` — class method / original symbol
+- `Account` — `MobSpecies::DataVersion` — class method / original symbol
+- `Account` — `MobWeapon::DataVersion` — class method / original symbol
+- `Account` — `NC_AVATAR_CREATEDATAFAIL_ACK` — symbol / original name candidate
+- `Account` — `NC_AVATAR_CREATEFAIL_ACK` — symbol / original name candidate
+- `Account` — `NC_AVATAR_ERASEDATAFAIL_ACK` — symbol / original name candidate
+- `Account` — `NC_AVATAR_ERASEFAIL_ACK` — symbol / original name candidate
+- `Account` — `NC_BRIEFINFO_MOB_CMD` — symbol / original name candidate
+- `Account` — `NC_BRIEFINFO_REGENMOB_CMD` — symbol / original name candidate
+- `Account` — `NC_BRIEFINFO_REGENMOVER_CMD` — symbol / original name candidate
+- `Account` — `NC_BRIEFINFO_REGENPET_CMD` — symbol / original name candidate
+- `Account` — `NC_DICE_TAISAI` — symbol / original name candidate
+- `Account` — `NC_MISC_WHSHANDLEREPAIR_CMD` — symbol / original name candidate
+- `Account` — `NC_RAID` — symbol / original name candidate
+- `Account` — `NC_USER_LOGINFAIL_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_LOGINWORLDFAIL_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_TEENAGER_REMAIN_MIN_CMD` — symbol / original name candidate
+- `Account` — `QUEST_DATA::DAILY_QUEST_TYPE` — class method / original symbol
+- `Account` — `QUEST_DATA::QUEST_END_CONDITION::_NPCMobList` — class method / original symbol
+- `Account` — `QUEST_DATA::QUEST_NPC_MOB_ACTION` — class method / original symbol
+- `Account` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_FAILED` — class method / original symbol
+- `Account` — `_Hash<std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,0> >` — class method / original symbol
+- `Account` — `_Hash<std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,1> >` — class method / original symbol
+- `Account` — `_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,0>` — class method / original symbol
+- `Account` — `_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,1>` — class method / original symbol
+- `Account` — `_List_nod<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `_Pair_base<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > >` — class method / original symbol
+- `Account` — `_Pair_base<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> > >` — class method / original symbol
+- `Account` — `_String_const_iterator<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `_String_const_iterator<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >` — class method / original symbol
+- `Account` — `_String_iterator<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `_Tmap_traits<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> >,std::less<unsigned short>,std::allocator<std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > > >,0>` — class method / original symbol
+- `Account` — `_Vector_val<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > >,std::allocator<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,` — class method / original symbol
+- `Account` — `allocator<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > > >` — class method / original symbol
+- `Account` — `allocator<std::_List_nod<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >::_Node>` — class method / original symbol
+- `Account` — `allocator<std::_Tree_nod<std::_Tmap_traits<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> >,std::less<unsigned short>,std::allocator<std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > > >,0` — class method / original symbol
+- `Account` — `allocator<std::pair<unsigned short const ,QUEST_DATA *> >` — class method / original symbol
+- `Account` — `basic_filebuf<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `basic_ios<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `basic_ios<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `basic_ios<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `basic_iostream<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `basic_istream<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `basic_istream<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `basic_istream<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `basic_ofstream<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `basic_ostream<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `basic_ostream<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `basic_ostream<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `basic_streambuf<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `basic_streambuf<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `basic_streambuf<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `basic_string<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >` — class method / original symbol
+- `Account` — `basic_stringbuf<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `basic_stringstream<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `hash_map<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `hash_multimap<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `istreambuf_iterator<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `list<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `num_get<char,std::istreambuf_iterator<char,std::char_traits<char> > >` — class method / original symbol
+- `Account` — `pair<std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> >,std::less<unsigned short>,std::allocator<std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned` — class method / original symbol
+- `Account` — `pair<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> > >` — class method / original symbol
+- `Account` — `std::_Allocator_base<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > > >` — class method / original symbol
+- `Account` — `std::_Allocator_base<std::_List_nod<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >::_Node>` — class method / original symbol
+- `Account` — `std::_Allocator_base<std::_Tree_nod<std::_Tmap_traits<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> >,std::less<unsigned short>,std::allocator<std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > > >,0> >::_Node>` — class method / original symbol
+- `Account` — `std::_Allocator_base<std::pair<unsigned short const ,QUEST_DATA *> >` — class method / original symbol
+- `Account` — `std::_Container_base0` — class method / original symbol
+- `Account` — `std::_Container_base12` — class method / original symbol
+- `Account` — `std::_Container_proxy` — class method / original symbol
+- `Account` — `std::_Hash<std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,0> >` — class method / original symbol
+- `Account` — `std::_Hash<std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,0> >::<unnamed-tag>` — class method / original symbol
+- `Account` — `std::_Hash<std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,1> >` — class method / original symbol
+- `Account` — `std::_Hash<std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,1> >::<unnamed-tag>` — class method / original symbol
+- `Account` — `std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,0>` — class method / original symbol
+- `Account` — `std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,0>::<unnamed-tag>` — class method / original symbol
+- `Account` — `std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,0>::value_compare` — class method / original symbol
+- `Account` — `std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,1>` — class method / original symbol
+- `Account` — `std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,1>::<unnamed-tag>` — class method / original symbol
+- `Account` — `std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,1>::value_compare` — class method / original symbol
+- `Account` — `std::_List_const_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > >` — class method / original symbol
+- `Account` — `std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > >` — class method / original symbol
+- `Account` — `std::_List_nod<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `std::_List_nod<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >::_Node` — class method / original symbol
+- `Account` — `std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `std::_Pair_base<std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> >,std::less<unsigned short>,std::allocator<std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > > >,0> > >,bool>` — class method / original symbol
+- `Account` — `std::_Pair_base<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > >` — class method / original symbol
+- `Account` — `std::_Pair_base<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> > >` — class method / original symbol
+- `Account` — `std::_String_const_iterator<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `std::_String_const_iterator<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >` — class method / original symbol
+- `Account` — `std::_String_iterator<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `std::_String_iterator<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >` — class method / original symbol
+- `Account` — `std::_Tmap_traits<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> >,std::less<unsigned short>,std::allocator<std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > > >,0>` — class method / original symbol
+- `Account` — `std::_Tmap_traits<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> >,std::less<unsigned short>,std::allocator<std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > > >,0>::<unnamed-tag>` — class method / original symbol
+- `Account` — `std::_Tmap_traits<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> >,std::less<unsigned short>,std::allocator<std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > > >,0>::value_compare` — class method / original symbol
+- `Account` — `std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> >,std::less<unsigned short>,std::allocator<std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > > >,0> > >` — class method / original symbol
+- `Account` — `std::_Tree_nod<std::_Tmap_traits<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> >,std::less<unsigned short>,std::allocator<std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > > >,0> >::_Node` — class method / original symbol
+- `Account` — `std::allocator<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > > >` — class method / original symbol
+- `Account` — `std::allocator<std::_List_nod<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >::_Node>` — class method / original symbol
+- `Account` — `std::allocator<std::_Tree_nod<std::_Tmap_traits<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> >,std::less<unsigned short>,std::allocator<std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > > >,0> >::_Node>` — class method / original symbol
+- `Account` — `std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >` — class method / original symbol
+- `Account` — `std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >::rebind<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > > >` — class method / original symbol
+- `Account` — `std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >::rebind<std::_List_nod<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >::_Node>` — class method / original symbol
+- `Account` — `std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >::rebind<std::pair<unsigned short const ,QUEST_DATA *> >` — class method / original symbol
+- `Account` — `std::allocator<std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > > >` — class method / original symbol
+- `Account` — `std::basic_filebuf<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `std::basic_filebuf<char,std::char_traits<char> >::_Initfl` — class method / original symbol
+- `Account` — `std::basic_ios<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `std::basic_ios<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `std::basic_ios<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `std::basic_iostream<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `std::basic_istream<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `std::basic_istream<char,std::char_traits<char> >::_Sentry_base` — class method / original symbol
+- `Account` — `std::basic_istream<char,std::char_traits<char> >::sentry` — class method / original symbol
+- `Account` — `std::basic_istream<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `std::basic_istream<unsigned short,std::char_traits<unsigned short> >::_Sentry_base` — class method / original symbol
+- `Account` — `std::basic_istream<unsigned short,std::char_traits<unsigned short> >::sentry` — class method / original symbol
+- `Account` — `std::basic_istream<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `std::basic_istream<wchar_t,std::char_traits<wchar_t> >::_Sentry_base` — class method / original symbol
+- `Account` — `std::basic_istream<wchar_t,std::char_traits<wchar_t> >::sentry` — class method / original symbol
+- `Account` — `std::basic_ofstream<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `std::basic_ostream<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `std::basic_ostream<char,std::char_traits<char> >::_Sentry_base` — class method / original symbol
+- `Account` — `std::basic_ostream<char,std::char_traits<char> >::sentry` — class method / original symbol
+- `Account` — `std::basic_ostream<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `std::basic_ostream<unsigned short,std::char_traits<unsigned short> >::_Sentry_base` — class method / original symbol
+- `Account` — `std::basic_ostream<unsigned short,std::char_traits<unsigned short> >::sentry` — class method / original symbol
+- `Account` — `std::basic_ostream<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `std::basic_ostream<wchar_t,std::char_traits<wchar_t> >::_Sentry_base` — class method / original symbol
+- `Account` — `std::basic_ostream<wchar_t,std::char_traits<wchar_t> >::sentry` — class method / original symbol
+- `Account` — `std::basic_streambuf<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `std::basic_streambuf<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `std::basic_streambuf<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `std::basic_string<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `std::basic_string<char,std::char_traits<char>,std::allocator<char> >::_Copy` — class method / original symbol
+- `Account` — `std::basic_string<char,std::char_traits<char>,std::allocator<char> >::append` — class method / original symbol
+- `Account` — `std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign` — class method / original symbol
+- `Account` — `std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `std::basic_string<char,std::char_traits<char>,std::allocator<char> >::erase` — class method / original symbol
+- `Account` — `std::basic_string<char,std::char_traits<char>,std::allocator<char> >::~basic_string<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >` — class method / original symbol
+- `Account` — `std::basic_stringbuf<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `std::basic_stringbuf<char,std::char_traits<char>,std::allocator<char> >::<unnamed-tag>` — class method / original symbol
+- `Account` — `std::basic_stringstream<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `std::char_traits<char>` — class method / original symbol
+- `Account` — `std::char_traits<unsigned short>` — class method / original symbol
+- `Account` — `std::char_traits<wchar_t>` — class method / original symbol
+- `Account` — `std::domain_error` — class method / original symbol
+- `Account` — `std::hash<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >` — class method / original symbol
+- `Account` — `std::hash<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >` — class method / original symbol
+- `Account` — `std::ios_base::failure` — class method / original symbol
+- `Account` — `std::istreambuf_iterator<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `std::istreambuf_iterator<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `std::istreambuf_iterator<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `std::list<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `std::num_get<char,std::istreambuf_iterator<char,std::char_traits<char> > >` — class method / original symbol
+- `Account` — `std::num_get<char,std::istreambuf_iterator<char,std::char_traits<char> > >::id` — class method / original symbol
+- `Account` — `std::num_get<unsigned short,std::istreambuf_iterator<unsigned short,std::char_traits<unsigned short> > >` — class method / original symbol
+- `Account` — `std::num_get<wchar_t,std::istreambuf_iterator<wchar_t,std::char_traits<wchar_t> > >` — class method / original symbol
+- `Account` — `std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >` — class method / original symbol
+- `Account` — `std::num_put<char,std::ostreambuf_iterator<char,std::char_traits<char> > >::id` — class method / original symbol
+- `Account` — `std::num_put<unsigned short,std::ostreambuf_iterator<unsigned short,std::char_traits<unsigned short> > >` — class method / original symbol
+- `Account` — `std::num_put<wchar_t,std::ostreambuf_iterator<wchar_t,std::char_traits<wchar_t> > >` — class method / original symbol
+- `Account` — `std::ostreambuf_iterator<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `std::ostreambuf_iterator<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `std::ostreambuf_iterator<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `std::pair<std::_List_const_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > >,std::_List_const_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > > >` — class method / original symbol
+- `Account` — `std::pair<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > >,bool>` — class method / original symbol
+- `Account` — `std::pair<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > >,std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > > >` — class method / original symbol
+- `Account` — `std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> >,std::less<unsigned short>,std::allocator<std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > > >,0> > >,bool>` — class method / original symbol
+- `Account` — `std::pair<unsigned short const ,QUEST_DATA *>` — class method / original symbol
+- `Account` — `std::pair<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > >` — class method / original symbol
+- `Account` — `std::pair<unsigned short,QUEST_DATA *>` — class method / original symbol
+- `Account` — `std::pair<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> > >` — class method / original symbol
+- `Account` — `std::reverse_iterator<std::_List_const_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > > >` — class method / original symbol
+- `Account` — `std::reverse_iterator<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > > >` — class method / original symbol
+- `Account` — `std::reverse_iterator<std::_String_const_iterator<char,std::char_traits<char>,std::allocator<char> > >` — class method / original symbol
+- `Account` — `std::reverse_iterator<std::_String_const_iterator<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >` — class method / original symbol
+- `Account` — `std::reverse_iterator<std::_String_iterator<char,std::char_traits<char>,std::allocator<char> > >` — class method / original symbol
+- `Account` — `std::reverse_iterator<std::_String_iterator<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> > >` — class method / original symbol
+- `Account` — `std::unary_function<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,unsigned int>` — class method / original symbol
+- `Account` — `std::unary_function<std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >,unsigned int>` — class method / original symbol
+- `Account` — `stdext::hash_map<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `stdext::hash_multimap<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `vector<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > >,std::allocator<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::` — class method / original symbol
+- `Account` — `~_Hash<std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,0> >` — class method / original symbol
+- `Account` — `~_Hash<std::_Hmap_traits<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> >,1> >` — class method / original symbol
+- `Account` — `~_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `~_Pair_base<unsigned short const ,std::vector<unsigned short,std::allocator<unsigned short> > >` — class method / original symbol
+- `Account` — `~_Pair_base<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> > >` — class method / original symbol
+- `Account` — `~_Vector_val<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > >,std::allocator<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>` — class method / original symbol
+- `Account` — `~basic_filebuf<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `~basic_ios<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `~basic_ios<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `~basic_ios<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `~basic_iostream<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `~basic_istream<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `~basic_istream<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `~basic_istream<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `~basic_ofstream<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `~basic_ostream<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `~basic_ostream<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `~basic_ostream<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `~basic_streambuf<char,std::char_traits<char> >` — class method / original symbol
+- `Account` — `~basic_streambuf<unsigned short,std::char_traits<unsigned short> >` — class method / original symbol
+- `Account` — `~basic_streambuf<wchar_t,std::char_traits<wchar_t> >` — class method / original symbol
+- `Account` — `~basic_string<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `~basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t> >` — class method / original symbol
+- `Account` — `~basic_stringbuf<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `~basic_stringstream<char,std::char_traits<char>,std::allocator<char> >` — class method / original symbol
+- `Account` — `~hash_map<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `~hash_multimap<unsigned short,QUEST_DATA *,stdext::hash_compare<unsigned short,std::less<unsigned short> >,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `~list<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > >` — class method / original symbol
+- `Account` — `~num_get<char,std::istreambuf_iterator<char,std::char_traits<char> > >` — class method / original symbol
+- `Account` — `~pair<unsigned short,std::vector<unsigned short,std::allocator<unsigned short> > >` — class method / original symbol
+- `Account` — `~vector<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std::allocator<std::pair<unsigned short const ,QUEST_DATA *> > > >,std::allocator<std::_List_iterator<std::_List_val<std::pair<unsigned short const ,QUEST_DATA *>,std:` — class method / original symbol
+
+## NPC / Dialog / Shops
+
+- `Account` — `NC_MISC_EVENTNPC_STANDEND_CLIENT_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_EVENTNPC_STANDEND_ZONE_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_EVENTNPC_STANDSTART_CLIENT_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_EVENTNPC_STANDSTART_ZONE_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_EVENTNPC_STANDEND_CLIENT_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_EVENTNPC_STANDEND_ZONE_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_EVENTNPC_STANDSTART_CLIENT_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_EVENTNPC_STANDSTART_ZONE_CMD` — symbol / original name candidate
+- `Login` — `NC_MISC_EVENTNPC_STANDEND_CLIENT_CMD` — symbol / original name candidate
+- `Login` — `NC_MISC_EVENTNPC_STANDEND_ZONE_CMD` — symbol / original name candidate
+- `Login` — `NC_MISC_EVENTNPC_STANDSTART_CLIENT_CMD` — symbol / original name candidate
+- `Login` — `NC_MISC_EVENTNPC_STANDSTART_ZONE_CMD` — symbol / original name candidate
+- `WorldManager` — `CNpcScheduleServer::CNpcScheduleServer` — class method / original symbol
+- `WorldManager` — `CNpcScheduleServer::NpcScheduleInfo` — class method / original symbol
+- `WorldManager` — `CNpcScheduleServer::NpcScheduleInfo::NpcScheduleInfo` — class method / original symbol
+- `WorldManager` — `CNpcScheduleServer::NpcScheduleInfo::~NpcScheduleInfo` — class method / original symbol
+- `WorldManager` — `CNpcScheduleServer::enss_DataLoad` — class method / original symbol
+- `WorldManager` — `CNpcScheduleServer::enss_InitNpcScheduleInfo` — class method / original symbol
+- `WorldManager` — `CNpcScheduleServer::enss_NPCStandEnd` — class method / original symbol
+- `WorldManager` — `CNpcScheduleServer::enss_NPCStandStart` — class method / original symbol
+- `WorldManager` — `CNpcScheduleServer::enss_NPCStandState` — class method / original symbol
+- `WorldManager` — `CNpcScheduleServer::enss_Process` — class method / original symbol
+- `WorldManager` — `CNpcScheduleServer::~CNpcScheduleServer` — class method / original symbol
+- `WorldManager` — `NC_ACT_NPCCLICK_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_NPCMENUOPEN_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_NPCMENUOPEN_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_NPC_ACTION_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_NPC_MENU_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_MISC_EVENTNPC_STANDEND_CLIENT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_MISC_EVENTNPC_STANDEND_ZONE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_MISC_EVENTNPC_STANDSTART_CLIENT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_MISC_EVENTNPC_STANDSTART_ZONE_CMD` — symbol / original name candidate
+- `WorldManager` — `NpcSchedule::DataVersion` — class method / original symbol
+- `WorldManager` — `PROTO_NC_MISC_EVENTNPC_STANDEND_CLIENT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_MISC_EVENTNPC_STANDEND_ZONE_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_MISC_EVENTNPC_STANDSTART_CLIENT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_MISC_EVENTNPC_STANDSTART_ZONE_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_MISC_EVENTNPC_STANDEND_CLIENT_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_MISC_EVENTNPC_STANDEND_ZONE_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_MISC_EVENTNPC_STANDSTART_CLIENT_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_MISC_EVENTNPC_STANDSTART_ZONE_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_MISC_EVENTNPC_STANDEND_CLIENT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_MISC_EVENTNPC_STANDEND_ZONE_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_MISC_EVENTNPC_STANDSTART_CLIENT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_MISC_EVENTNPC_STANDSTART_ZONE_CMD` — packet/protocol struct or template reference
+- `Zone` — `CCharacterTitleZone::CT_BuyNPC` — class method / original symbol
+- `Zone` — `CCharacterTitleZone::CT_SellNPC` — class method / original symbol
+- `Zone` — `CQuestZone::QuestPlayer_NPCClick` — class method / original symbol
+- `Zone` — `CQuestZone::QuestPlayer_NPCClickCheck` — class method / original symbol
+- `Zone` — `CQuestZone::QuestPlayer_NotCheckNPC` — class method / original symbol
+- `Zone` — `LuaScriptArgument::LuaArgumentNPCAction::LuaArgumentNPCAction` — class method / original symbol
+- `Zone` — `LuaScriptArgument::LuaArgumentNPCAction::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `LuaScriptArgument::LuaArgumentNPCAction::lad_ArgumentSet` — class method / original symbol
+- `Zone` — `LuaScriptArgument::LuaArgumentNPCAction::~LuaArgumentNPCAction` — class method / original symbol
+- `Zone` — `LuaScriptArgument::LuaArgumentNPCClick::LuaArgumentNPCClick` — class method / original symbol
+- `Zone` — `LuaScriptArgument::LuaArgumentNPCClick::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `LuaScriptArgument::LuaArgumentNPCClick::lad_ArgumentSet` — class method / original symbol
+- `Zone` — `LuaScriptArgument::LuaArgumentNPCClick::~LuaArgumentNPCClick` — class method / original symbol
+- `Zone` — `LuaScriptArgument::LuaArgumentNPCMenu::LuaArgumentNPCMenu` — class method / original symbol
+- `Zone` — `LuaScriptArgument::LuaArgumentNPCMenu::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `LuaScriptArgument::LuaArgumentNPCMenu::lad_ArgumentSet` — class method / original symbol
+- `Zone` — `LuaScriptArgument::LuaArgumentNPCMenu::~LuaArgumentNPCMenu` — class method / original symbol
+- `Zone` — `Movie::Theater::t_SetInterruptNPCClickHandle` — class method / original symbol
+- `Zone` — `Movie::Theater::t_SetInterruptNPCClickIndex` — class method / original symbol
+- `Zone` — `NPCAction::ActionGen_OptionReader::ActionGen_OptionReader` — class method / original symbol
+- `Zone` — `NPCAction::ActionGen_OptionReader::operator()` — class method / original symbol
+- `Zone` — `NPCAction::ActionGen_OptionReader::size` — class method / original symbol
+- `Zone` — `NPCAction::ActionGen_OptionReader::tableName_$initializer$` — class method / original symbol
+- `Zone` — `NPCAction::BallAction::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::BallAction::exe` — class method / original symbol
+- `Zone` — `NPCAction::CallLuaAction::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::CallLuaAction::exe` — class method / original symbol
+- `Zone` — `NPCAction::CheckCyclePartyCondition::GetConditionTick` — class method / original symbol
+- `Zone` — `NPCAction::CheckCyclePartyCondition::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::CheckCyclePartyCondition::check` — class method / original symbol
+- `Zone` — `NPCAction::CheckCyclePartyCondition::needToAttach` — class method / original symbol
+- `Zone` — `NPCAction::CheckCyclePartyCondition::notify` — class method / original symbol
+- `Zone` — `NPCAction::ClassCondition::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::ClassCondition::check` — class method / original symbol
+- `Zone` — `NPCAction::ClassCondition::needToAttach` — class method / original symbol
+- `Zone` — `NPCAction::ClassCondition::notify` — class method / original symbol
+- `Zone` — `NPCAction::CondGen_OptionReader::CondGen_OptionReader` — class method / original symbol
+- `Zone` — `NPCAction::CondGen_OptionReader::createCondition_` — class method / original symbol
+- `Zone` — `NPCAction::CondGen_OptionReader::operator()` — class method / original symbol
+- `Zone` — `NPCAction::CondGen_OptionReader::size` — class method / original symbol
+- `Zone` — `NPCAction::CondGen_OptionReader::tableName_$initializer$` — class method / original symbol
+- `Zone` — `NPCAction::DeadCondition::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::DeadCondition::check` — class method / original symbol
+- `Zone` — `NPCAction::DeadCondition::needToAttach` — class method / original symbol
+- `Zone` — `NPCAction::DeadCondition::notify` — class method / original symbol
+- `Zone` — `NPCAction::DieAction::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::DieAction::exe` — class method / original symbol
+- `Zone` — `NPCAction::DispelAction::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::DispelAction::exe` — class method / original symbol
+- `Zone` — `NPCAction::EmotionCondition::EmotionCondition` — class method / original symbol
+- `Zone` — `NPCAction::EmotionCondition::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::EmotionCondition::check` — class method / original symbol
+- `Zone` — `NPCAction::EmotionCondition::needToAttach` — class method / original symbol
+- `Zone` — `NPCAction::EmotionCondition::notify` — class method / original symbol
+- `Zone` — `NPCAction::EmotionlAction::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::EmotionlAction::exe` — class method / original symbol
+- `Zone` — `NPCAction::GT_TeamCondition::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::GT_TeamCondition::check` — class method / original symbol
+- `Zone` — `NPCAction::GT_TeamCondition::needToAttach` — class method / original symbol
+- `Zone` — `NPCAction::GT_TeamCondition::notify` — class method / original symbol
+- `Zone` — `NPCAction::IAction::~IAction` — class method / original symbol
+- `Zone` — `NPCAction::InteractAction::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::InteractAction::exe` — class method / original symbol
+- `Zone` — `NPCAction::LocationCondition::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::LocationCondition::check` — class method / original symbol
+- `Zone` — `NPCAction::LocationCondition::needToAttach` — class method / original symbol
+- `Zone` — `NPCAction::LocationCondition::notify` — class method / original symbol
+- `Zone` — `NPCAction::LvGapCondition::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::LvGapCondition::check` — class method / original symbol
+- `Zone` — `NPCAction::LvGapCondition::needToAttach` — class method / original symbol
+- `Zone` — `NPCAction::LvGapCondition::notify` — class method / original symbol
+- `Zone` — `NPCAction::Manager<NPCAction::IAction>::generate_n<unsigned int,NPCAction::ActionGen_OptionReader>` — class method / original symbol
+- `Zone` — `NPCAction::Manager<NPCAction::ICondition>::generate_n<unsigned int,NPCAction::CondGen_OptionReader>` — class method / original symbol
+- `Zone` — `NPCAction::NoneAction::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::NoneAction::exe` — class method / original symbol
+- `Zone` — `NPCAction::NoneCondition::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::NoneCondition::check` — class method / original symbol
+- `Zone` — `NPCAction::NoneCondition::needToAttach` — class method / original symbol
+- `Zone` — `NPCAction::NoneCondition::notify` — class method / original symbol
+- `Zone` — `NPCAction::NoticeAction::NoticeAction` — class method / original symbol
+- `Zone` — `NPCAction::NoticeAction::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::NoticeAction::exe` — class method / original symbol
+- `Zone` — `NPCAction::RestoreRateAction::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::RestoreRateAction::exe` — class method / original symbol
+- `Zone` — `NPCAction::Trigger::GetConditionTick` — class method / original symbol
+- `Zone` — `NPCAction::Trigger::Trigger` — class method / original symbol
+- `Zone` — `NPCAction::Trigger::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `NPCAction::Trigger::needToAttach` — class method / original symbol
+- `Zone` — `NPCAction::Trigger::notify` — class method / original symbol
+- `Zone` — `NPCAction::Trigger::~Trigger` — class method / original symbol
+- `Zone` — `NPCAction::TriggerGen_OptionReader::TriggerGen_OptionReader` — class method / original symbol
+- `Zone` — `NPCAction::TriggerGen_OptionReader::operator()` — class method / original symbol
+- `Zone` — `NPCAction::TriggerGen_OptionReader::size` — class method / original symbol
+- `Zone` — `NPCAction::TriggerGen_OptionReader::tableName_$initializer$` — class method / original symbol
+- `Zone` — `NPCAction::TriggerGen_OptionReader::~TriggerGen_OptionReader` — class method / original symbol
+- `Zone` — `NPCAction::Util::loadFromOptionReader<NPCAction::ActionGen_OptionReader,NPCAction::Manager<NPCAction::IAction> >` — class method / original symbol
+- `Zone` — `NPCAction::Util::loadFromOptionReader<NPCAction::CondGen_OptionReader,NPCAction::Manager<NPCAction::ICondition> >` — class method / original symbol
+- `Zone` — `NPCAction::Util::loadFromOptionReader<NPCAction::TriggerGen_OptionReader,NPCAction::Trigger>` — class method / original symbol
+- `Zone` — `NPCAction::Util::loadTriggers` — class method / original symbol
+- `Zone` — `NPCAction::doTriggers_::doTriggers_` — class method / original symbol
+- `Zone` — `NPCAction::doTriggers_::operator()` — class method / original symbol
+- `Zone` — `NPCManager::nm_FindNPCInfo` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ScriptBase<PineEventScriptNode::GTRegisterNPC>::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ScriptBase<PineEventScriptNode::NPCChatNoFacecut>::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineChange2NPC::ShineChange2NPC` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineChange2NPC::sa_Step` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineChange2NPC::sb_CloneMe` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineNPCChat::ShineNPCChat` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineNPCChat::sa_Step` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineNPCChat::sb_CloneMe` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineNPCShout::ShineNPCShout` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineNPCShout::sa_Step` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineNPCShout::sb_CloneMe` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineNPCStand::ShineNPCStand` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineNPCStand::sb_CloneMe` — class method / original symbol
+- `Zone` — `ScriptInterrupt::ScriptInterruptBase::sib_NPCClicked` — class method / original symbol
+- `Zone` — `ScriptInterrupt::ScriptInterruptManager::sim_NPCClick` — class method / original symbol
+- `Zone` — `ScriptInterrupt::ScriptInterruptNPCClickAny::sib_BlastCheck` — class method / original symbol
+- `Zone` — `ScriptInterrupt::ScriptInterruptNPCClickAny::sib_NPCClicked` — class method / original symbol
+- `Zone` — `ScriptInterrupt::ScriptInterruptNPCClickHandle::sib_BlastCheck` — class method / original symbol
+- `Zone` — `ScriptInterrupt::ScriptInterruptNPCClickHandle::sib_NPCClicked` — class method / original symbol
+- `Zone` — `ScriptInterrupt::ScriptInterruptNPCClickIndex::sib_BlastCheck` — class method / original symbol
+- `Zone` — `ScriptInterrupt::ScriptInterruptNPCClickIndex::sib_NPCClicked` — class method / original symbol
+- `Zone` — `ServerMenuActor::ServerMenuActor` — class method / original symbol
+- `Zone` — `ServerMenuActor::sma_Clear` — class method / original symbol
+- `Zone` — `ServerMenuActor::sma_Functer$initializer$` — class method / original symbol
+- `Zone` — `ServerMenuActor::sma_IsReady` — class method / original symbol
+- `Zone` — `ServerMenuActor::sma_Regist` — class method / original symbol
+- `Zone` — `ServerMenuActor::sma_Reply` — class method / original symbol
+- `Zone` — `ServerMenuActor::sma_Reset` — class method / original symbol
+- `Zone` — `ServerMenuActor::sma_SetPlayer` — class method / original symbol
+- `Zone` — `ServerMenuActor::sma_SetRangeCheck` — class method / original symbol
+- `Zone` — `ServerMenuActor::sma_SetResetFuction` — class method / original symbol
+- `Zone` — `ServerMenuActor::~ServerMenuActor` — class method / original symbol
+- `Zone` — `ServerMenuFuncter::smfm_LinkWithoutNPC` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineNPC::GetRTTI` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineNPC::ShineNPC` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineNPC::`vector deleting destructor'` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineNPC::m_RTTI$initializer$` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineNPC::so_BriefInfoRange` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineNPC::so_MaxHP` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineNPC::so_ObjectType` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineNPC::so_RemakeHandle` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineNPC::so_Routine` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineNPC::so_SetGateBriefInform` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineNPC::so_TentDistance` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineNPC::so_npc_SetLocation` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineNPC::~ShineNPC` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_npc_SetLocation` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_NpcReaction` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_ReactionNpcHandle` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_ServerMenuactor_sma_IsReady` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::NPCProcess::~NPCProcess` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_NpcReaction` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_ReactionNpcHandle` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_ServerMenuactor_sma_IsReady` — class method / original symbol
+- `Zone` — `ShineObjectHandleUnion::sohu_SetNPCHandle` — class method / original symbol
+- `Zone` — `ShineObjectManager::som_FindNPC` — class method / original symbol
+- `Zone` — `WorldManagerSession::wms_NC_MISC_EVENTNPC_STANDEND_ZONE_CMD` — WorldManager/Zone protocol handler
+- `Zone` — `WorldManagerSession::wms_NC_MISC_EVENTNPC_STANDSTART_ZONE_CMD` — WorldManager/Zone protocol handler
+- `Zone` — ``dynamic atexit destructor for 'NPCAction::ActionGen_OptionReader::tableName_''` — class method / original symbol
+- `Zone` — ``dynamic atexit destructor for 'NPCAction::CondGen_OptionReader::tableName_''` — class method / original symbol
+- `Zone` — ``dynamic atexit destructor for 'NPCAction::TriggerGen_OptionReader::tableName_''` — class method / original symbol
+- `Zone` — ``dynamic atexit destructor for 'ServerMenuActor::sma_Functer''` — class method / original symbol
+- `Zone` — ``dynamic initializer for 'NPCAction::ActionGen_OptionReader::tableName_''` — class method / original symbol
+- `Zone` — ``dynamic initializer for 'NPCAction::CondGen_OptionReader::tableName_''` — class method / original symbol
+- `Zone` — ``dynamic initializer for 'NPCAction::TriggerGen_OptionReader::tableName_''` — class method / original symbol
+- `Zone` — ``dynamic initializer for 'ServerMenuActor::sma_Functer''` — class method / original symbol
+- `Zone` — ``dynamic initializer for 'ShineObjectClass::ShineNPC::m_RTTI''` — class method / original symbol
+- `Zone` — `nager::nm_FindNPCInfo` — class method / original symbol
+- `Zone` — `std::_Generate_n<std::_Vector_iterator<std::_Vector_val<NPCAction::Trigger,std::allocator<NPCAction::Trigger> > >,unsigned int,NPCAction::TriggerGen_OptionReader>` — class method / original symbol
+- `Zone` — `std::_Move<NPCAction::Trigger *,NPCAction::Trigger *>` — class method / original symbol
+- `Zone` — `std::_Uninit_copy<std::_Vector_const_iterator<std::_Vector_val<NPCAction::IAction *,std::allocator<NPCAction::IAction *> > >,NPCAction::IAction * *,std::allocator<NPCAction::IAction *> >` — class method / original symbol
+- `Zone` — `std::_Uninit_copy<std::_Vector_const_iterator<std::_Vector_val<NPCAction::Trigger,std::allocator<NPCAction::Trigger> > >,NPCAction::Trigger *,std::allocator<NPCAction::Trigger> >` — class method / original symbol
+- `Zone` — `std::_Uninit_def_fill_n<NPCAction::Trigger *,unsigned int,NPCAction::Trigger,std::allocator<NPCAction::Trigger>,NPCAction::Trigger>` — class method / original symbol
+- `Zone` — `std::_Uninit_move<NPCAction::Trigger *,NPCAction::Trigger *,std::allocator<NPCAction::Trigger>,NPCAction::Trigger>` — class method / original symbol
+- `Zone` — `std::allocator<NPCAction::IAction *>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<NPCAction::ICondition *>::allocate` — class method / original symbol
+- `Zone` — `std::allocator<NPCAction::Trigger>::allocate` — class method / original symbol
+- `Zone` — `std::fill<NPCAction::IAction * *,NPCAction::IAction *>` — class method / original symbol
+- `Zone` — `std::fill<NPCAction::ICondition * *,NPCAction::ICondition *>` — class method / original symbol
+- `Zone` — `std::for_each<std::_Vector_iterator<std::_Vector_val<NPCAction::Trigger,std::allocator<NPCAction::Trigger> > >,NPCAction::doTriggers_>` — class method / original symbol
+- `Zone` — `std::generate_n<std::_Vector_iterator<std::_Vector_val<NPCAction::Trigger,std::allocator<NPCAction::Trigger> > >,unsigned int,NPCAction::TriggerGen_OptionReader>` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::IAction *,std::allocator<NPCAction::IAction *> >::_Buy` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::IAction *,std::allocator<NPCAction::IAction *> >::_Insert_n` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::IAction *,std::allocator<NPCAction::IAction *> >::_Tidy` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::IAction *,std::allocator<NPCAction::IAction *> >::_Ucopy<NPCAction::IAction * *>` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::IAction *,std::allocator<NPCAction::IAction *> >::_Ufill` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::IAction *,std::allocator<NPCAction::IAction *> >::erase` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::IAction *,std::allocator<NPCAction::IAction *> >::operator=` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::IAction *,std::allocator<NPCAction::IAction *> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::IAction *,std::allocator<NPCAction::IAction *> >::vector<NPCAction::IAction *,std::allocator<NPCAction::IAction *> >` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::IAction *,std::allocator<NPCAction::IAction *> >::~vector<NPCAction::IAction *,std::allocator<NPCAction::IAction *> >` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::ICondition *,std::allocator<NPCAction::ICondition *> >::_Insert_n` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::ICondition *,std::allocator<NPCAction::ICondition *> >::_Ufill` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::ICondition *,std::allocator<NPCAction::ICondition *> >::erase` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::ICondition *,std::allocator<NPCAction::ICondition *> >::~vector<NPCAction::ICondition *,std::allocator<NPCAction::ICondition *> >` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::Trigger,std::allocator<NPCAction::Trigger> >::_Reserve` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::Trigger,std::allocator<NPCAction::Trigger> >::_Tidy` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::Trigger,std::allocator<NPCAction::Trigger> >::erase` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::Trigger,std::allocator<NPCAction::Trigger> >::push_back` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::Trigger,std::allocator<NPCAction::Trigger> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::Trigger,std::allocator<NPCAction::Trigger> >::resize` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::Trigger,std::allocator<NPCAction::Trigger> >::vector<NPCAction::Trigger,std::allocator<NPCAction::Trigger> >` — class method / original symbol
+- `Zone` — `std::vector<NPCAction::Trigger,std::allocator<NPCAction::Trigger> >::~vector<NPCAction::Trigger,std::allocator<NPCAction::Trigger> >` — class method / original symbol
+
+## Network / Protocol / IOCP
+
+- `Account` — `?Send_NC_MISC_S2SCONNECTION_RDY@CSession@@QAEHXZ` — symbol / original name candidate
+- `Account` — `?fc_NC_MISC_CONNECTFROMWHERE_DB_REQ@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_MISC_EVENT_DONE_MUNSANG_WM2ACC@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_MISC_HEARTBEAT_ACK@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_MISC_HEARTBEAT_REQ@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_MISC_S2SCONNECTION_ACK@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_MISC_S2SCONNECTION_RDY@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_MISC_S2SCONNECTION_REQ@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_MISC_START_THE_BOOM_CMD@CPFs@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_MISC_WEB_DB_KEY_REQ@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USER_CH_PASSWORD_CHECK_REQ@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USER_GER_PASSWORD_CHECK_REQ@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USER_JP_PASSWORD_CHECK_REQ@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USER_LOGIN_DB@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USER_LOGIN_NETMARBLE_DB_REQ@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USER_LOGOUT_DB@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USER_PASSWORD_CHECK_REQ@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USER_RETURN_CHECK_REQ@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USER_SET_RETURN_CMD@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USER_TEENAGER_REQ@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USER_TEENAGER_SET_CMD@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USER_TW_PASSWORD_CHECK_REQ@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `?fc_NC_USER_US_PASSWORD_CHECK_REQ@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `CCsl::ms_bEncrypt` — class method / original symbol
+- `Account` — `CCsl::ms_pEncryptFN_Ext` — class method / original symbol
+- `Account` — `CIOCP::CIOCP` — class method / original symbol
+- `Account` — `CIOCP::Close` — class method / original symbol
+- `Account` — `CIOCP::IOCP_OVERLAPPED` — class method / original symbol
+- `Account` — `CIOCP::IOCP_WORK_TYPE` — class method / original symbol
+- `Account` — `CIOCP::Register` — class method / original symbol
+- `Account` — `CIOCP::Start` — class method / original symbol
+- `Account` — `CIOCP::Stop` — class method / original symbol
+- `Account` — `CIOCP::WORKER` — class method / original symbol
+- `Account` — `CIOCP::WorkThread` — class method / original symbol
+- `Account` — `CIOCP::~CIOCP` — class method / original symbol
+- `Account` — `CIOCP_Process::CIOCP_Process` — class method / original symbol
+- `Account` — `CIOCP_Process::~CIOCP_Process` — class method / original symbol
+- `Account` — `CIOCP_Process_Interfece::IOCP_CloseProcess` — class method / original symbol
+- `Account` — `CIOCP_Process_Interfece::IOCP_Process` — class method / original symbol
+- `Account` — `CIOCP_Process_Interfece::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `CIOCP_Process_Manager::IOCP_Process` — class method / original symbol
+- `Account` — `CIOCP_Process_Manager::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `CIOCP_Process_Manager::~CIOCP_Process_Manager` — class method / original symbol
+- `Account` — `CIOCP_Process_Manager_App::IOCP_CloseProcess` — class method / original symbol
+- `Account` — `CIOCP_Process_Manager_App::IOCP_Process` — class method / original symbol
+- `Account` — `CIOCP_Process_Manager_App::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `CIOCP_Process_Socket::IOCP_Process` — class method / original symbol
+- `Account` — `CIOCP_Process_Socket::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `CIOCP_Process_Socket::~CIOCP_Process_Socket` — class method / original symbol
+- `Account` — `CIOCP_Process_Socket_Session::IOCP_Process` — class method / original symbol
+- `Account` — `CIOCP_Process_Socket_Session::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `CIOCP_Process_Socket_Session::~CIOCP_Process_Socket_Session` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USER_LOGIN_DB` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USER_LOGIN_NETMARBLE_DB_REQ` — class method / original symbol
+- `Account` — `CPacket::<unnamed-tag>` — packet framework/helper
+- `Account` — `CPacket::CPacket` — packet framework/helper
+- `Account` — `CPacket::Clear` — packet framework/helper
+- `Account` — `CPacket::Decode` — packet framework/helper
+- `Account` — `CPacket::Encode` — packet framework/helper
+- `Account` — `CPacket::GetDataPtr` — packet framework/helper
+- `Account` — `CPacket::GetDataSize` — packet framework/helper
+- `Account` — `CPacket::GetIDPtr` — packet framework/helper
+- `Account` — `CPacket::GetPacket` — packet framework/helper
+- `Account` — `CPacket::GetPacketSize` — packet framework/helper
+- `Account` — `CPacket::GetWriteableBufferSize` — packet framework/helper
+- `Account` — `CPacket::ID` — packet framework/helper
+- `Account` — `CPacket::InvalidPacketException` — packet framework/helper
+- `Account` — `CPacket::IsValidHeader` — packet framework/helper
+- `Account` — `CPacket::IsValidPacket` — packet framework/helper
+- `Account` — `CPacket::LargePacket` — packet framework/helper
+- `Account` — `CPacket::NETPACKET` — packet framework/helper
+- `Account` — `CPacket::PACKET` — packet framework/helper
+- `Account` — `CPacket::PACKET1` — packet framework/helper
+- `Account` — `CPacket::PACKET2` — packet framework/helper
+- `Account` — `CPacket::SmallPacket` — packet framework/helper
+- `Account` — `CPacket::TakeNextPacket` — packet framework/helper
+- `Account` — `CPacket::WriteData` — packet framework/helper
+- `Account` — `CPacket::~CPacket` — packet framework/helper
+- `Account` — `CPacket_Parser_Socket_Session::Parser` — packet framework/helper
+- `Account` — `CSQLPAccount::SQL_USER_GET_JP_LOGIN_GAME` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_GET_TW_LOGIN_GAME` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_GET_US_LOGIN_GAME` — class method / original symbol
+- `Account` — `CSQLPAccount::SQL_USER_SET_LOGIN_COUNT` — class method / original symbol
+- `Account` — `CSQLPAccount::p_UserLoginGame` — class method / original symbol
+- `Account` — `CSQLPAccount::usp_UserJPLoginGame` — class method / original symbol
+- `Account` — `CSQLPAccount::usp_UserTWLoginGame` — class method / original symbol
+- `Account` — `CSQLPAccount::usp_UserUSLoginGame` — class method / original symbol
+- `Account` — `CSQLPAccount::usp_User_LoginNetmarble` — class method / original symbol
+- `Account` — `CSQLPUserConnection::SQL_USER_CONNECTION_GET_LOGIN` — class method / original symbol
+- `Account` — `CSQLPUserConnection::SQL_USER_CONNECTION_SET_LOGIN` — class method / original symbol
+- `Account` — `CSendPacket::<unnamed-tag>` — packet framework/helper
+- `Account` — `CSendPacket::CSendPacket` — packet framework/helper
+- `Account` — `CSendPacket::GetSendPtr` — packet framework/helper
+- `Account` — `CSendPacket::GetSendSize` — packet framework/helper
+- `Account` — `CSendPacket::ID` — packet framework/helper
+- `Account` — `CSendPacket::PACKET` — packet framework/helper
+- `Account` — `CSendPacket::PACKET_SIZE` — packet framework/helper
+- `Account` — `CSendPacket::PACKET_SIZE1` — packet framework/helper
+- `Account` — `CSendPacket::PACKET_SIZE2` — packet framework/helper
+- `Account` — `CSendPacket::SetSize` — packet framework/helper
+- `Account` — `CSendPacket::~CSendPacket` — packet framework/helper
+- `Account` — `CSession::CSession` — class method / original symbol
+- `Account` — `CSession::CheckHeartBeat` — class method / original symbol
+- `Account` — `CSession::IOCP_Process` — class method / original symbol
+- `Account` — `CSession::Send` — class method / original symbol
+- `Account` — `CSession::Send_NC_MISC_S2SCONNECTION_RDY` — class method / original symbol
+- `Account` — `CSession::SocketCloseUseIOCP` — class method / original symbol
+- `Account` — `CSession::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `CSessionWorker::CSessionWorker` — class method / original symbol
+- `Account` — `CSessionWorker::DB_Init` — class method / original symbol
+- `Account` — `CSessionWorker::SessionWorkThread` — class method / original symbol
+- `Account` — `CSessionWorker::Start` — class method / original symbol
+- `Account` — `CSessionWorker::Stop` — class method / original symbol
+- `Account` — `CSessionWorker::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `CSessionWorker::~CSessionWorker` — class method / original symbol
+- `Account` — `CSessionWorkerManager::AddQue` — class method / original symbol
+- `Account` — `CSessionWorkerManager::CSessionWorkerManager` — class method / original symbol
+- `Account` — `CSessionWorkerManager::DelQue` — class method / original symbol
+- `Account` — `CSessionWorkerManager::FreeWorker` — class method / original symbol
+- `Account` — `CSessionWorkerManager::GetJobA` — class method / original symbol
+- `Account` — `CSessionWorkerManager::SESSION_WORKER` — class method / original symbol
+- `Account` — `CSessionWorkerManager::Start` — class method / original symbol
+- `Account` — `CSessionWorkerManager::Stop` — class method / original symbol
+- `Account` — `CSessionWorkerManager::~CSessionWorkerManager` — class method / original symbol
+- `Account` — `CSession_Manager::<unnamed-tag>` — class method / original symbol
+- `Account` — `CSession_Manager::APP_SESSION_LIST` — class method / original symbol
+- `Account` — `CSession_Manager::ActiveSession` — class method / original symbol
+- `Account` — `CSession_Manager::CSession_Manager` — class method / original symbol
+- `Account` — `CSession_Manager::DeleteEmptySession` — class method / original symbol
+- `Account` — `CSession_Manager::InactiveSession` — class method / original symbol
+- `Account` — `CSession_Manager::MakeAEmptySession` — class method / original symbol
+- `Account` — `CSession_Manager::ProcHeartBeat` — class method / original symbol
+- `Account` — `CSession_Manager::~CSession_Manager` — class method / original symbol
+- `Account` — `CSocket_Acceptor::ACCEPTED_SOCKET_INFO` — class method / original symbol
+- `Account` — `CSocket_Acceptor::ACCEPTED_SOCKET_WORK` — class method / original symbol
+- `Account` — `CSocket_Acceptor::AcceptThread` — class method / original symbol
+- `Account` — `CSocket_Acceptor::CSocket_Acceptor` — class method / original symbol
+- `Account` — `CSocket_Acceptor::Initialize` — class method / original symbol
+- `Account` — `CSocket_Acceptor::LISTEN_SOCKET` — class method / original symbol
+- `Account` — `CSocket_Acceptor::LISTEN_WORK` — class method / original symbol
+- `Account` — `CSocket_Acceptor::Listen` — class method / original symbol
+- `Account` — `CSocket_Acceptor::Start_AcceptThread` — class method / original symbol
+- `Account` — `CSocket_Acceptor::Stop` — class method / original symbol
+- `Account` — `CSocket_Acceptor::~CSocket_Acceptor` — class method / original symbol
+- `Account` — `CSocket_Acceptor_Process::CSocket_Acceptor_Process` — class method / original symbol
+- `Account` — `CSocket_Acceptor_Process_Interface::Accept_Process` — class method / original symbol
+- `Account` — `CSocket_Acceptor_Process_Manager::Accept_Process` — class method / original symbol
+- `Account` — `CSocket_Acceptor_Process_Manager_App::Accept_Process` — class method / original symbol
+- `Account` — `CSocket_IOCP::CSocket_IOCP` — class method / original symbol
+- `Account` — `CSocket_IOCP::Close` — class method / original symbol
+- `Account` — `CSocket_IOCP::CloseUseIOCP` — class method / original symbol
+- `Account` — `CSocket_IOCP::FreeBuffer` — class method / original symbol
+- `Account` — `CSocket_IOCP::Receive` — class method / original symbol
+- `Account` — `CSocket_IOCP::Send` — class method / original symbol
+- `Account` — `CSocket_IOCP::Shutdown` — class method / original symbol
+- `Account` — `CSocket_IOCP::WriteCallback` — class method / original symbol
+- `Account` — `CSocket_IOCP::~CSocket_IOCP` — class method / original symbol
+- `Account` — `CSocket_Session::CSocket_Session` — class method / original symbol
+- `Account` — `CSocket_Session::Close` — class method / original symbol
+- `Account` — `CSocket_Session::Send` — class method / original symbol
+- `Account` — `CSocket_Session::Socket_Register_To_IOCP` — class method / original symbol
+- `Account` — `CSocket_Session::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `CSocket_Session::ss_Getpacket` — class method / original symbol
+- `Account` — `CSocket_Session::ss_protocolcheck` — class method / original symbol
+- `Account` — `CSocket_Session::ss_socketclose` — class method / original symbol
+- `Account` — `CSocket_Session::ss_socketopen` — class method / original symbol
+- `Account` — `CSocket_Session::~CSocket_Session` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::<unnamed-tag>` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::ActiveSession` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::ActiveToEmpty` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::AllActiveToEmpty` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::AllEmptyToFree` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::CSM_Enter_CS` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::CSM_Leave_CS` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::CSM_SESSION_LIST` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::CSocket_Session_Manager` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::CloseSessions` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::DeleteEmptySession` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::DissconnectSessions` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::EmptyToActive` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::GetNewActiveSession` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::InactiveSession` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::InitSessions` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::MakeAEmptySession` — class method / original symbol
+- `Account` — `CSocket_Session_Manager::~CSocket_Session_Manager` — class method / original symbol
+- `Account` — `EnchantSocketRateData::GetSocketRateData` — class method / original symbol
+- `Account` — `EnchantSocketRateData::sm_pSocketRateData` — class method / original symbol
+- `Account` — `NC_MISC_DELIVER_WM_LOGIN_ACDB_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_DELIVER_WM_LOGIN_ALDB_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_XTRAP2_CLIENT_DATA_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_XTRAP2_SERVER_DATA_CMD` — symbol / original name candidate
+- `Account` — `NC_USER_CH_LOGIN_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_CONNECTCUT2WORLDMANAGER_CMD` — symbol / original name candidate
+- `Account` — `NC_USER_GER_LOGIN_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_JP_LOGIN_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_LOGINWORLD_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_LOGINWORLD_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_LOGIN_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_LOGIN_DB` — symbol / original name candidate
+- `Account` — `NC_USER_LOGIN_NETMARBLE_DB_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_LOGIN_NETMARBLE_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_LOGIN_OUTSPARK_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_LOGIN_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_LOGIN_WITH_OTP_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_TW_LOGIN_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_US_LOGIN_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_WILLLOGIN_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_WILLLOGIN_REQ` — symbol / original name candidate
+- `Account` — `NC_USER_XTRAP_ACK` — symbol / original name candidate
+- `Account` — `NC_USER_XTRAP_REQ` — symbol / original name candidate
+- `Account` — `NETCOMMAND::<unnamed-type-str>` — packet framework/helper
+- `Account` — `PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CPFs::*)(NETPACKET *,int)>` — class method / original symbol
+- `Account` — `PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CPFs::*)(NETPACKET *,int)>::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CPFs::*)(NETPACKET *,int)>::pft_Store` — class method / original symbol
+- `Account` — `PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CPFs::*)(NETPACKET *,int)>::~PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CPFs::*)(NETPACKET *,int)>` — class method / original symbol
+- `Account` — `PROTO_NC_USER_LOGIN_DB` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_USER_LOGIN_NETMARBLE_DB_REQ` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_USER_LOGIN_DB@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_USER_LOGIN_NETMARBLE_DB_REQ@@` — packet/protocol struct or template reference
+- `Account` — `fc_NC_USER_LOGIN_DB` — symbol / original name candidate
+- `Account` — `fc_NC_USER_LOGIN_NETMARBLE_DB_REQ` — symbol / original name candidate
+- `Account` — `~PROTOCOLFUNCTIONTEMPLETE<int (__thiscall CPFs::*)(NETPACKET *,int)>` — class method / original symbol
+- `AccountLog` — `CIOCP_Process_Interfece::IOCP_CloseProcess` — class method / original symbol
+- `AccountLog` — `CIOCP_Process_Manager_App::IOCP_CloseProcess` — class method / original symbol
+- `AccountLog` — `CIOCP_Process_Manager_App::IOCP_Process` — class method / original symbol
+- `AccountLog` — `CIOCP_Process_Manager_App::`scalar deleting destructor'` — class method / original symbol
+- `AccountLog` — `CSessionWorker::CSessionWorker` — class method / original symbol
+- `AccountLog` — `CSessionWorker::DB_Init` — class method / original symbol
+- `AccountLog` — `CSessionWorker::SessionWorkThread` — class method / original symbol
+- `AccountLog` — `CSessionWorker::Start` — class method / original symbol
+- `AccountLog` — `CSessionWorker::Stop` — class method / original symbol
+- `AccountLog` — `CSessionWorker::`scalar deleting destructor'` — class method / original symbol
+- `AccountLog` — `CSessionWorker::~CSessionWorker` — class method / original symbol
+- `AccountLog` — `CSessionWorkerManager::AddQue` — class method / original symbol
+- `AccountLog` — `CSessionWorkerManager::CSessionWorkerManager` — class method / original symbol
+- `AccountLog` — `CSessionWorkerManager::DelQue` — class method / original symbol
+- `AccountLog` — `CSessionWorkerManager::FreeWorker` — class method / original symbol
+- `AccountLog` — `CSessionWorkerManager::GetJobA` — class method / original symbol
+- `AccountLog` — `CSessionWorkerManager::Start` — class method / original symbol
+- `AccountLog` — `CSessionWorkerManager::Stop` — class method / original symbol
+- `AccountLog` — `CSessionWorkerManager::~CSessionWorkerManager` — class method / original symbol
+- `AccountLog` — `CSession_Manager::ActiveSession` — class method / original symbol
+- `AccountLog` — `CSession_Manager::CSession_Manager` — class method / original symbol
+- `AccountLog` — `CSession_Manager::DeleteEmptySession` — class method / original symbol
+- `AccountLog` — `CSession_Manager::FindSession` — class method / original symbol
+- `AccountLog` — `CSession_Manager::InactiveSession` — class method / original symbol
+- `AccountLog` — `CSession_Manager::MakeAEmptySession` — class method / original symbol
+- `AccountLog` — `CSession_Manager::ProcHeartBeat` — class method / original symbol
+- `AccountLog` — `CSession_Manager::~CSession_Manager` — class method / original symbol
+- `AccountLog` — `CSocket_Acceptor_Process_Manager_App::Accept_Process` — class method / original symbol
+
+## Party / Raid / Party Finder
+
+- `Account` — `NC_PARTY` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_PARTY_BANISH` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_PARTY_CHG_MAS` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_PARTY_CREATE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_PARTY_DELETE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_PARTY_JOIN` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_PARTY_LEAVE` — symbol / original name candidate
+- `AccountLog` — `NC_PARTY` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_PARTY_BANISH` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_PARTY_CHG_MAS` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_PARTY_CREATE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_PARTY_DELETE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_PARTY_JOIN` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_PARTY_LEAVE` — symbol / original name candidate
+- `Login` — `NC_PARTY` — symbol / original name candidate
+- `WorldManager` — `??0?$PROTO_NC_DATA_SEND1@UPROTO_NC_PARTY_SET_LOOTER_BROAD_CMD@@@@QAE@XZ` — packet/protocol struct or template reference
+- `WorldManager` — `??0MEMBER_INFO@PROTO_NC_PARTY_MEMBER_LIST_CMD@@QAE@XZ` — packet/protocol struct or template reference
+- `WorldManager` — `??0PROTO_NC_PARTY_FUNDAMENTAL_CMD_SEND@@QAE@XZ` — packet/protocol struct or template reference
+- `WorldManager` — `??1MEMBER_INFO@PROTO_NC_PARTY_MEMBER_LIST_CMD@@QAE@XZ` — packet/protocol struct or template reference
+- `WorldManager` — `??1PROTO_NC_PARTY_MEMBER_LIST_CMD_SEND@@QAE@XZ` — packet/protocol struct or template reference
+- `WorldManager` — `??4PROTO_NC_PARTY_FINDER_INFO@@QAEAAU0@ABU0@@Z` — packet/protocol struct or template reference
+- `WorldManager` — `?Add@CPartyFinder@@QAEHPAUPROTO_NC_PARTY_FINDER_INFO@@@Z` — packet/protocol struct or template reference
+- `WorldManager` — `?Add@CPartyFinderServer@@QAEHPATName5@@PAUPROTO_NC_PARTY_FINDER_ADD_REQ@@@Z` — packet/protocol struct or template reference
+- `WorldManager` — `?fc_NC_ACT_PARTYCHAT_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_CHANGEMASTER_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_FINDER_ADD_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_FINDER_DELETE_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_FINDER_LIST_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_JOINPROPOSE_ALLOW_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_JOINPROPOSE_REJECT_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_JOIN_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_KICKOFF_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_LEAVE_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_MEMBERINFORM_REQ@CParserOPTool@@QAEHPAVCWMOPToolSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_MEMBERINFORM_REQ@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_SET_LOOTER_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_ZONE_JOIN_CMD@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_PARTY_ZONE_LEAVE_CMD@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `CFriend::PartyChange` — class method / original symbol
+- `WorldManager` — `CParserClient::LeaveParty` — class method / original symbol
+- `WorldManager` — `CParserClient::PartyLooterChange` — class method / original symbol
+- `WorldManager` — `CParserClient::PartyOfflineDismiss` — class method / original symbol
+- `WorldManager` — `CParserClient::SendPartyKickoff` — class method / original symbol
+- `WorldManager` — `CParserClient::SendPartyLeave` — class method / original symbol
+- `WorldManager` — `CParserClient::SendPartyLogin` — class method / original symbol
+- `WorldManager` — `CParserClient::SendPartyLoginInfo` — class method / original symbol
+- `WorldManager` — `CParserClient::SendPartyLogout` — class method / original symbol
+- `WorldManager` — `CParserClient::SendPartyLogoutInfo` — class method / original symbol
+- `WorldManager` — `CParserClient::SendPartyMemberList` — class method / original symbol
+- `WorldManager` — `CParserClient::SendPartyNewMaster` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_ACT_PARTYCHAT_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PARTY_CHANGEMASTER_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PARTY_FINDER_ADD_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PARTY_FINDER_DELETE_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PARTY_FINDER_LIST_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PARTY_JOINPROPOSE_ALLOW_ACK` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PARTY_JOINPROPOSE_REJECT_ACK` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PARTY_JOIN_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PARTY_KICKOFF_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PARTY_LEAVE_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_PARTY_SET_LOOTER_REQ` — class method / original symbol
+- `WorldManager` — `CParserOPTool::fc_NC_PARTY_MEMBERINFORM_REQ` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_PARTY_MEMBERINFORM_REQ` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_PARTY_ZONE_JOIN_CMD` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_PARTY_ZONE_LEAVE_CMD` — class method / original symbol
+- `WorldManager` — `CParty::CParty` — class method / original symbol
+- `WorldManager` — `CParty::GetEmptyParty` — class method / original symbol
+- `WorldManager` — `CParty::GetPartySlot` — class method / original symbol
+- `WorldManager` — `CParty::Init` — class method / original symbol
+- `WorldManager` — `CParty::IsMember` — class method / original symbol
+- `WorldManager` — `CParty::IsMemberPreParty` — class method / original symbol
+- `WorldManager` — `CParty::IsPartyMaster` — class method / original symbol
+- `WorldManager` — `CParty::IsValidPartyNo` — class method / original symbol
+- `WorldManager` — `CParty::MemberGetCount` — class method / original symbol
+- `WorldManager` — `CParty::MemberGetCountExecptPreMember` — class method / original symbol
+- `WorldManager` — `CParty::MemberGetNo` — class method / original symbol
+- `WorldManager` — `CParty::MemberJoin` — class method / original symbol
+- `WorldManager` — `CParty::MemberJoinAllow` — class method / original symbol
+- `WorldManager` — `CParty::MemberLeave` — class method / original symbol
+- `WorldManager` — `CParty::MemberLeaveCheck` — class method / original symbol
+- `WorldManager` — `CParty::MemberSetMaster` — class method / original symbol
+- `WorldManager` — `CParty::PARTY_SLOT` — class method / original symbol
+- `WorldManager` — `CParty::PARTY_SLOT::PARTY_MEMBER_SLOT` — class method / original symbol
+- `WorldManager` — `CParty::PARTY_SLOT::PARTY_MEMBER_SLOT::PARTY_MEMBER_SLOT` — class method / original symbol
+- `WorldManager` — `CParty::PARTY_SLOT::PARTY_MEMBER_SLOT::operator=` — class method / original symbol
+- `WorldManager` — `CParty::PARTY_SLOT::PARTY_MEMBER_SLOT::~PARTY_MEMBER_SLOT` — class method / original symbol
+- `WorldManager` — `CParty::PARTY_WORK_RESULT` — class method / original symbol
+- `WorldManager` — `CParty::PartyDelete` — class method / original symbol
+- `WorldManager` — `CParty::PartyGetNo` — class method / original symbol
+- `WorldManager` — `CParty::SwapPartyMember` — class method / original symbol
+- `WorldManager` — `CParty::operator[]` — class method / original symbol
+- `WorldManager` — `CParty::p_def` — class method / original symbol
+- `WorldManager` — `CParty::p_def$initializer$` — class method / original symbol
+- `WorldManager` — `CParty::~CParty` — class method / original symbol
+- `WorldManager` — `CPartyFinder::Add` — class method / original symbol
+- `WorldManager` — `CPartyFinder::CPartyFinder` — class method / original symbol
+- `WorldManager` — `CPartyFinder::Clear` — class method / original symbol
+- `WorldManager` — `CPartyFinder::Del` — class method / original symbol
+- `WorldManager` — `CPartyFinder::DelNode` — class method / original symbol
+- `WorldManager` — `CPartyFinder::Find` — class method / original symbol
+- `WorldManager` — `CPartyFinder::PARTY_FINDER_INFO_LIST` — class method / original symbol
+- `WorldManager` — `CPartyFinder::~CPartyFinder` — class method / original symbol
+- `WorldManager` — `CPartyFinderServer::Add` — class method / original symbol
+- `WorldManager` — `CPartyFinderServer::CPartyFinderServer` — class method / original symbol
+- `WorldManager` — `CPartyFinderServer::Del` — class method / original symbol
+- `WorldManager` — `CPartyFinderServer::Process` — class method / original symbol
+- `WorldManager` — `CPartyFinderServer::Seek` — class method / original symbol
+- `WorldManager` — `CPartyFinderServer::~CPartyFinderServer` — class method / original symbol
+- `WorldManager` — `CWMClientSession::FriendBroadParty` — class method / original symbol
+- `WorldManager` — `CWMClientSession::FriendBroadParty::__l4::PROTO_NC_FRIEND_PARTY_CMD_SEND` — WorldManager/Zone protocol handler
+- `WorldManager` — `CWMClientSession::PartyLogoff` — class method / original symbol
+- `WorldManager` — `CWMClientSession::PartyRefresh` — class method / original symbol
+- `WorldManager` — `NC_ACT_PARTYCHAT_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_PARTYCHAT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_PARTYCHAT_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_FRIEND_PARTY_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_PARTY_BANISH` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_PARTY_CHG_MAS` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_PARTY_CREATE` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_PARTY_DELETE` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_PARTY_JOIN` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_PARTY_LEAVE` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_CHANGEMASTER_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_CHANGEMASTER_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_CHANGEMASTER_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_DISMISS_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_DISMISS_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_FINDER_ADD_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_FINDER_ADD_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_FINDER_DELETE_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_FINDER_DELETE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_FINDER_DELETE_YOUR_MSG_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_FINDER_LIST_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_FINDER_LIST_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_FUNDAMENTAL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_JOINPROPOSE_ALLOW_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_JOINPROPOSE_REJECT_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_JOINPROPOSE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_JOINPROPOSE_TIMEOUT_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_JOIN_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_JOIN_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_JOIN_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_KICKOFF_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_KICKOFF_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_KICKOFF_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_LEAVE_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_LEAVE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_LEAVE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_LOGININFO_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_LOGIN_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_LOGOUTINFO_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_LOGOUT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_MEMBERINFOREQ_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_MEMBERINFORM_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_MEMBERINFORM_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_MEMBERINFORM_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_MEMBERLOCATION_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_MEMBER_LIST_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_NULL` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_SET_LOOTER_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_SET_LOOTER_BROAD_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_SET_LOOTER_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_SET_LOOTER_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_ZONE_JOIN_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_ZONE_LEAVE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PARTY_ZONE_SET_LOOTER_CMD` — symbol / original name candidate
+- `WorldManager` — `PROTO_NC_ACT_PARTYCHAT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_ACT_PARTYCHAT_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_PARTY_FINDER_DELETE_YOUR_MSG_CMD>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_PARTY_SET_LOOTER_BROAD_CMD>::PROTO_NC_DATA_SEND1<PROTO_NC_PARTY_SET_LOOTER_BROAD_CMD>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_PARTY_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_FRIEND_PARTY_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_CHANGEMASTER_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_CHANGEMASTER_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_DISMISS_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_DISMISS_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_DISMISS_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_FINDER_ADD_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_FINDER_DELETE_YOUR_MSG_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_FINDER_INFO` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_FINDER_INFO::operator=` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_FUNDAMENTAL_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_FUNDAMENTAL_CMD_SEND::PROTO_NC_PARTY_FUNDAMENTAL_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_JOINPROPOSE_ALLOW_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_JOINPROPOSE_REJECT_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_JOIN_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_JOIN_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_KICKOFF_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_LOGOUTINFO_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_LOGOUTINFO_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_MEMBERINFORM_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_MEMBERINFORM_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_MEMBER_LIST_CMD::MEMBER_INFO::MEMBER_INFO` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_MEMBER_LIST_CMD::MEMBER_INFO::~MEMBER_INFO` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_MEMBER_LIST_CMD_SEND::~PROTO_NC_PARTY_MEMBER_LIST_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_ZONE_JOIN_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_PARTY_ZONE_LEAVE_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_PARTY_MEMBER_AND_ZONEMERCHINE::operator=` — class method / original symbol
+- `WorldManager` — `Party::IsMemberPreParty` — class method / original symbol
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_PARTY_FINDER_DELETE_YOUR_MSG_CMD@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_ACT_PARTYCHAT_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_ACT_PARTYCHAT_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_PARTY_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_FRIEND_PARTY_CMD_SEND@?3??FriendBroadParty@CWMClientSession@@QAEXXZ@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_CHANGEMASTER_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_CHANGEMASTER_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_DISMISS_ACK_SEND@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_DISMISS_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_DISMISS_CMD_SEND@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_FINDER_ADD_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_FINDER_DELETE_YOUR_MSG_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_FINDER_INFO@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_FUNDAMENTAL_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_JOIN_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_JOIN_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_LOGOUTINFO_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_LOGOUTINFO_CMD_SEND@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_MEMBERINFORM_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_MEMBERINFORM_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_ZONE_JOIN_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_PARTY_ZONE_LEAVE_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — ``dynamic atexit destructor for 'CParty::p_def''` — class method / original symbol
+- `WorldManager` — ``dynamic initializer for 'CParty::p_def''` — class method / original symbol
+- `WorldManager` — `fc_NC_ACT_PARTYCHAT_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_CHANGEMASTER_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_FINDER_ADD_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_FINDER_DELETE_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_FINDER_LIST_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_JOINPROPOSE_ALLOW_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_JOINPROPOSE_REJECT_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_JOINPROPOSE_TIMEOUT_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_JOIN_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_KICKOFF_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_LEAVE_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_MEMBERINFORM_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_SET_LOOTER_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_ZONE_JOIN_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_PARTY_ZONE_LEAVE_CMD` — symbol / original name candidate
+- `WorldManager` — `~PROTO_NC_ACT_PARTYCHAT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_PARTY_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_FRIEND_PARTY_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_PARTY_CHANGEMASTER_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_PARTY_CHANGEMASTER_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_PARTY_FINDER_INFO` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_PARTY_FUNDAMENTAL_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_PARTY_JOIN_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_PARTY_JOIN_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_PARTY_LOGOUTINFO_CMD_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_PARTY_MEMBERINFORM_ACK` — packet/protocol struct or template reference
+
+## Pet / Minimon / MiniHouse / Mover
+
+- `Account` — `CSQLPPet::SQL_PET_CREATE` — class method / original symbol
+- `Account` — `CSQLPPet::SQL_PET_DELETE` — class method / original symbol
+- `Account` — `CSQLPPet::SQL_PET_GET_INFO` — class method / original symbol
+- `Account` — `CSQLPPet::SQL_PET_SET_NAME` — class method / original symbol
+- `Account` — `CSQLPPet::SQL_PET_SET_TENDENCY` — class method / original symbol
+- `Account` — `NC_BRIEFINFO_MINIHOUSEBUILD_CMD` — symbol / original name candidate
+- `Account` — `NC_BRIEFINFO_MINIHOUSE_CMD` — symbol / original name candidate
+- `Account` — `NC_BRIEFINFO_PET_CMD` — symbol / original name candidate
+- `Account` — `NC_MINIHOUSE` — symbol / original name candidate
+- `Account` — `NC_PET` — symbol / original name candidate
+- `AccountLog` — `CSQLPPet::SQL_PET_CREATE` — class method / original symbol
+- `AccountLog` — `CSQLPPet::SQL_PET_DELETE` — class method / original symbol
+- `AccountLog` — `CSQLPPet::SQL_PET_GET_INFO` — class method / original symbol
+- `AccountLog` — `CSQLPPet::SQL_PET_SET_NAME` — class method / original symbol
+- `AccountLog` — `CSQLPPet::SQL_PET_SET_TENDENCY` — class method / original symbol
+- `AccountLog` — `NC_BRIEFINFO_MINIHOUSEBUILD_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_BRIEFINFO_MINIHOUSE_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_BRIEFINFO_PET_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_MINIHOUSE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_MINIHOUSE_BUILDING` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_MINIHOUSE_VISIT` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_PET` — symbol / original name candidate
+- `AccountLog` — `NC_MINIHOUSE` — symbol / original name candidate
+- `AccountLog` — `NC_PET` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_MINIHOUSE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_MINIHOUSE_BUILDING` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_MINIHOUSE_VISIT` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_PET` — symbol / original name candidate
+- `Login` — `NC_MINIHOUSE` — symbol / original name candidate
+- `Login` — `NC_PET` — symbol / original name candidate
+- `WorldManager` — `CWMClientSession::PetSystem_SendToZone` — class method / original symbol
+- `WorldManager` — `CWMClientSession::PetSystem_SetDoResummon` — class method / original symbol
+- `WorldManager` — `CWMClientSession::PetSystem_SetId` — class method / original symbol
+- `WorldManager` — `CWMClientSession::PetSystem_SetRegNum` — class method / original symbol
+- `WorldManager` — `CWMClientSession::PetSystem_SetResummonCode` — class method / original symbol
+- `WorldManager` — `CWMClientSession::PetSystem_SetSummonSlot` — class method / original symbol
+- `WorldManager` — `NC_LOG_GAME_MINIHOUSE` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_MINIHOUSE_BUILDING` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_MINIHOUSE_VISIT` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_PET` — symbol / original name candidate
+- `WorldManager` — `NC_MINIHOUSE` — symbol / original name candidate
+- `WorldManager` — `NC_PET` — symbol / original name candidate
+- `WorldManager` — `NC_PET_ASK_NEW_NAME_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PET_ASK_NEW_NAME_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PET_CREATE_DB_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PET_CREATE_DB_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PET_LOAD_INFO_DB_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PET_LOAD_INFO_DB_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PET_NULL` — symbol / original name candidate
+- `WorldManager` — `NC_PET_SET_NAME_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PET_SET_NAME_CANCEL_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PET_SET_NAME_CANCEL_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PET_SET_NAME_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_PET_SET_NAME_DB_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_PET_SET_NAME_DB_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PET_SET_NAME_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_PET_SET_TENDENCY_DB_REQ` — symbol / original name candidate
+- `Zone` — `??4PROTO_NC_BRIEFINFO_MINIHOUSEBUILD_CMD@@QAEAAU0@ABU0@@Z` — packet/protocol struct or template reference
+- `Zone` — `AmpersandCommand::ac_EnterMiniHouse` — class method / original symbol
+- `Zone` — `AmpersandCommand::ac_PetSystemTest_GetTendency` — class method / original symbol
+- `Zone` — `AmpersandCommand::ac_PetSystemTest_SetTendency` — class method / original symbol
+- `Zone` — `BinaryDataBox<MiniHouse>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<MiniHouse>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<MiniHouseEndure>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<MiniHouseEndure>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<MiniHouseEndure>::operator[]` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<MiniHouseFurniture>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<MiniHouseFurniture>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<MiniHouseObjAni>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<MiniHouseObjAni>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<MinimonInfo>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<MinimonInfo>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<MinimonInfo>::~BinaryDataBox<MinimonInfo>` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<RIDING>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<RIDING>::bdb_ReadData` — data table loader/index/helper
+- `Zone` — `BriefInfoExchanger::BriefInfoExchangeMiniHouse::bixmh_Exchange` — class method / original symbol
+- `Zone` — `BriefInfoExchanger::BriefInfoExchangeMiniHouse::bixmh_Send` — class method / original symbol
+- `Zone` — `BriefInfoExchanger::BriefInfoExchangePet::bixp_Exchange` — class method / original symbol
+- `Zone` — `BriefInfoExchanger::BriefInfoExchangePet::bixp_Init` — class method / original symbol
+- `Zone` — `BriefInfoExchanger::BriefInfoExchangePet::bixp_Send` — class method / original symbol
+- `Zone` — `BriefInformationMiniHouse::BriefInformationMiniHouse` — class method / original symbol
+- `Zone` — `BriefInformationPet::BriefInformationPet` — class method / original symbol
+- `Zone` — `BriefInformationPet::bip_InitBriefInfo` — class method / original symbol
+- `Zone` — `CMinimonDataBox::CMinimonDataBox` — data table loader/index/helper
+- `Zone` — `CMinimonDataBox::mmdb_GetMinimonType` — data table loader/index/helper
+- `Zone` — `CMinimonDataBox::mmdb_Load` — data table loader/index/helper
+- `Zone` — `CMinimonDataBox::~CMinimonDataBox` — data table loader/index/helper
+- `Zone` — `CPetData::BRange` — class method / original symbol
+- `Zone` — `CPetData::CPetData` — class method / original symbol
+- `Zone` — `CPetData::DRange` — class method / original symbol
+- `Zone` — `CPetData::GetPetActionBundleFlexible` — class method / original symbol
+- `Zone` — `CPetData::GetPetActionCaseFlexible` — class method / original symbol
+- `Zone` — `CPetData::GetPetID` — class method / original symbol
+- `Zone` — `CPetData::GetPetIDX` — class method / original symbol
+- `Zone` — `CPetData::GetPetInitMindRange` — class method / original symbol
+- `Zone` — `CPetData::GetPetInitStressRange` — class method / original symbol
+- `Zone` — `CPetData::GetPetMindType` — class method / original symbol
+- `Zone` — `CPetData::GetPetSpeed` — class method / original symbol
+- `Zone` — `CPetData::GetPetTendencyModifyData` — class method / original symbol
+- `Zone` — `CPetData::ReadData` — class method / original symbol
+- `Zone` — `CPetData::TendencyModifyData` — class method / original symbol
+- `Zone` — `CPetData::WRange` — class method / original symbol
+- `Zone` — `CPetData::~CPetData` — class method / original symbol
+- `Zone` — `GameDBSession::gds_NC_MINIHOUSE_DB_VISITER_COUNT_ACK` — GameDB/DB packet ack handler
+- `Zone` — `GameDBSession::gds_NC_PET_CREATE_DB_ACK` — GameDB/DB packet ack handler
+- `Zone` — `GameDBSession::gds_NC_PET_LOAD_INFO_DB_ACK` — GameDB/DB packet ack handler
+- `Zone` — `GameDBSession::gds_NC_PET_SET_NAME_DB_ACK` — GameDB/DB packet ack handler
+- `Zone` — `MemoryQueue<MemoryMiniHouseEntrance>::mq_Store` — class method / original symbol
+- `Zone` — `MiniHouse::DataVersion` — class method / original symbol
+- `Zone` — `MiniHouseEndure::DataVersion` — class method / original symbol
+- `Zone` — `MiniHouseEndureDataBox::mhe_CalEndureGrade` — data table loader/index/helper
+- `Zone` — `MiniHouseEndureDataBox::mhe_Load` — data table loader/index/helper
+- `Zone` — `MiniHouseEndureDataBox::operator[]` — data table loader/index/helper
+- `Zone` — `MiniHouseFurniture::DataVersion` — class method / original symbol
+- `Zone` — `MiniHouseObjAni::DataVersion` — class method / original symbol
+- `Zone` — `MiniHouseObjAniDataBox::AniData` — data table loader/index/helper
+- `Zone` — `MiniHouseObjAniDataBox::ServerAniData` — data table loader/index/helper
+- `Zone` — `MiniHouseObjAniDataBox::mhoadb_GetAniData` — data table loader/index/helper
+- `Zone` — `MiniHouseObjAniDataBox::mhoadb_Load` — data table loader/index/helper
+- `Zone` — `MiniHouseObjAniDataBox::mhoadb_MakeServerAniData` — data table loader/index/helper
+- `Zone` — `MinimonInfo::DataVersion` — class method / original symbol
+- `Zone` — `NC_BRIEFINFO_MINIHOUSEBUILD_CMD` — symbol / original name candidate
+- `Zone` — `NC_BRIEFINFO_MINIHOUSE_CMD` — symbol / original name candidate
+- `Zone` — `NC_BRIEFINFO_PET_CMD` — symbol / original name candidate
+- `Zone` — `NC_LOG_GAME_MINIHOUSE` — symbol / original name candidate
+- `Zone` — `NC_LOG_GAME_MINIHOUSE_BUILDING` — symbol / original name candidate
+- `Zone` — `NC_LOG_GAME_MINIHOUSE_VISIT` — symbol / original name candidate
+- `Zone` — `NC_LOG_GAME_PET` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_ACTIV_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_ACTIV_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_ARRANGEMODE_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_ARRANGEMODE_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_BUILDING_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_BUILDING_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_BUILDING_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_CREATE_FURNITURE_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_CREATE_FURNITURE_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_CREATE_FURNITURE_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_DB_VISITER_COUNT_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_DB_VISITER_COUNT_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_DELETE_FURNITURE_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_DELETE_FURNITURE_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_EXIT_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_EXIT_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_FUNICHER_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_FUNITUREINFOCOMPLETE_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_FUNITUREINFOCOMPLETE_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_FURNITURE_EFFECT_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_FURNITURE_EFFECT_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_FURNITURE_EFFECT_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_FURNITURE_EMOTION_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_FURNITURE_EMOTION_CANCEL_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_FURNITURE_EMOTION_CANCEL_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_FURNITURE_EMOTION_CANCEL_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_FURNITURE_EMOTION_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_FURNITURE_EMOTION_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_FURNITURE_ENDURE_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_KICKOUTCANCEL_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_KICKOUTCANCEL_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_KICKOUT_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_KICKOUT_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_KICKOUT_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_LOGINCOMPLETE_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_LOGINCOMPLETE_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_LOGINCOMPLETE_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_LOGOUTCOMPLETE_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_MODIFY_MAXENTERNUM_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_MODIFY_MAXENTERNUM_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_MODIFY_NOTIFY_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_MODIFY_NOTIFY_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_MODIFY_PASSWORD_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_MODIFY_PASSWORD_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_MODIFY_PASSWORD_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_NULL` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_REARRANGE_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_REARRANGE_CMD` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_REARRANGE_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_VISITREADY_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_VISITREADY_REQ` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_VISIT_ACK` — symbol / original name candidate
+- `Zone` — `NC_MINIHOUSE_VISIT_REQ` — symbol / original name candidate
+- `Zone` — `NC_PET` — symbol / original name candidate
+- `Zone` — `PROTO_NC_BRIEFINFO_MINIHOUSEBUILD_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_BRIEFINFO_MINIHOUSEBUILD_CMD::operator=` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_ARRANGEMODE_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_CREATE_FURNITURE_REQ` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_CREATE_FURNITURE_REQ::<unnamed-type-rearrange>` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_DELETE_FURNITURE_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_DELETE_FURNITURE_REQ` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_FURNITURE_EFFECT_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_FURNITURE_EMOTION_REQ` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_LOGINCOMPLETE_ACK` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_MODIFY_MAXENTERNUM_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_MODIFY_NOTIFY_REQ` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_REARRANGE_CMD` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_REARRANGE_REQ` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_REARRANGE_REQ::<unnamed-type-rearrange>` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MINIHOUSE_VISITREADY_ACK` — packet/protocol struct or template reference
+- `Zone` — `RIDING::DataVersion` — class method / original symbol
+- `Zone` — `RidePetDataBox::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `RidePetDataBox::rpdb_Load` — data table loader/index/helper
+- `Zone` — `ShineObjectHandleUnion::sohu_SetMiniHouseHandle` — class method / original symbol
+- `Zone` — `ShineObjectHandleUnion::sohu_SetPetHandle` — class method / original symbol
+- `Zone` — `U<unnamed-type-rearrange>@PROTO_NC_MINIHOUSE_CREATE_FURNITURE_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `U<unnamed-type-rearrange>@PROTO_NC_MINIHOUSE_REARRANGE_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_BRIEFINFO_MINIHOUSEBUILD_CMD@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_MINIHOUSE_CREATE_FURNITURE_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_MINIHOUSE_DELETE_FURNITURE_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_MINIHOUSE_FURNITURE_EFFECT_CMD@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_MINIHOUSE_FURNITURE_EMOTION_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_MINIHOUSE_LOGINCOMPLETE_ACK@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_MINIHOUSE_MODIFY_NOTIFY_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_MINIHOUSE_REARRANGE_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_MINIHOUSE_VISITREADY_ACK@@` — packet/protocol struct or template reference
+- `Zone` — `gds_NC_MINIHOUSE_DB_VISITER_COUNT_ACK` — symbol / original name candidate
+- `Zone` — `gds_NC_PET_CREATE_DB_ACK` — symbol / original name candidate
+- `Zone` — `gds_NC_PET_LOAD_INFO_DB_ACK` — symbol / original name candidate
+- `Zone` — `gds_NC_PET_SET_NAME_DB_ACK` — symbol / original name candidate
+- `Zone` — `sp_BroadCast_NC_PET_SET_NAME_CMD` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_ACTIV_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_ARRANGEMODE_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_BUILDING_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_CREATE_FURNITURE_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_DELETE_FURNITURE_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_EXIT_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_FUNITUREINFOCOMPLETE_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_FURNITURE_EFFECT_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_FURNITURE_EMOTION_CANCEL_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_FURNITURE_EMOTION_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_KICKOUT_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_LOGINCOMPLETE_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_MODIFY_MAXENTERNUM_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_MODIFY_NOTIFY_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_MODIFY_OWNERBLOG_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_MODIFY_PASSWORD_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_OWNERBLOG_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_REARRANGE_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_VISITREADY_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_MINIHOUSE_VISIT_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_PET_ASK_NEW_NAME_ACK` — symbol / original name candidate
+- `Zone` — `sp_NC_PET_SET_NAME_CANCEL_REQ` — symbol / original name candidate
+- `Zone` — `sp_NC_PET_SET_NAME_REQ` — symbol / original name candidate
+- `Zone` — `sp_Send_NC_PET_ASK_NEW_NAME_REQ` — symbol / original name candidate
+- `Zone` — `sp_Send_NC_PET_LOAD_INFO_DB_REQ` — symbol / original name candidate
+- `Zone` — `sp_Send_NC_PET_SET_NAME_ACK` — symbol / original name candidate
+- `Zone` — `sp_Send_NC_PET_SET_NAME_CANCEL_ACK` — symbol / original name candidate
+- `Zone` — `sp_Send_NC_PET_SET_NAME_DB_REQ` — symbol / original name candidate
+- `Zone` — `sp_Send_NC_PET_SET_TENDENCY_DB_REQ` — symbol / original name candidate
+- `Zone` — `~PROTO_NC_BRIEFINFO_MINIHOUSEBUILD_CMD` — packet/protocol struct or template reference
+
+## Quest / PineScript / Scenario
+
+- `Account` — `CQuestData::QUEST_DATA_READ_ERROR_VALUE` — class method / original symbol
+- `Account` — `CSQLPEventFriend::_SQL_REQUEST` — class method / original symbol
+- `Account` — `CSQLPKingdomQuest::KINGDOMQUEST` — class method / original symbol
+- `Account` — `CSQLPKingdomQuest::SQL_KINGDOMQUEST_DEL` — class method / original symbol
+- `Account` — `CSQLPQuest::SQL_QUEST` — class method / original symbol
+- `Account` — `CSQLPQuest::SQL_QUEST_DEL` — class method / original symbol
+- `Account` — `NC_QUEST` — symbol / original name candidate
+- `Account` — `NC_SCENARIO` — symbol / original name candidate
+- `Account` — `QUEST_DATA::QUEST_ACTION` — class method / original symbol
+- `Account` — `QUEST_DATA::QUEST_ACTION_TYPE_IF` — class method / original symbol
+- `Account` — `QUEST_DATA::QUEST_ACTION_TYPE_THEN` — class method / original symbol
+- `Account` — `QUEST_DATA::QUEST_END_CONDITION` — class method / original symbol
+- `Account` — `QUEST_DATA::QUEST_REWARD` — class method / original symbol
+- `Account` — `QUEST_DATA::QUEST_REWARD::VALUE` — class method / original symbol
+- `Account` — `QUEST_DATA::QUEST_REWARD_TYPE` — class method / original symbol
+- `Account` — `QUEST_DATA::QUEST_REWARD_USE` — class method / original symbol
+- `Account` — `QUEST_DATA::QUEST_START_CONDITION` — class method / original symbol
+- `Account` — `QUEST_DATA::QUEST_START_DATE_MODE` — class method / original symbol
+- `Account` — `QUEST_DATA::QUEST_TYPE` — class method / original symbol
+- `Account` — `QuestSpecies::DataVersion` — class method / original symbol
+- `Account` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_REPEAT_QUEST_GIVE_UP` — class method / original symbol
+- `Account` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_SCENARIO` — class method / original symbol
+- `Account` — `std::vector<QUEST_DATA *,std::allocator<QUEST_DATA *> >` — class method / original symbol
+- `AccountLog` — `CQuestData::QUEST_DATA_READ_ERROR_VALUE` — class method / original symbol
+- `AccountLog` — `CSQLPEventFriend::_SQL_REQUEST` — class method / original symbol
+- `AccountLog` — `CSQLPKingdomQuest::KINGDOMQUEST` — class method / original symbol
+- `AccountLog` — `CSQLPKingdomQuest::SQL_KINGDOMQUEST_DEL` — class method / original symbol
+- `AccountLog` — `CSQLPQuest::SQL_QUEST` — class method / original symbol
+- `AccountLog` — `CSQLPQuest::SQL_QUEST_DEL` — class method / original symbol
+- `AccountLog` — `NC_LOG_GAME_QUEST_COMPLETE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_QUEST_DELETE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_QUEST_GET` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_QUEST_REWARD_FAME` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_QUEST_REWARD_MINIHOUSE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_QUEST_REWARD_MONEY` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_QUEST_REWARD_PET` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_QUEST_SET_INFO` — symbol / original name candidate
+- `AccountLog` — `NC_QUEST` — symbol / original name candidate
+- `AccountLog` — `NC_SCENARIO` — symbol / original name candidate
+- `AccountLog` — `QUEST_DATA::QUEST_ACTION` — class method / original symbol
+- `AccountLog` — `QUEST_DATA::QUEST_ACTION_TYPE_IF` — class method / original symbol
+- `AccountLog` — `QUEST_DATA::QUEST_ACTION_TYPE_THEN` — class method / original symbol
+- `AccountLog` — `QUEST_DATA::QUEST_END_CONDITION` — class method / original symbol
+- `AccountLog` — `QUEST_DATA::QUEST_REWARD` — class method / original symbol
+- `AccountLog` — `QUEST_DATA::QUEST_REWARD::VALUE` — class method / original symbol
+- `AccountLog` — `QUEST_DATA::QUEST_REWARD_TYPE` — class method / original symbol
+- `AccountLog` — `QUEST_DATA::QUEST_REWARD_USE` — class method / original symbol
+- `AccountLog` — `QUEST_DATA::QUEST_START_CONDITION` — class method / original symbol
+- `AccountLog` — `QUEST_DATA::QUEST_START_DATE_MODE` — class method / original symbol
+- `AccountLog` — `QUEST_DATA::QUEST_TYPE` — class method / original symbol
+- `AccountLog` — `QuestSpecies::DataVersion` — class method / original symbol
+- `AccountLog` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_REPEAT_QUEST_GIVE_UP` — class method / original symbol
+- `AccountLog` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_SCENARIO` — class method / original symbol
+- `AccountLog` — `std::vector<QUEST_DATA *,std::allocator<QUEST_DATA *> >` — class method / original symbol
+- `Login` — `CQuestData::QUEST_DATA_READ_ERROR_VALUE` — class method / original symbol
+- `Login` — `NC_LOG_GAME_QUEST_COMPLETE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_QUEST_DELETE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_QUEST_GET` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_QUEST_REWARD_FAME` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_QUEST_REWARD_MINIHOUSE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_QUEST_REWARD_MONEY` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_QUEST_REWARD_PET` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_QUEST_SET_INFO` — symbol / original name candidate
+- `Login` — `NC_QUEST` — symbol / original name candidate
+- `Login` — `NC_SCENARIO` — symbol / original name candidate
+- `Login` — `QUEST_DATA::QUEST_ACTION` — class method / original symbol
+- `Login` — `QUEST_DATA::QUEST_ACTION_TYPE_IF` — class method / original symbol
+- `Login` — `QUEST_DATA::QUEST_ACTION_TYPE_THEN` — class method / original symbol
+- `Login` — `QUEST_DATA::QUEST_END_CONDITION` — class method / original symbol
+- `Login` — `QUEST_DATA::QUEST_REWARD` — class method / original symbol
+- `Login` — `QUEST_DATA::QUEST_REWARD::VALUE` — class method / original symbol
+- `Login` — `QUEST_DATA::QUEST_REWARD_TYPE` — class method / original symbol
+- `Login` — `QUEST_DATA::QUEST_REWARD_USE` — class method / original symbol
+- `Login` — `QUEST_DATA::QUEST_START_CONDITION` — class method / original symbol
+- `Login` — `QUEST_DATA::QUEST_START_DATE_MODE` — class method / original symbol
+- `Login` — `QUEST_DATA::QUEST_TYPE` — class method / original symbol
+- `Login` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_REPEAT_QUEST_GIVE_UP` — class method / original symbol
+- `Login` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_SCENARIO` — class method / original symbol
+- `Login` — `std::vector<QUEST_DATA *,std::allocator<QUEST_DATA *> >` — class method / original symbol
+- `WorldManager` — `CGuildAcademyMemberServer::ACADEMY_MEMBER_DATA_REQUESTOR` — class method / original symbol
+- `WorldManager` — `CGuildAcademyMemberServer::AddAcademyMemberDataRequestor` — class method / original symbol
+- `WorldManager` — `CGuildAcademyMemberServer::SendAcademyMemberDataToRequestor` — class method / original symbol
+- `WorldManager` — `CGuildMemberServer::AddMemberDataRequestor` — class method / original symbol
+- `WorldManager` — `CGuildMemberServer::MEMBER_DATA_REQUESTOR` — class method / original symbol
+- `WorldManager` — `CGuildMemberServer::SendMemberDataToRequestor` — class method / original symbol
+- `WorldManager` — `CKQServer::DoKingdomQuest` — class method / original symbol
+- `WorldManager` — `CQuestData::QUEST_DATA_READ_ERROR_VALUE` — class method / original symbol
+- `WorldManager` — `CWMClientSession::QuestDoneLIstSendToZone` — class method / original symbol
+- `WorldManager` — `KINGDOM_QUEST::DataVersion` — class method / original symbol
+- `WorldManager` — `NC_LOG_GAME_QUEST_COMPLETE` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_QUEST_DELETE` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_QUEST_GET` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_QUEST_REWARD_FAME` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_QUEST_REWARD_MINIHOUSE` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_QUEST_REWARD_MONEY` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_QUEST_REWARD_PET` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_QUEST_SET_INFO` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_CLIENT_SCENARIO_DONE_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_CLIENT_SCENARIO_DONE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_DB_CLEAR_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_DB_CLEAR_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_DB_DONE_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_DB_DONE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_DB_GIVE_UP_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_DB_GIVE_UP_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_DB_READ_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_DB_READ_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_DB_SET_INFO_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_DB_SET_INFO_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_ERR` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_GIVE_UP_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_GIVE_UP_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_JOBDUNGEON_FIND_RNG` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_NULL` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_READ_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_READ_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_RESET_TIME_CLIENT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_RESET_TIME_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_RESET_TIME_ZONE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_SCENARIO_RUN_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_SCRIPT_CMD_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_SCRIPT_CMD_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_SELECT_START_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_SELECT_START_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_START_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_QUEST_START_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_SCENARIO` — symbol / original name candidate
+- `WorldManager` — `PROTO_NC_QUEST_RESET_TIME_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_QUEST_RESET_TIME_ZONE_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `QUEST_DATA::QUEST_ACTION` — class method / original symbol
+- `WorldManager` — `QUEST_DATA::QUEST_ACTION_TYPE_IF` — class method / original symbol
+- `WorldManager` — `QUEST_DATA::QUEST_ACTION_TYPE_THEN` — class method / original symbol
+- `WorldManager` — `QUEST_DATA::QUEST_END_CONDITION` — class method / original symbol
+- `WorldManager` — `QUEST_DATA::QUEST_REWARD` — class method / original symbol
+- `WorldManager` — `QUEST_DATA::QUEST_REWARD::VALUE` — class method / original symbol
+- `WorldManager` — `QUEST_DATA::QUEST_REWARD_TYPE` — class method / original symbol
+- `WorldManager` — `QUEST_DATA::QUEST_REWARD_USE` — class method / original symbol
+- `WorldManager` — `QUEST_DATA::QUEST_START_CONDITION` — class method / original symbol
+- `WorldManager` — `QUEST_DATA::QUEST_START_DATE_MODE` — class method / original symbol
+- `WorldManager` — `QUEST_DATA::QUEST_TYPE` — class method / original symbol
+- `WorldManager` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_REPEAT_QUEST_GIVE_UP` — class method / original symbol
+- `WorldManager` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_SCENARIO` — class method / original symbol
+- `WorldManager` — `Send_NC_QUEST_RESET_TIME_CMD` — symbol / original name candidate
+- `WorldManager` — `Send_NC_QUEST_RESET_TIME_ZONE_CMD` — symbol / original name candidate
+- `WorldManager` — `UPROTO_NC_QUEST_RESET_TIME_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_QUEST_RESET_TIME_ZONE_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `std::vector<QUEST_DATA *,std::allocator<QUEST_DATA *> >` — class method / original symbol
+- `Zone` — `AxialListRescueRequest::ali_Work` — class method / original symbol
+- `Zone` — `AxialListRescueRequest::~AxialListRescueRequest` — class method / original symbol
+- `Zone` — `CQuest::Occure_CheckLocation` — class method / original symbol
+- `Zone` — `CQuest::Occure_Quest_Done` — class method / original symbol
+- `Zone` — `CQuest::Occure_RaceChange` — class method / original symbol
+- `Zone` — `CQuest::Occure_ScenarioDone` — class method / original symbol
+- `Zone` — `CQuest::Occure_TimeProcess` — class method / original symbol
+- `Zone` — `CQuest::_Send_NC_QUEST_CLIENT_SCENARIO_DONE_REQ` — class method / original symbol
+- `Zone` — `CQuestZone::CQuestZone` — class method / original symbol
+- `Zone` — `CQuestZone::IsConnectionAction` — class method / original symbol
+- `Zone` — `CQuestZone::IsConnectionEnd` — class method / original symbol
+- `Zone` — `CQuestZone::PsEnd` — class method / original symbol
+- `Zone` — `CQuestZone::PsStart` — class method / original symbol
+- `Zone` — `CQuestZone::QuestCheckReward` — class method / original symbol
+- `Zone` — `CQuestZone::QuestCheckSelectReward` — class method / original symbol
+- `Zone` — `CQuestZone::QuestClose` — class method / original symbol
+- `Zone` — `CQuestZone::QuestDoing` — class method / original symbol
+- `Zone` — `CQuestZone::QuestEnd` — class method / original symbol
+- `Zone` — `CQuestZone::QuestNext` — class method / original symbol
+- `Zone` — `CQuestZone::QuestScriptRun` — class method / original symbol
+- `Zone` — `CQuestZone::QuestStart` — class method / original symbol
+- `Zone` — `CQuestZone::Recv_NC_QUEST_CLIENT_SCENARIO_DONE_REQ` — class method / original symbol
+- `Zone` — `CQuestZone::Recv_NC_QUEST_DB_CLEAR_ACK` — class method / original symbol
+- `Zone` — `CQuestZone::Recv_NC_QUEST_DB_DONE_ACK` — class method / original symbol
+- `Zone` — `CQuestZone::Recv_NC_QUEST_DB_GIVE_UP_ACK` — class method / original symbol
+- `Zone` — `CQuestZone::Recv_NC_QUEST_DB_READ_ACK` — class method / original symbol
+- `Zone` — `CQuestZone::Recv_NC_QUEST_DB_SET_INFO_ACK` — class method / original symbol
+- `Zone` — `CQuestZone::Recv_NC_QUEST_GIVE_UP_REQ` — class method / original symbol
+- `Zone` — `CQuestZone::Recv_NC_QUEST_RESET_TIME_CMD` — class method / original symbol
+- `Zone` — `CQuestZone::Recv_NC_QUEST_RESET_TIME_ZONE_CMD` — class method / original symbol
+- `Zone` — `CQuestZone::Recv_NC_QUEST_SCRIPT_CMD_ACK` — class method / original symbol
+- `Zone` — `CQuestZone::Recv_NC_QUEST_SELECT_START_REQ` — class method / original symbol
+- `Zone` — `CQuestZone::Send_NC_QUEST_CLIENT_SCENARIO_DONE_ACK` — class method / original symbol
+- `Zone` — `CQuestZone::Send_NC_QUEST_DB_CLEAR_REQ` — class method / original symbol
+- `Zone` — `CQuestZone::Send_NC_QUEST_DB_DONE_REQ` — class method / original symbol
+- `Zone` — `CQuestZone::Send_NC_QUEST_DB_GIVE_UP_REQ` — class method / original symbol
+- `Zone` — `CQuestZone::Send_NC_QUEST_DB_READ_REQ` — class method / original symbol
+- `Zone` — `CQuestZone::Send_NC_QUEST_DB_SET_INFO_REQ` — class method / original symbol
+- `Zone` — `CQuestZone::Send_NC_QUEST_GIVE_UP_ACK` — class method / original symbol
+- `Zone` — `CQuestZone::Send_NC_QUEST_RESET_TIME_ZONE_CMD` — class method / original symbol
+- `Zone` — `CQuestZone::Send_NC_QUEST_SCENARIO_RUN_CMD` — class method / original symbol
+- `Zone` — `CQuestZone::Send_NC_QUEST_SCRIPT_CMD_REQ` — class method / original symbol
+- `Zone` — `CQuestZone::Send_NC_QUEST_SELECT_START_ACK` — class method / original symbol
+- `Zone` — `CQuestZone::Send_QUEST_ERROR_TO_CLIENT` — class method / original symbol
+- `Zone` — `CQuestZone::qz_SetObject` — class method / original symbol
+- `Zone` — `CQuestZone::~CQuestZone` — class method / original symbol
+- `Zone` — `GameDBSession::gds_NC_QUEST_DB_CLEAR_ACK` — GameDB/DB packet ack handler
+- `Zone` — `GameDBSession::gds_NC_QUEST_DB_DONE_ACK` — GameDB/DB packet ack handler
+- `Zone` — `GameDBSession::gds_NC_QUEST_DB_GIVE_UP_ACK` — GameDB/DB packet ack handler
+- `Zone` — `GameDBSession::gds_NC_QUEST_DB_READ_ACK` — GameDB/DB packet ack handler
+- `Zone` — `GameDBSession::gds_NC_QUEST_DB_SET_INFO_ACK` — GameDB/DB packet ack handler
+- `Zone` — `KingdomQuest::KQElement::kqe_GetKQLimitMin` — class method / original symbol
+- `Zone` — `LuaScriptScenario::LuaScriptScenario` — class method / original symbol
+- `Zone` — `LuaScriptScenario::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `LuaScriptScenario::ls_FuncSet` — class method / original symbol
+- `Zone` — `LuaScriptScenario::lss_Routine` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineEndOfKingdomQuest::ShineEndOfKingdomQuest` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineEndOfKingdomQuest::sa_Step` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineEndOfKingdomQuest::sb_CloneMe` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineQuestResult::ShineQuestResult` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineQuestResult::sa_Step` — class method / original symbol
+- `Zone` — `PineEventScriptNode::ShineQuestResult::sb_CloneMe` — class method / original symbol
+- `Zone` — `PineScriptToken::pst_GetNumber` — class method / original symbol
+- `Zone` — `PineScriptToken::pst_Merge` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBook::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBook::sb_GetFileName` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBook::sb_GetLuaScript` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBook::sb_GetPSScript` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBook::sb_GetType` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBook::sb_Load` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBook::~ScenarioBook` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBookLua::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBookLua::sb_GetLuaScript` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBookLua::sb_GetType` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBookLua::sb_Load` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBookPS::`scalar deleting destructor'` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBookPS::sb_GetPSScript` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBookPS::sb_GetType` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::ScenarioBookPS::sb_Load` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::sbsReLoad` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::sbs_GetScenarioBook` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::sbs_LoadScripts` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::sbs_Read` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::sbs_ReadNAssert` — class method / original symbol
+- `Zone` — `ScenarioBookShelf::~ScenarioBookShelf` — class method / original symbol
+- `Zone` — `ShineQuestDiary::ShineQuestDiary` — class method / original symbol
+- `Zone` — `ShineQuestDiary::~ShineQuestDiary` — class method / original symbol
+- `Zone` — `WorldManagerSession::wms_NC_QUEST_RESET_TIME_CMD` — WorldManager/Zone protocol handler
+- `Zone` — `WorldManagerSession::wms_NC_QUEST_RESET_TIME_ZONE_CMD` — WorldManager/Zone protocol handler
+- `Zone` — `ZoneListenSession::zls_NC_QUEST_JOBDUNGEON_FIND_RNG` — class method / original symbol
+- `Zone` — `ZoneRingPacketEmtpyInstanceDungeon::zrpb_Request` — packet framework/helper
+- `Zone` — `ZoneRingPacketFindInstanceDungeon::zrpb_Request` — packet framework/helper
+- `Zone` — `ZoneRingPacketFindJobDungeon::zrpb_Request` — packet framework/helper
+- `Zone` — `ZoneRingPacketRefreshWeddingInfo::zrpb_Request` — packet framework/helper
+- `Zone` — `ZoneRingPacketSummonPartner::zrpb_Request` — packet framework/helper
+- `Zone` — ``ZoneListenSession::zls_NC_QUEST_JOBDUNGEON_FIND_RNG'::`9'::`dynamic atexit destructor for 'cmc''` — class method / original symbol
+- `Zone` — ``ZoneRingPacketFindJobDungeon::zrpb_Request'::`14'::`dynamic atexit destructor for 'cmc''` — packet framework/helper
+- `Zone` — `std::allocator<ScenarioBookShelf::ScenarioBook *>::allocate` — class method / original symbol
+- `Zone` — `std::vector<ScenarioBookShelf::ScenarioBook *,std::allocator<ScenarioBookShelf::ScenarioBook *> >::_Reserve` — class method / original symbol
+- `Zone` — `std::vector<ScenarioBookShelf::ScenarioBook *,std::allocator<ScenarioBookShelf::ScenarioBook *> >::push_back` — class method / original symbol
+- `Zone` — `std::vector<ScenarioBookShelf::ScenarioBook *,std::allocator<ScenarioBookShelf::ScenarioBook *> >::reserve` — class method / original symbol
+- `Zone` — `std::vector<ScenarioBookShelf::ScenarioBook *,std::allocator<ScenarioBookShelf::ScenarioBook *> >::~vector<ScenarioBookShelf::ScenarioBook *,std::allocator<ScenarioBookShelf::ScenarioBook *> >` — class method / original symbol
+
+## Security / Filters / Anti-spam
+
+- `Account` — `NC_CHAT_RESTRICT` — symbol / original name candidate
+- `Account` — `NC_MISC_SPAMMER_CHAT_BAN_ACK` — symbol / original name candidate
+- `Account` — `NC_MISC_SPAMMER_CHAT_BAN_REQ` — symbol / original name candidate
+- `Account` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_ACK` — symbol / original name candidate
+- `Account` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — symbol / original name candidate
+- `Account` — `NC_MISC_SPAMMER_REPORT_ACK` — symbol / original name candidate
+- `Account` — `NC_MISC_SPAMMER_REPORT_REQ` — symbol / original name candidate
+- `Account` — `NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_CHAT_RESTRICT` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_SPAMMER_CHAT_BAN_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_SPAMMER_CHAT_BAN_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_SPAMMER_REPORT_ACK` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_SPAMMER_REPORT_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD` — symbol / original name candidate
+- `Client` — `?On_NC_CHAT_RESTRICT_ADD_ACK@GameFrameWork@@QAEHHPAX@Z` — symbol / original name candidate
+- `Client` — `?On_NC_CHAT_RESTRICT_DEL_ACK@GameFrameWork@@QAEHHPAX@Z` — symbol / original name candidate
+- `Client` — `?On_NC_CHAT_RESTRICT_DEL_ALL_ACK@GameFrameWork@@QAEHHPAX@Z` — symbol / original name candidate
+- `Client` — `?On_NC_CHAT_RESTRICT_LIST_CMD@GameFrameWork@@QAEHHPAX@Z` — symbol / original name candidate
+- `Client` — `?On_NC_MISC_SPAMMER_CHAT_BAN_ACK@GameFrameWork@@QAEHHPAX@Z` — symbol / original name candidate
+- `Client` — `?On_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_ACK@GameFrameWork@@QAEHHPAX@Z` — symbol / original name candidate
+- `Client` — `?On_NC_MISC_SPAMMER_REPORT_ACK@GameFrameWork@@QAEHHPAX@Z` — symbol / original name candidate
+- `Client` — `BadNameFilter::DataVersion` — class method / original symbol
+- `Client` — `BadNameFilterTable::BadNameFilterTable` — class method / original symbol
+- `Client` — `BadNameFilterTable::`scalar deleting destructor'` — class method / original symbol
+- `Client` — `CChatRestrict::Add` — class method / original symbol
+- `Client` — `CChatRestrict::CChatRestrict` — class method / original symbol
+- `Client` — `CChatRestrict::Clear` — class method / original symbol
+- `Client` — `CChatRestrict::Del` — class method / original symbol
+- `Client` — `CChatRestrict::Get` — class method / original symbol
+- `Client` — `CChatRestrict::~CChatRestrict` — class method / original symbol
+- `Client` — `ChatDisplayWin2::DoesSpamFilterWinOpen` — class method / original symbol
+- `Client` — `ChatDisplayWin2::IsSpamFilterOnBoard` — class method / original symbol
+- `Client` — `ChatDisplayWin2::OpenSpamFilterWin` — class method / original symbol
+- `Client` — `ChatDisplayWin2::SetSpamFilteredTextShow` — class method / original symbol
+- `Client` — `ChatDisplayWin2::SpamFilterPass` — class method / original symbol
+- `Client` — `GameFrameWork::ClientSecurity` — class method / original symbol
+- `Client` — `GameFrameWork::NcChatRestrictAddReq` — class method / original symbol
+- `Client` — `GameFrameWork::NcChatRestrictDelAll` — class method / original symbol
+- `Client` — `GameFrameWork::NcMiscSpammerChatBanReq` — class method / original symbol
+- `Client` — `GameFrameWork::NcMiscSpammerReportReq` — class method / original symbol
+- `Client` — `GameFrameWork::On_NC_CHAT_RESTRICT_ADD_ACK` — class method / original symbol
+- `Client` — `GameFrameWork::On_NC_CHAT_RESTRICT_DEL_ACK` — class method / original symbol
+- `Client` — `GameFrameWork::On_NC_CHAT_RESTRICT_DEL_ALL_ACK` — class method / original symbol
+- `Client` — `GameFrameWork::On_NC_CHAT_RESTRICT_LIST_CMD` — class method / original symbol
+- `Client` — `GameFrameWork::On_NC_MISC_SPAMMER_CHAT_BAN_ACK` — class method / original symbol
+- `Client` — `GameFrameWork::On_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_ACK` — class method / original symbol
+- `Client` — `GameFrameWork::On_NC_MISC_SPAMMER_REPORT_ACK` — class method / original symbol
+- `Client` — `ITableBase<BadNameFilter,BadNameFilterTable>::BeforeTerminate` — class method / original symbol
+- `Client` — `ITableBase<BadNameFilter,BadNameFilterTable>::DataProcess` — class method / original symbol
+- `Client` — `ITableBase<BadNameFilter,BadNameFilterTable>::GetTotal` — class method / original symbol
+- `Client` — `ITableBase<BadNameFilter,BadNameFilterTable>::Load` — class method / original symbol
+- `Client` — `ITableBase<BadNameFilter,BadNameFilterTable>::`scalar deleting destructor'` — class method / original symbol
+- `Client` — `ITableBase<BadNameFilter,BadNameFilterTable>::ms_pkTable` — class method / original symbol
+- `Client` — `NC_CHAT_RESTRICT` — symbol / original name candidate
+- `Client` — `NC_CHAT_RESTRICT_ADD_ACK` — symbol / original name candidate
+- `Client` — `NC_CHAT_RESTRICT_ADD_REQ` — symbol / original name candidate
+- `Client` — `NC_CHAT_RESTRICT_DEL_ACK` — symbol / original name candidate
+- `Client` — `NC_CHAT_RESTRICT_DEL_ALL_ACK` — symbol / original name candidate
+- `Client` — `NC_CHAT_RESTRICT_DEL_ALL_REQ` — symbol / original name candidate
+- `Client` — `NC_CHAT_RESTRICT_DEL_REQ` — symbol / original name candidate
+- `Client` — `NC_CHAT_RESTRICT_LIST_CMD` — symbol / original name candidate
+- `Client` — `NC_CHAT_RESTRICT_NULL` — symbol / original name candidate
+- `Client` — `NC_MISC_SPAMMER_CHAT_BAN_ACK` — symbol / original name candidate
+- `Client` — `NC_MISC_SPAMMER_CHAT_BAN_REQ` — symbol / original name candidate
+- `Client` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_ACK` — symbol / original name candidate
+- `Client` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — symbol / original name candidate
+- `Client` — `NC_MISC_SPAMMER_REPORT_ACK` — symbol / original name candidate
+- `Client` — `NC_MISC_SPAMMER_REPORT_REQ` — symbol / original name candidate
+- `Client` — `NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD` — symbol / original name candidate
+- `Client` — `On_NC_CHAT_RESTRICT_ADD_ACK` — symbol / original name candidate
+- `Client` — `On_NC_CHAT_RESTRICT_DEL_ACK` — symbol / original name candidate
+- `Client` — `On_NC_CHAT_RESTRICT_DEL_ALL_ACK` — symbol / original name candidate
+- `Client` — `On_NC_CHAT_RESTRICT_LIST_CMD` — symbol / original name candidate
+- `Client` — `On_NC_MISC_SPAMMER_CHAT_BAN_ACK` — symbol / original name candidate
+- `Client` — `On_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_ACK` — symbol / original name candidate
+- `Client` — `On_NC_MISC_SPAMMER_REPORT_ACK` — symbol / original name candidate
+- `Client` — `PROTO_CHAT_RESTRICT_INFO::PROTO_CHAT_RESTRICT_INFO` — class method / original symbol
+- `Client` — `PROTO_CHAT_RESTRICT_INFO::~PROTO_CHAT_RESTRICT_INFO` — class method / original symbol
+- `Client` — `PROTO_NC_CHAT_RESTRICT_ADD_ACK` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_CHAT_RESTRICT_ADD_REQ` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_CHAT_RESTRICT_DEL_ACK` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_CHAT_RESTRICT_DEL_ALL_ACK` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_CHAT_RESTRICT_DEL_ALL_REQ` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_CHAT_RESTRICT_DEL_REQ` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_CHAT_RESTRICT_LIST_CMD` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_MISC_SPAMMER_CHAT_BAN_ACK` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_MISC_SPAMMER_CHAT_BAN_REQ` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_ACK` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_MISC_SPAMMER_REPORT_ACK` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_MISC_SPAMMER_REPORT_REQ` — packet/protocol struct or template reference
+- `Client` — `PROTO_NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD` — packet/protocol struct or template reference
+- `Client` — `TextFilterTable::IsBadName` — class method / original symbol
+- `Client` — `UPROTO_NC_CHAT_RESTRICT_ADD_ACK@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_CHAT_RESTRICT_ADD_REQ@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_CHAT_RESTRICT_DEL_ACK@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_CHAT_RESTRICT_DEL_ALL_ACK@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_CHAT_RESTRICT_DEL_ALL_REQ@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_CHAT_RESTRICT_DEL_REQ@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_CHAT_RESTRICT_LIST_CMD@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_MISC_SPAMMER_CHAT_BAN_ACK@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_MISC_SPAMMER_CHAT_BAN_REQ@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_ACK@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_MISC_SPAMMER_REPORT_ACK@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_MISC_SPAMMER_REPORT_REQ@@` — packet/protocol struct or template reference
+- `Client` — `UPROTO_NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD@@` — packet/protocol struct or template reference
+- `Client` — `_RPC_SECURITY_QOS_V2_A::<unnamed-type-u>` — class method / original symbol
+- `Client` — `_RPC_SECURITY_QOS_V2_W::<unnamed-type-u>` — class method / original symbol
+- `Client` — `_RPC_SECURITY_QOS_V3_A::<unnamed-type-u>` — class method / original symbol
+- `Client` — `_RPC_SECURITY_QOS_V3_W::<unnamed-type-u>` — class method / original symbol
+- `Client` — `_RPC_SECURITY_QOS_V4_A::<unnamed-type-u>` — class method / original symbol
+- `Client` — `_RPC_SECURITY_QOS_V4_W::<unnamed-type-u>` — class method / original symbol
+- `Client` — `__vc_attributes::restrictedAttribute` — class method / original symbol
+- `Client` — `~PROTO_NC_CHAT_RESTRICT_ADD_ACK` — packet/protocol struct or template reference
+- `Client` — `~PROTO_NC_CHAT_RESTRICT_ADD_REQ` — packet/protocol struct or template reference
+- `Client` — `~PROTO_NC_CHAT_RESTRICT_DEL_ACK` — packet/protocol struct or template reference
+- `Client` — `~PROTO_NC_CHAT_RESTRICT_DEL_REQ` — packet/protocol struct or template reference
+- `Client` — `~PROTO_NC_CHAT_RESTRICT_LIST_CMD` — packet/protocol struct or template reference
+- `Client` — `~PROTO_NC_MISC_SPAMMER_CHAT_BAN_ACK` — packet/protocol struct or template reference
+- `Client` — `~PROTO_NC_MISC_SPAMMER_CHAT_BAN_REQ` — packet/protocol struct or template reference
+- `Client` — `~PROTO_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — packet/protocol struct or template reference
+- `Client` — `~PROTO_NC_MISC_SPAMMER_REPORT_REQ` — packet/protocol struct or template reference
+- `Client` — `~PROTO_NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD` — packet/protocol struct or template reference
+- `Login` — `NC_CHAT_RESTRICT` — symbol / original name candidate
+- `Login` — `NC_MISC_SPAMMER_CHAT_BAN_ACK` — symbol / original name candidate
+- `Login` — `NC_MISC_SPAMMER_CHAT_BAN_REQ` — symbol / original name candidate
+- `Login` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_ACK` — symbol / original name candidate
+- `Login` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — symbol / original name candidate
+- `Login` — `NC_MISC_SPAMMER_REPORT_ACK` — symbol / original name candidate
+- `Login` — `NC_MISC_SPAMMER_REPORT_REQ` — symbol / original name candidate
+- `Login` — `NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD` — symbol / original name candidate
+- `WorldManager` — `BadNameFilter::DataVersion` — class method / original symbol
+- `WorldManager` — `CChatRestrict::Clear` — class method / original symbol
+- `WorldManager` — `CChatRestrictServer::Add` — class method / original symbol
+- `WorldManager` — `CChatRestrictServer::CChatRestrictServer` — class method / original symbol
+- `WorldManager` — `CChatRestrictServer::Del` — class method / original symbol
+- `WorldManager` — `CChatRestrictServer::Get` — class method / original symbol
+- `WorldManager` — `CChatRestrictServer::GetIndex` — class method / original symbol
+- `WorldManager` — `CChatRestrictServer::IsAddable` — class method / original symbol
+- `WorldManager` — `CChatRestrictServer::IsExist` — class method / original symbol
+- `WorldManager` — `CChatRestrictServer::~CChatRestrictServer` — class method / original symbol
+- `WorldManager` — `CDataFileServer::GetIsBadName` — class method / original symbol
+- `WorldManager` — `CDataFileServer::GetSpamerReportData_Message` — class method / original symbol
+- `WorldManager` — `CDataFileServer::GetSpamerReportData_Number` — class method / original symbol
+- `WorldManager` — `CDataFileServer::GetSpamerReportData_Term` — class method / original symbol
+- `WorldManager` — `CDataFileServer::ReadSpamerReportData` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_CHAT_RESTRICT_ADD_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_CHAT_RESTRICT_ADD_REQ::__l4::PROTO_NC_CHAT_RESTRICT_ADD_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_CHAT_RESTRICT_DEL_ALL_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_CHAT_RESTRICT_DEL_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_CHAT_RESTRICT_DEL_REQ::__l4::PROTO_NC_CHAT_RESTRICT_DEL_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `CParserClient::fc_NC_MISC_SPAMMER_CHAT_BAN_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_MISC_SPAMMER_REPORT_REQ` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — class method / original symbol
+- `WorldManager` — `NC_CHAT_RESTRICT` — symbol / original name candidate
+- `WorldManager` — `NC_CHAT_RESTRICT_ADD_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_CHAT_RESTRICT_ADD_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_CHAT_RESTRICT_DEL_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_CHAT_RESTRICT_DEL_ALL_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_CHAT_RESTRICT_DEL_ALL_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_CHAT_RESTRICT_DEL_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_CHAT_RESTRICT_LIST_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAT_RESTRICT_NULL` — symbol / original name candidate
+- `WorldManager` — `NC_MISC_SPAMMER_CHAT_BAN_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_MISC_SPAMMER_CHAT_BAN_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_MISC_SPAMMER_REPORT_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_MISC_SPAMMER_REPORT_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD` — symbol / original name candidate
+- `WorldManager` — `PROTO_CHAT_RESTRICT_INFO::PROTO_CHAT_RESTRICT_INFO` — class method / original symbol
+- `WorldManager` — `PROTO_CHAT_RESTRICT_INFO::~PROTO_CHAT_RESTRICT_INFO` — class method / original symbol
+- `WorldManager` — `PROTO_NC_CHAT_RESTRICT_ADD_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAT_RESTRICT_ADD_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAT_RESTRICT_ADD_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAT_RESTRICT_DEL_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAT_RESTRICT_DEL_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAT_RESTRICT_DEL_ALL_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAT_RESTRICT_DEL_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAT_RESTRICT_LIST_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_MISC_SPAMMER_CHAT_BAN_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_MISC_SPAMMER_CHAT_BAN_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_MISC_SPAMMER_REPORT_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_MISC_SPAMMER_REPORT_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `SpamerReport::DataVersion` — class method / original symbol
+- `WorldManager` — `UPROTO_NC_CHAT_RESTRICT_ADD_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_CHAT_RESTRICT_ADD_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_CHAT_RESTRICT_DEL_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_CHAT_RESTRICT_DEL_ALL_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_CHAT_RESTRICT_DEL_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_CHAT_RESTRICT_LIST_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_MISC_SPAMMER_CHAT_BAN_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_MISC_SPAMMER_CHAT_BAN_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_MISC_SPAMMER_REPORT_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_MISC_SPAMMER_REPORT_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `fc_NC_CHAT_RESTRICT_ADD_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_CHAT_RESTRICT_DEL_ALL_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_CHAT_RESTRICT_DEL_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_MISC_SPAMMER_CHAT_BAN_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_MISC_SPAMMER_REPORT_REQ` — symbol / original name candidate
+- `WorldManager` — `~PROTO_NC_CHAT_RESTRICT_ADD_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_CHAT_RESTRICT_ADD_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_CHAT_RESTRICT_ADD_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_CHAT_RESTRICT_DEL_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_CHAT_RESTRICT_DEL_ACK_SEND` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_CHAT_RESTRICT_DEL_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_CHAT_RESTRICT_LIST_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_MISC_SPAMMER_CHAT_BAN_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_MISC_SPAMMER_CHAT_BAN_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_MISC_SPAMMER_REPORT_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD` — packet/protocol struct or template reference
+- `Zone` — `BadNameFilter::DataVersion` — class method / original symbol
+- `Zone` — `BinaryDataBox<SpamerPenalty>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<SpamerPenaltyRule>::`scalar deleting destructor'` — data table loader/index/helper
+- `Zone` — `BinaryDataBox<SpamerPenaltyRule>::~BinaryDataBox<SpamerPenaltyRule>` — data table loader/index/helper
+- `Zone` — `CBadNameFilterData::CBadNameFilterData` — class method / original symbol
+- `Zone` — `CBadNameFilterData::GetIsBadName` — class method / original symbol
+- `Zone` — `CBadNameFilterData::~CBadNameFilterData` — class method / original symbol
+- `Zone` — `NC_CHAT_RESTRICT` — symbol / original name candidate
+- `Zone` — `NC_MISC_SPAMMER_CHAT_BAN_ACK` — symbol / original name candidate
+- `Zone` — `NC_MISC_SPAMMER_CHAT_BAN_REQ` — symbol / original name candidate
+- `Zone` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_ACK` — symbol / original name candidate
+- `Zone` — `NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — symbol / original name candidate
+- `Zone` — `NC_MISC_SPAMMER_REPORT_ACK` — symbol / original name candidate
+- `Zone` — `NC_MISC_SPAMMER_REPORT_REQ` — symbol / original name candidate
+- `Zone` — `NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD` — symbol / original name candidate
+- `Zone` — `PROTO_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD` — packet/protocol struct or template reference
+- `Zone` — `SpamerPenalty::DataVersion` — class method / original symbol
+- `Zone` — `SpamerPenaltyRule::DataVersion` — class method / original symbol
+- `Zone` — `UPROTO_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD@@` — packet/protocol struct or template reference
+- `Zone` — `wms_NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD` — symbol / original name candidate
+- `Zone` — `~PROTO_NC_MISC_SPAMMER_RELEASE_CHAT_BAN_REQ` — packet/protocol struct or template reference
+- `Zone` — `~PROTO_NC_MISC_SPAMMER_ZONE_CHAT_BAN_CMD` — packet/protocol struct or template reference
+
+## Skill / Battle / Roe
+
+- `Account` — `?fc_NC_MISC_EVENT_HIT3_ADD_CASH@CPFsAccount@@QAEHPAUNETPACKET@@H@Z` — symbol / original name candidate
+- `Account` — `ABSTATEREADBLOCK::<unnamed-type-CasterInfo>` — class method / original symbol
+- `Account` — `CDefaultCharacterData::DEFAULT_SKILL` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_MISC_EVENT_HIT3_ADD_CASH` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_INDUN_RANK_DAMAGEDEALT` — class method / original symbol
+- `Account` — `CSQLPCharacter::SQL_GET_INDUN_RANK_DAMAGETAKEN` — class method / original symbol
+- `Account` — `CSQLPSkill::SQL_SKILL` — class method / original symbol
+- `Account` — `CSQLPSkill::SQL_SKILL_DEL` — class method / original symbol
+- `Account` — `CSQLPSkill::SQL_SKILL_PASSIVE` — class method / original symbol
+- `Account` — `CSQLPSkill::SQL_SKILL_SET_POWER` — class method / original symbol
+- `Account` — `CSession::PacketStroe` — packet framework/helper
+- `Account` — `GroupAbState::DataVersion` — class method / original symbol
+- `Account` — `NC_BRIEFINFO_ABSTATE_CHANGE_CMD` — symbol / original name candidate
+- `Account` — `NC_BRIEFINFO_ABSTATE_CHANGE_LIST_CMD` — symbol / original name candidate
+- `Account` — `NC_MISC_EVENT_HIT3_ADD_CASH` — symbol / original name candidate
+- `Account` — `NC_SKILL` — symbol / original name candidate
+- `Account` — `PROTO_NC_BRIEFINFO_ABSTATE_CHANGE_LIST_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_ABSTATE_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_SKILL_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_CHAR_SKILL_PASSIVE_CMD` — packet/protocol struct or template reference
+- `Account` — `PROTO_NC_MISC_EVENT_HIT3_ADD_CASH` — packet/protocol struct or template reference
+- `Account` — `PROTO_SKILLREADBLOCKCLIENT::<unnamed-type-empow>` — class method / original symbol
+- `Account` — `QUEST_DATA::QUEST_REWARD::VALUE::Abstate` — class method / original symbol
+- `Account` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_IS_ABSTATE` — class method / original symbol
+- `Account` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_RESET_ABSTATE` — class method / original symbol
+- `Account` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_SET_ABSTATE` — class method / original symbol
+- `Account` — `TiXmlBase::IsWhiteSpace` — class method / original symbol
+- `Account` — `TiXmlBase::SkipWhiteSpace` — class method / original symbol
+- `Account` — `TiXmlBase::condenseWhiteSpace` — class method / original symbol
+- `Account` — `UPROTO_NC_BRIEFINFO_ABSTATE_CHANGE_LIST_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_ABSTATE_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_SKILL_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_CHAR_SKILL_PASSIVE_CMD@@` — packet/protocol struct or template reference
+- `Account` — `UPROTO_NC_MISC_EVENT_HIT3_ADD_CASH@@` — packet/protocol struct or template reference
+- `Account` — `_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1>` — class method / original symbol
+- `Account` — `_Tree<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `Account` — `_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `Account` — `_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `Account` — `allocator<std::_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >::_Node>` — class method / original symbol
+- `Account` — `allocator<std::pair<unsigned long const ,GroupAbState *> >` — class method / original symbol
+- `Account` — `fc_NC_MISC_EVENT_HIT3_ADD_CASH` — symbol / original name candidate
+- `Account` — `multimap<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> > >` — class method / original symbol
+- `Account` — `std::_Allocator_base<std::_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >::_Node>` — class method / original symbol
+- `Account` — `std::_Allocator_base<std::pair<unsigned long const ,GroupAbState *> >` — class method / original symbol
+- `Account` — `std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1>` — class method / original symbol
+- `Account` — `std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1>::<unnamed-tag>` — class method / original symbol
+- `Account` — `std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1>::value_compare` — class method / original symbol
+- `Account` — `std::_Tree<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `Account` — `std::_Tree_const_iterator<std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> > >` — class method / original symbol
+- `Account` — `std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> > >` — class method / original symbol
+- `Account` — `std::_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `Account` — `std::_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >::_Node` — class method / original symbol
+- `Account` — `std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `Account` — `std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >::_Redbl` — class method / original symbol
+- `Account` — `std::allocator<std::_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >::_Node>` — class method / original symbol
+- `Account` — `std::allocator<std::pair<unsigned long const ,GroupAbState *> >` — class method / original symbol
+- `Account` — `std::allocator<std::pair<unsigned long const ,GroupAbState *> >::rebind<std::_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >::_Node>` — class method / original symbol
+- `Account` — `std::allocator<std::pair<unsigned long const ,GroupAbState *> >::rebind<std::pair<unsigned long const ,GroupAbState *> >` — class method / original symbol
+- `Account` — `std::multimap<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> > >` — class method / original symbol
+- `Account` — `std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> > >,bool>` — class method / original symbol
+- `Account` — `std::pair<unsigned long const ,GroupAbState *>` — class method / original symbol
+- `Account` — `std::pair<unsigned long,GroupAbState *>` — class method / original symbol
+- `Account` — `std::reverse_iterator<std::_Tree_const_iterator<std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> > > >` — class method / original symbol
+- `Account` — `std::reverse_iterator<std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> > > >` — class method / original symbol
+- `Account` — `~_Tree<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `Account` — `~_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `Account` — `~multimap<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> > >` — class method / original symbol
+- `AccountLog` — `ABSTATEREADBLOCK::<unnamed-type-CasterInfo>` — class method / original symbol
+- `AccountLog` — `CDefaultCharacterData::DEFAULT_SKILL` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_GET_INDUN_RANK_DAMAGEDEALT` — class method / original symbol
+- `AccountLog` — `CSQLPCharacter::SQL_GET_INDUN_RANK_DAMAGETAKEN` — class method / original symbol
+- `AccountLog` — `CSQLPSkill::SQL_SKILL` — class method / original symbol
+- `AccountLog` — `CSQLPSkill::SQL_SKILL_DEL` — class method / original symbol
+- `AccountLog` — `CSQLPSkill::SQL_SKILL_PASSIVE` — class method / original symbol
+- `AccountLog` — `CSQLPSkill::SQL_SKILL_SET_POWER` — class method / original symbol
+- `AccountLog` — `CSession::PacketStroe` — packet framework/helper
+- `AccountLog` — `GroupAbState::DataVersion` — class method / original symbol
+- `AccountLog` — `NC_BRIEFINFO_ABSTATE_CHANGE_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_BRIEFINFO_ABSTATE_CHANGE_LIST_CMD` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_HIT` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_QUEST_REWARD_ABSTATE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_SKILL_DELETE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_SKILL_LEARN` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_SKILL_USE` — symbol / original name candidate
+- `AccountLog` — `NC_MISC_EVENT_HIT3_ADD_CASH` — symbol / original name candidate
+- `AccountLog` — `NC_SKILL` — symbol / original name candidate
+- `AccountLog` — `PROTO_NC_BRIEFINFO_ABSTATE_CHANGE_LIST_CMD` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_CHAR_ABSTATE_CMD` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_CHAR_SKILL_CMD` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_NC_CHAR_SKILL_PASSIVE_CMD` — packet/protocol struct or template reference
+- `AccountLog` — `PROTO_SKILLREADBLOCKCLIENT::<unnamed-type-empow>` — class method / original symbol
+- `AccountLog` — `QUEST_DATA::QUEST_REWARD::VALUE::Abstate` — class method / original symbol
+- `AccountLog` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_IS_ABSTATE` — class method / original symbol
+- `AccountLog` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_RESET_ABSTATE` — class method / original symbol
+- `AccountLog` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_SET_ABSTATE` — class method / original symbol
+- `AccountLog` — `UPROTO_NC_BRIEFINFO_ABSTATE_CHANGE_LIST_CMD@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_CHAR_ABSTATE_CMD@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_CHAR_SKILL_CMD@@` — packet/protocol struct or template reference
+- `AccountLog` — `UPROTO_NC_CHAR_SKILL_PASSIVE_CMD@@` — packet/protocol struct or template reference
+- `AccountLog` — `_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1>` — class method / original symbol
+- `AccountLog` — `_Tree<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `AccountLog` — `_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `AccountLog` — `_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `AccountLog` — `allocator<std::_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >::_Node>` — class method / original symbol
+- `AccountLog` — `allocator<std::pair<unsigned long const ,GroupAbState *> >` — class method / original symbol
+- `AccountLog` — `multimap<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> > >` — class method / original symbol
+- `AccountLog` — `std::_Allocator_base<std::_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >::_Node>` — class method / original symbol
+- `AccountLog` — `std::_Allocator_base<std::pair<unsigned long const ,GroupAbState *> >` — class method / original symbol
+- `AccountLog` — `std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1>` — class method / original symbol
+- `AccountLog` — `std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1>::<unnamed-tag>` — class method / original symbol
+- `AccountLog` — `std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1>::value_compare` — class method / original symbol
+- `AccountLog` — `std::_Tree<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `AccountLog` — `std::_Tree_const_iterator<std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> > >` — class method / original symbol
+- `AccountLog` — `std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> > >` — class method / original symbol
+- `AccountLog` — `std::_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `AccountLog` — `std::_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >::_Node` — class method / original symbol
+- `AccountLog` — `std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `AccountLog` — `std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >::_Redbl` — class method / original symbol
+- `AccountLog` — `std::allocator<std::_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >::_Node>` — class method / original symbol
+- `AccountLog` — `std::allocator<std::pair<unsigned long const ,GroupAbState *> >` — class method / original symbol
+- `AccountLog` — `std::allocator<std::pair<unsigned long const ,GroupAbState *> >::rebind<std::_Tree_nod<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >::_Node>` — class method / original symbol
+- `AccountLog` — `std::allocator<std::pair<unsigned long const ,GroupAbState *> >::rebind<std::pair<unsigned long const ,GroupAbState *> >` — class method / original symbol
+- `AccountLog` — `std::multimap<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> > >` — class method / original symbol
+- `AccountLog` — `std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> > >,bool>` — class method / original symbol
+- `AccountLog` — `std::pair<unsigned long const ,GroupAbState *>` — class method / original symbol
+- `AccountLog` — `std::pair<unsigned long,GroupAbState *>` — class method / original symbol
+- `AccountLog` — `std::reverse_iterator<std::_Tree_const_iterator<std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> > > >` — class method / original symbol
+- `AccountLog` — `std::reverse_iterator<std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> > > >` — class method / original symbol
+- `AccountLog` — `~_Tree<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `AccountLog` — `~_Tree_val<std::_Tmap_traits<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> >,1> >` — class method / original symbol
+- `AccountLog` — `~multimap<unsigned long,GroupAbState *,std::less<unsigned long>,std::allocator<std::pair<unsigned long const ,GroupAbState *> > >` — class method / original symbol
+- `Login` — `NC_LOG_GAME_HIT` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_QUEST_REWARD_ABSTATE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_SKILL_DELETE` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_SKILL_LEARN` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_SKILL_USE` — symbol / original name candidate
+- `Login` — `NC_MISC_EVENT_HIT3_ADD_CASH` — symbol / original name candidate
+- `Login` — `NC_SKILL` — symbol / original name candidate
+- `Login` — `PROTO_NC_BRIEFINFO_ABSTATE_CHANGE_LIST_CMD` — packet/protocol struct or template reference
+- `Login` — `QUEST_DATA::QUEST_REWARD::VALUE::Abstate` — class method / original symbol
+- `Login` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_IS_ABSTATE` — class method / original symbol
+- `Login` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_RESET_ABSTATE` — class method / original symbol
+- `Login` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_SET_ABSTATE` — class method / original symbol
+- `Login` — `UPROTO_NC_BRIEFINFO_ABSTATE_CHANGE_LIST_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `?CharDataStore@CWMClientSession@@QAEXPAUPROTO_NC_CHAR_SKILL_CMD@@H@Z` — WorldManager/Zone protocol handler
+- `WorldManager` — `?fc_NC_BAT_PKINPKFIELD_WMS_CMD@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_BAT_WORLD_MOB_KILL_ANNOUNCE_CMD@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_CHARSAVE_2WLDMAN_ABSTATE_CMD@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_CHARSAVE_2WLDMAN_SKILL_CMD@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_CHAR_ABSTATE_CMD@CParserCharDB@@QAEHPAVCWMCharDBSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_CHAR_SKILL_CMD@CParserCharDB@@QAEHPAVCWMCharDBSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_CHAR_SKILL_PASSIVE_CMD@CParserCharDB@@QAEHPAVCWMCharDBSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_INSTANCE_DUNGEON_RANK_TAB_DAMAGEDEALT_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_INSTANCE_DUNGEON_RANK_TAB_DAMAGETAKEN_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_SKILL_PASSIVESKILL_LEARN_CMD@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `ABSTATEREADBLOCK::<unnamed-type-CasterInfo>` — class method / original symbol
+- `WorldManager` — `CParserCharDB::fc_NC_CHAR_ABSTATE_CMD` — class method / original symbol
+- `WorldManager` — `CParserCharDB::fc_NC_CHAR_SKILL_CMD` — class method / original symbol
+- `WorldManager` — `CParserCharDB::fc_NC_CHAR_SKILL_PASSIVE_CMD` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_INSTANCE_DUNGEON_RANK_TAB_DAMAGEDEALT_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_INSTANCE_DUNGEON_RANK_TAB_DAMAGETAKEN_REQ` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_BAT_PKINPKFIELD_WMS_CMD` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_BAT_WORLD_MOB_KILL_ANNOUNCE_CMD` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_CHARSAVE_2WLDMAN_ABSTATE_CMD` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_CHARSAVE_2WLDMAN_SKILL_CMD` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_SKILL_PASSIVESKILL_LEARN_CMD` — class method / original symbol
+- `WorldManager` — `CWMClientSession::GetDamageDealtRankDelayTime` — class method / original symbol
+- `WorldManager` — `CWMClientSession::GetDamageTakenRankDelayTime` — class method / original symbol
+- `WorldManager` — `CWMClientSession::SetDamageDealtRankDelayTime` — class method / original symbol
+- `WorldManager` — `CWMClientSession::SetDamageTakenRankDelayTime` — class method / original symbol
+- `WorldManager` — `NC_BAT_HIT_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_BAT_NULL` — symbol / original name candidate
+- `WorldManager` — `NC_BAT_SOMEONEDAMAGED_LARGE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_BAT_SOMEONEDAMAGED_SMALL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_BAT_SOMEONEDEAD_LARGE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_BAT_SOMEONEDEAD_SMALL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_BAT_TARGETINFO_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_BAT_TARGETTING_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_BAT_UNTARGET_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_BAT_WORLD_MOB_KILL_ANNOUNCE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHARSAVE_2WLDMAN_ABSTATE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHARSAVE_2WLDMAN_SKILL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHARSAVE_ABSTATE_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_CHARSAVE_ABSTATE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_CHARSAVE_SKILL_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_CHARSAVE_SKILL_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_ABSTATE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_CLIENT_ABSTATE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_CLIENT_SKILL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_SKILL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_SKILL_PASSIVE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_ZONE_ABSTATE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_CHAR_ZONE_SKILL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GUILD_TOURNAMENT_SKILLPOINT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GUILD_TOURNAMENT_USESKILL_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_GUILD_TOURNAMENT_USESKILL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_GUILD_TOURNAMENT_USESKILL_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_HIT` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_QUEST_REWARD_ABSTATE` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_SKILL_DELETE` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_SKILL_LEARN` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_SKILL_USE` — symbol / original name candidate
+- `WorldManager` — `NC_MISC_EVENT_HIT3_ADD_CASH` — symbol / original name candidate
+- `WorldManager` — `NC_MOVER_SKILLBASH_FLD_CAST_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_MOVER_SKILLBASH_OBJ_CAST_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_SKILL` — symbol / original name candidate
+- `WorldManager` — `PROTO_NC_BRIEFINFO_ABSTATE_CHANGE_LIST_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHARSAVE_ABSTATE_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAR_ABSTATE_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAR_SKILL_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_CHAR_SKILL_PASSIVE_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_SKILLREADBLOCKCLIENT::<unnamed-type-empow>` — class method / original symbol
+- `WorldManager` — `QUEST_DATA::QUEST_REWARD::VALUE::Abstate` — class method / original symbol
+- `WorldManager` — `RankingServer::GetRankingDamageDealt` — class method / original symbol
+- `WorldManager` — `RankingServer::GetRankingDamageDealtCount` — class method / original symbol
+- `WorldManager` — `RankingServer::GetRankingDamageTaken` — class method / original symbol
+- `WorldManager` — `RankingServer::GetRankingDamageTakenCount` — class method / original symbol
+- `WorldManager` — `RankingServer::GetShapeInfoDamageDealt1st` — class method / original symbol
+- `WorldManager` — `RankingServer::GetShapeInfoDamageDealt2nd` — class method / original symbol
+- `WorldManager` — `RankingServer::GetShapeInfoDamageDealt3th` — class method / original symbol
+- `WorldManager` — `RankingServer::GetShapeInfoDamageTaken1st` — class method / original symbol
+- `WorldManager` — `RankingServer::GetShapeInfoDamageTaken2nd` — class method / original symbol
+- `WorldManager` — `RankingServer::GetShapeInfoDamageTaken3th` — class method / original symbol
+- `WorldManager` — `RankingServer::RecalcRankingDamageDealt` — class method / original symbol
+- `WorldManager` — `RankingServer::RecalcRankingDamageTaken` — class method / original symbol
+- `WorldManager` — `RankingServer::SetRankingDamageDealt` — class method / original symbol
+- `WorldManager` — `RankingServer::SetRankingDamageTaken` — class method / original symbol
+- `WorldManager` — `RankingServer::SetShapeInfoDamageDealt1st` — class method / original symbol
+- `WorldManager` — `RankingServer::SetShapeInfoDamageDealt2nd` — class method / original symbol
+- `WorldManager` — `RankingServer::SetShapeInfoDamageDealt3th` — class method / original symbol
+- `WorldManager` — `RankingServer::SetShapeInfoDamageTaken1st` — class method / original symbol
+- `WorldManager` — `RankingServer::SetShapeInfoDamageTaken2nd` — class method / original symbol
+- `WorldManager` — `RankingServer::SetShapeInfoDamageTaken3th` — class method / original symbol
+- `WorldManager` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_IS_ABSTATE` — class method / original symbol
+- `WorldManager` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_RESET_ABSTATE` — class method / original symbol
+- `WorldManager` — `STRUCT_QSC::<unnamed-type-Data>::tagSTRUCT_QSC_SET_ABSTATE` — class method / original symbol
+- `WorldManager` — `UPROTO_NC_BRIEFINFO_ABSTATE_CHANGE_LIST_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_CHAR_ABSTATE_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_CHAR_SKILL_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_CHAR_SKILL_PASSIVE_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `fc_NC_BAT_PKINPKFIELD_WMS_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_BAT_WORLD_MOB_KILL_ANNOUNCE_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_CHARSAVE_2WLDMAN_ABSTATE_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_CHARSAVE_2WLDMAN_SKILL_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_CHAR_ABSTATE_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_CHAR_SKILL_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_CHAR_SKILL_PASSIVE_CMD` — symbol / original name candidate
+- `WorldManager` — `fc_NC_INSTANCE_DUNGEON_RANK_TAB_DAMAGEDEALT_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_INSTANCE_DUNGEON_RANK_TAB_DAMAGETAKEN_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_SKILL_PASSIVESKILL_LEARN_CMD` — symbol / original name candidate
+
+## Street Booth / Personal Shop
+
+- `Account` — `CSQLPItem::SQL_ITEM_BOOTHTRADE_ALL` — class method / original symbol
+- `Account` — `CSQLPItem::SQL_ITEM_BOOTHTRADE_LOT` — class method / original symbol
+- `Account` — `CSQLPItem::SQL_ITEM_BOOTHTRADE_MERGE` — class method / original symbol
+- `Account` — `NC_BOOTH` — symbol / original name candidate
+- `AccountLog` — `CSQLPItem::SQL_ITEM_BOOTHTRADE_ALL` — class method / original symbol
+- `AccountLog` — `CSQLPItem::SQL_ITEM_BOOTHTRADE_LOT` — class method / original symbol
+- `AccountLog` — `CSQLPItem::SQL_ITEM_BOOTHTRADE_MERGE` — class method / original symbol
+- `AccountLog` — `NC_BOOTH` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_ITEM_BOOTH_BUY` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_GAME_ITEM_BOOTH_SELL` — symbol / original name candidate
+- `Login` — `NC_BOOTH` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_ITEM_BOOTH_BUY` — symbol / original name candidate
+- `Login` — `NC_LOG_GAME_ITEM_BOOTH_SELL` — symbol / original name candidate
+- `WorldManager` — `NC_BOOTH` — symbol / original name candidate
+- `WorldManager` — `NC_CHARGED_BOOTHSLOTSIZE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_ITEM_BOOTH_BUY` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_GAME_ITEM_BOOTH_SELL` — symbol / original name candidate
+- `Zone` — `?gds_NC_ITEMDB_BOOTHTRADE_ACK@GameDBSession@@QAEXPATNETCOMMAND@@H@Z` — packet framework/helper
+- `Zone` — `?ilo_PacketMake@ItemListOption@NPCItemList@@QAEPAUPROTO_NC_MENU_SHOPOPENTABLE_CMD@@PBD@Z` — packet/protocol struct or template reference
+- `Zone` — `?nilt_MenuPacket@NPCItemListTable@NPCItemList@@QAEPAUPROTO_NC_MENU_SHOPOPENTABLE_CMD@@PBD@Z` — packet/protocol struct or template reference
+- `Zone` — `?sb_Boarding@StreetBooth@@UAEXPAVInventoryCellLock@InventoryLocking@@PAVItemInventoryCell@@PAUBoothItem@PROTO_NC_BOOTH_OPEN_REQ@@PAVShineObject@ShineObjectClass@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?sb_Boarding@StreetBoothBuy@@UAEXPAVInventoryCellLock@InventoryLocking@@PAVItemInventoryCell@@PAUBoothItem@PROTO_NC_BOOTH_OPEN_REQ@@PAVShineObject@ShineObjectClass@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?sb_Boarding@StreetBoothSell@@UAEXPAVInventoryCellLock@InventoryLocking@@PAVItemInventoryCell@@PAUBoothItem@PROTO_NC_BOOTH_OPEN_REQ@@PAVShineObject@ShineObjectClass@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?sb_Trade@StreetBooth@@UAEXPAVShinePlayer@ShineObjectClass@@0PAUPROTO_NC_BOOTH_ITEMTRADE_REQ@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?sb_Trade@StreetBoothBuy@@UAEXPAVShinePlayer@ShineObjectClass@@0PAUPROTO_NC_BOOTH_ITEMTRADE_REQ@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?sb_Trade@StreetBoothSell@@UAEXPAVShinePlayer@ShineObjectClass@@0PAUPROTO_NC_BOOTH_ITEMTRADE_REQ@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?sbb_BuyAll@StreetBoothBuy@@AAEXPAVShinePlayer@ShineObjectClass@@0PAUPROTO_NC_BOOTH_ITEMTRADE_REQ@@_KPAVItemInventoryCell@@3HH@Z` — packet/protocol struct or template reference
+- `Zone` — `?sbb_BuyMerge@StreetBoothBuy@@AAEXPAVShinePlayer@ShineObjectClass@@0PAUPROTO_NC_BOOTH_ITEMTRADE_REQ@@_KPAVItemInventoryCell@@3HH@Z` — packet/protocol struct or template reference
+- `Zone` — `?sbb_BuySplitCreate@StreetBoothBuy@@AAEXPAVShinePlayer@ShineObjectClass@@0PAUPROTO_NC_BOOTH_ITEMTRADE_REQ@@_KPAVItemInventoryCell@@3HH@Z` — packet/protocol struct or template reference
+- `Zone` — `?sbs_FillBufferItem@StreetBoothSell@@AAEHPAVShineObject@ShineObjectClass@@PAEPAUBoothItemList@PROTO_NC_BOOTH_ENTRY_SELL_ACK@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?sbs_SellAll@StreetBoothSell@@AAEXPAVShinePlayer@ShineObjectClass@@0PAUPROTO_NC_BOOTH_ITEMTRADE_REQ@@_KG@Z` — packet/protocol struct or template reference
+- `Zone` — `?sbs_SellMerge@StreetBoothSell@@AAEXPAVShinePlayer@ShineObjectClass@@0PAUPROTO_NC_BOOTH_ITEMTRADE_REQ@@PAVItemBoxIterator@@_K@Z` — packet/protocol struct or template reference
+- `Zone` — `?sbs_SellSplitCreate@StreetBoothSell@@AAEXPAVShinePlayer@ShineObjectClass@@0PAUPROTO_NC_BOOTH_ITEMTRADE_REQ@@_K@Z` — packet/protocol struct or template reference
+- `Zone` — `?so_ply_BoothTrade@ShineObject@ShineObjectClass@@UAEXPAVShinePlayer@2@PAUPROTO_NC_BOOTH_ITEMTRADE_REQ@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?so_ply_BoothTrade@ShinePlayer@ShineObjectClass@@UAEXPAV12@PAUPROTO_NC_BOOTH_ITEMTRADE_REQ@@@Z` — packet/protocol struct or template reference
+- `Zone` — `?sp_NC_BOOTH_CLOSE_REQ@ShinePlayer@ShineObjectClass@@QAEXPATNETCOMMAND@@HG@Z` — packet framework/helper
+- `Zone` — `?sp_NC_BOOTH_ENTRY_REQ@ShinePlayer@ShineObjectClass@@QAEXPATNETCOMMAND@@HG@Z` — packet framework/helper
+- `Zone` — `?sp_NC_BOOTH_INTERIORSTART_REQ@ShinePlayer@ShineObjectClass@@QAEXPATNETCOMMAND@@HG@Z` — packet framework/helper
+- `Zone` — `?sp_NC_BOOTH_ITEMTRADE_REQ@ShinePlayer@ShineObjectClass@@QAEXPATNETCOMMAND@@HG@Z` — packet framework/helper
+- `Zone` — `?sp_NC_BOOTH_OPEN_REQ@ShinePlayer@ShineObjectClass@@QAEXPATNETCOMMAND@@HG@Z` — packet framework/helper
+- `Zone` — `?sp_NC_BOOTH_REFRESH_REQ@ShinePlayer@ShineObjectClass@@QAEXPATNETCOMMAND@@HG@Z` — packet framework/helper
+- `Zone` — `?sp_NC_BOOTH_SEARCH_BOOTH_POSITION_REQ@ShinePlayer@ShineObjectClass@@QAEXPATNETCOMMAND@@HG@Z` — packet framework/helper
+- `Zone` — `?sp_NC_BOOTH_SEARCH_ITEM_LIST_CATEGORIZED_REQ@ShinePlayer@ShineObjectClass@@QAEXPATNETCOMMAND@@HG@Z` — packet framework/helper
+- `Zone` — `BoothItemInfo::BoothItemInfo` — class method / original symbol
+- `Zone` — `BoothItemInfo::GetAttrSize` — class method / original symbol
+- `Zone` — `BoothItemInfo::GetValidSize` — class method / original symbol
+- `Zone` — `BoothItemInfo::~BoothItemInfo` — class method / original symbol
+- `Zone` — `BoothItemManager::AddItem` — class method / original symbol
+- `Zone` — `BoothItemManager::GenerateNewItemHandleNo` — class method / original symbol
+- `Zone` — `BoothItemManager::GetItem` — class method / original symbol
+- `Zone` — `BoothItemManager::RemoveItem` — class method / original symbol
+- `Zone` — `BoothItemManager::RemoveItemsOfOneStore` — class method / original symbol
+- `Zone` — `BoothItemTypeMatchingInfo::BoothItemTypeMatchingInfo` — class method / original symbol
+- `Zone` — `BoothItemTypeMatchingInfo::GetValue` — class method / original symbol
+- `Zone` — `BoothItemTypeMatchingInfo::InitInfoArray` — class method / original symbol
+- `Zone` — `BoothItemTypeMatchingInfo::~BoothItemTypeMatchingInfo` — class method / original symbol
+- `Zone` — `BoothManager::AddItem` — class method / original symbol
+- `Zone` — `BoothManager::BoothManager` — class method / original symbol
+- `Zone` — `BoothManager::CheckStoreIsOpening` — class method / original symbol
+- `Zone` — `BoothManager::CloseStore` — class method / original symbol
+- `Zone` — `BoothManager::GetStorePosition` — class method / original symbol
+- `Zone` — `BoothManager::OpenStore` — class method / original symbol
+- `Zone` — `BoothManager::ReconfirmExisting` — class method / original symbol
+- `Zone` — `BoothManager::RemoveItem` — class method / original symbol
+- `Zone` — `BoothManager::UpdateItem` — class method / original symbol
+- `Zone` — `BoothManager::operator=` — class method / original symbol
+- `Zone` — `BoothManager::~BoothManager` — class method / original symbol
+- `Zone` — `BoothStoreInfo::SellItemKeyNHandle` — class method / original symbol
+- `Zone` — `BoothStoreInfo::~BoothStoreInfo` — class method / original symbol
+- `Zone` — `BoothStoreManager::AddItem` — class method / original symbol
+- `Zone` — `BoothStoreManager::CheckStoreIsOpening` — class method / original symbol
+- `Zone` — `BoothStoreManager::CloseStore` — class method / original symbol
+- `Zone` — `BoothStoreManager::GetStoreItem` — class method / original symbol
+- `Zone` — `BoothStoreManager::GetStorePosition` — class method / original symbol
+- `Zone` — `BoothStoreManager::OpenStore` — class method / original symbol
+- `Zone` — `BoothStoreManager::RemoveItem` — class method / original symbol
+- `Zone` — `BoothStoreManager::~BoothStoreManager` — class method / original symbol
+- `Zone` — `GameDBSession::gds_NC_ITEMDB_BOOTHTRADE_ACK` — GameDB/DB packet ack handler
+- `Zone` — `NC_BOOTH` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_BUYREFRESH_CMD` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_CLOSE_ACK` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_ENTRY_BUY_ACK` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_ENTRY_REQ` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_ENTRY_SELL_ACK` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_INTERIORSTART_ACK` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_ITEMTRADE_ACK` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_OPEN_ACK` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_REFRESH_BUY_ACK` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_REFRESH_SELL_ACK` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_SEARCH_BOOTH_CLOSED_CMD` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_SEARCH_ITEM_LIST_CATEGORIZED_ACK` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_SEARCH_ITEM_LIST_CATEGORIZED_REQ` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_SOMEONEINTERIORSTART_CMD` — symbol / original name candidate
+- `Zone` — `NC_BOOTH_SOMEONEOPEN_CMD` — symbol / original name candidate
+- `Zone` — `NC_ITEMDB_BOOTHTRADE_ACK` — symbol / original name candidate
+- `Zone` — `NC_ITEMDB_BOOTHTRADE_ALL_REQ` — symbol / original name candidate
+- `Zone` — `NC_ITEMDB_BOOTHTRADE_LOT_REQ` — symbol / original name candidate
+- `Zone` — `NC_ITEMDB_BOOTHTRADE_MERGE_REQ` — symbol / original name candidate
+- `Zone` — `PROTO_NC_BOOTH_ENTRY_SELL_ACK` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_BOOTH_ENTRY_SELL_ACK::BoothItemList` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_BOOTH_ITEMTRADE_REQ` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_BOOTH_OPEN_REQ` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_BOOTH_OPEN_REQ::<unnamed-type-flag>` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_BOOTH_OPEN_REQ::BoothItem` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_BOOTH_REFRESH_BUY_ACK` — packet/protocol struct or template reference
+- `Zone` — `PROTO_NC_BOOTH_REFRESH_SELL_ACK` — packet/protocol struct or template reference
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_BoothTrade` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_IsInBoothInterior` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_SendBoothSize` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_ShowBoothItem` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShineObject::so_ply_StreetBoothSlot` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::BoothSell::board` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::BoothSell::board$initializer$` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::BoothSell::~BoothSell` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_BoothTrade` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_IsInBoothInterior` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_SendBoothSize` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_ShowBoothItem` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::so_ply_StreetBoothSlot` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_CloseStreetBooth` — class method / original symbol
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_BOOTH_CLOSE_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_BOOTH_ENTRY_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_BOOTH_INTERIORSTART_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_BOOTH_ITEMTRADE_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_BOOTH_OPEN_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_BOOTH_REFRESH_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_BOOTH_SEARCH_BOOTH_POSITION_REQ` — Zone/Player client packet request handler
+- `Zone` — `ShineObjectClass::ShinePlayer::sp_NC_BOOTH_SEARCH_ITEM_LIST_CATEGORIZED_REQ` — Zone/Player client packet request handler
+- `Zone` — `StreetBooth::StreetBooth` — class method / original symbol
+- `Zone` — `StreetBooth::sb_Boarding` — class method / original symbol
+- `Zone` — `StreetBooth::sb_Clear` — class method / original symbol
+- `Zone` — `StreetBooth::sb_Close` — class method / original symbol
+- `Zone` — `StreetBooth::sb_IsInInterioring` — class method / original symbol
+- `Zone` — `StreetBooth::sb_Open` — class method / original symbol
+- `Zone` — `StreetBooth::sb_RefreshError` — class method / original symbol
+- `Zone` — `StreetBooth::sb_Show2Client` — class method / original symbol
+- `Zone` — `StreetBooth::sb_Trade` — class method / original symbol
+- `Zone` — `StreetBooth::sb_Type` — class method / original symbol
+- `Zone` — `StreetBooth::~StreetBooth` — class method / original symbol
+- `Zone` — `StreetBoothBuy::<unnamed-type-sbb_BoothCell>` — class method / original symbol
+- `Zone` — `StreetBoothBuy::StreetBoothBuy` — class method / original symbol
+- `Zone` — `StreetBoothBuy::sb_Boarding` — class method / original symbol
+- `Zone` — `StreetBoothBuy::sb_Clear` — class method / original symbol
+- `Zone` — `StreetBoothBuy::sb_IsInInterioring` — class method / original symbol
+- `Zone` — `StreetBoothBuy::sb_RefreshError` — class method / original symbol
+- `Zone` — `StreetBoothBuy::sb_Show2Client` — class method / original symbol
+- `Zone` — `StreetBoothBuy::sb_Trade` — class method / original symbol
+- `Zone` — `StreetBoothBuy::sb_Type` — class method / original symbol
+- `Zone` — `StreetBoothBuy::sbb_BuyAll` — class method / original symbol
+- `Zone` — `StreetBoothBuy::sbb_BuyMerge` — class method / original symbol
+- `Zone` — `StreetBoothBuy::sbb_BuySplitCreate` — class method / original symbol
+- `Zone` — `StreetBoothBuy::~StreetBoothBuy` — class method / original symbol
+- `Zone` — `StreetBoothSell::<unnamed-type-sbs_BoothCell>` — class method / original symbol
+- `Zone` — `StreetBoothSell::StreetBoothSell` — class method / original symbol
+- `Zone` — `StreetBoothSell::sb_Boarding` — class method / original symbol
+- `Zone` — `StreetBoothSell::sb_Clear` — class method / original symbol
+- `Zone` — `StreetBoothSell::sb_Close` — class method / original symbol
+- `Zone` — `StreetBoothSell::sb_IsInInterioring` — class method / original symbol
+- `Zone` — `StreetBoothSell::sb_Open` — class method / original symbol
+- `Zone` — `StreetBoothSell::sb_RefreshError` — class method / original symbol
+- `Zone` — `StreetBoothSell::sb_Show2Client` — class method / original symbol
+- `Zone` — `StreetBoothSell::sb_Trade` — class method / original symbol
+- `Zone` — `StreetBoothSell::sb_Type` — class method / original symbol
+- `Zone` — `StreetBoothSell::sbs_FillBufferItem` — class method / original symbol
+- `Zone` — `StreetBoothSell::sbs_SellAll` — class method / original symbol
+- `Zone` — `StreetBoothSell::sbs_SellMerge` — class method / original symbol
+- `Zone` — `StreetBoothSell::sbs_SellSplitCreate` — class method / original symbol
+- `Zone` — `StreetBoothSell::~StreetBoothSell` — class method / original symbol
+- `Zone` — `U<unnamed-type-flag>@PROTO_NC_BOOTH_OPEN_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `UBoothItem@PROTO_NC_BOOTH_OPEN_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `UBoothItemList@PROTO_NC_BOOTH_ENTRY_SELL_ACK@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_BOOTH_ENTRY_SELL_ACK@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_BOOTH_ITEMTRADE_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `UPROTO_NC_BOOTH_OPEN_REQ@@` — packet/protocol struct or template reference
+- `Zone` — `_List_const_iterator<std::_List_val<BoothStoreInfo,std::allocator<BoothStoreInfo> > >` — class method / original symbol
+- `Zone` — `_List_nod<BoothStoreInfo,std::allocator<BoothStoreInfo> >` — class method / original symbol
+- `Zone` — `_List_unchecked_const_iterator<std::_List_val<BoothStoreInfo,std::allocator<BoothStoreInfo> >,std::_Iterator_base0>` — class method / original symbol
+- `Zone` — `_List_unchecked_const_iterator<std::_List_val<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >,std::_Iterator_base0>` — class method / original symbol
+- `Zone` — `_List_val<BoothItemInfo,std::allocator<BoothItemInfo> >` — class method / original symbol
+- `Zone` — ``ShineObjectClass::ShinePlayer::sp_NC_BOOTH_CLOSE_REQ'::`2'::`dynamic atexit destructor for 'cmc''` — Zone/Player client packet request handler
+- `Zone` — ``ShineObjectClass::ShinePlayer::sp_NC_BOOTH_ENTRY_REQ'::`2'::`dynamic atexit destructor for 'cmc''` — Zone/Player client packet request handler
+- `Zone` — ``ShineObjectClass::ShinePlayer::sp_NC_BOOTH_INTERIORSTART_REQ'::`2'::`dynamic atexit destructor for 'cmc''` — Zone/Player client packet request handler
+- `Zone` — ``ShineObjectClass::ShinePlayer::sp_NC_BOOTH_ITEMTRADE_REQ'::`2'::`dynamic atexit destructor for 'cmc''` — Zone/Player client packet request handler
+- `Zone` — ``ShineObjectClass::ShinePlayer::sp_NC_BOOTH_OPEN_REQ'::`2'::`dynamic atexit destructor for 'cmc''` — Zone/Player client packet request handler
+- `Zone` — ``ShineObjectClass::ShinePlayer::sp_NC_BOOTH_REFRESH_REQ'::`4'::`dynamic atexit destructor for 'cmc''` — Zone/Player client packet request handler
+- `Zone` — ``dynamic atexit destructor for 'ShineObjectClass::ShinePlayer::BoothSell::board''` — class method / original symbol
+- `Zone` — ``dynamic initializer for 'ShineObjectClass::ShinePlayer::BoothSell::board''` — class method / original symbol
+- `Zone` — `allocator<std::_List_nod<BoothItemInfo,std::allocator<BoothItemInfo> >::_Node>` — class method / original symbol
+- `Zone` — `allocator<std::_List_nod<BoothStoreInfo,std::allocator<BoothStoreInfo> >::_Node>` — class method / original symbol
+- `Zone` — `allocator<std::_List_nod<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >::_Node>` — class method / original symbol
+- `Zone` — `list<BoothItemInfo,std::allocator<BoothItemInfo> >` — class method / original symbol
+- `Zone` — `list<BoothStoreInfo,std::allocator<BoothStoreInfo> >` — class method / original symbol
+- `Zone` — `std::_Allocator_base<BoothItemInfo>` — class method / original symbol
+- `Zone` — `std::_Allocator_base<BoothStoreInfo>` — class method / original symbol
+- `Zone` — `std::_Allocator_base<std::_List_nod<BoothItemInfo,std::allocator<BoothItemInfo> >::_Node>` — class method / original symbol
+- `Zone` — `std::_Allocator_base<std::_List_nod<BoothStoreInfo,std::allocator<BoothStoreInfo> >::_Node>` — class method / original symbol
+- `Zone` — `std::_Allocator_base<std::_List_nod<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >::_Node>` — class method / original symbol
+- `Zone` — `std::_Dest_val<std::allocator<std::_List_nod<BoothStoreInfo,std::allocator<BoothStoreInfo> >::_Node>,std::_List_nod<BoothStoreInfo,std::allocator<BoothStoreInfo> >::_Node>` — class method / original symbol
+- `Zone` — `std::_Iterator012<std::bidirectional_iterator_tag,BoothStoreInfo,int,BoothStoreInfo const *,BoothStoreInfo const &,std::_Iterator_base0>` — class method / original symbol
+- `Zone` — `std::_Iterator012<std::bidirectional_iterator_tag,BoothStoreInfo::SellItemKeyNHandle,int,BoothStoreInfo::SellItemKeyNHandle const *,BoothStoreInfo::SellItemKeyNHandle const &,std::_Iterator_base0>` — class method / original symbol
+- `Zone` — `std::_List_const_iterator<std::_List_val<BoothItemInfo,std::allocator<BoothItemInfo> > >` — class method / original symbol
+- `Zone` — `std::_List_const_iterator<std::_List_val<BoothStoreInfo,std::allocator<BoothStoreInfo> > >` — class method / original symbol
+- `Zone` — `std::_List_iterator<std::_List_val<BoothItemInfo,std::allocator<BoothItemInfo> > >` — class method / original symbol
+- `Zone` — `std::_List_iterator<std::_List_val<BoothStoreInfo,std::allocator<BoothStoreInfo> > >` — class method / original symbol
+- `Zone` — `std::_List_nod<BoothItemInfo,std::allocator<BoothItemInfo> >` — class method / original symbol
+- `Zone` — `std::_List_nod<BoothItemInfo,std::allocator<BoothItemInfo> >::_Node` — class method / original symbol
+- `Zone` — `std::_List_nod<BoothStoreInfo,std::allocator<BoothStoreInfo> >` — class method / original symbol
+- `Zone` — `std::_List_nod<BoothStoreInfo,std::allocator<BoothStoreInfo> >::_Node` — class method / original symbol
+- `Zone` — `std::_List_nod<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >::_Node` — class method / original symbol
+- `Zone` — `std::_List_unchecked_const_iterator<std::_List_val<BoothStoreInfo,std::allocator<BoothStoreInfo> >,std::_Iterator_base0>` — class method / original symbol
+- `Zone` — `std::_List_unchecked_const_iterator<std::_List_val<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >,std::_Iterator_base0>` — class method / original symbol
+- `Zone` — `std::_List_val<BoothItemInfo,std::allocator<BoothItemInfo> >` — class method / original symbol
+- `Zone` — `std::_List_val<BoothItemInfo,std::allocator<BoothItemInfo> >::_Buynode` — class method / original symbol
+- `Zone` — `std::_List_val<BoothItemInfo,std::allocator<BoothItemInfo> >::~_List_val<BoothItemInfo,std::allocator<BoothItemInfo> >` — class method / original symbol
+- `Zone` — `std::_List_val<BoothStoreInfo,std::allocator<BoothStoreInfo> >` — class method / original symbol
+- `Zone` — `std::_List_val<BoothStoreInfo,std::allocator<BoothStoreInfo> >::_Buynode` — class method / original symbol
+- `Zone` — `std::_List_val<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >` — class method / original symbol
+- `Zone` — `std::_List_val<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >::_Buynode` — class method / original symbol
+- `Zone` — `std::_List_val<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >::~_List_val<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >` — class method / original symbol
+- `Zone` — `std::allocator<BoothItemInfo>` — class method / original symbol
+- `Zone` — `std::allocator<BoothItemInfo>::rebind<BoothItemInfo>` — class method / original symbol
+- `Zone` — `std::allocator<BoothItemInfo>::rebind<std::_List_nod<BoothItemInfo,std::allocator<BoothItemInfo> >::_Node>` — class method / original symbol
+- `Zone` — `std::allocator<BoothStoreInfo::SellItemKeyNHandle>` — class method / original symbol
+- `Zone` — `std::allocator<BoothStoreInfo>` — class method / original symbol
+- `Zone` — `std::allocator<BoothStoreInfo>::rebind<BoothStoreInfo>` — class method / original symbol
+- `Zone` — `std::allocator<BoothStoreInfo>::rebind<std::_List_nod<BoothStoreInfo,std::allocator<BoothStoreInfo> >::_Node>` — class method / original symbol
+- `Zone` — `std::allocator<std::_List_nod<BoothItemInfo,std::allocator<BoothItemInfo> >::_Node>` — class method / original symbol
+- `Zone` — `std::allocator<std::_List_nod<BoothStoreInfo,std::allocator<BoothStoreInfo> >::_Node>` — class method / original symbol
+- `Zone` — `std::allocator<std::_List_nod<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >::_Node>` — class method / original symbol
+- `Zone` — `std::list<BoothItemInfo,std::allocator<BoothItemInfo> >` — class method / original symbol
+- `Zone` — `std::list<BoothItemInfo,std::allocator<BoothItemInfo> >::_Insert<std::_List_const_iterator<std::_List_val<BoothItemInfo,std::allocator<BoothItemInfo> > > >` — class method / original symbol
+- `Zone` — `std::list<BoothItemInfo,std::allocator<BoothItemInfo> >::clear` — class method / original symbol
+- `Zone` — `std::list<BoothItemInfo,std::allocator<BoothItemInfo> >::erase` — class method / original symbol
+- `Zone` — `std::list<BoothItemInfo,std::allocator<BoothItemInfo> >::push_back` — class method / original symbol
+- `Zone` — `std::list<BoothStoreInfo,std::allocator<BoothStoreInfo> >` — class method / original symbol
+- `Zone` — `std::list<BoothStoreInfo,std::allocator<BoothStoreInfo> >::_Insert<std::_List_const_iterator<std::_List_val<BoothStoreInfo,std::allocator<BoothStoreInfo> > > >` — class method / original symbol
+- `Zone` — `std::list<BoothStoreInfo,std::allocator<BoothStoreInfo> >::clear` — class method / original symbol
+- `Zone` — `std::list<BoothStoreInfo,std::allocator<BoothStoreInfo> >::erase` — class method / original symbol
+- `Zone` — `std::list<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >` — class method / original symbol
+- `Zone` — `std::list<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >::_Insert<std::_List_const_iterator<std::_List_val<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> > > >` — class method / original symbol
+- `Zone` — `std::list<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >::_Tidy` — class method / original symbol
+- `Zone` — `std::list<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >::erase` — class method / original symbol
+- `Zone` — `std::list<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >::list<BoothStoreInfo::SellItemKeyNHandle,std::allocator<BoothStoreInfo::SellItemKeyNHandle> >` — class method / original symbol
+- `Zone` — `std::reverse_iterator<std::_List_const_iterator<std::_List_val<BoothItemInfo,std::allocator<BoothItemInfo> > > >` — class method / original symbol
+- `Zone` — `std::reverse_iterator<std::_List_const_iterator<std::_List_val<BoothStoreInfo,std::allocator<BoothStoreInfo> > > >` — class method / original symbol
+- `Zone` — `std::reverse_iterator<std::_List_iterator<std::_List_val<BoothItemInfo,std::allocator<BoothItemInfo> > > >` — class method / original symbol
+- `Zone` — `std::reverse_iterator<std::_List_iterator<std::_List_val<BoothStoreInfo,std::allocator<BoothStoreInfo> > > >` — class method / original symbol
+- `Zone` — `~_List_val<BoothItemInfo,std::allocator<BoothItemInfo> >` — class method / original symbol
+- `Zone` — `~list<BoothItemInfo,std::allocator<BoothItemInfo> >` — class method / original symbol
+- `Zone` — `~list<BoothStoreInfo,std::allocator<BoothStoreInfo> >` — class method / original symbol
+
+## Unclassified / shared / STL / helper
+
+- `Account` — `BTree::BTree` — class method / original symbol
+- `Account` — `BTree::bt_Insert` — class method / original symbol
+- `Account` — `BTree::operator[]` — class method / original symbol
+- `Account` — `BTree::~BTree` — class method / original symbol
+- `Account` — `BinaryData::BinaryData` — class method / original symbol
+- `Account` — `BinaryData::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `BinaryData::~BinaryData` — class method / original symbol
+- `Account` — `BinaryDataBox<ShineReward>::`scalar deleting destructor'` — data table loader/index/helper
+- `Account` — `CCsl::AddFormat` — class method / original symbol
+- `Account` — `CCsl::AddResultMsg` — class method / original symbol
+- `Account` — `CCsl::CCsl` — class method / original symbol
+- `Account` — `CCsl::Clear` — class method / original symbol
+- `Account` — `CCsl::ClearDatas` — class method / original symbol
+- `Account` — `CCsl::ClearFormats` — class method / original symbol
+- `Account` — `CCsl::Close` — class method / original symbol
+- `Account` — `CCsl::GetData` — class method / original symbol
+- `Account` — `CCsl::GetDataToken` — class method / original symbol
+- `Account` — `CCsl::GetFormat` — class method / original symbol
+- `Account` — `CCsl::GetNumDatas` — class method / original symbol
+- `Account` — `CCsl::IncludeFile` — class method / original symbol
+- `Account` — `CCsl::MakeData` — class method / original symbol
+- `Account` — `CCsl::MakeDataTable` — class method / original symbol
+- `Account` — `CCsl::MakeFormat` — class method / original symbol
+- `Account` — `CCsl::MakeFormatTable` — class method / original symbol
+- `Account` — `CCsl::ProcCmd` — class method / original symbol
+- `Account` — `CCsl::ProcData` — class method / original symbol
+- `Account` — `CCsl::ProcRemark` — class method / original symbol
+- `Account` — `CCsl::Read` — class method / original symbol
+- `Account` — `CCsl::ReadScript` — class method / original symbol
+- `Account` — `CCsl::ReadScriptDone` — class method / original symbol
+- `Account` — `CCsl::VarClear` — class method / original symbol
+- `Account` — `CCsl::WriteData` — class method / original symbol
+- `Account` — `CCsl::WriteFormat` — class method / original symbol
+- `Account` — `CCsl::~CCsl` — class method / original symbol
+- `Account` — `CDataReader::CDataReader` — class method / original symbol
+- `Account` — `CDataReader::Encription` — class method / original symbol
+- `Account` — `CDataReader::GetRecord` — class method / original symbol
+- `Account` — `CDataReader::Read` — class method / original symbol
+- `Account` — `CDataReader::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `CDataReader::~CDataReader` — class method / original symbol
+- `Account` — `CGdp::CGdp` — class method / original symbol
+- `Account` — `CGdp::Clear` — class method / original symbol
+- `Account` — `CGdp::CloseHandle` — class method / original symbol
+- `Account` — `CGdp::CreateFileA` — class method / original symbol
+- `Account` — `CGdp::GdpClose` — class method / original symbol
+- `Account` — `CGdp::GdpCloseFile` — class method / original symbol
+- `Account` — `CGdp::GdpDecryptData` — class method / original symbol
+- `Account` — `CGdp::GdpDeleteFile` — class method / original symbol
+- `Account` — `CGdp::GdpGetEmptyChunk` — class method / original symbol
+- `Account` — `CGdp::GdpMakeEmptyChunk` — class method / original symbol
+- `Account` — `CGdp::GdpSearchFile` — class method / original symbol
+- `Account` — `CGdp::GdpSetFilePointer` — class method / original symbol
+- `Account` — `CGdp::GdpUpdateChunk` — class method / original symbol
+- `Account` — `CGdp::GdpWriteChunk` — class method / original symbol
+- `Account` — `CGdp::GetFileSize` — class method / original symbol
+- `Account` — `CGdp::Open` — class method / original symbol
+- `Account` — `CGdp::ReadFile` — class method / original symbol
+- `Account` — `CGdp::SetFilePointer` — class method / original symbol
+- `Account` — `CGdp::WriteFile` — class method / original symbol
+- `Account` — `CGdp::fclose` — class method / original symbol
+- `Account` — `CGdp::~CGdp` — class method / original symbol
+- `Account` — `CIOBuffer::Alloc` — class method / original symbol
+- `Account` — `CIOBuffer::Free` — class method / original symbol
+- `Account` — `CIOBuffer::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `CMD5Checksum::Final` — class method / original symbol
+- `Account` — `CMD5Checksum::GetMD5` — class method / original symbol
+- `Account` — `CMD5Checksum::Transform` — class method / original symbol
+- `Account` — `CMD5Checksum::Update` — class method / original symbol
+- `Account` — `CMD5Checksum::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `CMD5Checksum::~CMD5Checksum` — class method / original symbol
+- `Account` — `CPFs::CheckConnectionValidation` — class method / original symbol
+- `Account` — `CPFs::fc_NC_MISC_HEARTBEAT_ACK` — class method / original symbol
+- `Account` — `CPFs::fc_NC_MISC_HEARTBEAT_REQ` — class method / original symbol
+- `Account` — `CPFs::fc_NC_MISC_S2SCONNECTION_ACK` — class method / original symbol
+- `Account` — `CPFs::fc_NC_MISC_S2SCONNECTION_RDY` — class method / original symbol
+- `Account` — `CPFs::fc_NC_MISC_S2SCONNECTION_REQ` — class method / original symbol
+- `Account` — `CPFs::fc_NC_MISC_START_THE_BOOM_CMD` — class method / original symbol
+- `Account` — `CPFs::fc_dummyfunction` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_MISC_EVENT_DONE_MUNSANG_WM2ACC` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USER_CH_PASSWORD_CHECK_REQ` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USER_GER_PASSWORD_CHECK_REQ` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USER_JP_PASSWORD_CHECK_REQ` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USER_PASSWORD_CHECK_REQ` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USER_RETURN_CHECK_REQ` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USER_SET_RETURN_CMD` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USER_TEENAGER_REQ` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USER_TEENAGER_SET_CMD` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USER_TW_PASSWORD_CHECK_REQ` — class method / original symbol
+- `Account` — `CPFsAccount::fc_NC_USER_US_PASSWORD_CHECK_REQ` — class method / original symbol
+- `Account` — `CParser::CParser` — class method / original symbol
+- `Account` — `CParser::Parser` — class method / original symbol
+- `Account` — `CParser::~CParser` — class method / original symbol
+- `Account` — `CParserAccount::CParserAccount` — class method / original symbol
+- `Account` — `CParserAccount::~CParserAccount` — class method / original symbol
+- `Account` — `CServerInfo::~CServerInfo` — class method / original symbol
+- `Account` — `CShnDataFileCheckSum::<unnamed-type-CheckSumData>::<unnamed-type-CheckSumData>` — class method / original symbol
+- `Account` — `CShnDataFileCheckSum::<unnamed-type-CheckSumData>::~<unnamed-type-CheckSumData>` — class method / original symbol
+- `Account` — `CShnDataFileCheckSum::CShnDataFileCheckSum` — class method / original symbol
+- `Account` — `CShnDataFileCheckSum::InitDataFileCheckSum` — class method / original symbol
+- `Account` — `CToken::CToken` — class method / original symbol
+- `Account` — `CToken::Close` — class method / original symbol
+- `Account` — `CToken::GetToken` — class method / original symbol
+- `Account` — `CToken::GetTokenString` — class method / original symbol
+- `Account` — `CToken::GoBegin` — class method / original symbol
+- `Account` — `CToken::GoNextLine` — class method / original symbol
+- `Account` — `CToken::GoStartString` — class method / original symbol
+- `Account` — `CToken::IsTokenID` — class method / original symbol
+- `Account` — `CToken::Open` — class method / original symbol
+- `Account` — `CToken::OpenFromMemory` — class method / original symbol
+- `Account` — `CToken::RestoreTokenPositon` — class method / original symbol
+- `Account` — `CToken::SetSeprator` — class method / original symbol
+- `Account` — `CToken::my_tcstok` — class method / original symbol
+- `Account` — `CToken::~CToken` — class method / original symbol
+- `Account` — `CardDeck::Card>::l_SetListArray` — class method / original symbol
+- `Account` — `CardDeck::CardStack::CardStack` — class method / original symbol
+- `Account` — `CardDeck::CardStack::cs_InsertBottom` — class method / original symbol
+- `Account` — `CardDeck::CardStack::~CardStack` — class method / original symbol
+- `Account` — `FPRewardData::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `InetAddress::GetHostAddress` — class method / original symbol
+- `Account` — `InetAddress::WinSockStart` — class method / original symbol
+- `Account` — `List<CardDeck::Card>::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `List<CardDeck::Card>::l_4AllInList` — class method / original symbol
+- `Account` — `List<CardDeck::Card>::l_AllocA` — class method / original symbol
+- `Account` — `List<CardDeck::Card>::l_AllocZ` — class method / original symbol
+- `Account` — `List<CardDeck::Card>::l_Enlargement` — class method / original symbol
+- `Account` — `List<CardDeck::Card>::l_Free` — class method / original symbol
+- `Account` — `List<CardDeck::Card>::l_MakeList` — class method / original symbol
+- `Account` — `List<CardDeck::Card>::l_PopA` — class method / original symbol
+- `Account` — `List<CardDeck::Card>::l_PopZ` — class method / original symbol
+- `Account` — `List<CardDeck::Card>::l_PushA` — class method / original symbol
+- `Account` — `List<CardDeck::Card>::l_PushZ` — class method / original symbol
+- `Account` — `List<CardDeck::Card>::l_SetListArray` — class method / original symbol
+- `Account` — `List<CardDeck::Card>::~List<CardDeck::Card>` — class method / original symbol
+- `Account` — `ListArray<CardDeck::Card>::~ListArray<CardDeck::Card>` — class method / original symbol
+- `Account` — `ListEraser<CardDeck::Card>::lid_Call` — class method / original symbol
+- `Account` — `ListEraser<CardDeck::Card>::~ListEraser<CardDeck::Card>` — class method / original symbol
+- `Account` — `ListIteratorDefault<CardDeck::Card>::lid_Call` — class method / original symbol
+- `Account` — `MiniDumper::MiniDumper` — class method / original symbol
+- `Account` — `MiniDumper::MinidumpCallStack` — class method / original symbol
+- `Account` — `Name256Byte::Name256Byte` — class method / original symbol
+- `Account` — `Name256Byte::operator=` — class method / original symbol
+- `Account` — `RandomBox::RandomBox` — class method / original symbol
+- `Account` — `RandomSlot::RandomSlot` — class method / original symbol
+- `Account` — `RandomSlot::rs_Init` — class method / original symbol
+- `Account` — `RandomSlot::~RandomSlot` — class method / original symbol
+- `Account` — `RewardData::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `SHINE_INDUN_INFO::SHINE_INDUN_INFO` — class method / original symbol
+- `Account` — `SHINE_INDUN_INFO::~SHINE_INDUN_INFO` — class method / original symbol
+- `Account` — `String::getBuffer` — class method / original symbol
+- `Account` — `String::makeUpper` — class method / original symbol
+- `Account` — `String::operator=` — class method / original symbol
+- `Account` — `String::~String` — class method / original symbol
+- `Account` — `TiXmlAttribute::Parse` — class method / original symbol
+- `Account` — `TiXmlAttribute::Print` — class method / original symbol
+- `Account` — `TiXmlAttribute::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `TiXmlAttribute::~TiXmlAttribute` — class method / original symbol
+- `Account` — `TiXmlAttributeSet::Add` — class method / original symbol
+- `Account` — `TiXmlAttributeSet::Find` — class method / original symbol
+- `Account` — `TiXmlAttributeSet::FindOrCreate` — class method / original symbol
+- `Account` — `TiXmlAttributeSet::~TiXmlAttributeSet` — class method / original symbol
+- `Account` — `TiXmlBase::ConvertUTF32ToUTF8` — class method / original symbol
+- `Account` — `TiXmlBase::EncodeString` — class method / original symbol
+- `Account` — `TiXmlBase::GetEntity` — class method / original symbol
+- `Account` — `TiXmlBase::IsAlpha` — class method / original symbol
+- `Account` — `TiXmlBase::ReadName` — class method / original symbol
+- `Account` — `TiXmlBase::ReadText` — class method / original symbol
+- `Account` — `TiXmlBase::StringEqual` — class method / original symbol
+- `Account` — `TiXmlBase::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `TiXmlBase::~TiXmlBase` — class method / original symbol
+- `Account` — `TiXmlComment::Accept` — class method / original symbol
+- `Account` — `TiXmlComment::Clone` — class method / original symbol
+- `Account` — `TiXmlComment::Parse` — class method / original symbol
+- `Account` — `TiXmlComment::Print` — class method / original symbol
+- `Account` — `TiXmlComment::ToComment` — class method / original symbol
+- `Account` — `TiXmlComment::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `TiXmlDeclaration::Accept` — class method / original symbol
+- `Account` — `TiXmlDeclaration::Clone` — class method / original symbol
+- `Account` — `TiXmlDeclaration::CopyTo` — class method / original symbol
+- `Account` — `TiXmlDeclaration::Parse` — class method / original symbol
+- `Account` — `TiXmlDeclaration::Print` — class method / original symbol
+- `Account` — `TiXmlDeclaration::TiXmlDeclaration` — class method / original symbol
+- `Account` — `TiXmlDeclaration::ToDeclaration` — class method / original symbol
+- `Account` — `TiXmlDeclaration::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `TiXmlDeclaration::~TiXmlDeclaration` — class method / original symbol
+- `Account` — `TiXmlDocument::Accept` — class method / original symbol
+- `Account` — `TiXmlDocument::Clone` — class method / original symbol
+- `Account` — `TiXmlDocument::CopyTo` — class method / original symbol
+- `Account` — `TiXmlDocument::Parse` — class method / original symbol
+- `Account` — `TiXmlDocument::Print` — class method / original symbol
+- `Account` — `TiXmlDocument::SetError` — class method / original symbol
+- `Account` — `TiXmlDocument::TiXmlDocument` — class method / original symbol
+- `Account` — `TiXmlDocument::ToDocument` — class method / original symbol
+- `Account` — `TiXmlDocument::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `TiXmlDocument::~TiXmlDocument` — class method / original symbol
+- `Account` — `TiXmlElement::Accept` — class method / original symbol
+- `Account` — `TiXmlElement::ClearThis` — class method / original symbol
+- `Account` — `TiXmlElement::Clone` — class method / original symbol
+- `Account` — `TiXmlElement::CopyTo` — class method / original symbol
+- `Account` — `TiXmlElement::GetText` — class method / original symbol
+- `Account` — `TiXmlElement::Parse` — class method / original symbol
+- `Account` — `TiXmlElement::Print` — class method / original symbol
+- `Account` — `TiXmlElement::ReadValue` — class method / original symbol
+- `Account` — `TiXmlElement::TiXmlElement` — class method / original symbol
+- `Account` — `TiXmlElement::ToElement` — class method / original symbol
+- `Account` — `TiXmlElement::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `TiXmlElement::~TiXmlElement` — class method / original symbol
+- `Account` — `TiXmlNode::FirstChild` — class method / original symbol
+- `Account` — `TiXmlNode::FirstChildElement` — class method / original symbol
+- `Account` — `TiXmlNode::GetDocument` — class method / original symbol
+- `Account` — `TiXmlNode::Identify` — class method / original symbol
+- `Account` — `TiXmlNode::NextSibling` — class method / original symbol
+- `Account` — `TiXmlNode::TiXmlNode` — class method / original symbol
+- `Account` — `TiXmlNode::ToComment` — class method / original symbol
+- `Account` — `TiXmlNode::ToDeclaration` — class method / original symbol
+- `Account` — `TiXmlNode::ToDocument` — class method / original symbol
+- `Account` — `TiXmlNode::ToElement` — class method / original symbol
+- `Account` — `TiXmlNode::ToText` — class method / original symbol
+- `Account` — `TiXmlNode::ToUnknown` — class method / original symbol
+- `Account` — `TiXmlNode::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `TiXmlNode::~TiXmlNode` — class method / original symbol
+- `Account` — `TiXmlParsingData::Stamp` — class method / original symbol
+- `Account` — `TiXmlString::TiXmlString` — class method / original symbol
+- `Account` — `TiXmlString::append` — class method / original symbol
+- `Account` — `TiXmlString::assign` — class method / original symbol
+- `Account` — `TiXmlString::operator=` — class method / original symbol
+- `Account` — `TiXmlString::reserve` — class method / original symbol
+- `Account` — `TiXmlString::~TiXmlString` — class method / original symbol
+- `Account` — `TiXmlText::Accept` — class method / original symbol
+- `Account` — `TiXmlText::Clone` — class method / original symbol
+- `Account` — `TiXmlText::Parse` — class method / original symbol
+- `Account` — `TiXmlText::Print` — class method / original symbol
+- `Account` — `TiXmlText::TiXmlText` — class method / original symbol
+- `Account` — `TiXmlText::ToText` — class method / original symbol
+- `Account` — `TiXmlText::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `TiXmlUnknown::Accept` — class method / original symbol
+- `Account` — `TiXmlUnknown::Clone` — class method / original symbol
+- `Account` — `TiXmlUnknown::Parse` — class method / original symbol
+- `Account` — `TiXmlUnknown::Print` — class method / original symbol
+- `Account` — `TiXmlUnknown::ToUnknown` — class method / original symbol
+- `Account` — `TiXmlUnknown::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `cWell512Random::cWell512Random` — class method / original symbol
+- `Account` — `cWell512Random::well512_GetRandom` — class method / original symbol
+- `Account` — `cWell512Random::~cWell512Random` — class method / original symbol
+- `Account` — `std::bad_alloc::`scalar deleting destructor'` — class method / original symbol
+- `Account` — `std::bad_alloc::bad_alloc` — class method / original symbol
+- `Account` — `std::bad_alloc::~bad_alloc` — class method / original symbol
+- `Account` — `std::float_denorm_style` — class method / original symbol
+- `Account` — `std::float_round_style` — class method / original symbol
+- `Account` — `std::locale::facet::_Decref` — class method / original symbol
+- `Account` — `std::locale::~locale` — class method / original symbol
+
+## Wedding / HolyPromise
+
+- `Account` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_DEL` — class method / original symbol
+- `Account` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_GET` — class method / original symbol
+- `Account` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_GET_MEMBER` — class method / original symbol
+- `Account` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_SET` — class method / original symbol
+- `Account` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_SET_DATE` — class method / original symbol
+- `Account` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_SET_MONEY` — class method / original symbol
+- `Account` — `NC_HOLY_PROMISE` — symbol / original name candidate
+- `AccountLog` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_DEL` — class method / original symbol
+- `AccountLog` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_GET` — class method / original symbol
+- `AccountLog` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_GET_MEMBER` — class method / original symbol
+- `AccountLog` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_SET` — class method / original symbol
+- `AccountLog` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_SET_DATE` — class method / original symbol
+- `AccountLog` — `CSQLPHolyPromise::SQL_HOLY_PROMISE_SET_MONEY` — class method / original symbol
+- `AccountLog` — `NC_HOLY_PROMISE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_WEDDING_DIVORCE_CANCEL` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_WEDDING_DIVORCE_EXE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_WEDDING_DIVORCE_REQ` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_WEDDING_HALL_CANCEL` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_WEDDING_HALL_RESERVE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_WEDDING_HALL_START` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_WEDDING_PROPOSE_CANCEL` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_WEDDING_PROPOSE_EXE` — symbol / original name candidate
+- `AccountLog` — `NC_LOG_WEDDING_WEDDING_EXE` — symbol / original name candidate
+- `Login` — `NC_HOLY_PROMISE` — symbol / original name candidate
+- `Login` — `NC_LOG_WEDDING_DIVORCE_CANCEL` — symbol / original name candidate
+- `Login` — `NC_LOG_WEDDING_DIVORCE_EXE` — symbol / original name candidate
+- `Login` — `NC_LOG_WEDDING_DIVORCE_REQ` — symbol / original name candidate
+- `Login` — `NC_LOG_WEDDING_HALL_CANCEL` — symbol / original name candidate
+- `Login` — `NC_LOG_WEDDING_HALL_RESERVE` — symbol / original name candidate
+- `Login` — `NC_LOG_WEDDING_HALL_START` — symbol / original name candidate
+- `Login` — `NC_LOG_WEDDING_PROPOSE_CANCEL` — symbol / original name candidate
+- `Login` — `NC_LOG_WEDDING_PROPOSE_EXE` — symbol / original name candidate
+- `Login` — `NC_LOG_WEDDING_WEDDING_EXE` — symbol / original name candidate
+- `WorldManager` — `??0?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_DB_SET_UP_REQ@@@@QAE@XZ` — packet/protocol struct or template reference
+- `WorldManager` — `??0?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_REQ@@@@QAE@XZ` — packet/protocol struct or template reference
+- `WorldManager` — `?Add@CHolyPromiseServer@@QAEHPAUPROTO_NC_HOLY_PROMISE_DB_GET_MEMBER_ACK@@@Z` — packet/protocol struct or template reference
+- `WorldManager` — `?Send_NC_HOLY_PROMISE_DB_REWARD_REQ@CHolyPromiseServer@@QAEHPAVCWMClientSession@@@Z` — symbol / original name candidate
+- `WorldManager` — `?Send_NC_HOLY_PROMISE_LOGIN_CMD@CHolyPromiseServer@@QAEHPATName5@@@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_HOLY_PROMISE_DEL_DOWN_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_HOLY_PROMISE_DEL_UP_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_HOLY_PROMISE_MYUPPER_REQ@CParserZone@@QAEHPAVCWMZoneSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_HOLY_PROMISE_SET_UP_CONFIRM_ACK@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `?fc_NC_HOLY_PROMISE_SET_UP_REQ@CParserClient@@QAEHPAVCWMClientSession@@PAUNETPACKET@@H@Z` — symbol / original name candidate
+- `WorldManager` — `CHolyPromise::CHolyPromise` — class method / original symbol
+- `WorldManager` — `CHolyPromise::Clear` — class method / original symbol
+- `WorldManager` — `CHolyPromise::ClearMember` — class method / original symbol
+- `WorldManager` — `CHolyPromise::ClearUp` — class method / original symbol
+- `WorldManager` — `CHolyPromise::DelUp` — class method / original symbol
+- `WorldManager` — `CHolyPromise::Get` — class method / original symbol
+- `WorldManager` — `CHolyPromise::IsExistUp` — class method / original symbol
+- `WorldManager` — `CHolyPromise::Logout` — class method / original symbol
+- `WorldManager` — `CHolyPromise::SetUp` — class method / original symbol
+- `WorldManager` — `CHolyPromise::~CHolyPromise` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::Add` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::BroadCastToMember` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::CHolyPromiseServer` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::Clear` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::DelMember` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::DelUp` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::Get` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::IsAddableMember` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::Login` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::Logout` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::Send_NC_HOLY_PROMISE_DB_REWARD_REQ` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::Send_NC_HOLY_PROMISE_LOGIN_CMD` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::SetMember` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::SetUp` — class method / original symbol
+- `WorldManager` — `CHolyPromiseServer::~CHolyPromiseServer` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_HOLY_PROMISE_DEL_DOWN_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_HOLY_PROMISE_DEL_UP_REQ` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_HOLY_PROMISE_SET_UP_CONFIRM_ACK` — class method / original symbol
+- `WorldManager` — `CParserClient::fc_NC_HOLY_PROMISE_SET_UP_REQ` — class method / original symbol
+- `WorldManager` — `CParserZone::fc_NC_HOLY_PROMISE_MYUPPER_REQ` — class method / original symbol
+- `WorldManager` — `CWMClientSession::HolyPromiseFirstLogon` — class method / original symbol
+- `WorldManager` — `NC_ACT_WEDDING_AGREEMENT_DIVORCE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_COMPULSORY_DIVORCE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_COUPLE_ENTRANCE_RNG` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_DIVORCE_REFUSE_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_DIVORCE_REQ_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_HALL_GUEST_ENTER_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_HALL_GUEST_ENTER_READY_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_HALL_GUEST_ENTER_READY_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_HALL_GUEST_ENTER_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_HALL_RESERV_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_HALL_RESERV_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_PROPOSEACK_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_PROPOSEACK_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_PROPOSEREQ_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_PROPOSEREQ_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_PROPOSE_WORD_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_ACT_WEDDING_SOMEONE` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_ADD_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_CENTRANSFER_RNG` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_DEL_DOWN_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_DEL_DOWN_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_DEL_UP_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_DEL_UP_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_GET_CEN_REWARD_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_GET_CEN_REWARD_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_GET_MEMBER_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_GET_MEMBER_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_GET_UP_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_GET_UP_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_REWARD_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_REWARD_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_SET_DATE_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_SET_DATE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_SET_UP_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_SET_UP_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_WITHDRAW_CEN_REWARD_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DB_WITHDRAW_CEN_REWARD_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DEL_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DEL_DOWN_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DEL_DOWN_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DEL_UP_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_DEL_UP_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_GET_CEN_REWARD_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_GET_CEN_REWARD_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_LIST_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_LOGIN_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_LOGOUT_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_MYUPPER_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_MYUPPER_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_MY_UP_ZONE` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_NULL` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_REWARD_MONEY_CMD` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_SET_UP_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_SET_UP_CONFIRM_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_SET_UP_CONFIRM_ING` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_SET_UP_CONFIRM_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_SET_UP_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_USE_MONEY_ZONE` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_WITHDRAW_CEN_REWARD_ACK` — symbol / original name candidate
+- `WorldManager` — `NC_HOLY_PROMISE_WITHDRAW_CEN_REWARD_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_WEDDING_DIVORCE_CANCEL` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_WEDDING_DIVORCE_EXE` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_WEDDING_DIVORCE_REQ` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_WEDDING_HALL_CANCEL` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_WEDDING_HALL_RESERVE` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_WEDDING_HALL_START` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_WEDDING_PROPOSE_CANCEL` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_WEDDING_PROPOSE_EXE` — symbol / original name candidate
+- `WorldManager` — `NC_LOG_WEDDING_WEDDING_EXE` — symbol / original name candidate
+- `WorldManager` — `PROTO_HOLY_PROMISE_INFO::PROTO_HOLY_PROMISE_INFO` — class method / original symbol
+- `WorldManager` — `PROTO_HOLY_PROMISE_INFO::~PROTO_HOLY_PROMISE_INFO` — class method / original symbol
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_DB_DEL_DOWN_REQ>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_DB_DEL_UP_REQ>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_DB_REWARD_REQ>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_DB_SET_UP_REQ>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_DB_SET_UP_REQ>::PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_DB_SET_UP_REQ>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_DEL_CMD>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_DEL_DOWN_ACK>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_DEL_UP_ACK>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_LOGIN_CMD>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_LOGOUT_CMD>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_MYUPPER_ACK>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_MY_UP_ZONE>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_SET_UP_ACK>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_ING>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_REQ>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_REQ>::PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_REQ>` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_DB_DEL_DOWN_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_DB_DEL_UP_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_DB_GET_MEMBER_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_DB_REWARD_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_DB_SET_UP_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_DEL_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_DEL_DOWN_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_DEL_DOWN_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_DEL_UP_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_DEL_UP_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_LIST_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_LOGIN_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_LOGOUT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_MYUPPER_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_MYUPPER_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_MY_UP_ZONE` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_SET_UP_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_ING` — packet/protocol struct or template reference
+- `WorldManager` — `PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `Send_NC_HOLY_PROMISE_DB_REWARD_REQ` — symbol / original name candidate
+- `WorldManager` — `Send_NC_HOLY_PROMISE_LOGIN_CMD` — symbol / original name candidate
+- `WorldManager` — `Send_NC_HOLY_PROMISE_LOGOUT_CMD` — symbol / original name candidate
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_DB_DEL_DOWN_REQ@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_DB_DEL_UP_REQ@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_DB_REWARD_REQ@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_DB_SET_UP_REQ@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_DEL_CMD@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_DEL_UP_ACK@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_LOGIN_CMD@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_LOGOUT_CMD@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_MYUPPER_ACK@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_MY_UP_ZONE@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_SET_UP_ACK@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_ING@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `U?$PROTO_NC_DATA_SEND1@UPROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_REQ@@@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_DB_DEL_DOWN_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_DB_DEL_UP_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_DB_GET_MEMBER_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_DB_REWARD_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_DB_SET_UP_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_DEL_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_DEL_DOWN_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_DEL_DOWN_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_DEL_UP_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_DEL_UP_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_LIST_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_LOGIN_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_LOGOUT_CMD@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_MYUPPER_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_MYUPPER_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_MY_UP_ZONE@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_SET_UP_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_ACK@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_ING@@` — packet/protocol struct or template reference
+- `WorldManager` — `UPROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_REQ@@` — packet/protocol struct or template reference
+- `WorldManager` — `fc_NC_HOLY_PROMISE_DB_DEL_DOWN_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_HOLY_PROMISE_DB_DEL_UP_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_HOLY_PROMISE_DB_GET_MEMBER_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_HOLY_PROMISE_DB_GET_UP_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_HOLY_PROMISE_DB_REWARD_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_HOLY_PROMISE_DB_SET_DATE_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_HOLY_PROMISE_DB_SET_UP_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_HOLY_PROMISE_DEL_DOWN_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_HOLY_PROMISE_DEL_UP_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_HOLY_PROMISE_MYUPPER_REQ` — symbol / original name candidate
+- `WorldManager` — `fc_NC_HOLY_PROMISE_SET_UP_CONFIRM_ACK` — symbol / original name candidate
+- `WorldManager` — `fc_NC_HOLY_PROMISE_SET_UP_REQ` — symbol / original name candidate
+- `WorldManager` — `~PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_DB_DEL_DOWN_REQ>` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_DB_SET_UP_REQ>` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_DEL_CMD>` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_LOGIN_CMD>` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_LOGOUT_CMD>` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_SET_UP_ACK>` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_ING>` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_DATA_SEND1<PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_REQ>` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_HOLY_PROMISE_DB_DEL_DOWN_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_HOLY_PROMISE_DB_GET_MEMBER_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_HOLY_PROMISE_DB_SET_UP_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_HOLY_PROMISE_DEL_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_HOLY_PROMISE_DEL_DOWN_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_HOLY_PROMISE_DEL_DOWN_REQ` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_HOLY_PROMISE_LIST_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_HOLY_PROMISE_LOGIN_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_HOLY_PROMISE_LOGOUT_CMD` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_HOLY_PROMISE_SET_UP_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_ACK` — packet/protocol struct or template reference
+- `WorldManager` — `~PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_REQ` — packet/protocol struct or template reference
+

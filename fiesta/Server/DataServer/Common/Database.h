@@ -1,0 +1,41 @@
+// Server/DataServer/Common/Database.h
+// 03 -- thin wrapper around ODBC connection. Per spec rule, we do not introduce
+// a new ORM/config layer. Connection string comes from ServerInfo.txt.
+// EVIDENCE: PDB_CONFIRMED  symbol: Database, DataServer, DBRecord
+#ifndef FIESTA_DATABASE_H
+#define FIESTA_DATABASE_H
+#include "../../Shared/ShineTypes.h"
+#include <sql.h>
+#include <sqlext.h>
+#include <vector>
+#include <string>
+
+#pragma comment(lib, "odbc32.lib")
+
+namespace fiesta {
+
+class DBRecord {
+public:
+    std::vector<std::string> kCols;
+    const std::string& Get(size_t i) const { static std::string e; return i<kCols.size()?kCols[i]:e; }
+    int    GetInt   (size_t i) const { return atoi(Get(i).c_str()); }
+    uint32 GetU32   (size_t i) const { return (uint32)strtoul(Get(i).c_str(), NULL, 10); }
+};
+
+class Database {
+public:
+    Database();
+    ~Database();
+    bool Connect(const std::string& rConnStr);
+    void Disconnect();
+    bool Exec(const std::string& rSql);                                   // INSERT/UPDATE/DELETE/EXEC
+    bool Query(const std::string& rSql, std::vector<DBRecord>& rOut);     // SELECT
+    bool IsConnected() const { return m_hDbc != SQL_NULL_HDBC; }
+private:
+    SQLHENV m_hEnv;
+    SQLHDBC m_hDbc;
+    CRITICAL_SECTION m_kCs;
+};
+
+} // namespace fiesta
+#endif

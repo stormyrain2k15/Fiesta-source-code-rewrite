@@ -1,0 +1,351 @@
+side,file,category
+server,AbState.shn,Skill / Battle / Roe; Character / Stats / Class
+server,AbStateSaveTypeInfo.shn,Skill / Battle / Roe; Character / Stats / Class; Database / SQL / Logging
+server,AccUpGradeInfo.shn,Item / Inventory
+server,AccUpgrade.shn,Item / Inventory
+server,ActionEffectAbState.shn,Skill / Battle / Roe; Character / Stats / Class
+server,ActionEffectItem.shn,Item / Inventory
+server,ActionRangeFactor.shn,Unclassified / shared / STL / helper
+server,ActionViewInfo.shn,Unclassified / shared / STL / helper
+server,ActiveSkill.shn,Skill / Battle / Roe
+server,ActiveSkillGroup.shn,Skill / Battle / Roe
+server,ActiveSkillInfoServer.shn,Skill / Battle / Roe
+server,AdminLvSet.shn,GM / Admin / Optool / Prison
+server,AnnounceData.shn,Unclassified / shared / STL / helper
+server,AreaSkill.shn,Skill / Battle / Roe
+server,AttendReward.shn,Unclassified / shared / STL / helper
+server,AttendSchedule.shn,Unclassified / shared / STL / helper
+server,BMP.shn,Unclassified / shared / STL / helper
+server,BRAccUpgrade.shn,Item / Inventory
+server,BRAccUpgradeInfo.shn,Item / Inventory
+server,BadNameFilter.shn,Security / Filters / Anti-spam
+server,BelongDice.shn,Item / Inventory
+server,BelongTypeInfo.shn,Item / Inventory
+server,CharacterTitleData.shn,Character / Stats / Class
+server,CharacterTitleStateServer.shn,Character / Stats / Class
+server,ChargedDeletableBuff.shn,Character / Stats / Class
+server,ChargedEffect.shn,Character / Stats / Class
+server,ChatColor.shn,Unclassified / shared / STL / helper
+server,ClassName.shn,Character / Stats / Class
+server,CollectCard.shn,Card Collection
+server,CollectCardDropRate.shn,Card Collection
+server,CollectCardGroupDesc.shn,Card Collection
+server,CollectCardMobGroup.shn,Card Collection; Mob / AI / Spawn
+server,CollectCardReward.shn,Card Collection
+server,CollectCardStarRate.shn,Card Collection
+server,CollectCardTitle.shn,Card Collection; Character / Stats / Class
+server,ColorInfo.shn,Unclassified / shared / STL / helper
+server,DamageLvGapEVP.shn,Skill / Battle / Roe
+server,DamageLvGapPVE.shn,Skill / Battle / Roe
+server,DamageLvGapPVP.shn,Skill / Battle / Roe
+server,DiceDividind.shn,Unclassified / shared / STL / helper
+server,DiceGame.shn,Unclassified / shared / STL / helper
+server,DiceRate.shn,Unclassified / shared / STL / helper
+server,EnchantSocketRate.shn,Network / Protocol / IOCP
+server,ErrorCodeTable.shn,Unclassified / shared / STL / helper
+server,FaceInfo.shn,Unclassified / shared / STL / helper
+server,FieldLvCondition.shn,Map / Field / Movement
+server,FriendPointReward.shn,Master Apprentice / Social
+server,GBBanTime.shn,Unclassified / shared / STL / helper
+server,GBDiceDividind.shn,Gamble / Slot Machine
+server,GBDiceGame.shn,Gamble / Slot Machine
+server,GBDiceRate.shn,Gamble / Slot Machine
+server,GBEventCode.shn,Unclassified / shared / STL / helper
+server,GBExchangeMaxCoin.shn,Unclassified / shared / STL / helper
+server,GBHouse.shn,Unclassified / shared / STL / helper
+server,GBJoinGameMember.shn,Unclassified / shared / STL / helper
+server,GBReward.shn,Unclassified / shared / STL / helper
+server,GBSMAll.shn,Gamble / Slot Machine
+server,GBSMBetCoin.shn,Gamble / Slot Machine
+server,GBSMCardRate.shn,Gamble / Slot Machine
+server,GBSMCenter.shn,Gamble / Slot Machine
+server,GBSMGroup.shn,Gamble / Slot Machine
+server,GBSMJPRate.shn,Gamble / Slot Machine
+server,GBSMLine.shn,Gamble / Slot Machine
+server,GBSMNPC.shn,Gamble / Slot Machine; NPC / Dialog / Shops
+server,GBTaxRate.shn,Unclassified / shared / STL / helper
+server,GTIBreedSubject.shn,Unclassified / shared / STL / helper
+server,GTIGetRate.shn,Unclassified / shared / STL / helper
+server,GTIGetRateGap.shn,Unclassified / shared / STL / helper
+server,GTIServer.shn,Unclassified / shared / STL / helper
+server,GTWinScore.shn,Unclassified / shared / STL / helper
+server,Gather.shn,Gather / Produce
+server,GradeItemOption.shn,Item / Inventory
+server,GroupAbState.shn,Skill / Battle / Roe; Character / Stats / Class
+server,GuildAcademy.shn,Guild / Academy / Tournament
+server,GuildAcademyLevelUp.shn,Character / Stats / Class; Guild / Academy / Tournament
+server,GuildAcademyRank.shn,Guild / Academy / Tournament
+server,GuildGradeData.shn,Guild / Academy / Tournament
+server,GuildGradeScoreData.shn,Guild / Academy / Tournament
+server,GuildLevelScoreData.shn,Character / Stats / Class; Guild / Academy / Tournament
+server,GuildTournament.shn,Guild / Academy / Tournament
+server,GuildTournamentLvGap.shn,Guild / Academy / Tournament
+server,GuildTournamentMasterBuff.shn,Guild / Academy / Tournament; Master Apprentice / Social
+server,GuildTournamentOccupy.shn,Guild / Academy / Tournament
+server,GuildTournamentRequire.shn,Guild / Academy / Tournament
+server,GuildTournamentReward.shn,Guild / Academy / Tournament
+server,GuildTournamentScore.shn,Guild / Academy / Tournament
+server,GuildTournamentSkill.shn,Skill / Battle / Roe; Guild / Academy / Tournament
+server,HairColorInfo.shn,Mob / AI / Spawn
+server,HairInfo.shn,Mob / AI / Spawn
+server,HolyPromiseReward.shn,Wedding / HolyPromise
+server,ItemAction.shn,Item / Inventory
+server,ItemActionCondition.shn,Item / Inventory
+server,ItemActionEffect.shn,Item / Inventory
+server,ItemDismantle.shn,Item / Inventory
+server,ItemDropLog.shn,Item / Inventory; Database / SQL / Logging
+server,ItemInfo.shn,Item / Inventory
+server,ItemInfoServer.shn,Item / Inventory
+server,ItemInvenDel.shn,Item / Inventory
+server,ItemMerchantInfo.shn,Item / Inventory; NPC / Dialog / Shops
+server,ItemMix.shn,Item / Inventory
+server,ItemMoney.shn,Item / Inventory
+server,ItemOptions.shn,Item / Inventory
+server,ItemPackage.shn,Item / Inventory
+server,ItemServerEquipTypeInfo.shn,Item / Inventory
+server,ItemShop.shn,Item / Inventory
+server,ItemSort.shn,Item / Inventory
+server,ItemUpgrade.shn,Item / Inventory
+server,ItemUseEffect.shn,Item / Inventory
+server,JobEquipInfo.shn,Item / Inventory
+server,KQIsVote.shn,Lua / Instance / KQ
+server,KQItem.shn,Item / Inventory; Lua / Instance / KQ
+server,KQTeam.shn,Lua / Instance / KQ
+server,KQVoteMajorityRate.shn,Lua / Instance / KQ
+server,KingdomQuest.shn,Quest / PineScript / Scenario; Lua / Instance / KQ
+server,KingdomQuestMap.shn,Map / Field / Movement; Quest / PineScript / Scenario; Lua / Instance / KQ
+server,KingdomQuestRew.shn,Quest / PineScript / Scenario; Lua / Instance / KQ
+server,LCGroupRate.shn,Unclassified / shared / STL / helper
+server,LCReward.shn,Unclassified / shared / STL / helper
+server,MapBuff.shn,Map / Field / Movement
+server,MapInfo.shn,Map / Field / Movement
+server,MapLinkPoint.shn,Map / Field / Movement
+server,MapWayPoint.shn,Map / Field / Movement
+server,MarketSearchInfo.shn,Auction / Market
+server,MiniHouse.shn,Pet / Minimon / MiniHouse / Mover
+server,MiniHouseDummy.shn,Pet / Minimon / MiniHouse / Mover
+server,MiniHouseEndure.shn,Pet / Minimon / MiniHouse / Mover
+server,MiniHouseFurniture.shn,Pet / Minimon / MiniHouse / Mover
+server,MiniHouseFurnitureObjEffect.shn,Pet / Minimon / MiniHouse / Mover
+server,MiniHouseObjAni.shn,Pet / Minimon / MiniHouse / Mover
+server,MinimonAutoUseItem.shn,Item / Inventory; Pet / Minimon / MiniHouse / Mover
+server,MinimonInfo.shn,Pet / Minimon / MiniHouse / Mover
+server,MobAbStateDropSetting.shn,Skill / Battle / Roe; Mob / AI / Spawn; Character / Stats / Class
+server,MobAutoAction.shn,Mob / AI / Spawn
+server,MobConditionServer.shn,Mob / AI / Spawn
+server,MobInfo.shn,Mob / AI / Spawn
+server,MobInfoServer.shn,Mob / AI / Spawn
+server,MobKillAble.shn,Mob / AI / Spawn
+server,MobKillAnnounce.shn,Mob / AI / Spawn
+server,MobKillLog.shn,Mob / AI / Spawn; Database / SQL / Logging
+server,MobLifeTime.shn,Mob / AI / Spawn
+server,MobNoFadeIn.shn,Mob / AI / Spawn
+server,MobRegenAni.shn,Mob / AI / Spawn
+server,MobResist.shn,Mob / AI / Spawn
+server,MobSpecies.shn,Mob / AI / Spawn
+server,MobWeapon.shn,Mob / AI / Spawn
+server,MoverAbility.shn,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+server,MoverHG.shn,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+server,MoverItem.shn,Item / Inventory; Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+server,MoverMain.shn,Mob / AI / Spawn; Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+server,MoverUpgradeEffect.shn,Item / Inventory; Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+server,MoverUseSkill.shn,Skill / Battle / Roe; Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+server,MsgWorldManager.shn,Network / Protocol / IOCP
+server,MultiHitType.shn,Skill / Battle / Roe
+server,MysteryVaultServer.shn,Unclassified / shared / STL / helper
+server,NpcSchedule.shn,NPC / Dialog / Shops
+server,PSkillSetAbstate.shn,Skill / Battle / Roe; Character / Stats / Class
+server,PartyBonusByLvDiff.shn,Party / Raid / Party Finder
+server,PartyBonusByMember.shn,Party / Raid / Party Finder
+server,PartyBonusLimit.shn,Party / Raid / Party Finder
+server,PassiveSkill.shn,Skill / Battle / Roe
+server,Produce.shn,Gather / Produce
+server,PupCase.shn,Unclassified / shared / STL / helper
+server,PupCaseDesc.shn,Unclassified / shared / STL / helper
+server,PupFactorCondition.shn,Unclassified / shared / STL / helper
+server,PupMain.shn,Mob / AI / Spawn
+server,PupMind.shn,Unclassified / shared / STL / helper
+server,PupPriority.shn,Unclassified / shared / STL / helper
+server,PupServer.shn,Unclassified / shared / STL / helper
+server,QuestData.shn,Quest / PineScript / Scenario
+server,QuestDialog.shn,NPC / Dialog / Shops; Quest / PineScript / Scenario; Database / SQL / Logging
+server,QuestScript.shn,Quest / PineScript / Scenario
+server,QuestSpecies.shn,Quest / PineScript / Scenario
+server,RaceNameInfo.shn,Unclassified / shared / STL / helper
+server,RandomOption.shn,Item / Inventory
+server,RandomOptionCount.shn,Item / Inventory
+server,RareMoverEachRate.shn,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+server,RareMoverRate.shn,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+server,RareMoverSubRate.shn,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+server,ReactionType.shn,Unclassified / shared / STL / helper
+server,Riding.shn,Pet / Minimon / MiniHouse / Mover
+server,SetEffect.shn,Unclassified / shared / STL / helper
+server,SetItem.shn,Item / Inventory
+server,SetItemEffect.shn,Item / Inventory
+server,ShineReward.shn,Unclassified / shared / STL / helper
+server,SingleData.shn,Unclassified / shared / STL / helper
+server,SpamerPenalty.shn,Security / Filters / Anti-spam
+server,SpamerPenaltyRule.shn,Security / Filters / Anti-spam
+server,SpamerReport.shn,Security / Filters / Anti-spam
+server,StateField.shn,Map / Field / Movement; Character / Stats / Class
+server,StateItem.shn,Item / Inventory; Character / Stats / Class
+server,StateMob.shn,Mob / AI / Spawn; Character / Stats / Class
+server,SubAbState.shn,Skill / Battle / Roe; Character / Stats / Class
+server,TermExtendMatch.shn,Unclassified / shared / STL / helper
+server,ToggleSkill.shn,Skill / Battle / Roe
+server,TownPortal.shn,Map / Field / Movement
+server,UpgradeInfo.shn,Item / Inventory
+server,UseClassTypeInfo.shn,Character / Stats / Class
+server,WeaponAttrib.shn,Unclassified / shared / STL / helper
+server,WeaponTitleData.shn,Character / Stats / Class
+server,View/AbStateView.shn,Skill / Battle / Roe; Character / Stats / Class
+server,View/ActionViewInfo.shn,Unclassified / shared / STL / helper
+server,View/ActiveSkillView.shn,Skill / Battle / Roe
+server,View/CharacterTitleStateView.shn,Character / Stats / Class
+server,View/CollectCardView.shn,Card Collection
+server,View/EffectViewInfo.shn,Unclassified / shared / STL / helper
+server,View/GTIView.shn,Unclassified / shared / STL / helper
+server,View/ItemShopView.shn,Item / Inventory
+server,View/ItemViewDummy.shn,Item / Inventory
+server,View/ItemViewEquipTypeInfo.shn,Item / Inventory
+server,View/ItemViewInfo.shn,Item / Inventory
+server,View/MapViewInfo.shn,Map / Field / Movement
+server,View/MobConditionView.shn,Mob / AI / Spawn
+server,View/MobViewInfo.shn,Mob / AI / Spawn
+server,View/MoverSlotView.shn,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+server,View/MoverView.shn,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+server,View/NPCViewInfo.shn,NPC / Dialog / Shops
+server,View/PassiveSkillView.shn,Skill / Battle / Roe
+server,View/ProduceView.shn,Gather / Produce
+server,View/PupView.shn,Unclassified / shared / STL / helper
+server,View/SetItemView.shn,Item / Inventory
+client,AbState.shn,Skill / Battle / Roe; Character / Stats / Class
+client,AbStateMsg.shn,Skill / Battle / Roe; Character / Stats / Class
+client,AbStateView.shn,Skill / Battle / Roe; Character / Stats / Class
+client,ActionEffectInfo.shn,Unclassified / shared / STL / helper
+client,ActionEffectItem.shn,Item / Inventory
+client,ActionViewInfo.shn,Unclassified / shared / STL / helper
+client,ActiveSkill.shn,Skill / Battle / Roe
+client,ActiveSkillGroup.shn,Skill / Battle / Roe
+client,ActiveSkillView.shn,Skill / Battle / Roe
+client,AttendReward.shn,Unclassified / shared / STL / helper
+client,BRAccUpgradeInfo.shn,Item / Inventory
+client,BadNameFilter.shn,Security / Filters / Anti-spam
+client,BasicInfoFind.shn,Unclassified / shared / STL / helper
+client,BasicInfoFindUI.shn,Unclassified / shared / STL / helper
+client,BasicInfoFindWord.shn,Unclassified / shared / STL / helper
+client,BasicInfoHelp.shn,Unclassified / shared / STL / helper
+client,BasicInfoLink.shn,Map / Field / Movement
+client,BasicInfoTip.shn,Unclassified / shared / STL / helper
+client,BasicInfoTipCycle.shn,Unclassified / shared / STL / helper
+client,BasicInfoTitle.shn,Character / Stats / Class
+client,BelongTypeInfo.shn,Item / Inventory
+client,CharacterTitleData.shn,Character / Stats / Class
+client,CharacterTitleStateView.shn,Character / Stats / Class
+client,ChargedDeletableBuff.shn,Character / Stats / Class
+client,ChargedEffect.shn,Character / Stats / Class
+client,ChargedIconItem.shn,Item / Inventory; Character / Stats / Class
+client,ChargedMessageItem.shn,Item / Inventory; Character / Stats / Class
+client,ChatColor.shn,Unclassified / shared / STL / helper
+client,ChrBasicEquip.shn,Item / Inventory
+client,ChrCreateEquip.shn,Item / Inventory
+client,ClassName.shn,Character / Stats / Class
+client,CollectCard.shn,Card Collection
+client,CollectCardGroupDesc.shn,Card Collection
+client,CollectCardReward.shn,Card Collection
+client,CollectCardTitle.shn,Card Collection; Character / Stats / Class
+client,CollectCardView.shn,Card Collection
+client,ColorInfo.shn,Unclassified / shared / STL / helper
+client,DamageEffect.shn,Skill / Battle / Roe
+client,DamageSoundInfo.shn,Skill / Battle / Roe
+client,DiceDividind.shn,Unclassified / shared / STL / helper
+client,EffectViewInfo.shn,Unclassified / shared / STL / helper
+client,FaceCutMsg.shn,Unclassified / shared / STL / helper
+client,FaceInfo.shn,Unclassified / shared / STL / helper
+client,FontSet.shn,Unclassified / shared / STL / helper
+client,GBDiceDividind.shn,Gamble / Slot Machine
+client,GBHouse.shn,Unclassified / shared / STL / helper
+client,GTIView.shn,Unclassified / shared / STL / helper
+client,Gather.shn,Gather / Produce
+client,GradeItemOption.shn,Item / Inventory
+client,GuildTournamentRequire.shn,Guild / Academy / Tournament
+client,GuildTournamentSkill.shn,Skill / Battle / Roe; Guild / Academy / Tournament
+client,GuildTournamentSkillDesc.shn,Skill / Battle / Roe; Guild / Academy / Tournament
+client,HairColorInfo.shn,Mob / AI / Spawn
+client,HairInfo.shn,Mob / AI / Spawn
+client,ItemAction.shn,Item / Inventory
+client,ItemActionCondition.shn,Item / Inventory
+client,ItemActionEffect.shn,Item / Inventory
+client,ItemActionEffectDesc.shn,Item / Inventory
+client,ItemDismantle.shn,Item / Inventory
+client,ItemInfo.shn,Item / Inventory
+client,ItemMix.shn,Item / Inventory
+client,ItemMoney.shn,Item / Inventory
+client,ItemShopView.shn,Item / Inventory
+client,ItemViewDummy.shn,Item / Inventory
+client,ItemViewEquipTypeInfo.shn,Item / Inventory
+client,ItemViewInfo.shn,Item / Inventory
+client,KQIsVote.shn,Lua / Instance / KQ
+client,KQTeam.shn,Lua / Instance / KQ
+client,KQVoteDesc.shn,Lua / Instance / KQ
+client,KQVoteMajorityRate.shn,Lua / Instance / KQ
+client,KingdomQuestDesc.shn,Quest / PineScript / Scenario; Lua / Instance / KQ
+client,MHEmotion.shn,Unclassified / shared / STL / helper
+client,MapInfo.shn,Map / Field / Movement
+client,MapLinkPoint.shn,Map / Field / Movement
+client,MapViewInfo.shn,Map / Field / Movement
+client,MapWayPoint.shn,Map / Field / Movement
+client,MarketSearchInfo.shn,Auction / Market
+client,MiniHouse.shn,Pet / Minimon / MiniHouse / Mover
+client,MiniHouseEndure.shn,Pet / Minimon / MiniHouse / Mover
+client,MiniHouseFurniture.shn,Pet / Minimon / MiniHouse / Mover
+client,MiniHouseFurnitureObjEffect.shn,Pet / Minimon / MiniHouse / Mover
+client,MiniHouseObjAni.shn,Pet / Minimon / MiniHouse / Mover
+client,MinimonAutoUseItem.shn,Item / Inventory; Pet / Minimon / MiniHouse / Mover
+client,MinimonInfo.shn,Pet / Minimon / MiniHouse / Mover
+client,MobConditionView.shn,Mob / AI / Spawn
+client,MobCoordinate.shn,Mob / AI / Spawn
+client,MobInfo.shn,Mob / AI / Spawn
+client,MobKillAnnounceText.shn,Mob / AI / Spawn
+client,MobNoFadeIn.shn,Mob / AI / Spawn
+client,MobRandomIdleAni.shn,Mob / AI / Spawn; Lua / Instance / KQ
+client,MobViewInfo.shn,Mob / AI / Spawn
+client,MoverAbility.shn,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+client,MoverHG.shn,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+client,MoverItem.shn,Item / Inventory; Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+client,MoverMain.shn,Mob / AI / Spawn; Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+client,MoverSlotCharAni.shn,Map / Field / Movement; Character / Stats / Class; Pet / Minimon / MiniHouse / Mover
+client,MoverSlotView.shn,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+client,MoverUpgradeEffect.shn,Item / Inventory; Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+client,MoverUseSkill.shn,Skill / Battle / Roe; Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+client,MoverView.shn,Map / Field / Movement; Pet / Minimon / MiniHouse / Mover
+client,NPCViewInfo.shn,NPC / Dialog / Shops
+client,NpcDialogData.shn,NPC / Dialog / Shops; Database / SQL / Logging
+client,PassiveSkill.shn,Skill / Battle / Roe
+client,PassiveSkillView.shn,Skill / Battle / Roe
+client,Produce.shn,Gather / Produce
+client,ProduceView.shn,Gather / Produce
+client,PupMain.shn,Mob / AI / Spawn
+client,PupView.shn,Unclassified / shared / STL / helper
+client,QuestData.shn,Quest / PineScript / Scenario
+client,QuestDialog.shn,NPC / Dialog / Shops; Quest / PineScript / Scenario; Database / SQL / Logging
+client,RaceNameInfo.shn,Unclassified / shared / STL / helper
+client,Riding.shn,Pet / Minimon / MiniHouse / Mover
+client,ScriptMsg.shn,Unclassified / shared / STL / helper
+client,SetEffect.shn,Unclassified / shared / STL / helper
+client,SetItemName.shn,Item / Inventory
+client,SingleData.shn,Unclassified / shared / STL / helper
+client,SlanderFilter.shn,Unclassified / shared / STL / helper
+client,SubAbState.shn,Skill / Battle / Roe; Character / Stats / Class
+client,TermExtendMatch.shn,Unclassified / shared / STL / helper
+client,TermExtendMatchGroupDesc.shn,Unclassified / shared / STL / helper
+client,TextData.shn,Unclassified / shared / STL / helper
+client,TextData2.shn,Unclassified / shared / STL / helper
+client,TextData3.shn,Unclassified / shared / STL / helper
+client,TownPortal.shn,Map / Field / Movement
+client,UpEffect.shn,Unclassified / shared / STL / helper
+client,UpgradeInfo.shn,Item / Inventory
+client,UseClassTypeInfo.shn,Character / Stats / Class
+client,WeaponAttrib.shn,Unclassified / shared / STL / helper
+client,WeaponTitleData.shn,Character / Stats / Class
+client,WorldMapAvatarInfo.shn,Map / Field / Movement
