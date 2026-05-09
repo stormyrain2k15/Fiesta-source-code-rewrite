@@ -36,6 +36,16 @@ public:
     bool ColumnIndex(const std::string& rTable, const std::string& rColumn,
                      uint32& uiOut) const;
 
+    // Tooling guard: returns true if the SHN logical name (file stem,
+    // case-insensitive) is a quest/scenario file. Generic CSV exporters,
+    // audit parsers, and SchemaGen MUST consult this before touching the
+    // file -- quest/PineScript SHNs use a dedicated on-disk shape and
+    // must not be parsed by the generic ShnFile loader. The runtime
+    // server still LOADS them via EnumerateShn, but they're tagged as
+    // "quest deferred" placeholders for the dedicated quest loader to
+    // pick up.
+    static bool IsQuestShn(const std::string& rStem);
+
     // Iteration helper used by typed group accessors that want to bulk-scan.
     typedef std::map<std::string, ShnFile*>::const_iterator iterator;
     iterator begin() const { return m_kAll.begin(); }

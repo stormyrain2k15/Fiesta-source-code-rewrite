@@ -70,6 +70,16 @@ public:
     // Convenience: render rows as vectors of strings (column index aligned).
     void ExportAsStringRows(std::vector<std::vector<std::string> >& rOut) const;
 
+    // Quest/scenario SHNs use a dedicated on-disk shape. EnumerateShn
+    // tags them at boot via this entry point so the dedicated quest
+    // loader (Server/DataReader/QuestShnReader.{h,cpp} / consumed by
+    // Server/Zone/QuestSystem) can pick the file up later. A quest-
+    // deferred ShnFile carries no rows or columns; calling code must
+    // check IsQuestDeferred() before treating it as a generic table.
+    void               MarkAsQuestDeferred(const std::string& rPath);
+    bool               IsQuestDeferred()  const { return m_bQuestDeferred; }
+    const std::string& QuestDeferredPath() const { return m_kQuestPath; }
+
     // Symmetric XOR-rolling crypt (encrypt and decrypt are the same operation).
     static void Crypt(uint8* p, size_t n);
 
@@ -81,6 +91,8 @@ private:
     uint32                                      m_uiDefaultRecLen;
     std::vector<ShnColumn>                      m_kColumns;
     std::vector<std::vector<ShnValue> >         m_kRows;
+    bool                                        m_bQuestDeferred;
+    std::string                                 m_kQuestPath;
 };
 
 } // namespace fiesta

@@ -32,6 +32,7 @@
 #include "MobSpawnSystem.h"
 #include "MobAIRunner.h"
 #include "../DataReader/ShnRegistry.h"
+#include "../DataReader/QuestShnReader.h"
 #include "../DataReader/TableScriptFile.h"
 #include "../../Lua/LuaRuntime.h"
 
@@ -60,7 +61,11 @@ public:
         RegisterAllSchemaTabs();
         DataBox::Get().LoadAll(m_kReader);
         // Universal SHN ingest -- loads every *.shn under Data\Shine[-1].
+        // Quest/scenario SHNs are tagged as "deferred" placeholders here
+        // and picked up by QuestShnReader::LoadAllDeferred() below; they
+        // use a dedicated parser instead of the generic ShnFile loader.
         ShnRegistry::Get().LoadAll(dataRoot);
+        QuestShnReader::Get().LoadAllDeferred();
         // Build typed group accessors (Item/Mob/Skill/Map/AbState/...).
         BindAllGroupTables();
         BindAllMiscTables();

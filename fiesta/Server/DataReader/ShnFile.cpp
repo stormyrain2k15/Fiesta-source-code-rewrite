@@ -6,8 +6,17 @@
 
 namespace fiesta {
 
-ShnFile::ShnFile() : m_uiHeader(0), m_uiDefaultRecLen(0) {
+ShnFile::ShnFile() : m_uiHeader(0), m_uiDefaultRecLen(0), m_bQuestDeferred(false) {
     memset(m_aCryptHeader, 0, sizeof(m_aCryptHeader));
+}
+
+void ShnFile::MarkAsQuestDeferred(const std::string& rPath) {
+    m_bQuestDeferred  = true;
+    m_kQuestPath      = rPath;
+    m_uiHeader        = 0;
+    m_uiDefaultRecLen = 0;
+    m_kColumns.clear();
+    m_kRows.clear();
 }
 
 // Symmetric XOR cipher with a rolling key seeded from the data length and

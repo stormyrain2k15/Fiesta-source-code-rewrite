@@ -26,8 +26,14 @@ void ShnAudit_EmitReport(const ShnRegistry& rReg) {
     uint32 totalAudited = 0;
     std::map<std::string, std::set<std::string> >::const_iterator it;
     for (it = s_kAuditReads.begin(); it != s_kAuditReads.end(); ++it) {
+        // BLOCK rule: generic SHN tooling (audit, CSV export) MUST skip
+        // quest/scenario SHNs. They're loaded by the runtime via the
+        // dedicated QuestShnReader; a generic column walk would either
+        // mis-parse them or report every column as "unconsumed".
+        if (ShnRegistry::IsQuestShn(it->first)) continue;
         const ShnFile* t = rReg.GetTable(it->first);
         if (!t) continue;
+        if (t->IsQuestDeferred()) continue;        // belt + suspenders
         ++totalAudited;
         const std::vector<ShnColumn>& cols = t->Columns();
         for (size_t c = 0; c < cols.size(); ++c) {
@@ -61,18 +67,22 @@ static void EnumerateShn(const std::string& rDir, std::map<std::string, ShnFile*
         size_t dot = name.rfind('.');
         if (dot == std::string::npos) continue;
         std::string stem = name.substr(0, dot);
-        // Protected-quest guard. Quest/PineScript SHNs are not parsable
-        // by the generic loader (they use a different on-disk shape
-        // and contain encrypted scripted content). Skip them at the
-        // enumeration boundary so a corrupt parse can never poison the
-        // registry. A safe quest-specific reader is on the future
-        // backlog.
-        std::string lower = stem;
-        for (size_t i = 0; i < lower.size(); ++i)
-            lower[i] = (char)::tolower((unsigned char)lower[i]);
-        if (lower.find("quest") != std::string::npos ||
-            lower.find("pinescript") != std::string::npos) {
-            SHINELOG_INFO("ShnRegistry: skipping protected SHN '%s'", name.c_str());
+        // Quest / PineScript SHNs need a dedicated parser (separate
+        // on-disk shape, scripted bodies). The runtime server LOADS them
+        // -- quests must work end-to-end -- but they do not go through
+        // the generic ShnFile parser; instead we tag them and hand the
+        // caller a placeholder so a typed quest loader can pick up the
+        // file later in boot. Generic CSV exporters / audit tools call
+        // `ShnRegistry::IsQuestShn(stem)` to filter them out without
+        // touching the file at all.
+        if (ShnRegistry::IsQuestShn(stem)) {
+            SHINELOG_INFO("ShnRegistry: registering quest/scenario SHN '%s' "
+                          "(deferred to quest loader)", name.c_str());
+            ShnFile* placeholder = new ShnFile();
+            placeholder->MarkAsQuestDeferred(rDir + "\\" + name);
+            std::map<std::string, ShnFile*>::iterator it = rOut.find(stem);
+            if (it != rOut.end()) { delete it->second; rOut.erase(it); }
+            rOut[stem] = placeholder;
             continue;
         }
         ShnFile* f = new ShnFile();
@@ -87,6 +97,14 @@ static void EnumerateShn(const std::string& rDir, std::map<std::string, ShnFile*
         rOut[stem] = f;
     } while (FindNextFileA(h, &fd));
     FindClose(h);
+}
+
+bool ShnRegistry::IsQuestShn(const std::string& rStem) {
+    std::string lower = rStem;
+    for (size_t i = 0; i < lower.size(); ++i)
+        lower[i] = (char)::tolower((unsigned char)lower[i]);
+    return lower.find("quest") != std::string::npos
+        || lower.find("pinescript") != std::string::npos;
 }
 
 size_t ShnRegistry::LoadAll(const std::string& rRoot) {

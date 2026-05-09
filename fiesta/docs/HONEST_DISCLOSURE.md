@@ -26,7 +26,16 @@ Hard compile/link blockers reported and resolved in the same response:
 
 Bonus fixes from the audit's broader observations:
 
-* **Protected-quest SHN guard** -- `ShnRegistry::EnumerateShn` now skips files whose stem (case-insensitive) contains `quest` or `pinescript`, with an INFO log line per skip. Prevents the generic loader from poisoning the registry with quest data it can't parse.
+* **Quest SHN policy correction** -- the initial response added a blanket guard that skipped quest/PineScript SHNs at the registry level. The user clarified the intended split:
+  * **Generic SHN tooling / CSV exporter / audit parser**: BLOCK `Quest*.shn` and `PineScript*.shn` (these tools mis-parse or false-flag the dedicated on-disk shape).
+  * **Runtime server data loader**: ALLOW `Quest*.shn`, but route them through the dedicated quest/scenario loader (`Server/DataReader/QuestShnReader`).
+
+  Implementation:
+  * `ShnRegistry::IsQuestShn(stem)` -- public predicate any tool can call to decide whether to touch a file.
+  * `ShnFile::MarkAsQuestDeferred(path)` / `IsQuestDeferred()` / `QuestDeferredPath()` -- runtime tag set at boot in `EnumerateShn`. The placeholder carries no rows or columns; generic getters fail silently for it.
+  * `QuestShnReader::LoadAllDeferred()` -- runs after `ShnRegistry::LoadAll` in `Server/Zone/Main.cpp`; walks the registry, picks every quest-deferred placeholder, dispatches to a per-file specialization (QuestData / QuestDialog / QuestSpecies / QuestEvent / QuestFramework / PineScript). Specializations slurp the bytes; column extraction fills in as each on-disk shape is RE'd.
+  * `ShnAudit_EmitReport` -- explicitly skips quest SHNs (BLOCK rule applied to the audit parser).
+  * `Server/DataReader/ShnCsvExporter` -- new generic CSV exporter, skips quest SHNs by the same rule.
 
 Functional gaps from the audit (sections "Critical functional gaps" and
 "Runtime robustness issues" of `fiesta_static_code_audit_report.md`)
