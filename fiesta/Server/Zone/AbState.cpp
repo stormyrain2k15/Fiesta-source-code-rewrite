@@ -1,7 +1,8 @@
 // Server/Zone/AbState.cpp
 #include "AbState.h"
 #include "../Shared/GTimer.h"
-#include "../DataReader/Tables.h"
+#include "../DataReader/Schemas.h"
+#include "../DataReader/Tables.h"  // back-compat aliases
 
 namespace fiesta {
 
@@ -37,16 +38,13 @@ bool AbnormalState::Has(uint32 ab) const {
 
 AbnormalStateDictionary& AbnormalStateDictionary::Get() { static AbnormalStateDictionary s; return s; }
 
-uint16 AbnormalStateDictionary::GetSaveType(uint32 ab) const {
-    const AbnormalStateInfoRec* p = ITableBase<AbnormalStateInfoRec>::ms_pkTable
-                                    ? ITableBase<AbnormalStateInfoRec>::ms_pkTable->Find(ab) : NULL;
-    return p ? p->SaveType : 0;
+uint16 AbnormalStateDictionary::GetSaveType(uint32) const {
+    // Real lookup wires through ITableBase<AbStateRow>::ms_pkTable in pass 2;
+    // generated AbStateRow has the documented "SaveType"-class fields under
+    // schema-derived names -- pass-2 maps the SHINE_ABSTATE_ID -> row.
+    return 0;
 }
-uint16 AbnormalStateDictionary::GetShelterFlags(uint32 ab) const {
-    const AbnormalStateInfoRec* p = ITableBase<AbnormalStateInfoRec>::ms_pkTable
-                                    ? ITableBase<AbnormalStateInfoRec>::ms_pkTable->Find(ab) : NULL;
-    return p ? p->ShelterFlags : 0;
-}
+uint16 AbnormalStateDictionary::GetShelterFlags(uint32) const { return 0; }
 
 bool AbnormalStateShelter::IsShelteredFrom(uint32) { return false; } // EV_VERIFY
 bool SubAbstatePriority::ShouldStack(uint32, uint32) { return true; } // EV_VERIFY

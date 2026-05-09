@@ -7,7 +7,7 @@
 #include "../Shared/Socket_Acceptor.h"
 #include "../DataReader/DataReader.h"
 #include "../DataReader/DataBox.h"
-#include "../DataReader/Tables.h"
+#include "../DataReader/Schemas.h"
 #include "ZoneServer.h"
 #include "InstanceDungeon.h"
 #include "KingdomQuest.h"
@@ -26,12 +26,8 @@ public:
     virtual bool OnStart() {
         m_kInfo.Load("ZoneServerInfo.txt");
         m_kReader.SetRoot(m_kInfo.GetString("Data.Root", "Data"));
-        // Register every *Tab in DataBox.
-        DataBox::Get().Register(&g_ItemInfoTab);
-        DataBox::Get().Register(&g_AbStateInfoTab);
-        DataBox::Get().Register(&g_ActSkillInfoTab);
-        DataBox::Get().Register(&g_KQTeamTable);
-        DataBox::Get().Register(&g_ChargedEffectTable);
+        // Register every documented *Tab in DataBox (20 headline schemas).
+        RegisterAllSchemaTabs();
         DataBox::Get().LoadAll(m_kReader);
 
         ZoneServer::Get().Init(m_kInfo.GetU16("Zone.Id", 0));

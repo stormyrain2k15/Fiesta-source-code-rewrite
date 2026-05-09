@@ -1,8 +1,13 @@
 // Lua/LuaRuntime.cpp
 #include "LuaRuntime.h"
+#include "LuaAPI_Generated.h"
 #include "../Server/Shared/ShineLogSystem.h"
 
 namespace fiesta {
+
+// Forward decl from LuaEnums_Generated.cpp
+void RegisterLuaEnums(lua_State* L);
+
 
 LuaRuntime::LuaRuntime() : m_pkL(NULL) {}
 LuaRuntime::~LuaRuntime() { Close(); }

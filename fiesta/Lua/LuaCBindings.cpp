@@ -57,8 +57,16 @@ static int Lua_cFinishKey(lua_State* L) {
     return 0;
 }
 
+// Forward decls from generated files (registers all 272 documented APIs and 11 enum tables).
+void RegisterAllLuaAPIs(lua_State* L);
+void RegisterLuaEnums  (lua_State* L);
+
 void LuaRuntime::RegisterCBindings() {
     if (!m_pkL) return;
+    // First install the full documented surface (272 stubs).
+    RegisterAllLuaAPIs(m_pkL);
+    RegisterLuaEnums  (m_pkL);
+    // Then override the 5 with real implementations (lua_register replaces).
     lua_register(m_pkL, "cDamaged",      &Lua_cDamaged);
     lua_register(m_pkL, "cStaticDamage", &Lua_cStaticDamage);
     lua_register(m_pkL, "cSetAbstate",   &Lua_cSetAbstate);

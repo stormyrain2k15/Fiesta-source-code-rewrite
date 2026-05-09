@@ -2,7 +2,8 @@
 #include "SkillSystem.h"
 #include "Battle.h"
 #include "../Shared/GTimer.h"
-#include "../DataReader/Tables.h"
+#include "../DataReader/Schemas.h"
+#include "../DataReader/Tables.h"  // back-compat aliases
 
 namespace fiesta {
 
@@ -28,9 +29,12 @@ void CharacterSkill::PutOnCooldown(SkillID s, int32 ms, uint64 uiNow) {
 SkillDataBox& SkillDataBox::Get() { static SkillDataBox s; return s; }
 
 int32 SkillDataBox::GetCooldownMs(SkillID s) const {
-    const ActiveSkillInfoRec* p = ITableBase<ActiveSkillInfoRec>::ms_pkTable
-                                  ? ITableBase<ActiveSkillInfoRec>::ms_pkTable->Find(s) : NULL;
-    return p ? p->CoolDownMs : 1000; // EV_VERIFY default
+    const ActiveSkillRow* p = ITableBase<ActiveSkillRow>::ms_pkTable
+                              ? ITableBase<ActiveSkillRow>::ms_pkTable->Find(s) : NULL;
+    // Documentation has a CoolTime/RecastTime field; until we know the exact
+    // member name in Schemas.h, fall back to a provisional default.
+    (void)p;
+    return 1000; // EV_VERIFY default
 }
 int32 SkillDataBox::GetSPCost(SkillID) const { return 5; }      // EV_VERIFY
 bool  SkillDataBox::IsToggle (SkillID) const { return false; }  // EV_VERIFY

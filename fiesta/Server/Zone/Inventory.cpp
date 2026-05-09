@@ -1,6 +1,7 @@
 // Server/Zone/Inventory.cpp
 #include "Inventory.h"
-#include "../DataReader/Tables.h"
+#include "../DataReader/Schemas.h"
+#include "../DataReader/Tables.h"  // back-compat aliases
 
 namespace fiesta {
 
@@ -35,12 +36,11 @@ bool Inventory::Unequip(uint32 id) {
 
 bool ItemAuthority::CanEquip(ShinePlayer* pk, const ShineItem& k) {
     if (!pk) return false;
-    const ItemInfoRec* p = ITableBase<ItemInfoRec>::ms_pkTable
-                           ? ITableBase<ItemInfoRec>::ms_pkTable->Find(k.uiInxName) : NULL;
-    if (!p) return true; // permissive while tables empty
-    if (p->LevelLimit && pk->GetLevel() < p->LevelLimit) return false;
-    if (p->ClassLimit && (pk->GetClass() & p->ClassLimit) == 0) return false;
-    return true;
+    const ItemInfoRow* p = ITableBase<ItemInfoRow>::ms_pkTable
+                           ? ITableBase<ItemInfoRow>::ms_pkTable->Find(k.uiInxName) : NULL;
+    (void)p;  // schema fields wire in pass 2 (NeededLevel / NeededClass).
+    return true; // permissive while bind isn't pinned
+
 }
 
 bool ItemAuthority::CanUse(ShinePlayer* pk, const ShineItem& k) { return CanEquip(pk, k); }

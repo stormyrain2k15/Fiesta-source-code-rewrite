@@ -3,6 +3,7 @@
 // Procedure names are the original ones from World00_Character.bak -- not invented here.
 // EVIDENCE: VERIFY -- procedure parameter shape needs the .bak schema review pass.
 #include "SQLP.h"
+#include "DBSchemaConstants.h"
 #include "../../Shared/ShineLogSystem.h"
 #include <vector>
 
@@ -10,10 +11,12 @@ namespace fiesta {
 
 bool SQLP_Account::VerifyLogin(const std::string& u, const std::string& p, AccountID& aOut) {
     if (!m_pkDb || !m_pkDb->IsConnected()) return false;
+    // Account.tUser canonical fields: nUserNo (PK), sUserID, sUserPW, bIsBlock.
+    // up_Server_Account_Login is the documented stored procedure for credential check.
     std::string sql = "{CALL up_Server_Account_Login('" + u + "','" + p + "')}";
     std::vector<DBRecord> kRows;
     if (!m_pkDb->Query(sql, kRows) || kRows.empty()) return false;
-    aOut = kRows[0].GetU32(0);
+    aOut = kRows[0].GetU32(0);   // nUserNo
     return aOut != 0;
 }
 

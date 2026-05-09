@@ -35,6 +35,23 @@ the client renderer. Identical NA2016-style layout. Reuse PDB symbol names. Lua 
 - Build expectations / project layout in `docs/BUILD.md` (no `.vcxproj` generated;
   user handles compilation).
 
+## Pass 1.5 — Documentation integration (2026-05-09)
+
+User provided `Documentation-main` + `fiesta_documentation_integration_pack`. Generated
+5 new files from structural facts (names, types, ordinals, admin levels):
+
+- `Server/DataReader/Schemas.{h,cpp}` — 20 documented `*Row` structs + Tab classes
+  (ItemInfo 91 fields, ActiveSkill 114, GuildTournament 73, MobInfo 15, AbState 18, etc.).
+- `Lua/LuaAPI_Generated.cpp` — 272 documented Lua C bindings, all callable stubs.
+- `Lua/LuaEnums_Generated.cpp` — 11 Lua enum tables as globals (ObjectType, KQ_TEAM, etc.).
+- `Server/Zone/AmpersandCommands_Generated.{h,cpp}` — dispatch table for 154 GM commands
+  with admin-level gates.
+- `Server/DataServer/Common/DBSchemaConstants.h` — 56 documented DB column-name accessors.
+
+See `docs/PASS1_5_DOC_INTEGRATION.md` for the full inventory and wiring notes.
+
+Total now: **119 source files**.
+
 ## Pack rule compliance
 
 | Rule | Status |

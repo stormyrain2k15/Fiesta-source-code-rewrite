@@ -30,7 +30,8 @@ public:
     static bool TryUse(ShinePlayer* pk, ShineItem& rItem);
 };
 class ChargedItem        { public: static void Tick(ShinePlayer* pk); };
-class ChargedItemEffectDataBox { public: static const ChargedItemEffectRec* Find(uint32 uiInxName); };
+struct ChargedEffectRow;  // declared in Schemas.h
+class ChargedItemEffectDataBox { public: static const ChargedEffectRow* Find(uint32 uiInxName); };
 class ItemMall          { public: static bool BuyById(ShinePlayer* pk, uint32 uiMallId, uint16 uiQty); };
 
 // 18 Drop / loot / belong

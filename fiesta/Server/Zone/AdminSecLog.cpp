@@ -13,10 +13,11 @@ void ShinePrison::Release(ShinePlayer* pk) {
     if (pk) TownPortal(pk, /*MapID*/ 1, Vec3(0,0,0));
 }
 void PrisonServer::Tick() {}
+// Forward decl from generated AmpersandCommands_Generated.cpp.
+bool DispatchAmpersand(ShinePlayer* pk, const std::string& rLine);
+
 bool AmpersandCommand::Execute(ShinePlayer* pk, const std::string& rLine) {
-    if (rLine.empty() || rLine[0] != '&') return false;
-    SHINELOG_INFO("AMP cmd by %s: %s", pk ? pk->GetName().c_str() : "?", rLine.c_str());
-    return true;
+    return DispatchAmpersand(pk, rLine);
 }
 uint8 AdminLvSet::GetRequiredLv(const std::string& rCmd) {
     if (rCmd == "ban" || rCmd == "kick") return 4;

@@ -2,7 +2,8 @@
 #include "ItemSystems.h"
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
-#include "../DataReader/Tables.h"
+#include "../DataReader/Schemas.h"
+#include "../DataReader/Tables.h"  // back-compat aliases
 
 namespace fiesta {
 
@@ -36,9 +37,9 @@ bool ShineItemUse::TryUse(ShinePlayer* pk, ShineItem& r) {
     return true;
 }
 void ChargedItem::Tick(ShinePlayer*) {}
-const ChargedItemEffectRec* ChargedItemEffectDataBox::Find(uint32 inx) {
-    return ITableBase<ChargedItemEffectRec>::ms_pkTable
-           ? ITableBase<ChargedItemEffectRec>::ms_pkTable->Find(inx) : NULL;
+const ChargedEffectRow* ChargedItemEffectDataBox::Find(uint32 inx) {
+    return ITableBase<ChargedEffectRow>::ms_pkTable
+           ? ITableBase<ChargedEffectRow>::ms_pkTable->Find(inx) : NULL;
 }
 bool ItemMall::BuyById(ShinePlayer* pk, uint32, uint16 qty) { return pk && qty > 0; }
 
