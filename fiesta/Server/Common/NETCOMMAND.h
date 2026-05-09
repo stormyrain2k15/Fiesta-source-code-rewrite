@@ -58,6 +58,11 @@ enum {
 enum NETCOMMAND {
     // ---- Login server (port 9010) ---------------------------------------
     NC_USER_VERSION_REQ             = 0x0C01,    // CONFIRMED -> version hello
+    // PDB_NAME_ALIAS: original NA2016 symbol is NC_USER_CLIENT_VERSION_CHECK_REQ
+    // (verified against CParserClient::fc_NC_USER_CLIENT_VERSION_CHECK_REQ
+    // in Login.pdb). Keep both names available so handlers that match
+    // PDB nomenclature link cleanly.
+    NC_USER_CLIENT_VERSION_CHECK_REQ = NC_USER_VERSION_REQ,
     NC_USER_SEED_ACK                = 0x0C03,    // CONFIRMED <- cipher seed
     NC_USER_XTRAP_REQ               = 0x0C04,    // CONFIRMED (LEGACY -- no-op ACK)
     NC_USER_XTRAP_ACK               = 0x0C05,    // CONFIRMED (LEGACY -- always 0x01)
@@ -131,6 +136,16 @@ enum NETCOMMAND {
     NC_MAP_STOP_MOVE_CMD            = NC_FAMILY_MAP + 0x50,
     NC_MAP_SITDOWN_REQ              = NC_FAMILY_MAP + 0x51,
     NC_MAP_SITDOWN_CMD              = NC_FAMILY_MAP + 0x52,
+    // PDB_NAME_ALIAS: NA2016 PDB symbol inventory uses NC_ACT_MOVE*_CMD
+    // for the client->server move opcodes; NC_MAP_MOVE_REQ above is the
+    // generic numeric slot. These aliases let code reference the
+    // PDB-original names without changing the wire numbers. Verified
+    // against ShineObjectClass::ShinePlayer::sp_NC_ACT_MOVE{RUN,WALK}_CMD
+    // and CParserClient::fc_NC_ACT_MOVE{RUN,WALK}_CMD in the Zone PDB.
+    NC_ACT_MOVERUN_CMD              = NC_MAP_MOVE_REQ,
+    NC_ACT_MOVEWALK_CMD             = NC_MAP_MOVE_CMD,
+    NC_ACT_STOP_REQ                 = NC_MAP_STOP_MOVE_REQ,
+    NC_ACT_STOP_CMD                 = NC_MAP_STOP_MOVE_CMD,
 
     // ---- Action / NPC ---------------------------------------------------
     NC_ACT_CHAT_REQ                 = NC_FAMILY_ACT + 0x05,
@@ -155,6 +170,13 @@ enum NETCOMMAND {
     NC_BAT_FREESTAT_DISTRIBUTE_ACK  = NC_FAMILY_BAT + 0x0B,
     NC_BAT_FREESTAT_RESET_REQ       = NC_FAMILY_BAT + 0x0C,
     NC_BAT_FREESTAT_RESET_ACK       = NC_FAMILY_BAT + 0x0D,
+    // PROVISIONAL_ALIAS: client-side UI tables and earlier handler code
+    // reference NC_BAT_NORMALATTACK_CMD. The NA2016 PDB symbol set uses
+    // NC_BAT_HIT_REQ as the canonical "normal attack hit" request, but
+    // both names are tolerated here so existing code links until a
+    // packet capture pins which one the live server emits.
+    NC_BAT_NORMALATTACK_CMD         = NC_BAT_ATTACK_REQ,
+    NC_BAT_HIT_REQ                  = NC_BAT_ATTACK_REQ,
 
     // ---- Skill ----------------------------------------------------------
     NC_BAT_SKILL_USE_REQ            = NC_FAMILY_SKILL + 0x01,

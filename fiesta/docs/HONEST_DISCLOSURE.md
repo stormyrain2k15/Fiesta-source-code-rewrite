@@ -10,6 +10,39 @@ chasing ghosts in a 350-file directory.
 
 ---
 
+## Audit pass log
+
+### codex pass 1 (May 2026)
+
+Hard compile/link blockers reported and resolved in the same response:
+
+| # | Issue | Resolution |
+|---|-------|------------|
+| 1 | `AIScript.cpp:5` had `extern "C" { #include ... }` on a single line (invalid preprocessing) | Split onto separate lines |
+| 2 | `RegisterZoneLuaAPI(lua_State*)` referenced but undefined | Defined in `Lua/LuaCBindings.cpp` -- routes through `RegisterAllLuaAPIs` + `RegisterLuaEnums` + the 5 real C bindings |
+| 3 | `Server/Zone/ShnDataFileCheckSum.cpp` had wrong include (`Md5/`) and wrong API (`HexOf`) | Replaced the duplicate with a thin facade that includes the canonical `DataReader/ShnDataFileCheckSum.h`. The DataReader implementation is the only emitter |
+| 4 | Several PDB-confirmed NC_* opcodes missing | Added as `// PDB_NAME_ALIAS` aliases pointing at the existing numeric slots: `NC_USER_CLIENT_VERSION_CHECK_REQ`, `NC_ACT_MOVERUN_CMD`, `NC_ACT_MOVEWALK_CMD`, `NC_ACT_STOP_REQ`, `NC_ACT_STOP_CMD`. Plus `// PROVISIONAL_ALIAS` for `NC_BAT_NORMALATTACK_CMD` and `NC_BAT_HIT_REQ` (both forms tolerated until a packet capture confirms which the live server emits). Client-side UIResourceTables typos fixed: `NC_USER_WORLD_SELECT_*` -> `NC_USER_WORLDSELECT_*`, `NC_QUEST_BEGIN_REQ` -> `NC_QUEST_START_REQ`, `NC_PARTY_REQ` -> `NC_PARTY_CREATE_REQ`, `NC_ATTEND_GET_CMD` -> `NC_CHAR_EVENT_ATTENDANCE_CHECK_CMD` (PDB-confirmed) |
+| 5 | `SQLP.cpp` used `va_list` without `<stdarg.h>` | Added `#include <stdarg.h>`. Switched to `_vsnprintf_s` under `_MSC_VER` for VS2010-safe truncation |
+
+Bonus fixes from the audit's broader observations:
+
+* **Protected-quest SHN guard** -- `ShnRegistry::EnumerateShn` now skips files whose stem (case-insensitive) contains `quest` or `pinescript`, with an INFO log line per skip. Prevents the generic loader from poisoning the registry with quest data it can't parse.
+
+Functional gaps from the audit (sections "Critical functional gaps" and
+"Runtime robustness issues" of `fiesta_static_code_audit_report.md`)
+are deferred to the runtime-debug round and tracked under sections 5
+and the existing VERIFY markers below. Specifically:
+
+* Player-only target lookup -- needs a unified `ShineObject` registry. Marked deferred.
+* Skill cooldowns are global/static (`static CharacterSkill s_kDummy`). Deferred.
+* Roe combat function-surface naming. Deferred (re-shape, don't re-tune).
+* Lua API surface mostly stubs. Deferred.
+* Login WM endpoint hardcoded to 127.0.0.1:28000. Deferred.
+* `PacketBuffer::Reserve` returns void on alloc failure. Deferred (low risk on small game-state buffers, but should be tightened).
+* `Socket_Acceptor::FlushSend_NoLock` blocking send. Deferred.
+
+---
+
 ## 1. Dead anonymous-namespace stub TUs
 
 The following 27 `.cpp` files contain a class wrapped in

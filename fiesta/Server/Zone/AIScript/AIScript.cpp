@@ -2,7 +2,11 @@
 // Per-mob Lua AI -- each mob's "AIScript" column in MobInfoServer.shn
 // names a *.lua file under Data/AI/. Multiple mobs share one lua_State
 // for memory efficiency; per-mob context is pushed as a table at call.
-extern "C" { #include "lua.h"  #include "lualib.h"  #include "lauxlib.h" }
+extern "C" {
+#include "lua.h"
+#include "lualib.h"
+#include "lauxlib.h"
+}
 #include "../../Shared/ShineTypes.h"
 #include "../../Shared/ShineLogSystem.h"
 #include <string>

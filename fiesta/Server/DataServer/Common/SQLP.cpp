@@ -11,6 +11,7 @@
 #include "DBSchemaConstants.h"
 #include "../../Shared/ShineLogSystem.h"
 #include <stdio.h>
+#include <stdarg.h>     // va_list / va_start / va_end (required on VS2010)
 
 namespace fiesta {
 
@@ -19,10 +20,17 @@ namespace fiesta {
 // ---------------------------------------------------------------------------
 namespace {
     // sprintf-style string builder bounded to 256 bytes (proc-arg buffers).
+    // VS2010 ships `vsnprintf` in <stdio.h> for C99-compat under
+    // _CRT_SECURE_NO_WARNINGS, but the secure variant `_vsnprintf_s` is
+    // preferred. Both signatures take va_list from <stdarg.h>.
     inline std::string F(const char* fmt, ...) {
         char buf[256];
         va_list ap; va_start(ap, fmt);
+#if defined(_MSC_VER)
+        _vsnprintf_s(buf, sizeof(buf), _TRUNCATE, fmt, ap);
+#else
         vsnprintf(buf, sizeof(buf), fmt, ap);
+#endif
         va_end(ap);
         buf[sizeof(buf)-1] = '\0';
         return std::string(buf);

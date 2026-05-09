@@ -2,6 +2,7 @@
 #include "ShnRegistry.h"
 #include "../Shared/ShineLogSystem.h"
 #include <windows.h>
+#include <ctype.h>
 #include <set>
 #include <string>
 
@@ -60,6 +61,20 @@ static void EnumerateShn(const std::string& rDir, std::map<std::string, ShnFile*
         size_t dot = name.rfind('.');
         if (dot == std::string::npos) continue;
         std::string stem = name.substr(0, dot);
+        // Protected-quest guard. Quest/PineScript SHNs are not parsable
+        // by the generic loader (they use a different on-disk shape
+        // and contain encrypted scripted content). Skip them at the
+        // enumeration boundary so a corrupt parse can never poison the
+        // registry. A safe quest-specific reader is on the future
+        // backlog.
+        std::string lower = stem;
+        for (size_t i = 0; i < lower.size(); ++i)
+            lower[i] = (char)::tolower((unsigned char)lower[i]);
+        if (lower.find("quest") != std::string::npos ||
+            lower.find("pinescript") != std::string::npos) {
+            SHINELOG_INFO("ShnRegistry: skipping protected SHN '%s'", name.c_str());
+            continue;
+        }
         ShnFile* f = new ShnFile();
         if (!f->LoadFromFile(rDir + "\\" + name)) {
             SHINELOG_WARN("ShnRegistry: parse failed for %s", name.c_str());

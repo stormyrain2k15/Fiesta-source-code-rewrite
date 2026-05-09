@@ -73,4 +73,27 @@ void LuaRuntime::RegisterCBindings() {
     lua_register(m_pkL, "cFinishKey",    &Lua_cFinishKey);
 }
 
+// ---------------------------------------------------------------------------
+//  RegisterZoneLuaAPI
+//
+//  Single binding entry-point used by the Zone-side script owners
+//  (AIScript, LuaScript, PineScript, instance-dungeon scripts). Routes
+//  every lua_State through the same registration path so all scripts
+//  see the same surface:
+//      1. Generated 272 API stubs   (LuaAPI.cpp)
+//      2. 11 enum tables            (LuaEnums.cpp)
+//      3. The 5 real C bindings     (this TU above)
+//  When more bindings are filled in, append them after the 5 here.
+// ---------------------------------------------------------------------------
+void RegisterZoneLuaAPI(lua_State* L) {
+    if (!L) return;
+    RegisterAllLuaAPIs(L);
+    RegisterLuaEnums  (L);
+    lua_register(L, "cDamaged",      &Lua_cDamaged);
+    lua_register(L, "cStaticDamage", &Lua_cStaticDamage);
+    lua_register(L, "cSetAbstate",   &Lua_cSetAbstate);
+    lua_register(L, "cLinkTo",       &Lua_cLinkTo);
+    lua_register(L, "cFinishKey",    &Lua_cFinishKey);
+}
+
 } // namespace fiesta
