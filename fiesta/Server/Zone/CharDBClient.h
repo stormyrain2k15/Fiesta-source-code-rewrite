@@ -89,6 +89,17 @@ public:
     void FriendDelAll    (CharID c);
     void GuildTournamentSet(uint32 uiGTNo, uint32 uiGuildNo, int32 iStatus);
 
+    // ---- AbState persistence (Lyra WIRE-16 followup) ----------------
+    //
+    //   90 = p_AbState_Set    (cid, uiAbStateId, uiRemainMs)
+    //   91 = p_AbState_GetAll (cid)               -- replies with row vector
+    //
+    // Persists abnormal-state status across logout. Generic stored-proc
+    // numbers chosen here; the CharDB exe maps them to the real proc
+    // names in `Server/DataServer/Character/Main.cpp`.
+    void AbStateSet      (CharID c, uint32 uiAbStateId, uint32 uiRemainMs);
+    void AbStateGetAll   (CharID c);
+
     // Called by CharDBClientSession when an NC_INTER_CHAR_DB_RESPONSE arrives.
     void OnLoginResponse (CharID c, bool bOK, const std::vector<std::string>& rCols);
     void OnLogoutResponse(CharID c, bool bOK);

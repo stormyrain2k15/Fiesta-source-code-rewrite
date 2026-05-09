@@ -9,15 +9,15 @@ namespace fiesta {
 
 static uint64 NowMs() { return (uint64)GTimer::NowMillis(); }
 
-// Resolve the player's class. ShinePlayer doesn't yet expose a class accessor
-// directly so we forward-declare the tiny helper inline; once the
-// `ShinePlayerCharacter` struct lands this becomes a member call.
-static eShineClass ClassOf(ShinePlayer* /*pk*/) {
-    // TODO: pull from ShinePlayerCharacter::m_eClass once that field exists.
-    // For now Fighter is a safe default that matches the per-class file
-    // shape; misclassification only changes per-stone heal/cap/price
-    // until the field is wired.
-    return SC_FIGHTER;
+// Resolve the player's class. ShinePlayer stores the class id as a
+// uint16; the eShineClass enum mirrors the SHN-documented values. Cast
+// directly; out-of-range ids fall through to SC_NONE which makes
+// ClassParamTable return zeroes (caller emits a SS_USE_NO_PARAM).
+static eShineClass ClassOf(ShinePlayer* pk) {
+    if (!pk) return SC_NONE;
+    uint16 c = pk->GetClass();
+    if (c == 0 || c >= (uint16)SC_MAX) return SC_NONE;
+    return (eShineClass)c;
 }
 
 eSoulStoneUseResult SoulStoneSystem::Use(ShinePlayer*      pkP,

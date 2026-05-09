@@ -38,6 +38,24 @@ public:
     // list of its group and arm a respawn timer.
     void   OnMobDied(Handle uiMob);
     size_t GroupCount() const { return m_kGroups.size(); }
+
+    // -------------------------------------------------------------------
+    //  Script-driven spawn entry points (PineScript / Lua bindings).
+    //  Each one resolves the species through MobTables::FindByInx and
+    //  registers the spawn in the unified ZoneServer registry. The
+    //  returned handle is suitable for cNPCVanish / cObjectHP / etc.
+    //  Spawns are NOT tracked under MobSpawnGroup, so they don't auto-
+    //  respawn; the caller (KQ / instance script) owns the lifetime.
+    // -------------------------------------------------------------------
+    Handle SpawnAt       (const std::string& rMapInx, const std::string& rMobInx,
+                          float fX, float fY);
+    Handle SpawnRectangle(const std::string& rMapInx, const std::string& rMobInx,
+                          float fX0, float fY0, float fX1, float fY1, uint32 uiCount);
+    Handle SpawnCircle   (const std::string& rMapInx, const std::string& rMobInx,
+                          float fCx, float fCy, float fRadius, uint32 uiCount);
+    // Re-runs a configured MobRegen group on demand. Safe no-op when the
+    // group name is unknown. Returns spawn count actually placed.
+    uint32 SpawnGroup    (const std::string& rMapInx, const std::string& rGroupInx);
 private:
     MobSpawnSystem() {}
     std::vector<MobSpawnGroup> m_kGroups;

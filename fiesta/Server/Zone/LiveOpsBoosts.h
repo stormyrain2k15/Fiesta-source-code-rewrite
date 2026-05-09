@@ -21,23 +21,16 @@
 #ifndef FIESTA_ZONE_LIVEOPSBOOSTS_H
 #define FIESTA_ZONE_LIVEOPSBOOSTS_H
 #include "../Shared/ShineTypes.h"
+#include "BattleTunables.h"     // kGMEvent_* well-known event ids
 #include <string>
 
 namespace fiesta {
 
-// Well-known GMEvent.shn event ids handled specially. Anything outside
-// this range falls through to the generic announce-only path.
-//
-// VERIFY: these ids (1001-1004) are placeholders chosen by this rewrite
-// pass. The original NA2016 GMEvent.shn drop has not been catalogued
-// row-by-row in this tree yet, so these MUST be reconciled against the
-// real EventNo values before going live -- otherwise WM windows from
-// the real GMEvent.shn will fall into the unrecognised path and only
-// emit a generic banner instead of a boost.
-const uint32 kGMEvent_LuckyHour      = 1001;   // EXP + Drop boost
-const uint32 kGMEvent_DoubleExp      = 1002;
-const uint32 kGMEvent_DoubleDrop     = 1003;
-const uint32 kGMEvent_GoldenHour     = 1004;   // Money boost only
+// Well-known GMEvent.shn event ids handled specially live in
+// BattleTunables.h (kGMEvent_LuckyHour / DoubleExp / DoubleDrop /
+// GoldenHour). Edit there to retune without touching consumers.
+// Anything outside the well-known set falls through to the generic
+// announce-only path.
 
 class LiveOpsBoosts {
 public:

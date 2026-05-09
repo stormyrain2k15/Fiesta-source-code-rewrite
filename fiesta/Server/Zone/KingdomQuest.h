@@ -19,6 +19,11 @@ public:
     bool Leave(ShinePlayer* pk);
     void CastVote(ShinePlayer* pk, uint16 uiOption);
     KQState GetState() const { return m_eState; }
+    // Force the state machine into KQS_END right now; the standard
+    // tick advances KQS_END -> KQS_IDLE after kKQEndTimeoutMs. Used by
+    // PineScript's cEndOfKingdomQuest after a victory/wipe condition.
+    // Safe no-op when the machine is already idle.
+    void ForceEnd();
 private:
     KQServer();
     KQState m_eState;

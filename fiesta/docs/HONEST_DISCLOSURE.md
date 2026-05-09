@@ -12,6 +12,41 @@ chasing ghosts in a 350-file directory.
 
 ## Audit pass log
 
+### Pass 6.5 (Feb 2026, post-Pass-6 fill-out)
+
+User directive: *"all remaining stubs we know the function but not the
+values like the dmg calc we know the function but not what numbers it's
+using in the math. I want u to build out the rest of the stubs and use
+generic values to at least make the function testable and able to be
+fine tuned through value adjustment in the code."*
+
+Every TODO / stub-return-nil / "not yet wired" branch is now built out
+against the documented function shape with **generic, named tunables**
+held in one place so a value sweep is a single-file edit.
+
+| Area | What was a stub | What it does now | Where to tune |
+|------|-----------------|------------------|---------------|
+| `RuleOfEngagement::Roe_*` | Return `pkA->nATK + nSkill`, return `pkT->nDEF`, hit/crit floor estimates | Full ATK swing (`nATK + rand[0..nATK*kRoeAtkRangeX1k/1000] + skillBase`), element-resist scaled DEF, hit/crit clamp formulas | `BattleTunables.h::kRoe*` |
+| `MobSpawnSystem` script API | `cMobRegen_XY/Rectangle/Circle/Obj/GroupRegenInstance` returned `nil` | Real spawns through `SpawnAt` / `SpawnRectangle` / `SpawnCircle` / `SpawnGroup`, registered in unified ZoneServer object map | Edit count clamps in the bindings |
+| `Lua_cExecCheck` | `(void)fn` | Routes script function name to `SHINELOG_DEBUG` (or `SHINELOG_INFO` if level arg > 0) | n/a (debug helper) |
+| `Lua_cDoorAction` | `(void)blk; (void)bOpen` | Resolves handle, broadcasts door-state envelope to every player on the same map | Replace `NC_ACT_SCRIPT_MSG_CMD` with the real door opcode when captured |
+| `KingdomQuest::End` | Returned `true` without state mutation | Forces `KQServer` into `KQS_END`; the standard tick advances back to `KQS_IDLE` after `kKQEndTimeoutMs` | `KingdomQuest.cpp::kKQ*TimeoutMs` |
+| `KQServer::Tick` durations | Magic numbers `60000`, `30 * 60000`, `30000` | Named constants `kKQRecruitTimeoutMs`, `kKQRunningTimeoutMs`, `kKQVoteTimeoutMs`, `kKQEndTimeoutMs`, `kKQRecruitMinPlayers` | `KingdomQuest.cpp` |
+| `KQRewardDataBox::GoldFor` | `return c * 10` | `base + perPoint*c`, clamped to maxGold | `BattleTunables.h::kKQReward*` |
+| `LiveOpsBoosts::kGMEvent_*` | Inline `1001..1004` placeholders | Lifted to `BattleTunables.h::kGMEvent_*` with VERIFY note | `BattleTunables.h` |
+| `AbnormalStateShelter::Save/Load` | `(void)cid; (void)id; (void)ms` | Routes to `CharDBClient::AbStateSet` (proc 90) / `AbStateGetAll` (proc 91) | Edit proc-id constants in `CharDBClient::AbStateSet` |
+| `SetItemData::CountEquippedPieces` | Returned 0 always | Walks `pkPlayer->Inv().All()` filtering `bEquipped == 1`, matches `ItemInfoRow.kSetItemIndex == szSetIndex` | n/a (data-driven) |
+| `SubAbstatePriority::ShouldReplace` | `return uiNew >= uiOld` | Looks up `SubAbState.shn::Priority` column when present; falls back to numeric-id rule | n/a (data-driven) |
+| `SoulStoneSystem::ClassOf` | Returned `SC_FIGHTER` | Reads `ShinePlayer::GetClass()` and clamps to enum range | n/a |
+| `TargetAnalyser::IsLegalTarget` | Distance-only | Adds same-self / same-map / mob-vs-mob / dead-target gates | n/a |
+| `NpcScheduleServer::Tick` (Zone) | `(void)hourOfWeek` cadence anchor | Walks `NPCManager::NpcKeys()`, matches `NpcScheduleTable::IsActive`, surfaces flip events to log | Polling cadence is caller-controlled |
+
+Tunable surface summary:
+
+* `Server/Zone/BattleTunables.h` -- ALL combat / Roe / KQ-reward / GMEvent-id tunables
+* `Server/Zone/KingdomQuest.cpp` -- KQ state-machine timings (file-local constants)
+* `Server/Zone/CharDBClient.cpp` -- AbState stored-proc ids (90, 91)
+
 ### Pass 6 (Feb 2026, post-Lyra-pass-5 cleanup)
 
 Lyra Pass 5 introduced LUA-01..LUA-20 binding bodies and several WIRE-*

@@ -501,13 +501,30 @@ bool SellItemManager::BuyFromNpc(ShinePlayer* pk, uint32 uiNpcId, uint32 uiInx, 
 }
 
 void NpcScheduleServer::Tick() {
-    // The NpcScheduleTable in ExtendedTables.h is hour-of-week granular.
-    // We recompute the visibility set every minute by sampling the local
-    // time once and pulling each registered NPC against the table.
+    // Hour-of-week granular visibility toggle. Every NPC registered in
+    // NPCManager is matched against `NpcScheduleTable::IsActive`; if the
+    // active state has flipped since the last tick we surface a log line
+    // (the per-field visibility broadcast lives in the spawn pass and
+    // is keyed by the same active-flag, so the Field walk owns the
+    // wire-side update). This implementation is the cadence anchor;
+    // adjust the polling cadence by changing how often the parent tick
+    // calls into NpcScheduleServer (default: once per second).
     SYSTEMTIME st; GetLocalTime(&st);
     uint32 hourOfWeek = (uint32)st.wDayOfWeek * 24u + (uint32)st.wHour;
-    (void)hourOfWeek;     // Visibility update is owned by the per-Field tick;
-                          // this stub establishes the cadence hook.
+    static std::map<std::string, bool> s_kLastActive;
+    NPCManager& nm = NPCManager::Get();
+    const std::map<uint32, std::string>& kKeys = nm.NpcKeys();
+    for (std::map<uint32, std::string>::const_iterator it = kKeys.begin();
+         it != kKeys.end(); ++it) {
+        bool bNow = NpcScheduleTable::Get().IsActive(it->second, hourOfWeek);
+        std::map<std::string, bool>::iterator pit = s_kLastActive.find(it->second);
+        bool bWas = (pit != s_kLastActive.end()) ? pit->second : true;
+        if (bNow != bWas) {
+            s_kLastActive[it->second] = bNow;
+            SHINELOG_INFO("NPC schedule: '%s' -> %s",
+                          it->second.c_str(), bNow ? "ACTIVE" : "INACTIVE");
+        }
+    }
 }
 
 } // namespace fiesta

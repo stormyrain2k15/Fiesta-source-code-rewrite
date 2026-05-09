@@ -29,6 +29,10 @@ public:
     uint8              MenuOf(uint32 uiNpcId) const;
     const std::string& RoleOf(uint32 uiNpcId) const;
     const std::string& RoleArgOf(uint32 uiNpcId) const;
+    // Read-only view of the (npcId -> mobName) registration map. Used
+    // by NpcScheduleServer to walk every NPC against the schedule
+    // table once per tick.
+    const std::map<uint32, std::string>& NpcKeys() const { return m_kKey; }
 private:
     std::map<uint32, ShineNPC*>    m_kAll;
     std::map<uint32, std::string>  m_kKey;

@@ -358,6 +358,20 @@ void CharDBClient::OnQuestGetDoingResponse(CharID c, bool bOK,
     // operator audit raw rows without disturbing live state.
 }
 
+void CharDBClient::AbStateSet(CharID c, uint32 uiAbStateId, uint32 uiRemainMs) {
+    if (!IsConnected()) return;
+    PacketBuffer body;
+    body.WriteU8 (90);
+    body.WriteU32(c);
+    body.WriteU32(uiAbStateId);
+    body.WriteU32(uiRemainMs);
+    GPacket kPkt; kPkt.SetOpcode(NC_INTER_CHAR_DB_QUERY);
+    kPkt.Body().WriteBytes(body.Data(), body.Size());
+    m_kConn.SendPacket(kPkt);
+}
+
+void CharDBClient::AbStateGetAll(CharID c) { DBC_SEND1(91, c); }
+
 #undef DBC_SEND2
 #undef DBC_SEND1
 

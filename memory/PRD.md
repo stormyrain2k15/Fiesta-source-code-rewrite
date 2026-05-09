@@ -248,6 +248,42 @@ state transition.
   the WM senders now prepend the kind byte everywhere.
 * Added `PacketBuffer::Remaining()` for length-tolerant body parses.
 
-See `/app/fiesta/docs/HONEST_DISCLOSURE.md` Pass 6 section for the
-full audit log of what was fixed and what remains deferred.
+## Pass 6.5 (Feb 2026) — Stub fill-out with generic tunable values
+
+Per user directive: every "function-known, values-unknown" stub now has a
+real body using named tunable constants. Tuning is a single-file edit.
+
+* **`RuleOfEngagement::Roe_*`** — full ATK swing, element-resist DEF
+  scaling, hit/crit clamp formulas. Tunables: `BattleTunables.h::kRoe*`.
+* **`MobSpawnSystem`** — `SpawnAt`, `SpawnRectangle`, `SpawnCircle`,
+  `SpawnGroup` API. All Lua `cMobRegen_*` and `cGroupRegenInstance` now
+  produce live spawns registered in the unified ZoneServer object map.
+* **`Lua_cExecCheck`** -> SHINELOG_DEBUG/INFO routing.
+* **`Lua_cDoorAction`** -> handle resolve + door-state envelope broadcast
+  to every player on the same map.
+* **`KingdomQuest::End`** -> `KQServer::ForceEnd()` actually mutates state.
+  KQ timings lifted to named constants (`kKQRecruitTimeoutMs`,
+  `kKQRunningTimeoutMs`, `kKQVoteTimeoutMs`, `kKQEndTimeoutMs`,
+  `kKQRecruitMinPlayers`).
+* **`KQRewardDataBox::GoldFor`** -> `kKQRewardBaseGold + perPoint*c`,
+  clamped to `kKQRewardMaxGold`.
+* **`AbnormalStateShelter::Save/Load`** -> wired to new
+  `CharDBClient::AbStateSet` (proc 90) / `AbStateGetAll` (proc 91).
+* **`SetItemData::CountEquippedPieces`** -> walks `Inventory`, matches
+  `ItemInfoRow::kSetItemIndex`.
+* **`SubAbstatePriority::ShouldReplace`** -> reads `SubAbState.shn`
+  Priority column when present, falls back to numeric-id rule.
+* **`SoulStoneSystem::ClassOf`** -> `ShinePlayer::GetClass()` clamped.
+* **`TargetAnalyser::IsLegalTarget`** -> same-self / same-map /
+  mob-vs-mob / dead-target gates.
+* **`NpcScheduleServer::Tick` (Zone)** -> walks NPCs, matches
+  `NpcScheduleTable::IsActive`, surfaces flips to log.
+* **`Field.cpp`** -> removed conflicting redundant class redeclaration
+  (was a 3/4 brace mismatch and an ODR conflict against `MapField.h`).
+* **`LiveOpsBoosts.h`** kGMEvent_* event ids consolidated into
+  `BattleTunables.h` for a single-file tunable surface.
+
+See `docs/HONEST_DISCLOSURE.md` Pass 6.5 section for the detailed table
+of "what was a stub / what it does now / where to tune".
+
 
