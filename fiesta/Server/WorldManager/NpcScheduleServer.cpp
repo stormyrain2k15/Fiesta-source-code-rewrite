@@ -50,6 +50,7 @@ void NpcScheduleServer::Tick() {
             it->second = bActive;
         }
         PacketBuffer body;
+        body.WriteU8(4);                      // kind = NPC schedule transition
         body.WriteU8(bActive ? 1 : 0);        // 1 = spawn, 0 = despawn
         body.WriteU32((uint32)iNpcID);
         body.WriteU16((uint16)iMap);

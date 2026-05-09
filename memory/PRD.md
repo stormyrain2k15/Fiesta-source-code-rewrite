@@ -222,3 +222,32 @@ NA2016-style flow:
 Announcements: `AnnounceSystem::Broadcast(level, text)` -- now declared
 in `Server/Zone/AnnounceSystem.h`, called from LiveOpsBoosts on every
 state transition.
+
+## Pass 6 (Feb 2026) — Lyra Pass 5 cleanup + functional gap closure
+
+* Fixed Lyra Pass 5 compile blockers in `Lua/LuaCBindings.cpp`:
+  `pk->Abstate()` -> `pk->AbState()`, `MapField::NameToID` -> new
+  `ResolveMapByName`, `ClientSession::Send(pkt)` -> `SendPacket(...)`,
+  `Well512::Get()` -> process-local `well512` seeded from GTimer.
+* Added `KingdomQuest::End(const char*)` static API + `NC_KQ_END_CMD`,
+  `NC_ACT_SCRIPT_MSG_CMD` opcodes so the LUA-17 / LUA-18 bindings link.
+* Built the unified `Handle -> ShineObject` registry (PASS3-005).
+  `ZoneServer::RegisterObject` / `UnregisterObject` / `FindObject`,
+  with type-narrowing accessors `FindMob` / `FindNPC` / `FindPet`.
+  `MobSpawnSystem::Tick` and `ShineNPCTable::SpawnAll` now register
+  every spawn; LUA-02..LUA-04, cDamaged, cNPCVanish, cObjectCount route
+  through the unified registry instead of player-only maps.
+* `ItemUpgrade::Try` now consumes UpResource (one stack per attempt,
+  bucket-matched against same-bucket UpLimit==0 consumables) and
+  Luck-Stone (`ItemInfo.ItemUseSkill == "LuckStone"`).
+* `WMClient::OnTakeItem` now removes the matching ShineItem from the
+  live `Inventory` (length-tolerant body parse for legacy 8-byte form).
+* Unified inter-broadcast kind protocol (kind=0..4 ChatShout / WorldYell
+  / GMEvent / DailyReset / NpcSchedule). New `DailyResetSink` /
+  `NpcScheduleSink` registries route each kind to subscribed callbacks;
+  the WM senders now prepend the kind byte everywhere.
+* Added `PacketBuffer::Remaining()` for length-tolerant body parses.
+
+See `/app/fiesta/docs/HONEST_DISCLOSURE.md` Pass 6 section for the
+full audit log of what was fixed and what remains deferred.
+

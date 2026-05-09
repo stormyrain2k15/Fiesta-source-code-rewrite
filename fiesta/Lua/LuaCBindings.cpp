@@ -14,6 +14,8 @@
 #include "../Server/Shared/well512.h"
 #include "../Server/Shared/PacketBuffer.h"
 #include "../Server/Common/NETCOMMAND.h"
+#include "../Server/Common/SendPacket.h"
+#include <string.h>
 
 namespace fiesta {
 
@@ -21,10 +23,10 @@ namespace fiesta {
 static int Lua_cDamaged(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
     int32  a = (int32)luaL_checkinteger(L, 2);
-    std::map<Handle, ShinePlayer*>::const_iterator it = ZoneServer::Get().Players().find(h);
-    if (it != ZoneServer::Get().Players().end()) {
+    ShineObject* pk = ZoneServer::Get().FindObject(h);
+    if (pk) {
         DamageInfo d; d.iPhys = a; d.iMagic = 0; d.bMiss = false; d.bCrit = false; d.bBlock = false;
-        Battle::Apply(NULL, it->second, d);
+        Battle::Apply(NULL, pk, d);
     }
     return 0;
 }
@@ -34,8 +36,8 @@ static int Lua_cStaticDamage(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
     int32  a = (int32)luaL_checkinteger(L, 2);
     (void)luaL_optinteger(L, 3, 0);
-    std::map<Handle, ShinePlayer*>::const_iterator it = ZoneServer::Get().Players().find(h);
-    if (it != ZoneServer::Get().Players().end()) it->second->SetHP(it->second->GetHP() - a);
+    ShineObject* pk = ZoneServer::Get().FindObject(h);
+    if (pk) pk->SetHP(pk->GetHP() - a);
     return 0;
 }
 
@@ -67,13 +69,25 @@ static int Lua_cFinishKey(lua_State* L) {
 
 // ---------------------------------------------------------------------------
 // LUA-01..LUA-20 — Real binding bodies (Lyra pass 5, May 2026)
-// Helper: find a ShinePlayer by handle (CODEX-05 will replace with FindObject
-// once the unified handle registry lands; for now players-only).
+// Helper: find a ShinePlayer by handle; FindObjectAny resolves any
+// ShineObject through the unified ZoneServer registry (PASS3-005).
 // ---------------------------------------------------------------------------
 static ShinePlayer* FindPlayerHandle(Handle h) {
     const std::map<Handle, ShinePlayer*>& m = ZoneServer::Get().Players();
     std::map<Handle, ShinePlayer*>::const_iterator it = m.find(h);
     return (it != m.end()) ? it->second : NULL;
+}
+
+// Process-local PRNG used by cRandomInt / cPermileRate. The original
+// game seeds per-zone at boot; we lazily seed from GTimer on first use.
+static well512& ScriptRng() {
+    static well512 s_kRng;
+    static bool    s_bSeeded = false;
+    if (!s_bSeeded) {
+        s_kRng.Seed((uint32)(GTimer::NowMillis() & 0xFFFFFFFFu));
+        s_bSeeded = true;
+    }
+    return s_kRng;
 }
 
 // LUA-01: cCurrentSecond / cCurSec
@@ -82,20 +96,20 @@ static int Lua_cCurrentSecond_Real(lua_State* L) {
     return 1;
 }
 
-// LUA-02: cObjectLocate — returns (x, y) world coordinates
+// LUA-02: cObjectLocate — returns (x, y) world coordinates for any object
 static int Lua_cObjectLocate_Real(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
-    ShinePlayer* pk = FindPlayerHandle(h);
+    ShineObject* pk = ZoneServer::Get().FindObject(h);
     if (!pk) { lua_pushnil(L); lua_pushnil(L); return 2; }
     lua_pushnumber(L, pk->GetPos().x);
     lua_pushnumber(L, pk->GetPos().z);
     return 2;
 }
 
-// LUA-03: cObjectHP — returns (curHP, maxHP)
+// LUA-03: cObjectHP — returns (curHP, maxHP) for any object
 static int Lua_cObjectHP_Real(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
-    ShinePlayer* pk = FindPlayerHandle(h);
+    ShineObject* pk = ZoneServer::Get().FindObject(h);
     if (!pk) { lua_pushinteger(L, 0); lua_pushinteger(L, 0); return 2; }
     lua_pushinteger(L, (lua_Integer)pk->GetHP());
     lua_pushinteger(L, (lua_Integer)pk->GetMaxHP());
@@ -105,7 +119,7 @@ static int Lua_cObjectHP_Real(lua_State* L) {
 // LUA-04: cIsObjectDead
 static int Lua_cIsObjectDead_Real(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
-    ShinePlayer* pk = FindPlayerHandle(h);
+    ShineObject* pk = ZoneServer::Get().FindObject(h);
     lua_pushboolean(L, (pk == NULL || pk->IsDead()) ? 1 : 0);
     return 1;
 }
@@ -126,18 +140,25 @@ static int Lua_cMobRegen_XY_Real(lua_State* L) {
     return 1;
 }
 
-// LUA-06: cNPCVanish — despawn a scripted mob/NPC by handle
+// LUA-06: cNPCVanish — despawn a scripted mob/NPC by handle. Removes
+// the object from its field and the unified registry; the underlying
+// allocation is reclaimed by the spawn-system's despawn path. Returns
+// true when the handle resolved and was unregistered.
 static int Lua_cNPCVanish_Real(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
-    // TODO CODEX-05: MobSpawnSystem::Get().Despawn(h);
-    (void)h;
-    return 0;
+    ShineObject* pk = ZoneServer::Get().FindObject(h);
+    if (!pk) { lua_pushboolean(L, 0); return 1; }
+    Field* pkF = MapDataBox::Get().GetField(pk->GetMap());
+    if (pkF) pkF->RemoveObject(pk);
+    ZoneServer::Get().UnregisterObject(pk);
+    lua_pushboolean(L, 1);
+    return 1;
 }
 
 // LUA-07: cGetPlayerList — push all player handles in a map as return values
 static int Lua_cGetPlayerList_Real(lua_State* L) {
     const char* szMapInx = luaL_checkstring(L, 1);
-    uint16 uiMapID = MapField::NameToID(szMapInx); // 0 if unknown
+    MapID uiMapID = ResolveMapByName(szMapInx); // 0 if unknown
     const std::map<Handle, ShinePlayer*>& kAll = ZoneServer::Get().Players();
     int n = 0;
     for (std::map<Handle, ShinePlayer*>::const_iterator it = kAll.begin();
@@ -154,16 +175,22 @@ static int Lua_cGetPlayerList_Real(lua_State* L) {
 static int Lua_cObjectCount_Real(lua_State* L) {
     const char* szMapInx = luaL_checkstring(L, 1);
     int nType = (int)luaL_checkinteger(L, 2);
-    uint16 uiMapID = MapField::NameToID(szMapInx);
+    MapID uiMapID = ResolveMapByName(szMapInx);
     int count = 0;
-    if (nType == 2) { // ObjectType.Player == 2
-        const std::map<Handle, ShinePlayer*>& kAll = ZoneServer::Get().Players();
-        for (std::map<Handle, ShinePlayer*>::const_iterator it = kAll.begin();
-             it != kAll.end(); ++it) {
-            if (it->second && it->second->GetMap() == uiMapID) ++count;
-        }
+    // ObjectType enum values come from LuaEnums.cpp:
+    //   Mob=5, Npc=6, Pet=12, Player=2 (LuaEnums uses the PDB-confirmed
+    //   set). Walk the unified object registry once and match.
+    std::vector<ShineObject*> kAll;
+    ZoneServer::Get().SnapshotObjects(kAll);
+    for (size_t i = 0; i < kAll.size(); ++i) {
+        ShineObject* p = kAll[i];
+        if (!p || p->GetMap() != uiMapID) continue;
+        ObjType t = p->GetType();
+        if      (nType == 2  && t == OT_PLAYER)   ++count;
+        else if (nType == 5  && t == OT_MOB)      ++count;
+        else if (nType == 6  && t == OT_NPC)      ++count;
+        else if (nType == 12 && t == OT_PET)      ++count;
     }
-    // TODO CODEX-05: add mob/npc counts via unified registry
     lua_pushinteger(L, (lua_Integer)count);
     return 1;
 }
@@ -182,10 +209,10 @@ static int Lua_cScriptMessage_Obj_Real(lua_State* L) {
     int32  nMsgIdx = (int32)luaL_checkinteger(L, 2);
     ShinePlayer* pk = FindPlayerHandle(h);
     if (pk && pk->GetSession()) {
-        PacketBuffer pkt;
-        pkt.WriteU16(NC_ACT_SCRIPT_MSG_CMD);
-        pkt.WriteI32(nMsgIdx);
-        pk->GetSession()->Send(pkt);
+        PacketBuffer body;
+        body.WriteI32(nMsgIdx);
+        SendPacket(pk->GetSession(), NC_ACT_SCRIPT_MSG_CMD,
+                   body.Data(), body.Size());
     }
     return 0;
 }
@@ -195,7 +222,7 @@ static int Lua_cResetAbstate_Real(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
     uint32 ab = AbnormalStateDictionary::Get().Lookup(luaL_checkstring(L, 2));
     ShinePlayer* pk = FindPlayerHandle(h);
-    if (pk && ab != 0) pk->Abstate().Remove(ab);
+    if (pk && ab != 0) pk->AbState().Remove(ab);
     lua_pushboolean(L, (pk != NULL) ? 1 : 0);
     return 1;
 }
@@ -245,12 +272,12 @@ static int Lua_cRandomInt_Real(lua_State* L) {
     int lo = (int)luaL_checkinteger(L, 1);
     int hi = (int)luaL_checkinteger(L, 2);
     if (hi <= lo) { lua_pushinteger(L, lo); return 1; }
-    lua_pushinteger(L, (lua_Integer)(lo + (int)(Well512::Get().NextU32() % (uint32)(hi - lo + 1))));
+    lua_pushinteger(L, (lua_Integer)(lo + (int)(ScriptRng().Next() % (uint32)(hi - lo + 1))));
     return 1;
 }
 static int Lua_cPermileRate_Real(lua_State* L) {
     int rate = (int)luaL_checkinteger(L, 1); // x/1000 probability
-    lua_pushboolean(L, ((int)(Well512::Get().NextU32() % 1000) < rate) ? 1 : 0);
+    lua_pushboolean(L, ((int)(ScriptRng().Next() % 1000) < rate) ? 1 : 0);
     return 1;
 }
 
@@ -259,15 +286,14 @@ static int Lua_cQuestResult_Real(lua_State* L) {
     const char* szMapInx = luaL_checkstring(L, 1);
     const char* szResult = luaL_checkstring(L, 2);
     bool bSuccess = (strcmp(szResult, "Success") == 0);
-    uint16 uiMapID = MapField::NameToID(szMapInx);
+    MapID uiMapID = ResolveMapByName(szMapInx);
+    PacketBuffer body; body.WriteU8(bSuccess ? 1 : 0);
     const std::map<Handle, ShinePlayer*>& kAll = ZoneServer::Get().Players();
     for (std::map<Handle, ShinePlayer*>::const_iterator it = kAll.begin();
          it != kAll.end(); ++it) {
         if (it->second && it->second->GetMap() == uiMapID && it->second->GetSession()) {
-            PacketBuffer pkt;
-            pkt.WriteU16(NC_KQ_END_CMD);
-            pkt.WriteU8(bSuccess ? 1 : 0);
-            it->second->GetSession()->Send(pkt);
+            SendPacket(it->second->GetSession(), NC_KQ_END_CMD,
+                       body.Data(), body.Size());
         }
     }
     return 0;
@@ -276,8 +302,8 @@ static int Lua_cQuestResult_Real(lua_State* L) {
 // LUA-18: cEndOfKingdomQuest
 static int Lua_cEndOfKingdomQuest_Real(lua_State* L) {
     const char* szMapInx = luaL_checkstring(L, 1);
-    KingdomQuest::Get().End(szMapInx);
-    lua_pushboolean(L, 1);
+    bool b = KingdomQuest::End(szMapInx);
+    lua_pushboolean(L, b ? 1 : 0);
     return 1;
 }
 
@@ -285,18 +311,18 @@ static int Lua_cEndOfKingdomQuest_Real(lua_State* L) {
 static int Lua_cSetAbstate_Range_Real(lua_State* L) {
     Handle  h      = (Handle)luaL_checkinteger(L, 1);
     float   range  = (float)luaL_checknumber(L, 2);
-    (void)luaL_checkinteger(L, 3); // objType — TODO CODEX-05 filter by type
+    (void)luaL_checkinteger(L, 3); // objType — only OT_PLAYER scope wired today
     uint32  ab     = AbnormalStateDictionary::Get().Lookup(luaL_checkstring(L, 4));
     int     str    = (int)luaL_checkinteger(L, 5);
     int32   ms     = (int32)luaL_checkinteger(L, 6);
     ShinePlayer* src = FindPlayerHandle(h);
     if (src && ab != 0) {
         float cx = src->GetPos().x, cy = src->GetPos().z;
-        uint16 uiMap = src->GetMap();
+        MapID uiMap = src->GetMap();
         std::vector<ShinePlayer*> kNear;
         NearScan::Players(uiMap, cx, cy, range, kNear);
         for (size_t i = 0; i < kNear.size(); ++i)
-            kNear[i]->Abstate().Apply(ab, ms, str);
+            kNear[i]->AbState().Apply(ab, ms, (uint16)str);
     }
     lua_pushboolean(L, 1);
     return 1;

@@ -80,6 +80,7 @@ void MobSpawnSystem::Tick(uint64 uiNowMs) {
             if (!pkMob) break;
             pkMob->SetHandle(ZoneServer::Get().NewObjectHandle());
             pkF->AddObject(pkMob);
+            ZoneServer::Get().RegisterObject(pkMob);   // unified handle map
             g.kAlive.push_back(pkMob->GetHandle());
             m_kHandleToGroup[pkMob->GetHandle()] = gi;
         }
@@ -97,6 +98,11 @@ void MobSpawnSystem::OnMobDied(Handle uiMob) {
         }
     }
     m_kHandleToGroup.erase(it);
+    // Drop the dead mob from the unified registry; the field-side
+    // remove + dtor are handled by Battle::Kill -> SpawnMob inverse,
+    // which is the canonical owner of the ShineMob* allocation.
+    ShineObject* pk = ZoneServer::Get().FindObject(uiMob);
+    if (pk) ZoneServer::Get().UnregisterObject(pk);
     // Top-up will pick up the slot on the next Tick once
     // `uiNowMs >= uiNextRollMs + uiRespawnMs`. For simplicity we enforce
     // the gate by pushing the group's next-roll to "now + respawn".

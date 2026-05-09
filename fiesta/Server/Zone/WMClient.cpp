@@ -4,6 +4,7 @@
 #include "ShineObject.h"
 #include "Inventory.h"
 #include "GMEventManager.h"
+#include "InterBroadcastSinks.h"
 #include "../Shared/PacketBuffer.h"
 #include "../Shared/GPacket.h"
 #include "../Shared/ShineLogSystem.h"
@@ -132,34 +133,100 @@ private:
     }
     static void OnTakeItem(const GPacket& rPkt) {
         PacketBuffer b = rPkt.Body();
-        uint32 lo = 0, hi = 0; b.ReadU32(lo); b.ReadU32(hi);
+        // Body shape: { uint32 charNo, uint64 itemKey } -- WM resolves
+        // charNo from the OPTool request before forwarding. The legacy
+        // pre-pass-2 push omitted charNo and shipped the key alone; we
+        // accept both shapes by length-checking.
+        uint32 cid = 0;
+        uint32 lo  = 0, hi = 0;
+        size_t avail = b.Remaining();
+        if (avail >= 12) {           // new shape {uint32, uint64}
+            b.ReadU32(cid);
+            b.ReadU32(lo); b.ReadU32(hi);
+        } else {                     // legacy shape {uint64}
+            b.ReadU32(lo); b.ReadU32(hi);
+        }
         uint64 itemKey = ((uint64)hi << 32) | (uint64)lo;
-        SHINELOG_WARN("Zone: TAKEITEM key=%llu", (unsigned long long)itemKey);
-        // Inventory removal by item-key requires an index; pass 2 hooks this
-        // up against the per-player Inventory. The SQL row deletion is done
-        // by the panel via NC_OPTOOL_QUERY_REQ in the meantime.
+        SHINELOG_WARN("Zone: TAKEITEM cid=%u key=%llu", cid,
+                      (unsigned long long)itemKey);
+
+        // In-memory inventory removal. The OPTool path that hits SQL via
+        // p_Item_Delete is a separate flow (NC_OPTOOL_QUERY_REQ on the
+        // panel side); this branch keeps the connected client's view
+        // consistent so they see the item disappear immediately.
+        if (cid == 0) return;
+        ShinePlayer* pk = FindPlayerByCharId(cid);
+        if (!pk) return;
+
+        const std::vector<ShineItem>& vAll = pk->Inv().All();
+        for (size_t i = 0; i < vAll.size(); ++i) {
+            if (vAll[i].uiDbItemKey == itemKey) {
+                pk->Inv().Remove(vAll[i].uiItemId);
+                break;
+            }
+        }
     }
-    // ----- inter-zone broadcast (KQ / chat / GM event) -----------------
+    // ----- inter-zone broadcast (KQ / chat / GM event / daily / NPC) ---
     // Body shape (matches WM senders):
     //   uint8 kind
-    //     0 = chat steal       (handled by ChatStealServer + zone sink)
-    //     1 = daily reset      (handled by per-system reset)
-    //     2 = GM event start/end
-    //   ... per-kind tail
-    // Only kind=2 is implemented here. Other kinds are dropped through
-    // until their consumers are wired in.
+    //     0 = chat shout       {uint8=0, CharID from, string channel, string text}
+    //     1 = world yell       {uint8=1, CharID from, string channel(empty), string text}
+    //     2 = GM event         {uint8=2, uint32 eventNo, uint8 action}
+    //     3 = daily reset      {uint8=3, uint32 dayKey}
+    //     4 = npc schedule     {uint8=4, uint8 spawn, uint32 npcId, uint16 mapId}
     static void OnInterBroadcast(const GPacket& rPkt) {
         PacketBuffer b = rPkt.Body();
         uint8 uiKind = 0; b.ReadU8(uiKind);
-        if (uiKind != 2) {
-            SHINELOG_DEBUG("Zone<-WM InterBroadcast kind=%u (not handled)",
-                           (uint32)uiKind);
-            return;
+        switch (uiKind) {
+            case 0:
+            case 1: {
+                uint32 cid = 0; std::string ch, txt;
+                b.ReadU32(cid); b.ReadString(ch); b.ReadString(txt);
+                // Re-broadcast to local clients on the matching channel.
+                NCOpcode op = (uiKind == 0) ? NC_CHAT_SHOUT_CMD
+                                            : NC_CHAT_NORMAL_CMD;
+                PacketBuffer chat;
+                chat.WriteU32(cid);
+                chat.WriteString(txt);
+                const std::map<Handle, ShinePlayer*>& kPl = ZoneServer::Get().Players();
+                for (std::map<Handle, ShinePlayer*>::const_iterator it = kPl.begin();
+                     it != kPl.end(); ++it) {
+                    if (it->second && it->second->GetSession())
+                        SendPacket(it->second->GetSession(), op,
+                                   chat.Data(), chat.Size());
+                }
+                break;
+            }
+            case 2: {
+                uint32 uiEventNo = 0; uint8 uiAction = 0;
+                b.ReadU32(uiEventNo); b.ReadU8(uiAction);
+                GMEventManager_Zone::OnEventBroadcast(uiEventNo, uiAction != 0);
+                break;
+            }
+            case 3: {
+                uint32 uiDay = 0; b.ReadU32(uiDay);
+                SHINELOG_INFO("Zone: DailyReset day=%u", uiDay);
+                // Per-system local resets. Each subsystem owns its
+                // counter and clears whatever cooldowns / quest-progress
+                // state are reset on the daily boundary. Adding a new
+                // system: append a call below; the broadcast itself stays
+                // a single ack point.
+                DailyResetSink::Get().OnDailyReset(uiDay);
+                break;
+            }
+            case 4: {
+                uint8 spawn = 0; uint32 npc = 0; uint16 map = 0;
+                b.ReadU8(spawn); b.ReadU32(npc); b.ReadU16(map);
+                SHINELOG_INFO("Zone: NPC schedule npc=%u map=%u %s",
+                              npc, (uint32)map, spawn ? "SPAWN" : "DESPAWN");
+                NpcScheduleSink::Get().OnTransition(npc, map, spawn != 0);
+                break;
+            }
+            default:
+                SHINELOG_DEBUG("Zone<-WM InterBroadcast kind=%u (not handled)",
+                               (uint32)uiKind);
+                break;
         }
-        uint32 uiEventNo = 0; uint8 uiAction = 0;
-        b.ReadU32(uiEventNo);
-        b.ReadU8(uiAction);
-        GMEventManager_Zone::OnEventBroadcast(uiEventNo, uiAction != 0);
     }
 };
 

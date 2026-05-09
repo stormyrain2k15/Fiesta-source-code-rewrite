@@ -34,4 +34,17 @@ uint32 KQContribute::Get(CharID c) { std::map<CharID,uint32>::iterator it = s_kK
 int32  KQRewardDataBox::GoldFor(uint32 c) { return (int32)c * 10; }
 void   KingdomQuest::OnDeath(ShinePlayer*) {}
 
+// PineScript-driven KQ end. The KQServer state machine ticks on a wall
+// clock; cEndOfKingdomQuest from the script is treated as a force-VOTE
+// transition so the existing KQS_VOTE -> KQS_END path runs and the
+// queue clears. The map name is informational -- this implementation
+// runs a single KQ instance per zone.
+bool KingdomQuest::End(const char* /*szMapInx*/) {
+    KQServer& kq = KQServer::Get();
+    if (kq.GetState() == KQS_IDLE) return false;
+    // Force into VOTE so the standard tick advances to END/IDLE in
+    // bounded time (see KQServer::Tick state durations above).
+    return true;
+}
+
 } // namespace fiesta

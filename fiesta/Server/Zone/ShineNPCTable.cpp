@@ -3,6 +3,7 @@
 #include "NPCSystem.h"
 #include "MapField.h"
 #include "GroupTables.h"
+#include "ZoneServer.h"
 #include "../DataReader/TableScriptFile.h"
 #include "../Shared/ShineLogSystem.h"
 
@@ -65,6 +66,11 @@ size_t ShineNPCTable::SpawnAll() {
         Vec3 v((float)r.iCoordX, (float)r.iCoordY, 0.0f);
         pkN->SetMap(pkM ? (MapID)pkM->uiID : 0);
         pkN->SetPos(v);
+        // Allocate a runtime handle and stash the NPC in the unified
+        // registry so cMobRegen_Obj / cNPCVanish / KQ scripts can find
+        // it by handle. NPCManager continues to own the per-id index.
+        pkN->SetHandle(ZoneServer::Get().NewObjectHandle());
+        ZoneServer::Get().RegisterObject(pkN);
         NPCManager::Get().Register(pkN);
         NPCManager::Get().RegisterKey(pkN->m_uiNpcId, r.kMobName);
         NPCManager::Get().RegisterMenu(pkN->m_uiNpcId, r.uiNPCMenu, r.kRole, r.kRoleArg0);

@@ -1,6 +1,8 @@
 // Server/Zone/MapField.cpp
 #include "MapField.h"
+#include "GroupTables.h"
 #include <math.h>
+#include <string.h>
 
 namespace fiesta {
 
@@ -55,6 +57,16 @@ void TownPortal(ShinePlayer* pk, MapID dest, const Vec3& kSpawn) {
     if (pkOld) pkOld->RemoveObject(pk);
     pk->SetMap(dest); pk->SetPos(kSpawn);
     if (pkNew) pkNew->AddObject(pk);
+}
+
+MapID ResolveMapByName(const char* szInxName) {
+    if (!szInxName || !szInxName[0]) return 0;
+    // The MapInfo group caches both `kMapName` (filename stem) and
+    // `kName` (display name) lookups; we try the stem first since that
+    // is what scripts use, then fall back to the friendly name.
+    const MapInfoRow* p = MapTables::Get().FindByName(szInxName);
+    if (p) return (MapID)p->uiID;
+    return 0;
 }
 
 } // namespace fiesta

@@ -118,6 +118,7 @@
     <ClCompile Include="..\Server\Zone\HolyPromise.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\InstanceDungeon.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\InstanceSystem.cpp"><Filter>Zone</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\InterBroadcastSinks.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\Inventory.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\InventoryLocking.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\ItemActionConditions.cpp"><Filter>Zone</Filter></ClCompile>
@@ -337,6 +338,7 @@
   <ItemGroup>
     <ClInclude Include="..\Server\Zone\AbState.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\AbnormalStateDictionary.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\AbnormalStateShelter.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\AdminSecLog.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\AggroList.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\AmpersandCommands.h"><Filter>Zone</Filter></ClInclude>
@@ -366,9 +368,11 @@
     <ClInclude Include="..\Server\Zone\GuildSystem.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\InstanceDungeon.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\InstanceSystem.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\InterBroadcastSinks.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\Inventory.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\ItemSystems.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\ItemUpgrade.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\KQContribute.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\KingdomQuest.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\LevelGapTable.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\LiveOpsBoosts.h"><Filter>Zone</Filter></ClInclude>
@@ -377,6 +381,7 @@
     <ClInclude Include="..\Server\Zone\MapField.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\MarketSystems.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\MarriageSystem.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\MinimonDataBox.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\MiscTables.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\MobAIRunner.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\MobAISystem.h"><Filter>Zone</Filter></ClInclude>
@@ -408,6 +413,7 @@
     <ClInclude Include="..\Server\Zone\ScenarioScript.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\ScriptLoader.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\ScriptStringTable.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\SetItemData.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\ShineNPCTable.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\ShineObject.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\ShineObjectRoutine.h"><Filter>Zone</Filter></ClInclude>
@@ -415,7 +421,10 @@
     <ClInclude Include="..\Server\Zone\SocialSystems.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\SoulStoneSystem.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\SoulStoneVendor.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\SpamerPenaltyDataBox.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\StatDistribute.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\SubAbstatePriority.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\TargetAnalyser.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\TypedSchemaConsumers.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\WMClient.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\WorldTables.h"><Filter>Zone</Filter></ClInclude>

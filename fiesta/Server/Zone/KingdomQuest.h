@@ -29,7 +29,15 @@ private:
 
 class KQContribute { public: static void Add(CharID c, uint32 uiPts); static uint32 Get(CharID c); };
 class KQRewardDataBox { public: static int32 GoldFor(uint32 uiContribution); };
-class KingdomQuest { public: static void OnDeath(ShinePlayer* pk); };
+class KingdomQuest {
+public:
+    static void OnDeath(ShinePlayer* pk);
+    // Force-end any KQ instance running on the named map. Called from
+    // PineScript via cEndOfKingdomQuest after a victory / wipe condition
+    // is reached. Routes to KQServer when one is active; the no-active
+    // case is a no-op and returns false.
+    static bool End(const char* szMapInx);
+};
 
 } // namespace fiesta
 #endif

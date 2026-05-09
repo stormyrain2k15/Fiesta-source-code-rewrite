@@ -29,7 +29,10 @@ void DailyQuestTimer::Tick() {
     SHINELOG_INFO("DailyReset firing for day=%u", uiToday);
     WMCharDBClient::Get().DailyResetTick(uiToday);
 
-    PacketBuffer body; body.WriteU32(uiToday);
+    // Inter-broadcast envelope: kind=3 = daily reset.
+    PacketBuffer body;
+    body.WriteU8(3);                    // kind = daily reset
+    body.WriteU32(uiToday);             // YYYYMMDD day key
     WorldManagerServer::Get().BroadcastToZones(NC_INTER_BROADCAST_CMD,
                                                body.Data(), body.Size());
 }

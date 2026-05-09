@@ -12,6 +12,27 @@ chasing ghosts in a 350-file directory.
 
 ## Audit pass log
 
+### Pass 6 (Feb 2026, post-Lyra-pass-5 cleanup)
+
+Lyra Pass 5 introduced LUA-01..LUA-20 binding bodies and several WIRE-*
+lifts. Most worked, but the lifted bindings referenced symbols that
+didn't yet exist; this pass closed those gaps and finished the P0
+functional items from `HONEST_DISCLOSURE.md` §5.
+
+| # | ID | Issue | Resolution |
+|---|----|-------|------------|
+| 1 | PASS6-001 | `pk->Abstate()` typo across LUA-11, LUA-19 -> compile error (real method is `AbState()`) | Fixed both call sites |
+| 2 | PASS6-002 | LUA-07 / LUA-08 / LUA-17 referenced `MapField::NameToID(...)` which never existed | Added `ResolveMapByName` free fn in `MapField.{h,cpp}` that routes through `MapTables::FindByName` |
+| 3 | PASS6-003 | LUA-10 cScriptMessage_Obj called `pk->GetSession()->Send(pkt)` (no such method); also wrote opcode into the body | Routed through `SendPacket(session, NC_ACT_SCRIPT_MSG_CMD, body, size)` |
+| 4 | PASS6-004 | LUA-16 cRandomInt / cPermileRate used `Well512::Get().NextU32()` -- class is `well512` (lowercase) and has no `Get()` singleton | Added `ScriptRng()` static helper in LuaCBindings that lazy-seeds a process-local well512 from GTimer |
+| 5 | PASS6-005 | LUA-17 cQuestResult / LUA-18 cEndOfKingdomQuest called `NC_KQ_END_CMD` and `KingdomQuest::Get().End()` -- neither existed | Added `NC_KQ_END_CMD` (NC_FAMILY_KQ + 0x06) and `NC_ACT_SCRIPT_MSG_CMD` (NC_FAMILY_KQ + 0x07) opcodes; added `KingdomQuest::End(const char*)` static API |
+| 6 | PASS6-006 | PASS3-005 deferred: unified `Handle -> ShineObject` registry (mobs/npcs/players/pets) | `ZoneServer` now owns `m_kObjects` keyed by handle. `RegisterObject` / `UnregisterObject` / `FindObject` / `FindMob` / `FindNPC` / `FindPet` exposed. `AttachPlayer` mirrors automatically; `MobSpawnSystem::Tick` and `ShineNPCTable::SpawnAll` call `RegisterObject` on every spawn. Lua bindings cDamaged / cObjectLocate / cObjectHP / cIsObjectDead / cNPCVanish now resolve through `FindObject` so they work for any object type, not just players. `cObjectCount` walks the object snapshot and matches against the documented ObjectType enum (Player=2, Mob=5, Npc=6, Pet=12) |
+| 7 | PASS6-007 | §5 ItemUpgrade::Try ignored UpResource (free upgrades) | Now resolves a same-bucket consumable item (UpLimit==0 row whose UpResource matches the target's UpResource) and removes one stack regardless of outcome. Missing-resource path returns `UPGRADE_BLOCKED` and never deducts. |
+| 8 | PASS6-008 | §5 ItemUpgrade::Try ignored bUseLuckStone | Now resolves a LuckStone via `ItemInfo.ItemUseSkill == "LuckStone"` (only stable string anchor without per-server config), consumes it on attempt, and adds `UpLuckRatio` to the per-mille rate. Falls back to no-bonus + warning if the player has none. |
+| 9 | PASS6-009 | §5 WMClient::OnTakeItem only logged | Body shape upgraded to `{ uint32 charNo, uint64 itemKey }`; legacy 8-byte form still accepted via `Remaining()` length-check. The matching ShineItem is removed from the live `Inventory` so the client view reconciles immediately. |
+| 10 | PASS6-010 | §5 NC_INTER_BROADCAST_CMD kind=1 (daily reset) and kind=4 (NPC schedule) dropped on the floor by Zone | Unified the kind-byte protocol across every WM sender: 0=ChatShout, 1=WorldYell, 2=GMEvent, 3=DailyReset, 4=NpcSchedule. WM senders DailyQuestTimer / NpcScheduleServer now prepend the kind byte. Zone WMClient::OnInterBroadcast dispatches all five via the new `DailyResetSink` and `NpcScheduleSink` (process-wide registries; subsystems register a function ptr in Zone::Main). Chat broadcasts now re-emit `NC_CHAT_SHOUT_CMD` / `NC_CHAT_NORMAL_CMD` to local clients. |
+| 11 | PASS6-011 | `PacketBuffer` had no `Remaining()` -- needed for length-tolerant body parses (e.g. WMClient OnTakeItem dual shape) | Added `Remaining()` const helper |
+
 ### Lyra task list pass 4 (May 2026)
 
 Heavy task list arrived from the user. Of ~50 tasks (FIX-01..03 + WIRE-01..18 + LUA-01..20 + DOC-01..05), I tackled the highest-impact subset:
@@ -211,20 +232,21 @@ existing zone-side handlers expected. They WILL mismatch a real client.
 
 ## 5. Functional gaps (will compile + run, but the feature is wrong)
 
-* `ItemUpgrade::Try` does NOT consume the `UpResource` material from
-  the player's inventory. The original game removes one upgrade stone
-  per attempt regardless of outcome. Players currently get unlimited
-  free attempts. Marked with VERIFY in the code.
-* `ItemUpgrade::Try` IGNORES `bUseLuckStone` (logs a warning and
-  treats it as false) because the Luck-Stone item id binding isn't
-  configured. Marked with VERIFY in the code.
-* `WMClient::OnTakeItem` does not actually delete the item from the
-  player's Inventory; it only logs. The OPTool DB-side delete works
-  through a separate path. Marked in the existing comment.
-* `WorldManager::DailyQuestTimer` and friends fan out via
-  NC_INTER_BROADCAST_CMD kind=1 but the Zone side does not yet handle
-  kind=1 (only kind=2 GM events are wired). Daily resets are dropped
-  on the floor.
+* `ItemUpgrade::Try` now consumes one UpResource stack and one Luck-Stone
+  on every attempt (PASS6-007 / PASS6-008). The Luck-Stone identity is
+  inferred from `ItemInfo.ItemUseSkill == "LuckStone"`; if the live
+  client uses a different anchor (e.g. an `ItemFunc` flag), update the
+  predicate in `ItemUpgrade.cpp`.
+* `WMClient::OnTakeItem` now removes the in-memory ShineItem matched by
+  `uiDbItemKey` (PASS6-009). The CharDB-side row deletion still flows
+  through the panel's `NC_OPTOOL_QUERY_REQ` path; the Zone branch keeps
+  the connected client's view consistent.
+* `NC_INTER_BROADCAST_CMD` now carries a unified kind-byte protocol
+  (PASS6-010): 0=ChatShout, 1=WorldYell, 2=GMEvent, 3=DailyReset,
+  4=NpcSchedule. Zone consumers register through `DailyResetSink` /
+  `NpcScheduleSink`. The current daily/npc handlers in `Main.cpp` log
+  the event; subsystems should register their own callbacks for actual
+  state mutation.
 
 ## 6. Things I'd push back on if I were reviewing
 

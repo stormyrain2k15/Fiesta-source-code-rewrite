@@ -17,6 +17,7 @@ public:
     void          Clear();
     size_t        Size()      const { return m_uiSize; }
     size_t        ReadCursor()const { return m_uiRead; }
+    size_t        Remaining() const { return (m_uiRead < m_uiSize) ? (m_uiSize - m_uiRead) : 0; }
     const uint8*  Data()      const { return m_pData; }
     uint8*        Data()            { return m_pData; }
     void          Reserve(size_t uiCap);

@@ -19,7 +19,11 @@ ChatStealServer& ChatStealServer::Get() { static ChatStealServer s; return s; }
 static void Fan(uint8 uiKind, CharID from, const std::string& rChannel,
                 const std::string& rText) {
     PacketBuffer body;
-    body.WriteU8(uiKind);          // 0 = shout, 1 = world yell
+    // Inter-broadcast envelope: kind 0 = chat shout, 1 = world yell.
+    // Tail is always { CharID from, string channel, string text }; channel
+    // stays empty for world-yell. The kind value is the dispatch key for
+    // Zone::WMClient::OnInterBroadcast.
+    body.WriteU8(uiKind);
     body.WriteU32(from);
     body.WriteString(rChannel);
     body.WriteString(rText);

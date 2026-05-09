@@ -81,5 +81,13 @@ public:
 
 void TownPortal(ShinePlayer* pk, MapID dest, const Vec3& kSpawn);
 
+// Resolve a map InxName ("Roumen", "AdelliaTown", etc.) to its MapID.
+// Routes through MapTables (loaded from MapInfo.shn at boot). Returns
+// 0 ("invalid map") when the name is unknown -- callers should treat
+// 0 as "skip this scope" rather than as map 0. PineScript and KQ Lua
+// scripts use this when the script knows the map by its data-file
+// stem instead of its numeric id.
+MapID ResolveMapByName(const char* szInxName);
+
 } // namespace fiesta
 #endif

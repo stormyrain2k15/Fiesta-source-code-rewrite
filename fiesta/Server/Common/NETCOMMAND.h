@@ -306,6 +306,11 @@ enum NETCOMMAND {
     NC_KQ_VOTE_CMD                  = NC_FAMILY_KQ + 0x03,
     NC_KQ_STATE_CMD                 = NC_FAMILY_KQ + 0x04,
     NC_KQ_ENTER_CMD                 = NC_FAMILY_KQ + 0x05,
+    NC_KQ_END_CMD                   = NC_FAMILY_KQ + 0x06,    // success/fail broadcast to KQ map
+    // PROVISIONAL: NPC/script narration message-by-index push. Original
+    // PDB names this NC_NPC_SCRIPT_MSG_CMD; client decodes into the
+    // localized message lookup. Body: { int32 msgIndex }.
+    NC_ACT_SCRIPT_MSG_CMD           = NC_FAMILY_KQ + 0x07,
     NC_MID_QUEUE_REQ                = NC_FAMILY_MID + 0x01,
     NC_MID_LEAVE_REQ                = NC_FAMILY_MID + 0x02,
     NC_MID_REWARD_CMD               = NC_FAMILY_MID + 0x03,

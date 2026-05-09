@@ -14,6 +14,7 @@
 #include "../Shared/PacketBuffer.h"
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
+#include <string.h>
 
 namespace fiesta {
 
@@ -66,13 +67,6 @@ eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckS
     uiNewEnchantOut = 0;
     uiItemKeyOut    = 0;
 
-    // VERIFY: This implementation does NOT consume the upgrade resource
-    // (UpResource column on ItemInfo.shn) from the inventory before
-    // attempting the roll. The NA2016 enchanter removes one "upgrade
-    // stone" matching `p->uiUpResource` regardless of success, so the
-    // current code lets a player try unlimited upgrades for free. The
-    // resource-consumption path needs UpResource -> ItemId binding
-    // (likely a per-server config), which is not present in this tree.
     // Find the target item.
     const std::vector<ShineItem>& vAll = kInv.All();
     int idx = -1;
@@ -94,21 +88,65 @@ eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckS
     uiItemKeyOut    = kItem.uiDbItemKey;
     uiNewEnchantOut = kItem.uiEnchant;
 
+    // -----------------------------------------------------------------
+    //  UpResource consumption (Lyra WIRE-10).
+    //  Find the first item in the inventory whose ItemInfo `uiUpResource`
+    //  bucket matches this target's `UpResource` column. The match is
+    //  bucket-id only, not literal item id, so any tier-equivalent
+    //  upgrade stone in the bag can be used. We snapshot the resource
+    //  item id BEFORE the dice roll and remove it AFTER (success or
+    //  fail), so a missing-resource path returns BLOCKED and leaves
+    //  the inventory untouched.
+    // -----------------------------------------------------------------
+    uint8  uiResourceBucket = (uint8)p->UpResource;
+    uint32 uiResourceItemId = 0;     // local id within the inventory
+    if (uiResourceBucket != 0) {
+        for (size_t i = 0; i < vAll.size(); ++i) {
+            if (vAll[i].uiItemId == uiItemId) continue; // not the target
+            const ItemInfoRow* q = ITableBase<ItemInfoRow>::ms_pkTable
+                ? ITableBase<ItemInfoRow>::ms_pkTable->Find(vAll[i].uiInxName) : NULL;
+            if (q && (uint8)q->UpResource == uiResourceBucket && q->UpLimit == 0) {
+                // UpLimit==0 distinguishes a *consumable* of this bucket
+                // (a stone) from another upgradeable item that happens
+                // to share the bucket id.
+                uiResourceItemId = vAll[i].uiItemId;
+                break;
+            }
+        }
+        if (uiResourceItemId == 0) {
+            SHINELOG_WARN("ItemUpgrade: missing UpResource bucket=%u for item=%u",
+                          (uint32)uiResourceBucket, uiItemId);
+            return UPGRADE_BLOCKED;
+        }
+    }
+
+    // -----------------------------------------------------------------
+    //  Luck-Stone consumption (Lyra WIRE-11).
+    //  Identified by ItemInfo.ItemUseSkill == "LuckStone" -- the only
+    //  string anchor we have without a per-server config. If no row
+    //  matches we silently treat bUseLuckStone as false rather than
+    //  hand out a free probability boost.
+    // -----------------------------------------------------------------
+    uint32 uiLuckStoneItemId = 0;
+    if (bUseLuckStone) {
+        for (size_t i = 0; i < vAll.size(); ++i) {
+            const ItemInfoRow* q = ITableBase<ItemInfoRow>::ms_pkTable
+                ? ITableBase<ItemInfoRow>::ms_pkTable->Find(vAll[i].uiInxName) : NULL;
+            if (q && strncmp(q->ItemUseSkill, "LuckStone",
+                             sizeof(q->ItemUseSkill)) == 0) {
+                uiLuckStoneItemId = vAll[i].uiItemId;
+                break;
+            }
+        }
+        if (uiLuckStoneItemId == 0) {
+            SHINELOG_WARN("ItemUpgrade: LuckStone requested but none found, ignoring flag");
+            bUseLuckStone = false;
+        }
+    }
+
     // Compute success rate (per-mille).
     int32 sucRate = (int32)p->UpSucRatio;
-    if (bUseLuckStone) {
-        // VERIFY: Luck Stone consumption is NOT yet implemented.
-        // The original game removes one Luck Stone (a specific item class
-        // identified via ItemInfo.kClassify / a per-server config item id)
-        // from the player's inventory before applying UpLuckRatio. Until
-        // the Luck-Stone item id is bound (via a config table or hardcoded
-        // ItemId list), granting the luck bonus would let the client get
-        // a free probability boost. Log and ignore the flag for now.
-        SHINELOG_WARN("ItemUpgrade::Try cid?? requested LuckStone bonus -- "
-                      "consumption path not implemented, ignoring bUseLuckStone");
-        bUseLuckStone = false;
-        (void)bUseLuckStone;
-    }
+    if (bUseLuckStone) sucRate += (int32)p->UpLuckRatio;
     sucRate = (sucRate * kUpgradeSucScalerX1k) / 1000;
     if (sucRate < 0)    sucRate = 0;
     if (sucRate > 1000) sucRate = 1000;
@@ -116,6 +154,10 @@ eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckS
     // Roll.
     int32 roll = (int32)(s_kRng.NextDouble() * 1000.0);
     bool  bSuccess = (roll < sucRate);
+
+    // Resource is consumed regardless of outcome (one stone per attempt).
+    if (uiResourceItemId != 0)  kInv.Remove(uiResourceItemId);
+    if (uiLuckStoneItemId != 0) kInv.Remove(uiLuckStoneItemId);
 
     // Locate a non-const reference to the item to mutate. The Inventory
     // exposes only a const view, so we go through Add/Remove.

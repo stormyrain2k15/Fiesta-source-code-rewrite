@@ -175,6 +175,7 @@
     <ClCompile Include="..\Server\Zone\HolyPromise.cpp" />
     <ClCompile Include="..\Server\Zone\InstanceDungeon.cpp" />
     <ClCompile Include="..\Server\Zone\InstanceSystem.cpp" />
+    <ClCompile Include="..\Server\Zone\InterBroadcastSinks.cpp" />
     <ClCompile Include="..\Server\Zone\Inventory.cpp" />
     <ClCompile Include="..\Server\Zone\InventoryLocking.cpp" />
     <ClCompile Include="..\Server\Zone\ItemActionConditions.cpp" />
@@ -394,6 +395,7 @@
   <ItemGroup>
     <ClInclude Include="..\Server\Zone\AbState.h" />
     <ClInclude Include="..\Server\Zone\AbnormalStateDictionary.h" />
+    <ClInclude Include="..\Server\Zone\AbnormalStateShelter.h" />
     <ClInclude Include="..\Server\Zone\AdminSecLog.h" />
     <ClInclude Include="..\Server\Zone\AggroList.h" />
     <ClInclude Include="..\Server\Zone\AmpersandCommands.h" />
@@ -423,9 +425,11 @@
     <ClInclude Include="..\Server\Zone\GuildSystem.h" />
     <ClInclude Include="..\Server\Zone\InstanceDungeon.h" />
     <ClInclude Include="..\Server\Zone\InstanceSystem.h" />
+    <ClInclude Include="..\Server\Zone\InterBroadcastSinks.h" />
     <ClInclude Include="..\Server\Zone\Inventory.h" />
     <ClInclude Include="..\Server\Zone\ItemSystems.h" />
     <ClInclude Include="..\Server\Zone\ItemUpgrade.h" />
+    <ClInclude Include="..\Server\Zone\KQContribute.h" />
     <ClInclude Include="..\Server\Zone\KingdomQuest.h" />
     <ClInclude Include="..\Server\Zone\LevelGapTable.h" />
     <ClInclude Include="..\Server\Zone\LiveOpsBoosts.h" />
@@ -434,6 +438,7 @@
     <ClInclude Include="..\Server\Zone\MapField.h" />
     <ClInclude Include="..\Server\Zone\MarketSystems.h" />
     <ClInclude Include="..\Server\Zone\MarriageSystem.h" />
+    <ClInclude Include="..\Server\Zone\MinimonDataBox.h" />
     <ClInclude Include="..\Server\Zone\MiscTables.h" />
     <ClInclude Include="..\Server\Zone\MobAIRunner.h" />
     <ClInclude Include="..\Server\Zone\MobAISystem.h" />
@@ -465,6 +470,7 @@
     <ClInclude Include="..\Server\Zone\ScenarioScript.h" />
     <ClInclude Include="..\Server\Zone\ScriptLoader.h" />
     <ClInclude Include="..\Server\Zone\ScriptStringTable.h" />
+    <ClInclude Include="..\Server\Zone\SetItemData.h" />
     <ClInclude Include="..\Server\Zone\ShineNPCTable.h" />
     <ClInclude Include="..\Server\Zone\ShineObject.h" />
     <ClInclude Include="..\Server\Zone\ShineObjectRoutine.h" />
@@ -472,7 +478,10 @@
     <ClInclude Include="..\Server\Zone\SocialSystems.h" />
     <ClInclude Include="..\Server\Zone\SoulStoneSystem.h" />
     <ClInclude Include="..\Server\Zone\SoulStoneVendor.h" />
+    <ClInclude Include="..\Server\Zone\SpamerPenaltyDataBox.h" />
     <ClInclude Include="..\Server\Zone\StatDistribute.h" />
+    <ClInclude Include="..\Server\Zone\SubAbstatePriority.h" />
+    <ClInclude Include="..\Server\Zone\TargetAnalyser.h" />
     <ClInclude Include="..\Server\Zone\TypedSchemaConsumers.h" />
     <ClInclude Include="..\Server\Zone\WMClient.h" />
     <ClInclude Include="..\Server\Zone\WorldTables.h" />

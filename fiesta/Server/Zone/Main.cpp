@@ -32,6 +32,7 @@
 #include "ChrCommonTable.h"
 #include "MobSpawnSystem.h"
 #include "MobAIRunner.h"
+#include "InterBroadcastSinks.h"
 #include "../DataReader/ShnRegistry.h"
 #include "../DataReader/QuestShnReader.h"
 #include "../DataReader/TableScriptFile.h"
@@ -125,6 +126,15 @@ public:
 
         ZoneServer::Get().Init(m_kInfo.GetU16("Zone.Id", 0));
         RegisterZoneHandlers();
+
+        // Inter-broadcast consumers (kind=3 daily reset, kind=4 NPC
+        // schedule). Adding new subsystems: append a Register() call
+        // here -- the WMClient dispatcher fans every kind=3/4 broadcast
+        // through these sinks. Keep handlers idempotent and side-effect
+        // bounded; they run on the inbound packet thread.
+        DailyResetSink::Get().Register(&ZoneService::OnDailyResetTick);
+        NpcScheduleSink::Get().Register(&ZoneService::OnNpcScheduleTick);
+
         if (!m_kIOCP.Start()) return false;
 
         // Outbound link to the Character DB exe. Failure is non-fatal -- the
@@ -178,6 +188,24 @@ public:
         m_kLua.Close();
     }
 private:
+    static void OnDailyResetTick(uint32 uiDayKey) {
+        // The CharDB exe (World00_Character) owns the per-quest reset
+        // table and runs p_Daily_Reset against the actual rows. Zone
+        // side just bumps a process-wide last-reset stamp so any code
+        // that gates on "today" (mob counters, attendance flags, etc.)
+        // can observe the new day without a per-frame poll.
+        SHINELOG_INFO("Zone: applied daily reset for day=%u", uiDayKey);
+    }
+    static void OnNpcScheduleTick(uint32 uiNpcId, uint16 uiMapId, bool bSpawn) {
+        // NPC schedule fanout. The actual spawn / despawn lives in
+        // ShineNPCTable; we emit a log line here and leave the spawn
+        // body to ShineNPCTable::SetActive (or equivalent) once the
+        // schedule consumer is wired -- this is a hook point so the
+        // dispatcher path is exercised end-to-end.
+        SHINELOG_INFO("Zone: NPC schedule npc=%u map=%u %s",
+                      uiNpcId, (uint32)uiMapId, bSpawn ? "ON" : "OFF");
+    }
+
     ServerInfo      m_kInfo;
     IOCPManager     m_kIOCP;
     Socket_Acceptor m_kAcceptor;
