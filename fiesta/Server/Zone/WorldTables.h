@@ -255,5 +255,40 @@ private:
     std::vector<Row> m_kRows;
 };
 
+// Walk PineScript.txt and load every ScenarioBookShelf entry it lists,
+// plus always-on Wedding / Guild scenarios. Returns the count of
+// successfully loaded .ps scripts.
+size_t LoadAllPineScripts(const std::string& rRoot);
+
+// World/Karen.txt   -- "Karen" boss attack sequence (table AttSeq).
+// World/MobChat.txt -- per-mob chat lines (PIECE/ATTACK/DAMAGED/DEAD/HELPMAIN/HELPSUB).
+class KarenAttackTable {
+public:
+    static KarenAttackTable& Get();
+    bool Load(const std::string& rRoot);
+    const std::string& AttackAt(uint16 uiOrder) const;
+    size_t Size() const { return m_kRows.size(); }
+private:
+    KarenAttackTable() {}
+    std::map<uint16, std::string> m_kRows;
+    std::string m_kEmpty;
+};
+
+class MobChatTable {
+public:
+    static MobChatTable& Get();
+    bool Load(const std::string& rRoot);
+    enum eMobChatBucket { MC_PIECE = 0, MC_ATTACK, MC_DAMAGED, MC_DEAD,
+                          MC_HELPMAIN, MC_HELPSUB, MC_BUCKETS };
+    // Returns one of (Script0..Script3) sampled by Rate0/Rate1; empty if none.
+    std::string Pick(eMobChatBucket eBucket, const std::string& rMobIndex) const;
+private:
+    MobChatTable() {}
+    struct Row { std::string kMobIndex; uint32 uiRate0, uiRate1;
+                 std::string aScript[4]; };
+    std::vector<Row> m_kBucket[MC_BUCKETS];
+    std::map<std::string, std::vector<size_t> > m_kIndex[MC_BUCKETS];
+};
+
 } // namespace fiesta
 #endif

@@ -19,6 +19,10 @@
 #include "GroupTables.h"
 #include "MiscTables.h"
 #include "MoreTables.h"
+#include "ExtendedTables.h"
+#include "EstateSystem.h"
+#include "ExpeditionSystem.h"
+#include "WorldTables.h"
 #include "../DataReader/ShnRegistry.h"
 
 namespace fiesta {
@@ -42,6 +46,14 @@ public:
         BindAllGroupTables();
         BindAllMiscTables();
         BindAllMoreTables();
+        BindAllExtendedTables();
+        // Walk World/PineScript.txt and load every ScenarioBookShelf
+        // .ps script (KQ, Promote, Wedding, Guild, instance dungeons).
+        LoadAllPineScripts(m_kReader.GetRoot());
+        // World/Karen.txt and World/MobChat.txt are not in the
+        // headline DataBox set; load them explicitly.
+        KarenAttackTable::Get().Load(m_kReader.GetRoot());
+        MobChatTable::Get()    .Load(m_kReader.GetRoot());
         // Charged-item booster tables (sourced externally via the website
         // shop -- the Zone only consumes their effects).
         ChargedEffectTable::Get()  .Load(m_kReader.GetRoot());
@@ -77,6 +89,8 @@ public:
         KQServer::Get().Tick();
         AuctionSystem::Get().Tick();
         BoothManager::Tick();
+        EstateServer::Get().Tick(::GetTickCount64());
+        ExpeditionSystem::Get().Tick();
         GuildWarManager::Tick();
         GuildTournamentSystem::Tick();
         ChargedEffectManager::Get().Tick();

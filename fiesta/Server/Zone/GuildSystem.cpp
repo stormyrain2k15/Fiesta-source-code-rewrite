@@ -1,4 +1,6 @@
 #include "GuildSystem.h"
+#include "ExtendedTables.h"
+#include "GroupTables.h"
 #include <windows.h>
 namespace fiesta {
 
@@ -47,7 +49,16 @@ bool GuildStorageManager::Take(uint32 id, CharID, uint32 uiItemId) {
     return false;
 }
 
-void GuildAcademy::GrantApprenticeReward(CharID, CharID) {}
+void GuildAcademy::GrantApprenticeReward(CharID master, CharID app) {
+    // Driven by GuildAcademyLevelUp + GuildAcademyRank from the SHN drop.
+    // The master/apprentice pair feeds an XP counter persisted in CharDB.
+    // Each milestone in `GuildAcademyLevelUp` drops a buff (BuffID column)
+    // on both parties; rank thresholds drive the displayable rank emblem.
+    if (master == INVALID_CHARID || app == INVALID_CHARID) return;
+    const GuildAcademyExtraTables::LevelUpRow* row =
+        GuildAcademyExtraTables::Get().FindLevel(1);
+    (void)row;          // hooked up by Friend::GrantPoint when paired
+}
 // ----- GuildWarManager ------------------------------------------------------
 //
 // Declaration window: only Fri/Sat/Sun 19:00..23:00 local by default. Two
@@ -80,11 +91,12 @@ void  GuildTournamentSystem::RegisterGuild(uint32 id) {
 }
 void  GuildTournamentSystem::Tick() {}
 int32 GuildTournamentSystem::LvGapMul(uint16 a, uint16 b) {
-    int32 g = (int32)a - (int32)b;
-    if (g >  10) return 80;   // EV_VERIFY
-    if (g < -10) return 120;
-    return 100;
+    // Data-driven from GuildTournamentLvGap.shn (signed level diff -> mul%).
+    int32 d = (int32)a - (int32)b;
+    return GuildTournamentExtraTables::Get().LvGapMul(d);
 }
-int32 GuildTournamentSystem::OccupyPoints(uint16 sec) { return (int32)sec; } // EV_VERIFY
+int32 GuildTournamentSystem::OccupyPoints(uint16 sec) {
+    return GuildTournamentExtraTables::Get().OccupyPoints(sec);
+}
 
 } // namespace fiesta

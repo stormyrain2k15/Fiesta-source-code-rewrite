@@ -427,6 +427,38 @@ P2:
 - Unit tests for opcode round-trip on PacketBuffer / GPacket.
 - Anti-cheat: real XTrap handshake against XTrap4 server DLL.
 
+## Pass 1.19 — Long-tail data ingest + Estate / Marriage / Expedition (2026-02)
+
+User direction (verbatim): "I want you to keep going through all of the
+files and getting them being used by the server. ... estates are part
+of the mini house/vendor system. ... Marriage system. Guild system
+expedition system academy system which is part of the guild system."
+
+Delivered:
+- `Server/Zone/ExtendedTables.{h,cpp}`: typed accessors for the 110 SHN
+  files Pass 1.18 didn't already group. Coverage now **199/199** SHNs.
+- `Server/Zone/EstateSystem.{h,cpp}`: mini-house ownership, durability
+  decay, furniture placement against MiniHouseDummy, vendor-mode
+  hand-off to StreetBooth.
+- `Server/Zone/MarriageSystem.{h,cpp}`: HolyPromise lifecycle (PROPOSED
+  → ENGAGED → MARRIED → DIVORCED), summon cooldown, anniversary
+  promise-count tick keyed off HolyPromiseReward.shn.
+- `Server/Zone/ExpeditionSystem.{h,cpp}`: party-of-parties (≤6
+  sub-parties), loot modes FREE / MASTER / TURN, master-buff slot.
+- `GuildSystem.cpp`: `GuildTournamentSystem` LvGapMul / OccupyPoints
+  now data-driven from `GuildTournamentExtraTables`.
+- `WorldTables.{h,cpp}`: `LoadAllPineScripts` walks PineScript.txt and
+  loads every ScenarioBookShelf .ps; `KarenAttackTable` + `MobChatTable`
+  ingest the last two World/*.txt files. Coverage now **48/48**
+  World/*.txt.
+- `Zone/Main.cpp`: BindAllExtendedTables(), LoadAllPineScripts(),
+  Karen/MobChat loaders wired into boot; EstateServer + ExpeditionSystem
+  ticks added.
+
+Doc: `docs/PASS1_19_LONG_TAIL_AND_ESTATE.md`.
+
+Status: code authored, awaiting user-side VS2010 compile.
+
 ## Personas
 
 - Server operator (runs the WinServices, edits `ServerInfo.txt`).
