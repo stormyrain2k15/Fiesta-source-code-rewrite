@@ -13,6 +13,10 @@ name: canary
 #
 # Runs daily at 09:00 UTC and on every push to main. Manual dispatch
 # also enabled so you can fire it ad-hoc after a refactor.
+#
+# Repo layout assumption: this workflow lives at /.github/workflows/
+# and the C++ tree is rooted at /fiesta/. All paths below are relative
+# to the repository root.
 
 on:
   schedule:
@@ -20,6 +24,10 @@ on:
   push:
     branches: [ main, master ]
   workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: fiesta
 
 jobs:
   source-health:
@@ -82,7 +90,6 @@ jobs:
             . 2>/dev/null \
             | grep -v 'ThirdParty/' \
             | grep -v 'docs/HONEST_DISCLOSURE.md' \
-            | grep -v '\.github/workflows/canary.yml' \
             || true)
           if [ -n "$out" ]; then
             echo "::error::AI / platform fingerprint detected:"

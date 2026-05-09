@@ -17,6 +17,10 @@ name: build
 # A green CI here means "the code is structurally sound enough that a
 # v100 build is likely to succeed". The authoritative build is still
 # the local VS2010 build.
+#
+# Repo layout assumption: this workflow lives at /.github/workflows/
+# and the C++ tree is rooted at /fiesta/. All paths below are relative
+# to the repository root.
 
 on:
   push:
@@ -24,6 +28,10 @@ on:
   pull_request:
     branches: [ main, master, develop ]
   workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: fiesta
 
 jobs:
   windows-build:
@@ -45,8 +53,9 @@ jobs:
         # redistributable on a public CI image. We drop minimal header
         # stubs so the cpp/h tree compiles enough to surface ODR /
         # symbol-resolution / syntax errors. Linking is allowed to fail;
-        # the canary job below does the real link with synthetic libs.
+        # the strict static-lib pass below does the real verification.
         shell: cmd
+        working-directory: fiesta
         run: |
           mkdir ThirdParty\Lua\include 2>nul
           mkdir ThirdParty\Lua\lib 2>nul
@@ -56,6 +65,7 @@ jobs:
 
       - name: MSBuild solution (compile only -- skip link errors)
         shell: cmd
+        working-directory: fiesta
         run: |
           msbuild Build\Fiesta.sln ^
             /m /v:minimal ^
@@ -75,6 +85,7 @@ jobs:
         # is "compile errors broke the tree" not "missing third-party
         # libs broke the tree".
         shell: cmd
+        working-directory: fiesta
         run: |
           msbuild Build\Common.vcxproj         /m /v:minimal /p:Configuration=${{ matrix.config }} /p:Platform=Win32 /p:PlatformToolset=v141
           msbuild Build\Shared.vcxproj         /m /v:minimal /p:Configuration=${{ matrix.config }} /p:Platform=Win32 /p:PlatformToolset=v141
@@ -88,7 +99,7 @@ jobs:
         with:
           name: msbuild-logs-${{ matrix.config }}
           path: |
-            msbuild-${{ matrix.config }}.log
-            msbuild-${{ matrix.config }}.errors.log
-            msbuild-${{ matrix.config }}.warnings.log
+            fiesta/msbuild-${{ matrix.config }}.log
+            fiesta/msbuild-${{ matrix.config }}.errors.log
+            fiesta/msbuild-${{ matrix.config }}.warnings.log
           retention-days: 14
