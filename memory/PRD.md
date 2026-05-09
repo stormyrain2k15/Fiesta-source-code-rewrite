@@ -52,6 +52,18 @@ See `docs/PASS1_5_DOC_INTEGRATION.md` for the full inventory and wiring notes.
 
 Total now: **119 source files**.
 
+## Pass 1.6 — Real SHN binary reader (2026-05-09)
+
+User provided `SHN_Editor_4.7` source. Wrote a real C++ SHN binary reader:
+
+- `Server/DataReader/ShnFile.{h,cpp}` — full decrypt + parse: 32-byte crypt header,
+  4-byte total-length prefix, symmetric XOR-rolling decrypt, 16 documented type codes
+  (1/2/3/5/9/11/12/13/16/18/20/21/22/24/26/27).
+- `DataReader::LoadAsRows` now tries `.shn` first via `ShnFile`, falls back to `.txt`.
+- `Schemas.cpp` row decoders consume parsed `.shn` rows unchanged.
+
+Total now: **122 source files**. See `docs/PASS1_6_SHN_BINARY.md` for details.
+
 ## Pack rule compliance
 
 | Rule | Status |

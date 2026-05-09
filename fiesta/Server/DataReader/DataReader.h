@@ -38,9 +38,5 @@ private:
                       std::vector<std::vector<std::string> >& rOut);
 };
 
-// Template alias mirrors of the PDB symbols.
-template <class T> class CommonData : public ITableBase<T> {};
-template <class T> class IndexedCommonData : public ITableBase<T> {};
-
 } // namespace fiesta
 #endif
