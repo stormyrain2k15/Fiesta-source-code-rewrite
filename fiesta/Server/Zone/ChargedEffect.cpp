@@ -1,6 +1,7 @@
 // Server/Zone/ChargedEffect.cpp
 #include "ChargedEffect.h"
 #include "ShineObject.h"
+#include "GroupTables.h"
 #include "../DataReader/ShnFile.h"
 #include "../Shared/GTimer.h"
 #include "../Shared/ShineLogSystem.h"
@@ -101,6 +102,13 @@ bool ChargedEffectManager::OnItemReceived(ShinePlayer* pkP, const std::string& r
                   pkP->GetCharID(), rItemID.c_str(), (int)kInst.eEffect,
                   (uint32)kInst.uiEffectValue, (uint32)pkRow->uiKeepTime_Hour);
     return true;
+}
+
+bool ChargedEffectManager::OnItemReceivedById(ShinePlayer* pkP, uint32 uiItemId) {
+    if (!pkP) return false;
+    const ItemInfoRow* pkInfo = ItemTables::Get().FindItem(uiItemId);
+    if (!pkInfo) return false;
+    return OnItemReceived(pkP, pkInfo->kInxName);
 }
 
 bool ChargedEffectManager::TryDelete(ShinePlayer* pkP, uint16 uiHandle) {

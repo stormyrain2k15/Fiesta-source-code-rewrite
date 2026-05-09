@@ -16,6 +16,10 @@
 #include "CharDBClient.h"
 #include "WMClient.h"
 #include "ChargedEffect.h"
+#include "GroupTables.h"
+#include "MiscTables.h"
+#include "MoreTables.h"
+#include "../DataReader/ShnRegistry.h"
 
 namespace fiesta {
 
@@ -32,6 +36,12 @@ public:
         // Register every documented *Tab in DataBox (20 headline schemas).
         RegisterAllSchemaTabs();
         DataBox::Get().LoadAll(m_kReader);
+        // Universal SHN ingest -- loads every *.shn under Data\Shine[-1].
+        ShnRegistry::Get().LoadAll(m_kReader.GetRoot());
+        // Build typed group accessors (Item/Mob/Skill/Map/AbState/...).
+        BindAllGroupTables();
+        BindAllMiscTables();
+        BindAllMoreTables();
         // Charged-item booster tables (sourced externally via the website
         // shop -- the Zone only consumes their effects).
         ChargedEffectTable::Get()  .Load(m_kReader.GetRoot());

@@ -41,6 +41,8 @@ public:
     int32   GetSP() const { return m_iSP; }   void SetSP(int32 v) { m_iSP = v < 0 ? 0 : (v > m_iMaxSP ? m_iMaxSP : v); }
     int32   GetMaxHP() const { return m_iMaxHP; }
     int32   GetMaxSP() const { return m_iMaxSP; }
+    void    SetMaxHP(int32 v) { m_iMaxHP = v > 0 ? v : 1; if (m_iHP > m_iMaxHP) m_iHP = m_iMaxHP; }
+    void    SetMaxSP(int32 v) { m_iMaxSP = v >= 0 ? v : 0; if (m_iSP > m_iMaxSP) m_iSP = m_iMaxSP; }
     bool    IsDead() const { return m_iHP <= 0; }
 
 protected:

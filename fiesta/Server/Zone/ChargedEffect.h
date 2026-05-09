@@ -86,6 +86,11 @@ public:
     // caller knows to treat it as a regular item).
     bool OnItemReceived(ShinePlayer* pkP, const std::string& rItemID);
 
+    // Convenience: look up the InxName via ItemTables and dispatch to
+    // OnItemReceived. Use this from the inventory hot path so callers
+    // don't need to know the InxName up front.
+    bool OnItemReceivedById(ShinePlayer* pkP, uint32 uiItemId);
+
     // Player-initiated cancellation of a deletable abstate.
     bool TryDelete(ShinePlayer* pkP, uint16 uiHandle);
 
