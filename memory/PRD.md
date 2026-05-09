@@ -224,6 +224,46 @@ code and pinned every confirmed hex opcode from F2/NCProtocol.h.
 
 Total now: **~177 source files**. See `docs/PASS1_11_BATTLE_PIPELINE.md`.
 
+## Pass 1.12 -- World/ Folder Done Right (2026-02)
+
+After re-reading every file in `World/` properly, the soul-stone tier /
+heal / cap / price are NOT made-up constants -- they're per-(class, level)
+columns in `Param<Class>Server.txt`. Same for the full Power Stone /
+Guard Stone ladders. The real NPC role roster is 10 types, not 3, and
+`ChrCommon.txt` ships 5 free-stat tables (181 rows each) defining what
+each STR/INT/DEX/CON/MEN point grants.
+
+- **`ClassParamTable`** -- loads all 22 `Param<Class>Server.txt` files.
+  Per-(class, level) row exposes the full 35-column shape: SoulHP /
+  MAXSoulHP / PriceHPStone, SoulSP / MAXSoulSP / PriceSPStone,
+  Max/Num/Price/WC/MA `PwrStone`, Max/Num/Price/AC/MR `GrdStone`,
+  PainRes/RestraintRes/CurseRes/ShockRes, MaxHP/MaxSP, etc. Plus a
+  class-name <-> enum mapping for all 27 classes.
+- **`SoulStoneSystem` rewritten on real data** -- heal / cap / price now
+  sourced from `ClassParamTable`. No fake tier table left.
+- **`PowerGuardStoneSystem`** -- new. Same shape as soul stones; Power
+  Stone bumps WC+MA, Guard Stone bumps AC+MR, both for `kStoneBuffSec`
+  (30 min default) per stone consumed. Independent HP / SP / Pwr / Grd
+  cooldowns. `PowerGuardStoneVendor` matches `RoleArg0` in {`PowerStone`,
+  `GuardStone`, `Stone`}.
+- **`NPCRole`** -- the real 10-role roster (`ClientMenu`, `NPCMenu`,
+  `QuestNpc`, `StoreManager`, `Merchant`, `Gate`, `IDGate`, `ModeIDGate`,
+  `RandomGate`, `Guard`) plus 14 merchant sub-kinds (`Weapon`, `Item`,
+  `Skill`, `Guild`, `SoulStone`, `PowerStone`, `GuardStone`, `Stone`,
+  `Mount`, `Pet`, `Costume`, `Title`, `WeaponTitle`, `ItemCraft`).
+- **`ChrCommonTable`** -- loads `Common` + `StatTable` + 5 `FreeStat*Table`s
+  with named-column accessors: `WCPerStr`, `MAPerInt`, `SPPerInt`,
+  `HitPerDex`, `BlockPerDex`, `ACPerCon`, `HPPerCon`, `MRPerMen`.
+- **`WorldTables`** -- single TU with typed loaders for `QuestTable`
+  (6 sub-tables joined on QuestHandle), `ExpRecalcTable`,
+  `RecallCoordTable`, `DamageByAngleTable` (with linear interpolation),
+  `DamageBySoulTable`, `ItemUseFunctionTable`, `RandomOptionTable`,
+  `ItemDropGroupTable`, `PineScriptTable`, `SubLayerInteractTable`
+  (visibility + attackability matrices), `NPCActionTable`
+  (NPCCondition rules).
+
+Total now: **190 source files**. See `docs/PASS1_12_WORLD_FOLDER.md`.
+
 ## Pack rule compliance
 
 | Rule | Status |

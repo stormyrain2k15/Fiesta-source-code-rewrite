@@ -2,6 +2,7 @@
 #include "SoulStoneVendor.h"
 #include "ShineObject.h"
 #include "ShineNPCTable.h"
+#include "ClassParamTable.h"
 #include "../Shared/ShineLogSystem.h"
 
 namespace fiesta {
@@ -13,6 +14,10 @@ bool SoulStoneVendor::IsVendor(const std::string& rNpcMobName) {
     return _stricmp(p->kRoleArg0.c_str(), "SoulStone") == 0;
 }
 
+// Forward decl mirror of SoulStoneSystem.cpp -- placeholder until
+// ShinePlayerCharacter exposes the class field.
+static eShineClass ClassOf(ShinePlayer* /*pk*/) { return SC_FIGHTER; }
+
 eSoulStoneBuyResult SoulStoneVendor::Buy(ShinePlayer*       pkP,
                                           const std::string& rNpcMobName,
                                           Inventory&         rInv,
@@ -23,22 +28,30 @@ eSoulStoneBuyResult SoulStoneVendor::Buy(ShinePlayer*       pkP,
     if (uiQty == 0) return SS_BUY_BAD_QTY;
     if (!IsVendor(rNpcMobName)) return SS_BUY_NOT_VENDOR;
 
-    // Cap check (don't even debit Vis if we'd be wasting).
-    uint16 cur = bIsHp ? rCounts.uiHpCount : rCounts.uiSpCount;
-    if (cur >= kSoulStoneMaxCount) return SS_BUY_AT_CAP;
-    if ((uint32)cur + (uint32)uiQty > (uint32)kSoulStoneMaxCount)
-        uiQty = (uint16)(kSoulStoneMaxCount - cur);
+    eShineClass eC = ClassOf(pkP);
+    uint16 uiL = pkP->GetLevel();
 
-    int32 unit  = SoulStoneSystem::PriceForLevel((int32)pkP->GetLevel());
+    // Cap.
+    int32 cap = bIsHp ? ClassParamTable::Get().SoulHpCapForLevel(eC, uiL)
+                      : ClassParamTable::Get().SoulSpCapForLevel(eC, uiL);
+    if (cap <= 0) cap = 9999;
+    uint16 cur = bIsHp ? rCounts.uiHpCount : rCounts.uiSpCount;
+    if (cur >= (uint16)cap) return SS_BUY_AT_CAP;
+    if ((int32)cur + (int32)uiQty > cap) uiQty = (uint16)(cap - cur);
+
+    // Price.
+    int32 unit = bIsHp ? ClassParamTable::Get().SoulHpPriceForLevel(eC, uiL)
+                       : ClassParamTable::Get().SoulSpPriceForLevel(eC, uiL);
+    if (unit <= 0) return SS_BUY_NOT_VENDOR;       // no price row -> not for sale
     int64 total = (int64)unit * (int64)uiQty;
     if (rInv.Money() < total) return SS_BUY_NO_MONEY;
 
     rInv.AddMoney(-total);
-    SoulStoneSystem::Grant(rCounts, bIsHp, uiQty);
+    SoulStoneSystem::Grant(rCounts, eC, uiL, bIsHp, uiQty);
 
-    SHINELOG_INFO("SoulStoneVendor: %s sold %u %s soul stones to L%u for %lld Vis",
+    SHINELOG_INFO("SoulStoneVendor: %s sold %u %s soul stones to L%u for %lld Vis (%d/ea)",
                   rNpcMobName.c_str(), (uint32)uiQty, bIsHp ? "HP" : "SP",
-                  (uint32)pkP->GetLevel(), (long long)total);
+                  (uint32)uiL, (long long)total, (int)unit);
     return SS_BUY_OK;
 }
 
