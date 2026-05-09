@@ -28,11 +28,11 @@ Server/
     AccountLog/       # AccountLog DB service exe
     Character/        # Character DB service exe
     GameLog/          # GameLog DB service exe
-  Login/              # 04 Login service
-  WorldManager/       # 05 WM service
+  Login/              # 04 Login service              -> 3LoginServer2.exe
+  WorldManager/       # 05 WM service                 -> 4WorldManagerServer2.exe
   Zone/               # 06 + every gameplay system (08..41) plus a few more
-  GamigoZR/           # GamigoZR launcher/stub path
-  OperatorTool/       # 39 admin/optool path
+                      #                              -> 5ZoneServer2.exe
+  OperatorTool/       # 39 admin/optool path          -> OperatorTool Release.exe
 Client/
   Engine/             # ClientApp + Gamebryo bootstrap + RenderLoop
   Game/               # Client game-side mirrors of Zone systems
@@ -73,8 +73,7 @@ Every original-name surface carries one of:
 2. `Server/DataReader` (SHN/TXT loader + ITableBase + DataBox)
 3. `Server/Common` (NETCOMMAND + ProtocolParser + packet framework)
 4. `Server/DataServer/*` (4 DB service exes)
-5. `Server/Login`, `Server/WorldManager`, `Server/Zone`, `Server/GamigoZR`,
-   `Server/OperatorTool`
+5. `Server/Login`, `Server/WorldManager`, `Server/Zone`, `Server/OperatorTool`
 6. `Lua` runtime + C bindings
 7. `Client/*` (links against ThirdParty/Gamebryo)
 

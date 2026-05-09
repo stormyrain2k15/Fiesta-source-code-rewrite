@@ -295,6 +295,38 @@ procedures and ~30 tables across 7 databases.
 
 Total now: **~191 source files**. See `docs/PASS1_14_DB_LAYER.md`.
 
+## Pass 1.15 -- Production exe layout + CharDB plumbing (2026-02)
+
+User dropped 3 screenshots of a real shipping server folder confirming the
+production exe naming convention. They also confirmed the `GamigoZR`
+service was just a workaround for an old client-version check inside the
+Zone server, not a real game function.
+
+- **Removed `Server/GamigoZR/`** entirely; references purged from README /
+  BUILD docs.
+- **Production exe naming locked in `docs/BUILD.md`**: source dirs map to
+  `3LoginServer2.exe`, `4WorldManagerServer2.exe`, `5ZoneServer2.exe`,
+  `Account Release.exe`, `AccountLog Release.exe`,
+  `Character Release.exe`, `GameLog_Release.exe`,
+  `OperatorTool Release.exe`. Spaces/underscores preserved verbatim.
+- **`ShinePlayer` widened** to carry the full identity + progression set
+  (`AcctID`, `CharID`, level, class, admin level, exp, fame, money,
+  STR/END/INT/DEX/MEN, free stat, skill point). Added a
+  `LoadFromCharDBRow(const DBRecord&)` that maps a `p_Char_Login`
+  projection directly into the player.
+- **Per-player `CharacterSkill` + `AbnormalState`** now owned by
+  `ShinePlayer` (P1 backlog item closed). `SkillSystem.h` and `AbState.h`
+  switched to forward-declared object types to break the circular include
+  the new `ShineObject.h` would otherwise introduce.
+- **`CharDBSession::OnPacket` now actually serves
+  `NC_INTER_CHAR_DB_QUERY`** -- on op=Login it calls
+  `SQLP_Character::Login` and replies with
+  `NC_INTER_CHAR_DB_RESPONSE` carrying the row columns; on op=Logout it
+  calls `SQLP_Character::Logout`.
+
+Total still: **~191 source files** (one Main.cpp deleted, one new doc).
+See `docs/PASS1_15_EXE_LAYOUT_AND_CHARDB.md`.
+
 ## Pack rule compliance
 
 | Rule | Status |

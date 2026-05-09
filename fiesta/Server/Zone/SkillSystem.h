@@ -4,11 +4,14 @@
 //                                  MultiHitTable, MultiTypeHandle, ToggleSkill, ActiveSkillInfoServer
 #ifndef FIESTA_ZONE_SKILLSYSTEM_H
 #define FIESTA_ZONE_SKILLSYSTEM_H
-#include "ShineObject.h"
+#include "../Shared/ShineTypes.h"
 #include <map>
 #include <vector>
 
 namespace fiesta {
+
+class ShineObject;
+class ShinePlayer;
 
 struct SkillCooldown { SkillID uiSid; uint64 uiReadyAtMs; };
 

@@ -4,11 +4,13 @@
 //                                  SubAbstatePriority, AbStateInst
 #ifndef FIESTA_ZONE_ABSTATE_H
 #define FIESTA_ZONE_ABSTATE_H
-#include "ShineObject.h"
+#include "../Shared/ShineTypes.h"
 #include <map>
 #include <vector>
 
 namespace fiesta {
+
+class ShineObject;
 
 struct AbStateInst {
     uint32 uiAbInxName;
