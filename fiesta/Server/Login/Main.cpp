@@ -6,6 +6,7 @@
 #include "../Shared/Socket_Acceptor.h"
 #include "../Shared/ShineLogSystem.h"
 #include "LoginClientSession.h"
+#include "ClientVersionKeyInfo.h"
 
 namespace fiesta {
 
@@ -15,11 +16,15 @@ class LoginService : public WinService {
 public:
     LoginService() : WinService("FiestaLogin") {}
     virtual bool OnStart() {
-        m_kInfo.Load("ServerInfo.txt");
+        m_kInfo.Load("LoginServerInfo.txt");
+        ClientVersionKeyInfo::Get().Load("ClientVersionKeyInfo.txt");
         if (!m_kIOCP.Start()) return false;
-        if (!m_kAcceptor.Start(&m_kIOCP, m_kInfo.GetU16("Login.Port", 9010), &MakeLoginClientSession))
+        const ServiceEndpoint* pkSvc = m_kInfo.FindFirst(SK_Login, -1, 20);
+        uint16 uiPort = pkSvc ? pkSvc->uiPort : 9010;
+        if (!m_kAcceptor.Start(&m_kIOCP, uiPort, &MakeLoginClientSession))
             return false;
-        SHINELOG_INFO("Login service running on :%u", m_kInfo.GetU16("Login.Port", 9010));
+        SHINELOG_INFO("Login service running on :%u  versionKey=%s",
+                      uiPort, ClientVersionKeyInfo::Get().Key().c_str());
         return true;
     }
     virtual void OnStop() { m_kAcceptor.Stop(); m_kIOCP.Stop(); }

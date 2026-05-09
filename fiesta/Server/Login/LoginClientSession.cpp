@@ -1,13 +1,11 @@
 // Server/Login/LoginClientSession.cpp
 #include "LoginClientSession.h"
+#include "ClientVersionKeyInfo.h"
 #include "../Shared/ShineLogSystem.h"
 #include "../Common/NETCOMMAND.h"
 #include "../Common/SendPacket.h"
 
 namespace fiesta {
-
-// Local provisional client version (EV_VERIFY -- ClientVersionKeyInfo.txt is the source of truth).
-static const uint32 kAcceptedClientVersion = 0x0203100Au;
 
 LoginClientSession::LoginClientSession() : m_eState(LS_NEW), m_uiAccount(0) {}
 
@@ -35,14 +33,17 @@ void LoginClientSession::OnPacket(const GPacket& rPkt) {
 
 void LoginClientSession::HandleVersionCheck(const GPacket& rPkt) {
     PacketBuffer body = rPkt.Body();
-    uint32 ver = 0; body.ReadU32(ver);
-    if (ver != kAcceptedClientVersion) {
-        SHINELOG_WARN("Login: version mismatch got=0x%08X expected=0x%08X", ver, kAcceptedClientVersion);
+    std::string clientKey;
+    body.ReadString(clientKey);
+    if (!ClientVersionKeyInfo::Get().IsAcceptable(clientKey)) {
+        SHINELOG_WARN("Login: version mismatch got='%s' expected='%s'",
+                      clientKey.c_str(), ClientVersionKeyInfo::Get().Key().c_str());
         SendPacket(this, NC_USER_LOGINFAIL_ACK);
         return;
     }
     m_eState = LS_VERSION_OK;
-    PacketBuffer ack; ack.WriteU8(1); SendPacket(this, NC_USER_CLIENT_VERSION_CHECK_REQ + 1, ack.Data(), ack.Size());
+    PacketBuffer ack; ack.WriteU8(1);
+    SendPacket(this, NC_USER_CLIENT_VERSION_CHECK_REQ + 1, ack.Data(), ack.Size());
 }
 
 void LoginClientSession::HandleXTrap(const GPacket& rPkt) {

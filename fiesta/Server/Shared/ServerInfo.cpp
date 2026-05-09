@@ -1,51 +1,123 @@
 // Server/Shared/ServerInfo.cpp
 #include "ServerInfo.h"
-#include <stdio.h>
+#include "ShineLogSystem.h"
 #include <stdlib.h>
-#include <ctype.h>
 
 namespace fiesta {
 
 std::string ServerInfo::s_kEmpty;
 
-ServerInfo::ServerInfo() {}
-
-static std::string Trim(const std::string& s) {
-    size_t a = 0, b = s.size();
-    while (a < b && isspace((unsigned char)s[a])) ++a;
-    while (b > a && isspace((unsigned char)s[b-1])) --b;
-    return s.substr(a, b - a);
-}
+ServerInfo::ServerInfo() : m_uiWorld(0) {}
 
 bool ServerInfo::Load(const char* szPath) {
-    FILE* fp = NULL; fopen_s(&fp, szPath, "rb");
-    if (!fp) return false;
-    char line[1024];
-    while (fgets(line, sizeof(line), fp)) {
-        std::string s(line);
-        size_t hash = s.find('#');
-        if (hash != std::string::npos) s = s.substr(0, hash);
-        size_t eq = s.find('=');
-        if (eq == std::string::npos) continue;
-        std::string k = Trim(s.substr(0, eq));
-        std::string v = Trim(s.substr(eq + 1));
-        if (!k.empty()) m_kKv[k] = v;
-    }
-    fclose(fp);
+    if (!szPath || !*szPath) return false;
+    if (!m_kCfg.Load(szPath)) return false;
+    Snapshot();
+    SHINELOG_INFO("ServerInfo: nation=%s world=%u(%s) services=%u odbc=%u",
+                  m_kNation.c_str(), m_uiWorld, m_kWorldName.c_str(),
+                  (uint32)m_kSvcs.size(), (uint32)m_kOdbc.size());
     return true;
 }
 
-const std::string& ServerInfo::GetString(const std::string& k, const std::string& d) const {
-    std::map<std::string, std::string>::const_iterator it = m_kKv.find(k);
-    if (it == m_kKv.end()) { s_kEmpty = d; return s_kEmpty; }
-    return it->second;
+static const std::string& StrAt(const CfgRecord& r, size_t i, const std::string& d) {
+    return (i < r.size() && r[i].eType == CFT_STRING) ? r[i].kStr : d;
 }
-int    ServerInfo::GetInt (const std::string& k, int    d) const { const std::string& v = GetString(k); return v.empty() ? d : atoi(v.c_str()); }
-uint16 ServerInfo::GetU16 (const std::string& k, uint16 d) const { return (uint16)GetInt(k, d); }
-bool   ServerInfo::GetBool(const std::string& k, bool   d) const {
-    const std::string& v = GetString(k);
-    if (v.empty()) return d;
-    return v=="1"||v=="true"||v=="True"||v=="TRUE"||v=="yes";
+static int64 IntAt(const CfgRecord& r, size_t i) {
+    return (i < r.size() && r[i].eType == CFT_INTEGER) ? r[i].iNum : 0;
+}
+
+void ServerInfo::Snapshot() {
+    m_kSvcs.clear(); m_kOdbc.clear();
+
+    if (const CfgRecord* p = m_kCfg.First("NATION_NAME")) m_kNation = StrAt(*p, 0, "");
+
+    if (const CfgRecord* p = m_kCfg.First("WORLD_NAME")) {
+        m_uiWorld    = (uint16)IntAt(*p, 0);
+        m_kWorldName = StrAt(*p, 1, "");
+        m_kWorldRoot = StrAt(*p, 2, "");
+    }
+
+    const std::vector<CfgRecord>& svc = m_kCfg.Records("SERVER_INFO");
+    m_kSvcs.reserve(svc.size());
+    for (size_t i = 0; i < svc.size(); ++i) {
+        const CfgRecord& r = svc[i];
+        ServiceEndpoint e;
+        e.kTag       = StrAt(r, 0, "");
+        e.eKind      = (ServiceKind)IntAt(r, 1);
+        e.uiWorld    = (uint16)IntAt(r, 2);
+        e.uiZone     = (uint16)IntAt(r, 3);
+        e.iBindClass = (int32) IntAt(r, 4);
+        e.kIp        = StrAt(r, 5, "127.0.0.1");
+        e.uiPort     = (uint16)IntAt(r, 6);
+        e.iMaxA      = (int32) IntAt(r, 7);
+        e.iMaxB      = (int32) IntAt(r, 8);
+        m_kSvcs.push_back(e);
+    }
+
+    const std::vector<CfgRecord>& od = m_kCfg.Records("ODBC_INFO");
+    m_kOdbc.reserve(od.size());
+    for (size_t i = 0; i < od.size(); ++i) {
+        const CfgRecord& r = od[i];
+        OdbcEntry o;
+        o.kDbName  = StrAt(r, 0, "");
+        o.iDbKind  = (int32)IntAt(r, 1);
+        // r[2] = 0 reserved
+        o.kConnStr = StrAt(r, 3, "");
+        o.kPrelude = StrAt(r, 4, "");
+        m_kOdbc.push_back(o);
+    }
+}
+
+const ServiceEndpoint* ServerInfo::FindFirst(ServiceKind eKind, int iZone, int iBindClass) const {
+    for (size_t i = 0; i < m_kSvcs.size(); ++i) {
+        const ServiceEndpoint& e = m_kSvcs[i];
+        if (e.eKind != eKind) continue;
+        if (iZone >= 0 && (int)e.uiZone != iZone) continue;
+        if (iBindClass >= 0 && e.iBindClass != iBindClass) continue;
+        return &e;
+    }
+    return NULL;
+}
+
+const OdbcEntry* ServerInfo::FindOdbc(const std::string& rName) const {
+    for (size_t i = 0; i < m_kOdbc.size(); ++i)
+        if (m_kOdbc[i].kDbName == rName) return &m_kOdbc[i];
+    return NULL;
+}
+
+// Back-compat for old code that did GetInt("Login.Port", 9010) etc.
+// Maps a few well-known keys onto the new typed API.
+const std::string& ServerInfo::GetString(const std::string& rKey, const std::string& rDef) const {
+    if (rKey == "Data.Root") { return m_kWorldRoot.empty() ? (s_kEmpty = rDef) : m_kWorldRoot; }
+    s_kEmpty = rDef; return s_kEmpty;
+}
+int ServerInfo::GetInt(const std::string& rKey, int nDef) const {
+    if (rKey == "Login.Port"        || rKey == "Login.PublicPort") {
+        const ServiceEndpoint* p = FindFirst(SK_Login, -1, 20); return p ? p->uiPort : nDef;
+    }
+    if (rKey == "WM.ClientPort") {
+        const ServiceEndpoint* p = FindFirst(SK_WorldManager, -1, 20); return p ? p->uiPort : nDef;
+    }
+    if (rKey == "Zone.ClientPort") {
+        const ServiceEndpoint* p = FindFirst(SK_Zone, -1, 20); return p ? p->uiPort : nDef;
+    }
+    if (rKey == "Account.Port") {
+        const ServiceEndpoint* p = FindFirst(SK_AccountDB); return p ? p->uiPort : nDef;
+    }
+    if (rKey == "AccountLog.Port") {
+        const ServiceEndpoint* p = FindFirst(SK_AccountLogDB); return p ? p->uiPort : nDef;
+    }
+    if (rKey == "Character.Port") {
+        const ServiceEndpoint* p = FindFirst(SK_CharacterDB); return p ? p->uiPort : nDef;
+    }
+    if (rKey == "GameLog.Port") {
+        const ServiceEndpoint* p = FindFirst(SK_GameLogDB); return p ? p->uiPort : nDef;
+    }
+    if (rKey == "Zone.Id") return 0;
+    return nDef;
+}
+uint16 ServerInfo::GetU16(const std::string& rKey, uint16 uDef) const {
+    return (uint16)GetInt(rKey, (int)uDef);
 }
 
 } // namespace fiesta

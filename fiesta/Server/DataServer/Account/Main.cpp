@@ -32,10 +32,13 @@ public:
     virtual bool OnStart() {
         m_kInfo.Load("ServerInfo.txt");
         m_pkDB = new Database();
-        m_pkDB->Connect(m_kInfo.GetString("Account.ConnStr",
-            "Driver={SQL Server Native Client 11.0};Server=.;Database=Account;Trusted_Connection=yes;"));
+        const OdbcEntry* od = m_kInfo.FindOdbc("Account");
+        m_pkDB->Connect(od ? od->kConnStr :
+            "Driver={SQL Server Native Client 11.0};Server=.;Database=Account;Trusted_Connection=yes;");
         if (!m_kIOCP.Start()) return false;
-        return m_kAcceptor.Start(&m_kIOCP, m_kInfo.GetU16("Account.Port", 27600), &MakeAccountDBSession);
+        const ServiceEndpoint* pkSvc = m_kInfo.FindFirst(SK_AccountDB);
+        uint16 uiPort = pkSvc ? pkSvc->uiPort : 9031;
+        return m_kAcceptor.Start(&m_kIOCP, uiPort, &MakeAccountDBSession);
     }
     virtual void OnStop() {
         m_kAcceptor.Stop(); m_kIOCP.Stop();

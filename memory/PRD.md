@@ -80,6 +80,92 @@ continued with user-supplied artifacts only.
 
 Total now: **126 source files**. See `docs/PASS1_7_DAT_AND_NIF_LINK.md`.
 
+## Pass 1.8 — Real config-file format (2026-05-09)
+
+User supplied real `ServerInfo.txt`, `LoginServerInfo.txt`, `ClientVersionKeyInfo.txt`,
+`ServerGroup.txt`, `SubAbStateClass.txt`. Replaced placeholder `key=value` parser.
+
+- `Server/Shared/ConfigParser.{h,cpp}` — `#DEFINE`/`#ENDDEFINE`/`#include`/`#END`/`;`-comments, typed `<STRING>`/`<INTEGER>` fields, repeating records.
+- `Server/Shared/ServerInfo.{h,cpp}` — rewritten to expose `Services()`, `OdbcEntries()`, `FindFirst(kind, zone, bindClass)`, `FindOdbc(name)`.
+- `Server/Login/ClientVersionKeyInfo.{h,cpp}` — singleton with exact-match `IsAcceptable()`.
+- `Login` and `Account DB` service mains rewired to the typed API; others use back-compat `GetInt` mappings.
+- Service kind enum (`SK_AccountDB=0, SK_AccountLogDB=1, SK_CharacterDB=2, SK_GameLogDB=3, SK_Login=4, SK_WorldManager=5, SK_Zone=6`) decoded from the real samples.
+- Self-tested the parser logic via Python equivalent against the real file: 4 schema defs, 25 `SERVER_INFO`, 6 `ODBC_INFO` — all field types match.
+
+Total now: **129 source files**. See `docs/PASS1_8_REAL_CONFIG.md`.
+
+## Pass 1.9 — Game-data tree consumers (2026-05-09)
+
+User clarified `Shine.zip` is the runtime data tree (configs + Lua content +
+game data), not server source. Used the zip's directory listing to gap-check
+the engine's loaders. Verified 16 KQ names + 11 instance names + per-event
+file convention (`{Routine,Progress,SubFunc}.lua + Data/*.lua`) + 200+ mob
+attack sequence files + AreaBMP skill-shape bitmaps.
+
+- `Server/Zone/ScriptLoader.{h,cpp}` — scans `LuaScript/` and loads each event in canonical order (Data/*.lua → SubFunc.lua → Progress.lua → Routine.lua). `LoadAllKQ` / `LoadAllInstances` use the verified name registries.
+- `Server/Zone/MobAttackSequence.{h,cpp}` — `MobAttackSequence/<MobName>.txt` line-based pattern loader, indexed by `MobAttackSequenceBox`.
+- `Server/Zone/AreaBMP.{h,cpp}` — Windows BMP reader (BI_RGB 8/24/32 bpp) → `AreaMask` AOE shape grids.
+
+No Lua / `.txt` / BMP content copied into code; only directory layout used.
+
+Total now: **135 source files**. See `docs/PASS1_9_SCRIPT_AND_DATA_LOADERS.md`.
+
+## Pass 1.10 — Shine.zip data format integration (2026-02)
+
+User insisted: "open this and look at it... read the files. Then implement them."
+Downloaded and walked the entire `Shine.zip` (18 MB; AbState/AreaBMP/BlockInfo/
+LuaScript/MobAttackSequence/MobBehaviorDescript/MobRegen/MobRoam/MobSetting/
+NPCItemList/ScenarioBookShelf/Script/View/World/DefaultCharacterData.txt).
+Wrote first-class C++ readers for every shipped format that wasn't yet covered:
+
+- **TableScript text parser** (`Server/DataReader/TableScriptFile.{h,cpp}`):
+  generic `#Ignore/#Exchange/#delimiter/#Table/#ColumnType/#ColumnName/#Record/
+  #recordin/#End` parser. Multi-table per file. Critical fix: when
+  `#exchange # \x20` is declared, drops space from the default delimiter set
+  so dialog strings stay in a single STRING cell. Validated against
+  `World/Field.txt` (153 rows × 50 cols + 3 sub-tables), `World/NPC.txt`
+  (530 ShineNPC + 233 LinkTable), `World/ChrCommon.txt` (7 sub-tables),
+  `Script/Event.txt` (dialog preserved), `MobAttackSequence/AdlFH_Eglack.txt`,
+  `NPCItemList/AdlAertsina.txt`.
+
+- **Typed loaders on top of TableScript**:
+  `Server/Zone/FieldTable.{h,cpp}`, `Server/Zone/ShineNPCTable.{h,cpp}`,
+  `Server/Zone/MobRegenTable.{h,cpp}`, `Server/Zone/NPCItemListTable.{h,cpp}`,
+  `Server/Zone/ScriptStringTable.{h,cpp}`. Rewrote
+  `Server/Zone/MobAttackSequence.cpp` on top of TableScriptFile (was a naive
+  line-tokeniser).
+
+- **`.ps` DSL parser + runtime** (`Server/DataReader/PsScriptFile.{h,cpp}`):
+  tokenizer + AST for the Pascal-flavoured AI / scenario DSL with
+  `open[name]/close`, `var`, `if/then/else`, `infinite`, `break "name"`,
+  `call "name"`, generic verb statements, `%`-string-concat, `@`-builtins,
+  full operator vocabulary (`==/===/=!=/!=/<=/>=`). Validated by
+  open/close balance and named-block extraction on
+  `MobBehaviorDescript/KQ/KingSlime.ps` (28 blocks, 8 named top-level)
+  and `ScenarioBookShelf/Promote/JobChange1.ps`.
+
+- **Runtime wrappers**: `Server/Zone/MobBehaviorScript.{h,cpp}` (executes
+  whoistarget/whokillme/permillage/getname/chat plus full control flow,
+  pass-through hooks for world-altering verbs); `Server/Zone/ScenarioScript.{h,cpp}`
+  (block exposure for the scenario host).
+
+- **BlockInfo binary readers** (`Server/DataReader/BlockInfoFile.{h,cpp}`):
+  `.shbd` (packed walk grid), `.aid` (area-id name table + payload),
+  `.sbi` (sub-block info: name + 5×u32 fields per entry). Layouts derived
+  from hex prefixes of `Adl.shbd`, `Adl.aid`, `AdlF.sbi`.
+
+- **AbState binary readers** (`Server/DataReader/AbStateInfoFile.{h,cpp}`):
+  `AbStateInfo.dat` (count + N entries of `{u8 id, u8 pad, char[32] en, char[32] localised}`),
+  `StaXxx.dat` (record count + auto-detected stride 28/32/24/20/16, rows
+  exposed as up to 7 raw u32s).
+
+- **ScriptLoader category extensions**: re-aligned `KnownKQNames` (18 entries)
+  and `KnownInstanceNames` (24 entries) to exactly match the directories
+  shipped in Shine.zip. Added `LoadTutorial`, `LoadPetSystem`, `LoadAIScript`
+  for the three additional `LuaScript/` sub-trees.
+
+Total now: **~157 source files**. See `docs/PASS1_10_SHINE_DATA_PARSERS.md`.
+
 ## Pack rule compliance
 
 | Rule | Status |
