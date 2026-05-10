@@ -120,4 +120,50 @@ Three feature buckets the user explicitly called out as missing:
   casino-house, casino-exchange, casino-tax, casino-dice,
   casino-slot, casino-reward, casino-bantime, casino-seatcap,
   casino-eventcode, combat-data-load, world-data-load,
-  shn-derived-data-load, lvgap-damage-curve.
+  shn-derived-data-load, lvgap-damage-curve, world-creation.
+
+## 2026-02-XX (later) -- per-SHN refactor sprint #1
+
+User identified that consolidating multiple binders into one
+translation unit hides a real bug: static-initialization order. The
+Korean publisher patch model (one .obj per SHN) wasn't laziness; it
+was the only way to keep init order explicit and patches surgical.
+
+### Convention codified
+- `docs/PER_SHN_CONVENTION.md` documents the rule, the two allowed
+  shared-header concessions (singleton over coupled SHNs; sibling
+  tables of one feature) and the migration backlog.
+- Same rule applies to per-table `.txt` schemas. Only `.ps`
+  (PineScript) and `.lua` are folder-walked because they're
+  actionable scripts, not world-data tables.
+
+### First-pass split: world-creation foundation (5 binders)
+Extracted from `Zone/GroupTables.cpp` (858 lines -> 431 lines):
+- `Tables/MapTables.cpp`     -- MapInfo
+- `Tables/AbStateTables.cpp` -- AbState
+- `Tables/MobTables.cpp`     -- MobInfo + MobSpecies + MobLifeTime
+- `Tables/ItemTables.cpp`    -- ItemInfo + ItemInfoServer +
+                                ItemUpgrade + ItemAction
+- `Tables/SkillTables.cpp`   -- ActiveSkill + ActiveSkillInfoServer +
+                                PassiveSkill + AreaSkill
+- `Tables/BindMacros.h`      -- shared BIND_BEGIN / ITER_ROWS
+
+These are the most foundational tables in the engine -- without
+MapInfo no Field exists; without AbState every effect is a noop;
+without ItemInfo / MobInfo / SkillInfo every gameplay loop fails.
+
+### Static audits still PASS after split
+- 201/201 server-side SHN coverage (no behavior change).
+- 0 unwired Load/Bind orphans.
+- All 5 extracted binders re-wired through the same
+  `BindAllGroupTables()` orchestrator that drove them before --
+  no boot-time code change required.
+
+### Remaining mega-binder backlog
+- `GroupTables.cpp`           8 binders left (Presentation, Pup, Mount,
+                                MiniHouse, Guild2, Collect, GradeRandom,
+                                KQ). Sprint #2 candidate.
+- `ExtendedTables.cpp`        38 binders. Future sprints.
+- `MoreTables.cpp`            16 binders.
+- `MiscTables.cpp`             7 binders.
+- `WorldTables.cpp`            7 binders.

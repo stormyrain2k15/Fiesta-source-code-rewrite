@@ -18,6 +18,7 @@
     <Filter Include="Zone\Network"><UniqueIdentifier>{E1F50031-B29A-55FC-B8D9-0C9FE0CDF408}</UniqueIdentifier></Filter>
     <Filter Include="Zone\PineScript"><UniqueIdentifier>{3152A355-ED87-5649-88E1-B8D8E5CBA4FB}</UniqueIdentifier></Filter>
     <Filter Include="Zone\Quest"><UniqueIdentifier>{5ACB90A7-C537-5382-BDCA-597030F56968}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\Tables"><UniqueIdentifier>{F39A94AD-9B51-5A0D-8A06-E2BB0A25FA10}</UniqueIdentifier></Filter>
     <Filter Include="Zone\WeaponTitle"><UniqueIdentifier>{FDDC13AB-4504-57F8-A162-8C9CFCEB06B4}</UniqueIdentifier></Filter>
   </ItemGroup>
   <ItemGroup>
@@ -331,6 +332,11 @@
     <ClCompile Include="..\Server\Zone\StreetBoothBuy.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\StreetBoothSell.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\SubAbstatePriority.cpp"><Filter>Zone</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Tables\AbStateTables.cpp"><Filter>Zone\Tables</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Tables\ItemTables.cpp"><Filter>Zone\Tables</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Tables\MapTables.cpp"><Filter>Zone\Tables</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Tables\MobTables.cpp"><Filter>Zone\Tables</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Tables\SkillTables.cpp"><Filter>Zone\Tables</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\TargetAnalyser.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\ThirdPromote.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\Tokenizer.cpp"><Filter>Zone</Filter></ClCompile>
@@ -459,6 +465,7 @@
     <ClInclude Include="..\Server\Zone\SpamerPenaltyDataBox.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\StatDistribute.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\SubAbstatePriority.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Tables\BindMacros.h"><Filter>Zone\Tables</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\TargetAnalyser.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\TownPortalSystem.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\TypedSchemaConsumers.h"><Filter>Zone</Filter></ClInclude>

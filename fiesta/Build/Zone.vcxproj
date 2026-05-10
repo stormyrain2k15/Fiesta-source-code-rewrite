@@ -388,6 +388,11 @@
     <ClCompile Include="..\Server\Zone\StreetBoothBuy.cpp" />
     <ClCompile Include="..\Server\Zone\StreetBoothSell.cpp" />
     <ClCompile Include="..\Server\Zone\SubAbstatePriority.cpp" />
+    <ClCompile Include="..\Server\Zone\Tables\AbStateTables.cpp" />
+    <ClCompile Include="..\Server\Zone\Tables\ItemTables.cpp" />
+    <ClCompile Include="..\Server\Zone\Tables\MapTables.cpp" />
+    <ClCompile Include="..\Server\Zone\Tables\MobTables.cpp" />
+    <ClCompile Include="..\Server\Zone\Tables\SkillTables.cpp" />
     <ClCompile Include="..\Server\Zone\TargetAnalyser.cpp" />
     <ClCompile Include="..\Server\Zone\ThirdPromote.cpp" />
     <ClCompile Include="..\Server\Zone\Tokenizer.cpp" />
@@ -516,6 +521,7 @@
     <ClInclude Include="..\Server\Zone\SpamerPenaltyDataBox.h" />
     <ClInclude Include="..\Server\Zone\StatDistribute.h" />
     <ClInclude Include="..\Server\Zone\SubAbstatePriority.h" />
+    <ClInclude Include="..\Server\Zone\Tables\BindMacros.h" />
     <ClInclude Include="..\Server\Zone\TargetAnalyser.h" />
     <ClInclude Include="..\Server\Zone\TownPortalSystem.h" />
     <ClInclude Include="..\Server\Zone\TypedSchemaConsumers.h" />
