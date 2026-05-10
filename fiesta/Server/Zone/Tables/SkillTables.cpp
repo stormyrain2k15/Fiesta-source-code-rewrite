@@ -66,18 +66,12 @@ void SkillTables::Bind() {
         }
     }
     {
-        // FEATURE: world-creation -- column read: ID, Range, Duration, TickMs
-        BIND_BEGIN(t, "AreaSkill")
-        m_kArea.reserve(t->Rows().size());
-        ITER_ROWS(t) {
-            AreaSkillRow rec;
-            rec.uiID       = ShnGetU32(*t, _r, "ID");
-            rec.uiRange    = ShnGetU32(*t, _r, "Range");
-            rec.uiDuration = ShnGetU32(*t, _r, "Duration");
-            rec.uiTickMs   = ShnGetU32(*t, _r, "TickMs");
-            m_kAreaById[rec.uiID] = m_kArea.size();
-            m_kArea.push_back(rec);
-        }
+        // AreaSkill.shn -- bound separately by AreaSkillTable
+        // (Server/Zone/MoreTables.cpp). NA2016's AreaSkill.shn schema
+        // is (AS_SkillInx, AS_Step, AS_BMPIndex, AS_ImagePin,
+        // AS_IsDirection) which doesn't fit this SkillTables surface.
+        // The accessor stubs below return NULL; callers should query
+        // AreaSkillTable::Get().Find(...) instead.
     }
 }
 
