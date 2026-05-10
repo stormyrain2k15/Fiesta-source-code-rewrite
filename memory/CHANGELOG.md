@@ -359,3 +359,109 @@ The next sprint should either auto-emit per-SHN classes for these or
 extend the legacy binders to consume the missing columns.
 
 
+## 2026-02-XX (later) -- Shine client Phase-1 bootstrap applied
+
+User-supplied patch `Shine_client_bootstrap.zip` (24 source files +
+`ShineClient.ini` + `ShineResources.rc`) is the canonical starting
+point for the client engine. Previous `/app/fiesta/Client/` only held
+7 thin stubs (75-line ClientApp, 10-line Main, AnimationLink and
+UIResourceTables); patch supplants all three colliding stubs and adds
+21 new files.
+
+### What the patch ships
+- `Client/Engine/`
+  - `Main.cpp`           -- WinMain: parses `ShineClient.ini` via
+                            `ShineConfig`, builds `ClientConfig`,
+                            runs `ClientApp`.
+  - `ClientApp.{h,cpp}`  -- coordinates LoginSession + ZoneSession,
+                            owns net->render thread bridge.
+  - `ShineApp.{h,cpp}`   -- NiApplication subclass (Gamebryo 2.3
+                            render loop on D3D9).
+  - `ShineScene.{h,cpp}` -- scene-graph wrapper, `.sga` loader.
+  - `ShineCamera.{h,cpp}`-- third-person chase camera.
+  - `ShineConfig.{h,cpp}`-- INI parser exposing every setting typed.
+- `Client/Network/`
+  - `ShineNetClient.{h,cpp}` -- IOCP outbound TCP, server-symmetric
+                                wire frame + stream cipher.
+  - `LoginSession.{h,cpp}`   -- NC_USER_* state machine through
+                                world-select handoff.
+  - `ZoneSession.{h,cpp}`    -- NC_CHAR_* state machine,
+                                NC_MAP_WORLDTICK echo.
+- `Client/UI/ShineHUD.{h,cpp}` -- HP/SP bars via NiScreenElements.
+- `Client/ResSystem/`
+  - `PEResourceReader.{h,cpp}` -- read .shine/.dat resources straight
+                                  out of the .exe's PE resource section.
+  - `ShineResourceLoader.{h,cpp}` -- PE-first / disk-fallback loader
+                                     with hit-count metrics.
+  - `ActionDat.{h,cpp}`        -- ActionDat (action .dat) parser.
+- Root: `ShineClient.ini`, `ShineResources.rc`, `README.md`.
+
+### Patch defects fixed in-place (VS2010 compatibility)
+The patch as shipped contained six C++11 features that VS2010 v100
+does NOT support; all six were corrected before adding to the tree:
+
+| Defect                          | File(s)                         | Fix                                     |
+|---------------------------------|---------------------------------|-----------------------------------------|
+| `#include <atomic>` + `std::atomic<bool> .exchange()` | `ClientApp.{h,cpp}`             | `volatile LONG` + `InterlockedExchange` |
+| `#include <functional>` + `std::function<...>` typedefs | `LoginSession.h`, `ZoneSession.h` | C-style fn ptr typedefs `void(*)(void*,...)` |
+| 5 lambdas `[this](...){...}`    | `ClientApp.cpp` SetCallbacks    | Static thunks `static void X(void*,...)` |
+| Callback signature mismatch     | LoginSession + ZoneSession      | Added `void* pkCtx` to every callback fire site (4 in LoginSession, 4 in ZoneSession) |
+| Missing ClientConfig fields     | `ClientApp.h`                   | Added `bSkipLogin`, `kZoneIP`, `uiZonePort` (Main.cpp tried to set them) |
+| Missing `<windows.h>` include   | `Main.cpp`                      | Added `#define WIN32_LEAN_AND_MEAN` + `<windows.h>` so MAX_PATH/strrchr resolve before `ShineApp.h` pulls them transitively |
+
+### Build-system wiring
+`Build/gen_vcxproj.py`:
+- New PROJECT entry: `("Client", ["Client"], "Application", ["Common", "Shared", "DataReader"])`.
+- New `PER_PROJECT_SUBSYSTEM` map: Client builds with
+  `<SubSystem>Windows</SubSystem>` (WinMain entry).
+- New `PER_PROJECT_LIBS` map: Client links
+  `NiMain.lib;NiAnimation.lib;NiSystem.lib;NiDX9Renderer.lib;
+   NiApplication.lib;d3d9.lib;d3dx9.lib;dxguid.lib;` on top of the
+  default Win32 set. Library search paths come from `Gamebryo.props`.
+- New `PER_PROJECT_RC` map: Client compiles
+  `..\Client\ShineResources.rc` via `<ResourceCompile>` so the
+  embedded `.shine` / `.dat` resources end up in the final exe.
+- Solution now ships **14 projects** (was 13).
+
+### New static audit
+`Build/CI/audit_client_compat.py` -- enforces VS2010 v100 ceiling on
+every `.cpp/.h` under `fiesta/Client/`. Rule set:
+- Forbidden std headers: `<atomic>`, `<functional>`, `<thread>`,
+  `<mutex>`, `<chrono>`, `<initializer_list>`, `<unordered_map>`,
+  `<unordered_set>`, `<array>`.
+- Forbidden std symbols: `std::atomic / function / thread /
+  shared_ptr / unique_ptr / make_shared / make_unique / move /
+  forward / to_string / stoi / stoul / stof / stod`.
+- Forbidden keywords/syntax: `nullptr`, `auto <ident>=`, range-for,
+  lambda introducer `[capture](`, `enum class`, `= delete / = default`,
+  `constexpr / noexcept / final`, trailing return type after `auto`.
+- `override` is intentionally allowed (Microsoft extension since
+  VS2008, accepted by VS2010 native).
+
+### Canary CI updated
+`.github/workflows/canary.yml` shn-integrity job now runs
+`audit_client_compat.py` alongside the other three audits. Push to
+main = automatic VS2010-compat verification.
+
+### All audits PASS post-patch
+- `audit_unwired_loads.py` -- OK
+- `audit_shn_wiring.py`    -- PASS, 201/201 server-side SHN coverage
+- `audit_shn_columns.py`   -- 1774 cols, 71 RED (4.0%) -- unchanged
+- `audit_client_compat.py` -- OK, client tree is VS2010-clean
+- `gen_vcxproj.py`         -- 14 projects regenerated cleanly,
+                              Client: 15 cpp / 14 h / 1 rc
+
+### Notes for the user's local build
+1. The `<NiApplication.h>` / `<NiMain.h>` / etc. includes in
+   `ShineApp.h` resolve against the include paths in `Gamebryo.props`
+   (already added to every vcxproj). Make sure your local
+   `ThirdParty/Gamebryo/Include/` (or wherever `Gamebryo.props` points)
+   contains the CoreLibs headers from the vendored 2.3 SDK.
+2. `ShineResources.rc` defaults to `DATA_ROOT="..\\Data\\Shine"` and
+   `ACTION_ROOT="..\\ressystem\\Action"`. Tweak the two `#define`s at
+   the top of the `.rc` to match your build layout, or the resource
+   compiler will warn (then fail at link time on missing files).
+3. `ShineClient.ini` is copied next to the `.exe` at deploy time.
+   `SkipLogin=1` connects direct to ZoneIP / ZonePort (phase-1 bypass).
+
+

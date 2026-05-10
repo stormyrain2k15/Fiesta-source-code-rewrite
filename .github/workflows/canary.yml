@@ -177,6 +177,13 @@ jobs:
         run: |
           python3 Build/CI/audit_unwired_loads.py
 
+      - name: Client VS2010 compatibility audit
+        # The Phase-1 client (added Feb 2026) must stay compilable on
+        # VS2010 v100 with MBCS / Win32. This rule fires if anyone
+        # introduces <atomic>/<functional>/lambdas/auto/nullptr/etc.
+        run: |
+          python3 Build/CI/audit_client_compat.py
+
   doc-links:
     name: Doc cross-link canary
     runs-on: ubuntu-latest

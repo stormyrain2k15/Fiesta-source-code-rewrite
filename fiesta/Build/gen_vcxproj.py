@@ -32,13 +32,33 @@ PROJECTS = [
     ("WorldManager",      ["Server/WorldManager"],                            "Application",   ["Common", "Shared", "DataReader", "DataServerCommon"]),
     ("Zone",              ["Server/Zone"],                                    "Application",   ["Common", "Shared", "DataReader", "LuaRuntime"]),
     ("ZoneTests",         ["Server/Zone/tests"],                              "Application",   ["Common", "Shared", "DataReader", "LuaRuntime"]),
-    # NOTE: Client project is intentionally excluded from the active solution
-    # build. The client rewrite is out of scope for the server-only audit
-    # rounds. Keep the source under fiesta/Client/ so it doesn't drift, but
-    # don't generate a vcxproj for it until a separate client-build pass
-    # starts. To re-enable, add the following entry:
-    #   ("Client", ["Client"], "Application", ["Common", "Shared", "DataReader", "LuaRuntime"]),
+    # Client (Phase 1 bootstrap, Feb 2026):
+    # - Windows subsystem (WinMain, not console) -- see PER_PROJECT_SUBSYSTEM.
+    # - Links Gamebryo 2.3 CoreLibs (NiMain/NiAnimation/NiSystem/NiDX9Renderer/
+    #   NiApplication) + DirectX 9. Library paths come from Gamebryo.props.
+    # - Compiles ShineResources.rc to embed .shine / .dat data files
+    #   directly into the exe (see PEResourceReader).
+    ("Client",            ["Client"],                                         "Application",   ["Common", "Shared", "DataReader"]),
 ]
+
+# Projects that build with /SUBSYSTEM:WINDOWS (default for everything else
+# is /SUBSYSTEM:CONSOLE since the servers run as console / service exes).
+PER_PROJECT_SUBSYSTEM = {
+    "Client": "Windows",
+}
+
+# Per-project extra linker dependencies. Client needs the Gamebryo CoreLibs
+# plus DirectX 9. The .lib search path is supplied by Gamebryo.props.
+PER_PROJECT_LIBS = {
+    "Client": "NiMain.lib;NiAnimation.lib;NiSystem.lib;NiDX9Renderer.lib;"
+              "NiApplication.lib;d3d9.lib;d3dx9.lib;dxguid.lib;",
+}
+
+# Resource (.rc) files compiled with the project. Visual Studio invokes rc.exe
+# on these and embeds the result in the final binary's resource section.
+PER_PROJECT_RC = {
+    "Client": ["..\\Client\\ShineResources.rc"],
+}
 
 # Source dirs to exclude from each project's gather() walk. Used so Zone
 # doesn't pull in tests/ (which has its own ZoneTests project + main()).
@@ -166,10 +186,12 @@ def write_vcxproj(name, src_dirs, kind, deps):
             proj.append('      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>')
         proj.append('    </ClCompile>')
         if is_app:
+            subsys = PER_PROJECT_SUBSYSTEM.get(name, "Console")
+            extra_libs = PER_PROJECT_LIBS.get(name, "")
             proj.append('    <Link>')
-            proj.append('      <SubSystem>Console</SubSystem>')
+            proj.append(f'      <SubSystem>{subsys}</SubSystem>')
             proj.append('      <GenerateDebugInformation>true</GenerateDebugInformation>')
-            proj.append('      <AdditionalDependencies>ws2_32.lib;mswsock.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>')
+            proj.append(f'      <AdditionalDependencies>{extra_libs}ws2_32.lib;mswsock.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>')
             if cfg == "Release":
                 proj.append('      <EnableCOMDATFolding>true</EnableCOMDATFolding>')
                 proj.append('      <OptimizeReferences>true</OptimizeReferences>')
@@ -182,6 +204,11 @@ def write_vcxproj(name, src_dirs, kind, deps):
     if cpps:
         proj.append('  <ItemGroup>')
         for c in cpps: proj.append(f'    <ClCompile Include="{c}" />')
+        proj.append('  </ItemGroup>')
+    rcs = PER_PROJECT_RC.get(name, [])
+    if rcs:
+        proj.append('  <ItemGroup>')
+        for r in rcs: proj.append(f'    <ResourceCompile Include="{r}" />')
         proj.append('  </ItemGroup>')
     if hdrs:
         proj.append('  <ItemGroup>')

@@ -1,0 +1,94 @@
+// ShineResources.rc
+// Embeds .shine data tables and action .dat files directly into the exe.
+// Built automatically by Visual Studio when added to the project.
+//
+// USAGE:
+//   1. Add this file to the VS project (right-click project -> Add -> Existing Item)
+//   2. Set paths below to point at your actual data files
+//   3. Build -- all listed resources are compiled into the exe's .rsrc section
+//   4. At runtime PEResourceReader::Find("ItemInfo", "SHN", size) returns a
+//      direct pointer into the mapped exe image -- no disk IO needed
+//
+// PATH CONVENTION:
+//   Paths are relative to the .rc file location (project root).
+//   Adjust the DATA_ROOT and ACTION_ROOT defines below to match your layout.
+//
+// ADDING NEW FILES:
+//   SHN:  <STEM>   SHN   "<DATA_ROOT>\<Stem>.shine"
+//   DAT:  <INXNAME> DAT  "<ACTION_ROOT>\<InxName>.dat"
+//
+// The resource NAME must match exactly what PEResourceReader::Find() receives:
+//   - SHN names: file stem without extension (e.g. "ItemInfo" not "ItemInfo.shine")
+//   - DAT names: actor InxName (e.g. "Weasel" not "Weasel.dat")
+
+// ── Paths ─────────────────────────────────────────────────────────────────────
+// Adjust these to your build environment
+#define DATA_ROOT   "..\\Data\\Shine"
+#define ACTION_ROOT "..\\ressystem\\Action"
+
+// ── .shine data tables (SHN type) ─────────────────────────────────────────────
+
+// Item
+ItemInfo            SHN     DATA_ROOT "\\ItemInfo.shine"
+ItemInfoServer      SHN     DATA_ROOT "\\ItemInfoServer.shine"
+ItemDropTable       SHN     DATA_ROOT "\\ItemDropTable.shine"
+ItemDropGroup       SHN     DATA_ROOT "\\ItemDropGroup.shine"
+ItemOptions         SHN     DATA_ROOT "\\ItemOptions.shine"
+ItemUseFunction     SHN     DATA_ROOT "\\ItemUseFunction.shine"
+SetEffect           SHN     DATA_ROOT "\\SetEffect.shine"
+
+// Mob
+MobInfo             SHN     DATA_ROOT "\\MobInfo.shine"
+MobInfoServer       SHN     DATA_ROOT "\\MobInfoServer.shine"
+MobWeapon           SHN     DATA_ROOT "\\MobWeapon.shine"
+
+// Skill
+ActiveSkill         SHN     DATA_ROOT "\\ActiveSkill.shine"
+PassiveSkill        SHN     DATA_ROOT "\\PassiveSkill.shine"
+
+// AbState
+AbState             SHN     DATA_ROOT "\\AbState.shine"
+SubAbState          SHN     DATA_ROOT "\\SubAbState.shine"
+
+// Map
+MapInfo             SHN     DATA_ROOT "\\MapInfo.shine"
+
+// Character
+ClassName           SHN     DATA_ROOT "\\ClassName.shine"
+RaceNameInfo        SHN     DATA_ROOT "\\RaceNameInfo.shine"
+HairInfo            SHN     DATA_ROOT "\\HairInfo.shine"
+HairColorInfo       SHN     DATA_ROOT "\\HairColorInfo.shine"
+FaceInfo            SHN     DATA_ROOT "\\FaceInfo.shine"
+JobEquipInfo        SHN     DATA_ROOT "\\JobEquipInfo.shine"
+
+// NPC
+NPCTable            SHN     DATA_ROOT "\\NPCTable.shine"
+
+// ── Action DAT files (DAT type) ────────────────────────────────────────────────
+// One entry per actor InxName. Add every mob, NPC, and character type here.
+
+// Player classes
+Archer-F            DAT     ACTION_ROOT "\\Archer-F.dat"
+Archer-M            DAT     ACTION_ROOT "\\Archer-M.dat"
+ArchMageBook        DAT     ACTION_ROOT "\\ArchMageBook.dat"
+
+// Mobs (add all that appear in your world)
+Weasel              DAT     ACTION_ROOT "\\Weasel.dat"
+Ape                 DAT     ACTION_ROOT "\\Ape.dat"
+AncientStatue       DAT     ACTION_ROOT "\\AncientStatue.dat"
+AncientStonie       DAT     ACTION_ROOT "\\AncientStonie.dat"
+Amor                DAT     ACTION_ROOT "\\Amor.dat"
+
+// NPCs
+AdlLoussier         DAT     ACTION_ROOT "\\AdlLoussier.dat"
+AdlMarlene          DAT     ACTION_ROOT "\\AdlMarlene.dat"
+
+// AlkemisBook series
+AlkemisBook01       DAT     ACTION_ROOT "\\AlkemisBook01.dat"
+AlkemisBook02       DAT     ACTION_ROOT "\\AlkemisBook02.dat"
+AlkemisBook03       DAT     ACTION_ROOT "\\AlkemisBook03.dat"
+AlkemisBook04       DAT     ACTION_ROOT "\\AlkemisBook04.dat"
+AlkemisBook05       DAT     ACTION_ROOT "\\AlkemisBook05.dat"
+
+// Add remaining actors below as needed...
+// The pattern is always: <InxName>  DAT  ACTION_ROOT "\\<InxName>.dat"

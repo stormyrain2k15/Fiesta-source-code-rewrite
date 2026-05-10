@@ -306,8 +306,8 @@ for the per-subsystem audit notes.
   enter, chat, move).
 
 ### Build artifacts
-* `Build/gen_vcxproj.py` re-generates the 13-project VS2010 solution
-  on every change. Wrote `Fiesta.sln` + `Gamebryo.props` + 13 vcxproj
+* `Build/gen_vcxproj.py` re-generates the **14-project** VS2010 solution
+  on every change. Wrote `Fiesta.sln` + `Gamebryo.props` + 14 vcxproj
   files. Toolset `v100`, `/MT`, MBCS, Win32.
 * DataReader project now ships **368 files (184 per-SHN .h/.cpp pairs)**
   under `Server/DataReader/SHN/` plus the existing readers.
@@ -316,3 +316,9 @@ for the per-subsystem audit notes.
 * Engines load via a single `BindAllEngines(shineRoot)` call from
   `Zone/Main.cpp`, running in parallel with the legacy `Bind*`
   mega-binder chain until full migration.
+* Client (Phase 1 bootstrap, Feb 2026): WinMain in `Client/Engine/`,
+  ShineNetClient + LoginSession + ZoneSession in `Client/Network/`,
+  Gamebryo 2.3 render loop via `ShineApp` + `ShineScene` + `ShineCamera`,
+  HUD via `ShineHUD`, PE-section resource embedding via
+  `PEResourceReader` + `ShineResourceLoader`. INI-driven config
+  (`ShineClient.ini`) with phase-1 direct-zone bypass option.

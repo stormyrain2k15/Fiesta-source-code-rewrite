@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Client"><UniqueIdentifier>{7823A91D-7168-5067-A0FA-BD0573D78AFA}</UniqueIdentifier></Filter>
+    <Filter Include="Client\Engine"><UniqueIdentifier>{E683B34F-9939-5A17-9C78-2395034CBBD3}</UniqueIdentifier></Filter>
+    <Filter Include="Client\Network"><UniqueIdentifier>{A1A4A8D9-0058-5886-942E-489B9143E054}</UniqueIdentifier></Filter>
+    <Filter Include="Client\ResSystem"><UniqueIdentifier>{FD7CA670-CEE5-543B-9B79-CEB5434A34E8}</UniqueIdentifier></Filter>
+    <Filter Include="Client\UI"><UniqueIdentifier>{D68FAC17-BCE5-56D5-9C16-B594DFEA1B76}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Client\Engine\AnimationLink.cpp"><Filter>Client\Engine</Filter></ClCompile>
+    <ClCompile Include="..\Client\Engine\ClientApp.cpp"><Filter>Client\Engine</Filter></ClCompile>
+    <ClCompile Include="..\Client\Engine\Main.cpp"><Filter>Client\Engine</Filter></ClCompile>
+    <ClCompile Include="..\Client\Engine\ShineApp.cpp"><Filter>Client\Engine</Filter></ClCompile>
+    <ClCompile Include="..\Client\Engine\ShineCamera.cpp"><Filter>Client\Engine</Filter></ClCompile>
+    <ClCompile Include="..\Client\Engine\ShineConfig.cpp"><Filter>Client\Engine</Filter></ClCompile>
+    <ClCompile Include="..\Client\Engine\ShineScene.cpp"><Filter>Client\Engine</Filter></ClCompile>
+    <ClCompile Include="..\Client\Network\LoginSession.cpp"><Filter>Client\Network</Filter></ClCompile>
+    <ClCompile Include="..\Client\Network\ShineNetClient.cpp"><Filter>Client\Network</Filter></ClCompile>
+    <ClCompile Include="..\Client\Network\ZoneSession.cpp"><Filter>Client\Network</Filter></ClCompile>
+    <ClCompile Include="..\Client\ResSystem\ActionDat.cpp"><Filter>Client\ResSystem</Filter></ClCompile>
+    <ClCompile Include="..\Client\ResSystem\PEResourceReader.cpp"><Filter>Client\ResSystem</Filter></ClCompile>
+    <ClCompile Include="..\Client\ResSystem\ShineResourceLoader.cpp"><Filter>Client\ResSystem</Filter></ClCompile>
+    <ClCompile Include="..\Client\ResSystem\UIResourceTables.cpp"><Filter>Client\ResSystem</Filter></ClCompile>
+    <ClCompile Include="..\Client\UI\ShineHUD.cpp"><Filter>Client\UI</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Client\Engine\AnimationLink.h"><Filter>Client\Engine</Filter></ClInclude>
+    <ClInclude Include="..\Client\Engine\ClientApp.h"><Filter>Client\Engine</Filter></ClInclude>
+    <ClInclude Include="..\Client\Engine\ShineApp.h"><Filter>Client\Engine</Filter></ClInclude>
+    <ClInclude Include="..\Client\Engine\ShineCamera.h"><Filter>Client\Engine</Filter></ClInclude>
+    <ClInclude Include="..\Client\Engine\ShineConfig.h"><Filter>Client\Engine</Filter></ClInclude>
+    <ClInclude Include="..\Client\Engine\ShineScene.h"><Filter>Client\Engine</Filter></ClInclude>
+    <ClInclude Include="..\Client\Network\LoginSession.h"><Filter>Client\Network</Filter></ClInclude>
+    <ClInclude Include="..\Client\Network\ShineNetClient.h"><Filter>Client\Network</Filter></ClInclude>
+    <ClInclude Include="..\Client\Network\ZoneSession.h"><Filter>Client\Network</Filter></ClInclude>
+    <ClInclude Include="..\Client\ResSystem\ActionDat.h"><Filter>Client\ResSystem</Filter></ClInclude>
+    <ClInclude Include="..\Client\ResSystem\PEResourceReader.h"><Filter>Client\ResSystem</Filter></ClInclude>
+    <ClInclude Include="..\Client\ResSystem\ShineResourceLoader.h"><Filter>Client\ResSystem</Filter></ClInclude>
+    <ClInclude Include="..\Client\ResSystem\UIResourceTables.h"><Filter>Client\ResSystem</Filter></ClInclude>
+    <ClInclude Include="..\Client\UI\ShineHUD.h"><Filter>Client\UI</Filter></ClInclude>
+  </ItemGroup>
+</Project>
