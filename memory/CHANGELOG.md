@@ -164,6 +164,59 @@ without ItemInfo / MobInfo / SkillInfo every gameplay loop fails.
                                 MiniHouse, Guild2, Collect, GradeRandom,
                                 KQ). Sprint #2 candidate.
 - `ExtendedTables.cpp`        38 binders. Future sprints.
-- `MoreTables.cpp`            16 binders.
-- `MiscTables.cpp`             7 binders.
-- `WorldTables.cpp`            7 binders.
+- `MoreTables.cpp`             6 binders left (was 16): SingleData,
+                                AreaSkill, ToggleSkill, ShineReward,
+                                MiscTables2, PartyBonus/Spamer/Quest
+                                groups still inline. Sprint #2 cleanup.
+- `MiscTables.cpp`             0 binders left -- entirely split.
+- `WorldTables.cpp`            0 binders left (Karen.txt stays as a
+                                relocation note for GateGen module).
+
+## 2026-02-XX (later) -- per-SHN/per-TXT sprint #2
+
+### Convention extension
+The same one-cpp-per-file rule now applies to per-table `World/*.txt`
+schemas. Folder-walked content (.ps PineScript, .lua, MobAttackSequence/,
+MobBehaviorScript/, MobRegen/, MobRoam/, MobSettingAction/, NPCItemList/,
+ScenarioScript/, AIScript/, AreaBMP/, BlockInfo/) is correctly NOT split
+since each file in those folders is per-mob/per-script/per-map content,
+not a world-wide table. Karen.txt is the one exception (gate-attack
+sequencing belongs in a future GateGen module, not /Tables/).
+
+### Files split this sprint
+**World/*.txt (12)**
+- QuestTable.cpp, ExpRecalcTable.cpp, RecallCoordTable.cpp,
+  DamageByAngleTable.cpp, DamageBySoulTable.cpp,
+  ItemUseFunctionTable.cpp, RandomOptionTable.cpp,
+  ItemDropGroupTable.cpp, PineScriptTable.cpp,
+  SubLayerInteractTable.cpp, NPCActionTable.cpp, MobChatTable.cpp
+
+**MiscTables.cpp (6)**
+- ActionTables.cpp (ActionEffectItem + ActionRangeFactor)
+- StateTables.cpp (StateField + StateItem + StateMob)
+- CraftTables.cpp (TownPortal presence + Gather + Produce)
+- HPRewardTable.cpp (HolyPromiseReward)
+- RidingTable.cpp (Riding)
+- BadNameFilter.cpp (BadNameFilter)
+- DamageLvGapTables made into safe-stub (superseded by LevelGapTable)
+
+**MoreTables.cpp (10 of 16)**
+- SubAbStateTable.cpp, AbStateSaveTypeInfoTable.cpp,
+  MobBattleTables.cpp, PupAITables.cpp, WeaponAttribTable.cpp,
+  UseClassTypeInfoTable.cpp, SetEffectTable.cpp, UpgradeTables.cpp
+
+**Newly-bound World/*.txt (5 -- previously parsed but ignored)**
+- ItemDropTableW.cpp / .h    World/ItemDropTable.txt
+- ItemOptionsTable.cpp / .h  World/ItemOptions.txt
+- MiscDataTable.cpp / .h     World/MiscDataTable.txt (SkillBreedMob)
+- QuestParserTable.cpp / .h  World/QuestParser.txt (flat token table)
+- TreasureRewardTable.cpp / .h  World/TreasureReward.txt
+
+### Tables/ now 42 files (was 19 after sprint #1).
+WorldTables.cpp 539 -> 65 lines.
+MiscTables.cpp  190 -> 54 lines.
+MoreTables.cpp  551 -> 550 lines (still has 6 binders).
+
+### Static audits still PASS after split #2
+- 201/201 server-side SHN coverage.
+- 0 unwired Load/Bind orphans.

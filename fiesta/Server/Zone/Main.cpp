@@ -38,6 +38,11 @@
 #include "MobResistTable.h"
 #include "MoverTables.h"
 #include "WorldTables.h"   // FEATURE: combat-data-load -- ExpRecalc/Quest/Drop/RandomOption/etc
+#include "Tables/ItemDropTableW.h"
+#include "Tables/ItemOptionsTable.h"
+#include "Tables/MiscDataTable.h"
+#include "Tables/QuestParserTable.h"
+#include "Tables/TreasureRewardTable.h"
 #include "AbnormalStateDictionary.h"
 #include "MultiHitTable.h"
 #include "GuildAcademy.h"
@@ -170,6 +175,18 @@ public:
         ItemDropGroupTable   ::Get().Load(shineRoot);
         PineScriptTable      ::Get().Load(shineRoot);
         SubLayerInteractTable::Get().Load(shineRoot);
+        // FEATURE: world-creation -- 5 additional World/*.txt binders
+        // wired here. Each one was previously parsed-but-ignored:
+        //   ItemDropTable.txt    per-mob drop matrix (45 slots/row)
+        //   ItemOptions.txt      per-(degree,type) random option curve
+        //   MiscDataTable.txt    SkillBreedMob (skill-spawned sub-mobs)
+        //   QuestParser.txt      class-name -> id token table
+        //   TreasureReward.txt   treasure-bag contents (Container+Content)
+        ItemDropTableW       ::Get().Load(shineRoot);
+        ItemOptionsTable     ::Get().Load(shineRoot);
+        MiscDataTable        ::Get().Load(shineRoot);
+        QuestParserTable     ::Get().Load(shineRoot);
+        TreasureRewardTable  ::Get().Load(shineRoot);
 
         // FEATURE: shn-derived-data-load -- post-registry singletons
         // that pull from already-loaded ShnRegistry tables. Order
