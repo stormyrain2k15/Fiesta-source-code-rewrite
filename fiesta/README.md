@@ -122,3 +122,9 @@ SHN column is either hand-bound by a typed reader or audited by
 `ShnAudit_EmitReport`; every World/*.txt column the same way via
 `TsAudit_EmitReport`. Unread columns surface as a single WARN line per
 `(table.column)` in the boot log.
+
+The canonical schema reference lives in
+`docs/spec_pack/data_dictionary/` (File_Summary, plain-English column
+dictionary, server-link hints). `docs/SCHEMA_COVERAGE.md` is the
+human-readable wiring report; `Build/CI/audit_shn_wiring.py` enforces
+100% server-side coverage on every push (fails CI on regression).

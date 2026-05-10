@@ -1,0 +1,721 @@
+File,Column,System / File Purpose,Likely Link Target / Use,Example Values,Confidence
+AbState.shn,ID,buff/debuff/abnormal state definitions,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+AbState.shn,InxName,buff/debuff/abnormal state definitions,"String key used by other SHN rows, scripts, or server code.",StaSeverBone | StaRedSlash | StaBattleBlowStun,High
+AbState.shn,AbStataIndex,buff/debuff/abnormal state definitions,Links to AbState buff/debuff definitions.,0 | 1 | 2,Medium
+AbState.shn,SubAbState,buff/debuff/abnormal state definitions,Links to AbState buff/debuff definitions.,SubStaSeverBone | SubStaRedSlash | SubStaBattleBlowStun,High
+AbState.shn,AbStateSaveType,buff/debuff/abnormal state definitions,Links to AbState buff/debuff definitions.,1 | 1 | 1,High
+AbStateSaveTypeInfo.shn,AbStateSaveType,buff/debuff persistence/save behavior,Links to AbState buff/debuff definitions.,0 | 1 | 2,High
+AccUpGradeInfo.shn,ID,accessory upgrade/enhancement rules,Numeric identifier used as a foreign key or lookup key.,580 | 580 | 580,High
+AccUpGradeInfo.shn,InxName,accessory upgrade/enhancement rules,"String key used by other SHN rows, scripts, or server code.",Acc1UP5 | Acc1UP5 | Acc1UP5,High
+AccUpgrade.shn,ID,accessory upgrade/enhancement rules,Numeric identifier used as a foreign key or lookup key.,1 | 1 | 1,High
+ActionEffectAbState.shn,InxName,buff/debuff/abnormal state definitions,"String key used by other SHN rows, scripts, or server code.",,High
+ActionEffectAbState.shn,ItemActionID,buff/debuff/abnormal state definitions,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,,High
+ActionEffectItem.shn,SHINE_ITEM_ID,action effects that give/use/change items,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,61000 | 61001 | 61002,High
+ActionEffectItem.shn,ItemActionID,action effects that give/use/change items,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,244 | 245 | 246,High
+ActionViewInfo.shn,InxName,visual/display data for actions,"String key used by other SHN rows, scripts, or server code.",attack | looting | trade,High
+ActiveSkill.shn,ID,active skill definitions,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+ActiveSkill.shn,InxName,active skill definitions,"String key used by other SHN rows, scripts, or server code.",TripleHit01 | TripleHit02 | TripleHit03,High
+ActiveSkill.shn,UseItem,active skill definitions,Links to item tables such as ItemInfo / ItemInfoServer.,0 | 0 | 0,High
+ActiveSkill.shn,ItemNumber,active skill definitions,Links to item tables such as ItemInfo / ItemInfoServer.,0 | 0 | 0,High
+ActiveSkill.shn,ItemOption,active skill definitions,Links to item tables such as ItemInfo / ItemInfoServer.,0 | 0 | 0,High
+ActiveSkill.shn,DemandItem1,active skill definitions,Links to item tables such as ItemInfo / ItemInfoServer.,0 | 0 | 0,High
+ActiveSkill.shn,DemandItem2,active skill definitions,Links to item tables such as ItemInfo / ItemInfoServer.,0 | 0 | 0,High
+ActiveSkill.shn,IsMovingSkill,active skill definitions,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,1 | 1 | 1,High
+ActiveSkill.shn,SkillDegree,active skill definitions,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,360 | 360 | 360,High
+ActiveSkill.shn,SkillTargetState,active skill definitions,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,0 | 0 | 0,High
+ActiveSkill.shn,DlyGroupNum,active skill definitions,Often groups multiple rows together under one table-specific group key.,10 | 10 | 10,Medium
+ActiveSkill.shn,DlyTimeGroup,active skill definitions,Often groups multiple rows together under one table-specific group key.,6000 | 6000 | 6000,High
+ActiveSkill.shn,SkillClassifierA,active skill definitions,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,- | - | -,High
+ActiveSkill.shn,SkillClassifierB,active skill definitions,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,- | - | -,High
+ActiveSkill.shn,SkillClassifierC,active skill definitions,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,- | - | -,High
+ActiveSkill.shn,HitID,active skill definitions,Numeric identifier used as a foreign key or lookup key.,20 | 20 | 20,Medium
+ActiveSkillGroup.shn,InxName,active skill definitions,"String key used by other SHN rows, scripts, or server code.",SeverBone01 | SeverBone02 | SeverBone03,High
+ActiveSkillGroup.shn,ActiveSkillGroupIndex,active skill definitions,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data. Often groups multiple rows together under one table-specific group key.,71 | 71 | 71,High
+ActiveSkillInfoServer.shn,ID,active skill definitions,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+ActiveSkillInfoServer.shn,InxName,active skill definitions,"String key used by other SHN rows, scripts, or server code.",TripleHit01 | TripleHit02 | TripleHit03,High
+ActiveSkillInfoServer.shn,SkillHitType,active skill definitions,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,0 | 0 | 0,High
+ActiveSkillInfoServer.shn,ItremUseSkill,active skill definitions,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,0 | 0 | 0,High
+AreaSkill.shn,AS_SkillInx,skill definitions and behavior,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,LightShot01 | Chimera_Skill_W03_2 | Eglack_Skill05_W,High
+AttendReward.shn,AR_ID,Attend Reward data/configuration,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,Medium
+AttendReward.shn,AR_ItemInx,Attend Reward data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,Attend_Week_1 | Attend_Week_2 | Attend_Week_3,High
+BRAccUpgrade.shn,ID,accessory upgrade/enhancement rules,Numeric identifier used as a foreign key or lookup key.,1 | 1 | 1,High
+BRAccUpgradeInfo.shn,ID,accessory upgrade/enhancement rules,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+BRAccUpgradeInfo.shn,InxName,accessory upgrade/enhancement rules,"String key used by other SHN rows, scripts, or server code.",Grp1WC_MABijouBra | Grp2WC_MABijouBra | Grp3WC_MABijouBra,High
+BelongTypeInfo.shn,NoDrop,Belong Type Info data/configuration,Links to drop/loot tables or drop group rows.,0 | 0 | 1,Medium
+ChargedEffect.shn,ItemID,Charged Effect data/configuration,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,PoveofBlass01 | PoveofBlass02 | PoveofBlass03,High
+ChatColor.shn,ChatColorID,Chat Color data/configuration,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,Medium
+ClassName.shn,ClassID,Class Name data/configuration,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,Medium
+CollectCard.shn,CC_CardID,collectable card system,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,Medium
+CollectCard.shn,CC_ItemInx,collectable card system,Links to item tables such as ItemInfo / ItemInfoServer.,CC_Slime02 | CC_Honeying02 | CC_Mara02,High
+CollectCard.shn,CC_CardMobGroup,collectable card system,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies. Often groups multiple rows together under one table-specific group key.,164 | 60 | 108,High
+CollectCardDropRate.shn,CC_CardID,drop/loot configuration,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,Medium
+CollectCardGroupDesc.shn,CC_CardMobGroup,collectable card system,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies. Often groups multiple rows together under one table-specific group key.,1 | 2 | 3,High
+CollectCardGroupDesc.shn,CC_MobGroupName,collectable card system,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies. Often groups multiple rows together under one table-specific group key.,��ī | �ؼ�Ʈ ����� | ������,High
+CollectCardMobGroup.shn,CC_MobInx,collectable card system,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,WaterAlca | Alka | WaterAlcaA,High
+CollectCardMobGroup.shn,CC_CardMobGroup,collectable card system,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies. Often groups multiple rows together under one table-specific group key.,1 | 1 | 1,High
+CollectCardReward.shn,CC_RewardID,collectable card system,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,Medium
+CollectCardReward.shn,CC_RewardItemInx,collectable card system,Links to item tables such as ItemInfo / ItemInfoServer.,Neck_Collect01 | Ear_Collect01 | Ring_Collect01,High
+CollectCardTitle.shn,CC_ItemInx,title/achievement data,Links to item tables such as ItemInfo / ItemInfoServer.,CC_Humar02 | CC_C_JewelGolem01 | CC_Helga01,High
+ColorInfo.shn,eColorID,color/dye definitions,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,Medium
+DiceGame.shn,ItemID,Dice Game data/configuration,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,51002 | 51003 | 51004,High
+EnchantSocketRate.shn,ItemGradeType,Enchant Socket Rate data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,0 | 1 | 2,High
+FaceInfo.shn,ID,Face Info data/configuration,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+FieldLvCondition.shn,MapIndex,Field level Condition data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",UrgDragon | UrgDragon | Tower01,High
+FriendPointReward.shn,InxName,Friend Point Reward data/configuration,"String key used by other SHN rows, scripts, or server code.",BestLowTHScroll | LowTHScroll | NorTHScroll,High
+GBReward.shn,Item_INX,GBReward data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,M_GB_Slot01,High
+GBSMAll.shn,GBSM_GroupID,GBSMAll data/configuration,Often groups multiple rows together under one table-specific group key. Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,Medium
+GBSMCenter.shn,GBSM_GroupID,GBSMCenter data/configuration,Often groups multiple rows together under one table-specific group key. Numeric identifier used as a foreign key or lookup key.,9,Medium
+GBSMGroup.shn,GBSM_GroupID,GBSMGroup data/configuration,Often groups multiple rows together under one table-specific group key. Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,Medium
+GBSMLine.shn,GBSM_GroupID,GBSMLine data/configuration,Often groups multiple rows together under one table-specific group key. Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,Medium
+GBSMNPC.shn,GBSM_MobInx,NPC definitions and behavior,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,GB_SlotMachine_01_01 | GB_SlotMachine_01_02 | GB_SlotMachine_01_03,High
+GTIBreedSubject.shn,InxName,GTIBreed Subject data/configuration,"String key used by other SHN rows, scripts, or server code.",GTI_Breed01 | GTI_Breed02 | GTI_Breed03,High
+GTIBreedSubject.shn,MobIndex,GTIBreed Subject data/configuration,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,GTI_TotemSummon | GTI_TotemSummon | GTI_TotemSummon,High
+GTIGetRate.shn,ID,GTIGet Rate data/configuration,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,High
+GTIGetRateGap.shn,ID,GTIGet Rate Gap data/configuration,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,High
+GTIServer.shn,ID,GTIServer data/configuration,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,High
+GTIServer.shn,InxName,GTIServer data/configuration,"String key used by other SHN rows, scripts, or server code.",GTI_Bless | GTI_Speed | GTI_Protect,High
+GTIServer.shn,Index,GTIServer data/configuration,Numeric identifier used as a foreign key or lookup key.,StaGTIRatePoint | StaGTISpeed | StaGTIResistAll,High
+Gather.shn,GatherID,gathering node/resource rules,Numeric identifier used as a foreign key or lookup key.,29000 | 29001 | 29001,Medium
+Gather.shn,Index,gathering node/resource rules,Numeric identifier used as a foreign key or lookup key.,Herbing | Mining | Mining,High
+Gather.shn,EqipItemView,gathering node/resource rules,Links to item tables such as ItemInfo / ItemInfoServer.,Hoe | Pickaxe | Pickaxe,High
+GradeItemOption.shn,ItemIndex,grade-based item options,Links to item tables such as ItemInfo / ItemInfoServer.,StrBronzeRing | ConBronzeRing | DexBronzeRing,High
+GradeItemOption.shn,MAPlus,grade-based item options,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",0 | 0 | 0,High
+GroupAbState.shn,GroupAbStateIDX,buff/debuff/abnormal state definitions,Links to AbState buff/debuff definitions. Often groups multiple rows together under one table-specific group key.,Sample_01 | Sample_01 | Sample_01,High
+GroupAbState.shn,AbstateIDX,buff/debuff/abnormal state definitions,Links to AbState buff/debuff definitions.,StaBattleBlowStun | StaNeglect | StaRestore,High
+GuildTournamentLvGap.shn,MAP_TYPE,guild tournament rules/rewards/scoring,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",0 | 0 | 0,High
+GuildTournamentMasterBuff.shn,MAP_TYPE,guild tournament rules/rewards/scoring,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",0,High
+GuildTournamentOccupy.shn,MAP_TYPE,guild tournament rules/rewards/scoring,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",0,High
+GuildTournamentReward.shn,RewardGroup,guild tournament rules/rewards/scoring,Often groups multiple rows together under one table-specific group key.,1 | 2 | 3,Medium
+GuildTournamentScore.shn,MAP_TYPE,guild tournament rules/rewards/scoring,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",0 | 0 | 0,High
+GuildTournamentSkill.shn,MAP_TYPE,skill definitions and behavior,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",0 | 0 | 0,High
+GuildTournamentSkill.shn,Index,skill definitions and behavior,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+HairColorInfo.shn,ID,hair color options,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+HairColorInfo.shn,IndexName,hair color options,"String key used by other SHN rows, scripts, or server code.",HairColor_01 | HairColor_02 | HairColor_03,Medium
+HairInfo.shn,ID,hair style options,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+HairInfo.shn,IndexName,hair style options,"String key used by other SHN rows, scripts, or server code.",base_hair00 | base_hair01 | base_hair02,Medium
+HolyPromiseReward.shn,ItemIndex,Holy Promise reward table,Links to item tables such as ItemInfo / ItemInfoServer.,StormLongSword01 | PhinoCoupleRing01 | Huntervoucher02_1,High
+ItemAction.shn,ItemActionID,item-use actions and action routing,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,High
+ItemAction.shn,ConditionID,item-use actions and action routing,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 54,Medium
+ItemAction.shn,EffectID,item-use actions and action routing,Numeric identifier used as a foreign key or lookup key.,8 | 12 | 18,Medium
+ItemAction.shn,CoolGroupActionID,item-use actions and action routing,Often groups multiple rows together under one table-specific group key. Numeric identifier used as a foreign key or lookup key.,0 | 0 | 0,Medium
+ItemActionCondition.shn,ConditionID,conditions required before an item action can run,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,Medium
+ItemActionEffect.shn,EffectID,effects produced by an item action,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,Medium
+ItemDismantle.shn,ID,item dismantle/breakdown recipes,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+ItemDropLog.shn,ItemID,item drop logging rules,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,57140 | 57141 | 57142,High
+ItemInfo.shn,ID,item definitions shown/used by the client and server,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+ItemInfo.shn,InxName,item definitions shown/used by the client and server,"String key used by other SHN rows, scripts, or server code.",LeatherBoots | LeatherHelmet | LeatherPants,High
+ItemInfo.shn,ItemAuctionGroup,item definitions shown/used by the client and server,Links to item tables such as ItemInfo / ItemInfoServer. Often groups multiple rows together under one table-specific group key.,19 | 19 | 19,High
+ItemInfo.shn,ItemGradeType,item definitions shown/used by the client and server,Links to item tables such as ItemInfo / ItemInfoServer.,0 | 0 | 0,High
+ItemInfo.shn,ItemUseSkill,item definitions shown/used by the client and server,Links to item tables such as ItemInfo / ItemInfoServer. Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,- | - | -,High
+ItemInfo.shn,SetItemIndex,item definitions shown/used by the client and server,Links to item tables such as ItemInfo / ItemInfoServer.,- | - | -,High
+ItemInfo.shn,ItemFunc,item definitions shown/used by the client and server,Links to item tables such as ItemInfo / ItemInfoServer.,0 | 0 | 0,High
+ItemInfoServer.shn,ID,server-side item definitions and item behavior,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+ItemInfoServer.shn,InxName,server-side item definitions and item behavior,"String key used by other SHN rows, scripts, or server code.",LeatherBoots | LeatherHelmet | LeatherPants,High
+ItemInfoServer.shn,DropGroupA,server-side item definitions and item behavior,Links to drop/loot tables or drop group rows. Often groups multiple rows together under one table-specific group key.,Shoes1 | Hat1 | Leg1,Medium
+ItemInfoServer.shn,DropGroupB,server-side item definitions and item behavior,Links to drop/loot tables or drop group rows. Often groups multiple rows together under one table-specific group key.,- | - | -,Medium
+ItemInfoServer.shn,RandomOptionDropGroup,server-side item definitions and item behavior,Links to drop/loot tables or drop group rows. Often groups multiple rows together under one table-specific group key.,- | - | -,Medium
+ItemInfoServer.shn,DropRateKilledByMob,server-side item definitions and item behavior,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies. Links to drop/loot tables or drop group rows.,0 | 0 | 0,High
+ItemInfoServer.shn,DropRateKilledByPlayer,server-side item definitions and item behavior,Links to drop/loot tables or drop group rows.,0 | 0 | 0,High
+ItemInfoServer.shn,ItemSort_Index,server-side item definitions and item behavior,Links to item tables such as ItemInfo / ItemInfoServer.,IS_SHOES | IS_HAT | IS_LEG,High
+ItemInfoServer.shn,KQItem,server-side item definitions and item behavior,Links to item tables such as ItemInfo / ItemInfoServer.,0 | 0 | 0,High
+ItemInfoServer.shn,KQ_Item_Drop,server-side item definitions and item behavior,Links to item tables such as ItemInfo / ItemInfoServer. Links to drop/loot tables or drop group rows.,0 | 0 | 0,High
+ItemInvenDel.shn,InxName,Item Inven Del data/configuration,"String key used by other SHN rows, scripts, or server code.",BallSnow01 | BallCrush01 | E_BallHive02,High
+ItemMerchantInfo.shn,Map,merchant/shop item listings,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",<UNSUPPORTED_TYPE_10> | <UNSUPPORTED_TYPE_10> | <UNSUPPORTED_TYPE_10>,High
+ItemMix.shn,Raw_ItemIDX,item mixing/crafting recipes,Links to item tables such as ItemInfo / ItemInfoServer.,Arena_F70Sword | Arena_F70TSword | Arena_F70Axe,High
+ItemMix.shn,Mix_ItemIDX,item mixing/crafting recipes,Links to item tables such as ItemInfo / ItemInfoServer.,F70Sword_LD | F70TSword_LD | F70Axe_LD,High
+ItemMoney.shn,IM_ItemIDX,item money/value tables,Links to item tables such as ItemInfo / ItemInfoServer.,MiniJack01_2 | Halloween02_1 | Cos_Halloween_2010_01_1,High
+ItemPackage.shn,ItemID,item package/bundle contents,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,SkillReloadbundle10 | SkillReloadbundle30 | SkillReloadbundle50,High
+ItemShop.shn,InxName,Item Shop data/configuration,"String key used by other SHN rows, scripts, or server code.",AddInventory03_2 | HPIncrease1 | SPIncrease1,High
+ItemSort.shn,ItemSort_Index,Item Sort data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,IS_MYSTERYVAULT | IS_EVENT | IS_KQ,High
+ItemUpgrade.shn,ID,Item Upgrade data/configuration,Numeric identifier used as a foreign key or lookup key.,1 | 1 | 1,High
+ItemUseEffect.shn,ItemIndex,Item Use Effect data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,BestLowHpPotion | LowHpPotion | NorHpPotion,High
+ItemUseEffect.shn,UseAbstateName,Item Use Effect data/configuration,Links to AbState buff/debuff definitions.,- | - | -,High
+ItemUseEffect.shn,UseAbstateIndex,Item Use Effect data/configuration,Links to AbState buff/debuff definitions.,0 | 0 | 0,High
+KQIsVote.shn,ID,KQIs Vote data/configuration,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+KQItem.shn,ItemIndex,KQItem data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,KQ_InvincibleHammer | KQ_Ice01,High
+KQTeam.shn,ID,KQTeam data/configuration,Numeric identifier used as a foreign key or lookup key.,26 | 28 | 29,High
+KingdomQuest.shn,ID,quest data and quest relationships,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+KingdomQuest.shn,DemandQuest,quest data and quest relationships,Links to quest tables; QuestData.shn was skipped by request.,0 | 0 | 0,High
+KingdomQuest.shn,DemandItem,quest data and quest relationships,Links to item tables such as ItemInfo / ItemInfoServer.,0 | 0 | 0,High
+KingdomQuest.shn,DemandMobKill,quest data and quest relationships,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,5 | 5 | 5,High
+KingdomQuest.shn,MapLink,quest data and quest relationships,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",0 | 1 | 2,High
+KingdomQuestMap.shn,NumOfMap,quest data and quest relationships,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",10 | 10 | 10,High
+KingdomQuestMap.shn,BaseMap,quest data and quest relationships,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",KDEddyHill | KDPrtShip | KDUnHall,High
+KingdomQuestMap.shn,Map,quest data and quest relationships,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",KDEddyHill00 | KDPrtShip00 | KDUnHall00,High
+KingdomQuestRew.shn,ID,quest data and quest relationships,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+KingdomQuestRew.shn,KQBoxItemIDX,quest data and quest relationships,Links to item tables such as ItemInfo / ItemInfoServer.,KQBox_KingSlime | KQBox_RagePirates | KQBox_UnderHall,High
+LCGroupRate.shn,Item_ID,LCGroup Rate data/configuration,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,58061 | 58061 | 58061,High
+LCGroupRate.shn,LCR_Group,LCGroup Rate data/configuration,Often groups multiple rows together under one table-specific group key.,1 | 2 | 3,Medium
+LCReward.shn,LCR_Group,Lucky Capsule reward table,Often groups multiple rows together under one table-specific group key.,1 | 1 | 1,Medium
+LCReward.shn,Item_Inx,Lucky Capsule reward table,Links to item tables such as ItemInfo / ItemInfoServer.,El1 | Lix1 | Xir1,High
+MapBuff.shn,MapName,buffs applied by map/zone,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",Tower01 | WarBL | WarL,High
+MapBuff.shn,AbStateIDX,buffs applied by map/zone,Links to AbState buff/debuff definitions.,StaIDBuff_100 | StaIDBuff_80 | StaIDBuff_60,High
+MapInfo.shn,ID,map definitions and map metadata,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+MapInfo.shn,MapName,map definitions and map metadata,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",Rou | RouCos01 | RouCos02,High
+MapInfo.shn,KingdomMap,map definitions and map metadata,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",0 | 0 | 0,High
+MapInfo.shn,MapFolderName,map definitions and map metadata,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",Rou | RouCos01 | RouCos02,High
+MapLinkPoint.shn,MLP_FromID,map portal/link points between zones/maps,Numeric identifier used as a foreign key or lookup key.,29 | 7 | 8,Medium
+MapLinkPoint.shn,MLP_ToID,map portal/link points between zones/maps,Numeric identifier used as a foreign key or lookup key.,7 | 8 | 9,Medium
+MapWayPoint.shn,MapID,map pathing/waypoint coordinates,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint. Numeric identifier used as a foreign key or lookup key.",120 | 120 | 120,High
+MiniHouse.shn,ItemID,estate/minihouse/furniture system,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,House_MushRoom | PyramidHouse01_1 | PyramidHouse01_2,High
+MiniHouseDummy.shn,Index,estate/minihouse placement dummy points,Numeric identifier used as a foreign key or lookup key.,Hdummy_Balloon,High
+MiniHouseFurniture.shn,ItemID,estate/minihouse/furniture system,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,IN_Normallighting01 | IN_NormalChair02 | IN_NormalTable01,High
+MiniHouseFurniture.shn,MHEmotionID,estate/minihouse/furniture system,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 0,Medium
+MiniHouseFurnitureObjEffect.shn,ItemID,estate/minihouse/furniture system,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,IN_ValDn01 | IN_CemDn01 | IN_GblDn01,High
+MiniHouseFurnitureObjEffect.shn,NeedItem,estate/minihouse/furniture system,Links to item tables such as ItemInfo / ItemInfoServer.,- | - | -,High
+MiniHouseObjAni.shn,ItemID,estate/minihouse/furniture system,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,50008 | 50008 | 50008,High
+MiniHouseObjAni.shn,AniGroupIDMaxNum,estate/minihouse/furniture system,Often groups multiple rows together under one table-specific group key.,1 | 1 | 1,Medium
+MiniHouseObjAni.shn,AniGroupID,estate/minihouse/furniture system,Often groups multiple rows together under one table-specific group key. Numeric identifier used as a foreign key or lookup key.,10000 | 10001 | 50000,Medium
+MinimonAutoUseItem.shn,MAUItem,Minimon Auto Use Item data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,1 | 1 | 1,High
+MinimonAutoUseItem.shn,ItemIDX,Minimon Auto Use Item data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,ACRedDragon02 | ACRedDragon02_1 | ACRedDragon02_2,High
+MinimonInfo.shn,ItemIDX,minimon/pet information,Links to item tables such as ItemInfo / ItemInfoServer.,KQ_H_MiniDragon | M_SnowSlime01 | MiniSlime,High
+MobAbStateDropSetting.shn,MobInx,monster buff/debuff drop-state settings,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,WereBear | WereBear | WereBear,High
+MobAbStateDropSetting.shn,ABStateInx,monster buff/debuff drop-state settings,Links to AbState buff/debuff definitions.,StaPuryImpactStun | StaBoneArrow | StaDeeper,High
+MobAbStateDropSetting.shn,DropType,monster buff/debuff drop-state settings,Links to drop/loot tables or drop group rows.,0 | 0 | 0,Medium
+MobAutoAction.shn,MobInx,action/combat/interaction data,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,B_CrackerGuardian | B_CrackerLooter | BH_Guardian,High
+MobConditionServer.shn,MobInx,monster Condition Server data/configuration,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,WarL_Pore | WarL_Pore | WarL_BrainWash,High
+MobInfo.shn,ID,monster definitions,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+MobInfo.shn,InxName,monster definitions,"String key used by other SHN rows, scripts, or server code.",Slime | MushRoom | Imp,High
+MobInfo.shn,IsNPC,monster definitions,Links to NPC tables or NPC script/action data.,0 | 0 | 0,High
+MobInfoServer.shn,ID,server-side monster stats and behavior,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+MobInfoServer.shn,InxName,server-side monster stats and behavior,"String key used by other SHN rows, scripts, or server code.",Slime | MushRoom | Imp,High
+MobInfoServer.shn,MobKillInx,server-side monster stats and behavior,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,0 | 0 | 0,High
+MobInfoServer.shn,MobRaceType,server-side monster stats and behavior,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,0 | 0 | 0,High
+MobKillAble.shn,MobKillInx,monster kill rules/logging/requirements,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,0 | 1 | 2,High
+MobKillAble.shn,Mob,monster kill rules/logging/requirements,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,1 | 0 | 1,High
+MobKillAnnounce.shn,MobID,monster kill rules/logging/requirements,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies. Numeric identifier used as a foreign key or lookup key.,7000 | 8140 | 9069,High
+MobKillLog.shn,MobID,monster kill rules/logging/requirements,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies. Numeric identifier used as a foreign key or lookup key.,7000 | 8048 | 8049,High
+MobLifeTime.shn,MobIndex,monster lifetime/despawn timing,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,GTI_AngryWolf | GTI_WereBear | GTI_KingSpider,High
+MobNoFadeIn.shn,MobInx,monster No Fade In data/configuration,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,BallSnow | BallCrush | SlowShot_arrow,High
+MobRegenAni.shn,MobIDX,monster respawn animation data/configuration,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,S_FreloanLeg | E_XSnowman | E_XSnowmanBig,High
+MobRegenAni.shn,GroupAbStateIDX,monster respawn animation data/configuration,Links to AbState buff/debuff definitions. Often groups multiple rows together under one table-specific group key.,- | - | -,High
+MobResist.shn,InxName,monster Resist data/configuration,"String key used by other SHN rows, scripts, or server code.",NormalUndead | NormalHuman | NormalBeast,High
+MobSpecies.shn,ID,monster species/family definitions,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+MobSpecies.shn,MobName,monster species/family definitions,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,Slime | MushRoom | Imp,High
+MobWeapon.shn,ID,monster Weapon data/configuration,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+MobWeapon.shn,InxName,monster Weapon data/configuration,"String key used by other SHN rows, scripts, or server code.",Slime | MushRoom | Imp,High
+MobWeapon.shn,Skill,monster Weapon data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,- | - | -,High
+MoverItem.shn,ItemIDX,Mover Item data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,M_Sidecar01 | M_Sidecar01_1 | M_Sidecar01_2,High
+MoverMain.shn,MoverID,Mover Main data/configuration,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,Medium
+MoverUpgradeEffect.shn,AbStateIDX,Mover Upgrade Effect data/configuration,Links to AbState buff/debuff definitions.,- | - | -,High
+MoverUseSkill.shn,ActiveSkillIDX,skill definitions and behavior,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+MultiHitType.shn,ID,Multi Hit Type data/configuration,Numeric identifier used as a foreign key or lookup key.,1 | 1 | 2,High
+MysteryVaultServer.shn,MV_GroupItemInx,Mystery Vault Server data/configuration,Links to item tables such as ItemInfo / ItemInfoServer. Often groups multiple rows together under one table-specific group key.,MVault_01 | MVault_01 | MVault_01,High
+MysteryVaultServer.shn,ItemInx,Mystery Vault Server data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,MVault_02 | AngelWing09_4 | ThunderLongSword,High
+MysteryVaultServer.shn,Group,Mystery Vault Server data/configuration,Often groups multiple rows together under one table-specific group key.,0 | 0 | 0,Medium
+NpcSchedule.shn,Mob_Inx,NPC definitions and behavior,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,,High
+PSkillSetAbstate.shn,PS_InxName,skill definitions and behavior,"String key used by other SHN rows, scripts, or server code.",MagicDance01 | MagicDance02 | MagicDance03,Medium
+PSkillSetAbstate.shn,PS_AbStateInx,skill definitions and behavior,Links to AbState buff/debuff definitions.,StaMagicDanceUseSPDown01 | StaMagicDanceUseSPDown02 | StaMagicDanceUseSPDown03,High
+PassiveSkill.shn,ID,passive skill definitions,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+PassiveSkill.shn,InxName,passive skill definitions,"String key used by other SHN rows, scripts, or server code.",BraveMastery01 | BraveMastery02 | BraveMastery03,High
+PassiveSkill.shn,ActiveSkillGroupInx,passive skill definitions,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data. Often groups multiple rows together under one table-specific group key.,0 | 0 | 0,High
+Produce.shn,ProductID,Produce data/configuration,Numeric identifier used as a foreign key or lookup key.,20000 | 20001 | 20002,Medium
+PupCaseDesc.shn,ActionEffectID,Pup Case description data/configuration,Numeric identifier used as a foreign key or lookup key.,0 | 1145 | 1145,Medium
+PupMain.shn,PupID,Pup Main data/configuration,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,Medium
+PupMain.shn,ItemIDX,Pup Main data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,P_Slime | P_Honeying | P_Kebing,High
+QuestDialog.shn,ID,quest data and quest relationships,Numeric identifier used as a foreign key or lookup key.,0 | 200 | 201,High
+QuestScript.shn,ID,quest data and quest relationships,Numeric identifier used as a foreign key or lookup key.,1 | 101 | 2,High
+QuestSpecies.shn,ID,quest data and quest relationships,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+QuestSpecies.shn,MobGroupName,quest data and quest relationships,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies. Often groups multiple rows together under one table-specific group key.,Slime | MushRoom | Imp,High
+RaceNameInfo.shn,RaceID,Race Name Info data/configuration,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,Medium
+RandomOption.shn,DropItemIndex,random item option/stat rolls,Links to item tables such as ItemInfo / ItemInfoServer. Links to drop/loot tables or drop group rows.,RandomNamedW01 | RandomNamedW01 | RandomNamedW01,High
+RandomOption.shn,TypeDropRate,random item option/stat rolls,Links to drop/loot tables or drop group rows.,1000 | 1000 | 1000,High
+RandomOptionCount.shn,InxName,random item option/stat rolls,"String key used by other SHN rows, scripts, or server code.",RandomNamedW01 | RandomNamedW01 | RandomNamedW01,High
+RandomOptionCount.shn,LimitDropRate,random item option/stat rolls,Links to drop/loot tables or drop group rows.,400 | 300 | 300,High
+RareMoverEachRate.shn,RMER_ItemIDX,Rare Mover Each Rate data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,M_RUnicorn01,High
+ReactionType.shn,MobInx,action/combat/interaction data,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,LC_Machine,High
+Riding.shn,ItemID,Riding data/configuration,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,Coll | Claude,High
+SetEffect.shn,SetItemIndex,Set Effect data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,AssimilationSet | AssimilationSet | AssimilationSet,High
+SetEffect.shn,ItemActionID,Set Effect data/configuration,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,77 | 34 | 115,High
+SetItem.shn,Index,Set Item data/configuration,Numeric identifier used as a foreign key or lookup key.,BoneAttackSet | WinSet | PowerSet,High
+SetItemEffect.shn,SkillGroup,Set Item Effect data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data. Often groups multiple rows together under one table-specific group key.,SeverBone | Heal | PowerShot,High
+SetItemEffect.shn,Index,Set Item Effect data/configuration,Numeric identifier used as a foreign key or lookup key.,4 | 5 | 2,High
+StateField.shn,AbStateInx,State Field data/configuration,Links to AbState buff/debuff definitions.,StaCrackerACDownRate | StaCrackerWCDownRate | StaCrackerDisease,High
+StateField.shn,MapName,State Field data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",B_Cracker | B_Cracker | B_Cracker,High
+StateItem.shn,ItemIDX,State Item data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,E_HwinCandy | E_HwinCandy | E_HwinCandy,High
+StateItem.shn,AbStateInx,State Item data/configuration,Links to AbState buff/debuff definitions.,StaE_Slime | StaE_Honeying | StaE_Phino,High
+StateMob.shn,TargetMobInx,State monster data/configuration,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,B_CrackerHumar | B_CrackerHumar | BH_Humar,High
+StateMob.shn,ConditionMobInx,State monster data/configuration,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,B_CrackerGuardian | B_CrackerLooter | BH_Looter,High
+StateMob.shn,AbStateInx,State monster data/configuration,Links to AbState buff/debuff definitions.,StaCrackerWCUpRate | StaCrackerACUpRate | StaCrackerWCUpRate,High
+SubAbState.shn,ID,buff/debuff/abnormal state definitions,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+SubAbState.shn,InxName,buff/debuff/abnormal state definitions,"String key used by other SHN rows, scripts, or server code.",SubStaSeverBone | SubStaSeverBone | SubStaSeverBone,High
+TermExtendMatch.shn,ExtendItemIDX,Term Extend Match data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,TE_Arena_70 | TE_Arena_70 | TE_Arena_70,High
+TermExtendMatch.shn,TermItemIDX,Term Extend Match data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,Arena_F70Sword | Arena_F70TSword | Arena_F70Axe,High
+ToggleSkill.shn,TS_SkillInx,skill definitions and behavior,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,BurnPain01 | BurnPain02 | BurnPain03,High
+TownPortal.shn,Index,Town Portal data/configuration,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+TownPortal.shn,TP_GroupNo,Town Portal data/configuration,Often groups multiple rows together under one table-specific group key.,0 | 0 | 0,Medium
+TownPortal.shn,MapName,Town Portal data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",RouN | RouVal01 | Eld,High
+UpgradeInfo.shn,ID,Upgrade Info data/configuration,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+UpgradeInfo.shn,InxName,Upgrade Info data/configuration,"String key used by other SHN rows, scripts, or server code.",Grp1ACAmr | Grp2ACAmr | Grp3ACAmr,High
+View/AbStateView.shn,ID,buff/debuff/abnormal state definitions,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+View/AbStateView.shn,inxName,buff/debuff/abnormal state definitions,"String key used by other SHN rows, scripts, or server code.",StaSeverBone | StaRedSlash | StaBattleBlowStun,High
+View/ActionViewInfo.shn,InxName,visual/display data for actions,"String key used by other SHN rows, scripts, or server code.",attack | looting | trade,High
+View/ActiveSkillView.shn,ID,active skill definitions,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+View/ActiveSkillView.shn,InxName,active skill definitions,"String key used by other SHN rows, scripts, or server code.",TripleHit01 | TripleHit02 | TripleHit03,High
+View/ActiveSkillView.shn,HideHandItem,active skill definitions,Links to item tables such as ItemInfo / ItemInfoServer.,0 | 0 | 0,High
+View/CollectCardView.shn,CC_CardID,collectable card system,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,Medium
+View/CollectCardView.shn,CC_MobInx,collectable card system,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,KQ_K_G_Slime | Honeying | Mara,High
+View/EffectViewInfo.shn,ID,Effect View Info data/configuration,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+View/GTIView.shn,ID,GTIView data/configuration,Numeric identifier used as a foreign key or lookup key.,1 | 2 | 3,High
+View/GTIView.shn,InxName,GTIView data/configuration,"String key used by other SHN rows, scripts, or server code.",GTI_Bless | GTI_Speed | GTI_Protect,High
+View/ItemViewDummy.shn,InxName,Item View Dummy data/configuration,"String key used by other SHN rows, scripts, or server code.",HidePants | HidePants | HideArmor,High
+View/ItemViewInfo.shn,ID,Item View Info data/configuration,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+View/ItemViewInfo.shn,InxName,Item View Info data/configuration,"String key used by other SHN rows, scripts, or server code.",LeatherBoots | LeatherHelmet | LeatherPants,High
+View/ItemViewInfo.shn,GrnItemSize,Item View Info data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,0.5 | 0.5 | 0.5,High
+View/ItemViewInfo.shn,GrnItemTex,Item View Info data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,GrdFigShoes | GrdFigHat | GrdFigLeg,High
+View/ItemViewInfo.shn,DropSnd,Item View Info data/configuration,Links to drop/loot tables or drop group rows.,SFX_ItemPutAmor | SFX_ItemPutAmor | SFX_ItemPutAmor,Medium
+View/MapViewInfo.shn,ID,Map View Info data/configuration,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+View/MapViewInfo.shn,MapName,Map View Info data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",Rou | RouCos01 | RouCos02,High
+View/MapViewInfo.shn,MiniMapScale,Map View Info data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",0.5 | 1.0 | 1.0,High
+View/MapViewInfo.shn,KingdomMap,Map View Info data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",0 | 0 | 0,High
+View/MapViewInfo.shn,MapFolderName,Map View Info data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",Rou | RouCos01 | RouCos02,High
+View/MapViewInfo.shn,MinimapView,Map View Info data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",1 | 1 | 1,High
+View/MapViewInfo.shn,WorldMapView,Map View Info data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",1 | 1 | 1,High
+View/MapViewInfo.shn,MiniMapSort,Map View Info data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",0 | 2 | 3,High
+View/MobConditionView.shn,MobInx,monster Condition View data/configuration,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,WarL_Pore | WarL_Pore | WarL_Pore,High
+View/MobViewInfo.shn,ID,monster View Info data/configuration,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+View/MobViewInfo.shn,InxName,monster View Info data/configuration,"String key used by other SHN rows, scripts, or server code.",Slime | MushRoom | Imp,High
+View/MobViewInfo.shn,MobPortrait,monster View Info data/configuration,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,Slime | MushRoom | Imp,High
+View/MobViewInfo.shn,MiniMapIcon,monster View Info data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",0 | 0 | 0,High
+View/MobViewInfo.shn,NpcViewIndex,monster View Info data/configuration,Links to NPC tables or NPC script/action data.,0 | 0 | 0,High
+View/MobViewInfo.shn,EffectViewID,monster View Info data/configuration,Numeric identifier used as a foreign key or lookup key.,7 | 7 | 7,Medium
+View/MobViewInfo.shn,Group1,monster View Info data/configuration,Often groups multiple rows together under one table-specific group key.,- | - | -,Medium
+View/MobViewInfo.shn,Group2,monster View Info data/configuration,Often groups multiple rows together under one table-specific group key.,- | - | -,Medium
+View/MobViewInfo.shn,Group3,monster View Info data/configuration,Often groups multiple rows together under one table-specific group key.,- | - | -,Medium
+View/MobViewInfo.shn,GroupS,monster View Info data/configuration,Often groups multiple rows together under one table-specific group key.,- | - | -,Medium
+View/PassiveSkillView.shn,ID,passive skill definitions,Numeric identifier used as a foreign key or lookup key.,0 | 1 | 2,High
+View/PassiveSkillView.shn,InxName,passive skill definitions,"String key used by other SHN rows, scripts, or server code.",BraveMastery01 | BraveMastery02 | BraveMastery03,High
+View/ProduceView.shn,ID,Produce View data/configuration,Numeric identifier used as a foreign key or lookup key.,29100 | 29101 | 29102,High
+View/ProduceView.shn,InxName,Produce View data/configuration,"String key used by other SHN rows, scripts, or server code.",ProducePotion | ProduceSton | ProduceScroll,High
+View/SetItemView.shn,Index,Set Item View data/configuration,Numeric identifier used as a foreign key or lookup key.,BoneAttackSet | WinSet | PowerSet,High
+WeaponTitleData.shn,MobID,title/achievement data,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies. Numeric identifier used as a foreign key or lookup key.,2 | 2 | 2,High
+WeaponTitleData.shn,MobKillCount,title/achievement data,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,3 | 6 | 9,High
+DefaultCharacterData.txt,Start Map name,Default Character Data data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",,High
+DefaultCharacterData.txt,Item ID,Default Character Data data/configuration,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,,High
+DefaultCharacterData.txt,Item Lot,Default Character Data data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+DefaultCharacterData.txt,Skill ID,Default Character Data data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data. Numeric identifier used as a foreign key or lookup key.,,High
+DefaultCharacterData.txt,Quest ID,Default Character Data data/configuration,Links to quest tables; QuestData.shn was skipped by request. Numeric identifier used as a foreign key or lookup key.,,High
+MobRegen/Adl.txt,GroupIndex,Adl data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/AdlThorn01.txt,GroupIndex,Adl Thorn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/AdlVal01.txt,GroupIndex,Adl Val 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/AlDn01.txt,GroupIndex,Al Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/AlDn02.txt,GroupIndex,Al Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/ArkDn01.txt,GroupIndex,Ark Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/ArkDn02.txt,GroupIndex,Ark Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/BH_Albi.txt,GroupIndex,BH Albi data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/BH_Cracker.txt,GroupIndex,BH Cracker data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/BH_Helga.txt,GroupIndex,BH Helga data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/B_Albi.txt,GroupIndex,B Albi data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/B_Cracker.txt,GroupIndex,B Cracker data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/BerFrz01.txt,GroupIndex,Ber Frz 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/BerKal01.txt,GroupIndex,Ber Kal 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/BerVale01.txt,GroupIndex,Ber Vale 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Bera.txt,GroupIndex,Bera data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/CemDn01.txt,GroupIndex,Cem Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/CemDn02.txt,GroupIndex,Cem Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/E_Hwin.txt,GroupIndex,E Hwin data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/E_Olympic.txt,GroupIndex,E Olympic data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/EchoCave.txt,GroupIndex,Echo Cave data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Eld.txt,GroupIndex,Eld data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/EldCem01.txt,GroupIndex,Eld Cem 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/EldCem02.txt,GroupIndex,Eld Cem 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/EldFor01.txt,GroupIndex,Eld For 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/EldGbl01.txt,GroupIndex,Eld Gbl 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/EldGbl02.txt,GroupIndex,Eld Gbl 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/EldPri01.txt,GroupIndex,Eld Pri 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/EldPri02.txt,GroupIndex,Eld Pri 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/EldPriDn01.txt,GroupIndex,Eld Pri Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/EldPriDn02.txt,GroupIndex,Eld Pri Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/EldSleep01.txt,GroupIndex,Eld Sleep 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/ElfDn01.txt,GroupIndex,Elf Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/ElfDn02.txt,GroupIndex,Elf Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Fbattle01.txt,GroupIndex,Fbattle 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Fbattle02.txt,GroupIndex,Fbattle 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Fbattle03.txt,GroupIndex,Fbattle 03 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/FireDn01.txt,GroupIndex,Fire Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/FireDn02.txt,GroupIndex,Fire Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/ForDn01.txt,GroupIndex,For Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/ForDn02.txt,GroupIndex,For Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/GBHouse.txt,GroupIndex,house/estate system,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/GblDn01.txt,GroupIndex,Gbl Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/GblDn02.txt,GroupIndex,Gbl Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/GoldCave.txt,GroupIndex,Gold Cave data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/GuildT0400.txt,GroupIndex,guild rules/data,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/GuildT0401.txt,GroupIndex,guild rules/data,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/GuildT0402.txt,GroupIndex,guild rules/data,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/GuildT0403.txt,GroupIndex,guild rules/data,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/GuildT0404.txt,GroupIndex,guild rules/data,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/GuildT0405.txt,GroupIndex,guild rules/data,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/GuildT0406.txt,GroupIndex,guild rules/data,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/GuildT0407.txt,GroupIndex,guild rules/data,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Instant/AdlF.txt,GroupIndex,Adl F data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Instant/AdlFH.txt,GroupIndex,Adl FH data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Instant/Leviathan.txt,GroupIndex,Leviathan data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Instant/Siren.txt,GroupIndex,Siren data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Instant/Tower01.txt,GroupIndex,Tower 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Instant/Tower02.txt,GroupIndex,Tower 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Instant/Tower03.txt,GroupIndex,Tower 03 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Instant/UrgDragon.txt,GroupIndex,Urg Dragon data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Instant/WarN.txt,GroupIndex,War N data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KDHBat1.txt,GroupIndex,KDHBat 1 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/Job2_Dn01.txt,GroupIndex,Job 2 Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/Job2_Dn02.txt,GroupIndex,Job 2 Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDAntiHenis.txt,GroupIndex,KDAnti Henis data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDEchoCave.txt,GroupIndex,KDEcho Cave data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDEddyHill(old).txt,GroupIndex,KDEddy Hill(old) data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDEddyHill.txt,GroupIndex,KDEddy Hill data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDEnMaze.txt,GroupIndex,KDEn Maze data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDFargels.txt,GroupIndex,KDFargels data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDGoldHill(Making).txt,GroupIndex,KDGold Hill(Making) data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDGoldHill.txt,GroupIndex,KDGold Hill data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDGreenHill.txt,GroupIndex,KDGreen Hill data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDHBat1.txt,GroupIndex,KDHBat 1 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDHDragon.txt,GroupIndex,KDHDragon data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDHero.txt,GroupIndex,KDHero data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDHoneying.txt,GroupIndex,KDHoneying data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDKingkong.txt,GroupIndex,KDKingkong data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDKingkong2.txt,GroupIndex,KDKingkong 2 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDKingkong3.txt,GroupIndex,KDKingkong 3 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDMDragon.txt,GroupIndex,KDMDragon data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDPrtShip.txt,GroupIndex,KDPrt Ship data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDRockCan.txt,GroupIndex,KDRock Can data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDSoccer_W.txt,GroupIndex,KDSoccer W data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDSpider.txt,GroupIndex,KDSpider data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDTrDn.txt,GroupIndex,KDTr Dn data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDUnHall.txt,GroupIndex,KDUn Hall data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDUnHall2.txt,GroupIndex,KDUn Hall 2 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KDVictor.txt,GroupIndex,KDVictor data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KD_Kingkong.txt,GroupIndex,KD Kingkong data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest/KQ_HONEYING.txt,GroupIndex,Kingdom Quest HONEYING data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/KingdomQuest.txt,GroupIndex,quest data and quest relationships,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Linkfield01.txt,GroupIndex,Linkfield 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Linkfield02.txt,GroupIndex,Linkfield 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/PriDn01.txt,GroupIndex,Pri Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/PriDn02.txt,GroupIndex,Pri Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/PsyIn.txt,GroupIndex,Psy In data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/PsyInDn02.txt,GroupIndex,Psy In Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/PsyOut.txt,GroupIndex,Psy Out data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/QField01.txt,GroupIndex,QField 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/QField02.txt,GroupIndex,QField 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/QField03.txt,GroupIndex,QField 03 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/QField04.txt,GroupIndex,QField 04 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/R_Helga01.txt,GroupIndex,R Helga 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Rou.txt,GroupIndex,Rou data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/RouCos01.txt,GroupIndex,Rou Cos 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/RouCos02.txt,GroupIndex,Rou Cos 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/RouCos03.txt,GroupIndex,Rou Cos 03 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/RouN.txt,GroupIndex,Rou N data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/RouTemDn01.txt,GroupIndex,Rou Tem Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/RouTemDn02.txt,GroupIndex,Rou Tem Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/RouVal01.txt,GroupIndex,Rou Val 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/RouVal02.txt,GroupIndex,Rou Val 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/SwaDn01.txt,GroupIndex,Swa Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/SwaDn02.txt,GroupIndex,Swa Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Urg.txt,GroupIndex,Urg data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/UrgDark01.txt,GroupIndex,Urg Dark 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/UrgFire01.txt,GroupIndex,Urg Fire 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/UrgFireDn01.txt,GroupIndex,Urg Fire Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/UrgSwa01.txt,GroupIndex,Urg Swa 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/UrgSwaDn01.txt,GroupIndex,Urg Swa Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/Urg_Alruin.txt,GroupIndex,Urg Alruin data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/ValDn01.txt,GroupIndex,Val Dn 01 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/ValDn02.txt,GroupIndex,Val Dn 02 data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRegen/WindyCave.txt,GroupIndex,Windy Cave data/configuration,Often groups multiple rows together under one table-specific group key.,,Medium
+MobRoam/AdlThornR01.txt,ID,Adl Thorn R 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/AdlThornR02.txt,ID,Adl Thorn R 02 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/AdlThornR03.txt,ID,Adl Thorn R 03 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/AdlThornR04.txt,ID,Adl Thorn R 04 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/AdlThornR05.txt,ID,Adl Thorn R 05 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/AdlThornR06.txt,ID,Adl Thorn R 06 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/AdlThornR07.txt,ID,Adl Thorn R 07 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/AdlThornR08.txt,ID,Adl Thorn R 08 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/AdlThornR09.txt,ID,Adl Thorn R 09 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/AdlThornR10.txt,ID,Adl Thorn R 10 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/AdlThornR11.txt,ID,Adl Thorn R 11 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/AdlThornR12.txt,ID,Adl Thorn R 12 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/BerValeDw01.txt,ID,Ber Vale Dw 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/BerValeDw02.txt,ID,Ber Vale Dw 02 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/BerValeDw03.txt,ID,Ber Vale Dw 03 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/BerValeDw04.txt,ID,Ber Vale Dw 04 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/BerValeGaruda.txt,ID,Ber Vale Garuda data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/GB_Waitress01.txt,ID,Gold/Battle mini-game Waitress 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/GB_Waitress02.txt,ID,Gold/Battle mini-game Waitress 02 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/GB_Waitress03.txt,ID,Gold/Battle mini-game Waitress 03 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/GB_Waitress04.txt,ID,Gold/Battle mini-game Waitress 04 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/GB_Waitress05.txt,ID,Gold/Battle mini-game Waitress 05 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/GB_Waitress06.txt,ID,Gold/Battle mini-game Waitress 06 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/GB_Waitress07.txt,ID,Gold/Battle mini-game Waitress 07 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/GB_Waitress08.txt,ID,Gold/Battle mini-game Waitress 08 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/GB_Waitress09.txt,ID,Gold/Battle mini-game Waitress 09 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/GB_Waitress10.txt,ID,Gold/Battle mini-game Waitress 10 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobRoam/Kal01_HERO1.txt,ID,Kal 01 HERO 1 data/configuration,Numeric identifier used as a foreign key or lookup key.,,High
+MobSetting/Action/B_Slime.txt,ConditionID,B Slime data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/B_Slime.txt,ActionID,B Slime data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/BallCake01.txt,ConditionID,Ball Cake 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/BallCake01.txt,ActionID,Ball Cake 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/BallWater.txt,ConditionID,Ball Water data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/BallWater.txt,ActionID,Ball Water data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/C_Gate01.txt,ConditionID,C Gate 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/C_Gate01.txt,ActionID,C Gate 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/ChristmasTree.txt,ConditionID,Christmas Tree data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/ChristmasTree.txt,ActionID,Christmas Tree data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/DT_EntranceGate.txt,ConditionID,DT Entrance Gate data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/DT_EntranceGate.txt,ActionID,DT Entrance Gate data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/DT_ExitGate.txt,ConditionID,DT Exit Gate data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/DT_ExitGate.txt,ActionID,DT Exit Gate data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/DT_RadionOre.txt,ConditionID,DT Radion Ore data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/DT_RadionOre.txt,ActionID,DT Radion Ore data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/E_SixYear_Dance.txt,ConditionID,E Six Year Dance data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/E_SixYear_Dance.txt,ActionID,E Six Year Dance data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/E_SkiFlag_Blue.txt,ConditionID,E Ski Flag Blue data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/E_SkiFlag_Blue.txt,ActionID,E Ski Flag Blue data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/E_SkiFlag_Gold.txt,ConditionID,E Ski Flag Gold data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/E_SkiFlag_Gold.txt,ActionID,E Ski Flag Gold data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/E_SkiFlag_Red.txt,ConditionID,E Ski Flag Red data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/E_SkiFlag_Red.txt,ActionID,E Ski Flag Red data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/E_Ski_IDHoneying.txt,ConditionID,E Ski IDHoneying data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/E_Ski_IDHoneying.txt,ActionID,E Ski IDHoneying data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/E_Ski_Snowman.txt,ConditionID,E Ski Snowman data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/E_Ski_Snowman.txt,ActionID,E Ski Snowman data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/Egg2014_BigEgg.txt,ConditionID,Egg 2014 Big Egg data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/Egg2014_BigEgg.txt,ActionID,Egg 2014 Big Egg data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/GTI_BoxAll.txt,ConditionID,Guild Tournament Island Box All data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/GTI_BoxAll.txt,ActionID,Guild Tournament Island Box All data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/GTI_BoxTeamA.txt,ConditionID,Guild Tournament Island Box Team A data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/GTI_BoxTeamA.txt,ActionID,Guild Tournament Island Box Team A data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/GTI_BoxTeamB.txt,ConditionID,Guild Tournament Island Box Team B data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/GTI_BoxTeamB.txt,ActionID,Guild Tournament Island Box Team B data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/Gate_AdlF.txt,ConditionID,Gate Adl F data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/Gate_AdlF.txt,ActionID,Gate Adl F data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/Gate_Lab.txt,ConditionID,Gate Lab data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/Gate_Lab.txt,ActionID,Gate Lab data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/IDLeviathanGate01.txt,ConditionID,IDLeviathan Gate 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/IDLeviathanGate01.txt,ActionID,IDLeviathan Gate 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/IDMapLinkGate00.txt,ConditionID,IDMap Link Gate 00 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/IDMapLinkGate00.txt,ActionID,IDMap Link Gate 00 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/IDMapLinkGate01.txt,ConditionID,IDMap Link Gate 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/IDMapLinkGate01.txt,ActionID,IDMap Link Gate 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/IDMapLinkGate02.txt,ConditionID,IDMap Link Gate 02 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/IDMapLinkGate02.txt,ActionID,IDMap Link Gate 02 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/IDMapLinkGate03.txt,ConditionID,IDMap Link Gate 03 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/IDMapLinkGate03.txt,ActionID,IDMap Link Gate 03 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/KDSoccer_Ball.txt,ConditionID,KDSoccer Ball data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/KDSoccer_Ball.txt,ActionID,KDSoccer Ball data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/KDSoccer_Ball_14.txt,ConditionID,KDSoccer Ball 14 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/KDSoccer_Ball_14.txt,ActionID,KDSoccer Ball 14 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/KDSoccer_Invincible.txt,ConditionID,KDSoccer Invincible data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/KDSoccer_Invincible.txt,ActionID,KDSoccer Invincible data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/KDSoccer_SpeedUp.txt,ConditionID,KDSoccer Speed Up data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/KDSoccer_SpeedUp.txt,ActionID,KDSoccer Speed Up data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/KarenGate.txt,ConditionID,Karen Gate data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/KarenGate.txt,ActionID,Karen Gate data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightField01.txt,ConditionID,Light Field 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightField01.txt,ActionID,Light Field 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightField02.txt,ConditionID,Light Field 02 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightField02.txt,ActionID,Light Field 02 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightField03.txt,ConditionID,Light Field 03 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightField03.txt,ActionID,Light Field 03 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightField04.txt,ConditionID,Light Field 04 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightField04.txt,ActionID,Light Field 04 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightField05.txt,ConditionID,Light Field 05 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightField05.txt,ActionID,Light Field 05 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb01.txt,ConditionID,Light Orb 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb01.txt,ActionID,Light Orb 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb02.txt,ConditionID,Light Orb 02 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb02.txt,ActionID,Light Orb 02 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb03.txt,ConditionID,Light Orb 03 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb03.txt,ActionID,Light Orb 03 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb04.txt,ConditionID,Light Orb 04 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb04.txt,ActionID,Light Orb 04 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb05.txt,ConditionID,Light Orb 05 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb05.txt,ActionID,Light Orb 05 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb06.txt,ConditionID,Light Orb 06 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb06.txt,ActionID,Light Orb 06 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb07.txt,ConditionID,Light Orb 07 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb07.txt,ActionID,Light Orb 07 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb08.txt,ConditionID,Light Orb 08 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb08.txt,ActionID,Light Orb 08 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb09.txt,ConditionID,Light Orb 09 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb09.txt,ActionID,Light Orb 09 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb10.txt,ConditionID,Light Orb 10 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/LightOrb10.txt,ActionID,Light Orb 10 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/MapLinkGate.txt,ConditionID,Map Link Gate data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/MapLinkGate.txt,ActionID,Map Link Gate data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/MapLinkGate01.txt,ConditionID,Map Link Gate 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/MapLinkGate01.txt,ActionID,Map Link Gate 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/MultiProtect.txt,ConditionID,Multi Protect data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/MultiProtect.txt,ActionID,Multi Protect data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/MultiProtect02.txt,ConditionID,Multi Protect 02 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/MultiProtect02.txt,ActionID,Multi Protect 02 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/MultiProtect03.txt,ConditionID,Multi Protect 03 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/MultiProtect03.txt,ActionID,Multi Protect 03 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/SpImShield.txt,ConditionID,skill/spirit points Im Shield data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/SpImShield.txt,ActionID,skill/spirit points Im Shield data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/SpUpShoes.txt,ConditionID,skill/spirit points Up Shoes data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/SpUpShoes.txt,ActionID,skill/spirit points Up Shoes data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/T_Gate01.txt,ConditionID,T Gate 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/T_Gate01.txt,ActionID,T Gate 01 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/T_Gate02.txt,ConditionID,T Gate 02 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/T_Gate02.txt,ActionID,T Gate 02 data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/WarBL_EntranceGate.txt,ConditionID,War BL Entrance Gate data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/WarBL_EntranceGate.txt,ActionID,War BL Entrance Gate data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/WarH_EntranceGate.txt,ConditionID,War H Entrance Gate data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+MobSetting/Action/WarH_EntranceGate.txt,ActionID,War H Entrance Gate data/configuration,Numeric identifier used as a foreign key or lookup key.,,Medium
+TutorialCharacterData.txt,Start Map name,Tutorial Character Data data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",,High
+TutorialCharacterData.txt,Item ID,Tutorial Character Data data/configuration,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,,High
+TutorialCharacterData.txt,Item Lot,Tutorial Character Data data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+TutorialCharacterData.txt,Item ID,Tutorial Character Data data/configuration,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,,High
+TutorialCharacterData.txt,Item Lot,Tutorial Character Data data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/Field.txt,MapIDClient,Field data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",,High
+World/Field.txt,MapName,Field data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",,High
+World/Field.txt,ItemDropByKilled,Field data/configuration,Links to item tables such as ItemInfo / ItemInfoServer. Links to drop/loot tables or drop group rows.,,High
+World/Field.txt,SystemMap,Field data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",,High
+World/Field.txt,CanItem,Field data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/Field.txt,CanSkill,Field data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/Field.txt,ExpLostAtDeadByMob,Field data/configuration,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,,High
+World/ItemDropGroup.txt,ItemGroupIdx,drop group loot tables,Links to item tables such as ItemInfo / ItemInfoServer. Often groups multiple rows together under one table-specific group key.,,High
+World/ItemDropGroup.txt,ItemID,drop group loot tables,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,,High
+World/ItemDropTable.txt,MapArea,drop/loot configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",,High
+World/ItemDropTable.txt,MobId,drop/loot configuration,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies. Numeric identifier used as a foreign key or lookup key.,,High
+World/ItemDropTable.txt,AbStateCnt,drop/loot configuration,Links to AbState buff/debuff definitions.,,High
+World/ItemDropTable.txt,DrItem1,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem1R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem2,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem2R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem3,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem3R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem4,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem4R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem5,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem5R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem6,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem6R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem7,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem7R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem8,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem8R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem9,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem9R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem10,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem10R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem11,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem11R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem12,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem12R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem13,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem13R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem14,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem14R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem15,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem15R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem16,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem16R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem17,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem17R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem18,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem18R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem19,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem19R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem20,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem20R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem21,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem21R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem22,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem22R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem23,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem23R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem24,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem24R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem25,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem25R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem26,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem26R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem27,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem27R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem28,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem28R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem29,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem29R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem30,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem30R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem31,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem31R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem32,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem32R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem33,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem33R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem34,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem34R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem35,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem35R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem36,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem36R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem37,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem37R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem38,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem38R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem39,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem39R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem40,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem40R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem41,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem41R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem42,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem42R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem43,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem43R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem44,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem44R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem45,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,DrItem45R,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,ExcItem1,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,ExcItem2,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,ExcItem3,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,ExcItem4,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemDropTable.txt,ExcItem5,drop/loot configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/ItemUseFunction.txt,ItemIndex,Item Use Function data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/MiscDataTable.txt,Skill,Misc Data Table data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/MiscDataTable.txt,MobIndex,Misc Data Table data/configuration,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,,High
+World/MiscDataTable.txt,MobRoam,Misc Data Table data/configuration,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,,High
+World/MiscDataTable.txt,AbState,Misc Data Table data/configuration,Links to AbState buff/debuff definitions.,,High
+World/MobChat.txt,MobIndex,monster Chat data/configuration,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,,High
+World/NPC.txt,MobName,NPC definitions and behavior,Links to monster tables such as MobInfo / MobInfoServer / MobSpecies.,,High
+World/NPC.txt,Map,NPC definitions and behavior,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",,High
+World/NPC.txt,NPCMenu,NPC definitions and behavior,Links to NPC tables or NPC script/action data.,,High
+World/NPCAction.txt,ConditionID,NPC interaction/action behavior,Numeric identifier used as a foreign key or lookup key.,,Medium
+World/ParamArcherServer.txt,SkillPwrPt,Param Archer Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamAssassinServer.txt,SkillPwrPt,Param Assassin Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamChaserServer.txt,SkillPwrPt,Param Chaser Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamClericServer.txt,SkillPwrPt,Param Cleric Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamCleverFighterServer.txt,SkillPwrPt,Param Clever Fighter Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamCloserServer.txt,SkillPwrPt,Param Closer Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamCruelServer.txt,SkillPwrPt,Param Cruel Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamEnchanterServer.txt,SkillPwrPt,Param Enchanter Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamFighterServer.txt,SkillPwrPt,Param Fighter Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamGladiatorServer.txt,SkillPwrPt,Param Gladiator Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamGuardianServer.txt,SkillPwrPt,Param Guardian Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamHawkArcherServer.txt,SkillPwrPt,Param Hawk Archer Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamHighClericServer.txt,SkillPwrPt,Param High Cleric Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamHolyKnightServer.txt,SkillPwrPt,Param Holy Knight Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamJokerServer.txt,SkillPwrPt,Param Joker Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamKnightServer.txt,SkillPwrPt,Param Knight Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamMageServer.txt,SkillPwrPt,Param Mage Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamPaladinServer.txt,SkillPwrPt,Param Paladin Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamRangerServer.txt,SkillPwrPt,Param Ranger Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamSaviorServer.txt,SkillPwrPt,Param Savior Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamScoutServer.txt,SkillPwrPt,Param Scout Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamSentinelServer.txt,SkillPwrPt,Param Sentinel Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamSharpShooterServer.txt,SkillPwrPt,Param Sharp Shooter Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamWarriorServer.txt,SkillPwrPt,Param Warrior Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamWarrockServer.txt,SkillPwrPt,Param Warrock Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamWizMageServer.txt,SkillPwrPt,Param Wiz Mage Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/ParamWizardServer.txt,SkillPwrPt,Param Wizard Server data/configuration,Links to skill tables such as ActiveSkill / PassiveSkill / Skill data.,,High
+World/Quest.txt,QuestHandle,quest data and quest relationships,Links to quest tables; QuestData.shn was skipped by request.,,High
+World/Quest.txt,StartNPC,quest data and quest relationships,Links to NPC tables or NPC script/action data.,,High
+World/Quest.txt,StopNPC,quest data and quest relationships,Links to NPC tables or NPC script/action data.,,High
+World/RandomOptionTable.txt,DropItemIndex,random item option/stat rolls,Links to item tables such as ItemInfo / ItemInfoServer. Links to drop/loot tables or drop group rows.,,High
+World/RecallCoord.txt,ItemIndex,Recall Coord data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/RecallCoord.txt,ItemIdent,Recall Coord data/configuration,Links to item tables such as ItemInfo / ItemInfoServer.,,High
+World/RecallCoord.txt,MapName,Recall Coord data/configuration,"Links to map/zone tables such as MapInfo, MapLinkPoint, or MapWayPoint.",,High
+World/TreasureReward.txt,ItemID,Treasure Reward data/configuration,Links to item tables such as ItemInfo / ItemInfoServer. Numeric identifier used as a foreign key or lookup key.,,High
+World/TreasureReward.txt,Index,Treasure Reward data/configuration,Numeric identifier used as a foreign key or lookup key.,,High

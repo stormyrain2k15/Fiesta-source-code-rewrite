@@ -56,6 +56,7 @@ void ShnAudit_EmitReport(const ShnRegistry& rReg) {
     // s_kAuditReads.
     uint32 unowned = 0;
     uint32 deferred = 0;
+    uint32 clientView = 0;
     for (ShnRegistry::iterator rit = rReg.begin(); rit != rReg.end(); ++rit) {
         const std::string& name = rit->first;
         const ShnFile*     f    = rit->second;
@@ -63,6 +64,11 @@ void ShnAudit_EmitReport(const ShnRegistry& rReg) {
         // QuestShnReader and won't appear in s_kAuditReads.
         if (ShnRegistry::IsQuestShn(name)) { ++deferred; continue; }
         if (f && f->IsQuestDeferred())     { ++deferred; continue; }
+        // Skip client-only view tables -- the NA2016 server intentionally
+        // does not own these. They're loaded only so generic tooling can
+        // introspect them; treating them as "unowned" would spam ~18
+        // false-positive warnings every boot.
+        if (ShnRegistry::IsClientViewShn(name)) { ++clientView; continue; }
         if (s_kAuditReads.find(name) == s_kAuditReads.end()) {
             SHINELOG_WARN("ShnAudit: table '%s' loaded but no system "
                           "owns it (no GetTable/ShnGet* call observed)",
@@ -70,8 +76,9 @@ void ShnAudit_EmitReport(const ShnRegistry& rReg) {
             ++unowned;
         }
     }
-    SHINELOG_INFO("ShnRegistryAuditor: %u unowned table(s), %u quest-deferred (skipped)",
-                  unowned, deferred);
+    SHINELOG_INFO("ShnRegistryAuditor: %u unowned, %u quest-deferred, "
+                  "%u client-view (intentionally unread)",
+                  unowned, deferred, clientView);
 }
 
 ShnRegistry& ShnRegistry::Get() { static ShnRegistry s; return s; }
@@ -131,6 +138,27 @@ bool ShnRegistry::IsQuestShn(const std::string& rStem) {
         lower[i] = (char)::tolower((unsigned char)lower[i]);
     return lower.find("quest") != std::string::npos
         || lower.find("pinescript") != std::string::npos;
+}
+
+bool ShnRegistry::IsClientViewShn(const std::string& rStem) {
+    // Anything that lives under Shine\View\ -- by NA2016 convention
+    // every such file ends in "View", "ViewInfo", "ViewDummy", or a
+    // similar suffix. The 18 known NA2016 view tables are listed
+    // explicitly so a stem that *coincidentally* contains "View" but
+    // is server-side (none currently exist, but defensive) does not
+    // get muted by accident.
+    static const char* kKnown[] = {
+        "ActiveSkillView", "CharacterTitleStateView", "CollectCardView",
+        "EffectViewInfo", "GTIView", "ItemShopView", "ItemViewDummy",
+        "ItemViewEquipTypeInfo", "ItemViewInfo", "MapViewInfo",
+        "MobConditionView", "MobViewInfo", "MoverSlotView", "MoverView",
+        "PassiveSkillView", "ProduceView", "PupView", "SetItemView",
+        NULL
+    };
+    for (size_t i = 0; kKnown[i]; ++i) {
+        if (_stricmp(rStem.c_str(), kKnown[i]) == 0) return true;
+    }
+    return false;
 }
 
 size_t ShnRegistry::LoadAll(const std::string& rRoot) {

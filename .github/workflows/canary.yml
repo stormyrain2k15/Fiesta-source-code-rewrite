@@ -160,6 +160,15 @@ jobs:
         run: |
           python3 Build/CI/check_shn_fixtures.py
 
+      - name: SHN wiring coverage audit
+        # Cross-references the data dictionary's File_Summary.csv against
+        # every consumer in /Server. Fails if a server-side SHN is loaded
+        # by the registry but no binder reads it (regression: feature
+        # gap or stale dictionary). Client-only View/ tables are
+        # whitelisted via the audit's CLIENT_ONLY_VIEWS set.
+        run: |
+          python3 Build/CI/audit_shn_wiring.py
+
   doc-links:
     name: Doc cross-link canary
     runs-on: ubuntu-latest

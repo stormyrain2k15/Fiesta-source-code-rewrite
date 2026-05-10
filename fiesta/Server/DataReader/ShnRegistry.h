@@ -46,6 +46,16 @@ public:
     // pick up.
     static bool IsQuestShn(const std::string& rStem);
 
+    // Tooling guard: returns true if the SHN logical name is a
+    // CLIENT-ONLY view table (everything under Shine\View\*View*.shn).
+    // The NA2016 server intentionally never consumes these -- skill
+    // icons, mob nameplates, item tooltips, minimap labels, etc. are
+    // pure client-side display data. The registry still loads them so
+    // generic tooling (CSV export, schema dumper) can introspect, but
+    // the boot-time "unowned table" audit treats them as expected
+    // unread tables instead of warnings.
+    static bool IsClientViewShn(const std::string& rStem);
+
     // Iteration helper used by typed group accessors that want to bulk-scan.
     typedef std::map<std::string, ShnFile*>::const_iterator iterator;
     iterator begin() const { return m_kAll.begin(); }
