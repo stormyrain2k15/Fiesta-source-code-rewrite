@@ -35,7 +35,7 @@ on:
 
 defaults:
   run:
-    working-directory: fiesta
+    working-directory: src/fiesta
 
 jobs:
   windows-build:
@@ -47,7 +47,13 @@ jobs:
         config: [Debug, Release]
     steps:
       - name: Checkout
+        # Check out into a fixed subdir with a clean name. Required
+        # because the repo name ends in '.' and Windows strips trailing
+        # dots from directory names, breaking the default $GITHUB_WORKSPACE
+        # path. Do NOT remove the `path:` line unless the repo is renamed.
         uses: actions/checkout@v4
+        with:
+          path: src
 
       - name: Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
@@ -59,7 +65,7 @@ jobs:
         # symbol-resolution / syntax errors. Linking is allowed to fail;
         # the strict static-lib pass below does the real verification.
         shell: cmd
-        working-directory: fiesta
+        working-directory: src/fiesta
         run: |
           mkdir ThirdParty\Lua\include 2>nul
           mkdir ThirdParty\Lua\lib 2>nul
@@ -69,7 +75,7 @@ jobs:
 
       - name: MSBuild solution (compile only -- skip link errors)
         shell: cmd
-        working-directory: fiesta
+        working-directory: src/fiesta
         run: |
           msbuild Build\Fiesta.sln ^
             /m /v:minimal ^
@@ -89,7 +95,7 @@ jobs:
         # is "compile errors broke the tree" not "missing third-party
         # libs broke the tree".
         shell: cmd
-        working-directory: fiesta
+        working-directory: src/fiesta
         run: |
           msbuild Build\Common.vcxproj         /m /v:minimal /p:Configuration=${{ matrix.config }} /p:Platform=Win32 /p:PlatformToolset=v141
           msbuild Build\Shared.vcxproj         /m /v:minimal /p:Configuration=${{ matrix.config }} /p:Platform=Win32 /p:PlatformToolset=v141
@@ -103,7 +109,7 @@ jobs:
         with:
           name: msbuild-logs-${{ matrix.config }}
           path: |
-            fiesta/msbuild-${{ matrix.config }}.log
-            fiesta/msbuild-${{ matrix.config }}.errors.log
-            fiesta/msbuild-${{ matrix.config }}.warnings.log
+            src/fiesta/msbuild-${{ matrix.config }}.log
+            src/fiesta/msbuild-${{ matrix.config }}.errors.log
+            src/fiesta/msbuild-${{ matrix.config }}.warnings.log
           retention-days: 14
