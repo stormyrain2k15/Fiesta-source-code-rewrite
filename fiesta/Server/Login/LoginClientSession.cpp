@@ -68,9 +68,8 @@ void LoginClientSession::HandleVersionCheck(const GPacket& rPkt) {
     SendPacket(this, NC_USER_CLIENT_VERSION_CHECK_REQ + 1, ack.Data(), ack.Size());
 }
 
-void LoginClientSession::HandleXTrap(const GPacket& rPkt) {
-    // 40 -- XTrap handshake. Acknowledge OK; full DLL ack flow in XTrap4Server.
-    m_eState = (m_eState >= LS_VERSION_OK) ? LS_XTRAP_OK : m_eState;
+void LoginClientSession::HandleXTrapLegacy(const GPacket& rPkt) {
+    // 40 -- XTrap handshake. Legacy no-op: just ACK. Modern clients skip this entirely.
     PacketBuffer ack; ack.WriteU8(1); SendPacket(this, NC_USER_XTRAP_ACK, ack.Data(), ack.Size());
 }
 
