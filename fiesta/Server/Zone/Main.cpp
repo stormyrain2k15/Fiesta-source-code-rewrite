@@ -34,6 +34,20 @@
 #include "ShineNPCTable.h"
 #include "ClassParamTable.h"
 #include "ChrCommonTable.h"
+#include "LevelGapTable.h"
+#include "MobResistTable.h"
+#include "MoverTables.h"
+#include "WorldTables.h"   // FEATURE: combat-data-load -- ExpRecalc/Quest/Drop/RandomOption/etc
+#include "AbnormalStateDictionary.h"
+#include "MultiHitTable.h"
+#include "GuildAcademy.h"
+#include "CraftAndPet.h"   // MinimonDataBox
+#include "SocialSystems.h" // SpamerPenaltyDataBox
+#include "ItemSystems.h"   // SetItemData
+#include "Link.h"          // FEATURE: portals
+#include "TownPortalSystem.h"
+#include "LuckyCapsuleSystem.h"
+#include "GambleHouse/GambleSystem.h"
 #include "MobSpawnSystem.h"
 #include "MobAIRunner.h"
 #include "InterBroadcastSinks.h"
@@ -120,6 +134,61 @@ public:
         // exp-loss; load before any character can log in.
         ClassParamTable::Get().Load(shineRoot);
         ChrCommonTable ::Get().Load(shineRoot);
+
+        // FEATURE: combat-data-load -- Battle.cpp queries each of these
+        // tables on every damage roll (LevelGapTable step 3, MobResist
+        // step 4/8, ExpRecalc on Kill). They were defined but never
+        // populated; without these calls every lookup returned the
+        // hard-coded neutral fallback (1000 = 1.0x), which silently
+        // disabled per-level PvP scaling, mob element/dmg-type resist
+        // and proper exp curves.
+        LevelGapTable    ::Get().Load(shineRoot);
+        MobResistTable   ::Get().Load(shineRoot);
+        ExpRecalcTable   ::Get().Load(shineRoot);
+        MoverMainTable   ::Get().Load(shineRoot);
+        MoverAbilityTable::Get().Load(shineRoot);
+
+        // FEATURE: world-data-load -- World*.txt tables that expose a
+        // singleton-style Get().Load(rRoot) entry but were never called
+        // at boot. Each one drives a real runtime path:
+        //   QuestTable           -> quest catalog (NPC dialog / kill credit)
+        //   RecallCoordTable     -> death return-to-town coords
+        //   DamageByAngleTable   -> per-skill angle damage scalar
+        //   DamageBySoulTable    -> per-soul-type damage scalar
+        //   ItemUseFunctionTable -> item-use opcode dispatch (capsules,
+        //                           teleport scrolls, scrolls...)
+        //   RandomOptionTable    -> random-option roll on equip drop
+        //   ItemDropGroupTable   -> mob drop tables
+        //   PineScriptTable      -> ScenarioBookShelf script catalog
+        //   SubLayerInteractTable-> map sublayer trigger volumes
+        QuestTable           ::Get().Load(shineRoot);
+        RecallCoordTable     ::Get().Load(shineRoot);
+        DamageByAngleTable   ::Get().Load(shineRoot);
+        DamageBySoulTable    ::Get().Load(shineRoot);
+        ItemUseFunctionTable ::Get().Load(shineRoot);
+        RandomOptionTable    ::Get().Load(shineRoot);
+        ItemDropGroupTable   ::Get().Load(shineRoot);
+        PineScriptTable      ::Get().Load(shineRoot);
+        SubLayerInteractTable::Get().Load(shineRoot);
+
+        // FEATURE: shn-derived-data-load -- post-registry singletons
+        // that pull from already-loaded ShnRegistry tables. Order
+        // matters: ShnRegistry::LoadAll() ran above, so everything
+        // these depend on is parsed and resident.
+        AbnormalStateDictionary::Get().Load();   // abstate -> id mapping
+        SetItemData            ::Get().Load();   // set bonuses
+        MultiHitTable          ::Get().Load();   // multi-hit combo data
+        GuildAcademy           ::Get().Load();   // academy tutorial steps
+        MinimonDataBox         ::Get().Load();   // pet datatables
+        SpamerPenaltyDataBox   ::Get().Load();   // anti-spam thresholds
+
+        // FEATURE: portals + lucky-capsule + casino -- per-system
+        // ingest from ShnRegistry. Each system's binders log their
+        // own row counts.
+        Link                  ::Get().Load();    // map portals (3 types)
+        TownPortalSystem      ::Get().Load();    // town-portal scroll list
+        LuckyCapsuleSystem    ::Get().Load();    // red/blue/yellow capsules
+        GambleSystem          ::Get().BindAllCasinoTables();
         // World/NPCAction.txt -- per-NPC dialog page button list.
         NPCActionTable::Get().Load(shineRoot);
 

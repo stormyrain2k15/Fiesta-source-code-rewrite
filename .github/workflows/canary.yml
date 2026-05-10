@@ -169,6 +169,14 @@ jobs:
         run: |
           python3 Build/CI/audit_shn_wiring.py
 
+      - name: Unwired data-load audit
+        # Catches the LevelGapTable bug class: a class declared
+        # `Load(rRoot)` or `Bind()` but never called from any boot
+        # file. The function is dead code but the table is parsed,
+        # so callers silently fall back to neutral defaults.
+        run: |
+          python3 Build/CI/audit_unwired_loads.py
+
   doc-links:
     name: Doc cross-link canary
     runs-on: ubuntu-latest

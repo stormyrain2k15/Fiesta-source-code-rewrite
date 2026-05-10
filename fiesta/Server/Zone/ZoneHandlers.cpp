@@ -25,6 +25,11 @@
 #include "DeathReviveSystem.h"
 #include "AbState.h"
 #include "StatDistribute.h"
+#include "Link.h"
+#include "TownPortalSystem.h"
+#include "LuckyCapsuleSystem.h"
+#include "GambleHouse/GambleSystem.h"
+#include "GroupTables.h"   // ItemTables::Get().Find
 
 namespace fiesta {
 
@@ -197,6 +202,119 @@ static void H_FreeStatReset(IOCPSession* s, const GPacket&) {
 }
 
 // ---------------------------------------------------------------------------
+// Item-use dispatch (capsules, town-portal scrolls, potions, ...)
+// ---------------------------------------------------------------------------
+// FEATURE: lucky-capsule + portals
+static void H_ItemUse(IOCPSession* s, const GPacket& pkt) {
+    ClientSession* cs = (ClientSession*)s; if (!cs || !cs->GetPlayer()) return;
+    ShinePlayer* p = cs->GetPlayer();
+    PacketBuffer b = pkt.Body();
+    uint32 uiItemId = 0; uint16 uiSlot = 0;
+    b.ReadU32(uiItemId); b.ReadU16(uiSlot);
+    // PROVISIONAL_BODY: NA2016 may add a target-handle field for
+    // group-use items (party-wide buffs); confirm against client capture.
+
+    // Lookup item info to find the inx-name (used by both routes).
+    const ItemInfoRow* pkInfo = ItemTables::Get().FindItem(uiItemId);
+    std::string inx = pkInfo ? pkInfo->kInxName : std::string();
+
+    // 1) Lucky capsule? Roll, grant, consume.
+    if (LuckyCapsuleSystem::Get().IsCapsule(uiItemId)) {
+        if (LuckyCapsuleSystem::Get().TryOpen(p, uiItemId)) {
+            p->Inv().Remove(uiItemId);
+        }
+        return;
+    }
+
+    // 2) Town-portal scroll? Send the destination list.
+    int32 tpGroup = TownPortalSystem::Get().ResolveItemToGroup(uiItemId, inx);
+    if (tpGroup >= 0) {
+        std::vector<TownPortalRow> list;
+        TownPortalSystem::Get().BuildList((uint8)tpGroup, (uint8)p->GetLevel(), list);
+        // Send the picker list. The scroll is consumed only after the
+        // player actually picks a destination (H_TownPortalReq).
+        // PROVISIONAL_BODY: NC_MAP_TOWNPORTAL_LIST_ACK is the picker
+        // payload; using NC_MAP_TOWNPORTAL_ACK as a placeholder until
+        // the dedicated opcode is added to NETCOMMAND.h.
+        PacketBuffer out;
+        out.WriteU32(uiItemId);                   // echo for picker context
+        out.WriteU8((uint8)tpGroup);
+        out.WriteU8((uint8)list.size());
+        for (size_t i = 0; i < list.size(); ++i) {
+            out.WriteU8(list[i].uiIndex);
+            out.WriteU8(list[i].uiMinLevel);
+            out.WriteU32(list[i].uiX);
+            out.WriteU32(list[i].uiY);
+            // Map name as a length-prefixed string.
+            out.WriteU8((uint8)list[i].kMapName.size());
+            for (size_t j = 0; j < list[i].kMapName.size(); ++j)
+                out.WriteU8((uint8)list[i].kMapName[j]);
+        }
+        SendPacket(cs, NC_MAP_TOWNPORTAL_ACK, out.Data(), out.Size());
+        return;
+    }
+
+    // 3) Other item-use paths (potions, scrolls, etc.) -- existing
+    //    item-use function table dispatch lives in ItemSystems. Need
+    //    a real ShineItem record for the canonical entry point;
+    //    look it up in the inventory by item id.
+    const std::vector<ShineItem>& kInv = p->Inv().All();
+    for (size_t i = 0; i < kInv.size(); ++i) {
+        if (kInv[i].uiItemId != uiItemId) continue;
+        ShineItem mut = kInv[i];
+        ShineItemUse::TryUse(p, mut);
+        break;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Town-portal pick (player chose a destination from the picker UI)
+// ---------------------------------------------------------------------------
+// FEATURE: portals
+static void H_TownPortalReq(IOCPSession* s, const GPacket& pkt) {
+    ClientSession* cs = (ClientSession*)s; if (!cs || !cs->GetPlayer()) return;
+    ShinePlayer* p = cs->GetPlayer();
+    PacketBuffer b = pkt.Body();
+    uint32 uiScrollItemId = 0; uint8 uiGroup = 0; uint8 uiIndex = 0;
+    b.ReadU32(uiScrollItemId); b.ReadU8(uiGroup); b.ReadU8(uiIndex);
+    if (TownPortalSystem::Get().Teleport(p, uiGroup, uiIndex)) {
+        // Consume the scroll on success only.
+        p->Inv().Remove(uiScrollItemId);
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Casino: dice & slot
+// ---------------------------------------------------------------------------
+// FEATURE: casino-dice + casino-slot
+static void H_GambleDice(IOCPSession* s, const GPacket& pkt) {
+    ClientSession* cs = (ClientSession*)s; if (!cs || !cs->GetPlayer()) return;
+    ShinePlayer* p = cs->GetPlayer();
+    PacketBuffer b = pkt.Body();
+    uint16 uiBowl = 0; uint32 uiBet = 0; uint8 uiTier = 0;
+    b.ReadU16(uiBowl); b.ReadU32(uiBet); b.ReadU8(uiTier);
+    int32 pay = GambleSystem::Get().ResolveDice(p, uiBowl, uiBet, uiTier);
+    PacketBuffer out;
+    out.WriteI32(pay);
+    SendPacket(cs, NC_GAMBLE_DICE_REQ + 1, out.Data(), out.Size());
+}
+static void H_GambleSlot(IOCPSession* s, const GPacket& pkt) {
+    ClientSession* cs = (ClientSession*)s; if (!cs || !cs->GetPlayer()) return;
+    ShinePlayer* p = cs->GetPlayer();
+    PacketBuffer b = pkt.Body();
+    uint8 inxLen = 0; b.ReadU8(inxLen);
+    std::string inx; inx.reserve(inxLen);
+    for (uint8 i = 0; i < inxLen; ++i) {
+        uint8 c = 0; b.ReadU8(c); inx.push_back((char)c);
+    }
+    uint32 uiPool = 0; b.ReadU32(uiPool);
+    int32 pay = GambleSystem::Get().ResolveSlot(p, inx, uiPool);
+    PacketBuffer out;
+    out.WriteI32(pay);
+    SendPacket(cs, NC_GAMBLE_SLOT_REQ + 1, out.Data(), out.Size());
+}
+
+// ---------------------------------------------------------------------------
 // Handler registration
 // ---------------------------------------------------------------------------
 void RegisterZoneHandlers() {
@@ -219,6 +337,7 @@ void RegisterZoneHandlers() {
     p.Register(NC_NPC_SHOP_SELL_REQ,            &H_NpcShopSell);
     // Items
     p.Register(NC_ITEM_UPGRADE_REQ,             &H_ItemUpgrade);
+    p.Register(NC_ITEM_USE_REQ,                 &H_ItemUse);          // FEATURE: lucky-capsule + portals
     // Stats
     p.Register(NC_BAT_FREESTAT_DISTRIBUTE_REQ,  &H_FreeStatDistribute);
     p.Register(NC_BAT_FREESTAT_RESET_REQ,       &H_FreeStatReset);
@@ -226,6 +345,11 @@ void RegisterZoneHandlers() {
     p.Register(NC_INSTANCE_ACCEPT_REQ,          &H_InstanceEnter);
     // Chat
     p.Register(NC_ACT_CHAT_REQ,                 &H_Chat);
+    // Travel: town-portal pick
+    p.Register(NC_MAP_TOWNPORTAL_REQ,           &H_TownPortalReq);     // FEATURE: portals
+    // Casino
+    p.Register(NC_GAMBLE_DICE_REQ,              &H_GambleDice);        // FEATURE: casino-dice
+    p.Register(NC_GAMBLE_SLOT_REQ,              &H_GambleSlot);        // FEATURE: casino-slot
 }
 
 } // namespace fiesta
