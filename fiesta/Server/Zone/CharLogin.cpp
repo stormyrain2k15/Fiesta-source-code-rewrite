@@ -33,9 +33,38 @@ void CharLogin(ClientSession* pkSess, const GPacket& rPkt) {
     // frame zero.
     StateFieldTable::Get().OnPlayerEnter(pk, pk->GetLoginZone());
 
-    PacketBuffer ack; ack.WriteU8(1); ack.WriteU32(pk->GetHandle());
+    // NC_CHAR_LOGIN_ACK: [ok(1), handle(4)]
+    PacketBuffer ack;
+    ack.WriteU8(1);
+    ack.WriteU32(pk->GetHandle());
     SendPacket(pkSess, NC_CHAR_LOGIN_ACK, ack.Data(), ack.Size());
-    SHINELOG_INFO("Zone CharLogin aid=%u cid=%u handle=%u", aid, cid, pk->GetHandle());
+
+    // NC_CHAR_INFO_CMD — send the client its own character state so the
+    // UI can render the correct HP/SP/level/class/position immediately.
+    // PROVISIONAL packet shape: verify field order against a real capture.
+    // This is the minimum viable set for phase-1: client needs level + HP
+    // to display the character on screen.
+    // [handle(4), level(2), class(2), hp(4), maxhp(4), sp(4), maxsp(4),
+    //  posX(4f), posY(4f), posZ(4f), mapId(2)]
+    {
+        PacketBuffer info;
+        info.WriteU32(pk->GetHandle());
+        info.WriteU16(pk->GetLevel());
+        info.WriteU16(pk->GetClass());
+        info.WriteI32(pk->GetHP());
+        info.WriteI32(pk->GetMaxHP());
+        info.WriteI32(pk->GetSP());
+        info.WriteI32(pk->GetMaxSP());
+        const Vec3& pos = pk->GetPos();
+        info.WriteF32(pos.x);
+        info.WriteF32(pos.y);
+        info.WriteF32(pos.z);
+        info.WriteU16(pk->GetMap());
+        SendPacket(pkSess, NC_CHAR_INFO_CMD, info.Data(), info.Size());
+    }
+
+    SHINELOG_INFO("Zone CharLogin aid=%u cid=%u handle=%u lv=%u",
+                  aid, cid, pk->GetHandle(), pk->GetLevel());
 }
 
 void CharLogout(ClientSession* pkSess, const GPacket&) {

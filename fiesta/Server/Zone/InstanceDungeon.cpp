@@ -1,4 +1,9 @@
 #include "InstanceDungeon.h"
+#include "ShineObject.h"
+#include "ZoneServer.h"
+#include "../Common/NETCOMMAND.h"
+#include "../Common/SendPacket.h"
+#include "../Shared/ShineLogSystem.h"
 #include "../Shared/GTimer.h"
 namespace fiesta {
 
@@ -28,7 +33,26 @@ int32 MIDRewardDataBox::GoldFor(uint32, uint16 clr) {
     return base;
 }
 bool  MatchInstanceDungeonServer::TryQueue(ShinePlayer* pk, uint32) { return pk != NULL; }
-void  InstanceDungeon::OnPlayerEnter(ShinePlayer*, uint32) {}
+void InstanceDungeon::OnPlayerEnter(ShinePlayer* pk, uint32 uiTypeId) {
+    if (!pk) return;
+    // Warp player to instance entry point.
+    // Entry coordinates are PROVISIONAL — sourced from KQInfo.shn when wired.
+    // For now, zero-origin so the zone at least places them on the map.
+    // TUNE: load from KQInfo/InstanceInfo SHN once the column RE is confirmed.
+    Vec3 entryPos(0.0f, 0.0f, 0.0f);
+    pk->SetPos(entryPos);
+    SHINELOG_INFO("InstanceDungeon::OnPlayerEnter pk=%u type=%u",
+                  pk->GetHandle(), uiTypeId);
+    // Broadcast the player's new position (NC_ACT_STOP_CMD is the minimal
+    // "here I am" packet the client accepts on zone transfer).
+    if (pk->GetSession()) {
+        PacketBuffer pkt;
+        pkt.WriteF32(entryPos.x);
+        pkt.WriteF32(entryPos.y);
+        pkt.WriteF32(entryPos.z);
+        SendPacket(pk->GetSession(), NC_ACT_STOP_CMD, pkt.Data(), pkt.Size());
+    }
+}
 uint64 InstanceDungeon_util::ProvisionalDurationMs(uint32) { return 30ULL * 60ULL * 1000ULL; }
 
 } // namespace fiesta

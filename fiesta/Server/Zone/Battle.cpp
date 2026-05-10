@@ -64,11 +64,25 @@ void RuleOfEngagement::CalcDamage(DAMAGERESULT*    pOut,
         if (roll > chance) { pOut->bMissed = true; pOut->bDodged = true; return; }
     }
 
-    // 2. Raw.
+    // 2. Raw damage formula. Formula selected by kRawDmgMode in BattleTunables.h.
     int32 atk = PickATK(a, nDmgFlags, nSkillBaseATK);
     int32 def = PickDEF(t, nDmgFlags);
-    int64 dmg = (int64)atk - (int64)def;
-    if (dmg < 1) dmg = 1;
+    int64 dmg;
+    if (kRawDmgMode == 0) {
+        // Quadratic (Fiesta-style): (ATK+bias)^2 / (ATK+DEF+2*bias)
+        // At equal ATK/DEF: ~50% of ATK. Higher ATK advantage = better scaling.
+        // TUNE: kQuadraticBias, kRawDmgScalerX1k in BattleTunables.h.
+        int64 a2 = (int64)(atk + kQuadraticBias);
+        int64 d2 = (int64)(atk + def + kQuadraticBias * 2);
+        if (d2 < 1) d2 = 1;
+        dmg = (a2 * a2 * (int64)kRawDmgScalerX1k) / (d2 * 1000LL);
+    } else {
+        // Linear fallback: ATK - DEF, capped so DEF reduces at most kLinearDefCapX1k/1000 of ATK.
+        int32 defCap = (atk * kLinearDefCapX1k) / 1000;
+        int32 effDef = (def < defCap) ? def : defCap;
+        dmg = (int64)(atk - effDef);
+    }
+    if (dmg < (int64)kDamageFloor) dmg = (int64)kDamageFloor;
 
     // 3. Level-gap (x1000).
     {

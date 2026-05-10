@@ -36,6 +36,35 @@ const int32  kFlankHitMultiplierX1k    = 1100;    // 1.10x for 45..90deg
 // PvP global damage scaler (x1000). 1000 = no change.
 const int32  kPvPDamageScalerX1k       = 700;     // 0.70x in PvP by default
 
+
+// =============================================================================
+//  Raw damage formula (Step 2 of CalcDamage)
+// =============================================================================
+// kRawDmgMode: selects the base formula before level-gap / element / etc.
+//   0 = Quadratic  dmg = ATK*ATK / (ATK + DEF)          <- default, Fiesta-style
+//   1 = Linear     dmg = ATK - DEF  (clamped to floor)  <- simple fallback
+// At mode 0, equal ATK/DEF means target absorbs 50% of ATK. 
+// TUNE: switch to mode 1 temporarily if combat feels weak vs. normal mobs.
+const int32  kRawDmgMode               = 0;
+
+// Linear path: fraction of ATK that DEF can absorb, x1000.
+// At 800: DEF can reduce at most 80% of ATK regardless of DEF value.
+// Prevents infinite DEF from zeroing all damage. Mode 1 only.
+const int32  kLinearDefCapX1k          = 800;
+
+// Quadratic path: additive bias applied to both ATK and DEF before the
+// divide. Prevents divide-by-zero and smooths the curve at low stat totals.
+// At 50: effective formula = (ATK+50)^2 / (ATK+DEF+100).
+// TUNE: raise to 100+ if low-level combat feels swingy.
+const int32  kQuadraticBias            = 50;
+
+// Quadratic path: global output scaler x1000. 1000 = raw formula output.
+// At 1200: quadratic output is multiplied by 1.2 (compensates for the bias
+// reducing damage slightly at mid-stats).
+// TUNE: adjust so a level-1 player with stock gear deals ~10-30 damage to
+// a level-1 mob (BoneImp AC=100, player WC ~80-120 at level 1).
+const int32  kRawDmgScalerX1k          = 1200;
+
 // =============================================================================
 //  Stat distribution constants (BuildBattleStat)
 // =============================================================================

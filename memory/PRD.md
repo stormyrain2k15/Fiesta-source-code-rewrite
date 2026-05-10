@@ -313,14 +313,41 @@ the data drop and rebuilt the runtime around the real columns:
   unknown codes (no silent no-ops).
 * `AbnormalStateShelter` real save/load via `AbStateSaveTypeInfo`.
 
-**Other hollow-fix sweep this pass:**
+## Pass 8 (Feb 2026) — Lyra final pass merged
 
-* `Lua_cFinishKey` -- real CharQuest finish-key ledger.
-* `ActionTargetTypeValidator` -- real target-type / faction gate.
-* `BoothManager` / `GuildAcademy` -- real registries with persistence.
-* `KQServer::ForceEnd` -- real broadcast to queued participants.
-* `NpcScheduleServer::Tick` -- actual Field add/remove on flip.
-* `Lua_cDoorAction` -- routes through new `NC_MAP_DOOR_STATE_CMD`.
-* `Lua_cResetAbstate` -- returns the real remove outcome.
+Lyra's `lyra_final_pass.zip` (6 files) integrated and smoke-tested:
+
+* `Server/Zone/CharLogin.cpp` — real `NC_CHAR_INFO_CMD` send on world entry.
+* `Server/Zone/Battle.cpp` — full damage formula pipeline using
+  BATTLESTAT (linear/quadratic DEF curves, element resist, hit/dodge,
+  crit, block, level-gap, MobResist, PvP scaler, variance).
+* `Server/Zone/BattleTunables.h` — supplemental combat tunables added
+  for the Battle.cpp formula (kRawDmgMode, kQuadraticBias,
+  kRawDmgScalerX1k, kLinearDefCapX1k, kDamageFloor,
+  kBackHitMultiplierX1k, kFlankHitMultiplierX1k, kCritRollMax,
+  kCritDamageScaler, kDamageVarianceX10k, kPvPDamageScalerX1k).
+* `Server/Zone/InstanceDungeon.cpp` — real instance entry warp.
+* `Server/Zone/ZoneHandlers.cpp` — full handler table (login, logout,
+  skill, attack, NPC menu/buy/sell, item-upgrade, free-stat, instance
+  enter, chat, move).
+* `Server/Common/NETCOMMAND.h` — `NC_CHAR_INFO_CMD`, `NC_CHAR_LOGOUT_CMD`
+  given verified value 0x1007, `NC_FAMILY_INSTANCE` family +
+  `NC_INSTANCE_*` opcodes (PROVISIONAL).
+
+**Smoke fixes during merge:**
+- `NC_BAT_RESURRECT_ACK` collided with `NC_BAT_REGEN_CMD` at FAMILY_BAT+0x07; moved to FAMILY_BAT+0x40 (PROVISIONAL).
+- Duplicate `NC_CHAR_LOGOUT_CMD` identifier removed (Lyra's
+  0x1007 verified value kept; FAMILY_CHAR+0x06 placeholder dropped).
+
+**Smoke validation passed:**
+- All 541 .cpp/.h files brace-balanced.
+- No duplicate enum identifiers in NETCOMMAND.h.
+- Zero active opcode-value collisions among USED opcodes (8 dormant
+  alias-style duplicates exist where the duplicate name has zero users
+  outside NETCOMMAND.h — benign by C++ enum rules).
+- AbState central pipeline still intact across SkillSystem,
+  TypedSchemaConsumers, AbState{,Runtime}.
+
+Codebase is ready for GitHub push and your local VS2010 compile-debug.
 
 

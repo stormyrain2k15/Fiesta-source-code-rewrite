@@ -89,11 +89,12 @@ enum NETCOMMAND {
     NC_MISC_GAMETIME_ACK            = 0x080E,    // CONFIRMED <- HH MM SS
     NC_CHAR_LOGIN_REQ               = NC_FAMILY_CHAR + 0x02,
     NC_CHAR_LOGIN_ACK               = 0x1003,    // CONFIRMED <- Zone IP+port
+    NC_CHAR_INFO_CMD                = 0x1010,    // PROVISIONAL — char state on entry
+    NC_CHAR_LOGOUT_CMD              = 0x1007,    // session close
     NC_CHAR_OPTION_GET_CMD          = NC_FAMILY_CHAR + 0x04,
     NC_CHAR_OPTION_SHORTCUT_CMD     = 0x7032,    // CONFIRMED <- shortcut bindings
     NC_CHAR_OPTION_KEYMAP_CMD       = 0x7033,    // CONFIRMED <- key bindings
     NC_CHAR_OPTION_GAMEOPTION_CMD   = 0x7034,    // CONFIRMED <- game options
-    NC_CHAR_LOGOUT_CMD              = NC_FAMILY_CHAR + 0x06,
     NC_CHAR_BRIEFINFO_LOGINCHARACTER_CMD = NC_FAMILY_CHAR + 0x07,
     NC_CHAR_STATUS_CHANGE_CMD       = NC_FAMILY_CHAR + 0x08,
     NC_CHAR_NEW_REQ                 = NC_FAMILY_CHAR + 0x09,
@@ -179,6 +180,9 @@ enum NETCOMMAND {
     NC_BAT_FREESTAT_DISTRIBUTE_ACK  = NC_FAMILY_BAT + 0x0B,
     NC_BAT_FREESTAT_RESET_REQ       = NC_FAMILY_BAT + 0x0C,
     NC_BAT_FREESTAT_RESET_ACK       = NC_FAMILY_BAT + 0x0D,
+    // PROVISIONAL — no PDB symbol confirmed; placed past the
+    // documented family slots so it cannot collide with a real opcode.
+    NC_BAT_RESURRECT_ACK            = NC_FAMILY_BAT + 0x40,
     // PROVISIONAL_ALIAS: client-side UI tables and earlier handler code
     // reference NC_BAT_NORMALATTACK_CMD. The NA2016 PDB symbol set uses
     // NC_BAT_HIT_REQ as the canonical "normal attack hit" request, but
@@ -306,6 +310,10 @@ enum NETCOMMAND {
     NC_KQ_VOTE_CMD                  = NC_FAMILY_KQ + 0x03,
     NC_KQ_STATE_CMD                 = NC_FAMILY_KQ + 0x04,
     NC_KQ_ENTER_CMD                 = NC_FAMILY_KQ + 0x05,
+    NC_FAMILY_INSTANCE  = 0x2600,
+    NC_INSTANCE_ACCEPT_REQ  = NC_FAMILY_INSTANCE + 0x01,  // PROVISIONAL
+    NC_INSTANCE_ACCEPT_ACK  = NC_FAMILY_INSTANCE + 0x02,  // PROVISIONAL
+    NC_INSTANCE_LEAVE_REQ   = NC_FAMILY_INSTANCE + 0x03,  // PROVISIONAL
     NC_KQ_END_CMD                   = NC_FAMILY_KQ + 0x06,    // success/fail broadcast to KQ map
     // PROVISIONAL: NPC/script narration message-by-index push. Original
     // PDB names this NC_NPC_SCRIPT_MSG_CMD; client decodes into the
