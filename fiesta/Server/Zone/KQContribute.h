@@ -1,5 +1,4 @@
 // Server/Zone/KQContribute.h
-// WIRE-13 (Lyra, May 2026)
 #ifndef FIESTA_ZONE_KQCONTRIBUTE_H
 #define FIESTA_ZONE_KQCONTRIBUTE_H
 #include "../Shared/ShineTypes.h"

@@ -1,6 +1,6 @@
 // Server/Zone/TargetAnalyser.cpp
 // Validates that a candidate target is legal for combat or skill use.
-// WIRE-04 (Lyra, May 2026): lifted out of anonymous namespace; function
+// function
 // is now in namespace fiesta (no anonymous wrapper) so Battle.cpp can call it.
 // Pass 6 (Feb 2026): adds same-self / same-faction / dead-target /
 // crime-zone gates. PvP/PvE faction logic mirrors the verdict gate in

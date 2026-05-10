@@ -1,5 +1,4 @@
 // Server/Zone/TargetAnalyser.h
-// WIRE-04 (Lyra, May 2026)
 #ifndef FIESTA_ZONE_TARGETANALYSER_H
 #define FIESTA_ZONE_TARGETANALYSER_H
 

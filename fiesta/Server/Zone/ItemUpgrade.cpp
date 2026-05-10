@@ -89,7 +89,7 @@ eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckS
     uiNewEnchantOut = kItem.uiEnchant;
 
     // -----------------------------------------------------------------
-    //  UpResource consumption (Lyra WIRE-10).
+    //  UpResource consumption .
     //  Find the first item in the inventory whose ItemInfo `uiUpResource`
     //  bucket matches this target's `UpResource` column. The match is
     //  bucket-id only, not literal item id, so any tier-equivalent
@@ -121,7 +121,7 @@ eUpgradeResult ItemUpgrade::Try(Inventory& kInv, uint32 uiItemId, bool bUseLuckS
     }
 
     // -----------------------------------------------------------------
-    //  Luck-Stone consumption (Lyra WIRE-11).
+    //  Luck-Stone consumption .
     //  Identified by ItemInfo.ItemUseSkill == "LuckStone" -- the only
     //  string anchor we have without a per-server config. If no row
     //  matches we silently treat bUseLuckStone as false rather than

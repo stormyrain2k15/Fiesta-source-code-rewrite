@@ -1,5 +1,9 @@
 // Server/Zone/Main.cpp
 // Zone service exe entry. ZoneNN ID is read from ZoneServerInfo.txt.
+//
+// 존 서버 서비스 실행 파일 진입점. ZoneNN ID 는 ZoneServerInfo.txt
+// 에서 읽음. 게임플레이 엔진 본체로, 모든 액티브 필드와 객체
+// 그리고 43 개의 게임 서브시스템을 호스팅함.
 #include "../Shared/WinService.h"
 #include "../Shared/ServerInfo.h"
 #include "../Shared/ShineLogSystem.h"

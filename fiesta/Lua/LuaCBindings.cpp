@@ -77,7 +77,7 @@ static int Lua_cFinishKey(lua_State* L) {
 }
 
 // ---------------------------------------------------------------------------
-// LUA-01..LUA-20 — Real binding bodies (Lyra pass 5, May 2026)
+//  — Real binding bodies 
 // Helper: find a ShinePlayer by handle; FindObjectAny resolves any
 // ShineObject through the unified ZoneServer registry (PASS3-005).
 // ---------------------------------------------------------------------------
@@ -99,13 +99,13 @@ static well512& ScriptRng() {
     return s_kRng;
 }
 
-// LUA-01: cCurrentSecond / cCurSec
+// : cCurrentSecond / cCurSec
 static int Lua_cCurrentSecond_Real(lua_State* L) {
     lua_pushnumber(L, (double)(GTimer::NowMillis() / 1000ULL));
     return 1;
 }
 
-// LUA-02: cObjectLocate — returns (x, y) world coordinates for any object
+// : cObjectLocate — returns (x, y) world coordinates for any object
 static int Lua_cObjectLocate_Real(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
     ShineObject* pk = ZoneServer::Get().FindObject(h);
@@ -115,7 +115,7 @@ static int Lua_cObjectLocate_Real(lua_State* L) {
     return 2;
 }
 
-// LUA-03: cObjectHP — returns (curHP, maxHP) for any object
+// : cObjectHP — returns (curHP, maxHP) for any object
 static int Lua_cObjectHP_Real(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
     ShineObject* pk = ZoneServer::Get().FindObject(h);
@@ -125,7 +125,7 @@ static int Lua_cObjectHP_Real(lua_State* L) {
     return 2;
 }
 
-// LUA-04: cIsObjectDead
+// : cIsObjectDead
 static int Lua_cIsObjectDead_Real(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
     ShineObject* pk = ZoneServer::Get().FindObject(h);
@@ -133,7 +133,7 @@ static int Lua_cIsObjectDead_Real(lua_State* L) {
     return 1;
 }
 
-// LUA-05: cMobRegen_XY — spawn one mob at specific XY
+// : cMobRegen_XY — spawn one mob at specific XY
 static int Lua_cMobRegen_XY_Real(lua_State* L) {
     const char* szMapInx = luaL_checkstring(L, 1);
     const char* szMobInx = luaL_checkstring(L, 2);
@@ -146,7 +146,7 @@ static int Lua_cMobRegen_XY_Real(lua_State* L) {
     return 1;
 }
 
-// LUA-06: cNPCVanish — despawn a scripted mob/NPC by handle. Removes
+// : cNPCVanish — despawn a scripted mob/NPC by handle. Removes
 // the object from its field and the unified registry; the underlying
 // allocation is reclaimed by the spawn-system's despawn path. Returns
 // true when the handle resolved and was unregistered.
@@ -161,7 +161,7 @@ static int Lua_cNPCVanish_Real(lua_State* L) {
     return 1;
 }
 
-// LUA-07: cGetPlayerList — push all player handles in a map as return values
+// : cGetPlayerList — push all player handles in a map as return values
 static int Lua_cGetPlayerList_Real(lua_State* L) {
     const char* szMapInx = luaL_checkstring(L, 1);
     MapID uiMapID = ResolveMapByName(szMapInx); // 0 if unknown
@@ -177,7 +177,7 @@ static int Lua_cGetPlayerList_Real(lua_State* L) {
     return n;
 }
 
-// LUA-08: cObjectCount — count objects of a given ObjectType on a map
+// : cObjectCount — count objects of a given ObjectType on a map
 static int Lua_cObjectCount_Real(lua_State* L) {
     const char* szMapInx = luaL_checkstring(L, 1);
     int nType = (int)luaL_checkinteger(L, 2);
@@ -201,7 +201,7 @@ static int Lua_cObjectCount_Real(lua_State* L) {
     return 1;
 }
 
-// LUA-09: cGetLevel
+// : cGetLevel
 static int Lua_cGetLevel_Real(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
     ShinePlayer* pk = FindPlayerHandle(h);
@@ -209,7 +209,7 @@ static int Lua_cGetLevel_Real(lua_State* L) {
     return 1;
 }
 
-// LUA-10: cScriptMessage_Obj — send a script message index to a player
+// : cScriptMessage_Obj — send a script message index to a player
 static int Lua_cScriptMessage_Obj_Real(lua_State* L) {
     Handle h       = (Handle)luaL_checkinteger(L, 1);
     int32  nMsgIdx = (int32)luaL_checkinteger(L, 2);
@@ -223,7 +223,7 @@ static int Lua_cScriptMessage_Obj_Real(lua_State* L) {
     return 0;
 }
 
-// LUA-11: cResetAbstate — remove a named AbState from a player. Returns
+// : cResetAbstate — remove a named AbState from a player. Returns
 // boolean true when at least one row was actually dropped.
 static int Lua_cResetAbstate_Real(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
@@ -234,7 +234,7 @@ static int Lua_cResetAbstate_Real(lua_State* L) {
     return 1;
 }
 
-// LUA-12: cHeal — restore HP
+// : cHeal — restore HP
 static int Lua_cHeal_Real(lua_State* L) {
     Handle h = (Handle)luaL_checkinteger(L, 1);
     int32  a = (int32)luaL_checkinteger(L, 2);
@@ -243,7 +243,7 @@ static int Lua_cHeal_Real(lua_State* L) {
     return 0;
 }
 
-// LUA-13: cExecCheck — debug/profiling hook. Routes the script-supplied
+// : cExecCheck — debug/profiling hook. Routes the script-supplied
 // function name to the standard log so PineScript / KQ-script execution
 // can be traced without a separate debugger. Default level is DEBUG; if
 // the script passes a non-zero second arg the line is promoted to INFO
@@ -256,7 +256,7 @@ static int Lua_cExecCheck_Real(lua_State* L) {
     return 0;
 }
 
-// LUA-14: cDoorAction — open / close a door entity by block name. Looks
+// : cDoorAction — open / close a door entity by block name. Looks
 // up the referenced object, toggles its block-bypass flag in the local
 // MapBlockInformation, and broadcasts a NC_MAP_BLOCK_INFO_CMD-shaped
 // notification to every player on the same map so collision stays in
@@ -294,7 +294,7 @@ static int Lua_cDoorAction_Real(lua_State* L) {
     return 1;
 }
 
-// LUA-15: cMobRegen_Rectangle / cMobRegen_Circle / cMobRegen_Obj.
+// : cMobRegen_Rectangle / cMobRegen_Circle / cMobRegen_Obj.
 // Variants of cMobRegen_XY with area spawning. Each one sprays uiCount
 // mobs across the requested footprint and returns the FIRST handle so
 // scripts that follow up with cObjectHP / cNPCVanish have an entry
@@ -356,7 +356,7 @@ static int Lua_cMobRegen_Obj_Real(lua_State* L) {
     return 1;
 }
 
-// LUA-16: cRandomInt / cPermileRate
+// : cRandomInt / cPermileRate
 static int Lua_cRandomInt_Real(lua_State* L) {
     int lo = (int)luaL_checkinteger(L, 1);
     int hi = (int)luaL_checkinteger(L, 2);
@@ -370,7 +370,7 @@ static int Lua_cPermileRate_Real(lua_State* L) {
     return 1;
 }
 
-// LUA-17: cQuestResult — broadcast KQ success/fail to all players in map
+// : cQuestResult — broadcast KQ success/fail to all players in map
 static int Lua_cQuestResult_Real(lua_State* L) {
     const char* szMapInx = luaL_checkstring(L, 1);
     const char* szResult = luaL_checkstring(L, 2);
@@ -388,7 +388,7 @@ static int Lua_cQuestResult_Real(lua_State* L) {
     return 0;
 }
 
-// LUA-18: cEndOfKingdomQuest
+// : cEndOfKingdomQuest
 static int Lua_cEndOfKingdomQuest_Real(lua_State* L) {
     const char* szMapInx = luaL_checkstring(L, 1);
     bool b = KingdomQuest::End(szMapInx);
@@ -396,7 +396,7 @@ static int Lua_cEndOfKingdomQuest_Real(lua_State* L) {
     return 1;
 }
 
-// LUA-19: cSetAbstate_Range — apply an AbState to all players in radius
+// : cSetAbstate_Range — apply an AbState to all players in radius
 static int Lua_cSetAbstate_Range_Real(lua_State* L) {
     Handle  h      = (Handle)luaL_checkinteger(L, 1);
     float   range  = (float)luaL_checknumber(L, 2);
@@ -417,7 +417,7 @@ static int Lua_cSetAbstate_Range_Real(lua_State* L) {
     return 1;
 }
 
-// LUA-20: cGroupRegenInstance — spawn a named mob regen group in an instance map
+// : cGroupRegenInstance — spawn a named mob regen group in an instance map
 static int Lua_cGroupRegenInstance_Real(lua_State* L) {
     const char* szMapInx   = luaL_checkstring(L, 1);
     const char* szGroupInx = luaL_checkstring(L, 2);
@@ -442,7 +442,7 @@ void LuaRuntime::RegisterCBindings() {
     lua_register(m_pkL, "cSetAbstate",   &Lua_cSetAbstate);
     lua_register(m_pkL, "cLinkTo",       &Lua_cLinkTo);
     lua_register(m_pkL, "cFinishKey",    &Lua_cFinishKey);
-    // Pass 5 / LUA-01..20
+    // Pass 5 / ..20
     lua_register(m_pkL, "cCurrentSecond",      &Lua_cCurrentSecond_Real);
     lua_register(m_pkL, "cCurSec",             &Lua_cCurrentSecond_Real);
     lua_register(m_pkL, "cObjectLocate",       &Lua_cObjectLocate_Real);
@@ -492,7 +492,7 @@ void RegisterZoneLuaAPI(lua_State* L) {
     lua_register(L, "cSetAbstate",   &Lua_cSetAbstate);
     lua_register(L, "cLinkTo",       &Lua_cLinkTo);
     lua_register(L, "cFinishKey",    &Lua_cFinishKey);
-    // Pass 5 / LUA-01..LUA-20 (Lyra, May 2026)
+    // Pass 5 /  
     lua_register(L, "cCurrentSecond",      &Lua_cCurrentSecond_Real);
     lua_register(L, "cCurSec",             &Lua_cCurrentSecond_Real);
     lua_register(L, "cObjectLocate",       &Lua_cObjectLocate_Real);

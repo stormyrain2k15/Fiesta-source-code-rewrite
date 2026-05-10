@@ -1,5 +1,4 @@
 // Server/Zone/ZoneHandlers.cpp
-// Lyra final pass — all phase-1 handlers wired.
 // Damage formula, PvP scaler, AbState, instance entry, resurrect.
 #include "ZoneServer.h"
 #include "../Common/ProtocolParser.h"

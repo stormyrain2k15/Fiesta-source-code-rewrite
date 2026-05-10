@@ -4,6 +4,12 @@
 //   * a co-resident SQLP_Account / SQLP_IPChecker pair so credential
 //     verification is ODBC-direct (no extra hop)
 //   * the AccountLogClient that records every login / logout event
+//
+// 로그인 서비스 실행 파일 진입점. 다음을 담당함:
+//   * 클라이언트가 NC_USER_LOGIN_REQ 로 접속하는 IOCP 리스너
+//   * SQLP_Account / SQLP_IPChecker 를 같은 프로세스에 두어
+//     계정 인증을 ODBC 로 직접 처리 (추가 홉 없음)
+//   * 모든 로그인 / 로그아웃 이벤트를 기록하는 AccountLogClient
 #include "../Shared/WinService.h"
 #include "../Shared/ServerInfo.h"
 #include "../Shared/IOCPManager.h"

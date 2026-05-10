@@ -1,7 +1,7 @@
 // Server/Zone/MIDRewardDataBox.cpp
 // MID (Match Instance Dungeon) reward data.
 // CN2012-only feature -- absent from NA2016. Safe to leave as a no-op stub.
-// WIRE-18 (Lyra, May 2026): lifted from anonymous namespace; confirmed
+// confirmed
 // CN2012 only, no implementation needed for NA2016 target.
 #include "../DataReader/ShnRegistry.h"
 namespace fiesta {

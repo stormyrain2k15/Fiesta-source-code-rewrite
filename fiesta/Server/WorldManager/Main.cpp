@@ -3,6 +3,12 @@
 // Login, CharDB, OPTool) on the IOCP, fans data load through DataFileServer
 // at boot, and ticks every cross-zone subsystem via WMServicesTickAll() each
 // main-loop iteration.
+//
+// 월드 매니저 서비스 실행 파일 진입점. IOCP 위에 다섯 개의
+// 어셉트 루프 (Client, Zone, Login, CharDB, OPTool) 를 구성하고,
+// 부팅 시 DataFileServer 를 통해 데이터 로딩을 분배하며,
+// 메인 루프 매 회마다 WMServicesTickAll() 로 모든 크로스존
+// 서브시스템을 갱신함.
 #include "../Shared/WinService.h"
 #include "../Shared/ServerInfo.h"
 #include "../Shared/IOCPManager.h"

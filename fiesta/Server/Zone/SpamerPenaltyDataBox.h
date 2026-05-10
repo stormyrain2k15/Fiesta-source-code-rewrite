@@ -1,5 +1,4 @@
 // Server/Zone/SpamerPenaltyDataBox.h
-// WIRE-17 (Lyra, May 2026)
 #ifndef FIESTA_ZONE_SPAMERPENALTYDATABOX_H
 #define FIESTA_ZONE_SPAMERPENALTYDATABOX_H
 #include "../Shared/ShineTypes.h"

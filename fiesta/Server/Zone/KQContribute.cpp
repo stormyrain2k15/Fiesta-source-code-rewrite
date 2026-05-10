@@ -1,6 +1,5 @@
 // Server/Zone/KQContribute.cpp
-// Per-player KQ contribution. WIRE-13 (Lyra, May 2026): lifted from anonymous namespace.
-#include "KQContribute.h"
+// Per-player KQ contribution. #include "KQContribute.h"
 #include <map>
 namespace fiesta {
 KQContribute& KQContribute::Get() { static KQContribute s; return s; }

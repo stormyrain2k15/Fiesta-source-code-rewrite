@@ -223,131 +223,89 @@ Announcements: `AnnounceSystem::Broadcast(level, text)` -- now declared
 in `Server/Zone/AnnounceSystem.h`, called from LiveOpsBoosts on every
 state transition.
 
-## Pass 6 (Feb 2026) — Lyra Pass 5 cleanup + functional gap closure
 
-* Fixed Lyra Pass 5 compile blockers in `Lua/LuaCBindings.cpp`:
-  `pk->Abstate()` -> `pk->AbState()`, `MapField::NameToID` -> new
-  `ResolveMapByName`, `ClientSession::Send(pkt)` -> `SendPacket(...)`,
-  `Well512::Get()` -> process-local `well512` seeded from GTimer.
-* Added `KingdomQuest::End(const char*)` static API + `NC_KQ_END_CMD`,
-  `NC_ACT_SCRIPT_MSG_CMD` opcodes so the LUA-17 / LUA-18 bindings link.
-* Built the unified `Handle -> ShineObject` registry (PASS3-005).
-  `ZoneServer::RegisterObject` / `UnregisterObject` / `FindObject`,
-  with type-narrowing accessors `FindMob` / `FindNPC` / `FindPet`.
-  `MobSpawnSystem::Tick` and `ShineNPCTable::SpawnAll` now register
-  every spawn; LUA-02..LUA-04, cDamaged, cNPCVanish, cObjectCount route
-  through the unified registry instead of player-only maps.
-* `ItemUpgrade::Try` now consumes UpResource (one stack per attempt,
-  bucket-matched against same-bucket UpLimit==0 consumables) and
-  Luck-Stone (`ItemInfo.ItemUseSkill == "LuckStone"`).
-* `WMClient::OnTakeItem` now removes the matching ShineItem from the
-  live `Inventory` (length-tolerant body parse for legacy 8-byte form).
-* Unified inter-broadcast kind protocol (kind=0..4 ChatShout / WorldYell
-  / GMEvent / DailyReset / NpcSchedule). New `DailyResetSink` /
-  `NpcScheduleSink` registries route each kind to subscribed callbacks;
-  the WM senders now prepend the kind byte everywhere.
-* Added `PacketBuffer::Remaining()` for length-tolerant body parses.
+## Recent engineering log (Feb 2026)
 
-## Pass 6.5 (Feb 2026) — Stub fill-out with generic tunable values
+This is a condensed engineering changelog -- see `docs/HONEST_DISCLOSURE.md`
+for the per-subsystem audit notes.
 
-Per user directive: every "function-known, values-unknown" stub now has a
-real body using named tunable constants. Tuning is a single-file edit.
-
-* **`RuleOfEngagement::Roe_*`** — full ATK swing, element-resist DEF
-  scaling, hit/crit clamp formulas. Tunables: `BattleTunables.h::kRoe*`.
-* **`MobSpawnSystem`** — `SpawnAt`, `SpawnRectangle`, `SpawnCircle`,
-  `SpawnGroup` API. All Lua `cMobRegen_*` and `cGroupRegenInstance` now
-  produce live spawns registered in the unified ZoneServer object map.
-* **`Lua_cExecCheck`** -> SHINELOG_DEBUG/INFO routing.
-* **`Lua_cDoorAction`** -> handle resolve + door-state envelope broadcast
-  to every player on the same map.
-* **`KingdomQuest::End`** -> `KQServer::ForceEnd()` actually mutates state.
-  KQ timings lifted to named constants (`kKQRecruitTimeoutMs`,
-  `kKQRunningTimeoutMs`, `kKQVoteTimeoutMs`, `kKQEndTimeoutMs`,
-  `kKQRecruitMinPlayers`).
-* **`KQRewardDataBox::GoldFor`** -> `kKQRewardBaseGold + perPoint*c`,
-  clamped to `kKQRewardMaxGold`.
-* **`AbnormalStateShelter::Save/Load`** -> wired to new
-  `CharDBClient::AbStateSet` (proc 90) / `AbStateGetAll` (proc 91).
-* **`SetItemData::CountEquippedPieces`** -> walks `Inventory`, matches
-  `ItemInfoRow::kSetItemIndex`.
-* **`SubAbstatePriority::ShouldReplace`** -> reads `SubAbState.shn`
-  Priority column when present, falls back to numeric-id rule.
-* **`SoulStoneSystem::ClassOf`** -> `ShinePlayer::GetClass()` clamped.
-* **`TargetAnalyser::IsLegalTarget`** -> same-self / same-map /
-  mob-vs-mob / dead-target gates.
-* **`NpcScheduleServer::Tick` (Zone)** -> walks NPCs, matches
-  `NpcScheduleTable::IsActive`, surfaces flips to log.
-* **`Field.cpp`** -> removed conflicting redundant class redeclaration
-  (was a 3/4 brace mismatch and an ODR conflict against `MapField.h`).
-* **`LiveOpsBoosts.h`** kGMEvent_* event ids consolidated into
-  `BattleTunables.h` for a single-file tunable surface.
-
-## Pass 7 (Feb 2026) — AbState as the central effect engine
-
-Per user directive: AbState/SubAbState is now the unified pipeline for
-ALL temporary effects (skills, monster abilities, items, maps, mounts,
-premium effects, mount effects, stat mods, DoTs, stuns, slows).
-
-Decoded `AbState.shn` (777 rows) and `SubAbState.shn` (2041 rows) off
-the data drop and rebuilt the runtime around the real columns:
-
-* New `AbStateRuntime.{h,cpp}` central dispatcher (Resolve, Tick,
-  OnApply/OnRemove, AbsorbIncoming, ReflectIncoming).
-* Real `AbnormalState::Apply` / `ApplySubByName` / `Remove` /
-  `RemoveBySubInxName` / `DispelByCategory` / `StatModX1k` in
-  `AbState.cpp`. Replace/stack rule reads `AbStateRow.Duplicate` +
+### AbState as the central effect engine
+* Decoded `AbState.shn` (777 rows, 19 cols) and `SubAbState.shn`
+  (2041 rows, 14 cols) directly off the data drop.
+* New `Server/Zone/AbStateRuntime.{h,cpp}` central dispatcher: Resolve
+  (AbState row + Strength), ResolveFromSub (SubAbState InxName direct),
+  Tick (per-second action handlers), OnApply / OnRemove,
+  AbsorbIncoming (shield gate), ReflectIncoming (reflect gate).
+* `AbState.cpp` real ledger: Apply / ApplyAt / ApplySubByName / Remove /
+  RemoveBySubInxName / DispelByCategory / Tick / Has / HasInxName /
+  StatModX1k. Replace/stack rule reads `AbStateRow.Duplicate` +
   `StateGrade`.
 * AbnormalState ledger lives on base `ShineObject` so mobs carry
-  status states too. Action-id constants in `BattleTunables.h`.
-* `Battle::Apply` routes through AbStateRuntime for shield absorb +
-  damage reflect.
+  status states too (CC chains, debuff stacks). Player alias
+  `pk->AbState()` preserved.
+* 14 action constants in `BattleTunables.h::kAbAction_*`.
+* `Battle::Apply` (both overloads) routes through `AbStateRuntime`
+  for shield absorb and damage reflect.
 * `ZoneServer::Tick` walks the unified object registry and ticks
   every ledger uniformly.
-* `SkillSystem::Use` now uses SubAbState InxName + Strength via
-  `ApplySubByName` (the old code passed a SubAbState id into a
-  function that expected an AbState id -- buffs fired 0% of the time).
-* `StateFieldTable::OnPlayerEnter` upgraded to the same direct path.
-* `TypedSchemaConsumers::ItemActionResolver::EffectApply` learned
-  EffectActivity=4 -> SubAbState apply, with verbose warning on
-  unknown codes (no silent no-ops).
-* `AbnormalStateShelter` real save/load via `AbStateSaveTypeInfo`.
+* `SkillSystem::Use`, `StateFieldTable::OnPlayerEnter`, and
+  `ItemActionResolver::EffectApply` all route through
+  `ApplySubByName(InxName, Strength, dur)`.
+* `AbnormalStateShelter` real save/load with `AbStateSaveTypeInfo`-
+  driven trigger gating (link/die/logoff).
 
-## Pass 8 (Feb 2026) — Lyra final pass merged
+### Damage formula pipeline
+* `Server/Zone/Battle.cpp` full `BATTLESTAT` damage formula
+  (linear/quadratic DEF curves, element resist, hit/dodge, crit,
+  block, level-gap, MobResist, PvP scaler, variance).
+* Tunables in `BattleTunables.h`: `kRawDmgMode`, `kQuadraticBias`,
+  `kRawDmgScalerX1k`, `kLinearDefCapX1k`, `kDamageFloor`,
+  `kBackHitMultiplierX1k`, `kFlankHitMultiplierX1k`, `kCritRollMax`,
+  `kCritDamageScaler`, `kDamageVarianceX10k`, `kPvPDamageScalerX1k`,
+  Roe ATK/DEF/Hit/Crit constants.
 
-Lyra's `lyra_final_pass.zip` (6 files) integrated and smoke-tested:
+### MobSpawnSystem / handle registry
+* Unified `Handle -> ShineObject` registry on ZoneServer
+  (RegisterObject / UnregisterObject / FindObject / FindMob / FindNPC /
+  FindPet). MobSpawnSystem and ShineNPCTable register every spawn.
+* MobSpawnSystem script API: `SpawnAt`, `SpawnRectangle`, `SpawnCircle`,
+  `SpawnGroup`. All Lua `cMobRegen_*` and `cGroupRegenInstance` produce
+  real spawns.
 
-* `Server/Zone/CharLogin.cpp` — real `NC_CHAR_INFO_CMD` send on world entry.
-* `Server/Zone/Battle.cpp` — full damage formula pipeline using
-  BATTLESTAT (linear/quadratic DEF curves, element resist, hit/dodge,
-  crit, block, level-gap, MobResist, PvP scaler, variance).
-* `Server/Zone/BattleTunables.h` — supplemental combat tunables added
-  for the Battle.cpp formula (kRawDmgMode, kQuadraticBias,
-  kRawDmgScalerX1k, kLinearDefCapX1k, kDamageFloor,
-  kBackHitMultiplierX1k, kFlankHitMultiplierX1k, kCritRollMax,
-  kCritDamageScaler, kDamageVarianceX10k, kPvPDamageScalerX1k).
-* `Server/Zone/InstanceDungeon.cpp` — real instance entry warp.
-* `Server/Zone/ZoneHandlers.cpp` — full handler table (login, logout,
+### Inter-broadcast unified protocol
+* `NC_INTER_BROADCAST_CMD` carries a kind-byte protocol
+  (0=ChatShout, 1=WorldYell, 2=GMEvent, 3=DailyReset, 4=NpcSchedule).
+* `DailyResetSink` / `NpcScheduleSink` registries route each kind to
+  subscribed callbacks. WM senders prepend the kind byte.
+
+### Subsystem real-impl sweep
+* `BoothManager.{h,cpp}` -- per-zone live booth registry with
+  Open/Close/Add/Remove/Buy/Find/ListNearby.
+* `GuildAcademy.{h,cpp}` -- reads `GuildAcademy.shn`, applies academy
+  buff via AbState only after the join-time threshold passes.
+  GuildServer `GuildOf` / `JoinedMs` exposed.
+* `ActionTargetTypeValidator` -- real Self/Single/Ally/Enemy/AOE/
+  Cone/Line + faction gates.
+* `KQServer::ForceEnd` -- real broadcast to queued participants.
+* `NpcScheduleServer::Tick` -- actual `Field::AddObject`/`RemoveObject`
+  on flip events.
+* `Lua_cFinishKey` -- real `CharQuest::FinishKeyAdd/Has/Count` ledger.
+* `Lua_cDoorAction` -- routes through `NC_MAP_DOOR_STATE_CMD`.
+* `Lua_cResetAbstate` -- returns the actual remove outcome.
+* `ItemUpgrade::Try` -- consumes UpResource + Luck-Stone on attempt.
+* `WMClient::OnTakeItem` -- removes the matching `ShineItem` from the
+  live `Inventory`.
+* `ItemActionResolver::EffectApply` -- EffectActivity=4 routes
+  Value->SubAbState id, Area->Strength via `ApplySubByName`.
+
+### CharLogin / instance entry / handler table
+* `CharLogin.cpp` -- real `NC_CHAR_INFO_CMD` send on world entry.
+* `InstanceDungeon.cpp` -- real instance entry warp.
+* `ZoneHandlers.cpp` -- full opcode dispatch table (login, logout,
   skill, attack, NPC menu/buy/sell, item-upgrade, free-stat, instance
   enter, chat, move).
-* `Server/Common/NETCOMMAND.h` — `NC_CHAR_INFO_CMD`, `NC_CHAR_LOGOUT_CMD`
-  given verified value 0x1007, `NC_FAMILY_INSTANCE` family +
-  `NC_INSTANCE_*` opcodes (PROVISIONAL).
 
-**Smoke fixes during merge:**
-- `NC_BAT_RESURRECT_ACK` collided with `NC_BAT_REGEN_CMD` at FAMILY_BAT+0x07; moved to FAMILY_BAT+0x40 (PROVISIONAL).
-- Duplicate `NC_CHAR_LOGOUT_CMD` identifier removed (Lyra's
-  0x1007 verified value kept; FAMILY_CHAR+0x06 placeholder dropped).
-
-**Smoke validation passed:**
-- All 541 .cpp/.h files brace-balanced.
-- No duplicate enum identifiers in NETCOMMAND.h.
-- Zero active opcode-value collisions among USED opcodes (8 dormant
-  alias-style duplicates exist where the duplicate name has zero users
-  outside NETCOMMAND.h — benign by C++ enum rules).
-- AbState central pipeline still intact across SkillSystem,
-  TypedSchemaConsumers, AbState{,Runtime}.
-
-Codebase is ready for GitHub push and your local VS2010 compile-debug.
-
-
+### Build artifacts
+* `Build/gen_vcxproj.py` re-generates the 13-project VS2010 solution
+  on every change. Wrote `Fiesta.sln` + `Gamebryo.props` + 13 vcxproj
+  files. Toolset `v100`, `/MT`, MBCS, Win32.

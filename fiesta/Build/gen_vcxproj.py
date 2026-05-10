@@ -34,9 +34,9 @@ PROJECTS = [
     ("ZoneTests",         ["Server/Zone/tests"],                              "Application",   ["Common", "Shared", "DataReader", "LuaRuntime"]),
     # NOTE: Client project is intentionally excluded from the active solution
     # build. The client rewrite is out of scope for the server-only audit
-    # rounds (codex pass 3 step 4). Keep the source under fiesta/Client/ so
-    # it doesn't drift, but don't generate a vcxproj for it until a separate
-    # client-build pass starts. To re-enable, add the following entry:
+    # rounds. Keep the source under fiesta/Client/ so it doesn't drift, but
+    # don't generate a vcxproj for it until a separate client-build pass
+    # starts. To re-enable, add the following entry:
     #   ("Client", ["Client"], "Application", ["Common", "Shared", "DataReader", "LuaRuntime"]),
 ]
 

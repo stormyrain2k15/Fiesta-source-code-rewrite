@@ -1,6 +1,5 @@
 // Server/Zone/SpamerPenaltyDataBox.cpp
-// WIRE-17 (Lyra, May 2026): lifted from anonymous namespace.
-#include "SpamerPenaltyDataBox.h"
+// #include "SpamerPenaltyDataBox.h"
 #include "../DataReader/ShnRegistry.h"
 namespace fiesta {
 SpamerPenaltyDataBox& SpamerPenaltyDataBox::Get() { static SpamerPenaltyDataBox s; return s; }

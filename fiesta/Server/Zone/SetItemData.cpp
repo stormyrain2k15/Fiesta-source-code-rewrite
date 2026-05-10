@@ -2,8 +2,7 @@
 // Set-bonus table. Sourced from SetItem.shn + SetEffect.shn.
 // Applied in ShineItemEquip.cpp / ShineItemUnEquip.cpp when a set-indexed
 // item is equipped or removed.
-// WIRE-03 (Lyra, May 2026): lifted out of anonymous namespace.
-// Pass 6 (Feb 2026): real piece-count walk against the player's
+// // Pass 6 (Feb 2026): real piece-count walk against the player's
 // `Inventory` view (bEquipped == 1 entries).
 #include "SetItemData.h"
 #include "ShineObject.h"

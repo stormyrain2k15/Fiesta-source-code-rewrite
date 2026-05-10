@@ -89,7 +89,7 @@ public:
     void FriendDelAll    (CharID c);
     void GuildTournamentSet(uint32 uiGTNo, uint32 uiGuildNo, int32 iStatus);
 
-    // ---- AbState persistence (Lyra WIRE-16 followup) ----------------
+    // ---- AbState persistence  ----------------
     //
     //   90 = p_AbState_Set    (cid, uiAbStateId, uiRemainMs)
     //   91 = p_AbState_GetAll (cid)               -- replies with row vector
