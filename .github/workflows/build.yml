@@ -5,8 +5,12 @@ name: build
 # *** Toolset note ***
 # The actual local target is VS2010 (v100). v100 was last shipped on the
 # `windows-2016` runner image which Microsoft retired. This workflow uses
-# `windows-2019` + v141 (VS2019) as the closest publicly available
-# toolset. v141 will catch ~95% of issues v100 would (syntax, linker,
+# `windows-2022` + v141 (VS2019 build tools, still preinstalled on the
+# 2022 image) as the closest publicly available toolset.
+# (`windows-2019` was also retired by GitHub mid-2025; do not put it
+# back -- the job will sit queued forever waiting for a runner that
+# no longer exists.)
+# v141 will catch ~95% of issues v100 would (syntax, linker,
 # missing headers, ODR collisions, undefined references). It will NOT
 # catch:
 #   * VS2010-only stricter conformance rejections (rare; v141 is more
@@ -36,7 +40,7 @@ defaults:
 jobs:
   windows-build:
     name: Windows / v141 (Win32, ${{ matrix.config }})
-    runs-on: windows-2019
+    runs-on: windows-2022
     strategy:
       fail-fast: false
       matrix:
