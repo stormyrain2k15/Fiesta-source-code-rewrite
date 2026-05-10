@@ -16,7 +16,7 @@ void MapTables::Bind() {
     BIND_BEGIN(t, "MapInfo")
     m_kMaps.reserve(t->Rows().size());
     ITER_ROWS(t) {
-        MapInfoRow rec;
+        LegacyMapInfoRow rec;
         rec.uiID         = ShnGetU32(*t, _r, "ID");
         rec.kMapName     = ShnGetStr(*t, _r, "MapName");
         rec.kName        = ShnGetStr(*t, _r, "Name");
@@ -34,12 +34,12 @@ void MapTables::Bind() {
     SHINELOG_INFO("MapInfo.shn: %u rows", (uint32)m_kMaps.size());
 }
 
-const MapInfoRow* MapTables::Find(uint32 uiID) const {
+const LegacyMapInfoRow* MapTables::Find(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kById.find(uiID);
     return (it == m_kById.end()) ? NULL : &m_kMaps[it->second];
 }
 
-const MapInfoRow* MapTables::FindByName(const std::string& rN) const {
+const LegacyMapInfoRow* MapTables::FindByName(const std::string& rN) const {
     std::map<std::string, size_t>::const_iterator it = m_kByName.find(rN);
     return (it == m_kByName.end()) ? NULL : &m_kMaps[it->second];
 }

@@ -12,7 +12,7 @@
 
 namespace fiesta {
 
-struct DiceGameRow {
+struct LegacyDiceGameRow {
     uint16 uiItemID;
     uint16 uiUseMinLv;
     uint16 uiGetSysRate;     // per-1000 house edge (system take)
@@ -30,12 +30,12 @@ class DiceGameTable {
 public:
     static DiceGameTable& Get();
     bool   Bind();
-    const DiceGameRow* FindByItem(uint16 uiItemID) const;
+    const LegacyDiceGameRow* FindByItem(uint16 uiItemID) const;
     size_t Count() const { return m_kRows.size(); }
 
 private:
     DiceGameTable() {}
-    std::vector<DiceGameRow> m_kRows;
+    std::vector<LegacyDiceGameRow> m_kRows;
 };
 
 } // namespace fiesta

@@ -12,7 +12,7 @@
 namespace fiesta {
 
 // ----- GBReward (3 cols: GameType, RewardType, Item_INX) -----
-struct GBRewardRow {
+struct LegacyGBRewardRow {
     uint32      uiGameType;
     uint32      uiRewardType;
     std::string kItemInx;
@@ -22,10 +22,10 @@ public:
     static GBRewardTable& Get();
     bool   Bind();
     void   FindByGameType(uint32 uiGameType,
-                          std::vector<GBRewardRow>& rOut) const;
+                          std::vector<LegacyGBRewardRow>& rOut) const;
 private:
     GBRewardTable() {}
-    std::vector<GBRewardRow> m_kRows;
+    std::vector<LegacyGBRewardRow> m_kRows;
 };
 
 // ----- GBBanTime (3 cols: GameType, GB_Ban, GB_BanTime) -----

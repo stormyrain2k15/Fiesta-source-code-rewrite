@@ -29,15 +29,15 @@
 namespace fiesta {
 
 // ----- GBSMAll -----
-struct GBSMAllRow { uint8 uiGroupID; uint8 uiNum; uint16 uiRatioAll; uint8 bIsJP; };
+struct LegacyGBSMAllRow { uint8 uiGroupID; uint8 uiNum; uint16 uiRatioAll; uint8 bIsJP; };
 class GBSMAllTable {
 public:
     static GBSMAllTable& Get();
     bool Bind();
-    const std::vector<GBSMAllRow>& Rows() const { return m_kRows; }
+    const std::vector<LegacyGBSMAllRow>& Rows() const { return m_kRows; }
 private:
     GBSMAllTable() {}
-    std::vector<GBSMAllRow> m_kRows;
+    std::vector<LegacyGBSMAllRow> m_kRows;
 };
 
 // ----- GBSMBetCoin -----
@@ -88,7 +88,7 @@ private:
 };
 
 // ----- GBSMJPRate -----
-struct GBSMJPRateRow { uint32 uiMin; uint32 uiMax; uint32 uiRate; };
+struct LegacyGBSMJPRateRow { uint32 uiMin; uint32 uiMax; uint32 uiRate; };
 class GBSMJPRateTable {
 public:
     static GBSMJPRateTable& Get();
@@ -96,19 +96,19 @@ public:
     uint32 RateForPool(uint32 uiPoolSize) const;
 private:
     GBSMJPRateTable() {}
-    std::vector<GBSMJPRateRow> m_kRows;
+    std::vector<LegacyGBSMJPRateRow> m_kRows;
 };
 
 // ----- GBSMLine -----
-struct GBSMLineRow { uint8 uiGroupID; uint8 uiNum; uint16 uiRatioLine; };
+struct LegacyGBSMLineRow { uint8 uiGroupID; uint8 uiNum; uint16 uiRatioLine; };
 class GBSMLineTable {
 public:
     static GBSMLineTable& Get();
     bool Bind();
-    const std::vector<GBSMLineRow>& Rows() const { return m_kRows; }
+    const std::vector<LegacyGBSMLineRow>& Rows() const { return m_kRows; }
 private:
     GBSMLineTable() {}
-    std::vector<GBSMLineRow> m_kRows;
+    std::vector<LegacyGBSMLineRow> m_kRows;
 };
 
 // ----- GBSMNPC -----

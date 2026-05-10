@@ -21,7 +21,7 @@ void CollectTables::Bind() {
     }
     if (const ShnFile* t = ShnRegistry::Get().GetTable("CollectCardReward")) {
         ITER_ROWS(t) {
-            CollectCardRewardRow rec;
+            LegacyCollectCardRewardRow rec;
             rec.uiID      = ShnGetU32(*t, _r, "ID");
             rec.uiPercent = ShnGetU32(*t, _r, "Percent");
             rec.kReward   = ShnGetStr(*t, _r, "Reward");
@@ -35,7 +35,7 @@ void CollectTables::Bind() {
 const CollectCardRow*       CollectTables::FindCard  (uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kCardById.find(uiID);
     return (it == m_kCardById.end()) ? NULL : &m_kCards[it->second]; }
-const CollectCardRewardRow* CollectTables::FindReward(uint32 uiID) const {
+const LegacyCollectCardRewardRow* CollectTables::FindReward(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kRewardById.find(uiID);
     return (it == m_kRewardById.end()) ? NULL : &m_kReward[it->second]; }
 

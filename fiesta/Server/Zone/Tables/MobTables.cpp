@@ -49,7 +49,7 @@ void MobTables::Bind() {
         BIND_BEGIN(t, "MobSpecies")
         m_kSpec.reserve(t->Rows().size());
         ITER_ROWS(t) {
-            MobSpeciesRow rec;
+            LegacyMobSpeciesRow rec;
             rec.uiID     = ShnGetU32(*t, _r, "ID");
             rec.kMobName = ShnGetStr(*t, _r, "MobName");
             m_kSpecById[rec.uiID] = m_kSpec.size();
@@ -61,7 +61,7 @@ void MobTables::Bind() {
         BIND_BEGIN(t, "MobLifeTime")
         m_kLife.reserve(t->Rows().size());
         ITER_ROWS(t) {
-            MobLifeTimeRow rec;
+            LegacyMobLifeTimeRow rec;
             rec.uiID         = ShnGetU32(*t, _r, "ID");
             rec.uiLifeTimeMs = ShnGetU32(*t, _r, "LifeTime");
             m_kLifeById[rec.uiID] = m_kLife.size();
@@ -78,11 +78,11 @@ const MobInfoRow* MobTables::FindByInx(const std::string& rInx) const {
     std::map<std::string, size_t>::const_iterator it = m_kMobByInx.find(rInx);
     return (it == m_kMobByInx.end()) ? NULL : &m_kMobs[it->second];
 }
-const MobSpeciesRow* MobTables::FindSpec(uint32 uiID) const {
+const LegacyMobSpeciesRow* MobTables::FindSpec(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kSpecById.find(uiID);
     return (it == m_kSpecById.end()) ? NULL : &m_kSpec[it->second];
 }
-const MobLifeTimeRow* MobTables::FindLife(uint32 uiID) const {
+const LegacyMobLifeTimeRow* MobTables::FindLife(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kLifeById.find(uiID);
     return (it == m_kLifeById.end()) ? NULL : &m_kLife[it->second];
 }

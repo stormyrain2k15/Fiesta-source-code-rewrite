@@ -10,6 +10,17 @@
 // accessor also caches the column index it cares about on first use so
 // the per-row hot path is O(1).
 //                                   Shine-1/*.shn (2026-02 drop).
+//
+// Sprint #4 (2026-02) name-collision pruning:
+// Every legacy `*Row` struct that had a same-named counterpart in
+// `Server/DataReader/SHN/*.h` (the per-SHN canon from
+// Shine_engine_split-2) was renamed to `Legacy*Row` here and at every
+// call site. The new `*Shn`-class API in DataReader/SHN/ is the
+// canonical source of truth; the `Legacy*Row` view is retained so the
+// existing mega-binder consumers (Battle.cpp, ItemSystems.cpp, etc.)
+// keep working until each consumer is migrated to the *Shn API in a
+// later sprint. Once a Legacy*Row has zero remaining consumers, drop
+// it from this header and the corresponding *Tables binder file.
 #ifndef FIESTA_ZONE_GROUPTABLES_H
 #define FIESTA_ZONE_GROUPTABLES_H
 #include "../DataReader/ShnRegistry.h"
@@ -113,7 +124,7 @@ struct ItemInfoServerRow {
     uint8       bKQ_Item_Drop;
     uint8       bPreventAttack;
 };
-struct ItemUpgradeRow {
+struct LegacyItemUpgradeRow {
     uint32      uiID;
     std::string kUpgrade;
     uint32      uiSucRate;
@@ -121,7 +132,7 @@ struct ItemUpgradeRow {
     uint32      uiResource;
     uint32      uiQty;
 };
-struct ItemActionRow {
+struct LegacyItemActionRow {
     uint32      uiID;
     std::string kAction;
     uint32      uiCondition;
@@ -142,11 +153,11 @@ struct MobInfoRow {
                              // 0 if missing -- MoneyRateX1k still applies
                              // proportionally so Lucky Hour stays consistent).
 };
-struct MobSpeciesRow {
+struct LegacyMobSpeciesRow {
     uint32      uiID;
     std::string kMobName;
 };
-struct MobLifeTimeRow { uint32 uiID; uint32 uiLifeTimeMs; };
+struct LegacyMobLifeTimeRow { uint32 uiID; uint32 uiLifeTimeMs; };
 
 // ----- Skill family ---------------------------------------------------------
 struct ActiveSkillRow {
@@ -158,18 +169,18 @@ struct ActiveSkillRow {
     uint32      uiCoolMs;
     uint32      uiCastMs;
 };
-struct ActiveSkillInfoServerRow {
+struct LegacyActiveSkillInfoServerRow {
     uint32      uiID;
     uint32      uiBaseDamage;
     uint32      uiTargetType;
     uint32      uiRange;
     uint32      uiAggroBonus;
 };
-struct PassiveSkillRow { uint32 uiID; std::string kInxName; uint32 uiClass; uint32 uiMaxLevel; };
-struct AreaSkillRow    { uint32 uiID; uint32 uiRange; uint32 uiDuration; uint32 uiTickMs; };
+struct LegacyPassiveSkillRow { uint32 uiID; std::string kInxName; uint32 uiClass; uint32 uiMaxLevel; };
+struct LegacyAreaSkillRow    { uint32 uiID; uint32 uiRange; uint32 uiDuration; uint32 uiTickMs; };
 
 // ----- Map family -----------------------------------------------------------
-struct MapInfoRow {
+struct LegacyMapInfoRow {
     uint32      uiID;
     std::string kMapName;
     std::string kName;
@@ -227,39 +238,39 @@ struct AbStateRow {
 // ----- Charged family is in ChargedEffect.h --------------------------------
 
 // ----- Hair / Face / Class / Title (player presentation) -------------------
-struct HairInfoRow      { uint32 uiID; std::string kIndexName; std::string kName; uint32 uiGrade; uint32 uiFighter, uiArcher, uiCleric, uiMage; };
-struct FaceInfoRow      { uint32 uiID; std::string kFaceName; uint32 uiGrade; };
-struct ClassNameRow     { uint32 uiClassID; std::string kPrefix; std::string kEngName; std::string kLocalName; };
+struct LegacyHairInfoRow      { uint32 uiID; std::string kIndexName; std::string kName; uint32 uiGrade; uint32 uiFighter, uiArcher, uiCleric, uiMage; };
+struct LegacyFaceInfoRow      { uint32 uiID; std::string kFaceName; uint32 uiGrade; };
+struct LegacyClassNameRow     { uint32 uiClassID; std::string kPrefix; std::string kEngName; std::string kLocalName; };
 struct CharacterTitleRow{ uint32 uiID; std::string kInxName; uint32 uiGrade; };
 struct WeaponTitleRow   { uint32 uiID; std::string kInxName; };
 
 // ----- Pup (pet) family -----------------------------------------------------
-struct PupMainRow       { uint32 uiPupID; std::string kPupIDX; std::string kItemIDX; uint32 uiPupSpeed; };
-struct PupServerRow     { uint32 uiPupID; uint32 uiSpawnHP; uint32 uiSpawnSP; uint32 uiCooldown; uint32 uiAggro; };
-struct PupCaseRow       { uint32 uiCaseID; uint32 uiPriority; uint32 uiAction; };
+struct LegacyPupMainRow       { uint32 uiPupID; std::string kPupIDX; std::string kItemIDX; uint32 uiPupSpeed; };
+struct LegacyPupServerRow     { uint32 uiPupID; uint32 uiSpawnHP; uint32 uiSpawnSP; uint32 uiCooldown; uint32 uiAggro; };
+struct LegacyPupCaseRow       { uint32 uiCaseID; uint32 uiPriority; uint32 uiAction; };
 
 // ----- Mover family (mounts) -----------------------------------------------
-struct MoverMainRow     { uint32 uiMoverID; std::string kMoverIDX; uint32 uiCastMs; uint32 uiCoolMs; uint32 uiRun; uint32 uiWalk; uint32 uiHours; uint32 uiMaxSlot; };
-struct MoverHGRow       { uint32 uiID; std::string kInxName; };
-struct MoverItemRow     { uint32 uiID; std::string kItemIDX; };
+struct LegacyMoverMainRow     { uint32 uiMoverID; std::string kMoverIDX; uint32 uiCastMs; uint32 uiCoolMs; uint32 uiRun; uint32 uiWalk; uint32 uiHours; uint32 uiMaxSlot; };
+struct LegacyMoverHGRow       { uint32 uiID; std::string kInxName; };
+struct LegacyMoverItemRow     { uint32 uiID; std::string kItemIDX; };
 
 // ----- MiniHouse family ----------------------------------------------------
-struct MiniHouseRow     { uint32 uiID; std::string kInxName; std::string kName; uint32 uiGrade; uint32 uiDurationHour; };
+struct LegacyMiniHouseRow     { uint32 uiID; std::string kInxName; std::string kName; uint32 uiGrade; uint32 uiDurationHour; };
 struct MiniHouseFurnRow { uint32 uiID; std::string kInxName; uint32 uiCategory; uint32 uiHP; };
 
 // ----- Guild family --------------------------------------------------------
-struct GuildAcademyRow         { std::string kBuffName; uint32 uiLeastJoinTime; uint32 uiRankAggregation; };
-struct GuildGradeDataRow       { uint32 uiGrade; uint32 uiMaxMember; uint32 uiStorageSlot; };
+struct LegacyGuildAcademyRow         { std::string kBuffName; uint32 uiLeastJoinTime; uint32 uiRankAggregation; };
+struct LegacyGuildGradeDataRow       { uint32 uiGrade; uint32 uiMaxMember; uint32 uiStorageSlot; };
 struct GuildTournamentRow      { uint32 uiGTNo; uint32 uiMatchNumber; uint32 uiPrizeCoin; };
-struct GuildTournamentRewardRow{ uint32 uiRank; uint32 uiCoin; uint32 uiFame; };
+struct LegacyGuildTournamentRewardRow{ uint32 uiRank; uint32 uiCoin; uint32 uiFame; };
 
 // ----- Collect family ------------------------------------------------------
 struct CollectCardRow      { uint32 uiCardID; std::string kItemInx; uint32 uiCardGradeType; uint32 uiMobGroup; };
-struct CollectCardRewardRow{ uint32 uiID; uint32 uiPercent; std::string kReward; uint32 uiQty; uint32 uiBonus; };
+struct LegacyCollectCardRewardRow{ uint32 uiID; uint32 uiPercent; std::string kReward; uint32 uiQty; uint32 uiBonus; };
 
 // ----- Random / Set / Grade / Misc ------------------------------------------
 struct RandomOptionRow2    { std::string kDropItemIndex; uint32 uiRandomOptionType; int32 iMin; int32 iMax; uint32 uiTypeDropRate; };
-struct SetItemRow          { uint32 uiIndex; uint32 uiPiece; uint32 uiEffect; };
+struct LegacySetItemRow          { uint32 uiIndex; uint32 uiPiece; uint32 uiEffect; };
 // GradeItemOption.shn (20 wide cols): per-item-grade stat boost set. The
 // runtime keeps the full wide row -- consumers (EquipSummaryBuilder) sum
 // across the 20 columns when an item's grade matches.
@@ -272,9 +283,9 @@ struct GradeItemOptionRow {
 };
 
 // ----- KingdomQuest family --------------------------------------------------
-struct KingdomQuestRow     { uint32 uiID; std::string kName; uint32 uiMinLevel; uint32 uiMaxLevel; uint32 uiTeamSize; };
-struct KingdomQuestRewRow  { uint32 uiID; uint32 uiRank; std::string kReward; uint32 uiQty; };
-struct KingdomQuestMapRow  { uint32 uiID; std::string kMapName; uint32 uiX, uiY; };
+struct LegacyKingdomQuestRow     { uint32 uiID; std::string kName; uint32 uiMinLevel; uint32 uiMaxLevel; uint32 uiTeamSize; };
+struct LegacyKingdomQuestRewRow  { uint32 uiID; uint32 uiRank; std::string kReward; uint32 uiQty; };
+struct LegacyKingdomQuestMapRow  { uint32 uiID; std::string kMapName; uint32 uiX, uiY; };
 
 // =============================================================================
 //  Group accessors. Each Bind()s once at boot and exposes Find() / Row().
@@ -288,8 +299,8 @@ public:
     const ItemInfoRow*       FindByInx   (const std::string& rInx) const;
     const ItemInfoServerRow* FindServer  (uint32 uiID) const;
     const ItemInfoServerRow* FindServerByInx(const std::string& rInx) const;
-    const ItemUpgradeRow*    FindUpgrade (uint32 uiID) const;
-    const ItemActionRow*     FindAction  (uint32 uiID) const;
+    const LegacyItemUpgradeRow*    FindUpgrade (uint32 uiID) const;
+    const LegacyItemActionRow*     FindAction  (uint32 uiID) const;
 
     // ItemInfoServer-derived projections used at gameplay time.
     //   KingdomWeight : 1..1000 multiplier for the supplied kingdom tag
@@ -311,9 +322,9 @@ private:
     std::vector<ItemInfoServerRow>            m_kServer;
     std::map<uint32, size_t>                  m_kServerById;
     std::map<std::string, size_t>             m_kServerByInx;
-    std::vector<ItemUpgradeRow>               m_kUpgrade;
+    std::vector<LegacyItemUpgradeRow>               m_kUpgrade;
     std::map<uint32, size_t>                  m_kUpgradeById;
-    std::vector<ItemActionRow>                m_kActions;
+    std::vector<LegacyItemActionRow>                m_kActions;
     std::map<uint32, size_t>                  m_kActionsById;
 };
 
@@ -324,16 +335,16 @@ public:
 
     const MobInfoRow*       FindMob   (uint32 uiID) const;
     const MobInfoRow*       FindByInx (const std::string& rInx) const;
-    const MobSpeciesRow*    FindSpec  (uint32 uiID) const;
-    const MobLifeTimeRow*   FindLife  (uint32 uiID) const;
+    const LegacyMobSpeciesRow*    FindSpec  (uint32 uiID) const;
+    const LegacyMobLifeTimeRow*   FindLife  (uint32 uiID) const;
     size_t Count() const { return m_kMobs.size(); }
 private:
     std::vector<MobInfoRow>                   m_kMobs;
     std::map<uint32, size_t>                  m_kMobById;
     std::map<std::string, size_t>             m_kMobByInx;
-    std::vector<MobSpeciesRow>                m_kSpec;
+    std::vector<LegacyMobSpeciesRow>                m_kSpec;
     std::map<uint32, size_t>                  m_kSpecById;
-    std::vector<MobLifeTimeRow>               m_kLife;
+    std::vector<LegacyMobLifeTimeRow>               m_kLife;
     std::map<uint32, size_t>                  m_kLifeById;
 };
 
@@ -343,19 +354,19 @@ public:
     void Bind();
 
     const ActiveSkillRow*           FindActive (uint32 uiID) const;
-    const ActiveSkillInfoServerRow* FindActiveS(uint32 uiID) const;
-    const PassiveSkillRow*          FindPassive(uint32 uiID) const;
-    const AreaSkillRow*             FindArea   (uint32 uiID) const;
+    const LegacyActiveSkillInfoServerRow* FindActiveS(uint32 uiID) const;
+    const LegacyPassiveSkillRow*          FindPassive(uint32 uiID) const;
+    const LegacyAreaSkillRow*             FindArea   (uint32 uiID) const;
     size_t ActiveCount()  const { return m_kActive.size(); }
     size_t PassiveCount() const { return m_kPassive.size(); }
 private:
     std::vector<ActiveSkillRow>                  m_kActive;
     std::map<uint32, size_t>                     m_kActiveById;
-    std::vector<ActiveSkillInfoServerRow>        m_kActiveS;
+    std::vector<LegacyActiveSkillInfoServerRow>        m_kActiveS;
     std::map<uint32, size_t>                     m_kActiveSById;
-    std::vector<PassiveSkillRow>                 m_kPassive;
+    std::vector<LegacyPassiveSkillRow>                 m_kPassive;
     std::map<uint32, size_t>                     m_kPassiveById;
-    std::vector<AreaSkillRow>                    m_kArea;
+    std::vector<LegacyAreaSkillRow>                    m_kArea;
     std::map<uint32, size_t>                     m_kAreaById;
 };
 
@@ -363,12 +374,12 @@ class MapTables {
 public:
     static MapTables& Get();
     void Bind();
-    const MapInfoRow* Find(uint32 uiID) const;
-    const MapInfoRow* FindByName(const std::string& rMapName) const;
-    const std::vector<MapInfoRow>& Maps() const { return m_kMaps; }
+    const LegacyMapInfoRow* Find(uint32 uiID) const;
+    const LegacyMapInfoRow* FindByName(const std::string& rMapName) const;
+    const std::vector<LegacyMapInfoRow>& Maps() const { return m_kMaps; }
     size_t Count() const { return m_kMaps.size(); }
 private:
-    std::vector<MapInfoRow>           m_kMaps;
+    std::vector<LegacyMapInfoRow>           m_kMaps;
     std::map<uint32, size_t>          m_kById;
     std::map<std::string, size_t>     m_kByName;
 };
@@ -389,15 +400,15 @@ class PresentationTables {
 public:
     static PresentationTables& Get();
     void Bind();
-    const HairInfoRow*       FindHair (uint32 uiID) const;
-    const FaceInfoRow*       FindFace (uint32 uiID) const;
-    const ClassNameRow*      FindClass(uint32 uiClassID) const;
+    const LegacyHairInfoRow*       FindHair (uint32 uiID) const;
+    const LegacyFaceInfoRow*       FindFace (uint32 uiID) const;
+    const LegacyClassNameRow*      FindClass(uint32 uiClassID) const;
     const CharacterTitleRow* FindCharTitle(uint32 uiID) const;
     const WeaponTitleRow*    FindWeapTitle(uint32 uiID) const;
 private:
-    std::vector<HairInfoRow>          m_kHair;        std::map<uint32, size_t> m_kHairById;
-    std::vector<FaceInfoRow>          m_kFace;        std::map<uint32, size_t> m_kFaceById;
-    std::vector<ClassNameRow>         m_kClass;       std::map<uint32, size_t> m_kClassById;
+    std::vector<LegacyHairInfoRow>          m_kHair;        std::map<uint32, size_t> m_kHairById;
+    std::vector<LegacyFaceInfoRow>          m_kFace;        std::map<uint32, size_t> m_kFaceById;
+    std::vector<LegacyClassNameRow>         m_kClass;       std::map<uint32, size_t> m_kClassById;
     std::vector<CharacterTitleRow>    m_kCharTitle;   std::map<uint32, size_t> m_kCharTitleById;
     std::vector<WeaponTitleRow>       m_kWeapTitle;   std::map<uint32, size_t> m_kWeapTitleById;
 };
@@ -406,34 +417,34 @@ class PupTables {
 public:
     static PupTables& Get();
     void Bind();
-    const PupMainRow*   FindMain  (uint32 uiPupID) const;
-    const PupServerRow* FindServer(uint32 uiPupID) const;
-    const PupCaseRow*   FindCase  (uint32 uiCaseID) const;
+    const LegacyPupMainRow*   FindMain  (uint32 uiPupID) const;
+    const LegacyPupServerRow* FindServer(uint32 uiPupID) const;
+    const LegacyPupCaseRow*   FindCase  (uint32 uiCaseID) const;
 private:
-    std::vector<PupMainRow>           m_kMain;        std::map<uint32, size_t> m_kMainById;
-    std::vector<PupServerRow>         m_kServer;      std::map<uint32, size_t> m_kServerById;
-    std::vector<PupCaseRow>           m_kCase;        std::map<uint32, size_t> m_kCaseById;
+    std::vector<LegacyPupMainRow>           m_kMain;        std::map<uint32, size_t> m_kMainById;
+    std::vector<LegacyPupServerRow>         m_kServer;      std::map<uint32, size_t> m_kServerById;
+    std::vector<LegacyPupCaseRow>           m_kCase;        std::map<uint32, size_t> m_kCaseById;
 };
 
 class MountTables {
 public:
     static MountTables& Get();
     void Bind();
-    const MoverMainRow*  FindMain (uint32 uiMoverID) const;
-    const MoverItemRow*  FindItem (uint32 uiID) const;
+    const LegacyMoverMainRow*  FindMain (uint32 uiMoverID) const;
+    const LegacyMoverItemRow*  FindItem (uint32 uiID) const;
 private:
-    std::vector<MoverMainRow>         m_kMain;       std::map<uint32, size_t> m_kMainById;
-    std::vector<MoverItemRow>         m_kItem;       std::map<uint32, size_t> m_kItemById;
+    std::vector<LegacyMoverMainRow>         m_kMain;       std::map<uint32, size_t> m_kMainById;
+    std::vector<LegacyMoverItemRow>         m_kItem;       std::map<uint32, size_t> m_kItemById;
 };
 
 class MiniHouseTables {
 public:
     static MiniHouseTables& Get();
     void Bind();
-    const MiniHouseRow*     Find    (uint32 uiID) const;
+    const LegacyMiniHouseRow*     Find    (uint32 uiID) const;
     const MiniHouseFurnRow* FindFurn(uint32 uiID) const;
 private:
-    std::vector<MiniHouseRow>         m_kHouse;      std::map<uint32, size_t> m_kHouseById;
+    std::vector<LegacyMiniHouseRow>         m_kHouse;      std::map<uint32, size_t> m_kHouseById;
     std::vector<MiniHouseFurnRow>     m_kFurn;       std::map<uint32, size_t> m_kFurnById;
 };
 
@@ -441,15 +452,15 @@ class GuildTables2 {  // distinct from GuildSystem.h; data tables only
 public:
     static GuildTables2& Get();
     void Bind();
-    const GuildGradeDataRow*        FindGrade (uint32 uiGrade) const;
+    const LegacyGuildGradeDataRow*        FindGrade (uint32 uiGrade) const;
     const GuildTournamentRow*       FindGT    (uint32 uiGTNo) const;
-    const GuildTournamentRewardRow* FindReward(uint32 uiRank) const;
-    const GuildAcademyRow*          GetAcademy() const { return m_kAcademy.empty() ? NULL : &m_kAcademy[0]; }
+    const LegacyGuildTournamentRewardRow* FindReward(uint32 uiRank) const;
+    const LegacyGuildAcademyRow*          GetAcademy() const { return m_kAcademy.empty() ? NULL : &m_kAcademy[0]; }
 private:
-    std::vector<GuildAcademyRow>            m_kAcademy;
-    std::vector<GuildGradeDataRow>          m_kGrade;       std::map<uint32, size_t> m_kGradeById;
+    std::vector<LegacyGuildAcademyRow>            m_kAcademy;
+    std::vector<LegacyGuildGradeDataRow>          m_kGrade;       std::map<uint32, size_t> m_kGradeById;
     std::vector<GuildTournamentRow>         m_kGT;          std::map<uint32, size_t> m_kGTById;
-    std::vector<GuildTournamentRewardRow>   m_kReward;      std::map<uint32, size_t> m_kRewardByRank;
+    std::vector<LegacyGuildTournamentRewardRow>   m_kReward;      std::map<uint32, size_t> m_kRewardByRank;
 };
 
 class CollectTables {
@@ -457,11 +468,11 @@ public:
     static CollectTables& Get();
     void Bind();
     const CollectCardRow*       FindCard(uint32 uiCardID) const;
-    const CollectCardRewardRow* FindReward(uint32 uiID)   const;
+    const LegacyCollectCardRewardRow* FindReward(uint32 uiID)   const;
     size_t CardCount() const { return m_kCards.size(); }
 private:
     std::vector<CollectCardRow>             m_kCards;       std::map<uint32, size_t> m_kCardById;
-    std::vector<CollectCardRewardRow>       m_kReward;      std::map<uint32, size_t> m_kRewardById;
+    std::vector<LegacyCollectCardRewardRow>       m_kReward;      std::map<uint32, size_t> m_kRewardById;
 };
 
 class GradeRandomTables {
@@ -469,11 +480,11 @@ public:
     static GradeRandomTables& Get();
     void Bind();
     const GradeItemOptionRow* FindGrade(uint32 uiID) const;
-    const SetItemRow*         FindSet  (uint32 uiIndex) const;
+    const LegacySetItemRow*         FindSet  (uint32 uiIndex) const;
     size_t RandomCount() const { return m_kRandom.size(); }
 private:
     std::vector<GradeItemOptionRow>         m_kGrade;       std::map<uint32, size_t> m_kGradeById;
-    std::vector<SetItemRow>                 m_kSet;         std::map<uint32, size_t> m_kSetById;
+    std::vector<LegacySetItemRow>                 m_kSet;         std::map<uint32, size_t> m_kSetById;
     std::vector<RandomOptionRow2>           m_kRandom;
 };
 
@@ -481,14 +492,14 @@ class KQTables {
 public:
     static KQTables& Get();
     void Bind();
-    const KingdomQuestRow*    FindKQ   (uint32 uiID) const;
-    const KingdomQuestRewRow* FindRew  (uint32 uiID, uint32 uiRank) const;
-    const KingdomQuestMapRow* FindMap  (uint32 uiID) const;
+    const LegacyKingdomQuestRow*    FindKQ   (uint32 uiID) const;
+    const LegacyKingdomQuestRewRow* FindRew  (uint32 uiID, uint32 uiRank) const;
+    const LegacyKingdomQuestMapRow* FindMap  (uint32 uiID) const;
     size_t Count() const { return m_kKQ.size(); }
 private:
-    std::vector<KingdomQuestRow>            m_kKQ;          std::map<uint32, size_t> m_kKQById;
-    std::vector<KingdomQuestRewRow>         m_kRew;
-    std::vector<KingdomQuestMapRow>         m_kMap;         std::map<uint32, size_t> m_kMapById;
+    std::vector<LegacyKingdomQuestRow>            m_kKQ;          std::map<uint32, size_t> m_kKQById;
+    std::vector<LegacyKingdomQuestRewRow>         m_kRew;
+    std::vector<LegacyKingdomQuestMapRow>         m_kMap;         std::map<uint32, size_t> m_kMapById;
 };
 
 // One-call initializer: Binds every group above. Safe to call multiple times.

@@ -48,7 +48,7 @@ bool ShineItemUse::TryUse(ShinePlayer* pk, ShineItem& r) {
     // sp restore / fame / money). Range=0 since the player is the
     // implicit subject and target.
     if (p && p->uiItemFunc) {
-        const ItemActionRow* pkA = ItemTables::Get().FindAction(p->uiItemFunc);
+        const LegacyItemActionRow* pkA = ItemTables::Get().FindAction(p->uiItemFunc);
         if (pkA) {
             if (ItemActionResolver::ConditionFires((uint16)pkA->uiCondition, pk, pk, 0)) {
                 ItemActionResolver::EffectApply((uint16)pkA->uiEffect, pk, pk);

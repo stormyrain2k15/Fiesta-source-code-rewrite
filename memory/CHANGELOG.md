@@ -289,3 +289,73 @@ before the legacy Bind* chain is retired. Prune sequence:
 3. Drop the legacy `Bind` call from `GroupTables.cpp`.
 4. Eventually drop the entire legacy mega-binder file.
 
+## 2026-02-XX (later) -- sprint #4: prune `*Row` name collisions
+
+Goal: eliminate the 36 ODR-risky duplicates between legacy mega-binder
+`*Row` structs (Zone/GroupTables.h et al.) and the new per-SHN canon
+`*Row` structs (DataReader/SHN/*.h).
+
+### Approach
+Schema-divergence analysis (`/tmp/dup_analysis.py`) revealed the
+collisions are not migratable by simple typedef:
+- 1 identical (PupMainRow)
+- 2 subset (FaceInfoRow, MobSpeciesRow -- legacy is subset of new)
+- 10 rename (legacy has 1-2 fields differently named)
+- 25 divergent (legacy struct exposes columns the new auto-gen skipped,
+  or vice-versa)
+
+The user's intent ("the new per-SHN classes are canonical") combined
+with no local-compile feedback made a full content-merge unsafe.
+Instead: rename every legacy duplicate to `Legacy*Row`, leave the new
+`*Row` alone in DataReader/SHN/. Both ledgers continue to run; future
+sprints retire legacy consumers one-at-a-time.
+
+### Mechanical rename
+Driver: `/tmp/rename_legacy_rows.py` (whole-word `re.sub`, skips
+DataReader/SHN/).
+
+| Symbol                        | Files | Refs  |
+|-------------------------------|-------|-------|
+| MapInfoRow / Legacy           |   8   |  17   |
+| MoverMainRow / Legacy         |   3   |  12   |
+| MobResistRow / Legacy         |   2   |   8   |
+| TownPortalRow / Legacy        |   3   |   8   |
+| RandomOptionRow / Legacy      |   3   |   7   |
+| ClassNameRow / Legacy         |   3   |   6   |
+| ItemActionRow / Legacy        |   3   |   6   |
+| MoverAbilityRow / Legacy      |   2   |   6   |
+| DiceGameRow / Legacy          |   3   |   6   |
+| 29 others                     |  ~60  | 131   |
+| **Total**                     |  ~88  | **212** |
+
+### Verification
+- Pre-sprint collisions:  36
+- Post-sprint collisions:  0
+- audit_unwired_loads.py: PASS (every Load/Bind has a boot path)
+- audit_shn_wiring.py:    PASS (201/201 server-side SHN coverage)
+- audit_shn_columns.py:   PASS (1774 cols, 71 RED in 6 legacy tables)
+- gen_vcxproj.py:         13 projects, no new files added
+
+### Convention (going forward)
+- New code MUST use the `*Shn` API in DataReader/SHN/. No exceptions.
+- `Legacy*Row` types in Zone/GroupTables.h, Zone/MoverTables.h, etc.
+  are deprecated; once a legacy struct's last consumer is migrated to
+  the *Shn API, drop the struct and its binder.
+- `audit_shn_wiring.py` will fail if any new code tries to add a
+  third copy of a *Row name.
+
+### Known follow-up (sprint #5 candidate)
+The 6 legacy-only mega tables (no per-SHN counterpart in the patch)
+still hold the bulk of unread columns:
+| Table              | Unread / Total  | Owner                  |
+|--------------------|----------------|------------------------|
+| MobInfoServer      | 32 / 49         | Tables/MobTables.cpp   |
+| ActiveSkill        | 31 / 96         | Tables/SkillTables.cpp |
+| AbStateView        |  3 / 21         | client-only View shn   |
+| GradeItemOption    |  2 / 16         | Tables/ItemTables.cpp  |
+| ItemInfo           |  2 / 57         | Tables/ItemTables.cpp  |
+| ItemInfoServer     |  1 / 17         | Tables/ItemTables.cpp  |
+The next sprint should either auto-emit per-SHN classes for these or
+extend the legacy binders to consume the missing columns.
+
+

@@ -12,7 +12,7 @@ bool GBSMAllTable::Bind() {
     const ShnFile* t = ShnRegistry::Get().GetTable("GBSMAll");
     if (!t) { SHINELOG_WARN("GBSMAll.shn missing"); return false; }
     for (size_t i = 0; i < t->Rows().size(); ++i) {
-        GBSMAllRow r;
+        LegacyGBSMAllRow r;
         r.uiGroupID  = (uint8) ShnGetU32(*t, i, "GBSM_GroupID");
         r.uiNum      = (uint8) ShnGetU32(*t, i, "GBSM_Num");
         r.uiRatioAll = (uint16)ShnGetU32(*t, i, "GBSM_RatioAll");

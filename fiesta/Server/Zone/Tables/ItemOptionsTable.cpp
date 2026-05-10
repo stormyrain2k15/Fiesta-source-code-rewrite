@@ -24,7 +24,7 @@ bool ItemOptionsTable::Load(const std::string& rRoot) {
         "1","2","3","4","5","6","7","8","9", "10"
     };
     for (size_t r = 0; r < t->kRecords.size(); ++r) {
-        ItemOptionsRow x;
+        LegacyItemOptionsRow x;
         x.uiOptionDegree = (uint16)t->GetInt(r, "OptionDegree");
         x.kType          = t->GetStr(r, "type");
         if (x.kType.empty()) continue;
@@ -38,7 +38,7 @@ bool ItemOptionsTable::Load(const std::string& rRoot) {
 
 int32 ItemOptionsTable::PickBucket(uint16 uiDegree, const std::string& rType,
                                    uint32 uiRoll) const {
-    std::map<std::string, ItemOptionsRow>::const_iterator it =
+    std::map<std::string, LegacyItemOptionsRow>::const_iterator it =
         m_kRows.find(Key(uiDegree, rType));
     if (it == m_kRows.end()) return -1;
     uint32 acc = 0;

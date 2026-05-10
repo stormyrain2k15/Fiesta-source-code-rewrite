@@ -11,7 +11,7 @@ bool GBSMJPRateTable::Bind() {
     const ShnFile* t = ShnRegistry::Get().GetTable("GBSMJPRate");
     if (!t) { SHINELOG_WARN("GBSMJPRate.shn missing"); return false; }
     for (size_t i = 0; i < t->Rows().size(); ++i) {
-        GBSMJPRateRow r;
+        LegacyGBSMJPRateRow r;
         r.uiMin  = ShnGetU32(*t, i, "GBSM_MinCount");
         r.uiMax  = ShnGetU32(*t, i, "GBSM_MaxCount");
         r.uiRate = ShnGetU32(*t, i, "GBSM_JPRate");

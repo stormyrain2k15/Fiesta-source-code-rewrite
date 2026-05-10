@@ -22,7 +22,7 @@ bool TownPortalSystem::Load() {
         return false;
     }
     for (size_t i = 0; i < t->Rows().size(); ++i) {
-        TownPortalRow r;
+        LegacyTownPortalRow r;
         r.uiIndex    = (uint8) ShnGetU32(*t, i, "Index");
         r.uiMinLevel = (uint8) ShnGetU32(*t, i, "MinLevel");
         r.uiGroupNo  = (uint8) ShnGetU32(*t, i, "TP_GroupNo");
@@ -67,11 +67,11 @@ int32 TownPortalSystem::ResolveItemToGroup(uint32 /*uiItemId*/,
 }
 
 void TownPortalSystem::BuildList(uint8 uiGroup, uint8 uiPlayerLv,
-                                 std::vector<TownPortalRow>& rOut) const
+                                 std::vector<LegacyTownPortalRow>& rOut) const
 {
     rOut.clear();
     for (size_t i = 0; i < m_kRows.size(); ++i) {
-        const TownPortalRow& r = m_kRows[i];
+        const LegacyTownPortalRow& r = m_kRows[i];
         if (r.uiGroupNo  != uiGroup)     continue;
         if (r.uiMinLevel >  uiPlayerLv)  continue;
         rOut.push_back(r);
@@ -83,7 +83,7 @@ bool TownPortalSystem::Teleport(ShinePlayer* pk, uint8 uiGroup,
 {
     if (!pk) return false;
     for (size_t i = 0; i < m_kRows.size(); ++i) {
-        const TownPortalRow& r = m_kRows[i];
+        const LegacyTownPortalRow& r = m_kRows[i];
         if (r.uiGroupNo != uiGroup) continue;
         if (r.uiIndex   != uiIndex) continue;
         if (r.uiMinLevel > pk->GetLevel()) {
@@ -94,7 +94,7 @@ bool TownPortalSystem::Teleport(ShinePlayer* pk, uint8 uiGroup,
             return false;
         }
         // Resolve map inx-name -> MapID (MapTables loaded from MapInfo.shn).
-        const MapInfoRow* pkMap = MapTables::Get().FindByName(r.kMapName);
+        const LegacyMapInfoRow* pkMap = MapTables::Get().FindByName(r.kMapName);
         if (!pkMap) {
             SHINELOG_WARN("TownPortal: cid=%u map '%s' unknown",
                           pk->GetCharID(), r.kMapName.c_str());

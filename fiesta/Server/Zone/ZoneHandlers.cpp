@@ -229,7 +229,7 @@ static void H_ItemUse(IOCPSession* s, const GPacket& pkt) {
     // 2) Town-portal scroll? Send the destination list.
     int32 tpGroup = TownPortalSystem::Get().ResolveItemToGroup(uiItemId, inx);
     if (tpGroup >= 0) {
-        std::vector<TownPortalRow> list;
+        std::vector<LegacyTownPortalRow> list;
         TownPortalSystem::Get().BuildList((uint8)tpGroup, (uint8)p->GetLevel(), list);
         // Send the picker list. The scroll is consumed only after the
         // player actually picks a destination (H_TownPortalReq).

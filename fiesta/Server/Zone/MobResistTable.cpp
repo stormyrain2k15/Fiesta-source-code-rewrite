@@ -66,7 +66,7 @@ bool MobResistTable::Load(const std::string& rRoot) {
     for (size_t r = 1; r < rows.size(); ++r) {
         const std::vector<std::string>& row = rows[r];
         if (row.empty()) continue;
-        MobResistRow x;
+        LegacyMobResistRow x;
         memset(&x, 0, sizeof(x));
         x.uiMobID = (uint16)H::Get(row, iId, 0);
         for (int e = 1; e < ELEMENT_MAX; ++e) x.aEleResist[e] = H::Get(row, iEle[e], 0);
@@ -89,17 +89,17 @@ bool MobResistTable::Load(const std::string& rRoot) {
     return true;
 }
 
-const MobResistRow* MobResistTable::Find(uint16 uiMobID) const {
-    std::map<uint16, MobResistRow>::const_iterator it = m_kRows.find(uiMobID);
+const LegacyMobResistRow* MobResistTable::Find(uint16 uiMobID) const {
+    std::map<uint16, LegacyMobResistRow>::const_iterator it = m_kRows.find(uiMobID);
     return (it == m_kRows.end()) ? NULL : &it->second;
 }
 int32 MobResistTable::GetElementResist(uint16 uiMobID, eElement eElem) const {
     if (eElem <= ELEMENT_NONE || eElem >= ELEMENT_MAX) return 0;
-    const MobResistRow* p = Find(uiMobID);
+    const LegacyMobResistRow* p = Find(uiMobID);
     return p ? p->aEleResist[eElem] : 0;
 }
 int32 MobResistTable::GetDamageTypeResist(uint16 uiMobID, int32 nDmgTypeFlags) const {
-    const MobResistRow* p = Find(uiMobID);
+    const LegacyMobResistRow* p = Find(uiMobID);
     if (!p) return 0;
     if (nDmgTypeFlags & DMG_TYPE_MAGIC)  return p->iMagicResist;
     if (nDmgTypeFlags & DMG_TYPE_RANGED) return p->iRangedResist;

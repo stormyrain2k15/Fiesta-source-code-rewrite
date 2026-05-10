@@ -37,7 +37,7 @@ void GradeRandomTables::Bind() {
     }
     if (const ShnFile* t = ShnRegistry::Get().GetTable("SetItem")) {
         ITER_ROWS(t) {
-            SetItemRow rec;
+            LegacySetItemRow rec;
             rec.uiIndex  = ShnGetU32(*t, _r, "Index");
             rec.uiPiece  = ShnGetU32(*t, _r, "Piece");
             rec.uiEffect = ShnGetU32(*t, _r, "Effect");
@@ -60,7 +60,7 @@ void GradeRandomTables::Bind() {
 const GradeItemOptionRow* GradeRandomTables::FindGrade(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kGradeById.find(uiID);
     return (it == m_kGradeById.end()) ? NULL : &m_kGrade[it->second]; }
-const SetItemRow*         GradeRandomTables::FindSet  (uint32 uiI) const {
+const LegacySetItemRow*         GradeRandomTables::FindSet  (uint32 uiI) const {
     std::map<uint32, size_t>::const_iterator it = m_kSetById.find(uiI);
     return (it == m_kSetById.end()) ? NULL : &m_kSet[it->second]; }
 

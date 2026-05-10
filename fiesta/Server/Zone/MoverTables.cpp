@@ -51,7 +51,7 @@ bool MoverMainTable::Load(const std::string& rRoot) {
     for (size_t r = 1; r < rows.size(); ++r) {
         const std::vector<std::string>& row = rows[r];
         if (row.size() < hdr.size() / 2) continue;
-        MoverMainRow x;
+        LegacyMoverMainRow x;
         x.bClass         = (uint8) cellInt(row, iClass, 0);
         x.uiLevel        = (uint16)cellInt(row, iLevel, 1);
         x.nBaseHP        = cellInt(row, iHP,  100);
@@ -69,9 +69,9 @@ bool MoverMainTable::Load(const std::string& rRoot) {
     return true;
 }
 
-const MoverMainRow* MoverMainTable::Find(uint8 bClass, uint16 uiLevel) const {
+const LegacyMoverMainRow* MoverMainTable::Find(uint8 bClass, uint16 uiLevel) const {
     uint32 key = ((uint32)bClass << 16) | (uint32)uiLevel;
-    std::map<uint32, MoverMainRow>::const_iterator it = m_kRows.find(key);
+    std::map<uint32, LegacyMoverMainRow>::const_iterator it = m_kRows.find(key);
     return (it == m_kRows.end()) ? NULL : &it->second;
 }
 
@@ -79,7 +79,7 @@ void MoverMainTable::FillRaw(RAWCHARSTAT* pOut, uint8 bClass, uint16 uiLevel) co
     if (!pOut) return;
     pOut->nLevel = uiLevel;
     pOut->bClass = bClass;
-    const MoverMainRow* p = Find(bClass, uiLevel);
+    const LegacyMoverMainRow* p = Find(bClass, uiLevel);
     if (!p) {
         // Sane fallback so combat continues if MoverMain is absent.
         pOut->nBaseHP = 100 + uiLevel * 50;
@@ -129,7 +129,7 @@ bool MoverAbilityTable::Load(const std::string& rRoot) {
 
     for (size_t r = 1; r < rows.size(); ++r) {
         const std::vector<std::string>& row = rows[r];
-        MoverAbilityRow x;
+        LegacyMoverAbilityRow x;
         x.bClass        = (uint8)cellInt(row, iClass, 0);
         x.nHpPerEND     = cellInt(row, iHpEND,   14);
         x.nSpPerINT     = cellInt(row, iSpINT,   12);
@@ -147,8 +147,8 @@ bool MoverAbilityTable::Load(const std::string& rRoot) {
     return true;
 }
 
-const MoverAbilityRow* MoverAbilityTable::Find(uint8 bClass) const {
-    std::map<uint8, MoverAbilityRow>::const_iterator it = m_kRows.find(bClass);
+const LegacyMoverAbilityRow* MoverAbilityTable::Find(uint8 bClass) const {
+    std::map<uint8, LegacyMoverAbilityRow>::const_iterator it = m_kRows.find(bClass);
     return (it == m_kRows.end()) ? NULL : &it->second;
 }
 

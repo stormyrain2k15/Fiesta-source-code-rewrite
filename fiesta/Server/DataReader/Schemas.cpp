@@ -398,7 +398,7 @@ bool CharacterTitleDataTab::Load(DataReader& reader) {
     if (!reader.LoadAsRows("CharacterTitleData", kRows)) return false;
     for (size_t i = 1; i < kRows.size(); ++i) {
         const std::vector<std::string>& r = kRows[i];
-        CharacterTitleDataRow rec; memset(&rec, 0, sizeof(rec));
+        LegacyCharacterTitleDataRow rec; memset(&rec, 0, sizeof(rec));
         rec.Type = (uint32)ColU32(r, 0);
         rec.REMARK = (uint32)ColU32(r, 1);
         { std::string s = ColStr(r, 2); size_t n = s.size(); if (n > sizeof(rec.Title0)-1) n = sizeof(rec.Title0)-1; memcpy(rec.Title0, s.data(), n); rec.Title0[n] = 0; }

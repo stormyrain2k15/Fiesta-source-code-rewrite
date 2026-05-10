@@ -10,7 +10,7 @@ PupTables& PupTables::Get() { static PupTables s; return s; }
 void PupTables::Bind() {
     if (const ShnFile* t = ShnRegistry::Get().GetTable("PupMain")) {
         ITER_ROWS(t) {
-            PupMainRow rec;
+            LegacyPupMainRow rec;
             rec.uiPupID    = ShnGetU32(*t, _r, "PupID");
             rec.kPupIDX    = ShnGetStr(*t, _r, "PupIDX");
             rec.kItemIDX   = ShnGetStr(*t, _r, "ItemIDX");
@@ -21,7 +21,7 @@ void PupTables::Bind() {
     }
     if (const ShnFile* t = ShnRegistry::Get().GetTable("PupServer")) {
         ITER_ROWS(t) {
-            PupServerRow rec;
+            LegacyPupServerRow rec;
             rec.uiPupID    = ShnGetU32(*t, _r, "PupID");
             rec.uiSpawnHP  = ShnGetU32(*t, _r, "SpawnHP");
             rec.uiSpawnSP  = ShnGetU32(*t, _r, "SpawnSP");
@@ -33,7 +33,7 @@ void PupTables::Bind() {
     }
     if (const ShnFile* t = ShnRegistry::Get().GetTable("PupCase")) {
         ITER_ROWS(t) {
-            PupCaseRow rec;
+            LegacyPupCaseRow rec;
             rec.uiCaseID   = ShnGetU32(*t, _r, "CaseID");
             rec.uiPriority = ShnGetU32(*t, _r, "Priority");
             rec.uiAction   = ShnGetU32(*t, _r, "Action");
@@ -42,13 +42,13 @@ void PupTables::Bind() {
         }
     }
 }
-const PupMainRow*   PupTables::FindMain  (uint32 uiID) const {
+const LegacyPupMainRow*   PupTables::FindMain  (uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kMainById.find(uiID);
     return (it == m_kMainById.end()) ? NULL : &m_kMain[it->second]; }
-const PupServerRow* PupTables::FindServer(uint32 uiID) const {
+const LegacyPupServerRow* PupTables::FindServer(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kServerById.find(uiID);
     return (it == m_kServerById.end()) ? NULL : &m_kServer[it->second]; }
-const PupCaseRow*   PupTables::FindCase  (uint32 uiID) const {
+const LegacyPupCaseRow*   PupTables::FindCase  (uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kCaseById.find(uiID);
     return (it == m_kCaseById.end()) ? NULL : &m_kCase[it->second]; }
 

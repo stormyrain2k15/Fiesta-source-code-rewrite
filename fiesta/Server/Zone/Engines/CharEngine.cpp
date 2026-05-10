@@ -67,7 +67,7 @@ NewCharacterTemplate CharEngine::GenerateCharacter(
     tmpl.uiFaceType  = uiFaceType;
 
     // -- 1. Validate class --
-    const ClassNameRow* pClass = ClassNameShn::Get().FindById(uiClass);
+    const LegacyClassNameRow* pClass = ClassNameShn::Get().FindById(uiClass);
     if (!pClass) {
         SHINELOG_WARN("CharEngine::GenerateCharacter: unknown class %u", uiClass);
         return tmpl;

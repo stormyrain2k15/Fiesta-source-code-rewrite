@@ -21,7 +21,7 @@ bool RandomOptionTable::Load(const std::string& rRoot) {
     // MinOpCount, MaxOpCount, StrMin/Max, ConMin/Max, DexMin/Max,
     // IntMin/Max, MenMin/Max
     for (size_t r = 0; r < t->kRecords.size(); ++r) {
-        RandomOptionRow x;
+        LegacyRandomOptionRow x;
         x.kDropItemIndex = t->GetStr(r, "DropItemIndex");
         x.uiOptionHide   = (uint8)t->GetInt(r, "OptionHide");
         x.uiMinOpCount   = (uint8)t->GetInt(r, "MinOpCount");
@@ -35,8 +35,8 @@ bool RandomOptionTable::Load(const std::string& rRoot) {
     return true;
 }
 
-const RandomOptionRow* RandomOptionTable::Find(const std::string& r) const {
-    std::map<std::string, RandomOptionRow>::const_iterator it = m_kRows.find(r);
+const LegacyRandomOptionRow* RandomOptionTable::Find(const std::string& r) const {
+    std::map<std::string, LegacyRandomOptionRow>::const_iterator it = m_kRows.find(r);
     return (it == m_kRows.end()) ? NULL : &it->second;
 }
 

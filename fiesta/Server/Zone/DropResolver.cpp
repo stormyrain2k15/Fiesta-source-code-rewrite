@@ -34,7 +34,7 @@ static uint8 RollUpgrade(const ItemDropGroupRow& g) {
 }
 
 static void RollRandomOptions(const std::string& rItem, ShineItem& rOut) {
-    const RandomOptionRow* p = RandomOptionTable::Get().Find(rItem);
+    const LegacyRandomOptionRow* p = RandomOptionTable::Get().Find(rItem);
     if (!p) return;
     int32 cnt = p->uiMinOpCount;
     if (p->uiMaxOpCount > p->uiMinOpCount)

@@ -12,7 +12,7 @@ PresentationTables& PresentationTables::Get() { static PresentationTables s; ret
 void PresentationTables::Bind() {
     if (const ShnFile* t = ShnRegistry::Get().GetTable("HairInfo")) {
         ITER_ROWS(t) {
-            HairInfoRow rec;
+            LegacyHairInfoRow rec;
             rec.uiID       = ShnGetU32(*t, _r, "ID");
             rec.kIndexName = ShnGetStr(*t, _r, "IndexName");
             rec.kName      = ShnGetStr(*t, _r, "HairName");
@@ -27,7 +27,7 @@ void PresentationTables::Bind() {
     }
     if (const ShnFile* t = ShnRegistry::Get().GetTable("FaceInfo")) {
         ITER_ROWS(t) {
-            FaceInfoRow rec;
+            LegacyFaceInfoRow rec;
             rec.uiID      = ShnGetU32(*t, _r, "ID");
             rec.kFaceName = ShnGetStr(*t, _r, "FaceName");
             rec.uiGrade   = ShnGetU32(*t, _r, "Grade");
@@ -37,7 +37,7 @@ void PresentationTables::Bind() {
     }
     if (const ShnFile* t = ShnRegistry::Get().GetTable("ClassName")) {
         ITER_ROWS(t) {
-            ClassNameRow rec;
+            LegacyClassNameRow rec;
             rec.uiClassID   = ShnGetU32(*t, _r, "ClassID");
             rec.kPrefix     = ShnGetStr(*t, _r, "acPrefix");
             rec.kEngName    = ShnGetStr(*t, _r, "acEngName");
@@ -66,13 +66,13 @@ void PresentationTables::Bind() {
         }
     }
 }
-const HairInfoRow*       PresentationTables::FindHair (uint32 uiID) const {
+const LegacyHairInfoRow*       PresentationTables::FindHair (uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kHairById.find(uiID);
     return (it == m_kHairById.end()) ? NULL : &m_kHair[it->second]; }
-const FaceInfoRow*       PresentationTables::FindFace (uint32 uiID) const {
+const LegacyFaceInfoRow*       PresentationTables::FindFace (uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kFaceById.find(uiID);
     return (it == m_kFaceById.end()) ? NULL : &m_kFace[it->second]; }
-const ClassNameRow*      PresentationTables::FindClass(uint32 uiID) const {
+const LegacyClassNameRow*      PresentationTables::FindClass(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kClassById.find(uiID);
     return (it == m_kClassById.end()) ? NULL : &m_kClass[it->second]; }
 const CharacterTitleRow* PresentationTables::FindCharTitle(uint32 uiID) const {

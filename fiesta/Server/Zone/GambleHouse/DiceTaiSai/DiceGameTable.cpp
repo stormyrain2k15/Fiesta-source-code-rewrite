@@ -16,7 +16,7 @@ bool DiceGameTable::Bind() {
     const ShnFile* t = ShnRegistry::Get().GetTable("DiceGame");
     if (!t) { SHINELOG_WARN("DiceGame.shn missing"); return false; }
     for (size_t i = 0; i < t->Rows().size(); ++i) {
-        DiceGameRow r;
+        LegacyDiceGameRow r;
         r.uiItemID        = (uint16)ShnGetU32(*t, i, "ItemID");
         r.uiUseMinLv      = (uint16)ShnGetU32(*t, i, "UseMinLv");
         r.uiGetSysRate    = (uint16)ShnGetU32(*t, i, "GetSysRate");
@@ -37,7 +37,7 @@ bool DiceGameTable::Bind() {
     return !m_kRows.empty();
 }
 
-const DiceGameRow* DiceGameTable::FindByItem(uint16 uiItemID) const {
+const LegacyDiceGameRow* DiceGameTable::FindByItem(uint16 uiItemID) const {
     for (size_t i = 0; i < m_kRows.size(); ++i) {
         if (m_kRows[i].uiItemID == uiItemID) return &m_kRows[i];
     }

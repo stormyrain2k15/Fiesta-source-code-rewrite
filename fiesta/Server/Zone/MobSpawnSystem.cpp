@@ -18,10 +18,10 @@ size_t MobSpawnSystem::LoadAll() {
     // MobRegenBox is keyed by map name; we don't know all the keys without
     // re-walking the data folder, so we accept the union from MapTables and
     // attempt a Find against each.
-    const std::vector<MapInfoRow>& maps = MapTables::Get().Maps();
+    const std::vector<LegacyMapInfoRow>& maps = MapTables::Get().Maps();
     size_t built = 0;
     for (size_t mi = 0; mi < maps.size(); ++mi) {
-        const MapInfoRow& m = maps[mi];
+        const LegacyMapInfoRow& m = maps[mi];
         const MobRegenTable* t = MobRegenBox::Get().Find(m.kMapName);
         if (!t) continue;
         // Build a quick group-index -> group descriptor map.
@@ -121,7 +121,7 @@ static ShineMob* ScriptSpawnSingle(const std::string& rMapInx,
                                    const std::string& rMobInx,
                                    float fX, float fY)
 {
-    const MapInfoRow* pkM = MapTables::Get().FindByName(rMapInx);
+    const LegacyMapInfoRow* pkM = MapTables::Get().FindByName(rMapInx);
     if (!pkM) {
         SHINELOG_WARN("MobSpawn: unknown map '%s'", rMapInx.c_str());
         return NULL;
@@ -194,7 +194,7 @@ uint32 MobSpawnSystem::SpawnGroup(const std::string& rMapInx,
 {
     // Find the matching configured spawn-group by (map, group-index).
     // The group itself carries species + center + half-extents.
-    const MapInfoRow* pkM = MapTables::Get().FindByName(rMapInx);
+    const LegacyMapInfoRow* pkM = MapTables::Get().FindByName(rMapInx);
     if (!pkM) {
         SHINELOG_WARN("SpawnGroup: unknown map '%s'", rMapInx.c_str());
         return 0;

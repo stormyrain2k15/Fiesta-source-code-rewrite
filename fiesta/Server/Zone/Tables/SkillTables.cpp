@@ -40,7 +40,7 @@ void SkillTables::Bind() {
         BIND_BEGIN(t, "ActiveSkillInfoServer")
         m_kActiveS.reserve(t->Rows().size());
         ITER_ROWS(t) {
-            ActiveSkillInfoServerRow rec;
+            LegacyActiveSkillInfoServerRow rec;
             rec.uiID         = ShnGetU32(*t, _r, "ID");
             rec.uiBaseDamage = ShnGetU32(*t, _r, "BaseDamage");
             rec.uiTargetType = ShnGetU32(*t, _r, "TargetType");
@@ -56,7 +56,7 @@ void SkillTables::Bind() {
         BIND_BEGIN(t, "PassiveSkill")
         m_kPassive.reserve(t->Rows().size());
         ITER_ROWS(t) {
-            PassiveSkillRow rec;
+            LegacyPassiveSkillRow rec;
             rec.uiID       = ShnGetU32(*t, _r, "ID");
             rec.kInxName   = ShnGetStr(*t, _r, "InxName");
             rec.uiClass    = ShnGetU32(*t, _r, "Class");
@@ -79,15 +79,15 @@ const ActiveSkillRow* SkillTables::FindActive(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kActiveById.find(uiID);
     return (it == m_kActiveById.end()) ? NULL : &m_kActive[it->second];
 }
-const ActiveSkillInfoServerRow* SkillTables::FindActiveS(uint32 uiID) const {
+const LegacyActiveSkillInfoServerRow* SkillTables::FindActiveS(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kActiveSById.find(uiID);
     return (it == m_kActiveSById.end()) ? NULL : &m_kActiveS[it->second];
 }
-const PassiveSkillRow* SkillTables::FindPassive(uint32 uiID) const {
+const LegacyPassiveSkillRow* SkillTables::FindPassive(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kPassiveById.find(uiID);
     return (it == m_kPassiveById.end()) ? NULL : &m_kPassive[it->second];
 }
-const AreaSkillRow* SkillTables::FindArea(uint32 uiID) const {
+const LegacyAreaSkillRow* SkillTables::FindArea(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kAreaById.find(uiID);
     return (it == m_kAreaById.end()) ? NULL : &m_kArea[it->second];
 }

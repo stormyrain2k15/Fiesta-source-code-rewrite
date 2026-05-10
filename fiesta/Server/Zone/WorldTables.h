@@ -176,7 +176,7 @@ private:
 // =============================================================================
 // RandomOptionTable / ItemOptionsTable / ItemDropGroupTable / TreasureRewardTable
 // =============================================================================
-struct RandomOptionRow {
+struct LegacyRandomOptionRow {
     std::string kDropItemIndex;
     uint8 uiOptionHide, uiMinOpCount, uiMaxOpCount;
     uint16 aMin[5];   // Str/Con/Dex/Int/Men minima
@@ -186,10 +186,10 @@ class RandomOptionTable {
 public:
     static RandomOptionTable& Get();
     bool Load(const std::string& rRoot);
-    const RandomOptionRow* Find(const std::string& rDropItemIndex) const;
+    const LegacyRandomOptionRow* Find(const std::string& rDropItemIndex) const;
 private:
     RandomOptionTable() {}
-    std::map<std::string, RandomOptionRow> m_kRows;
+    std::map<std::string, LegacyRandomOptionRow> m_kRows;
 };
 
 struct ItemDropGroupRow {

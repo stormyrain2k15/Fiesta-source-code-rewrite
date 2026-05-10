@@ -64,7 +64,7 @@ MapID ResolveMapByName(const char* szInxName) {
     // The MapInfo group caches both `kMapName` (filename stem) and
     // `kName` (display name) lookups; we try the stem first since that
     // is what scripts use, then fall back to the friendly name.
-    const MapInfoRow* p = MapTables::Get().FindByName(szInxName);
+    const LegacyMapInfoRow* p = MapTables::Get().FindByName(szInxName);
     if (p) return (MapID)p->uiID;
     return 0;
 }

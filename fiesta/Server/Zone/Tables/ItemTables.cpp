@@ -162,7 +162,7 @@ void ItemTables::Bind() {
         BIND_BEGIN(t, "ItemUpgrade")
         m_kUpgrade.reserve(t->Rows().size());
         ITER_ROWS(t) {
-            ItemUpgradeRow rec;
+            LegacyItemUpgradeRow rec;
             rec.uiID        = ShnGetU32(*t, _r, "ID");
             rec.kUpgrade    = ShnGetStr(*t, _r, "Upgrade");
             rec.uiSucRate   = ShnGetU32(*t, _r, "SucRate");
@@ -179,7 +179,7 @@ void ItemTables::Bind() {
         BIND_BEGIN(t, "ItemAction")
         m_kActions.reserve(t->Rows().size());
         ITER_ROWS(t) {
-            ItemActionRow rec;
+            LegacyItemActionRow rec;
             rec.uiID        = ShnGetU32(*t, _r, "ID");
             rec.kAction     = ShnGetStr(*t, _r, "Action");
             rec.uiCondition = ShnGetU32(*t, _r, "Condition");
@@ -229,11 +229,11 @@ uint32 ItemTables::LootingMode(uint32 uiID) const {
     const ItemInfoServerRow* p = FindServer(uiID);
     return p ? p->uiLootingMode : 0;
 }
-const ItemUpgradeRow* ItemTables::FindUpgrade(uint32 uiID) const {
+const LegacyItemUpgradeRow* ItemTables::FindUpgrade(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kUpgradeById.find(uiID);
     return (it == m_kUpgradeById.end()) ? NULL : &m_kUpgrade[it->second];
 }
-const ItemActionRow* ItemTables::FindAction(uint32 uiID) const {
+const LegacyItemActionRow* ItemTables::FindAction(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kActionsById.find(uiID);
     return (it == m_kActionsById.end()) ? NULL : &m_kActions[it->second];
 }

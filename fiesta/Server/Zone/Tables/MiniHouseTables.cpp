@@ -10,7 +10,7 @@ MiniHouseTables& MiniHouseTables::Get() { static MiniHouseTables s; return s; }
 void MiniHouseTables::Bind() {
     if (const ShnFile* t = ShnRegistry::Get().GetTable("MiniHouse")) {
         ITER_ROWS(t) {
-            MiniHouseRow rec;
+            LegacyMiniHouseRow rec;
             rec.uiID            = ShnGetU32(*t, _r, "ID");
             rec.kInxName        = ShnGetStr(*t, _r, "InxName");
             rec.kName           = ShnGetStr(*t, _r, "Name");
@@ -32,7 +32,7 @@ void MiniHouseTables::Bind() {
         }
     }
 }
-const MiniHouseRow*     MiniHouseTables::Find    (uint32 uiID) const {
+const LegacyMiniHouseRow*     MiniHouseTables::Find    (uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kHouseById.find(uiID);
     return (it == m_kHouseById.end()) ? NULL : &m_kHouse[it->second]; }
 const MiniHouseFurnRow* MiniHouseTables::FindFurn(uint32 uiID) const {
@@ -43,7 +43,7 @@ GuildTables2& GuildTables2::Get() { static GuildTables2 s; return s; }
 void GuildTables2::Bind() {
     if (const ShnFile* t = ShnRegistry::Get().GetTable("GuildAcademy")) {
         ITER_ROWS(t) {
-            GuildAcademyRow rec;
+            LegacyGuildAcademyRow rec;
             rec.kBuffName        = ShnGetStr(*t, _r, "BuffName");
             rec.uiLeastJoinTime  = ShnGetU32(*t, _r, "LeastJoinTime");
             rec.uiRankAggregation= ShnGetU32(*t, _r, "RankAggregationTime");
@@ -52,7 +52,7 @@ void GuildTables2::Bind() {
     }
     if (const ShnFile* t = ShnRegistry::Get().GetTable("GuildGradeData")) {
         ITER_ROWS(t) {
-            GuildGradeDataRow rec;
+            LegacyGuildGradeDataRow rec;
             rec.uiGrade       = ShnGetU32(*t, _r, "Grade");
             rec.uiMaxMember   = ShnGetU32(*t, _r, "MaxMember");
             rec.uiStorageSlot = ShnGetU32(*t, _r, "StorageSlot");
@@ -72,7 +72,7 @@ void GuildTables2::Bind() {
     }
     if (const ShnFile* t = ShnRegistry::Get().GetTable("GuildTournamentReward")) {
         ITER_ROWS(t) {
-            GuildTournamentRewardRow rec;
+            LegacyGuildTournamentRewardRow rec;
             rec.uiRank = ShnGetU32(*t, _r, "Rank");
             rec.uiCoin = ShnGetU32(*t, _r, "Coin");
             rec.uiFame = ShnGetU32(*t, _r, "Fame");
@@ -81,13 +81,13 @@ void GuildTables2::Bind() {
         }
     }
 }
-const GuildGradeDataRow*        GuildTables2::FindGrade (uint32 uiG) const {
+const LegacyGuildGradeDataRow*        GuildTables2::FindGrade (uint32 uiG) const {
     std::map<uint32, size_t>::const_iterator it = m_kGradeById.find(uiG);
     return (it == m_kGradeById.end()) ? NULL : &m_kGrade[it->second]; }
 const GuildTournamentRow*       GuildTables2::FindGT    (uint32 uiN) const {
     std::map<uint32, size_t>::const_iterator it = m_kGTById.find(uiN);
     return (it == m_kGTById.end()) ? NULL : &m_kGT[it->second]; }
-const GuildTournamentRewardRow* GuildTables2::FindReward(uint32 uiR) const {
+const LegacyGuildTournamentRewardRow* GuildTables2::FindReward(uint32 uiR) const {
     std::map<uint32, size_t>::const_iterator it = m_kRewardByRank.find(uiR);
     return (it == m_kRewardByRank.end()) ? NULL : &m_kReward[it->second]; }
 

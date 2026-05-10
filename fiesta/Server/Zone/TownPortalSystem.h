@@ -25,7 +25,7 @@
 namespace fiesta {
 class ShinePlayer;
 
-struct TownPortalRow {
+struct LegacyTownPortalRow {
     uint8       uiIndex;        // unique within group, 0..N
     uint8       uiMinLevel;
     uint8       uiGroupNo;
@@ -47,7 +47,7 @@ public:
     // Build the destination list a player should see when they use a
     // group-`uiGroup` scroll. Filtered by MinLevel.
     void   BuildList(uint8 uiGroup, uint8 uiPlayerLv,
-                     std::vector<TownPortalRow>& rOut) const;
+                     std::vector<LegacyTownPortalRow>& rOut) const;
 
     // Player has picked uiIndex inside uiGroup. Validates and teleports.
     // Returns true on success. The scroll consumption is the caller's
@@ -58,7 +58,7 @@ public:
 
 private:
     TownPortalSystem() {}
-    std::vector<TownPortalRow> m_kRows;
+    std::vector<LegacyTownPortalRow> m_kRows;
 };
 
 } // namespace fiesta

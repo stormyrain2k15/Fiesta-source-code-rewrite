@@ -11,7 +11,7 @@
 
 namespace fiesta {
 
-struct ItemOptionsRow {
+struct LegacyItemOptionsRow {
     uint16 uiOptionDegree;
     std::string kType;
     uint16 aWeights[10];        // weights[0..9], cumulative sum precomputed
@@ -29,7 +29,7 @@ public:
 private:
     ItemOptionsTable() {}
     // key: (degree << 16) ^ stable hash of type
-    std::map<std::string, ItemOptionsRow> m_kRows;
+    std::map<std::string, LegacyItemOptionsRow> m_kRows;
     static std::string Key(uint16 d, const std::string& t);
 };
 

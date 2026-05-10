@@ -53,7 +53,7 @@ uint32 GambleSystem::ExchangeGoldToCoin(ShinePlayer* pk, uint64 uiGold,
                                         uint8 uiExchLv) const
 {
     if (!pk || uiGold == 0) return 0;
-    const GBHouseRow& h = GBHouseTable::Get().Row();
+    const LegacyGBHouseRow& h = GBHouseTable::Get().Row();
     uint32 rate = h.uiGameMoney ? h.uiGameMoney : 10;
     // Chips = floor(gold / rate). Cap by GBExchangeMaxCoin.
     uint64 chips = uiGold / rate;
@@ -71,7 +71,7 @@ uint32 GambleSystem::ExchangeGoldToCoin(ShinePlayer* pk, uint64 uiGold,
 
 uint64 GambleSystem::ExchangeCoinToGold(ShinePlayer* pk, uint32 uiChips) const {
     if (!pk || uiChips == 0) return 0;
-    const GBHouseRow& h = GBHouseTable::Get().Row();
+    const LegacyGBHouseRow& h = GBHouseTable::Get().Row();
     uint32 rate = h.uiGameMoney ? h.uiGameMoney : 10;
     uint64 gross = (uint64)uiChips * (uint64)rate;
     uint64 tax   = (gross * (uint64)h.uiExchangeTax) / 100ULL;
@@ -90,7 +90,7 @@ int32 GambleSystem::ResolveDice(ShinePlayer* pk, uint16 uiBowlItem,
                                 uint32 uiBet, uint8 uiTier) const
 {
     if (!pk) return 0;
-    const DiceGameRow* pkBowl = DiceGameTable::Get().FindByItem(uiBowlItem);
+    const LegacyDiceGameRow* pkBowl = DiceGameTable::Get().FindByItem(uiBowlItem);
     if (!pkBowl) {
         SHINELOG_WARN("Dice: bowl item %u unknown", uiBowlItem);
         return 0;
@@ -200,7 +200,7 @@ int32 GambleSystem::ResolveSlot(ShinePlayer* pk,
     uint16 ratioAll    = 0;
     bool   bIsJP       = false;
     {
-        const std::vector<GBSMAllRow>& a = GBSMAllTable::Get().Rows();
+        const std::vector<LegacyGBSMAllRow>& a = GBSMAllTable::Get().Rows();
         for (size_t i = 0; i < a.size(); ++i) {
             if (a[i].uiGroupID != matchGroup) continue;
             if (a[i].uiRatioAll > ratioAll) {
@@ -208,7 +208,7 @@ int32 GambleSystem::ResolveSlot(ShinePlayer* pk,
                 bIsJP    = (a[i].bIsJP != 0);
             }
         }
-        const std::vector<GBSMLineRow>& l = GBSMLineTable::Get().Rows();
+        const std::vector<LegacyGBSMLineRow>& l = GBSMLineTable::Get().Rows();
         for (size_t i = 0; i < l.size(); ++i) {
             if (l[i].uiGroupID != matchGroup) continue;
             if (l[i].uiRatioLine > ratioLine) ratioLine = l[i].uiRatioLine;

@@ -11,7 +11,7 @@ bool GBRewardTable::Bind() {
     const ShnFile* t = ShnRegistry::Get().GetTable("GBReward");
     if (!t) { SHINELOG_WARN("GBReward.shn missing"); return false; }
     for (size_t i = 0; i < t->Rows().size(); ++i) {
-        GBRewardRow r;
+        LegacyGBRewardRow r;
         r.uiGameType   = ShnGetU32(*t, i, "GameType");
         r.uiRewardType = ShnGetU32(*t, i, "RewardType");
         r.kItemInx     = ShnGetStr(*t, i, "Item_INX");
@@ -22,7 +22,7 @@ bool GBRewardTable::Bind() {
     return !m_kRows.empty();
 }
 void GBRewardTable::FindByGameType(uint32 uiGT,
-                                   std::vector<GBRewardRow>& rOut) const {
+                                   std::vector<LegacyGBRewardRow>& rOut) const {
     rOut.clear();
     for (size_t i = 0; i < m_kRows.size(); ++i)
         if (m_kRows[i].uiGameType == uiGT) rOut.push_back(m_kRows[i]);

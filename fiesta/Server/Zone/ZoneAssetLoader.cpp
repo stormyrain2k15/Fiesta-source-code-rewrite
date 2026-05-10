@@ -126,7 +126,7 @@ void CbBlockInfo(const std::string& rR, const std::string& rNoExt, const std::st
         if (LoadShbd(p, g)) {
             // Resolve the MapID from MapInfo.shn by the file's basename.
             // BlockInfo file names mirror Map.MapName (e.g. "Adl", "AdlF").
-            const MapInfoRow* pkM = MapTables::Get().FindByName(rNoExt);
+            const LegacyMapInfoRow* pkM = MapTables::Get().FindByName(rNoExt);
             if (pkM) {
                 Field* pkF = MapDataBox::Get().GetField((MapID)pkM->uiID);
                 if (pkF) {

@@ -10,7 +10,7 @@ KQTables& KQTables::Get() { static KQTables s; return s; }
 void KQTables::Bind() {
     if (const ShnFile* t = ShnRegistry::Get().GetTable("KingdomQuest")) {
         ITER_ROWS(t) {
-            KingdomQuestRow rec;
+            LegacyKingdomQuestRow rec;
             rec.uiID       = ShnGetU32(*t, _r, "ID");
             rec.kName      = ShnGetStr(*t, _r, "Name");
             rec.uiMinLevel = ShnGetU32(*t, _r, "MinLevel");
@@ -22,7 +22,7 @@ void KQTables::Bind() {
     }
     if (const ShnFile* t = ShnRegistry::Get().GetTable("KingdomQuestRew")) {
         ITER_ROWS(t) {
-            KingdomQuestRewRow rec;
+            LegacyKingdomQuestRewRow rec;
             rec.uiID    = ShnGetU32(*t, _r, "ID");
             rec.uiRank  = ShnGetU32(*t, _r, "Rank");
             rec.kReward = ShnGetStr(*t, _r, "Reward");
@@ -32,7 +32,7 @@ void KQTables::Bind() {
     }
     if (const ShnFile* t = ShnRegistry::Get().GetTable("KingdomQuestMap")) {
         ITER_ROWS(t) {
-            KingdomQuestMapRow rec;
+            LegacyKingdomQuestMapRow rec;
             rec.uiID     = ShnGetU32(*t, _r, "ID");
             rec.kMapName = ShnGetStr(*t, _r, "MapName");
             rec.uiX      = ShnGetU32(*t, _r, "X");
@@ -42,16 +42,16 @@ void KQTables::Bind() {
         }
     }
 }
-const KingdomQuestRow*    KQTables::FindKQ (uint32 uiID) const {
+const LegacyKingdomQuestRow*    KQTables::FindKQ (uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kKQById.find(uiID);
     return (it == m_kKQById.end()) ? NULL : &m_kKQ[it->second]; }
-const KingdomQuestRewRow* KQTables::FindRew(uint32 uiID, uint32 uiRank) const {
+const LegacyKingdomQuestRewRow* KQTables::FindRew(uint32 uiID, uint32 uiRank) const {
     for (size_t i = 0; i < m_kRew.size(); ++i)
         if (m_kRew[i].uiID == uiID && m_kRew[i].uiRank == uiRank)
             return &m_kRew[i];
     return NULL;
 }
-const KingdomQuestMapRow* KQTables::FindMap(uint32 uiID) const {
+const LegacyKingdomQuestMapRow* KQTables::FindMap(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kMapById.find(uiID);
     return (it == m_kMapById.end()) ? NULL : &m_kMap[it->second]; }
 

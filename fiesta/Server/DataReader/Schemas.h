@@ -394,7 +394,7 @@ public: ItemInfoServerTab() { ms_pkTable = this; }
 extern ItemInfoServerTab g_ItemInfoServerTab;
 
 // CharacterTitleData.shn  -- 16 fields
-struct CharacterTitleDataRow {
+struct LegacyCharacterTitleDataRow {
     uint32 Type;
     uint32 REMARK;
     char Title0[32];
@@ -412,11 +412,11 @@ struct CharacterTitleDataRow {
     uint32 Value3;
     uint32 Fame3;
 };
-class CharacterTitleDataTab : public ITableBase<CharacterTitleDataRow>, public IDataTable {
+class CharacterTitleDataTab : public ITableBase<LegacyCharacterTitleDataRow>, public IDataTable {
 public: CharacterTitleDataTab() { ms_pkTable = this; }
     virtual bool Load(DataReader& r);
-    virtual void BeforeTerminate() { ITableBase<CharacterTitleDataRow>::BeforeTerminate(); }
-    virtual uint32 GetTotal() const { return ITableBase<CharacterTitleDataRow>::GetTotal(); }
+    virtual void BeforeTerminate() { ITableBase<LegacyCharacterTitleDataRow>::BeforeTerminate(); }
+    virtual uint32 GetTotal() const { return ITableBase<LegacyCharacterTitleDataRow>::GetTotal(); }
     virtual const char* LogicalName() const { return "CharacterTitleData"; }
 };
 extern CharacterTitleDataTab g_CharacterTitleDataTab;

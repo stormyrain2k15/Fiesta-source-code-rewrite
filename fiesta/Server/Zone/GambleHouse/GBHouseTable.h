@@ -16,7 +16,7 @@
 
 namespace fiesta {
 
-struct GBHouseRow {
+struct LegacyGBHouseRow {
     uint32 uiGameMoney;     // gold cost per 1 chip (Lucky Coin)
     uint32 uiExchangeTax;   // % tax on coin->gold (per-100)
     uint8  uiResetH;
@@ -28,12 +28,12 @@ class GBHouseTable {
 public:
     static GBHouseTable& Get();
     bool                 Bind();
-    const GBHouseRow&    Row() const { return m_kRow; }
+    const LegacyGBHouseRow&    Row() const { return m_kRow; }
     bool                 IsLoaded() const { return m_bLoaded; }
 
 private:
     GBHouseTable();
-    GBHouseRow m_kRow;
+    LegacyGBHouseRow m_kRow;
     bool       m_bLoaded;
 };
 

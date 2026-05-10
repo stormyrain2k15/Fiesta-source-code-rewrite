@@ -62,7 +62,7 @@ size_t ShineNPCTable::SpawnAll() {
         if (r.kMobName.empty()) continue;
         ShineNPC* pkN = new ShineNPC();
         pkN->m_uiNpcId = s_uiNext++;
-        const MapInfoRow* pkM = MapTables::Get().FindByName(r.kMap);
+        const LegacyMapInfoRow* pkM = MapTables::Get().FindByName(r.kMap);
         Vec3 v((float)r.iCoordX, (float)r.iCoordY, 0.0f);
         pkN->SetMap(pkM ? (MapID)pkM->uiID : 0);
         pkN->SetPos(v);

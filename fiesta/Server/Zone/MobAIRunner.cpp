@@ -42,7 +42,7 @@ void MobAIRunner::Tick(uint64 uiNowMs) {
     if (bDecayThisTick) m_uiLastDecayMs = uiNowMs;
 
     // Iterate every Field. The set is small (number of zones this server hosts).
-    const std::vector<MapInfoRow>& maps = MapTables::Get().Maps();
+    const std::vector<LegacyMapInfoRow>& maps = MapTables::Get().Maps();
     for (size_t mi = 0; mi < maps.size(); ++mi) {
         Field* pkF = MapDataBox::Get().GetField((MapID)maps[mi].uiID);
         if (!pkF) continue;
