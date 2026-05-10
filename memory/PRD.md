@@ -309,3 +309,10 @@ for the per-subsystem audit notes.
 * `Build/gen_vcxproj.py` re-generates the 13-project VS2010 solution
   on every change. Wrote `Fiesta.sln` + `Gamebryo.props` + 13 vcxproj
   files. Toolset `v100`, `/MT`, MBCS, Win32.
+* DataReader project now ships **368 files (184 per-SHN .h/.cpp pairs)**
+  under `Server/DataReader/SHN/` plus the existing readers.
+* Zone project ships **36 files (17 engines + orchestrator)** under
+  `Server/Zone/Engines/` and **4 files** under `Server/Zone/World/`.
+* Engines load via a single `BindAllEngines(shineRoot)` call from
+  `Zone/Main.cpp`, running in parallel with the legacy `Bind*`
+  mega-binder chain until full migration.

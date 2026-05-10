@@ -8,6 +8,7 @@
     <Filter Include="Zone\CardCollection"><UniqueIdentifier>{C1443C39-ED9F-5FE9-A665-0A34820CF9B1}</UniqueIdentifier></Filter>
     <Filter Include="Zone\CharacterTitle"><UniqueIdentifier>{58952489-634E-5E9C-B979-5C4BAFCBF137}</UniqueIdentifier></Filter>
     <Filter Include="Zone\ChargedItem"><UniqueIdentifier>{E73E54FE-2508-5AB6-8371-80ECF511F4E7}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\Engines"><UniqueIdentifier>{6153E5FA-E21C-540A-9752-A389D3668EC3}</UniqueIdentifier></Filter>
     <Filter Include="Zone\FindWay"><UniqueIdentifier>{3AA49D24-BA3B-5B01-AB6D-33CD6E26AFC3}</UniqueIdentifier></Filter>
     <Filter Include="Zone\GambleHouse"><UniqueIdentifier>{EC81539F-BA2F-5ED6-BAA9-0D41D64446D3}</UniqueIdentifier></Filter>
     <Filter Include="Zone\GambleHouse\DiceTaiSai"><UniqueIdentifier>{1AB4DACA-B4C9-58D6-A897-0345034E6A88}</UniqueIdentifier></Filter>
@@ -20,6 +21,7 @@
     <Filter Include="Zone\Quest"><UniqueIdentifier>{5ACB90A7-C537-5382-BDCA-597030F56968}</UniqueIdentifier></Filter>
     <Filter Include="Zone\Tables"><UniqueIdentifier>{F39A94AD-9B51-5A0D-8A06-E2BB0A25FA10}</UniqueIdentifier></Filter>
     <Filter Include="Zone\WeaponTitle"><UniqueIdentifier>{FDDC13AB-4504-57F8-A162-8C9CFCEB06B4}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\World"><UniqueIdentifier>{B1B826A2-A304-5151-943A-F3440C83BB30}</UniqueIdentifier></Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Server\Zone\AIScript\AIScript.cpp"><Filter>Zone\AIScript</Filter></ClCompile>
@@ -85,6 +87,24 @@
     <ClCompile Include="..\Server\Zone\DivideBy1000.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\DropLocationManager.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\DropResolver.cpp"><Filter>Zone</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\AbStateEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\CharEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\CollectEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\EngineOrchestrator.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\GambleHouseEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\GuildEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\HouseEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\ItemEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\MapEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\MiscEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\MobEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\MountEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\NPCEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\PartyEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\PupEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\QuestEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\SkillEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\Engines\UpgradeEngine.cpp"><Filter>Zone\Engines</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\EquipSummaryBuilder.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\EstateSystem.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\ExpeditionSystem.cpp"><Filter>Zone</Filter></ClCompile>
@@ -403,6 +423,8 @@
     <ClCompile Include="..\Server\Zone\Wedding.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\WorldManagerSession.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\WorldTables.cpp"><Filter>Zone</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\World\DefaultCharacterData.cpp"><Filter>Zone\World</Filter></ClCompile>
+    <ClCompile Include="..\Server\Zone\World\TutorialCharacterData.cpp"><Filter>Zone\World</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\ZoneAssetLoader.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\ZoneHandlers.cpp"><Filter>Zone</Filter></ClCompile>
     <ClCompile Include="..\Server\Zone\ZoneServer.cpp"><Filter>Zone</Filter></ClCompile>
@@ -431,6 +453,24 @@
     <ClInclude Include="..\Server\Zone\CraftAndPet.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\DeathReviveSystem.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\DropResolver.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\AbStateEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\CharEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\CollectEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\EngineOrchestrator.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\GambleHouseEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\GuildEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\HouseEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\ItemEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\MapEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\MiscEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\MobEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\MountEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\NPCEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\PartyEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\PupEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\QuestEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\SkillEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\Engines\UpgradeEngine.h"><Filter>Zone\Engines</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\EquipSummaryBuilder.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\EstateSystem.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\ExpeditionSystem.h"><Filter>Zone</Filter></ClInclude>
@@ -522,6 +562,8 @@
     <ClInclude Include="..\Server\Zone\TypedSchemaConsumers.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\WMClient.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\WorldTables.h"><Filter>Zone</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\World\DefaultCharacterData.h"><Filter>Zone\World</Filter></ClInclude>
+    <ClInclude Include="..\Server\Zone\World\TutorialCharacterData.h"><Filter>Zone\World</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\ZoneAssetLoader.h"><Filter>Zone</Filter></ClInclude>
     <ClInclude Include="..\Server\Zone\ZoneServer.h"><Filter>Zone</Filter></ClInclude>
   </ItemGroup>

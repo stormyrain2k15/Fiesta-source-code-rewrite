@@ -40,11 +40,11 @@ void BindAllGroupTables() {
     PupTables::Get()         .Bind();
     MountTables::Get()       .Bind();
     MiniHouseTables::Get()   .Bind();
-    // GuildTables2 -- declared in GroupTables.h but no Bind() body
-    // exists anywhere in the source tree. Skipped to avoid an
-    // unresolved-symbol link error. If a future GuildTables2 binder
-    // is added (likely under /Tables/GuildTables2.cpp), wire it in
-    // here.
+    // GuildTables2 binder body lives in Tables/MiniHouseTables.cpp
+    // (it consumes GuildAcademy / GuildGradeData / GuildTournament[Reward]
+    // shns). Wire it here so the academy/tournament/grade tables actually
+    // populate at boot.
+    GuildTables2::Get()      .Bind();
     CollectTables::Get()     .Bind();
     GradeRandomTables::Get() .Bind();
     KQTables::Get()          .Bind();

@@ -28,6 +28,28 @@ BOOT_FILES = [
     "Server/Zone/TypedSchemaConsumers.cpp",
     "Server/Zone/ChargedEffect.cpp",
     "Server/Zone/GambleHouse/GambleSystem.cpp",  # BindAllCasinoTables
+    # Engine split (Shine_engine_split-2): every per-SHN class is loaded
+    # transitively via its owning engine's Bind() method, which is itself
+    # called from BindAllEngines() in Main.cpp. Treat all engine .cpp
+    # files as boot-source so the audit follows the chain.
+    "Server/Zone/Engines/AbStateEngine.cpp",
+    "Server/Zone/Engines/CharEngine.cpp",
+    "Server/Zone/Engines/CollectEngine.cpp",
+    "Server/Zone/Engines/EngineOrchestrator.cpp",
+    "Server/Zone/Engines/GambleHouseEngine.cpp",
+    "Server/Zone/Engines/GuildEngine.cpp",
+    "Server/Zone/Engines/HouseEngine.cpp",
+    "Server/Zone/Engines/ItemEngine.cpp",
+    "Server/Zone/Engines/MapEngine.cpp",
+    "Server/Zone/Engines/MiscEngine.cpp",
+    "Server/Zone/Engines/MobEngine.cpp",
+    "Server/Zone/Engines/MountEngine.cpp",
+    "Server/Zone/Engines/NPCEngine.cpp",
+    "Server/Zone/Engines/PartyEngine.cpp",
+    "Server/Zone/Engines/PupEngine.cpp",
+    "Server/Zone/Engines/QuestEngine.cpp",
+    "Server/Zone/Engines/SkillEngine.cpp",
+    "Server/Zone/Engines/UpgradeEngine.cpp",
     "Server/WorldManager/Main.cpp",
     "Server/Login/Main.cpp",
     "Server/DataReader/DataBox.cpp",

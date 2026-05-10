@@ -220,3 +220,72 @@ MoreTables.cpp  551 -> 550 lines (still has 6 binders).
 ### Static audits still PASS after split #2
 - 201/201 server-side SHN coverage.
 - 0 unwired Load/Bind orphans.
+
+## 2026-02-XX (later) -- Shine_engine_split-2 patch applied (sprint #3)
+
+User-supplied patch `Shine_engine_split-2.zip` finalises the per-SHN /
+per-TXT split convention with auto-generated, per-file binders. Per
+explicit user instruction, **no existing files were overwritten** --
+only missing files were dropped in, and the legacy Bind* chain was
+left intact to coexist with the new engine layer.
+
+### New files dropped in
+- `Server/DataReader/SHN/`        368 files (184 SHN classes, one .h+.cpp each)
+- `Server/Zone/Engines/`          36 files (17 engines + EngineOrchestrator + headers)
+- `Server/Zone/World/`            4 files (DefaultCharacterData + TutorialCharacterData,
+                                  the two root TXTs co-located with the SHNs)
+
+### Wiring change (only edit to existing files)
+`Server/Zone/Main.cpp`:
+- `#include "Engines/EngineOrchestrator.h"` added.
+- `BindAllEngines(shineRoot);` call added immediately after the legacy
+  `BindAllExtendedTables();` call. Both chains run -- engines populate
+  the new `*Shn` ledgers, legacy chain populates the old `*Tables`
+  ledgers. Parallel coexistence until full migration.
+
+### Patch defects fixed in-place
+1. `ClassName.h/.cpp` -- auto-generator missed `FindById(uint32)`.
+   Added the lookup index + accessor (CharEngine.cpp depends on it).
+2. `CharEngine.cpp` -- referenced non-existent `kName` field on
+   `ClassNameRow`; replaced with `kAcEngName` (the canonical English
+   class name column from ClassName.shn).
+3. `CharEngine.cpp` -- iterated `JobEquipInfoRow` with non-existent
+   `uiClass` and `kItemInx`; rewritten to use the real schema
+   (`uiChrClass` + 7 fixed slot fields: kEqu_RightHand / LeftHand /
+   Shoes / Head / Leg / Body / ETC).
+4. `MiscEngine.{h,cpp}` -- patch forgot to wire `ActionViewInfoShn`.
+   Added Bind() call and accessor.
+5. `GroupTables.cpp` -- pre-existing skip of `GuildTables2::Bind()`
+   ("body not implemented" comment) is now stale -- the body lives
+   in `Tables/MiniHouseTables.cpp:43`. Wired the call so GuildAcademy
+   / GuildGradeData / GuildTournament[Reward] populate at boot.
+
+### Audit script update
+`Build/CI/audit_unwired_loads.py` -- added all 18 engine .cpp files
+to BOOT_FILES so per-SHN `Load()` calls reached transitively through
+their owning engine's `Bind()` are recognised as wired.
+
+### Static audits PASS post-patch
+- audit_unwired_loads.py: OK (every Load/Bind has a boot path)
+- audit_shn_wiring.py:    PASS, 201/201 server-side SHN coverage
+- audit_shn_columns.py:   1774 columns audited, 71 RED (4.0%)
+                          across 6 tables (legacy MobInfoServer 32/49,
+                          ActiveSkill 31/96 lead the gap list)
+
+### Build artefacts
+`Build/gen_vcxproj.py` re-run; new file counts:
+- DataReader: 198 cpp / 199 h (was ~14 before patch)
+- Zone:       405 cpp / 135 h (was ~270 before patch)
+
+### Known structural risk (deliberate per user)
+36 `*Row` struct names exist in both the legacy `GroupTables.h` and
+the new `DataReader/SHN/*.h` -- with **different field definitions**.
+They live in disjoint translation units (legacy TU includes legacy
+headers only; engine TU includes new SHN headers only) so the build
+links fine, but this is structural duplication that must be resolved
+before the legacy Bind* chain is retired. Prune sequence:
+1. Migrate every consumer of a legacy `*Row` to the new `*Shn` API.
+2. Drop the legacy struct from `GroupTables.h`.
+3. Drop the legacy `Bind` call from `GroupTables.cpp`.
+4. Eventually drop the entire legacy mega-binder file.
+

@@ -27,6 +27,12 @@
 #include "MoreTables.h"
 #include "ExtendedTables.h"
 #include "TypedSchemaConsumers.h"
+// Engine split (Shine_engine_split-2): one orchestrator binds 17
+// per-SHN engines (AbState/Char/Collect/GambleHouse/Guild/House/Item/
+// Map/Misc/Mob/Mount/NPC/Party/Pup/Quest/Skill/Upgrade). Coexists with
+// the legacy Bind*GroupTables/Misc/More/Extended chain; eventual goal
+// is to retire the legacy chain once parity is confirmed.
+#include "Engines/EngineOrchestrator.h"
 #include "EstateSystem.h"
 #include "ExpeditionSystem.h"
 #include "WorldTables.h"
@@ -96,6 +102,11 @@ public:
         BindAllMiscTables();
         BindAllMoreTables();
         BindAllExtendedTables();
+        // Engine split: 17 per-SHN engines (one .cpp/.h per shn). Runs
+        // after the legacy Bind* chain so any engine that depends on
+        // a typed accessor still resolves; the engines themselves only
+        // call ShnRegistry-driven Load() per row, no cross-deps.
+        BindAllEngines(shineRoot);
         // had no runtime reader: ItemActionEffect / ItemActionCondition /
         // CharacterTitleData / ActionRangeFactor / GTIServer / StateField /
         // MIDungeon+MIDServer / SubAbState.

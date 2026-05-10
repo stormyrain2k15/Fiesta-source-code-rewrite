@@ -1,0 +1,172 @@
+// Server/DataReader/SHN/DamageLvGapPVP.cpp
+// Auto-generated: one-file-per-SHN split for DamageLvGapPVP.shn
+#include "DamageLvGapPVP.h"
+#include "../../Shared/ShineLogSystem.h"
+
+namespace fiesta {
+
+DamageLvGapPVPShn& DamageLvGapPVPShn::Get() { static DamageLvGapPVPShn s; return s; }
+
+void DamageLvGapPVPShn::Load() {
+    const ShnFile* t = ShnRegistry::Get().GetTable("DamageLvGapPVP");
+    if (!t) { SHINELOG_WARN("DamageLvGapPVP.shn missing"); return; }
+    m_kRows.reserve(t->Rows().size());
+    for (size_t _r = 0; _r < t->Rows().size(); ++_r) {
+        DamageLvGapPVPRow rec;
+        rec.uiMyLv = (uint8)ShnGetU32(*t, _r, "MyLv");
+        rec.uiTargetLv1 = (uint16)ShnGetU32(*t, _r, "TargetLv1");
+        rec.uiTargetLv2 = (uint16)ShnGetU32(*t, _r, "TargetLv2");
+        rec.uiTargetLv3 = (uint16)ShnGetU32(*t, _r, "TargetLv3");
+        rec.uiTargetLv4 = (uint16)ShnGetU32(*t, _r, "TargetLv4");
+        rec.uiTargetLv5 = (uint16)ShnGetU32(*t, _r, "TargetLv5");
+        rec.uiTargetLv6 = (uint16)ShnGetU32(*t, _r, "TargetLv6");
+        rec.uiTargetLv7 = (uint16)ShnGetU32(*t, _r, "TargetLv7");
+        rec.uiTargetLv8 = (uint16)ShnGetU32(*t, _r, "TargetLv8");
+        rec.uiTargetLv9 = (uint16)ShnGetU32(*t, _r, "TargetLv9");
+        rec.uiTargetLv10 = (uint16)ShnGetU32(*t, _r, "TargetLv10");
+        rec.uiTargetLv11 = (uint16)ShnGetU32(*t, _r, "TargetLv11");
+        rec.uiTargetLv12 = (uint16)ShnGetU32(*t, _r, "TargetLv12");
+        rec.uiTargetLv13 = (uint16)ShnGetU32(*t, _r, "TargetLv13");
+        rec.uiTargetLv14 = (uint16)ShnGetU32(*t, _r, "TargetLv14");
+        rec.uiTargetLv15 = (uint16)ShnGetU32(*t, _r, "TargetLv15");
+        rec.uiTargetLv16 = (uint16)ShnGetU32(*t, _r, "TargetLv16");
+        rec.uiTargetLv17 = (uint16)ShnGetU32(*t, _r, "TargetLv17");
+        rec.uiTargetLv18 = (uint16)ShnGetU32(*t, _r, "TargetLv18");
+        rec.uiTargetLv19 = (uint16)ShnGetU32(*t, _r, "TargetLv19");
+        rec.uiTargetLv20 = (uint16)ShnGetU32(*t, _r, "TargetLv20");
+        rec.uiTargetLv21 = (uint16)ShnGetU32(*t, _r, "TargetLv21");
+        rec.uiTargetLv22 = (uint16)ShnGetU32(*t, _r, "TargetLv22");
+        rec.uiTargetLv23 = (uint16)ShnGetU32(*t, _r, "TargetLv23");
+        rec.uiTargetLv24 = (uint16)ShnGetU32(*t, _r, "TargetLv24");
+        rec.uiTargetLv25 = (uint16)ShnGetU32(*t, _r, "TargetLv25");
+        rec.uiTargetLv26 = (uint16)ShnGetU32(*t, _r, "TargetLv26");
+        rec.uiTargetLv27 = (uint16)ShnGetU32(*t, _r, "TargetLv27");
+        rec.uiTargetLv28 = (uint16)ShnGetU32(*t, _r, "TargetLv28");
+        rec.uiTargetLv29 = (uint16)ShnGetU32(*t, _r, "TargetLv29");
+        rec.uiTargetLv30 = (uint16)ShnGetU32(*t, _r, "TargetLv30");
+        rec.uiTargetLv31 = (uint16)ShnGetU32(*t, _r, "TargetLv31");
+        rec.uiTargetLv32 = (uint16)ShnGetU32(*t, _r, "TargetLv32");
+        rec.uiTargetLv33 = (uint16)ShnGetU32(*t, _r, "TargetLv33");
+        rec.uiTargetLv34 = (uint16)ShnGetU32(*t, _r, "TargetLv34");
+        rec.uiTargetLv35 = (uint16)ShnGetU32(*t, _r, "TargetLv35");
+        rec.uiTargetLv36 = (uint16)ShnGetU32(*t, _r, "TargetLv36");
+        rec.uiTargetLv37 = (uint16)ShnGetU32(*t, _r, "TargetLv37");
+        rec.uiTargetLv38 = (uint16)ShnGetU32(*t, _r, "TargetLv38");
+        rec.uiTargetLv39 = (uint16)ShnGetU32(*t, _r, "TargetLv39");
+        rec.uiTargetLv40 = (uint16)ShnGetU32(*t, _r, "TargetLv40");
+        rec.uiTargetLv41 = (uint16)ShnGetU32(*t, _r, "TargetLv41");
+        rec.uiTargetLv42 = (uint16)ShnGetU32(*t, _r, "TargetLv42");
+        rec.uiTargetLv43 = (uint16)ShnGetU32(*t, _r, "TargetLv43");
+        rec.uiTargetLv44 = (uint16)ShnGetU32(*t, _r, "TargetLv44");
+        rec.uiTargetLv45 = (uint16)ShnGetU32(*t, _r, "TargetLv45");
+        rec.uiTargetLv46 = (uint16)ShnGetU32(*t, _r, "TargetLv46");
+        rec.uiTargetLv47 = (uint16)ShnGetU32(*t, _r, "TargetLv47");
+        rec.uiTargetLv48 = (uint16)ShnGetU32(*t, _r, "TargetLv48");
+        rec.uiTargetLv49 = (uint16)ShnGetU32(*t, _r, "TargetLv49");
+        rec.uiTargetLv50 = (uint16)ShnGetU32(*t, _r, "TargetLv50");
+        rec.uiTargetLv51 = (uint16)ShnGetU32(*t, _r, "TargetLv51");
+        rec.uiTargetLv52 = (uint16)ShnGetU32(*t, _r, "TargetLv52");
+        rec.uiTargetLv53 = (uint16)ShnGetU32(*t, _r, "TargetLv53");
+        rec.uiTargetLv54 = (uint16)ShnGetU32(*t, _r, "TargetLv54");
+        rec.uiTargetLv55 = (uint16)ShnGetU32(*t, _r, "TargetLv55");
+        rec.uiTargetLv56 = (uint16)ShnGetU32(*t, _r, "TargetLv56");
+        rec.uiTargetLv57 = (uint16)ShnGetU32(*t, _r, "TargetLv57");
+        rec.uiTargetLv58 = (uint16)ShnGetU32(*t, _r, "TargetLv58");
+        rec.uiTargetLv59 = (uint16)ShnGetU32(*t, _r, "TargetLv59");
+        rec.uiTargetLv60 = (uint16)ShnGetU32(*t, _r, "TargetLv60");
+        rec.uiTargetLv61 = (uint16)ShnGetU32(*t, _r, "TargetLv61");
+        rec.uiTargetLv62 = (uint16)ShnGetU32(*t, _r, "TargetLv62");
+        rec.uiTargetLv63 = (uint16)ShnGetU32(*t, _r, "TargetLv63");
+        rec.uiTargetLv64 = (uint16)ShnGetU32(*t, _r, "TargetLv64");
+        rec.uiTargetLv65 = (uint16)ShnGetU32(*t, _r, "TargetLv65");
+        rec.uiTargetLv66 = (uint16)ShnGetU32(*t, _r, "TargetLv66");
+        rec.uiTargetLv67 = (uint16)ShnGetU32(*t, _r, "TargetLv67");
+        rec.uiTargetLv68 = (uint16)ShnGetU32(*t, _r, "TargetLv68");
+        rec.uiTargetLv69 = (uint16)ShnGetU32(*t, _r, "TargetLv69");
+        rec.uiTargetLv70 = (uint16)ShnGetU32(*t, _r, "TargetLv70");
+        rec.uiTargetLv71 = (uint16)ShnGetU32(*t, _r, "TargetLv71");
+        rec.uiTargetLv72 = (uint16)ShnGetU32(*t, _r, "TargetLv72");
+        rec.uiTargetLv73 = (uint16)ShnGetU32(*t, _r, "TargetLv73");
+        rec.uiTargetLv74 = (uint16)ShnGetU32(*t, _r, "TargetLv74");
+        rec.uiTargetLv75 = (uint16)ShnGetU32(*t, _r, "TargetLv75");
+        rec.uiTargetLv76 = (uint16)ShnGetU32(*t, _r, "TargetLv76");
+        rec.uiTargetLv77 = (uint16)ShnGetU32(*t, _r, "TargetLv77");
+        rec.uiTargetLv78 = (uint16)ShnGetU32(*t, _r, "TargetLv78");
+        rec.uiTargetLv79 = (uint16)ShnGetU32(*t, _r, "TargetLv79");
+        rec.uiTargetLv80 = (uint16)ShnGetU32(*t, _r, "TargetLv80");
+        rec.uiTargetLv81 = (uint16)ShnGetU32(*t, _r, "TargetLv81");
+        rec.uiTargetLv82 = (uint16)ShnGetU32(*t, _r, "TargetLv82");
+        rec.uiTargetLv83 = (uint16)ShnGetU32(*t, _r, "TargetLv83");
+        rec.uiTargetLv84 = (uint16)ShnGetU32(*t, _r, "TargetLv84");
+        rec.uiTargetLv85 = (uint16)ShnGetU32(*t, _r, "TargetLv85");
+        rec.uiTargetLv86 = (uint16)ShnGetU32(*t, _r, "TargetLv86");
+        rec.uiTargetLv87 = (uint16)ShnGetU32(*t, _r, "TargetLv87");
+        rec.uiTargetLv88 = (uint16)ShnGetU32(*t, _r, "TargetLv88");
+        rec.uiTargetLv89 = (uint16)ShnGetU32(*t, _r, "TargetLv89");
+        rec.uiTargetLv90 = (uint16)ShnGetU32(*t, _r, "TargetLv90");
+        rec.uiTargetLv91 = (uint16)ShnGetU32(*t, _r, "TargetLv91");
+        rec.uiTargetLv92 = (uint16)ShnGetU32(*t, _r, "TargetLv92");
+        rec.uiTargetLv93 = (uint16)ShnGetU32(*t, _r, "TargetLv93");
+        rec.uiTargetLv94 = (uint16)ShnGetU32(*t, _r, "TargetLv94");
+        rec.uiTargetLv95 = (uint16)ShnGetU32(*t, _r, "TargetLv95");
+        rec.uiTargetLv96 = (uint16)ShnGetU32(*t, _r, "TargetLv96");
+        rec.uiTargetLv97 = (uint16)ShnGetU32(*t, _r, "TargetLv97");
+        rec.uiTargetLv98 = (uint16)ShnGetU32(*t, _r, "TargetLv98");
+        rec.uiTargetLv99 = (uint16)ShnGetU32(*t, _r, "TargetLv99");
+        rec.uiTargetLv100 = (uint16)ShnGetU32(*t, _r, "TargetLv100");
+        rec.uiTargetLv101 = (uint16)ShnGetU32(*t, _r, "TargetLv101");
+        rec.uiTargetLv102 = (uint16)ShnGetU32(*t, _r, "TargetLv102");
+        rec.uiTargetLv103 = (uint16)ShnGetU32(*t, _r, "TargetLv103");
+        rec.uiTargetLv104 = (uint16)ShnGetU32(*t, _r, "TargetLv104");
+        rec.uiTargetLv105 = (uint16)ShnGetU32(*t, _r, "TargetLv105");
+        rec.uiTargetLv106 = (uint16)ShnGetU32(*t, _r, "TargetLv106");
+        rec.uiTargetLv107 = (uint16)ShnGetU32(*t, _r, "TargetLv107");
+        rec.uiTargetLv108 = (uint16)ShnGetU32(*t, _r, "TargetLv108");
+        rec.uiTargetLv109 = (uint16)ShnGetU32(*t, _r, "TargetLv109");
+        rec.uiTargetLv110 = (uint16)ShnGetU32(*t, _r, "TargetLv110");
+        rec.uiTargetLv111 = (uint16)ShnGetU32(*t, _r, "TargetLv111");
+        rec.uiTargetLv112 = (uint16)ShnGetU32(*t, _r, "TargetLv112");
+        rec.uiTargetLv113 = (uint16)ShnGetU32(*t, _r, "TargetLv113");
+        rec.uiTargetLv114 = (uint16)ShnGetU32(*t, _r, "TargetLv114");
+        rec.uiTargetLv115 = (uint16)ShnGetU32(*t, _r, "TargetLv115");
+        rec.uiTargetLv116 = (uint16)ShnGetU32(*t, _r, "TargetLv116");
+        rec.uiTargetLv117 = (uint16)ShnGetU32(*t, _r, "TargetLv117");
+        rec.uiTargetLv118 = (uint16)ShnGetU32(*t, _r, "TargetLv118");
+        rec.uiTargetLv119 = (uint16)ShnGetU32(*t, _r, "TargetLv119");
+        rec.uiTargetLv120 = (uint16)ShnGetU32(*t, _r, "TargetLv120");
+        rec.uiTargetLv121 = (uint16)ShnGetU32(*t, _r, "TargetLv121");
+        rec.uiTargetLv122 = (uint16)ShnGetU32(*t, _r, "TargetLv122");
+        rec.uiTargetLv123 = (uint16)ShnGetU32(*t, _r, "TargetLv123");
+        rec.uiTargetLv124 = (uint16)ShnGetU32(*t, _r, "TargetLv124");
+        rec.uiTargetLv125 = (uint16)ShnGetU32(*t, _r, "TargetLv125");
+        rec.uiTargetLv126 = (uint16)ShnGetU32(*t, _r, "TargetLv126");
+        rec.uiTargetLv127 = (uint16)ShnGetU32(*t, _r, "TargetLv127");
+        rec.uiTargetLv128 = (uint16)ShnGetU32(*t, _r, "TargetLv128");
+        rec.uiTargetLv129 = (uint16)ShnGetU32(*t, _r, "TargetLv129");
+        rec.uiTargetLv130 = (uint16)ShnGetU32(*t, _r, "TargetLv130");
+        rec.uiTargetLv131 = (uint16)ShnGetU32(*t, _r, "TargetLv131");
+        rec.uiTargetLv132 = (uint16)ShnGetU32(*t, _r, "TargetLv132");
+        rec.uiTargetLv133 = (uint16)ShnGetU32(*t, _r, "TargetLv133");
+        rec.uiTargetLv134 = (uint16)ShnGetU32(*t, _r, "TargetLv134");
+        rec.uiTargetLv135 = (uint16)ShnGetU32(*t, _r, "TargetLv135");
+        rec.uiTargetLv136 = (uint16)ShnGetU32(*t, _r, "TargetLv136");
+        rec.uiTargetLv137 = (uint16)ShnGetU32(*t, _r, "TargetLv137");
+        rec.uiTargetLv138 = (uint16)ShnGetU32(*t, _r, "TargetLv138");
+        rec.uiTargetLv139 = (uint16)ShnGetU32(*t, _r, "TargetLv139");
+        rec.uiTargetLv140 = (uint16)ShnGetU32(*t, _r, "TargetLv140");
+        rec.uiTargetLv141 = (uint16)ShnGetU32(*t, _r, "TargetLv141");
+        rec.uiTargetLv142 = (uint16)ShnGetU32(*t, _r, "TargetLv142");
+        rec.uiTargetLv143 = (uint16)ShnGetU32(*t, _r, "TargetLv143");
+        rec.uiTargetLv144 = (uint16)ShnGetU32(*t, _r, "TargetLv144");
+        rec.uiTargetLv145 = (uint16)ShnGetU32(*t, _r, "TargetLv145");
+        rec.uiTargetLv146 = (uint16)ShnGetU32(*t, _r, "TargetLv146");
+        rec.uiTargetLv147 = (uint16)ShnGetU32(*t, _r, "TargetLv147");
+        rec.uiTargetLv148 = (uint16)ShnGetU32(*t, _r, "TargetLv148");
+        rec.uiTargetLv149 = (uint16)ShnGetU32(*t, _r, "TargetLv149");
+        rec.uiTargetLv150 = (uint16)ShnGetU32(*t, _r, "TargetLv150");
+        m_kRows.push_back(rec);
+    }
+    SHINELOG_INFO("DamageLvGapPVP.shn: %u rows", (uint32)m_kRows.size());
+}
+
+} // namespace fiesta
