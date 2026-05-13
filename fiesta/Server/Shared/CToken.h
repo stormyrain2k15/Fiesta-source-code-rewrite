@@ -1,10 +1,10 @@
 // Server/Shared/CToken.h
 // Login -> WM transfer token. 16-byte secret + tagged user/account/world.
-#ifndef FIESTA_CTOKEN_H
-#define FIESTA_CTOKEN_H
+#ifndef SHINE_CTOKEN_H
+#define SHINE_CTOKEN_H
 #include "ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class CToken {
 public:
@@ -24,5 +24,5 @@ private:
     uint64    m_uiIssuedMs;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -1,7 +1,7 @@
 // Server/Zone/Engines/QuestEngine.h
 // Auto-generated: QuestEngine — aggregates 11 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_QUESTENGINE_H
-#define FIESTA_ZONE_ENGINES_QUESTENGINE_H
+#ifndef SHINE_ZONE_ENGINES_QUESTENGINE_H
+#define SHINE_ZONE_ENGINES_QUESTENGINE_H
 #include "../../DataReader/SHN/KQIsVote.h"
 #include "../../DataReader/SHN/KQItem.h"
 #include "../../DataReader/SHN/KQTeam.h"
@@ -16,7 +16,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class QuestEngine {
 public:
@@ -40,5 +40,5 @@ private:
     QuestEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_QUESTENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_QUESTENGINE_H

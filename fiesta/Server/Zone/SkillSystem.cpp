@@ -26,7 +26,7 @@
 #include "../DataReader/Tables.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 // -------- CharacterSkill --------
 bool CharacterSkill::Has(SkillID s) const { return m_kKnown.find(s) != m_kKnown.end(); }
@@ -274,4 +274,4 @@ int32 MultiHitTable::Resolve(SkillID s) {
     return n > 0 ? n : 1;
 }
 
-} // namespace fiesta
+} // namespace shine

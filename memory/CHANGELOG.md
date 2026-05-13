@@ -465,3 +465,85 @@ main = automatic VS2010-compat verification.
    `SkipLogin=1` connects direct to ZoneIP / ZonePort (phase-1 bypass).
 
 
+## 2026-02-XX (later) -- client bootstrap v3 + full Fiesta -> Shine rebrand
+
+### Patch (Shine_client_bootstrap-3.zip) applied in full
+Major client architecture overhaul. The patch replaces the
+ClientApp-centric coordinator with a `ShineFrameWork` manager that
+owns three independent frameworks:
+- `AccountFrameWork`  -- login/WM/zone auth state machine
+- `CharSelectFrameWork` -- char list + create/delete UI
+- `GameFrameWork`     -- in-world gameplay loop
+
+ClientApp.{h,cpp} is now a thin "session bootstrapper" handed off to
+the framework manager. New subsystems added:
+- `Client/Framework/`   -- 8 files (4 frameworks + IDs/msg-bus)
+- `Client/Input/`       -- KeyMap (server-sourced server keymap),
+                            ShineInput (camera/move integration)
+- `Client/Sound/`       -- ShineSoundMgr (Miles wrapper, BGM/sfx, mute)
+- `Client/World/`       -- WorldObjectMgr (npc/mob/player NiNode pool)
+- `Client/UI/`          -- ShineUI (window-stack), ShineHotbar,
+                            CharSelectUI, UILayout, ShineHUD (kept)
+- `Client/Network/WMSession.{h,cpp}` -- new WorldManager phase
+- `Client/Engine/`      -- adds ShineLighting + ShineRenderer
+- `Client/ResSystem/CharacterLoader.{h,cpp}` -- .nif loader
+
+Total client now: **66 source files** (was 32 after bootstrap-1).
+
+### VS2010-compat defects fixed in the new patch (mirrors the v1 fix pattern)
+| File                                    | Fix                                                              |
+|----------------------------------------|-----------------------------------------------------------------|
+| `Client/Engine/ShineApp.h/.cpp`        | `<atomic>` + 3 `std::atomic<bool>` -> `volatile LONG` + InterlockedExchange |
+| `Client/Engine/ShineApp.cpp`           | 3 lambdas in PumpPendingEvents (CharSelectUI callbacks) -> static thunks |
+| `Client/Framework/AccountFrameWork.cpp`| 7 lambdas + class-scope leak (Route* defined outside namespace) -> rewritten with thunks |
+| `Client/Framework/GameFrameWork.cpp`   | `std::to_string(rPlayer.uiMapId)` -> `sprintf_s`                |
+| `Client/Network/LoginSession.{h,cpp}`  | `<functional>` + `std::function<>` typedefs -> C fn ptrs + `void* ctx` |
+| `Client/Network/WMSession.{h,cpp}`     | same as LoginSession                                            |
+| `Client/Network/ZoneSession.{h,cpp}`   | same as LoginSession                                            |
+| `Client/UI/CharSelectUI.{h,cpp}`       | same as LoginSession + `pop_back()` (C++11 std::string) -> `erase(size-1, 1)` |
+
+`audit_client_compat.py` now passes cleanly on the patched tree.
+
+### Brand rename: Fiesta -> Shine across the entire source tree
+Driver: `/tmp/rebrand_fiesta_to_shine.py`. Three case-aware substitutions:
+- `Fiesta` -> `Shine`        (85 occurrences)
+- `fiesta` -> `shine`        (2,158 occurrences)
+- `FIESTA` -> `SHINE`        (946 occurrences)
+
+Total: **3,189 substitutions across 1,117 files** (out of 1,145 scanned).
+
+Substring-aware (no word boundary) so the rename also catches:
+- `namespace fiesta` -> `namespace shine`
+- `FIESTA_DATAREADER_SHN_X_H` include guards -> `SHINE_DATAREADER_SHN_X_H`
+- `cFiestaXYZ` identifiers (if any) -> `cShineXYZ`
+- comments / log messages / README references
+
+Exclusions:
+- `ThirdParty/`        (vendored Gamebryo SDK, read-only)
+- `.git/`, `.emergent/`
+- Binary artifacts (no extensions in the rebrand list)
+
+Side effects handled:
+- `Build/Fiesta.sln` removed; `gen_vcxproj.py` (now rebranded) emits
+  `Build/Shine.sln`. The 14 vcxproj GUIDs are deterministic-from-name
+  so they stayed stable.
+- Workspace directory `/app/fiesta/` is **NOT** renamed -- it's a
+  filesystem path inside the dev container, not source code. The CI
+  workflow uses `working-directory: fiesta` which is a checkout
+  convention; user can rename the GitHub repo separately if desired.
+
+Verification (post-rebrand):
+- `namespace shine` files: 1,088
+- `namespace fiesta` files: 0
+- `shine::` qualified refs: 15 (cross-namespace lookups)
+- `fiesta::` qualified refs: 0
+
+### All 4 audits PASS post-patch + post-rebrand
+- `audit_unwired_loads.py`  -- OK
+- `audit_shn_wiring.py`     -- PASS, 201/201 server-side SHN coverage
+- `audit_shn_columns.py`    -- 1,774 columns audited, 71 RED (unchanged)
+- `audit_client_compat.py`  -- OK, client tree VS2010-clean
+- `gen_vcxproj.py`          -- 14 projects regenerated, emits `Shine.sln`,
+                               Client: 32 cpp / 31 h / 1 rc
+
+

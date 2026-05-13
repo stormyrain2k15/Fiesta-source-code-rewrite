@@ -11,11 +11,11 @@
 //   * Send() is a thin pass-through to IOCPSession::SendPacket so call sites
 //     don't have to keep their own pointer to the session.
 //   * Close() tears down the session; the next Connect() re-opens.
-#ifndef FIESTA_SOCKET_CONNECTOR_H
-#define FIESTA_SOCKET_CONNECTOR_H
+#ifndef SHINE_SOCKET_CONNECTOR_H
+#define SHINE_SOCKET_CONNECTOR_H
 #include "Socket_Acceptor.h"
 
-namespace fiesta {
+namespace shine {
 
 class IOCPManager;
 
@@ -41,5 +41,5 @@ private:
     IOCPSession* m_pkSession;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

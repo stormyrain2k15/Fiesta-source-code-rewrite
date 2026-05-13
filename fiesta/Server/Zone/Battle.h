@@ -2,12 +2,12 @@
 // normal/skill attacks, RuleOfEngagement dispatch, damage pipeline host.
 //                                   DamageByAngle, DamageBySoul,
 //                                   LevelGapDamageTable, CalcDamage.
-#ifndef FIESTA_ZONE_BATTLE_H
-#define FIESTA_ZONE_BATTLE_H
+#ifndef SHINE_ZONE_BATTLE_H
+#define SHINE_ZONE_BATTLE_H
 #include "ShineObject.h"
 #include "BattleStat.h"
 
-namespace fiesta {
+namespace shine {
 
 // Backwards-compatible thin damage-summary type used by older call sites.
 struct DamageInfo {
@@ -112,5 +112,5 @@ public:
 
 class BattleObject : public ShineObject {};   // PDB symbol parity
 
-} // namespace fiesta
+} // namespace shine
 #endif

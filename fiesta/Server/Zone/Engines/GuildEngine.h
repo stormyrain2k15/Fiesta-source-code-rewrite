@@ -1,7 +1,7 @@
 // Server/Zone/Engines/GuildEngine.h
 // GuildEngine — aggregates 16 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_GUILDENGINE_H
-#define FIESTA_ZONE_ENGINES_GUILDENGINE_H
+#ifndef SHINE_ZONE_ENGINES_GUILDENGINE_H
+#define SHINE_ZONE_ENGINES_GUILDENGINE_H
 #include "../../DataReader/SHN/GTIBreedSubject.h"
 #include "../../DataReader/SHN/GTIGetRate.h"
 #include "../../DataReader/SHN/GTIGetRateGap.h"
@@ -21,7 +21,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class GuildEngine {
 public:
@@ -50,5 +50,5 @@ private:
     GuildEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_GUILDENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_GUILDENGINE_H

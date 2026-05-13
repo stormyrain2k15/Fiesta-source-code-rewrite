@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/KQVoteMajorityRate.h
 // Auto-generated: one-file-per-SHN split for KQVoteMajorityRate.shn
-#ifndef FIESTA_DATAREADER_SHN_KQVOTEMAJORITYRATE_H
-#define FIESTA_DATAREADER_SHN_KQVOTEMAJORITYRATE_H
+#ifndef SHINE_DATAREADER_SHN_KQVOTEMAJORITYRATE_H
+#define SHINE_DATAREADER_SHN_KQVOTEMAJORITYRATE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct KQVoteMajorityRateRow {
     uint8            uiVoteAgreeRate;
@@ -24,5 +24,5 @@ private:
     std::vector<KQVoteMajorityRateRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_KQVOTEMAJORITYRATE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_KQVOTEMAJORITYRATE_H

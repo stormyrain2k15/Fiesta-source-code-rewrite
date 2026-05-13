@@ -5,12 +5,12 @@
 // bowl), UseMinLv, MinGetMoney, MaxBetMoney, GetSysRate, GetMasterRate,
 // CastTime, DelayTime. 9 trailing animation/event-code columns
 // (WinCode/LoseCode/UnkCol*) drive client visuals.
-#ifndef FIESTA_ZONE_GAMBLEHOUSE_DICETAISAI_DICEGAMETABLE_H
-#define FIESTA_ZONE_GAMBLEHOUSE_DICETAISAI_DICEGAMETABLE_H
+#ifndef SHINE_ZONE_GAMBLEHOUSE_DICETAISAI_DICEGAMETABLE_H
+#define SHINE_ZONE_GAMBLEHOUSE_DICETAISAI_DICEGAMETABLE_H
 #include "../../../../Shared/ShineTypes.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct LegacyDiceGameRow {
     uint16 uiItemID;
@@ -38,5 +38,5 @@ private:
     std::vector<LegacyDiceGameRow> m_kRows;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

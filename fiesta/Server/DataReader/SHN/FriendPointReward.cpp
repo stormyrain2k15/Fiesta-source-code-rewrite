@@ -3,7 +3,7 @@
 #include "FriendPointReward.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 FriendPointRewardShn& FriendPointRewardShn::Get() { static FriendPointRewardShn s; return s; }
 
@@ -27,4 +27,4 @@ const FriendPointRewardRow* FriendPointRewardShn::FindByInx(const std::string& r
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

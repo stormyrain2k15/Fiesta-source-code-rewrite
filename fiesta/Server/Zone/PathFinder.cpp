@@ -3,11 +3,11 @@
 // Manhattan heuristic with diagonal moves.
 #include "../Shared/ShineTypes.h"
 #include <vector>
-namespace fiesta {
+namespace shine {
 struct AStarNode { int x, y; int g, f; };
 class PathFinder {
 public:
     static bool Solve(uint16 /*uiMap*/, int /*sx*/, int /*sy*/, int /*dx*/, int /*dy*/,
                       std::vector<AStarNode>& /*rOut*/) { return true; }
 };
-} // namespace fiesta
+} // namespace shine

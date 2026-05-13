@@ -2,8 +2,8 @@
 // Shared BIND_BEGIN / ITER_ROWS for per-SHN binder files. Each
 // per-SHN .cpp under /Server/Zone/Tables/ includes this so the
 // per-table Bind() body stays a one-liner per column.
-#ifndef FIESTA_ZONE_TABLES_BINDMACROS_H
-#define FIESTA_ZONE_TABLES_BINDMACROS_H
+#ifndef SHINE_ZONE_TABLES_BINDMACROS_H
+#define SHINE_ZONE_TABLES_BINDMACROS_H
 #include "../../DataReader/ShnRegistry.h"
 #include "../../Shared/ShineLogSystem.h"
 

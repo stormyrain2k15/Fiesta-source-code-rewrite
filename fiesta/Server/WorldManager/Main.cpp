@@ -17,7 +17,7 @@
 #include "WorldManagerServer.h"
 #include "WMServices.h"
 
-namespace fiesta {
+namespace shine {
 
 static IOCPSession* MakeWMClient()  { return new WMClientSession(); }
 static IOCPSession* MakeWMZone()    { return new WMZoneSession(); }
@@ -27,7 +27,7 @@ static IOCPSession* MakeWMOPTool()  { return new WMOPToolSession(); }
 
 class WorldManagerService : public WinService {
 public:
-    WorldManagerService() : WinService("FiestaWorldManager") {}
+    WorldManagerService() : WinService("ShineWorldManager") {}
     virtual bool OnStart() {
         m_kInfo.Load("ServerInfo.txt");
 
@@ -61,6 +61,6 @@ private:
     Socket_Acceptor m_kClientAcc, m_kZoneAcc, m_kLoginAcc, m_kCharAcc, m_kOPToolAcc;
 };
 
-} // namespace fiesta
+} // namespace shine
 
-int main(int argc, char** argv) { fiesta::WorldManagerService s; return s.Run(argc, argv); }
+int main(int argc, char** argv) { shine::WorldManagerService s; return s.Run(argc, argv); }

@@ -5,12 +5,12 @@
 // dispatcher can fire all of them with one call. The interface is kept
 // small on purpose -- there's no priority / unregister surface because
 // every consumer outlives the sink (process lifetime).
-#ifndef FIESTA_ZONE_INTERBROADCASTSINKS_H
-#define FIESTA_ZONE_INTERBROADCASTSINKS_H
+#ifndef SHINE_ZONE_INTERBROADCASTSINKS_H
+#define SHINE_ZONE_INTERBROADCASTSINKS_H
 #include "../Shared/ShineTypes.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 typedef void (*DailyResetFn)(uint32 uiDayKey);
 typedef void (*NpcScheduleFn)(uint32 uiNpcId, uint16 uiMapId, bool bSpawn);
@@ -33,5 +33,5 @@ private:
     std::vector<NpcScheduleFn> m_kFns;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

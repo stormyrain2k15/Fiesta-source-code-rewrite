@@ -3,12 +3,12 @@
 // lookups, and adding upgrade-level bonuses computed from BasicUpInx /
 // AddUpInx.
 //                                   EquipEnumChanger.
-#ifndef FIESTA_ZONE_EQUIPSUMMARYBUILDER_H
-#define FIESTA_ZONE_EQUIPSUMMARYBUILDER_H
+#ifndef SHINE_ZONE_EQUIPSUMMARYBUILDER_H
+#define SHINE_ZONE_EQUIPSUMMARYBUILDER_H
 #include "StatDistribute.h"
 #include "Inventory.h"
 
-namespace fiesta {
+namespace shine {
 
 // Walks all equipped items in `kInv`, looks up their ItemInfo rows, and
 // fills `pOut` with the summed stats (incl. upgrade-level absolutes).
@@ -18,5 +18,5 @@ void BuildEquipSummary(EQUIPSUMMARY* pOut, const Inventory& kInv);
 // upgrade level via BasicUpInx + AddUpInx * (uiEnchant - 1).
 void AddItemContribution(EQUIPSUMMARY* pOut, const ShineItem& kItem);
 
-} // namespace fiesta
+} // namespace shine
 #endif

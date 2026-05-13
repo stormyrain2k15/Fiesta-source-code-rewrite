@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../GroupTables.h"
 
-namespace fiesta {
+namespace shine {
 
 MountTables& MountTables::Get() { static MountTables s; return s; }
 void MountTables::Bind() {
@@ -41,4 +41,4 @@ const LegacyMoverItemRow* MountTables::FindItem(uint32 uiID) const {
     return (it == m_kItemById.end()) ? NULL : &m_kItem[it->second]; }
 
 
-} // namespace fiesta
+} // namespace shine

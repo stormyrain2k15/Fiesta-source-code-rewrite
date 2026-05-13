@@ -5,7 +5,7 @@
 #include "ShineTypes.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class BinaryDataCollection {
 public:
@@ -17,4 +17,4 @@ private:
     std::vector<uint8> m_kBuf;
 };
 
-} // namespace fiesta
+} // namespace shine

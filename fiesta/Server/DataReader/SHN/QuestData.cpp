@@ -3,7 +3,7 @@
 #include "QuestData.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 QuestDataShn& QuestDataShn::Get() { static QuestDataShn s; return s; }
 
@@ -32,4 +32,4 @@ const QuestDataRow* QuestDataShn::FindByInx(const std::string& rInx) const {
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

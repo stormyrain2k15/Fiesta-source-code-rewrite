@@ -13,14 +13,14 @@
 // Reward delivery currently logs the grant intent + adds Vis when
 // Type=="MoneyExp"; full item-grant requires the Inventory item-name
 // resolver to be wired which is the next pass.
-#ifndef FIESTA_ZONE_QUESTRUNTIME_H
-#define FIESTA_ZONE_QUESTRUNTIME_H
+#ifndef SHINE_ZONE_QUESTRUNTIME_H
+#define SHINE_ZONE_QUESTRUNTIME_H
 #include "WorldTables.h"
 #include <map>
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 class Inventory;
@@ -67,5 +67,5 @@ public:
     static bool AllGoalsComplete(const PlayerLog& rL, uint16 uiHandle);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

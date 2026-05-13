@@ -3,6 +3,6 @@
 // big (11-17), specific triples, etc. Outcomes are computed server-side
 // via the WM's authoritative RNG (GambleSystemServer::RollDice).
 #include "../../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 class ShineDiceTaiSai { public: static ShineDiceTaiSai& Get(){ static ShineDiceTaiSai s; return s; } };
-} // namespace fiesta
+} // namespace shine

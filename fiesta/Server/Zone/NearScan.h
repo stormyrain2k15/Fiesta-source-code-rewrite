@@ -1,12 +1,12 @@
 // Server/Zone/NearScan.h
 // Proximity-scan helpers. Used by AreaSkill, AOE buffs, KQ score, and
 // Lua's `cFindNearestObject` binding.
-#ifndef FIESTA_ZONE_NEARSCAN_H
-#define FIESTA_ZONE_NEARSCAN_H
+#ifndef SHINE_ZONE_NEARSCAN_H
+#define SHINE_ZONE_NEARSCAN_H
 #include "../Shared/ShineTypes.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 class ShineObject;
@@ -29,5 +29,5 @@ public:
                            std::vector<ShineObject*>& rOut);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

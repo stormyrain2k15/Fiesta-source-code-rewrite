@@ -14,14 +14,14 @@
 // to drop-to-drop column reorder (the file headers carry names).
 //                                   (2026-02 drop, schema manifest at
 //                                   /app/downloads/shn_schema_manifest.csv).
-#ifndef FIESTA_ZONE_EXTENDEDTABLES_H
-#define FIESTA_ZONE_EXTENDEDTABLES_H
+#ifndef SHINE_ZONE_EXTENDEDTABLES_H
+#define SHINE_ZONE_EXTENDEDTABLES_H
 #include "../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 // =============================================================================
 //  Account-upgrade ladder (cash-shop accessory enhancement).
@@ -749,5 +749,5 @@ private:
 // =============================================================================
 void BindAllExtendedTables();
 
-} // namespace fiesta
+} // namespace shine
 #endif

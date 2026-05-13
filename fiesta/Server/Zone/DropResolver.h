@@ -8,14 +8,14 @@
 //   * World/RandomOptionTable.txt-> per-item random-option ranges
 //   * ItemInfo.shn               -> item type / max-stack / default upgrade
 //                                    cRandomOption, ItemDropResolver.
-#ifndef FIESTA_ZONE_DROPRESOLVER_H
-#define FIESTA_ZONE_DROPRESOLVER_H
+#ifndef SHINE_ZONE_DROPRESOLVER_H
+#define SHINE_ZONE_DROPRESOLVER_H
 #include "../Shared/ShineTypes.h"
 #include "Inventory.h"             // ShineItem
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 struct DropContext {
     uint16      uiMobID;
@@ -34,5 +34,5 @@ public:
     static void Resolve(const DropContext& rCtx, std::vector<ShineItem>& rOut);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -3,7 +3,7 @@
 #include "GBSMCardRate.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBSMCardRateShn& GBSMCardRateShn::Get() { static GBSMCardRateShn s; return s; }
 
@@ -20,4 +20,4 @@ void GBSMCardRateShn::Load() {
     SHINELOG_INFO("GBSMCardRate.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

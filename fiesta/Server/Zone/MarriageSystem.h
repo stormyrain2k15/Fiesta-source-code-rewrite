@@ -23,12 +23,12 @@
 // Persistence: marriage state lives on tCharacter (SpouseId column) and
 // is hydrated on login via CharDBClient. Ceremony promise count is in
 // tHolyPromise (CharDB).
-#ifndef FIESTA_ZONE_MARRIAGESYSTEM_H
-#define FIESTA_ZONE_MARRIAGESYSTEM_H
+#ifndef SHINE_ZONE_MARRIAGESYSTEM_H
+#define SHINE_ZONE_MARRIAGESYSTEM_H
 #include "ShineObject.h"
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 enum eMarriageState {
     MS_NONE     = 0,
@@ -74,5 +74,5 @@ private:
     uint32                           m_uiNext;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

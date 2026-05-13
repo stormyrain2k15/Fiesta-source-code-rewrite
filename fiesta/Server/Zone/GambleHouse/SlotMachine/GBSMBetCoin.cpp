@@ -3,7 +3,7 @@
 #include "GBSMTables.h"
 #include "../../../DataReader/ShnRegistry.h"
 #include "../../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 GBSMBetCoinTable& GBSMBetCoinTable::Get() { static GBSMBetCoinTable s; return s; }
 bool GBSMBetCoinTable::Bind() {
     m_kRows.clear();
@@ -22,4 +22,4 @@ uint16 GBSMBetCoinTable::ChipCost(uint32 uiBet) const {
     std::map<uint32, uint16>::const_iterator it = m_kRows.find(uiBet);
     return (it == m_kRows.end()) ? 0 : it->second;
 }
-} // namespace fiesta
+} // namespace shine

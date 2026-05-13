@@ -7,7 +7,7 @@
 #include "../DataReader/ShnRegistry.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 DataFileServer& DataFileServer::Get() { static DataFileServer s; return s; }
 
@@ -20,4 +20,4 @@ bool DataFileServer::LoadAll(const std::string& rDataRoot) {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

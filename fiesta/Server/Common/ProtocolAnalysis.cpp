@@ -2,7 +2,7 @@
 #include "ProtocolAnalysis.h"
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 
 ProtocolAnalysis::ProtocolAnalysis() { InitializeCriticalSection(&m_kCs); }
 ProtocolAnalysis::~ProtocolAnalysis() { DeleteCriticalSection(&m_kCs); }
@@ -33,4 +33,4 @@ void ProtocolAnalysis::Dump(const char* szPath) {
     fclose(fp);
 }
 
-} // namespace fiesta
+} // namespace shine

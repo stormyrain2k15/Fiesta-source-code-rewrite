@@ -33,7 +33,7 @@ Verified by `Build/CI/audit_shn_wiring.py`. Run it any time after
 adding or removing SHN consumers:
 
 ```cmd
-cd fiesta
+cd shine
 python Build\CI\audit_shn_wiring.py
 ```
 

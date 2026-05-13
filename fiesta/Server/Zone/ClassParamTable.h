@@ -32,14 +32,14 @@
 //   * CharTitlePt / SkillPwrPt = points granted on level-up.
 //   * JobChangeDmgUp         = damage bonus after job change (1000 = 1.0x).
 //                                   World/Param*Server.txt files.
-#ifndef FIESTA_ZONE_CLASSPARAMTABLE_H
-#define FIESTA_ZONE_CLASSPARAMTABLE_H
+#ifndef SHINE_ZONE_CLASSPARAMTABLE_H
+#define SHINE_ZONE_CLASSPARAMTABLE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 // Class IDs (verbatim from QuestParser.txt).
 enum eShineClass {
@@ -131,5 +131,5 @@ private:
     std::map<uint32, ClassParamRow> m_kRows;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

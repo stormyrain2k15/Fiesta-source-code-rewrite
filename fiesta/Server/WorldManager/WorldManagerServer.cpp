@@ -12,7 +12,7 @@
 #include "../Common/SendPacket.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 WorldManagerServer& WorldManagerServer::Get() { static WorldManagerServer s; return s; }
 
@@ -154,4 +154,4 @@ void WMCharDBSession::OnPacket(const GPacket& rPkt) {
     SHINELOG_DEBUG("WM<-CharDB NC=0x%04X", rPkt.GetOpcode());
 }
 
-} // namespace fiesta
+} // namespace shine

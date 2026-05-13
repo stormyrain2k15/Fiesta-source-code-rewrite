@@ -3,7 +3,7 @@
 #include "BindMacros.h"
 #include "../MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 SpamerTables& SpamerTables::Get() { static SpamerTables s; return s; }
 void SpamerTables::Bind() {
     // FEATURE: world-creation -- column read: PenaltyLv, ChatBlockTime,
@@ -40,4 +40,4 @@ bool SpamerTables::RepeatRuleHit(uint32 s, uint32 r) const {
         if (s<=m_kRules[i].uiSecond && r>=m_kRules[i].uiRepeat) return true;
     return false;
 }
-} // namespace fiesta
+} // namespace shine

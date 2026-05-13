@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 #pragma pack(push, 1)
 struct BmpFileHeader { uint16 bfType; uint32 bfSize; uint16 bfRes1; uint16 bfRes2; uint32 bfOffBits; };
@@ -74,4 +74,4 @@ void AreaBMPBox::Clear() {
     m_kAll.clear();
 }
 
-} // namespace fiesta
+} // namespace shine

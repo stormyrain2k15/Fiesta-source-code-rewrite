@@ -1,6 +1,6 @@
 // Server/Zone/Engines/MiscEngine.h
-#ifndef FIESTA_ZONE_ENGINES_MISCENGINE_H
-#define FIESTA_ZONE_ENGINES_MISCENGINE_H
+#ifndef SHINE_ZONE_ENGINES_MISCENGINE_H
+#define SHINE_ZONE_ENGINES_MISCENGINE_H
 #include "../../DataReader/SHN/AdminLvSet.h"
 #include "../../DataReader/SHN/ActionViewInfo.h"
 #include "../../DataReader/SHN/AnnounceData.h"
@@ -29,7 +29,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class MiscEngine {
 public:
@@ -67,5 +67,5 @@ private:
     MiscEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_MISCENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_MISCENGINE_H

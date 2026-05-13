@@ -3,7 +3,7 @@
 #include "NpcDialogData.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 NpcDialogDataShn& NpcDialogDataShn::Get() { static NpcDialogDataShn s; return s; }
 
@@ -32,4 +32,4 @@ const NpcDialogDataRow* NpcDialogDataShn::FindByInx(const std::string& rInx) con
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

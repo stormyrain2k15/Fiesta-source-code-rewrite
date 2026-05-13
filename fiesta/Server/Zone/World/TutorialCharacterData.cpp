@@ -6,7 +6,7 @@
 #include <sstream>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 TutorialCharacterDataTable& TutorialCharacterDataTable::Get() { static TutorialCharacterDataTable s; return s; }
 
@@ -35,4 +35,4 @@ void TutorialCharacterDataTable::Load(const std::string& rPath) {
     SHINELOG_INFO("TutorialCharacterData.txt: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

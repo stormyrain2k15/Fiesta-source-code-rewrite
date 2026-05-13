@@ -3,7 +3,7 @@
 #include "MobLifeTime.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MobLifeTimeShn& MobLifeTimeShn::Get() { static MobLifeTimeShn s; return s; }
 
@@ -20,4 +20,4 @@ void MobLifeTimeShn::Load() {
     SHINELOG_INFO("MobLifeTime.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

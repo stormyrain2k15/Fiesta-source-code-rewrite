@@ -3,7 +3,7 @@
 #include "LuaAPI.h"
 #include "../Server/Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 // Forward decl from LuaEnums_Generated.cpp
 void RegisterLuaEnums(lua_State* L);
@@ -43,4 +43,4 @@ bool LuaRuntime::DoString(const char* szSrc) {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -15,7 +15,7 @@
 #include "../Shared/GTimer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 RankingServer& RankingServer::Get() { static RankingServer s; return s; }
 
@@ -54,4 +54,4 @@ void RankingServer_OnZoneSlice(uint8 uiCategory, const std::vector<DBRecord>& rR
     g_kCats[uiCategory] = rRows;
 }
 
-} // namespace fiesta
+} // namespace shine

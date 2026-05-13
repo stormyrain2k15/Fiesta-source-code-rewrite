@@ -13,12 +13,12 @@
 //                                   own per-(myLv, targetLv) multiplier.
 //
 // All multipliers are stored per-1000 (1000 = 1.0x = no change).
-#ifndef FIESTA_ZONE_LEVELGAPTABLE_H
-#define FIESTA_ZONE_LEVELGAPTABLE_H
+#ifndef SHINE_ZONE_LEVELGAPTABLE_H
+#define SHINE_ZONE_LEVELGAPTABLE_H
 #include "BattleStat.h"
 #include "BattleTunables.h"
 
-namespace fiesta {
+namespace shine {
 
 // 1-D curve range. PvE/EvP gaps clamp into this window.
 const int kLvGapTableSize = 200;       // gap range -100..+99
@@ -52,5 +52,5 @@ private:
     bool  m_bLoaded;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

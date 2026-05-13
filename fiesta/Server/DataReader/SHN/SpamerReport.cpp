@@ -3,7 +3,7 @@
 #include "SpamerReport.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 SpamerReportShn& SpamerReportShn::Get() { static SpamerReportShn s; return s; }
 
@@ -21,4 +21,4 @@ void SpamerReportShn::Load() {
     SHINELOG_INFO("SpamerReport.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

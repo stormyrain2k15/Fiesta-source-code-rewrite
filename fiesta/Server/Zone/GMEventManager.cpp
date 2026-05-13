@@ -16,7 +16,7 @@
 #include "../DataReader/ShnRegistry.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 namespace {
     // Map HHMM start/end pair to a seconds duration. Wrap-around (end<
@@ -62,5 +62,5 @@ void GMEventManager_Zone::OnEventBroadcast(uint32 uiEventNo, bool bStart) {
     }
 }
 
-} // namespace fiesta
+} // namespace shine
 

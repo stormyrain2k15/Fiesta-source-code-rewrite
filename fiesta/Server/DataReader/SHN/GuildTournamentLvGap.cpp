@@ -3,7 +3,7 @@
 #include "GuildTournamentLvGap.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GuildTournamentLvGapShn& GuildTournamentLvGapShn::Get() { static GuildTournamentLvGapShn s; return s; }
 
@@ -21,4 +21,4 @@ void GuildTournamentLvGapShn::Load() {
     SHINELOG_INFO("GuildTournamentLvGap.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

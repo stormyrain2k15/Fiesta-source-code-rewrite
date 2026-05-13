@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MapWayPoint.h
 // Auto-generated: one-file-per-SHN split for MapWayPoint.shn
-#ifndef FIESTA_DATAREADER_SHN_MAPWAYPOINT_H
-#define FIESTA_DATAREADER_SHN_MAPWAYPOINT_H
+#ifndef SHINE_DATAREADER_SHN_MAPWAYPOINT_H
+#define SHINE_DATAREADER_SHN_MAPWAYPOINT_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MapWayPointRow {
     uint16           uiMapID;
@@ -27,5 +27,5 @@ private:
     std::vector<MapWayPointRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MAPWAYPOINT_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MAPWAYPOINT_H

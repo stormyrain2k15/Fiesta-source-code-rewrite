@@ -1,12 +1,12 @@
 // Server/Shared/BinaryDataCollection.h
 // intrusive object pool / fixed-block allocator used widely
 // (BinaryDataCollection, AntiBloatAllocator references in PDB).
-#ifndef FIESTA_BINARYDATACOLLECTION_H
-#define FIESTA_BINARYDATACOLLECTION_H
+#ifndef SHINE_BINARYDATACOLLECTION_H
+#define SHINE_BINARYDATACOLLECTION_H
 #include "ShineTypes.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 template <class T>
 class BinaryDataCollection {
@@ -40,5 +40,5 @@ private:
     std::vector<T*> m_kFree;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

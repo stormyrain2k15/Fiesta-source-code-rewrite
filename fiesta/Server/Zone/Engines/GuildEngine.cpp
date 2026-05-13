@@ -2,7 +2,7 @@
 #include "GuildEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GuildEngine& GuildEngine::Get() { static GuildEngine s; return s; }
 
@@ -26,4 +26,4 @@ void GuildEngine::Bind() {
     SHINELOG_INFO("GuildEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

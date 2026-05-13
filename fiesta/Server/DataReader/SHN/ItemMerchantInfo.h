@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/ItemMerchantInfo.h
 // Auto-generated: one-file-per-SHN split for ItemMerchantInfo.shn
-#ifndef FIESTA_DATAREADER_SHN_ITEMMERCHANTINFO_H
-#define FIESTA_DATAREADER_SHN_ITEMMERCHANTINFO_H
+#ifndef SHINE_DATAREADER_SHN_ITEMMERCHANTINFO_H
+#define SHINE_DATAREADER_SHN_ITEMMERCHANTINFO_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ItemMerchantInfoRow {
     uint8            uiMap;
@@ -25,5 +25,5 @@ private:
     std::vector<ItemMerchantInfoRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ITEMMERCHANTINFO_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ITEMMERCHANTINFO_H

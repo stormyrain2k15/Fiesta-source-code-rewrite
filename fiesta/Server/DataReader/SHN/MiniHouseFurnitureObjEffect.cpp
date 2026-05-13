@@ -3,7 +3,7 @@
 #include "MiniHouseFurnitureObjEffect.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MiniHouseFurnitureObjEffectShn& MiniHouseFurnitureObjEffectShn::Get() { static MiniHouseFurnitureObjEffectShn s; return s; }
 
@@ -36,4 +36,4 @@ void MiniHouseFurnitureObjEffectShn::Load() {
     SHINELOG_INFO("MiniHouseFurnitureObjEffect.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

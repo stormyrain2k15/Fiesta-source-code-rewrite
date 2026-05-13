@@ -4,7 +4,7 @@
 // quest?" lives here so each Accept call has a single check entry point.
 #include "Quest.h"
 #include "../ShineObject.h"
-namespace fiesta {
+namespace shine {
 class QuestFramework {
 public:
     static bool CanAccept(ShinePlayer* pkP, uint32 uiQuestId);
@@ -12,4 +12,4 @@ public:
 bool QuestFramework::CanAccept(ShinePlayer* pkP, uint32 /*uiQuestId*/) {
     return pkP != NULL;
 }
-} // namespace fiesta
+} // namespace shine

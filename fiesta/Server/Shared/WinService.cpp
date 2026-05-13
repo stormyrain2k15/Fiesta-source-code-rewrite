@@ -4,7 +4,7 @@
 #include "EHCrashHandler.h"
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 
 WinService* WinService::ms_pInst = NULL;
 
@@ -99,4 +99,4 @@ int WinService::Run(int argc, char** argv) {
     return 0;
 }
 
-} // namespace fiesta
+} // namespace shine

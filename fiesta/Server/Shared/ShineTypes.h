@@ -1,10 +1,10 @@
 // Server/Shared/ShineTypes.h
 // common typedefs and build switches.
-#ifndef FIESTA_SHINE_TYPES_H
-#define FIESTA_SHINE_TYPES_H
+#ifndef SHINE_SHINE_TYPES_H
+#define SHINE_SHINE_TYPES_H
 
 #if !defined(_WIN32)
-#  error "Fiesta server/client targets Win32 only (VS2010 / v100 toolset)."
+#  error "Shine server/client targets Win32 only (VS2010 / v100 toolset)."
 #endif
 
 // VS2010 compat: do not require C++11 features.
@@ -18,7 +18,7 @@
 #include <vector>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 typedef signed   char      int8;
 typedef unsigned char      uint8;
@@ -41,6 +41,6 @@ typedef uint16 NCOpcode;          // NETCOMMAND opcode (16-bit, network order on
 const Handle  INVALID_HANDLE = 0;
 const CharID  INVALID_CHARID = 0;
 
-} // namespace fiesta
+} // namespace shine
 
 #endif

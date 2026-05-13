@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 ShnFile::ShnFile() : m_uiHeader(0), m_uiDefaultRecLen(0), m_bQuestDeferred(false) {
     memset(m_aCryptHeader, 0, sizeof(m_aCryptHeader));
@@ -190,4 +190,4 @@ void ShnFile::ExportAsStringRows(std::vector<std::vector<std::string> >& rOut) c
     }
 }
 
-} // namespace fiesta
+} // namespace shine

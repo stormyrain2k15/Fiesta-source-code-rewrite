@@ -7,7 +7,7 @@
 #include <NiMain.h>
 #include "../../Server/Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class ShineCamera {
 public:
@@ -21,6 +21,7 @@ public:
     void SetTarget(float fX, float fY, float fZ);
 
     NiCamera*   GetNiCamera() { return m_spCamera; }
+    float       GetYaw()      const { return m_fYaw; }
 
 private:
     NiCameraPtr m_spCamera;
@@ -39,5 +40,5 @@ private:
     void    HandleInput();
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif // SHINE_CLIENT_ENGINE_SHINECAMERA_H

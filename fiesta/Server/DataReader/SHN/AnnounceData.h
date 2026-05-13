@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/AnnounceData.h
 // Auto-generated: one-file-per-SHN split for AnnounceData.shn
-#ifndef FIESTA_DATAREADER_SHN_ANNOUNCEDATA_H
-#define FIESTA_DATAREADER_SHN_ANNOUNCEDATA_H
+#ifndef SHINE_DATAREADER_SHN_ANNOUNCEDATA_H
+#define SHINE_DATAREADER_SHN_ANNOUNCEDATA_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct AnnounceDataRow {
     uint32           uiType;
@@ -26,5 +26,5 @@ private:
     std::vector<AnnounceDataRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ANNOUNCEDATA_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ANNOUNCEDATA_H

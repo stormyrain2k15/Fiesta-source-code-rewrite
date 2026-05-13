@@ -1,5 +1,5 @@
 // Server/Zone/LuaScript/LuaScript.cpp
-// Real implementation lives in /app/fiesta/Lua/LuaRuntime; this file
+// Real implementation lives in /app/shine/Lua/LuaRuntime; this file
 // is the Zone-side adapter that owns one lua_State per InstanceDungeon
 // instance and binds the C-side game API.
 extern "C" {
@@ -10,10 +10,10 @@ extern "C" {
 #include "LuaScript.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 // C-side bindings prefixed `Shine_*` are registered in
-// /app/fiesta/Lua/Generated/api_zone.cpp -- a long table pulled from the
+// /app/shine/Lua/Generated/api_zone.cpp -- a long table pulled from the
 // PDB's Lua thunk symbols. Forward-declared here so we don't pull the
 // generated header into every Zone include path.
 extern void RegisterZoneLuaAPI(lua_State* L);
@@ -74,4 +74,4 @@ bool LuaScript::CallII(const char* szFunc, int32 a, int32 b) {
 
 void LuaScript::RegisterAllBindings(lua_State* L) { RegisterZoneLuaAPI(L); }
 
-} // namespace fiesta
+} // namespace shine

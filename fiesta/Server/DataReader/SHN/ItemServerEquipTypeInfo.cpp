@@ -3,7 +3,7 @@
 #include "ItemServerEquipTypeInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ItemServerEquipTypeInfoShn& ItemServerEquipTypeInfoShn::Get() { static ItemServerEquipTypeInfoShn s; return s; }
 
@@ -44,4 +44,4 @@ void ItemServerEquipTypeInfoShn::Load() {
     SHINELOG_INFO("ItemServerEquipTypeInfo.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

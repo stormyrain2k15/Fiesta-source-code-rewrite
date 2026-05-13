@@ -1,10 +1,10 @@
 // Server/Shared/MD5Checksum.h
 // MD5 used for SHN data file checksum + token seed.
-#ifndef FIESTA_MD5CHECKSUM_H
-#define FIESTA_MD5CHECKSUM_H
+#ifndef SHINE_MD5CHECKSUM_H
+#define SHINE_MD5CHECKSUM_H
 #include "ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class MD5Checksum {
 public:
@@ -21,5 +21,5 @@ private:
     void   Transform(const uint8* pBlock);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

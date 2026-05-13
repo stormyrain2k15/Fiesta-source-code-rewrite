@@ -22,12 +22,12 @@
 // handed to ScriptLoader.
 //                                       files and getting them being
 //                                       used by the server" (2026-02 user note).
-#ifndef FIESTA_ZONE_ASSET_LOADER_H
-#define FIESTA_ZONE_ASSET_LOADER_H
+#ifndef SHINE_ZONE_ASSET_LOADER_H
+#define SHINE_ZONE_ASSET_LOADER_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class LuaRuntime;
 
@@ -95,5 +95,5 @@ private:
     std::map<std::string, bool> m_kIndex;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

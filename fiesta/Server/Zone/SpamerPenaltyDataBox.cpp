@@ -1,7 +1,7 @@
 // Server/Zone/SpamerPenaltyDataBox.cpp
 // #include "SpamerPenaltyDataBox.h"
 #include "../DataReader/ShnRegistry.h"
-namespace fiesta {
+namespace shine {
 SpamerPenaltyDataBox& SpamerPenaltyDataBox::Get() { static SpamerPenaltyDataBox s; return s; }
 bool SpamerPenaltyDataBox::Load() {
     return ShnRegistry::Get().GetTable("SpamerPenalty") != NULL;
@@ -14,4 +14,4 @@ uint32 SpamerPenaltyDataBox::PenaltySecs(uint8 uiOffenseCount) const {
         default: return 0xFFFFFFFFu; // permanent
     }
 }
-} // namespace fiesta
+} // namespace shine

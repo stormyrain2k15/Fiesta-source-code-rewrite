@@ -5,7 +5,7 @@
 #include "../DataReader/ShnRegistry.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 AbnormalStateDictionary& AbnormalStateDictionary::Get() {
     static AbnormalStateDictionary s; return s;
@@ -42,4 +42,4 @@ uint32 AbnormalStateDictionary::GetSaveType(uint32 uiAb) const {
     return p ? p->uiAbStateSaveType : 0;
 }
 
-} // namespace fiesta
+} // namespace shine

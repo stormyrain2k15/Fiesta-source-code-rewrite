@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GBEventCode.h
 // Auto-generated: one-file-per-SHN split for GBEventCode.shn
-#ifndef FIESTA_DATAREADER_SHN_GBEVENTCODE_H
-#define FIESTA_DATAREADER_SHN_GBEVENTCODE_H
+#ifndef SHINE_DATAREADER_SHN_GBEVENTCODE_H
+#define SHINE_DATAREADER_SHN_GBEVENTCODE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GBEventCodeRow {
     uint32           uiGameType;
@@ -26,5 +26,5 @@ private:
     std::vector<GBEventCodeRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GBEVENTCODE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GBEVENTCODE_H

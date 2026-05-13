@@ -3,7 +3,7 @@
 #include "GBSMTables.h"
 #include "../../../DataReader/ShnRegistry.h"
 #include "../../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 GBSMAllTable& GBSMAllTable::Get() { static GBSMAllTable s; return s; }
 bool GBSMAllTable::Bind() {
     m_kRows.clear();
@@ -22,4 +22,4 @@ bool GBSMAllTable::Bind() {
     SHINELOG_INFO("GBSMAll: %u rows", (uint32)m_kRows.size());
     return !m_kRows.empty();
 }
-} // namespace fiesta
+} // namespace shine

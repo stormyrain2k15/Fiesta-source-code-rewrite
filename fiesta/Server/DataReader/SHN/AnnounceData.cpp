@@ -3,7 +3,7 @@
 #include "AnnounceData.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 AnnounceDataShn& AnnounceDataShn::Get() { static AnnounceDataShn s; return s; }
 
@@ -21,4 +21,4 @@ void AnnounceDataShn::Load() {
     SHINELOG_INFO("AnnounceData.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

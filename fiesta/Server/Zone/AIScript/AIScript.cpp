@@ -12,7 +12,7 @@ extern "C" {
 #include <string>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 extern void RegisterZoneLuaAPI(lua_State* L);
 
@@ -51,4 +51,4 @@ bool AIScript::RunDecide(uint32 uiMobId, const std::string& rScript) {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

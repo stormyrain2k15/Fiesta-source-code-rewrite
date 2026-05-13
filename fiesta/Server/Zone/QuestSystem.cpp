@@ -4,7 +4,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 static bool EndsWith(const std::string& s, const char* sfx) {
     size_t n = strlen(sfx); return s.size() >= n && _stricmp(s.c_str()+s.size()-n, sfx) == 0;
@@ -93,4 +93,4 @@ void QuestEventDispatcher::OnItemUsed(CharID c, ItemID uiItem) {
     QuestEvent::Fire(ZoneServer::Get().FindPlayerByCharID(c), 2 /*EUSE*/, (uint32)uiItem);
 }
 
-} // namespace fiesta
+} // namespace shine

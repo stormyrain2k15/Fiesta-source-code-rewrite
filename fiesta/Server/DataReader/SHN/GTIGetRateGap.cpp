@@ -3,7 +3,7 @@
 #include "GTIGetRateGap.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GTIGetRateGapShn& GTIGetRateGapShn::Get() { static GTIGetRateGapShn s; return s; }
 
@@ -26,4 +26,4 @@ const GTIGetRateGapRow* GTIGetRateGapShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

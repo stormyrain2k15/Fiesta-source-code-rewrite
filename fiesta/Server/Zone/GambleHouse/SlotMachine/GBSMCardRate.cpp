@@ -3,7 +3,7 @@
 #include "GBSMTables.h"
 #include "../../../DataReader/ShnRegistry.h"
 #include "../../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 GBSMCardRateTable& GBSMCardRateTable::Get() { static GBSMCardRateTable s; return s; }
 bool GBSMCardRateTable::Bind() {
     m_kRows.clear();
@@ -22,4 +22,4 @@ uint16 GBSMCardRateTable::WeightFor(uint32 uiCard) const {
     std::map<uint32, uint16>::const_iterator it = m_kRows.find(uiCard);
     return (it == m_kRows.end()) ? 0 : it->second;
 }
-} // namespace fiesta
+} // namespace shine

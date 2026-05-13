@@ -3,7 +3,7 @@
 // SHN columns. Lookup is by buff id.
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
-namespace fiesta {
+namespace shine {
 struct ChargedEffectRow { uint32 uiBuffId; int32 nATK, nDEF, nMaxHP, nMaxSP, nMoveSpeed; };
 class ChargedItemEffectDataBox {
 public:
@@ -15,4 +15,4 @@ public:
 private:
     std::map<uint32, ChargedEffectRow> m_kRows;
 };
-} // namespace fiesta
+} // namespace shine

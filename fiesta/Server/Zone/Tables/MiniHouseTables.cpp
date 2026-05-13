@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../GroupTables.h"
 
-namespace fiesta {
+namespace shine {
 
 MiniHouseTables& MiniHouseTables::Get() { static MiniHouseTables s; return s; }
 void MiniHouseTables::Bind() {
@@ -92,4 +92,4 @@ const LegacyGuildTournamentRewardRow* GuildTables2::FindReward(uint32 uiR) const
     return (it == m_kRewardByRank.end()) ? NULL : &m_kReward[it->second]; }
 
 
-} // namespace fiesta
+} // namespace shine

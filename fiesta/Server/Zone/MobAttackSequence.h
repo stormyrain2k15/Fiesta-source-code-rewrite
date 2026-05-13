@@ -6,14 +6,14 @@
 // of action steps -- each step references a SkillID / animation key from the
 // mob's Action/<MobName>.dat. The text format is line-based (one step per line)
 // with the AI script consuming it through a simple cursor.
-#ifndef FIESTA_ZONE_MOBATTACKSEQUENCE_H
-#define FIESTA_ZONE_MOBATTACKSEQUENCE_H
+#ifndef SHINE_ZONE_MOBATTACKSEQUENCE_H
+#define SHINE_ZONE_MOBATTACKSEQUENCE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MobAttackStep {
     std::string kKey;       // skill / action key, free-form (resolved against Action .dat)
@@ -39,5 +39,5 @@ private:
     std::map<std::string, MobAttackSequence*> m_kAll;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

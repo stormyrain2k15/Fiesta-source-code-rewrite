@@ -1,10 +1,10 @@
 // Server/Shared/well512.h
 // WELL512 PRNG (Panneton/L'Ecuyer/Matsumoto).
-#ifndef FIESTA_WELL512_H
-#define FIESTA_WELL512_H
+#ifndef SHINE_WELL512_H
+#define SHINE_WELL512_H
 #include "ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class well512 {
 public:
@@ -18,5 +18,5 @@ private:
     uint32 m_uiIndex;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

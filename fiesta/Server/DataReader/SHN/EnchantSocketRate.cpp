@@ -3,7 +3,7 @@
 #include "EnchantSocketRate.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 EnchantSocketRateShn& EnchantSocketRateShn::Get() { static EnchantSocketRateShn s; return s; }
 
@@ -22,4 +22,4 @@ void EnchantSocketRateShn::Load() {
     SHINELOG_INFO("EnchantSocketRate.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

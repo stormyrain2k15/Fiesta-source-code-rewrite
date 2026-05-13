@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MobKillLog.h
 // Auto-generated: one-file-per-SHN split for MobKillLog.shn
-#ifndef FIESTA_DATAREADER_SHN_MOBKILLLOG_H
-#define FIESTA_DATAREADER_SHN_MOBKILLLOG_H
+#ifndef SHINE_DATAREADER_SHN_MOBKILLLOG_H
+#define SHINE_DATAREADER_SHN_MOBKILLLOG_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MobKillLogRow {
     uint32           uiMobID;
@@ -24,5 +24,5 @@ private:
     std::vector<MobKillLogRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MOBKILLLOG_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MOBKILLLOG_H

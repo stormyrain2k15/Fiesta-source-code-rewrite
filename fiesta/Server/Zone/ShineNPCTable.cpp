@@ -7,7 +7,7 @@
 #include "../DataReader/TableScriptFile.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ShineNPCTable& ShineNPCTable::Get() { static ShineNPCTable s; return s; }
 
@@ -89,4 +89,4 @@ const ShineNPCRow* ShineNPCTable::FindNPC(const std::string& rMobName) const {
     return (it == m_kIndex.end()) ? NULL : &m_kNPCs[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

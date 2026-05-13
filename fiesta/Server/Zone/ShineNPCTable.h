@@ -1,14 +1,14 @@
 // Server/Zone/ShineNPCTable.h
 // typed loader for World/NPC.txt (ShineNPC + LinkTable tables).
 // Source format: TableScript (#Table ShineNPC ; #Table LinkTable ; #recordin ...).
-#ifndef FIESTA_ZONE_SHINENPCTABLE_H
-#define FIESTA_ZONE_SHINENPCTABLE_H
+#ifndef SHINE_ZONE_SHINENPCTABLE_H
+#define SHINE_ZONE_SHINENPCTABLE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ShineNPCRow {
     std::string kMobName;       // unique key (NPC index name)
@@ -49,5 +49,5 @@ private:
     std::map<std::string, size_t> m_kIndex;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

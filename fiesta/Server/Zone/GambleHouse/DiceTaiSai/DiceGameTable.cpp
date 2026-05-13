@@ -4,7 +4,7 @@
 #include "../../../DataReader/ShnRegistry.h"
 #include "../../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 DiceGameTable& DiceGameTable::Get() { static DiceGameTable s; return s; }
 
@@ -44,4 +44,4 @@ const LegacyDiceGameRow* DiceGameTable::FindByItem(uint16 uiItemID) const {
     return NULL;
 }
 
-} // namespace fiesta
+} // namespace shine

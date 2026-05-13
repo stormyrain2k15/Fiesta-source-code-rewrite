@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 QuestParserTable& QuestParserTable::Get() { static QuestParserTable s; return s; }
 
@@ -41,4 +41,4 @@ int32 QuestParserTable::ClassIdFor(const std::string& rN) const {
     return (it == m_kRows.end()) ? -1 : it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

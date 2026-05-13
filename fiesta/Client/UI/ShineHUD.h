@@ -9,7 +9,7 @@
 #include "../Network/ZoneSession.h"  // PlayerState
 #include "../../Server/Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class ShineHUD {
 public:
@@ -40,5 +40,5 @@ private:
     void UpdateBar(NiScreenElements* pkFill, int32 iCur, int32 iMax, const NiColorA& rColor);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif // SHINE_CLIENT_UI_SHINEHUD_H

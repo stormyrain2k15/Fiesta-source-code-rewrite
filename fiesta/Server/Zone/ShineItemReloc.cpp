@@ -3,11 +3,11 @@
 // Wrapper over Inventory::Move.
 #include "Inventory.h"
 #include "ShineObject.h"
-namespace fiesta {
+namespace shine {
 class ShineItemReloc {
 public:
     static bool Move(ShinePlayer* pkP, uint16 uiFrom, uint16 uiTo) {
         return pkP && pkP->Inv().Move(uiFrom, uiTo);
     }
 };
-} // namespace fiesta
+} // namespace shine

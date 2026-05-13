@@ -7,7 +7,7 @@
 #include "ExtendedTables.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 namespace {
 inline const ShnFile* T(const char* szName) {
@@ -1400,4 +1400,4 @@ void BindAllExtendedTables() {
 }
 
 #undef ITER
-} // namespace fiesta
+} // namespace shine

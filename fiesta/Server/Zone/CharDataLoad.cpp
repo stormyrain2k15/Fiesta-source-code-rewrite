@@ -4,6 +4,6 @@
 // ShinePlayer + Inventory. Existing CharLogin.cpp owns the bulk; this
 // file is the canonical alias.
 #include "CharLogin.h"
-namespace fiesta {
+namespace shine {
 class CharDataLoad { public: static bool Load(uint32 /*cid*/) { return true; } };
-} // namespace fiesta
+} // namespace shine

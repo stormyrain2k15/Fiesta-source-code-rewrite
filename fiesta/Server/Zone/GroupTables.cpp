@@ -8,7 +8,7 @@
 #include "GroupTables.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 #define BIND_BEGIN(VAR, NAME) \
     const ShnFile* VAR = ShnRegistry::Get().GetTable(NAME); \
@@ -55,4 +55,4 @@ void BindAllGroupTables() {
 #undef BIND_BEGIN
 #undef ITER_ROWS
 
-} // namespace fiesta
+} // namespace shine

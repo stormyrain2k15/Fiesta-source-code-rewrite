@@ -2,7 +2,7 @@
 #include "MiscEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MiscEngine& MiscEngine::Get() { static MiscEngine s; return s; }
 
@@ -35,4 +35,4 @@ void MiscEngine::Bind() {
     SHINELOG_INFO("MiscEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

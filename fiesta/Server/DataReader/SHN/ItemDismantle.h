@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/ItemDismantle.h
 // Auto-generated: one-file-per-SHN split for ItemDismantle.shn
-#ifndef FIESTA_DATAREADER_SHN_ITEMDISMANTLE_H
-#define FIESTA_DATAREADER_SHN_ITEMDISMANTLE_H
+#ifndef SHINE_DATAREADER_SHN_ITEMDISMANTLE_H
+#define SHINE_DATAREADER_SHN_ITEMDISMANTLE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ItemDismantleRow {
     uint8            uiID;
@@ -52,5 +52,5 @@ private:
     std::map<uint32,      size_t>  m_kById;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ITEMDISMANTLE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ITEMDISMANTLE_H

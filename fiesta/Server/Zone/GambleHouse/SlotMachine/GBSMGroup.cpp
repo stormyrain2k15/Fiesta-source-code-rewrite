@@ -3,7 +3,7 @@
 #include "GBSMTables.h"
 #include "../../../DataReader/ShnRegistry.h"
 #include "../../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 GBSMGroupTable& GBSMGroupTable::Get() { static GBSMGroupTable s; return s; }
 bool GBSMGroupTable::Bind() {
     m_kRows.clear();
@@ -30,4 +30,4 @@ void GBSMGroupTable::GroupsFor(uint32 uiCard, std::vector<uint8>& rOut) const {
         if (m_kRows[i].second == uiCard) rOut.push_back(m_kRows[i].first);
     }
 }
-} // namespace fiesta
+} // namespace shine

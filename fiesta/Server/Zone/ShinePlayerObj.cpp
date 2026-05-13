@@ -4,5 +4,5 @@
 // / CharLogin.cpp; this file holds the field-level helpers that the
 // NA2016 PDB places under ShinePlayerObj symbols.
 #include "ShineObject.h"
-namespace fiesta {
-} // namespace fiesta
+namespace shine {
+} // namespace shine

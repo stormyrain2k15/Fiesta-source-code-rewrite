@@ -2,7 +2,7 @@
 #include "ProtocolParser.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 void ProtocolParser::Register(NCOpcode nc, Handler pk) {
     if (!pk) return;
@@ -20,4 +20,4 @@ bool ProtocolParser::Dispatch(IOCPSession* pkSess, const GPacket& rPkt) const {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

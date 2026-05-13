@@ -14,13 +14,13 @@
 //   [bytes   abPayload[]]   // animation parameters (blend frames, loop flags,
 //                              sound triggers, hit-frame markers)
 //                              once we know which sub-fields the client reads.
-#ifndef FIESTA_DATAREADER_DATFILE_H
-#define FIESTA_DATAREADER_DATFILE_H
+#ifndef SHINE_DATAREADER_DATFILE_H
+#define SHINE_DATAREADER_DATFILE_H
 #include "../Shared/ShineTypes.h"
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 enum DatKind { DAT_KIND_ACTION = 0, DAT_KIND_ABSTATE = 1 };
 
@@ -57,5 +57,5 @@ private:
     std::map<std::string, DatFile*> m_kAll;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

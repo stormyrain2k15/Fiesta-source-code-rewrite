@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/CharacterTitleData.h
 // Per-SHN split for CharacterTitleData.shn
-#ifndef FIESTA_DATAREADER_SHN_CHARACTERTITLEDATA_H
-#define FIESTA_DATAREADER_SHN_CHARACTERTITLEDATA_H
+#ifndef SHINE_DATAREADER_SHN_CHARACTERTITLEDATA_H
+#define SHINE_DATAREADER_SHN_CHARACTERTITLEDATA_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct CharacterTitleDataRow {
     uint32      uiType;
@@ -32,5 +32,5 @@ private:
     std::map<uint32, size_t>             m_kByType;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_CHARACTERTITLEDATA_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_CHARACTERTITLEDATA_H

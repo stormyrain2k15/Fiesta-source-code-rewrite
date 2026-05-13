@@ -3,9 +3,9 @@
 // consecutive ticks. On a hit, records to AdminSecLog and optionally
 // kicks the offender.
 #include "AdminSecLog.h"
-namespace fiesta {
+namespace shine {
 class SpyNet {
 public:
     static void OnTick(uint32 /*cid*/) {}
 };
-} // namespace fiesta
+} // namespace shine

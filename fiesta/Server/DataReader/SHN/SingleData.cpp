@@ -3,7 +3,7 @@
 #include "SingleData.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 SingleDataShn& SingleDataShn::Get() { static SingleDataShn s; return s; }
 
@@ -20,4 +20,4 @@ void SingleDataShn::Load() {
     SHINELOG_INFO("SingleData.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

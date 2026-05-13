@@ -12,7 +12,7 @@
 #include "../DataReader/Tables.h"
 #include <math.h>
 
-namespace fiesta {
+namespace shine {
 
 static well512 s_kRng;
 
@@ -155,4 +155,4 @@ void RewardInven::Push(ShinePlayer* pk, ItemID id, uint16 qty) {
     pk->Inv().Add(k);
 }
 
-} // namespace fiesta
+} // namespace shine

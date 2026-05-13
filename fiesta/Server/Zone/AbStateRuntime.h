@@ -29,12 +29,12 @@
 //
 // Tunable scalars are kept on `BattleTunables.h` (kAbState* prefix) so
 // re-balancing is a single-file edit.
-#ifndef FIESTA_ZONE_ABSTATERUNTIME_H
-#define FIESTA_ZONE_ABSTATERUNTIME_H
+#ifndef SHINE_ZONE_ABSTATERUNTIME_H
+#define SHINE_ZONE_ABSTATERUNTIME_H
 #include "../Shared/ShineTypes.h"
 #include "AbState.h"
 
-namespace fiesta {
+namespace shine {
 
 class ShineObject;
 struct AbStateRow;
@@ -96,5 +96,5 @@ public:
     static int32 ReflectIncoming(ShineObject* pkTarget, int32 iApplied);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

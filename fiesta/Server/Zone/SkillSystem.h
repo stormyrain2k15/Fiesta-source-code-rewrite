@@ -1,13 +1,13 @@
 // Server/Zone/SkillSystem.h
 // skills / cooldowns / multi-hit / AoE / toggle.
 //                                  MultiHitTable, MultiTypeHandle, ToggleSkill, ActiveSkillInfoServer
-#ifndef FIESTA_ZONE_SKILLSYSTEM_H
-#define FIESTA_ZONE_SKILLSYSTEM_H
+#ifndef SHINE_ZONE_SKILLSYSTEM_H
+#define SHINE_ZONE_SKILLSYSTEM_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class ShineObject;
 class ShinePlayer;
@@ -81,5 +81,5 @@ public:
     static int32 Resolve(SkillID s);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

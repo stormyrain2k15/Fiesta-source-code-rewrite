@@ -2,7 +2,7 @@
 #include "TestBase.h"
 #include "../UtilFunction.cpp"
 
-namespace fiesta {
+namespace shine {
 
 TEST_CASE(UtilFunction_Clamp) {
     ASSERT_EQ(UtilFunction::Clamp<int>(5,  0, 10),  5);
@@ -17,4 +17,4 @@ TEST_CASE(UtilFunction_SignOf) {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

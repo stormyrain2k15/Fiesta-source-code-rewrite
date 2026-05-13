@@ -10,13 +10,13 @@
 //   [uint32 Header] [uint32 RecordCount] [uint32 DefaultRecordLength] [uint32 ColumnCount]
 //   for each column: [0x30 name (zero-padded)] [uint32 Type] [int32 Length]
 //   for each record:  [uint16 rowSize] [columns concatenated per Type]
-#ifndef FIESTA_DATAREADER_SHNFILE_H
-#define FIESTA_DATAREADER_SHNFILE_H
+#ifndef SHINE_DATAREADER_SHNFILE_H
+#define SHINE_DATAREADER_SHNFILE_H
 #include "../Shared/ShineTypes.h"
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 enum ShnType {
     SHN_T_U8       = 1,
@@ -95,5 +95,5 @@ private:
     std::string                                 m_kQuestPath;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

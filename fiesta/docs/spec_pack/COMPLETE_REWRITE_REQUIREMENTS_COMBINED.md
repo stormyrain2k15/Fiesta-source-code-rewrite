@@ -4,15 +4,15 @@
 
 <!-- 00_README_ENGINE_HANDOFF.md -->
 
-# Fiesta Online Complete Engine Rewrite Pack — Engine Handoff
+# Shine Online Complete Engine Rewrite Pack — Engine Handoff
 
 Generated: 2026-05-09 00:37:38
 
-This replaces the thin first-pass `fiesta_engine_requirements` pack with a fuller rewrite spec based on:
+This replaces the thin first-pass `shine_engine_requirements` pack with a fuller rewrite spec based on:
 
 - NA2016 server/client file layout and service PDB symbol names.
 - Documentation-main SHN/Lua/GM docs.
-- Existing packet-capture notes and the planned FiestaShark/IOCP/Olly/IDA/Hex-Rays capture workflow.
+- Existing packet-capture notes and the planned ShineShark/IOCP/Olly/IDA/Hex-Rays capture workflow.
 - Current recovered source inventory.
 - Official/fan-facing feature references for public names and gameplay meaning.
 
@@ -32,7 +32,7 @@ This replaces the thin first-pass `fiesta_engine_requirements` pack with a fulle
 - `02_COMPLETE_SYSTEM_CATALOG.md` — all systems seen in PDB/data/docs and what each does.
 - `03_ORIGINAL_NAMING_AND_FUNCTION_REUSE.md` — how to reuse original naming and where to find names.
 - `04_BUILD_ORDER_AND_ACCEPTANCE_TESTS.md` — ordered rewrite plan and pass/fail checks.
-- `05_CAPTURE_TO_CODE_WORKFLOW.md` — how FiestaShark/rat/Olly/IDA/Hex-Rays output becomes source.
+- `05_CAPTURE_TO_CODE_WORKFLOW.md` — how ShineShark/rat/Olly/IDA/Hex-Rays output becomes source.
 - `06_DATA_TABLE_AND_DOC_CROSSWALK.md` — data files by feature family.
 - `07_EXTERNAL_REFERENCE_MAP.md` — official/fan reference use rules.
 - `08_FUNCTION_LOCAL_MATH_AND_NO_EXTRA_TUNING_DOCS.md` — policy for missing math/formulas: implement functions first, keep tune values in the function body, and do not invent extra balance documents.
@@ -61,9 +61,9 @@ This replaces the thin first-pass `fiesta_engine_requirements` pack with a fulle
 
 <!-- 01_MASTER_COMPLETE_REWRITE_REQUIREMENTS.md -->
 
-# Fiesta Online — Complete Engine Rewrite Requirements
+# Shine Online — Complete Engine Rewrite Requirements
 
-This is the rewrite target: rebuild the server/client-support code as an original-style Fiesta engine, not a hacked pile of isolated table readers. The current source is pass 1 scaffolding. This document defines the missing system surface so the implementer can rewrite with all systems accounted for.
+This is the rewrite target: rebuild the server/client-support code as an original-style Shine engine, not a hacked pile of isolated table readers. The current source is pass 1 scaffolding. This document defines the missing system surface so the implementer can rewrite with all systems accounted for.
 
 ## Non-negotiable architecture rules
 
@@ -345,15 +345,15 @@ AccountLog/GameLog, statistics DB, report/SPAM/GM/event logs, item drop/mob kill
 
 ### 42 Client Mirror / UI / Resource Tables
 
-Client-side mirror tables, UI windows, skill/item/mob names, packet send/recv names from Fiesta.pdb. Used to map InxName/internal names to public names.
+Client-side mirror tables, UI windows, skill/item/mob names, packet send/recv names from Shine.pdb. Used to map InxName/internal names to public names.
 
-**Original names / evidence anchors:** `Fiesta.pdb, Client/ressystem/*.shn, Recv_NC_*, Send_NC_*, UI resource tables`
+**Original names / evidence anchors:** `Shine.pdb, Client/ressystem/*.shn, Recv_NC_*, Send_NC_*, UI resource tables`
 
 ## Proof levels
 
 - `PDB_CONFIRMED`: symbol/module exists in matching PDB.
 - `DATA_CONFIRMED`: SHN/TXT/Lua/doc file exists.
-- `RUNTIME_CONFIRMED`: FiestaShark/rat/Olly/IDA capture proves packet/function/DB path.
+- `RUNTIME_CONFIRMED`: ShineShark/rat/Olly/IDA capture proves packet/function/DB path.
 - `HEX_CONFIRMED`: Hex-Rays pseudocode confirms logic.
 - `GAMEPLAY_CONFIRMED`: official/fan-facing source confirms user-facing meaning/name.
 - `VERIFY`: evidence exists but exact opcode/packet layout or final formula constants still need proof. Formula uncertainty does not block implementing the function surface.
@@ -959,7 +959,7 @@ Every row below is a system family the implementer must account for. Some can st
 
 ## 42 Client Mirror / UI / Resource Tables
 
-**What it does:** Client-side mirror tables, UI windows, skill/item/mob names, packet send/recv names from Fiesta.pdb. Used to map InxName/internal names to public names.
+**What it does:** Client-side mirror tables, UI windows, skill/item/mob names, packet send/recv names from Shine.pdb. Used to map InxName/internal names to public names.
 
 **Implement as:**
 - Data ownership/loader mapping.
@@ -967,7 +967,7 @@ Every row below is a system family the implementer must account for. Some can st
 - DB read/write boundary if stateful.
 - Function implemented with original-style name/module; uncertain math uses local `// VERIFY/TUNE:` constants inside the function, not external invented tuning docs.
 
-**Original names to reuse/search:** `Fiesta.pdb, Client/ressystem/*.shn, Recv_NC_*, Send_NC_*, UI resource tables`
+**Original names to reuse/search:** `Shine.pdb, Client/ressystem/*.shn, Recv_NC_*, Send_NC_*, UI resource tables`
 
 **Initial status:** Missing/partial; create module page and stub
 
@@ -1122,14 +1122,14 @@ Josh's weekend run should become source pages, not a giant packet soup.
 
 ## Evidence chain
 
-Player action → FiestaShark wire packet → rat IOCP/internal packet → Olly live call stack → IDA/Hex-Rays handler → PDB symbol → DB write → server response → client UI/state change.
+Player action → ShineShark wire packet → rat IOCP/internal packet → Olly live call stack → IDA/Hex-Rays handler → PDB symbol → DB write → server response → client UI/state change.
 
 ## Event folder standard
 
 ```txt
 EVENT_042_job_change_attempt_01/
   notes.txt
-  fiestashark_both_sides.txt
+  shineshark_both_sides.txt
   rat_zone_iocp.log
   rat_wm_iocp.log
   olly_zone_callstack.log
@@ -1487,7 +1487,7 @@ Use external references only to fill public-facing names/meanings, not to overri
 
 ## Official Gamigo pages to use for public feature names
 
-- Fiesta homepage/about: confirms high-level systems such as quests, KQ, guilds, master/apprentice, wedding, daily quest/premium reward loops.
+- Shine homepage/about: confirms high-level systems such as quests, KQ, guilds, master/apprentice, wedding, daily quest/premium reward loops.
 - Character Classes: public names and role descriptions for Fighter, Cleric, Archer, Mage, Trickster, Crusader.
 - Class Change: public job-change levels and NPC/map flow: level 20, 60, 100.
 - Dungeons: public dungeon names and level ranges.
@@ -1499,8 +1499,8 @@ Use external references only to fill public-facing names/meanings, not to overri
 
 ## Fan/community references
 
-- Fiesta Wiki / Fiesta-Wiki: use for skill names, item names, mob names, card names, production/gathering names, and public stats when internal InxName is cryptic.
-- RageZone / EPVP / Fiesta Heroes: use for emulator behavior comparisons, packet folklore, and tool references, but mark as community evidence unless matched by PDB/capture/data.
+- Shine Wiki / Shine-Wiki: use for skill names, item names, mob names, card names, production/gathering names, and public stats when internal InxName is cryptic.
+- RageZone / EPVP / Shine Heroes: use for emulator behavior comparisons, packet folklore, and tool references, but mark as community evidence unless matched by PDB/capture/data.
 
 ## Rule
 
@@ -1514,7 +1514,7 @@ Public name sources help translate `InxName` to human meaning. They do not prove
 
 # Function-Local Math Policy — No Invented Tuning Documents
 
-This rewrite should look like original Fiesta server source, not a modern balance framework layered on top of it.
+This rewrite should look like original Shine server source, not a modern balance framework layered on top of it.
 
 ## Core rule
 
@@ -1539,7 +1539,7 @@ Do not create any of these unless original evidence shows the real server had th
 - new global formula registry;
 - new script-only formula override layer.
 
-Original Fiesta already has many data sources: SHN, TXT, Lua, PineScript, SQL, service config, and hardcoded C++ functions. Use those original-style locations only.
+Original Shine already has many data sources: SHN, TXT, Lua, PineScript, SQL, service config, and hardcoded C++ functions. Use those original-style locations only.
 
 ## What belongs in code
 

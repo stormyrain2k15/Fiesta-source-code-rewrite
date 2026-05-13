@@ -3,12 +3,12 @@
 // GBTaxRate.shn (4 cols): GameType, GB_TaxRate, GB_JPSave, GB_JPSaveRate.
 // GB_JPSave=1 routes some of the bet into the slot machine's
 // progressive jackpot pool at the GB_JPSaveRate (per-100).
-#ifndef FIESTA_ZONE_GAMBLEHOUSE_GBTAXRATETABLE_H
-#define FIESTA_ZONE_GAMBLEHOUSE_GBTAXRATETABLE_H
+#ifndef SHINE_ZONE_GAMBLEHOUSE_GBTAXRATETABLE_H
+#define SHINE_ZONE_GAMBLEHOUSE_GBTAXRATETABLE_H
 #include "../../../Shared/ShineTypes.h"
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 struct GBTaxRow {
     uint16 uiTaxRate;       // per-100
@@ -27,5 +27,5 @@ private:
     std::map<uint32, GBTaxRow> m_kRows;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

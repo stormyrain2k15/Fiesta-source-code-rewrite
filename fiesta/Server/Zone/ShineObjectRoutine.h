@@ -1,11 +1,11 @@
 // Server/Zone/ShineObjectRoutine.h
 // Per-frame update dispatch over every live ShineObject in the zone.
 // Splits the work into ranges so the IOCP worker pool can fan out.
-#ifndef FIESTA_ZONE_SHINEOBJECT_ROUTINE_H
-#define FIESTA_ZONE_SHINEOBJECT_ROUTINE_H
+#ifndef SHINE_ZONE_SHINEOBJECT_ROUTINE_H
+#define SHINE_ZONE_SHINEOBJECT_ROUTINE_H
 #include "../Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class ShineObject;
 class ShinePlayer;
@@ -22,5 +22,5 @@ public:
     static void Tick      (ShineObject* pkObj);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -1,7 +1,7 @@
 // Server/Zone/Engines/PartyEngine.h
 // Auto-generated: PartyEngine — aggregates 5 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_PARTYENGINE_H
-#define FIESTA_ZONE_ENGINES_PARTYENGINE_H
+#ifndef SHINE_ZONE_ENGINES_PARTYENGINE_H
+#define SHINE_ZONE_ENGINES_PARTYENGINE_H
 #include "../../DataReader/SHN/FriendPointReward.h"
 #include "../../DataReader/SHN/HolyPromiseReward.h"
 #include "../../DataReader/SHN/PartyBonusByLvDiff.h"
@@ -10,7 +10,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class PartyEngine {
 public:
@@ -28,5 +28,5 @@ private:
     PartyEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_PARTYENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_PARTYENGINE_H

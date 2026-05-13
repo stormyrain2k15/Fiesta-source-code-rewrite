@@ -3,7 +3,7 @@
 #include "MinimonInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MinimonInfoShn& MinimonInfoShn::Get() { static MinimonInfoShn s; return s; }
 
@@ -21,4 +21,4 @@ void MinimonInfoShn::Load() {
     SHINELOG_INFO("MinimonInfo.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

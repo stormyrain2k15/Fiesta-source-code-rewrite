@@ -2,12 +2,12 @@
 // Test runner entry point. Linked into the test exe only.
 #include "TestBase.h"
 
-namespace fiesta {
+namespace shine {
 
 int RunAllTests() { return TestRegistry::Get().RunAll(); }
 
-} // namespace fiesta
+} // namespace shine
 
-#ifdef FIESTA_TEST_MAIN
-int main(int /*argc*/, char** /*argv*/) { return fiesta::RunAllTests(); }
+#ifdef SHINE_TEST_MAIN
+int main(int /*argc*/, char** /*argv*/) { return shine::RunAllTests(); }
 #endif

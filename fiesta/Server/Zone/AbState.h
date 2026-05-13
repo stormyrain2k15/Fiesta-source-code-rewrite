@@ -2,13 +2,13 @@
 // AbState / SubAbState / dictionaries / shelter.
 // Per-target buff/debuff ledger: holds active runtime rows resolved
 // by AbStateRuntime, exposes apply/remove/tick + stat-mod queries.
-#ifndef FIESTA_ZONE_ABSTATE_H
-#define FIESTA_ZONE_ABSTATE_H
+#ifndef SHINE_ZONE_ABSTATE_H
+#define SHINE_ZONE_ABSTATE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class ShineObject;
 struct AbStateRuntimeRow;     // see AbStateRuntime.h
@@ -70,5 +70,5 @@ public:
     static bool ShouldStack  (uint32 uiNewAbId, uint32 uiOldAbId);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

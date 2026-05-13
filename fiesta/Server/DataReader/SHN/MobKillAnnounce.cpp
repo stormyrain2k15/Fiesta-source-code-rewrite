@@ -3,7 +3,7 @@
 #include "MobKillAnnounce.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MobKillAnnounceShn& MobKillAnnounceShn::Get() { static MobKillAnnounceShn s; return s; }
 
@@ -20,4 +20,4 @@ void MobKillAnnounceShn::Load() {
     SHINELOG_INFO("MobKillAnnounce.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

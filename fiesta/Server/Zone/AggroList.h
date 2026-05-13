@@ -17,12 +17,12 @@
 // Detect / chase ranges (from MobInfoServer.shn DetectCha / FollowCha) are
 // consulted by MobAI before any hate is pushed; AggroList itself is
 // purely the threat-priority queue.
-#ifndef FIESTA_ZONE_AGGROLIST_H
-#define FIESTA_ZONE_AGGROLIST_H
+#ifndef SHINE_ZONE_AGGROLIST_H
+#define SHINE_ZONE_AGGROLIST_H
 #include "../Shared/ShineTypes.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 const int32 kAggroLevelSpan = 20;
 
@@ -65,5 +65,5 @@ private:
     Entry* Find(CharID c);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

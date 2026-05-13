@@ -12,7 +12,7 @@
 #include "../Shared/GTimer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ChatStealServer& ChatStealServer::Get() { static ChatStealServer s; return s; }
 
@@ -65,4 +65,4 @@ void ChatStealServer::UnblockExpired() {
 }
 
 // WMServices ticker entry for chat. Called from WMServicesTickAll().
-} // namespace fiesta
+} // namespace shine

@@ -1,7 +1,7 @@
 // Server/Zone/Engines/MountEngine.h
 // Auto-generated: MountEngine — aggregates 9 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_MOUNTENGINE_H
-#define FIESTA_ZONE_ENGINES_MOUNTENGINE_H
+#ifndef SHINE_ZONE_ENGINES_MOUNTENGINE_H
+#define SHINE_ZONE_ENGINES_MOUNTENGINE_H
 #include "../../DataReader/SHN/MoverAbility.h"
 #include "../../DataReader/SHN/MoverHG.h"
 #include "../../DataReader/SHN/MoverItem.h"
@@ -14,7 +14,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class MountEngine {
 public:
@@ -36,5 +36,5 @@ private:
     MountEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_MOUNTENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_MOUNTENGINE_H

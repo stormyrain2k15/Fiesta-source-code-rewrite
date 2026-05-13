@@ -21,7 +21,7 @@
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class ShineResourceLoader {
 public:
@@ -56,5 +56,5 @@ private:
     uint32 m_uiMisses;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif // SHINE_CLIENT_RESSYSTEM_SHINERESOURCELOADER_H

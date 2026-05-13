@@ -2,13 +2,13 @@
 // Name -> AbState id lookup. Built from AbState.shn at boot. Used by
 // the &abstate admin command and by Lua bindings that take the abstate
 // by string ("Stun", "Frozen", ...) instead of its numeric id.
-#ifndef FIESTA_ZONE_ABNORMALSTATEDICTIONARY_H
-#define FIESTA_ZONE_ABNORMALSTATEDICTIONARY_H
+#ifndef SHINE_ZONE_ABNORMALSTATEDICTIONARY_H
+#define SHINE_ZONE_ABNORMALSTATEDICTIONARY_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 struct AbStateRow;
 
@@ -35,5 +35,5 @@ private:
     std::map<std::string, uint32> m_kByName;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

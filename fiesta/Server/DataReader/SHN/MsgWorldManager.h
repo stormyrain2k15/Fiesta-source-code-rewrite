@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MsgWorldManager.h
 // Auto-generated: one-file-per-SHN split for MsgWorldManager.shn
-#ifndef FIESTA_DATAREADER_SHN_MSGWORLDMANAGER_H
-#define FIESTA_DATAREADER_SHN_MSGWORLDMANAGER_H
+#ifndef SHINE_DATAREADER_SHN_MSGWORLDMANAGER_H
+#define SHINE_DATAREADER_SHN_MSGWORLDMANAGER_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MsgWorldManagerRow {
     std::string      kDesc;
@@ -24,5 +24,5 @@ private:
     std::vector<MsgWorldManagerRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MSGWORLDMANAGER_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MSGWORLDMANAGER_H

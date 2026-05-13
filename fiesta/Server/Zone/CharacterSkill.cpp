@@ -5,7 +5,7 @@
 #include "CharDBClient.h"
 #include <map>
 #include <set>
-namespace fiesta { namespace {
+namespace shine { namespace {
 struct CharacterSkillLedger {
     static CharacterSkillLedger& Get() { static CharacterSkillLedger s; return s; }
     std::map<uint32, std::set<uint32> > m_kPer;

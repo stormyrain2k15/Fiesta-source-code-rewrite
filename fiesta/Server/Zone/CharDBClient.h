@@ -10,15 +10,15 @@
 // One singleton TCP link per Zone process. If the exe is offline, queries
 // silently fail and the player keeps its provisional fill -- the engine still
 // runs.
-#ifndef FIESTA_ZONE_CHARDB_CLIENT_H
-#define FIESTA_ZONE_CHARDB_CLIENT_H
+#ifndef SHINE_ZONE_CHARDB_CLIENT_H
+#define SHINE_ZONE_CHARDB_CLIENT_H
 #include "../Shared/Socket_Connector.h"
 #include "../Shared/IOCPManager.h"
 #include "../DataServer/Common/Database.h"
 #include <map>
 #include <windows.h>
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -126,5 +126,5 @@ private:
     std::vector<void*>          m_kItemPending;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

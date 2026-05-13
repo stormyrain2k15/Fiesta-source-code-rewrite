@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <windows.h>
 
-namespace fiesta {
+namespace shine {
 
 NPCManager& NPCManager::Get() { static NPCManager s; return s; }
 
@@ -529,4 +529,4 @@ void NpcScheduleServer::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../GroupTables.h"
 
-namespace fiesta {
+namespace shine {
 
 PupTables& PupTables::Get() { static PupTables s; return s; }
 void PupTables::Bind() {
@@ -53,4 +53,4 @@ const LegacyPupCaseRow*   PupTables::FindCase  (uint32 uiID) const {
     return (it == m_kCaseById.end()) ? NULL : &m_kCase[it->second]; }
 
 
-} // namespace fiesta
+} // namespace shine

@@ -1,13 +1,13 @@
 // Server/Zone/Engines/NPCEngine.h
 // NPCEngine — aggregates 2 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_NPCENGINE_H
-#define FIESTA_ZONE_ENGINES_NPCENGINE_H
+#ifndef SHINE_ZONE_ENGINES_NPCENGINE_H
+#define SHINE_ZONE_ENGINES_NPCENGINE_H
 #include "../../DataReader/SHN/NPCViewInfo.h"
 #include "../../DataReader/SHN/NpcSchedule.h"
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class NPCEngine {
 public:
@@ -22,5 +22,5 @@ private:
     NPCEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_NPCENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_NPCENGINE_H

@@ -3,7 +3,7 @@
 // MobRegenTable / MoreTables hold most of the per-mob runtime data;
 // this canonical-named file is the discovery layer.
 #include "../DataReader/ShnRegistry.h"
-namespace fiesta {
+namespace shine {
 class MobDataBox {
 public:
     static MobDataBox& Get() { static MobDataBox s; return s; }
@@ -12,4 +12,4 @@ public:
             && ShnRegistry::Get().GetTable("MobInfo")       != NULL;
     }
 };
-} // namespace fiesta
+} // namespace shine

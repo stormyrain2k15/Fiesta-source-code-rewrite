@@ -3,7 +3,7 @@
 #include "BRAccUpgrade.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 BRAccUpgradeShn& BRAccUpgradeShn::Get() { static BRAccUpgradeShn s; return s; }
 
@@ -30,4 +30,4 @@ const BRAccUpgradeRow* BRAccUpgradeShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

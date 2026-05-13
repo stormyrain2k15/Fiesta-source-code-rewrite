@@ -1,11 +1,11 @@
 // Server/Shared/GPacket.h
 // GPacket = packet header + PacketBuffer payload.
 // Wire frame:  [uint16 len][uint16 ncOpcode][payload bytes...]
-#ifndef FIESTA_GPACKET_H
-#define FIESTA_GPACKET_H
+#ifndef SHINE_GPACKET_H
+#define SHINE_GPACKET_H
 #include "PacketBuffer.h"
 
-namespace fiesta {
+namespace shine {
 
 class GPacket {
 public:
@@ -27,5 +27,5 @@ private:
     PacketBuffer m_kBody;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

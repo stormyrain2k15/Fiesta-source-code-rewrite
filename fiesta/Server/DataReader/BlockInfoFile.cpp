@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 static bool SlurpFile(const std::string& rPath, std::vector<uint8>& rOut) {
     FILE* fp = NULL; fopen_s(&fp, rPath.c_str(), "rb");
@@ -84,4 +84,4 @@ bool LoadSbi(const std::string& rPath, SbiFile& rOut) {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

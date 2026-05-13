@@ -11,7 +11,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include "../Common/NETCOMMAND.h"
 
-namespace fiesta {
+namespace shine {
 
 class PF_AccountLogDBSession : public IOCPSession {
 public:
@@ -56,4 +56,4 @@ private:
     Socket_Connector m_kConn;
 };
 
-} // namespace fiesta
+} // namespace shine

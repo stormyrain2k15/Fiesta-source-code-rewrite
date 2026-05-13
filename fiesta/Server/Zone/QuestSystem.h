@@ -2,14 +2,14 @@
 // quest framework. Quest SHN files are NOT parsed here; this consumes
 // only PineScript bytecode (handled in QuestParserScript) and runtime hooks.
 //                                  QuestEvent, CharQuest, ShineQuestDiary, PineScript
-#ifndef FIESTA_ZONE_QUESTSYSTEM_H
-#define FIESTA_ZONE_QUESTSYSTEM_H
+#ifndef SHINE_ZONE_QUESTSYSTEM_H
+#define SHINE_ZONE_QUESTSYSTEM_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -80,5 +80,5 @@ public:
     static void OpenDiary(ShinePlayer* pk);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -3,7 +3,7 @@
 #include "GBEventCode.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBEventCodeShn& GBEventCodeShn::Get() { static GBEventCodeShn s; return s; }
 
@@ -21,4 +21,4 @@ void GBEventCodeShn::Load() {
     SHINELOG_INFO("GBEventCode.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

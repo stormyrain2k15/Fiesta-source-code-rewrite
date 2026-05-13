@@ -9,11 +9,11 @@
 //   * kMapLoginShaToken    -- 326-char SHA1 of the client PE first 4096 bytes,
 //                             cached because clients always send the same
 //                             value per build.
-#ifndef FIESTA_LOGIN_CLIENTVERSIONKEYINFO_H
-#define FIESTA_LOGIN_CLIENTVERSIONKEYINFO_H
+#ifndef SHINE_LOGIN_CLIENTVERSIONKEYINFO_H
+#define SHINE_LOGIN_CLIENTVERSIONKEYINFO_H
 #include "../Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 // =============================================================================
 //  EDITABLE BUILD CONSTANTS
@@ -61,5 +61,5 @@ private:
     std::string m_kKey;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

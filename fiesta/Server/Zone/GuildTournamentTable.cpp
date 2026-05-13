@@ -2,7 +2,7 @@
 // GT data tables -- score per grade, level-gap rate, occupy time, AbState
 // per map type, master buff. From the multi-row GuildTournament*.shn set.
 #include "../DataReader/ShnRegistry.h"
-namespace fiesta {
+namespace shine {
 class GuildTournamentTable {
 public:
     static GuildTournamentTable& Get() { static GuildTournamentTable s; return s; }
@@ -16,4 +16,4 @@ public:
             || ShnRegistry::Get().GetTable("GuildTournamentOccupy")     != NULL;
     }
 };
-} // namespace fiesta
+} // namespace shine

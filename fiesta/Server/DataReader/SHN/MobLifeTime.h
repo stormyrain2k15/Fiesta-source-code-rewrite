@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MobLifeTime.h
 // Auto-generated: one-file-per-SHN split for MobLifeTime.shn
-#ifndef FIESTA_DATAREADER_SHN_MOBLIFETIME_H
-#define FIESTA_DATAREADER_SHN_MOBLIFETIME_H
+#ifndef SHINE_DATAREADER_SHN_MOBLIFETIME_H
+#define SHINE_DATAREADER_SHN_MOBLIFETIME_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MobLifeTimeRow {
     std::string      kMobIndex;
@@ -25,5 +25,5 @@ private:
     std::vector<MobLifeTimeRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MOBLIFETIME_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MOBLIFETIME_H

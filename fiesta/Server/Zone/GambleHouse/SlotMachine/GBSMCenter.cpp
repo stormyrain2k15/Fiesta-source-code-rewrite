@@ -3,7 +3,7 @@
 #include "GBSMTables.h"
 #include "../../../DataReader/ShnRegistry.h"
 #include "../../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 GBSMCenterTable& GBSMCenterTable::Get() { static GBSMCenterTable s; return s; }
 bool GBSMCenterTable::Bind() {
     m_kRows.clear();
@@ -22,4 +22,4 @@ uint16 GBSMCenterTable::RatioFor(uint8 uiGroupID) const {
     std::map<uint8, uint16>::const_iterator it = m_kRows.find(uiGroupID);
     return (it == m_kRows.end()) ? 0 : it->second;
 }
-} // namespace fiesta
+} // namespace shine

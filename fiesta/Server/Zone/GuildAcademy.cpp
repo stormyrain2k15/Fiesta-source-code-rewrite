@@ -14,7 +14,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include "../Shared/GTimer.h"
 
-namespace fiesta {
+namespace shine {
 
 GuildAcademy& GuildAcademy::Get() { static GuildAcademy s; return s; }
 
@@ -81,4 +81,4 @@ uint32 GuildAcademy::ActiveMembers(uint32 uiGuildID) const {
     return (it == m_kActive.end()) ? 0 : (uint32)it->second.size();
 }
 
-} // namespace fiesta
+} // namespace shine

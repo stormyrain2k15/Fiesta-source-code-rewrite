@@ -3,7 +3,7 @@
 #include "BindMacros.h"
 #include "../MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 ToggleSkillTable& ToggleSkillTable::Get() { static ToggleSkillTable s; return s; }
 void ToggleSkillTable::Bind() {
     // FEATURE: world-creation -- column read: TS_SkillInx, TS_Condition, TS_Value
@@ -21,4 +21,4 @@ const ToggleSkillTable::Row* ToggleSkillTable::Find(uint32 s) const {
     std::map<uint32,size_t>::const_iterator i=m_kBySkill.find(s);
     return i==m_kBySkill.end()?NULL:&m_kRows[i->second];
 }
-} // namespace fiesta
+} // namespace shine

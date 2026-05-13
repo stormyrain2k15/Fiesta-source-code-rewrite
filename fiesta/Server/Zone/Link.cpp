@@ -26,7 +26,7 @@
 #include "../DataReader/ShnRegistry.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 Link& Link::Get() { static Link s; return s; }
 
@@ -129,4 +129,4 @@ bool Link::OnPlayerStep(ShinePlayer* pk, uint16 uiMap, float x, float y) const {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

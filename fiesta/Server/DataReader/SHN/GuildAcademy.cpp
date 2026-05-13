@@ -3,7 +3,7 @@
 #include "GuildAcademy.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GuildAcademyShn& GuildAcademyShn::Get() { static GuildAcademyShn s; return s; }
 
@@ -22,4 +22,4 @@ void GuildAcademyShn::Load() {
     SHINELOG_INFO("GuildAcademy.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

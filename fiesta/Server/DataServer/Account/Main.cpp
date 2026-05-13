@@ -18,7 +18,7 @@
 #include "../Common/Database.h"
 #include "../Common/SQLP.h"
 
-namespace fiesta {
+namespace shine {
 
 // Single static facade -- each session pointer is non-owning.
 static Database*        g_pkAccountDB = NULL;
@@ -76,7 +76,7 @@ static IOCPSession* MakeAccountDBSession() { return new AccountDBSession(); }
 
 class AccountDBService : public WinService {
 public:
-    AccountDBService() : WinService("FiestaAccountDB") {}
+    AccountDBService() : WinService("ShineAccountDB") {}
     virtual bool OnStart() {
         m_kInfo.Load("ServerInfo.txt");
         g_pkAccountDB = new Database();
@@ -103,9 +103,9 @@ private:
     Socket_Acceptor m_kAcceptor;
 };
 
-} // namespace fiesta
+} // namespace shine
 
 int main(int argc, char** argv) {
-    fiesta::AccountDBService svc;
+    shine::AccountDBService svc;
     return svc.Run(argc, argv);
 }

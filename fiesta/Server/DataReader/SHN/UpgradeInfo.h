@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/UpgradeInfo.h
 // Auto-generated: one-file-per-SHN split for UpgradeInfo.shn
-#ifndef FIESTA_DATAREADER_SHN_UPGRADEINFO_H
-#define FIESTA_DATAREADER_SHN_UPGRADEINFO_H
+#ifndef SHINE_DATAREADER_SHN_UPGRADEINFO_H
+#define SHINE_DATAREADER_SHN_UPGRADEINFO_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct UpgradeInfoRow {
     uint16           uiID;
@@ -42,5 +42,5 @@ private:
     std::map<std::string, size_t>  m_kByInx;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_UPGRADEINFO_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_UPGRADEINFO_H

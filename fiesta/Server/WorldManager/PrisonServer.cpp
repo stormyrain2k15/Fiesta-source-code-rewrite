@@ -12,7 +12,7 @@
 #include "../Shared/GTimer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 PrisonServer& PrisonServer::Get() { static PrisonServer s; return s; }
 
@@ -65,4 +65,4 @@ void PrisonServer::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -3,7 +3,7 @@
 #include "PupPriority.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 PupPriorityShn& PupPriorityShn::Get() { static PupPriorityShn s; return s; }
 
@@ -20,4 +20,4 @@ void PupPriorityShn::Load() {
     SHINELOG_INFO("PupPriority.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

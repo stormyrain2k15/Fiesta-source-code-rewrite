@@ -4,7 +4,7 @@
 #include <math.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 Field::Field(MapID id) : m_uiId(id) { m_kBlocks.uiW = 0; m_kBlocks.uiH = 0; }
 
@@ -69,4 +69,4 @@ MapID ResolveMapByName(const char* szInxName) {
     return 0;
 }
 
-} // namespace fiesta
+} // namespace shine

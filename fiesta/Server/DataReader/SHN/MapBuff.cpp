@@ -3,7 +3,7 @@
 #include "MapBuff.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MapBuffShn& MapBuffShn::Get() { static MapBuffShn s; return s; }
 
@@ -21,4 +21,4 @@ void MapBuffShn::Load() {
     SHINELOG_INFO("MapBuff.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

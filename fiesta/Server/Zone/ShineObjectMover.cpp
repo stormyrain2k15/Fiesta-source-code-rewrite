@@ -3,7 +3,7 @@
 // the rider's BattleStat (move-speed bonus, jump-rise, mount HP pool).
 #include "ShineObject.h"
 
-namespace fiesta {
+namespace shine {
 // Reserved for ShineMover-specific ops; right now everything routes
 // through the generic ShineObject mover hooks in ShineObject.cpp.
-} // namespace fiesta
+} // namespace shine

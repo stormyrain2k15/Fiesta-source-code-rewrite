@@ -1,13 +1,13 @@
 // Server/Zone/KingdomQuest.h
 // KQ. symbol: KingdomQuest, KQServer, KQRewardDataBox,
 //                                          KQContribute, KQTeam, KQIsVote, KQVoteMajorityRate
-#ifndef FIESTA_ZONE_KINGDOMQUEST_H
-#define FIESTA_ZONE_KINGDOMQUEST_H
+#ifndef SHINE_ZONE_KINGDOMQUEST_H
+#define SHINE_ZONE_KINGDOMQUEST_H
 #include "ShineObject.h"
 #include <map>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 enum KQState { KQS_IDLE = 0, KQS_RECRUIT, KQS_RUNNING, KQS_VOTE, KQS_END };
 
@@ -44,5 +44,5 @@ public:
     static bool End(const char* szMapInx);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

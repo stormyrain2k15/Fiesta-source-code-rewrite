@@ -3,7 +3,7 @@
 #include "ItemUpgrade.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ItemUpgradeShn& ItemUpgradeShn::Get() { static ItemUpgradeShn s; return s; }
 
@@ -30,4 +30,4 @@ const ItemUpgradeRow* ItemUpgradeShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

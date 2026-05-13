@@ -3,7 +3,7 @@
 #include "../../Server/Shared/ShineLogSystem.h"
 #include "../../Server/Common/NETCOMMAND.h"
 
-namespace fiesta {
+namespace shine {
 
 LoginSession::LoginSession()
     : m_eState(LS_IDLE), m_uiAccountId(0),
@@ -15,9 +15,7 @@ void LoginSession::SetCredentials(const std::string& rUser, const std::string& r
     m_kPass = rPass;
 }
 
-void LoginSession::SetCallbacks(LoginSuccessCallback onSuccess,
-                                LoginFailCallback onFail,
-                                void* pkCtx) {
+void LoginSession::SetCallbacks(LoginSuccessCallback onSuccess, LoginFailCallback onFail, void* pkCtx) {
     m_cbSuccess = onSuccess;
     m_cbFail    = onFail;
     m_pkCbCtx   = pkCtx;
@@ -170,4 +168,4 @@ void LoginSession::HandleWorldSelectAck(const GPacket& rPkt) {
     // We stay connected until caller calls Disconnect().
 }
 
-} // namespace fiesta
+} // namespace shine

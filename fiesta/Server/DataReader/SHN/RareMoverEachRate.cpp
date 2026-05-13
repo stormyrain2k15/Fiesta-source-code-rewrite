@@ -3,7 +3,7 @@
 #include "RareMoverEachRate.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 RareMoverEachRateShn& RareMoverEachRateShn::Get() { static RareMoverEachRateShn s; return s; }
 
@@ -20,4 +20,4 @@ void RareMoverEachRateShn::Load() {
     SHINELOG_INFO("RareMoverEachRate.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

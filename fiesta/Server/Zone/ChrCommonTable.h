@@ -11,14 +11,14 @@
 //   FreeStatConTable    -- 181 rows; per-CON -> AC / MaxHP.
 //   FreeStatMenTable    -- 181 rows; per-MEN -> MR / status resists.
 //                                   World/ChrCommon.txt.
-#ifndef FIESTA_ZONE_CHRCOMMONTABLE_H
-#define FIESTA_ZONE_CHRCOMMONTABLE_H
+#ifndef SHINE_ZONE_CHRCOMMONTABLE_H
+#define SHINE_ZONE_CHRCOMMONTABLE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class ChrCommonTable {
 public:
@@ -65,5 +65,5 @@ private:
     std::vector<std::string>          m_kFreeColNames[5];  // header names
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -11,7 +11,7 @@
 #include "../DataReader/ShnFile.h"
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 SetItemData& SetItemData::Get() { static SetItemData s; return s; }
 
@@ -37,4 +37,4 @@ int SetItemData::CountEquippedPieces(ShinePlayer* pkPlayer,
     return n;
 }
 
-} // namespace fiesta
+} // namespace shine

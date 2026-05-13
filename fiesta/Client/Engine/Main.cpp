@@ -1,45 +1,42 @@
 // Client/Engine/Main.cpp
-// WinMain: load ShineClient.ini via ShineConfig, build ClientConfig, run.
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-#include "ClientApp.h"
+// WinMain -- load config, init Gamebryo via NiApplication::Create().
+// Matches the original client pattern:
+//   NiApplication::Create() returns ShineApp*
+//   NiApplication::Run() drives the message loop
+//   Everything else flows through ShineFrameWorkMgr
+#include "ShineApp.h"
 #include "ShineConfig.h"
+#include "MachineOpt.h"
+#include "../Input/KeyMap.h"
+#include "../UI/UILayout.h"
 #include "../../Server/Shared/ShineLogSystem.h"
+#include <NiSystem.h>
 
 int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int) {
-    // Resolve ini path beside the exe
+    // ── Resolve exe directory ─────────────────────────────────────────────
     char szExeDir[MAX_PATH];
     GetModuleFileNameA(NULL, szExeDir, MAX_PATH);
     char* pSlash = strrchr(szExeDir, '\\');
-    if (pSlash) *(pSlash + 1) = '\0';
-    std::string kIni = std::string(szExeDir) + "ShineClient.ini";
+    if (pSlash) *(pSlash+1) = '\0';
+    std::string kExeDir(szExeDir);
 
-    fiesta::ShineConfig& cfg = fiesta::ShineConfig::Get();
-    cfg.Load(kIni.c_str());
+    // ── Init logging ──────────────────────────────────────────────────────
+    // splog_init equivalent -- just write to ShineClient.log for now
+    SHINELOG_INFO("Shine client starting");
 
-    // Bridge ShineConfig into ClientConfig
-    fiesta::ClientConfig cc;
-    cc.kLoginIp    = cfg.kLoginIP;
-    cc.uiLoginPort = cfg.uiLoginPort;
-    cc.kUser       = cfg.kUser;
-    cc.kPass       = cfg.kPass;
-    cc.uiCharId    = cfg.uiCharId;
-    cc.kAssetRoot  = cfg.kBaseDir;
-    cc.uiWidth     = cfg.uiWidth;
-    cc.uiHeight    = cfg.uiHeight;
-    cc.bSkipLogin  = cfg.bSkipLogin;
-    cc.kZoneIP     = cfg.kZoneIP;
-    cc.uiZonePort  = cfg.uiZonePort;
+    // ── Load configs ──────────────────────────────────────────────────────
+    shine::ShineConfig::Get().Load((kExeDir + "ShineClient.ini").c_str());
+    shine::MachineOpt::Get().Init(kExeDir + "ShineOption.cfg");
+    shine::KeyMap::Get().Init(kExeDir + "ShineKeys.cfg");
+    shine::UILayout::Get().Init(kExeDir + "ShineUI.cfg");
 
-    fiesta::ClientApp app;
-    if (!app.Init(hInst, cc)) {
-        MessageBoxA(NULL,
-            "Shine failed to initialize.\nSee ShineClient.log for details.",
-            "Shine", MB_OK | MB_ICONERROR);
-        return 1;
-    }
+    // ── Boot Gamebryo ─────────────────────────────────────────────────────
+    // NiApplication::Run() calls NiApplication::Create() internally,
+    // which calls our ShineApp factory.
+    NiInit();
+    int iRet = NiApplication::Run(hInst);
+    NiShutdown();
 
-    int iRet = app.Run();
-    app.Shutdown();
+    SHINELOG_INFO("Shine client exit code %d", iRet);
     return iRet;
 }

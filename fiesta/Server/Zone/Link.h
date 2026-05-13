@@ -1,12 +1,12 @@
 // Server/Zone/Link.h
 // FEATURE: portals -- runtime portal data + walk-into trigger.
 // See Link.cpp for the full flow description.
-#ifndef FIESTA_ZONE_LINK_H
-#define FIESTA_ZONE_LINK_H
+#ifndef SHINE_ZONE_LINK_H
+#define SHINE_ZONE_LINK_H
 #include "../Shared/ShineTypes.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -58,5 +58,5 @@ private:
     std::vector<Gate>      m_kGates;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -16,13 +16,13 @@
 //   5) Client sends NC_MAP_TOWNPORTAL_REQ with N.
 //   6) Server validates (still in inventory, still on same map, still
 //      under same group+level), consumes the scroll, teleports.
-#ifndef FIESTA_ZONE_TOWNPORTALSYSTEM_H
-#define FIESTA_ZONE_TOWNPORTALSYSTEM_H
+#ifndef SHINE_ZONE_TOWNPORTALSYSTEM_H
+#define SHINE_ZONE_TOWNPORTALSYSTEM_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 class ShinePlayer;
 
 struct LegacyTownPortalRow {
@@ -61,5 +61,5 @@ private:
     std::vector<LegacyTownPortalRow> m_kRows;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

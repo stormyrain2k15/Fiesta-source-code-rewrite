@@ -10,7 +10,7 @@
 #include "../Common/SendPacket.h"
 #include "../Common/ProtocolParser.h"
 
-namespace fiesta {
+namespace shine {
 
 ProtocolParser& GetZoneParser() { static ProtocolParser s; return s; }
 
@@ -162,4 +162,4 @@ void ClientSession::OnPacket(const GPacket& rPkt) {
     GetZoneParser().Dispatch(this, rPkt);
 }
 
-} // namespace fiesta
+} // namespace shine

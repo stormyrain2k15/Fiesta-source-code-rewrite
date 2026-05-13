@@ -5,7 +5,7 @@
 #include "BindMacros.h"
 #include "../MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 
 SubAbStateTable& SubAbStateTable::Get() { static SubAbStateTable s; return s; }
 
@@ -74,4 +74,4 @@ void SubAbStateTable::GatherByInx(const std::string& rInx,
         rOut.push_back(&m_kRows[it->second[i]]);
 }
 
-} // namespace fiesta
+} // namespace shine

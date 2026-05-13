@@ -10,11 +10,11 @@
 //   4. When in melee range: attack (driven by MobAttackSequenceBox).
 //      First attack of the engagement -> MobChat[ATTACK] line.
 //   5. On HP-low threshold: HELPMAIN/HELPSUB calls (broadcast to allies).
-#ifndef FIESTA_ZONE_MOBAIRUNNER_H
-#define FIESTA_ZONE_MOBAIRUNNER_H
+#ifndef SHINE_ZONE_MOBAIRUNNER_H
+#define SHINE_ZONE_MOBAIRUNNER_H
 #include "../Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class MobAIRunner {
 public:
@@ -26,5 +26,5 @@ private:
     uint64 m_uiLastDecayMs;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

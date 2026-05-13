@@ -7,7 +7,7 @@
 #include "ZoneServer.h"
 #include "MapField.h"
 
-namespace fiesta {
+namespace shine {
 
 void NearScan::Players(uint16 uiMap, float cx, float cy, float r,
                        std::vector<ShinePlayer*>& rOut) {
@@ -38,4 +38,4 @@ void NearScan::RunOnField(Field& rField, const Vec3& kFrom,
     }
 }
 
-} // namespace fiesta
+} // namespace shine

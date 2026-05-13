@@ -1,11 +1,11 @@
 // Server/Common/ProtocolAnalysis.h
 // runtime opcode hit counter / capture aid.
-#ifndef FIESTA_PROTOCOLANALYSIS_H
-#define FIESTA_PROTOCOLANALYSIS_H
+#ifndef SHINE_PROTOCOLANALYSIS_H
+#define SHINE_PROTOCOLANALYSIS_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 class ProtocolAnalysis {
 public:
@@ -20,5 +20,5 @@ private:
     ~ProtocolAnalysis();
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -3,7 +3,7 @@
 #include "TestBase.h"
 #include "../StatDistribute.h"
 
-namespace fiesta {
+namespace shine {
 
 TEST_CASE(Battle_StatCompose_BaseOnly) {
     RAWCHARSTAT raw; raw.Clear();
@@ -17,4 +17,4 @@ TEST_CASE(Battle_StatCompose_BaseOnly) {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

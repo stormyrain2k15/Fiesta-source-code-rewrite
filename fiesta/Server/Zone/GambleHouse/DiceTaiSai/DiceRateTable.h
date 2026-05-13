@@ -4,12 +4,12 @@
 // jackpot odds denominator. Same shape as a one-column lottery wheel;
 // the canonical use is to compute the win/lose flag against the bowl's
 // GetSysRate before consulting DiceDividind for the actual payout.
-#ifndef FIESTA_ZONE_GAMBLEHOUSE_DICETAISAI_DICERATETABLE_H
-#define FIESTA_ZONE_GAMBLEHOUSE_DICETAISAI_DICERATETABLE_H
+#ifndef SHINE_ZONE_GAMBLEHOUSE_DICETAISAI_DICERATETABLE_H
+#define SHINE_ZONE_GAMBLEHOUSE_DICETAISAI_DICERATETABLE_H
 #include "../../../../Shared/ShineTypes.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class DiceRateTable {
 public:
@@ -26,5 +26,5 @@ private:
     uint32              m_uiTotal;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

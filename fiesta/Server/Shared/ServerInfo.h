@@ -17,12 +17,12 @@
 //   2 : <INTEGER> 0
 //   3 : <STRING>  ODBC connect str  "DRIVER={SQL Server};SERVER=..;UID=..;PWD=.."
 //   4 : <STRING>  prelude SQL       "USE <db>; SET LOCK_TIMEOUT 5000"
-#ifndef FIESTA_SHARED_SERVERINFO_H
-#define FIESTA_SHARED_SERVERINFO_H
+#ifndef SHINE_SHARED_SERVERINFO_H
+#define SHINE_SHARED_SERVERINFO_H
 #include "ShineTypes.h"
 #include "ConfigParser.h"
 
-namespace fiesta {
+namespace shine {
 
 enum ServiceKind {
     SK_AccountDB     = 0,
@@ -99,5 +99,5 @@ private:
     static std::string s_kEmpty;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -13,7 +13,7 @@
 #include "../Common/Database.h"
 #include "../Common/SQLP.h"
 
-namespace fiesta {
+namespace shine {
 
 static Database*         g_pkAcctLogDB = NULL;
 static SQLP_AccountLog*  g_pkSQLPAcctL = NULL;
@@ -78,7 +78,7 @@ static IOCPSession* MakeAccountLogSession() { return new AccountLogSession(); }
 
 class AccountLogService : public WinService {
 public:
-    AccountLogService() : WinService("FiestaAccountLog") {}
+    AccountLogService() : WinService("ShineAccountLog") {}
     virtual bool OnStart() {
         m_kInfo.Load("ServerInfo.txt");
         g_pkAcctLogDB = new Database();
@@ -99,6 +99,6 @@ private:
     ServerInfo m_kInfo; IOCPManager m_kIOCP; Socket_Acceptor m_kAcceptor;
 };
 
-} // namespace fiesta
+} // namespace shine
 
-int main(int argc, char** argv) { fiesta::AccountLogService s; return s.Run(argc, argv); }
+int main(int argc, char** argv) { shine::AccountLogService s; return s.Run(argc, argv); }

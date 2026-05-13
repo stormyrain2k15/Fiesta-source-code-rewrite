@@ -3,7 +3,7 @@
 #include "UpgradeEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 UpgradeEngine& UpgradeEngine::Get() { static UpgradeEngine s; return s; }
 
@@ -24,4 +24,4 @@ void UpgradeEngine::Bind() {
     SHINELOG_INFO("UpgradeEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

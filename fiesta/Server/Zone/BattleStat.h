@@ -3,12 +3,12 @@
 // Built once on zone login then kept hot in memory; rebuilt on equip/unequip,
 // level up, buff apply/remove. Field names mirror the supplied
 // MoverMain.shn / MoverAbility.shn / ItemInfo.shn / AbStateInfo.shn columns.
-#ifndef FIESTA_ZONE_BATTLESTAT_H
-#define FIESTA_ZONE_BATTLESTAT_H
+#ifndef SHINE_ZONE_BATTLESTAT_H
+#define SHINE_ZONE_BATTLESTAT_H
 #include "../Shared/ShineTypes.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 // Element type. Matches EleType column in WeaponAttrib.shn / AbStateInfo.shn.
 enum eElement {
@@ -113,5 +113,5 @@ struct DAMAGERESULT {
     void Clear() { memset(this, 0, sizeof(*this)); }
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -3,7 +3,7 @@
 #include "Riding.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 RidingShn& RidingShn::Get() { static RidingShn s; return s; }
 
@@ -42,4 +42,4 @@ void RidingShn::Load() {
     SHINELOG_INFO("Riding.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

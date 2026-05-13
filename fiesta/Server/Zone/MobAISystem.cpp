@@ -9,7 +9,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <windows.h>
 
-namespace fiesta {
+namespace shine {
 
 MobAISystem& MobAISystem::Get() { static MobAISystem s; return s; }
 
@@ -108,4 +108,4 @@ bool MobAISystem::IsInAggroRange(const ShineMob* pkMob, const ShinePlayer* pkPla
     return d2 <= r2;
 }
 
-} // namespace fiesta
+} // namespace shine

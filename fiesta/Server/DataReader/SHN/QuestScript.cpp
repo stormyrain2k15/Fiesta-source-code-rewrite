@@ -3,7 +3,7 @@
 #include "QuestScript.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 QuestScriptShn& QuestScriptShn::Get() { static QuestScriptShn s; return s; }
 
@@ -26,4 +26,4 @@ const QuestScriptRow* QuestScriptShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

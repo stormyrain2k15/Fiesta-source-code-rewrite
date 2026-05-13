@@ -2,15 +2,15 @@
 // Cross-zone "content" systems owned by WorldManager. Each is a thin
 // stateful coordinator -- the heavy data writes flow through WMCharDBClient
 // to the CharDB exe.
-#ifndef FIESTA_WM_SERVICES_H
-#define FIESTA_WM_SERVICES_H
+#ifndef SHINE_WM_SERVICES_H
+#define SHINE_WM_SERVICES_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 #include <map>
 #include <set>
 
-namespace fiesta {
+namespace shine {
 
 class FriendServer {
 public:
@@ -170,5 +170,5 @@ public:
 
 void WMServicesTickAll();
 
-} // namespace fiesta
+} // namespace shine
 #endif

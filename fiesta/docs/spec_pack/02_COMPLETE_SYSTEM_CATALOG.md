@@ -592,7 +592,7 @@ Every row below is a system family the implementer must account for. Some can st
 
 ## 42 Client Mirror / UI / Resource Tables
 
-**What it does:** Client-side mirror tables, UI windows, skill/item/mob names, packet send/recv names from Fiesta.pdb. Used to map InxName/internal names to public names.
+**What it does:** Client-side mirror tables, UI windows, skill/item/mob names, packet send/recv names from Shine.pdb. Used to map InxName/internal names to public names.
 
 **Implement as:**
 - Data ownership/loader mapping.
@@ -600,7 +600,7 @@ Every row below is a system family the implementer must account for. Some can st
 - DB read/write boundary if stateful.
 - Function implemented with original-style name/module; uncertain math uses local `// VERIFY/TUNE:` constants inside the function, not external invented tuning docs.
 
-**Original names to reuse/search:** `Fiesta.pdb, Client/ressystem/*.shn, Recv_NC_*, Send_NC_*, UI resource tables`
+**Original names to reuse/search:** `Shine.pdb, Client/ressystem/*.shn, Recv_NC_*, Send_NC_*, UI resource tables`
 
 **Initial status:** Missing/partial; create module page and stub
 

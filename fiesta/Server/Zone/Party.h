@@ -1,13 +1,13 @@
 // Server/Zone/Party.h
 // Party / Raid.
 //                                  PartyBreak, PartyContainer, RaidSystem
-#ifndef FIESTA_ZONE_PARTY_H
-#define FIESTA_ZONE_PARTY_H
+#ifndef SHINE_ZONE_PARTY_H
+#define SHINE_ZONE_PARTY_H
 #include "ShineObject.h"
 #include <vector>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 struct Party {
     uint32  uiPartyId;
@@ -40,5 +40,5 @@ void PartyLeave  (CharID c);
 void PartyKickOut(CharID kicker, CharID kicked);
 void PartyBreak  (CharID requester);
 
-} // namespace fiesta
+} // namespace shine
 #endif

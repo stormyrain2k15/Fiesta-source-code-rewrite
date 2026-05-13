@@ -31,7 +31,7 @@
 #include "../DataReader/TableScriptFile.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 // =============================================================================
 // KarenAttackTable -- World/Karen.txt
@@ -62,4 +62,4 @@ const std::string& KarenAttackTable::AttackAt(uint16 uiOrder) const {
     return (it == m_kRows.end()) ? m_kEmpty : it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

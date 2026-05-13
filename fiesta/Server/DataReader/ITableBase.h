@@ -1,13 +1,13 @@
 // Server/DataReader/ITableBase.h
 // common base for every *Tab table loader. Original symbol pattern:
 //   ITableBase<T>::Load / ::DataProcess / ::BeforeTerminate / ::GetTotal / ::ms_pkTable
-#ifndef FIESTA_ITABLEBASE_H
-#define FIESTA_ITABLEBASE_H
+#ifndef SHINE_ITABLEBASE_H
+#define SHINE_ITABLEBASE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class DataReader;
 
@@ -46,5 +46,5 @@ protected:
 
 template <class TRecord> ITableBase<TRecord>* ITableBase<TRecord>::ms_pkTable = NULL;
 
-} // namespace fiesta
+} // namespace shine
 #endif

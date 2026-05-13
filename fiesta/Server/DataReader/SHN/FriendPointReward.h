@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/FriendPointReward.h
 // Auto-generated: one-file-per-SHN split for FriendPointReward.shn
-#ifndef FIESTA_DATAREADER_SHN_FRIENDPOINTREWARD_H
-#define FIESTA_DATAREADER_SHN_FRIENDPOINTREWARD_H
+#ifndef SHINE_DATAREADER_SHN_FRIENDPOINTREWARD_H
+#define SHINE_DATAREADER_SHN_FRIENDPOINTREWARD_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct FriendPointRewardRow {
     std::string      kInxName;
@@ -28,5 +28,5 @@ private:
     std::map<std::string, size_t>  m_kByInx;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_FRIENDPOINTREWARD_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_FRIENDPOINTREWARD_H

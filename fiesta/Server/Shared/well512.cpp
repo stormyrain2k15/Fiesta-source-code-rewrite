@@ -3,7 +3,7 @@
 #include "well512.h"
 #include <time.h>
 
-namespace fiesta {
+namespace shine {
 
 well512::well512() : m_uiIndex(0) {
     Seed((uint32)time(NULL) ^ (uint32)GetCurrentThreadId());
@@ -41,4 +41,4 @@ double well512::NextDouble() {
     return (double)Next() / 4294967296.0;
 }
 
-} // namespace fiesta
+} // namespace shine

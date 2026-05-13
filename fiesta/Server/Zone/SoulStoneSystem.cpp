@@ -5,7 +5,7 @@
 #include "../Shared/GTimer.h"
 #include <windows.h>
 
-namespace fiesta {
+namespace shine {
 
 static uint64 NowMs() { return (uint64)GTimer::NowMillis(); }
 
@@ -90,4 +90,4 @@ uint32 SoulStoneSystem::RemainingSpCooldownMs(const SoulStoneCounts& rC) {
     return (rC.uiNextSpUseTickMs <= now) ? 0u : (uint32)(rC.uiNextSpUseTickMs - now);
 }
 
-} // namespace fiesta
+} // namespace shine

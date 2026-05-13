@@ -2,4 +2,4 @@
 // Raid -- cross-party group of up to 8 parties. Used for boss raids
 // outside of instances. Loot rules: master, boss-fcfs, round-robin.
 #include "../Shared/ShineTypes.h"
-namespace fiesta { class RaidSystem { public: static RaidSystem& Get(){ static RaidSystem s; return s; } }; }
+namespace shine { class RaidSystem { public: static RaidSystem& Get(){ static RaidSystem s; return s; } }; }

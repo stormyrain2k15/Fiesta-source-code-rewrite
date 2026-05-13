@@ -3,7 +3,7 @@
 #include "WeaponAttrib.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 WeaponAttribShn& WeaponAttribShn::Get() { static WeaponAttribShn s; return s; }
 
@@ -24,4 +24,4 @@ void WeaponAttribShn::Load() {
     SHINELOG_INFO("WeaponAttrib.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

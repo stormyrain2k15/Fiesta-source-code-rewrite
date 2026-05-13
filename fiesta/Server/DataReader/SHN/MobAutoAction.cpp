@@ -3,7 +3,7 @@
 #include "MobAutoAction.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MobAutoActionShn& MobAutoActionShn::Get() { static MobAutoActionShn s; return s; }
 
@@ -26,4 +26,4 @@ void MobAutoActionShn::Load() {
     SHINELOG_INFO("MobAutoAction.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

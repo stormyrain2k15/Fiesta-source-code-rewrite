@@ -3,7 +3,7 @@
 #include "GBBanTime.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBBanTimeShn& GBBanTimeShn::Get() { static GBBanTimeShn s; return s; }
 
@@ -21,4 +21,4 @@ void GBBanTimeShn::Load() {
     SHINELOG_INFO("GBBanTime.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

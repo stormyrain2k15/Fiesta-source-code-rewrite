@@ -4,7 +4,7 @@
 // them via ITableBase<ItemInfoRow>::ms_pkTable; this file is the canonical
 // alias.
 #include "../DataReader/ShnRegistry.h"
-namespace fiesta {
+namespace shine {
 class ItemDataBox {
 public:
     static ItemDataBox& Get() { static ItemDataBox s; return s; }
@@ -13,4 +13,4 @@ public:
             && ShnRegistry::Get().GetTable("ItemInfoServer") != NULL;
     }
 };
-} // namespace fiesta
+} // namespace shine

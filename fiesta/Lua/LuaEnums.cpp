@@ -5,7 +5,7 @@
 // code never reads these tables -- they exist so Lua scripts can refer to
 // constants by name (`ObjectType.Player`) instead of by magic number.
 #include "LuaRuntime.h"
-namespace fiesta {
+namespace shine {
 
 // Helper: install a table of (name, int) pairs as a global Lua table.
 struct EnumKV   { const char* szName; int iValue; };
@@ -195,4 +195,4 @@ void RegisterLuaEnums(lua_State* L) {
 #undef INSTALL
 #undef INSTALL_STR
 
-} // namespace fiesta
+} // namespace shine

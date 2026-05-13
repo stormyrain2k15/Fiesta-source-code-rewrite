@@ -4,14 +4,14 @@
 // scenarios. Verbs include: doorbuild, doorclose, dooropen, scriptfile,
 // waitlogin, findhandle, call, npcchat, broadcast, linkto, pause sec N,
 // effectobj, itemcreate, questresult, break, mobregen, etc.
-#ifndef FIESTA_ZONE_SCENARIOSCRIPT_H
-#define FIESTA_ZONE_SCENARIOSCRIPT_H
+#ifndef SHINE_ZONE_SCENARIOSCRIPT_H
+#define SHINE_ZONE_SCENARIOSCRIPT_H
 #include "../Shared/ShineTypes.h"
 #include "../DataReader/PsScriptFile.h"
 #include <map>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class ScenarioScript {
 public:
@@ -35,5 +35,5 @@ private:
     std::map<std::string, ScenarioScript*> m_kAll;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

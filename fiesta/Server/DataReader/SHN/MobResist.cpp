@@ -3,7 +3,7 @@
 #include "MobResist.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MobResistShn& MobResistShn::Get() { static MobResistShn s; return s; }
 
@@ -35,4 +35,4 @@ const MobResistRow* MobResistShn::FindByInx(const std::string& rInx) const {
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

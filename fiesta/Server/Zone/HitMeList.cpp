@@ -5,7 +5,7 @@
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <vector>
-namespace fiesta {
+namespace shine {
 
 struct HitEntry { uint32 uiCharNo; uint64 uiThreat; };
 
@@ -31,4 +31,4 @@ private:
     std::map<uint32, uint64> m_kThreat;
 };
 
-} // namespace fiesta
+} // namespace shine

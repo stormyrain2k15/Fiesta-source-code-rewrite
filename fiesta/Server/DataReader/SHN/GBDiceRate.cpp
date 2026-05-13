@@ -3,7 +3,7 @@
 #include "GBDiceRate.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBDiceRateShn& GBDiceRateShn::Get() { static GBDiceRateShn s; return s; }
 
@@ -19,4 +19,4 @@ void GBDiceRateShn::Load() {
     SHINELOG_INFO("GBDiceRate.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

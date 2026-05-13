@@ -2,11 +2,11 @@
 //                                  PetData, PetProtoFunc, PetRelatedSkill, MinimonDataBox, MiniHouseInterior,
 //                                  MoverDataBox, ShineObjectMover, MoverUpgradeData,
 //                                  GambleSystem, GambleDiceTaiSaiObject, SlotMachine
-#ifndef FIESTA_ZONE_CRAFTANDPET_H
-#define FIESTA_ZONE_CRAFTANDPET_H
+#ifndef SHINE_ZONE_CRAFTANDPET_H
+#define SHINE_ZONE_CRAFTANDPET_H
 #include "Inventory.h"
 
-namespace fiesta {
+namespace shine {
 
 class GatherNProduce { public:
     static bool BeginGather (ShinePlayer* pk, uint32 uiNodeId);
@@ -30,5 +30,5 @@ class GambleSystem        { public: static int32 RollDice(uint16 uiNDice, uint16
 class GambleDiceTaiSaiObject { public: static int32 PayoutFor(uint16 uiBetType, uint16 uiResult); };
 class SlotMachine         { public: static int32 Spin(int64 iWager); };
 
-} // namespace fiesta
+} // namespace shine
 #endif

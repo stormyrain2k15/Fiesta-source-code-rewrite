@@ -4,7 +4,7 @@
 #include "../../DataReader/TableScriptFile.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 TreasureRewardTable& TreasureRewardTable::Get() {
     static TreasureRewardTable s; return s;
@@ -68,4 +68,4 @@ void TreasureRewardTable::ContentsForContainer(uint32 u,
         rOut.push_back(&m_kContents[it->second[i]]);
 }
 
-} // namespace fiesta
+} // namespace shine

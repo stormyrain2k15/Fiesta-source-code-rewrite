@@ -3,7 +3,7 @@
 #include "KQTeam.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 KQTeamShn& KQTeamShn::Get() { static KQTeamShn s; return s; }
 
@@ -32,4 +32,4 @@ const KQTeamRow* KQTeamShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

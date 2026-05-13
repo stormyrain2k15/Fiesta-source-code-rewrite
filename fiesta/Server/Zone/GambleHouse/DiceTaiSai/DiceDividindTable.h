@@ -9,11 +9,11 @@
 //
 // The misspelling "Dividind" is straight from the NA2016 file -- do
 // not "fix" it; the SHN parser is name-keyed.
-#ifndef FIESTA_ZONE_GAMBLEHOUSE_DICETAISAI_DICEDIVIDINDTABLE_H
-#define FIESTA_ZONE_GAMBLEHOUSE_DICETAISAI_DICEDIVIDINDTABLE_H
+#ifndef SHINE_ZONE_GAMBLEHOUSE_DICETAISAI_DICEDIVIDINDTABLE_H
+#define SHINE_ZONE_GAMBLEHOUSE_DICETAISAI_DICEDIVIDINDTABLE_H
 #include "../../../../Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class DiceDividindTable {
 public:
@@ -28,5 +28,5 @@ private:
     bool  m_bLoaded;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

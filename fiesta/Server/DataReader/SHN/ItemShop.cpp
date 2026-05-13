@@ -3,7 +3,7 @@
 #include "ItemShop.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ItemShopShn& ItemShopShn::Get() { static ItemShopShn s; return s; }
 
@@ -27,4 +27,4 @@ const ItemShopRow* ItemShopShn::FindByInx(const std::string& rInx) const {
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

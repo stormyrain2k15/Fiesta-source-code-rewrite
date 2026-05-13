@@ -9,7 +9,7 @@
 #include "../../Server/Shared/ShineTypes.h"
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class ShineScene {
 public:
@@ -34,5 +34,5 @@ private:
     NiRenderer* m_pkRenderer;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif // SHINE_CLIENT_ENGINE_SHINESCENE_H

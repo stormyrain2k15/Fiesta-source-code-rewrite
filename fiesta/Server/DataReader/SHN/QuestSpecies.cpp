@@ -3,7 +3,7 @@
 #include "QuestSpecies.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 QuestSpeciesShn& QuestSpeciesShn::Get() { static QuestSpeciesShn s; return s; }
 
@@ -30,4 +30,4 @@ const QuestSpeciesRow* QuestSpeciesShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

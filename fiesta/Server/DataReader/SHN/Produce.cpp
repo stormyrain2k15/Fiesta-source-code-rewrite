@@ -3,7 +3,7 @@
 #include "Produce.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ProduceShn& ProduceShn::Get() { static ProduceShn s; return s; }
 
@@ -43,4 +43,4 @@ void ProduceShn::Load() {
     SHINELOG_INFO("Produce.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

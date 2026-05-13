@@ -4,7 +4,7 @@
 // RuleOfEngagement and the gather/craft system.
 #include "../../Shared/ShineTypes.h"
 #include <vector>
-namespace fiesta {
+namespace shine {
 struct AreaRect { uint32 uiAreaId; uint16 uiMap; float x1, y1, x2, y2; uint8 uiKind; };
 class AreaInfoData {
 public:
@@ -22,4 +22,4 @@ const AreaRect* AreaInfoData::AreaAt(uint16 uiMap, float x, float y) const {
     }
     return NULL;
 }
-} // namespace fiesta
+} // namespace shine

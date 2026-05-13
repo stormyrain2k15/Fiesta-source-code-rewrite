@@ -22,7 +22,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include "../Common/NETCOMMAND.h"
 
-namespace fiesta {
+namespace shine {
 
 void PF_CharDBDispatch(const GPacket& rPkt) {
     if (rPkt.GetOpcode() != NC_INTER_CHAR_DB_RESPONSE) return;
@@ -65,4 +65,4 @@ void PF_CharDBDispatch(const GPacket& rPkt) {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

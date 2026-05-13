@@ -4,7 +4,7 @@
 #include "Inventory.h"
 #include "CharDBClient.h"
 #include "ShineObject.h"
-namespace fiesta {
+namespace shine {
 class ItemBreaker {
 public:
     static bool Break(ShinePlayer* pkP, uint32 uiItemId) {
@@ -12,4 +12,4 @@ public:
         return pkP->Inv().Remove(uiItemId);
     }
 };
-} // namespace fiesta
+} // namespace shine

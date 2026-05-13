@@ -8,7 +8,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MagicField {
     uint32 uiId;
@@ -60,4 +60,4 @@ void MagicContainer::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

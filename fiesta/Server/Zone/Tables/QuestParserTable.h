@@ -3,13 +3,13 @@
 // Plain (className, classID) lookup used by quest-script parsing
 // to resolve class-name tokens into the canonical class id. The file
 // is a flat list ("Fighter 1", "CleverFighter 2", ...).
-#ifndef FIESTA_ZONE_TABLES_QUESTPARSERTABLE_H
-#define FIESTA_ZONE_TABLES_QUESTPARSERTABLE_H
+#ifndef SHINE_ZONE_TABLES_QUESTPARSERTABLE_H
+#define SHINE_ZONE_TABLES_QUESTPARSERTABLE_H
 #include "../../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class QuestParserTable {
 public:
@@ -22,5 +22,5 @@ private:
     std::map<std::string, int32> m_kRows;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

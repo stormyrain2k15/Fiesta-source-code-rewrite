@@ -10,14 +10,14 @@
 //   * SubAbStateRegistry  -- the per-AbState chained sub-states. Looked
 //                            up by AbnormalState::Apply when a parent
 //                            row points at a sub-state inx-name.
-#ifndef FIESTA_ZONE_TYPED_SCHEMA_CONSUMERS_H
-#define FIESTA_ZONE_TYPED_SCHEMA_CONSUMERS_H
+#ifndef SHINE_ZONE_TYPED_SCHEMA_CONSUMERS_H
+#define SHINE_ZONE_TYPED_SCHEMA_CONSUMERS_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -67,5 +67,5 @@ private:
 
 void BindTypedSchemaConsumers();
 
-} // namespace fiesta
+} // namespace shine
 #endif

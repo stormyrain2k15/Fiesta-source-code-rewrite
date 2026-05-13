@@ -6,7 +6,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <windows.h>
 
-namespace fiesta {
+namespace shine {
 
 PromoteSystem& PromoteSystem::Get() { static PromoteSystem s; return s; }
 
@@ -57,4 +57,4 @@ const ScenarioScript* PromoteSystem::GetScenario(const std::string& rName) const
     return ScenarioBookShelf::Get().Find("Promote/" + rName);
 }
 
-} // namespace fiesta
+} // namespace shine

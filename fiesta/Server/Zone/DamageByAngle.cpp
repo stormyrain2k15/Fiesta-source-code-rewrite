@@ -2,7 +2,7 @@
 // Angular damage modifier -- back-attack and side-attack get bonus
 // damage. Reads the attacker's facing vs the target's body angle.
 #include "../Shared/ShineTypes.h"
-namespace fiesta {
+namespace shine {
 class DamageByAngle {
 public:
     // Returns a multiplier in 1/100 units. 100 = baseline. 130 = back-stab.
@@ -15,4 +15,4 @@ public:
         return 100;
     }
 };
-} // namespace fiesta
+} // namespace shine

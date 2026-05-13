@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/BRAccUpgradeInfo.h
 // Auto-generated: one-file-per-SHN split for BRAccUpgradeInfo.shn
-#ifndef FIESTA_DATAREADER_SHN_BRACCUPGRADEINFO_H
-#define FIESTA_DATAREADER_SHN_BRACCUPGRADEINFO_H
+#ifndef SHINE_DATAREADER_SHN_BRACCUPGRADEINFO_H
+#define SHINE_DATAREADER_SHN_BRACCUPGRADEINFO_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct BRAccUpgradeInfoRow {
     uint16           uiID;
@@ -51,5 +51,5 @@ private:
     std::map<std::string, size_t>  m_kByInx;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_BRACCUPGRADEINFO_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_BRACCUPGRADEINFO_H

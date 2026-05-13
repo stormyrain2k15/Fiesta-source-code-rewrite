@@ -6,7 +6,7 @@
 #include "../../Shared/ShineTypes.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct TriggerVolume { uint32 uiId; uint16 uiMap; float x1, y1, x2, y2; std::string kProgram; };
 
@@ -26,4 +26,4 @@ private:
     std::vector<TriggerVolume> m_kVols;
 };
 
-} // namespace fiesta
+} // namespace shine

@@ -4,8 +4,8 @@
 // the action set name from the entity's MobInfo/NPCInfo row, finds the matching
 // Action/<Name>.dat, picks the clip name for actionId, and tells Gamebryo's
 // NiControllerManager on the loaded NIF to play that NiControllerSequence.
-#ifndef FIESTA_CLIENT_ANIMATIONLINK_H
-#define FIESTA_CLIENT_ANIMATIONLINK_H
+#ifndef SHINE_CLIENT_ANIMATIONLINK_H
+#define SHINE_CLIENT_ANIMATIONLINK_H
 #include "../../Server/Shared/ShineTypes.h"
 #include "../../Server/DataReader/DatFile.h"
 #include <string>
@@ -14,7 +14,7 @@ class NiControllerManager;
 class NiControllerSequence;
 class NiAVObject;
 
-namespace fiesta {
+namespace shine {
 
 class AnimationLink {
 public:
@@ -29,5 +29,5 @@ public:
     static bool Play(NiAVObject* pkModelRoot, const std::string& rClipName, float fBlend);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

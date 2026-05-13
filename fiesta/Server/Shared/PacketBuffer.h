@@ -1,10 +1,10 @@
 // Server/Shared/PacketBuffer.h
 // contiguous byte buffer with little-endian read/write.
-#ifndef FIESTA_PACKETBUFFER_H
-#define FIESTA_PACKETBUFFER_H
+#ifndef SHINE_PACKETBUFFER_H
+#define SHINE_PACKETBUFFER_H
 #include "ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class PacketBuffer {
 public:
@@ -52,5 +52,5 @@ private:
     size_t m_uiRead;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -3,7 +3,7 @@
 #include "GBDiceDividind.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBDiceDividindShn& GBDiceDividindShn::Get() { static GBDiceDividindShn s; return s; }
 
@@ -34,4 +34,4 @@ void GBDiceDividindShn::Load() {
     SHINELOG_INFO("GBDiceDividind.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

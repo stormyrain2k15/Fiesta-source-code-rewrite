@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GBBanTime.h
 // Auto-generated: one-file-per-SHN split for GBBanTime.shn
-#ifndef FIESTA_DATAREADER_SHN_GBBANTIME_H
-#define FIESTA_DATAREADER_SHN_GBBANTIME_H
+#ifndef SHINE_DATAREADER_SHN_GBBANTIME_H
+#define SHINE_DATAREADER_SHN_GBBANTIME_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GBBanTimeRow {
     uint32           uiGameType;
@@ -26,5 +26,5 @@ private:
     std::vector<GBBanTimeRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GBBANTIME_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GBBANTIME_H

@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/KingdomQuestMap.h
 // Auto-generated: one-file-per-SHN split for KingdomQuestMap.shn
-#ifndef FIESTA_DATAREADER_SHN_KINGDOMQUESTMAP_H
-#define FIESTA_DATAREADER_SHN_KINGDOMQUESTMAP_H
+#ifndef SHINE_DATAREADER_SHN_KINGDOMQUESTMAP_H
+#define SHINE_DATAREADER_SHN_KINGDOMQUESTMAP_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct KingdomQuestMapRow {
     uint8            uiNumOfMap;
@@ -45,5 +45,5 @@ private:
     std::vector<KingdomQuestMapRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_KINGDOMQUESTMAP_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_KINGDOMQUESTMAP_H

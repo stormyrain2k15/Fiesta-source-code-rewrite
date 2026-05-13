@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/Gather.h
 // Auto-generated: one-file-per-SHN split for Gather.shn
-#ifndef FIESTA_DATAREADER_SHN_GATHER_H
-#define FIESTA_DATAREADER_SHN_GATHER_H
+#ifndef SHINE_DATAREADER_SHN_GATHER_H
+#define SHINE_DATAREADER_SHN_GATHER_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GatherRow {
     uint16           uiGatherID;
@@ -32,5 +32,5 @@ private:
     std::vector<GatherRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GATHER_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GATHER_H

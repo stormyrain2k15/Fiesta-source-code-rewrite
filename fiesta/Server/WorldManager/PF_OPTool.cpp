@@ -13,7 +13,7 @@
 #include <map>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 // External admin (OperatorTool) ODBC handle. Lazily allocated on first
 // successful AUTH_REQ, kept open for the lifetime of the WM process.
@@ -197,4 +197,4 @@ void WMOPToolSession::OnPacket(const GPacket& rPkt) {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

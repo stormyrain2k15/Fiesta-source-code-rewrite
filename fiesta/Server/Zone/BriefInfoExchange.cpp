@@ -3,10 +3,10 @@
 // "brief info" -- minimal display payload (name, level, class, equipped
 // hat/weapon model, title). Detail info is a follow-up request.
 #include "ShineObject.h"
-namespace fiesta {
+namespace shine {
 class BriefInfoExchange {
 public:
     static void OnAppear  (ShinePlayer* /*pkObserver*/, ShineObject* /*pkSubject*/) {}
     static void OnDisappear(ShinePlayer* /*pkObserver*/, ShineObject* /*pkSubject*/) {}
 };
-} // namespace fiesta
+} // namespace shine

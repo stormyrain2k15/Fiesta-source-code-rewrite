@@ -29,7 +29,7 @@
 
 #pragma comment(lib, "Ws2_32.lib")
 
-namespace fiesta {
+namespace shine {
 
 // Callback interface — implement per state machine (Login, WM, Zone).
 class INetPacketSink {
@@ -92,5 +92,5 @@ private:
     void   FlushSend_NoLock();
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif // SHINE_CLIENT_NETWORK_SHINENETCLIENT_H

@@ -5,7 +5,7 @@
 #include <process.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 // ---------- IOCPSession ----------
 IOCPSession::IOCPSession() : m_kSock(INVALID_SOCKET), m_bSendInFlight(false) {
@@ -138,4 +138,4 @@ void Socket_Acceptor::AcceptLoop() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -17,7 +17,7 @@
 #include "SkillEngine.h"
 #include "UpgradeEngine.h"
 #include "../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 void BindAllEngines(const std::string& rShineRoot) {
     AbStateEngine::Get().Bind();
     CharEngine::Get().Bind(rShineRoot);
@@ -38,4 +38,4 @@ void BindAllEngines(const std::string& rShineRoot) {
     UpgradeEngine::Get().Bind();
     SHINELOG_INFO("BindAllEngines: complete");
 }
-} // namespace fiesta
+} // namespace shine

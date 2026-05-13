@@ -4,7 +4,7 @@
 #include "Inventory.h"
 #include <map>
 #include <vector>
-namespace fiesta {
+namespace shine {
 struct RepurchaseEntry { uint32 uiItemId; uint16 uiCount; uint32 uiUnitPrice; };
 class ShineItemRepurchase {
 public:
@@ -14,4 +14,4 @@ public:
 private:
     std::map<uint32, std::vector<RepurchaseEntry> > m_kBuf;
 };
-} // namespace fiesta
+} // namespace shine

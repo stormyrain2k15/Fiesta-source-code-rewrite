@@ -3,10 +3,11 @@
 #include "../../Server/Shared/ShineLogSystem.h"
 #include "../../Server/Common/NETCOMMAND.h"
 
-namespace fiesta {
+namespace shine {
 
-ZoneSession::ZoneSession() : m_eState(ZS_IDLE),
-    m_cbReady(NULL), m_cbPacket(NULL), m_cbFail(NULL), m_pkCbCtx(NULL) {
+ZoneSession::ZoneSession()
+    : m_eState(ZS_IDLE), m_cbReady(NULL), m_cbPacket(NULL),
+      m_cbFail(NULL), m_pkCbCtx(NULL) {
     ZeroMemory(&m_kPlayer, sizeof(m_kPlayer));
     ZeroMemory(&m_kHandoff, sizeof(m_kHandoff));
 }
@@ -50,7 +51,11 @@ void ZoneSession::OnPacket(const GPacket& rPkt) {
 
     switch (nc) {
     case NC_CHAR_LOGIN_ACK:     HandleLoginAck(rPkt);  break;
-    case NC_CHAR_INFO_CMD:      HandleCharInfo(rPkt);  break;
+    case NC_CHAR_INFO_CMD:            HandleCharInfo(rPkt);   break;
+    case NC_CHAR_CLIENT_BASE_CMD:   HandleCharBase(rPkt);   break;
+    case NC_CHAR_CLIENT_SHAPE_CMD:  HandleCharShape(rPkt);  break;
+    case NC_CHAR_NEW_ACK:           HandleCharNewAck(rPkt); break;
+    case NC_CHAR_DEL_ACK:           HandleCharDelAck(rPkt); break;
     case NC_MAP_WORLDTICK_CMD:  HandleWorldTick(rPkt); break;
     default:
         // Pass everything else up to the game layer
@@ -141,4 +146,22 @@ void ZoneSession::HandleWorldTick(const GPacket& rPkt) {
     SendTickAck(uiTick); // echo tick back to keep session alive
 }
 
-} // namespace fiesta
+} // namespace shine
+
+// Added handlers for char select screen packets
+namespace shine {
+void ZoneSession::HandleCharBase(const GPacket& rPkt) {
+    // Route to AccountFrameWork which routes to ShineApp::OnCharBaseCmd
+    // AccountFrameWork wired via ZoneSession callback in OnPacket above
+    if (m_cbPacket) m_cbPacket(m_pkCbCtx, rPkt); // passes through to AccountFrameWork packet handler
+}
+void ZoneSession::HandleCharShape(const GPacket& rPkt) {
+    if (m_cbPacket) m_cbPacket(rPkt);
+}
+void ZoneSession::HandleCharNewAck(const GPacket& rPkt) {
+    if (m_cbPacket) m_cbPacket(rPkt);
+}
+void ZoneSession::HandleCharDelAck(const GPacket& rPkt) {
+    if (m_cbPacket) m_cbPacket(rPkt);
+}
+} // namespace shine

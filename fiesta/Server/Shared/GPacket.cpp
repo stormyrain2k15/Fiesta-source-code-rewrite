@@ -2,7 +2,7 @@
 #include "GPacket.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 GPacket::GPacket() : m_uiOpcode(0) {}
 GPacket::GPacket(NCOpcode nc) : m_uiOpcode(nc) {}
@@ -31,4 +31,4 @@ bool GPacket::Unpack(PacketBuffer& rIn, GPacket& rOut, size_t& rConsumed) {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

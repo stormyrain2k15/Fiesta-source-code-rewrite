@@ -3,11 +3,11 @@
 // comes from `ClassParamTable` (one row per (class, level)); this module
 // enforces the sum/per-stat caps on top of that baseline. Lifetime sum
 // cap = (level - 1) * kFreeStatPointsPerLevel.
-#ifndef FIESTA_ZONE_FREESTATSYSTEM_H
-#define FIESTA_ZONE_FREESTATSYSTEM_H
+#ifndef SHINE_ZONE_FREESTATSYSTEM_H
+#define SHINE_ZONE_FREESTATSYSTEM_H
 #include "../Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -42,6 +42,6 @@ public:
     static int32 RemainingHeadroom(const FreeStatLedger& rL, uint8 bClass, uint16 uiLevel);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif
 

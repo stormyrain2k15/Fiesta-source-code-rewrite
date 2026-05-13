@@ -2,7 +2,7 @@
 // Per-character class runtime. Class tree: Fig->{War,Gla,Kni,...}, etc.
 // Sentinel=26, Savior=27, Joker=21. ClassName.shn rows index by ClassID.
 #include "../Shared/ShineTypes.h"
-namespace fiesta {
+namespace shine {
 class CharClass {
 public:
     static const char* Prefix    (uint8 cls);
@@ -10,4 +10,4 @@ public:
 };
 const char* CharClass::Prefix(uint8 /*cls*/) { return ""; }
 uint8 CharClass::BaseClassOf(uint8 cls)      { return cls; }
-} // namespace fiesta
+} // namespace shine

@@ -7,7 +7,7 @@
 #include "BindMacros.h"
 #include "../MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 AreaSkillTable& AreaSkillTable::Get() { static AreaSkillTable s; return s; }
 void AreaSkillTable::Bind() {
     // FEATURE: world-creation -- column read: AS_SkillInx, AS_Step,
@@ -31,4 +31,4 @@ void AreaSkillTable::RowsForSkill(const std::string& s,
     if (i==m_kBySkill.end()) return;
     for (size_t k=0;k<i->second.size();++k) rOut.push_back(&m_kRows[i->second[k]]);
 }
-} // namespace fiesta
+} // namespace shine

@@ -10,7 +10,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 // Furniture aura is refreshed every minute (the UI updates buff icons no
 // faster than that and the AbState has its own keep-time, so we don't need
@@ -225,4 +225,4 @@ void EstateServer::Tick(uint64 uiNowMs) {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

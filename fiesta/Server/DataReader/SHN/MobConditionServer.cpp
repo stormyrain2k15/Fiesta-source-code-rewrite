@@ -3,7 +3,7 @@
 #include "MobConditionServer.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MobConditionServerShn& MobConditionServerShn::Get() { static MobConditionServerShn s; return s; }
 
@@ -23,4 +23,4 @@ void MobConditionServerShn::Load() {
     SHINELOG_INFO("MobConditionServer.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

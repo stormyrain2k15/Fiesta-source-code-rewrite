@@ -3,7 +3,7 @@
 #include "MobRegenAni.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MobRegenAniShn& MobRegenAniShn::Get() { static MobRegenAniShn s; return s; }
 
@@ -22,4 +22,4 @@ void MobRegenAniShn::Load() {
     SHINELOG_INFO("MobRegenAni.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="AccountLog"><UniqueIdentifier>{3940393C-FCD9-5F04-9904-335CB6819263}</UniqueIdentifier></Filter>
+    <Filter Include="AccountLog"><UniqueIdentifier>{9BF597C7-D567-5A5F-8B54-D8CCBE539B33}</UniqueIdentifier></Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Server\DataServer\AccountLog\Main.cpp"><Filter>AccountLog</Filter></ClCompile>

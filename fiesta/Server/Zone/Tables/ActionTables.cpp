@@ -6,7 +6,7 @@
 #include "BindMacros.h"
 #include "../MiscTables.h"
 
-namespace fiesta {
+namespace shine {
 
 ActionTables& ActionTables::Get() { static ActionTables s; return s; }
 
@@ -34,4 +34,4 @@ int32 ActionTables::RangeFactor(uint32 uiKind) const {
     return (uiKind < m_kRangeFactor.size()) ? m_kRangeFactor[uiKind] : 1000;
 }
 
-} // namespace fiesta
+} // namespace shine

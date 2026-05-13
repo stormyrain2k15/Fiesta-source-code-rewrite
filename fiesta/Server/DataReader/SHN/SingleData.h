@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/SingleData.h
 // Auto-generated: one-file-per-SHN split for SingleData.shn
-#ifndef FIESTA_DATAREADER_SHN_SINGLEDATA_H
-#define FIESTA_DATAREADER_SHN_SINGLEDATA_H
+#ifndef SHINE_DATAREADER_SHN_SINGLEDATA_H
+#define SHINE_DATAREADER_SHN_SINGLEDATA_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct SingleDataRow {
     std::string      kSingleDataIDX;
@@ -25,5 +25,5 @@ private:
     std::vector<SingleDataRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_SINGLEDATA_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_SINGLEDATA_H

@@ -3,7 +3,7 @@
 #include "AttendSchedule.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 AttendScheduleShn& AttendScheduleShn::Get() { static AttendScheduleShn s; return s; }
 
@@ -25,4 +25,4 @@ void AttendScheduleShn::Load() {
     SHINELOG_INFO("AttendSchedule.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -21,7 +21,7 @@
 #include <string>
 #include "../../Server/Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class PEResourceReader {
 public:
@@ -40,5 +40,5 @@ public:
                          std::vector<uint8>& rOut);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif // SHINE_CLIENT_RESSYSTEM_PERESOURCEREADER_H

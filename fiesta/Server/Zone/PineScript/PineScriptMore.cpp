@@ -9,7 +9,7 @@
 #include "../../Shared/PacketBuffer.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 bool PSCmdMore(const PSStatement& rSt, PSProgram& rProg) {
     if (rSt.kCmd == "Broadcast" && !rSt.kArgs.empty()) {
@@ -38,4 +38,4 @@ bool PSCmdMore(const PSStatement& rSt, PSProgram& rProg) {
     return false;
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -3,7 +3,7 @@
 #include "MoverUseSkill.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MoverUseSkillShn& MoverUseSkillShn::Get() { static MoverUseSkillShn s; return s; }
 
@@ -20,4 +20,4 @@ void MoverUseSkillShn::Load() {
     SHINELOG_INFO("MoverUseSkill.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

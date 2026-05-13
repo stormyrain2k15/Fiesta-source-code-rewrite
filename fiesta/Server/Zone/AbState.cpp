@@ -28,7 +28,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 bool AbnormalState::Apply(uint32 uiAb, int32 iDurMs, uint16 uiStack) {
     return ApplyAt(uiAb, (uint32)uiStack, iDurMs);
@@ -229,4 +229,4 @@ bool SubAbstatePriority::ShouldStack(uint32 uiNewAbId, uint32 /*uiOldAbId*/) {
     return pkN && pkN->uiDuplicate != 0;
 }
 
-} // namespace fiesta
+} // namespace shine

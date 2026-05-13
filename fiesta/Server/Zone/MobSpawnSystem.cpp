@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-namespace fiesta {
+namespace shine {
 
 MobSpawnSystem& MobSpawnSystem::Get() { static MobSpawnSystem s; return s; }
 
@@ -224,4 +224,4 @@ uint32 MobSpawnSystem::SpawnGroup(const std::string& rMapInx,
     return uiPlaced;
 }
 
-} // namespace fiesta
+} // namespace shine

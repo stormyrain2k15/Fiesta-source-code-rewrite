@@ -2,7 +2,7 @@
 // Brazilian-region accessory upgrade overrides. Same shape, different
 // numbers (regional balance pass).
 #include "../DataReader/ShnRegistry.h"
-namespace fiesta { namespace {
+namespace shine { namespace {
 class BRAccUpgradeDataBox {
 public:
     static BRAccUpgradeDataBox& Get() { static BRAccUpgradeDataBox s; return s; }

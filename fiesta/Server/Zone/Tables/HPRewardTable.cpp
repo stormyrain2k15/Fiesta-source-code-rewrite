@@ -5,7 +5,7 @@
 #include "BindMacros.h"
 #include "../MiscTables.h"
 
-namespace fiesta {
+namespace shine {
 
 HPRewardTable& HPRewardTable::Get() { static HPRewardTable s; return s; }
 
@@ -21,4 +21,4 @@ int32 HPRewardTable::ForCount(uint32 uiCount) const {
     return (it == m_kRow.end()) ? 0 : it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

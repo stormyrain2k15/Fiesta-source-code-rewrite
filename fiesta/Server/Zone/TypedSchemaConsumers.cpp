@@ -9,7 +9,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 static well512 s_kRng;
 
@@ -191,4 +191,4 @@ void BindTypedSchemaConsumers() {
     SubAbStateRegistry::Get().Bind();
 }
 
-} // namespace fiesta
+} // namespace shine

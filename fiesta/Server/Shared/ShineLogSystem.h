@@ -1,11 +1,11 @@
 // Server/Shared/ShineLogSystem.h
 // structured log writer. Every service uses this.
-#ifndef FIESTA_SHINELOGSYSTEM_H
-#define FIESTA_SHINELOGSYSTEM_H
+#ifndef SHINE_SHINELOGSYSTEM_H
+#define SHINE_SHINELOGSYSTEM_H
 #include "ShineTypes.h"
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 
 enum LogLevel { LOG_DEBUG = 0, LOG_INFO = 1, LOG_WARN = 2, LOG_ERROR = 3, LOG_FATAL = 4 };
 
@@ -25,11 +25,11 @@ private:
     char     m_szService[64];
 };
 
-#define SHINELOG_DEBUG(...) ::fiesta::ShineLogSystem::Get().Write(::fiesta::LOG_DEBUG, __VA_ARGS__)
-#define SHINELOG_INFO(...)  ::fiesta::ShineLogSystem::Get().Write(::fiesta::LOG_INFO , __VA_ARGS__)
-#define SHINELOG_WARN(...)  ::fiesta::ShineLogSystem::Get().Write(::fiesta::LOG_WARN , __VA_ARGS__)
-#define SHINELOG_ERROR(...) ::fiesta::ShineLogSystem::Get().Write(::fiesta::LOG_ERROR, __VA_ARGS__)
-#define SHINELOG_FATAL(...) ::fiesta::ShineLogSystem::Get().Write(::fiesta::LOG_FATAL, __VA_ARGS__)
+#define SHINELOG_DEBUG(...) ::shine::ShineLogSystem::Get().Write(::shine::LOG_DEBUG, __VA_ARGS__)
+#define SHINELOG_INFO(...)  ::shine::ShineLogSystem::Get().Write(::shine::LOG_INFO , __VA_ARGS__)
+#define SHINELOG_WARN(...)  ::shine::ShineLogSystem::Get().Write(::shine::LOG_WARN , __VA_ARGS__)
+#define SHINELOG_ERROR(...) ::shine::ShineLogSystem::Get().Write(::shine::LOG_ERROR, __VA_ARGS__)
+#define SHINELOG_FATAL(...) ::shine::ShineLogSystem::Get().Write(::shine::LOG_FATAL, __VA_ARGS__)
 
-} // namespace fiesta
+} // namespace shine
 #endif

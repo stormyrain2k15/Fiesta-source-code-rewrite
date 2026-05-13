@@ -6,7 +6,7 @@
 #include "../WorldTables.h"
 #include "../../DataReader/TableScriptFile.h"
 
-namespace fiesta {
+namespace shine {
 
 RandomOptionTable& RandomOptionTable::Get() { static RandomOptionTable s; return s; }
 
@@ -40,4 +40,4 @@ const LegacyRandomOptionRow* RandomOptionTable::Find(const std::string& r) const
     return (it == m_kRows.end()) ? NULL : &it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

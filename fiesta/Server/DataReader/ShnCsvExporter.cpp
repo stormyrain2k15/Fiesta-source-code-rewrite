@@ -13,7 +13,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 
 class ShnCsvExporter {
 public:
@@ -101,4 +101,4 @@ std::string ShnCsvExporter::EscapeCsv(const std::string& rIn) {
     return out;
 }
 
-} // namespace fiesta
+} // namespace shine

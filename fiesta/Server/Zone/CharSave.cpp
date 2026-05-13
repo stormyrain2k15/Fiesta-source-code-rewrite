@@ -3,10 +3,10 @@
 // counts). Called from the auto-save tick + on logout.
 #include "CharDBClient.h"
 #include "ShineObject.h"
-namespace fiesta {
+namespace shine {
 class CharSave {
 public:
     static void Checkpoint(ShinePlayer* /*pkP*/) {}
     static void OnLogout  (ShinePlayer* /*pkP*/) {}
 };
-} // namespace fiesta
+} // namespace shine

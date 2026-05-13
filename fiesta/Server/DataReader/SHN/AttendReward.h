@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/AttendReward.h
 // Auto-generated: one-file-per-SHN split for AttendReward.shn
-#ifndef FIESTA_DATAREADER_SHN_ATTENDREWARD_H
-#define FIESTA_DATAREADER_SHN_ATTENDREWARD_H
+#ifndef SHINE_DATAREADER_SHN_ATTENDREWARD_H
+#define SHINE_DATAREADER_SHN_ATTENDREWARD_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct AttendRewardRow {
     uint8            uiAR_ID;
@@ -27,5 +27,5 @@ private:
     std::vector<AttendRewardRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ATTENDREWARD_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ATTENDREWARD_H

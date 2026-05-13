@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class Tokenizer {
 public:
@@ -24,4 +24,4 @@ public:
     }
 };
 
-} // namespace fiesta
+} // namespace shine

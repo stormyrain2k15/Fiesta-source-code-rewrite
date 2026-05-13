@@ -5,7 +5,7 @@
     <ProjectConfiguration Include="Release|Win32"><Configuration>Release</Configuration><Platform>Win32</Platform></ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C86D53DA-F75E-5C4A-982F-D64FE562FEA0}</ProjectGuid>
+    <ProjectGuid>{04F871D0-DF3D-5C10-B6D9-0E721085C722}</ProjectGuid>
     <RootNamespace>DataReader</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
@@ -474,7 +474,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Shared.vcxproj">
-      <Project>{E9D051DA-BFB9-515D-8A78-978216F79EF7}</Project>
+      <Project>{64CB1FEF-951B-58F0-B315-EF7A467004E1}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

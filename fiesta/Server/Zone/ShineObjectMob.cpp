@@ -5,9 +5,9 @@
 #include "ShineObject.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 void ShineMob_OnSpawn  (ShineMob* pkM) { if (pkM) SHINELOG_DEBUG("MobSpawn id=%u", pkM->GetCharID()); }
 void ShineMob_OnDespawn(ShineMob* pkM) { if (pkM) SHINELOG_DEBUG("MobDespawn id=%u", pkM->GetCharID()); }
 
-} // namespace fiesta
+} // namespace shine

@@ -5,7 +5,7 @@
 #include "ClassParamTable.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 bool SoulStoneVendor::IsVendor(const std::string& rNpcMobName) {
     const ShineNPCRow* p = ShineNPCTable::Get().FindNPC(rNpcMobName);
@@ -55,4 +55,4 @@ eSoulStoneBuyResult SoulStoneVendor::Buy(ShinePlayer*       pkP,
     return SS_BUY_OK;
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -1,15 +1,15 @@
 // Server/Zone/CharLogin.h
 // CharLogin / CharMapMarking / BriefInfoExchange.
-#ifndef FIESTA_ZONE_CHARLOGIN_H
-#define FIESTA_ZONE_CHARLOGIN_H
+#ifndef SHINE_ZONE_CHARLOGIN_H
+#define SHINE_ZONE_CHARLOGIN_H
 #include "ZoneServer.h"
 
-namespace fiesta {
+namespace shine {
 
 void CharLogin           (ClientSession* pkSess, const GPacket& rPkt);
 void CharLogout          (ClientSession* pkSess, const GPacket& rPkt);
 void CharMapMarking      (ClientSession* pkSess, const GPacket& rPkt);
 void BriefInfoExchange   (ClientSession* pkSess, const GPacket& rPkt);
 
-} // namespace fiesta
+} // namespace shine
 #endif

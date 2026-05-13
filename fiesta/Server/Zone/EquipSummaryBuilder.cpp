@@ -5,7 +5,7 @@
 #include "../DataReader/ITableBase.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 void AddItemContribution(EQUIPSUMMARY* pOut, const ShineItem& kItem) {
     if (!pOut) return;
@@ -73,4 +73,4 @@ void BuildEquipSummary(EQUIPSUMMARY* pOut, const Inventory& kInv) {
         AddItemContribution(pOut, v[i]);
 }
 
-} // namespace fiesta
+} // namespace shine

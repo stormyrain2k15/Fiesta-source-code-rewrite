@@ -12,7 +12,7 @@
 #include "BindMacros.h"
 #include "../GroupTables.h"
 
-namespace fiesta {
+namespace shine {
 
 ItemTables& ItemTables::Get() { static ItemTables s; return s; }
 
@@ -238,4 +238,4 @@ const LegacyItemActionRow* ItemTables::FindAction(uint32 uiID) const {
     return (it == m_kActionsById.end()) ? NULL : &m_kActions[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

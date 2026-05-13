@@ -3,7 +3,7 @@
 #include "CollectCardGroupDesc.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 CollectCardGroupDescShn& CollectCardGroupDescShn::Get() { static CollectCardGroupDescShn s; return s; }
 
@@ -20,4 +20,4 @@ void CollectCardGroupDescShn::Load() {
     SHINELOG_INFO("CollectCardGroupDesc.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

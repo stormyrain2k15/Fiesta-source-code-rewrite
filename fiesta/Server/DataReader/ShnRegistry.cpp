@@ -6,7 +6,7 @@
 #include <set>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 // ----- Column audit: track every read (table, column) so we can warn at
 // boot for any column the binders never asked for. The "current" table is
@@ -240,4 +240,4 @@ float ShnGetF32(const ShnFile& rTab, size_t uiRow, const std::string& rColumn) {
     return row[c].fVal;
 }
 
-} // namespace fiesta
+} // namespace shine

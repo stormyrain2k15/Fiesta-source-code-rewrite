@@ -12,13 +12,13 @@
 //   LuaScript/Promote/Job2_Forest/Functions/{Routine,Progress,SubFunc}.lua
 // Routine.lua is loaded last because it captures references to functions defined
 // in the earlier files (Data tables + SubFunc helpers + Progress state).
-#ifndef FIESTA_ZONE_SCRIPTLOADER_H
-#define FIESTA_ZONE_SCRIPTLOADER_H
+#ifndef SHINE_ZONE_SCRIPTLOADER_H
+#define SHINE_ZONE_SCRIPTLOADER_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class LuaRuntime;
 
@@ -43,5 +43,5 @@ public:
     static const std::vector<std::string>& KnownInstanceNames();
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/AdminLvSet.h
 // Auto-generated: one-file-per-SHN split for AdminLvSet.shn
-#ifndef FIESTA_DATAREADER_SHN_ADMINLVSET_H
-#define FIESTA_DATAREADER_SHN_ADMINLVSET_H
+#ifndef SHINE_DATAREADER_SHN_ADMINLVSET_H
+#define SHINE_DATAREADER_SHN_ADMINLVSET_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct AdminLvSetRow {
     std::string      kALS_Cmd;
@@ -25,5 +25,5 @@ private:
     std::vector<AdminLvSetRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ADMINLVSET_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ADMINLVSET_H

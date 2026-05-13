@@ -3,7 +3,7 @@
 #include "AreaSkill.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 AreaSkillShn& AreaSkillShn::Get() { static AreaSkillShn s; return s; }
 
@@ -23,4 +23,4 @@ void AreaSkillShn::Load() {
     SHINELOG_INFO("AreaSkill.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

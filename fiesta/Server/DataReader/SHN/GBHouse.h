@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GBHouse.h
 // Auto-generated: one-file-per-SHN split for GBHouse.shn
-#ifndef FIESTA_DATAREADER_SHN_GBHOUSE_H
-#define FIESTA_DATAREADER_SHN_GBHOUSE_H
+#ifndef SHINE_DATAREADER_SHN_GBHOUSE_H
+#define SHINE_DATAREADER_SHN_GBHOUSE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GBHouseRow {
     uint32           uiGB_GameMoney;
@@ -28,5 +28,5 @@ private:
     std::vector<GBHouseRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GBHOUSE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GBHOUSE_H

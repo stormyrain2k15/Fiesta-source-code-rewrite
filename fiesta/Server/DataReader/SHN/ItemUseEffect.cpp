@@ -3,7 +3,7 @@
 #include "ItemUseEffect.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ItemUseEffectShn& ItemUseEffectShn::Get() { static ItemUseEffectShn s; return s; }
 
@@ -27,4 +27,4 @@ void ItemUseEffectShn::Load() {
     SHINELOG_INFO("ItemUseEffect.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

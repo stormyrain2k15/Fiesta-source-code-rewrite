@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/QuestScript.h
 // Auto-generated: one-file-per-SHN split for QuestScript.shn
-#ifndef FIESTA_DATAREADER_SHN_QUESTSCRIPT_H
-#define FIESTA_DATAREADER_SHN_QUESTSCRIPT_H
+#ifndef SHINE_DATAREADER_SHN_QUESTSCRIPT_H
+#define SHINE_DATAREADER_SHN_QUESTSCRIPT_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct QuestScriptRow {
     uint16           uiID;
@@ -27,5 +27,5 @@ private:
     std::map<uint32,      size_t>  m_kById;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_QUESTSCRIPT_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_QUESTSCRIPT_H

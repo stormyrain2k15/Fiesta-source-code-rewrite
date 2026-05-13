@@ -7,7 +7,7 @@
 #include "../../DataReader/TableScriptFile.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 SubLayerInteractTable& SubLayerInteractTable::Get() { static SubLayerInteractTable s; return s; }
 
@@ -47,4 +47,4 @@ bool SubLayerInteractTable::CanAttack(uint8 m, uint8 o) const {
     return (m < 8 && o < 8) ? (m_aAttack[m][o] != 0) : false;
 }
 
-} // namespace fiesta
+} // namespace shine

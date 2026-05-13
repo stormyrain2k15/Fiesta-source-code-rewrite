@@ -23,7 +23,7 @@
 #include "../Shared/well512.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 namespace {
     // PvE/PvP verdict gate. Mirrors the canonical NA2016 logic:
@@ -176,4 +176,4 @@ bool  normalmaRoe_isdamageincrease(const BATTLESTAT* pkA, const BATTLESTAT* pkT)
 
 } // namespace normalmaRoe
 
-} // namespace fiesta
+} // namespace shine

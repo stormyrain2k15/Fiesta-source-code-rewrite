@@ -4,7 +4,7 @@
 #include "CharDBClient.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 static const uint64 SUMMON_COOLDOWN_MS = 1800000ULL;     // 30 min,
 
@@ -99,4 +99,4 @@ void MarriageServer::GrantPromiseTick(CharID self, uint64 /*uiNowMs*/) {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

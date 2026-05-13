@@ -1,13 +1,13 @@
 // Server/Common/ProtocolParser.h
 // per-session opcode dispatcher.
-#ifndef FIESTA_PROTOCOLPARSER_H
-#define FIESTA_PROTOCOLPARSER_H
+#ifndef SHINE_PROTOCOLPARSER_H
+#define SHINE_PROTOCOLPARSER_H
 #include "../Shared/ShineTypes.h"
 #include "../Shared/GPacket.h"
 #include "NETCOMMAND.h"
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 class IOCPSession;
 
@@ -27,5 +27,5 @@ ProtocolParser& GetLoginParser();
 ProtocolParser& GetWMParser();
 ProtocolParser& GetZoneParser();
 
-} // namespace fiesta
+} // namespace shine
 #endif

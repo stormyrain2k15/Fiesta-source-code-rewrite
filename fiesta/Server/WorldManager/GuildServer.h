@@ -1,14 +1,14 @@
 // Server/WorldManager/GuildServer.h
 // Cross-zone guild authority: creation, dissolution, member roster, ranks,
 // guild-war lifecycle, emblem state, academy, tournament, funds.
-#ifndef FIESTA_WM_GUILD_SERVER_H
-#define FIESTA_WM_GUILD_SERVER_H
+#ifndef SHINE_WM_GUILD_SERVER_H
+#define SHINE_WM_GUILD_SERVER_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 class GuildServer {
 public:
@@ -53,5 +53,5 @@ private:
     std::vector<War> m_kWars;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -9,7 +9,7 @@
 #include "../MoreTables.h"
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 MiscTables2& MiscTables2::Get() { static MiscTables2 s; return s; }
 void MiscTables2::Bind() {
     // FEATURE: world-creation -- column read: RaceID, acLocalName
@@ -64,4 +64,4 @@ bool MiscTables2::RandomOptionCount(const std::string& n, uint32& c, uint32& dr)
     if (i==m_kROC.end()) { c=0; dr=0; return false; }
     c=i->second.uiLimitCount; dr=i->second.uiLimitDropRate; return true;
 }
-} // namespace fiesta
+} // namespace shine

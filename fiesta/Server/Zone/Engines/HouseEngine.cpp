@@ -3,7 +3,7 @@
 #include "HouseEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 HouseEngine& HouseEngine::Get() { static HouseEngine s; return s; }
 
@@ -18,4 +18,4 @@ void HouseEngine::Bind() {
     SHINELOG_INFO("HouseEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

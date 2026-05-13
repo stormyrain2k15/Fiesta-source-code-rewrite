@@ -3,7 +3,7 @@
 #include "MsgWorldManager.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MsgWorldManagerShn& MsgWorldManagerShn::Get() { static MsgWorldManagerShn s; return s; }
 
@@ -19,4 +19,4 @@ void MsgWorldManagerShn::Load() {
     SHINELOG_INFO("MsgWorldManager.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

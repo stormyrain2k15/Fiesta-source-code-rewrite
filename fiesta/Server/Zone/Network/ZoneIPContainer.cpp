@@ -3,7 +3,7 @@
 #include "../../Shared/ShineTypes.h"
 #include <map>
 #include <string>
-namespace fiesta {
+namespace shine {
 class ZoneIPContainer {
 public:
     static ZoneIPContainer& Get() { static ZoneIPContainer s; return s; }
@@ -19,4 +19,4 @@ private:
     mutable std::map<uint16, std::string> m_kIp;
     std::map<uint16, uint16>              m_kPort;
 };
-} // namespace fiesta
+} // namespace shine

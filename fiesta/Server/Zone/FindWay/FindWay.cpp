@@ -3,7 +3,7 @@
 // is the public API used by mob AI and player auto-walk.
 #include "../../Shared/ShineTypes.h"
 #include <vector>
-namespace fiesta {
+namespace shine {
 struct PathPoint { float x, y; };
 class FindWay {
 public:
@@ -14,4 +14,4 @@ public:
         return true;
     }
 };
-} // namespace fiesta
+} // namespace shine

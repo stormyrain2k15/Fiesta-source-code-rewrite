@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GuildAcademyLevelUp.h
 // Auto-generated: one-file-per-SHN split for GuildAcademyLevelUp.shn
-#ifndef FIESTA_DATAREADER_SHN_GUILDACADEMYLEVELUP_H
-#define FIESTA_DATAREADER_SHN_GUILDACADEMYLEVELUP_H
+#ifndef SHINE_DATAREADER_SHN_GUILDACADEMYLEVELUP_H
+#define SHINE_DATAREADER_SHN_GUILDACADEMYLEVELUP_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GuildAcademyLevelUpRow {
     uint8            uiLevel;
@@ -26,5 +26,5 @@ private:
     std::vector<GuildAcademyLevelUpRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GUILDACADEMYLEVELUP_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GUILDACADEMYLEVELUP_H

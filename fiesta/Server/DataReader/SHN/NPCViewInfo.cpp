@@ -3,7 +3,7 @@
 #include "NPCViewInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 NPCViewInfoShn& NPCViewInfoShn::Get() { static NPCViewInfoShn s; return s; }
 
@@ -47,4 +47,4 @@ void NPCViewInfoShn::Load() {
     SHINELOG_INFO("NPCViewInfo.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

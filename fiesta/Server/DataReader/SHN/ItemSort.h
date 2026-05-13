@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/ItemSort.h
 // Auto-generated: one-file-per-SHN split for ItemSort.shn
-#ifndef FIESTA_DATAREADER_SHN_ITEMSORT_H
-#define FIESTA_DATAREADER_SHN_ITEMSORT_H
+#ifndef SHINE_DATAREADER_SHN_ITEMSORT_H
+#define SHINE_DATAREADER_SHN_ITEMSORT_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ItemSortRow {
     std::string      kItemSort_Index;
@@ -24,5 +24,5 @@ private:
     std::vector<ItemSortRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ITEMSORT_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ITEMSORT_H

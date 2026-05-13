@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-namespace fiesta {
+namespace shine {
 
 ClientVersionKeyInfo& ClientVersionKeyInfo::Get() { static ClientVersionKeyInfo s; return s; }
 
@@ -27,4 +27,4 @@ bool ClientVersionKeyInfo::IsAcceptable(const std::string& rClientKey) const {
     return !m_kKey.empty() && rClientKey == m_kKey;
 }
 
-} // namespace fiesta
+} // namespace shine

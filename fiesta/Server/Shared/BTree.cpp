@@ -6,7 +6,7 @@
 #include "ShineTypes.h"
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 template <typename K, typename V>
 class BTree {
@@ -22,4 +22,4 @@ private:
     std::map<K, V> m_kBackend;
 };
 
-} // namespace fiesta
+} // namespace shine

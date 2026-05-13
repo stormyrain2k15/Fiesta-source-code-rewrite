@@ -3,7 +3,7 @@
 #include "TownPortal.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 TownPortalShn& TownPortalShn::Get() { static TownPortalShn s; return s; }
 
@@ -24,4 +24,4 @@ void TownPortalShn::Load() {
     SHINELOG_INFO("TownPortal.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

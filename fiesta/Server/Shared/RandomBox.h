@@ -1,11 +1,11 @@
 // Server/Shared/RandomBox.h
 // weighted random / dice helpers used by Drop / Belong / Gamble.
-#ifndef FIESTA_RANDOMBOX_H
-#define FIESTA_RANDOMBOX_H
+#ifndef SHINE_RANDOMBOX_H
+#define SHINE_RANDOMBOX_H
 #include "well512.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class RandomBox {
 public:
@@ -21,5 +21,5 @@ private:
     well512           m_kRng;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

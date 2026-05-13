@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/EnchantSocketRate.h
 // Auto-generated: one-file-per-SHN split for EnchantSocketRate.shn
-#ifndef FIESTA_DATAREADER_SHN_ENCHANTSOCKETRATE_H
-#define FIESTA_DATAREADER_SHN_ENCHANTSOCKETRATE_H
+#ifndef SHINE_DATAREADER_SHN_ENCHANTSOCKETRATE_H
+#define SHINE_DATAREADER_SHN_ENCHANTSOCKETRATE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct EnchantSocketRateRow {
     uint32           uiItemGradeType;
@@ -27,5 +27,5 @@ private:
     std::vector<EnchantSocketRateRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ENCHANTSOCKETRATE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ENCHANTSOCKETRATE_H

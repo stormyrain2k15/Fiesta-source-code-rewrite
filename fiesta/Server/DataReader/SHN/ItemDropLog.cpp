@@ -3,7 +3,7 @@
 #include "ItemDropLog.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ItemDropLogShn& ItemDropLogShn::Get() { static ItemDropLogShn s; return s; }
 
@@ -19,4 +19,4 @@ void ItemDropLogShn::Load() {
     SHINELOG_INFO("ItemDropLog.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

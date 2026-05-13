@@ -3,7 +3,7 @@
 #include "BRAccUpgradeInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 BRAccUpgradeInfoShn& BRAccUpgradeInfoShn::Get() { static BRAccUpgradeInfoShn s; return s; }
 
@@ -54,4 +54,4 @@ const BRAccUpgradeInfoRow* BRAccUpgradeInfoShn::FindByInx(const std::string& rIn
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -3,11 +3,11 @@
 // MoverUpgradeEffect.shn (earlier code referenced "MoverUpgrade" which
 // doesn't exist).
 #include "../DataReader/ShnRegistry.h"
-namespace fiesta {
+namespace shine {
 class MoverUpgradeData {
 public:
     static MoverUpgradeData& Get() { static MoverUpgradeData s; return s; }
     bool Load() { return ShnRegistry::Get().GetTable("MoverUpgradeEffect") != NULL; }
     const ShnFile* Table() const { return ShnRegistry::Get().GetTable("MoverUpgradeEffect"); }
 };
-} // namespace fiesta
+} // namespace shine

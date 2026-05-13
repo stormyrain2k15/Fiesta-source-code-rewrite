@@ -3,9 +3,9 @@
 // QuestData.shn). Scripts use a small DSL: `Quest <id> { Step ... }`.
 #include "../../Shared/ShineTypes.h"
 #include "../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 class QuestParserScript {
 public:
     static bool ParseFile(const std::string& rPath) { (void)rPath; return true; }
 };
-} // namespace fiesta
+} // namespace shine

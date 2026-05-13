@@ -4,7 +4,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 static uint32 U32(const TsTable& t, size_t r, const char* k, uint32 d = 0) {
     return (uint32)t.GetInt(r, k, (int64)d);
@@ -86,7 +86,7 @@ bool FieldTable::Load(const std::string& rRoot) {
         row.uiExpLostAtDeadByPly= U16(*tab, r, "ExpLostAtDeadByPly");
         row.uiUsrSubLayer       = U8 (*tab, r, "UsrSubLayer");
         row.uiCheckSum          = U8 (*tab, r, "CheckSum");
-        row.uiFiesta            = U8 (*tab, r, "Fiesta");
+        row.uiShine            = U8 (*tab, r, "Shine");
 
         m_kBySerial[row.uiSerial] = m_kRows.size();
         if (!row.kMapIDClient.empty()) m_kByName[row.kMapIDClient] = m_kRows.size();
@@ -105,4 +105,4 @@ const FieldRow* FieldTable::FindByName(const std::string& rN) const {
     return (it == m_kByName.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

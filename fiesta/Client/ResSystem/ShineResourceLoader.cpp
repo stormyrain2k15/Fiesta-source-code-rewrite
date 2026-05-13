@@ -4,7 +4,7 @@
 #include "../../Server/Shared/ShineLogSystem.h"
 #include <fstream>
 
-namespace fiesta {
+namespace shine {
 
 ShineResourceLoader& ShineResourceLoader::Get() {
     static ShineResourceLoader s;
@@ -103,4 +103,4 @@ bool ShineResourceLoader::LoadFromDisk(const std::string& rPath,
     return fin.good() || fin.eof();
 }
 
-} // namespace fiesta
+} // namespace shine

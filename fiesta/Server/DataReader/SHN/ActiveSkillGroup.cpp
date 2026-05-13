@@ -3,7 +3,7 @@
 #include "ActiveSkillGroup.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ActiveSkillGroupShn& ActiveSkillGroupShn::Get() { static ActiveSkillGroupShn s; return s; }
 
@@ -26,4 +26,4 @@ const ActiveSkillGroupRow* ActiveSkillGroupShn::FindByInx(const std::string& rIn
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

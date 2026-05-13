@@ -4,7 +4,7 @@
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <vector>
-namespace fiesta {
+namespace shine {
 class MapClusterManager {
 public:
     static MapClusterManager& Get() { static MapClusterManager s; return s; }
@@ -12,4 +12,4 @@ public:
 private:
     std::map<uint32, std::vector<uint16> > m_kClusters;
 };
-} // namespace fiesta
+} // namespace shine

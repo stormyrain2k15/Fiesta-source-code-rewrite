@@ -3,7 +3,7 @@
 #include "MapEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MapEngine& MapEngine::Get() { static MapEngine s; return s; }
 
@@ -16,4 +16,4 @@ void MapEngine::Bind() {
     SHINELOG_INFO("MapEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

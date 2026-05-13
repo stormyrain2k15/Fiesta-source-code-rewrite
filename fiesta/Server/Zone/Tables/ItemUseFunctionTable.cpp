@@ -6,7 +6,7 @@
 #include "../WorldTables.h"
 #include "../../DataReader/TableScriptFile.h"
 
-namespace fiesta {
+namespace shine {
 
 ItemUseFunctionTable& ItemUseFunctionTable::Get() { static ItemUseFunctionTable s; return s; }
 
@@ -31,4 +31,4 @@ const ItemUseFunctionRow* ItemUseFunctionTable::Find(const std::string& r) const
     return (it == m_kRows.end()) ? NULL : &it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

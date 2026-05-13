@@ -3,7 +3,7 @@
 #include "GBAuxTables.h"
 #include "../../DataReader/ShnRegistry.h"
 #include "../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 GBEventCodeTable& GBEventCodeTable::Get() { static GBEventCodeTable s; return s; }
 bool GBEventCodeTable::Bind() {
     m_kRows.clear();
@@ -25,4 +25,4 @@ int32 GBEventCodeTable::Code(uint32 uiGT, uint32 uiAni) const {
     std::map<uint64, int32>::const_iterator it = m_kRows.find(key);
     return (it == m_kRows.end()) ? 0 : it->second;
 }
-} // namespace fiesta
+} // namespace shine

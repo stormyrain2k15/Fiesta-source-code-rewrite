@@ -4,7 +4,7 @@
 #include "../../DataReader/ShnRegistry.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBTaxRateTable& GBTaxRateTable::Get() { static GBTaxRateTable s; return s; }
 
@@ -34,4 +34,4 @@ bool GBTaxRateTable::FindByGameType(uint32 uiGameType, GBTaxRow& rOut) const {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -3,11 +3,11 @@
 // CharDB-assigned identity (uiDbItemKey) on the async completion.
 #include "Inventory.h"
 #include "CharDBClient.h"
-namespace fiesta {
+namespace shine {
 class ShineItemCreate {
 public:
     static bool Create(uint32 cid, uint32 uiItemId, uint16 uiCount, int32 iEnchant) {
         return CharDBClient::Get().ItemCreate(cid, uiItemId, uiCount, iEnchant);
     }
 };
-} // namespace fiesta
+} // namespace shine

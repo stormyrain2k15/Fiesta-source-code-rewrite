@@ -5,7 +5,7 @@
 #include "../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
-namespace fiesta {
+namespace shine {
 class SingleDataMap {
 public:
     static SingleDataMap& Get() { static SingleDataMap s; return s; }
@@ -26,4 +26,4 @@ public:
 private:
     std::map<std::string, int32> m_kVals;
 };
-} // namespace fiesta
+} // namespace shine

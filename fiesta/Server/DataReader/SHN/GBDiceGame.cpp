@@ -3,7 +3,7 @@
 #include "GBDiceGame.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBDiceGameShn& GBDiceGameShn::Get() { static GBDiceGameShn s; return s; }
 
@@ -21,4 +21,4 @@ void GBDiceGameShn::Load() {
     SHINELOG_INFO("GBDiceGame.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

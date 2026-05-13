@@ -1,14 +1,14 @@
 // Server/DataReader/ShnDataFileCheckSum.h
 // guard that refuses unsafe parsing of quest SHNs and verifies file integrity.
 //   Spec rule: quest SHNs are not parsed by this codebase.
-#ifndef FIESTA_SHNDATAFILECHECKSUM_H
-#define FIESTA_SHNDATAFILECHECKSUM_H
+#ifndef SHINE_SHNDATAFILECHECKSUM_H
+#define SHINE_SHNDATAFILECHECKSUM_H
 #include "../Shared/ShineTypes.h"
 #include "../Shared/MD5Checksum.h"
 #include <map>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class ShnDataFileCheckSum {
 public:
@@ -26,5 +26,5 @@ private:
     std::map<std::string, std::string> m_kExpectedMd5; // logical -> hex
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

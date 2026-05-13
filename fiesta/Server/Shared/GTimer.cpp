@@ -2,7 +2,7 @@
 // high-resolution timer impl.
 #include "GTimer.h"
 
-namespace fiesta {
+namespace shine {
 
 GTimer::GTimer() {
     QueryPerformanceFrequency(&m_kFreq);
@@ -29,4 +29,4 @@ uint64 GTimer::NowMillis() {
     return (uint64)(u.QuadPart / 10000ULL); // 100ns ticks -> ms
 }
 
-} // namespace fiesta
+} // namespace shine

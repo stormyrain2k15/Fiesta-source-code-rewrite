@@ -2,7 +2,7 @@
 #include "AnimationLink.h"
 #include "../../Server/Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 std::string AnimationLink::ResolveClip(const DatFile& rDat, uint16 uiActionId) {
     const std::vector<DatEntry>& v = rDat.Entries();
@@ -24,4 +24,4 @@ bool AnimationLink::Play(NiAVObject* pkRoot, const std::string& rClip, float fBl
     return !rClip.empty();
 }
 
-} // namespace fiesta
+} // namespace shine

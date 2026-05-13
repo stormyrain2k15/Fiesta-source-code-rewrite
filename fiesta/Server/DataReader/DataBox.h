@@ -1,13 +1,13 @@
 // Server/DataReader/DataBox.h
 // runtime registry of every loaded ITableBase<*>. Mirrors PDB symbol DataBox.
-#ifndef FIESTA_DATABOX_H
-#define FIESTA_DATABOX_H
+#ifndef SHINE_DATABOX_H
+#define SHINE_DATABOX_H
 #include "../Shared/ShineTypes.h"
 #include "DataReader.h"
 #include <map>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class IDataTable {
 public:
@@ -38,5 +38,5 @@ public:
     static T& Get() { static T s; return s; }
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

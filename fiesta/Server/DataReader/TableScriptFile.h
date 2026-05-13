@@ -18,14 +18,14 @@
 // declared name and exposes typed field accessors (string / int64 / double).
 //                                   (World/Field.txt, Script/Event.txt,
 //                                    MobRegen/*.txt, ItemDropTable.txt, ...).
-#ifndef FIESTA_DATAREADER_TABLESCRIPTFILE_H
-#define FIESTA_DATAREADER_TABLESCRIPTFILE_H
+#ifndef SHINE_DATAREADER_TABLESCRIPTFILE_H
+#define SHINE_DATAREADER_TABLESCRIPTFILE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 // Declared column type enum -- mirrors the canonical token vocabulary observed
 // in the supplied files. The interpretation is "wide enough to carry the
@@ -115,5 +115,5 @@ void TsAudit_RegisterLoaded(const TsTable& rT);
 void TsAudit_VisitTable    (const TsTable& rT);
 void TsAudit_EmitReport    ();
 
-} // namespace fiesta
+} // namespace shine
 #endif

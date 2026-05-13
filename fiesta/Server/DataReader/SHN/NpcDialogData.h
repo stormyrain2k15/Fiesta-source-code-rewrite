@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/NpcDialogData.h
 // Auto-generated: one-file-per-SHN split for NpcDialogData.shn
-#ifndef FIESTA_DATAREADER_SHN_NPCDIALOGDATA_H
-#define FIESTA_DATAREADER_SHN_NPCDIALOGDATA_H
+#ifndef SHINE_DATAREADER_SHN_NPCDIALOGDATA_H
+#define SHINE_DATAREADER_SHN_NPCDIALOGDATA_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct NpcDialogDataRow {
     uint32           uiID;
@@ -29,5 +29,5 @@ private:
     std::map<std::string, size_t>  m_kByInx;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_NPCDIALOGDATA_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_NPCDIALOGDATA_H

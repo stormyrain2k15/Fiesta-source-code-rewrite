@@ -7,7 +7,7 @@
 #include "ShineObject.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 // Helper -- send the BAT_LEVELUP CMD body. The actual broadcast lives in
 // CharLogin's leveling path; keep the helper here so the symbol pattern
@@ -17,4 +17,4 @@ void ShinePlayer_OnLevelUp(ShinePlayer* pkP) {
     SHINELOG_INFO("Player level-up cid=%u newLv=%u", pkP->GetCharID(), pkP->GetLevel());
 }
 
-} // namespace fiesta
+} // namespace shine

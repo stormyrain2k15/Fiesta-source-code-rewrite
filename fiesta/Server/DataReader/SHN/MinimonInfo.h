@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MinimonInfo.h
 // Auto-generated: one-file-per-SHN split for MinimonInfo.shn
-#ifndef FIESTA_DATAREADER_SHN_MINIMONINFO_H
-#define FIESTA_DATAREADER_SHN_MINIMONINFO_H
+#ifndef SHINE_DATAREADER_SHN_MINIMONINFO_H
+#define SHINE_DATAREADER_SHN_MINIMONINFO_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MinimonInfoRow {
     std::string      kItemIDX;
@@ -26,5 +26,5 @@ private:
     std::vector<MinimonInfoRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MINIMONINFO_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MINIMONINFO_H

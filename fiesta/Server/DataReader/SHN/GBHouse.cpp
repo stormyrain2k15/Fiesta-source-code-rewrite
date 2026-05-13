@@ -3,7 +3,7 @@
 #include "GBHouse.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBHouseShn& GBHouseShn::Get() { static GBHouseShn s; return s; }
 
@@ -23,4 +23,4 @@ void GBHouseShn::Load() {
     SHINELOG_INFO("GBHouse.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

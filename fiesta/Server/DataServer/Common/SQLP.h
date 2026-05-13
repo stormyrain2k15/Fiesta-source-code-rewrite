@@ -16,12 +16,12 @@
 //           SQLP_IPChecker, SQLP_HolyPromise, SQLP_Wedding.
 //           {Account, AccountLog, World00_Character, OperatorTool,
 //            StatisticsData}.bak (2026-02 drop).
-#ifndef FIESTA_SQLP_H
-#define FIESTA_SQLP_H
+#ifndef SHINE_SQLP_H
+#define SHINE_SQLP_H
 #include "Database.h"
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class SQLP_Base {
 public:
@@ -218,5 +218,5 @@ public:
 class SQLP_Report    : public SQLP_Base { public: SQLP_Report   (Database* d):SQLP_Base(d){} void File(const std::string& rKind,const std::string& rPayload); };
 class SQLP_IPChecker : public SQLP_Base { public: SQLP_IPChecker(Database* d):SQLP_Base(d){} bool IsBlocked(const std::string& rIP); };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -4,7 +4,7 @@
 #include "../../DataReader/ShnRegistry.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBHouseTable& GBHouseTable::Get() { static GBHouseTable s; return s; }
 
@@ -43,4 +43,4 @@ bool GBHouseTable::Bind() {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

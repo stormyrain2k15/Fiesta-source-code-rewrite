@@ -5,7 +5,7 @@
 #include "../Lua/LuaRuntime.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 InstanceSystem& InstanceSystem::Get() { static InstanceSystem s; return s; }
 
@@ -41,4 +41,4 @@ const ScenarioScript* InstanceSystem::GetScenario(const std::string& rName) cons
     return ScenarioBookShelf::Get().Find("ID/" + rName);
 }
 
-} // namespace fiesta
+} // namespace shine

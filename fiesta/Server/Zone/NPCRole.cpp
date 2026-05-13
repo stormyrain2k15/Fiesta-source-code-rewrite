@@ -2,7 +2,7 @@
 #include "NPCRole.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 eNpcRole NPCRole::ParseRole(const std::string& r) {
     if (_stricmp(r.c_str(), "ClientMenu")   == 0) return NPC_ROLE_CLIENT_MENU;
@@ -71,4 +71,4 @@ const char* NPCRole::MerchantKindName(eMerchantKind e) {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

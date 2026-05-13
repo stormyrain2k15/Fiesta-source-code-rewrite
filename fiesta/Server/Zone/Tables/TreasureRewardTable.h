@@ -6,14 +6,14 @@
 //   Content:   per-bag reward bag (RewardInx, lot, upgrade range, rate).
 // Sharing one .h because the two tables form one TreasureRewardTable
 // surface with a single Get().
-#ifndef FIESTA_ZONE_TABLES_TREASUREREWARDTABLE_H
-#define FIESTA_ZONE_TABLES_TREASUREREWARDTABLE_H
+#ifndef SHINE_ZONE_TABLES_TREASUREREWARDTABLE_H
+#define SHINE_ZONE_TABLES_TREASUREREWARDTABLE_H
 #include "../../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct TreasureContainer {
     uint32      uiItemID;
@@ -48,5 +48,5 @@ private:
     std::map<uint32, std::vector<size_t> > m_kContentByItem;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

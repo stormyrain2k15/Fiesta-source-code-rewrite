@@ -11,7 +11,7 @@
 #include "../Common/NETCOMMAND.h"
 #include "../Common/SendPacket.h"
 
-namespace fiesta {
+namespace shine {
 
 // ---------------------------------------------------------------------------
 //  In-process helpers used by the inbound OPTool push handlers.
@@ -273,4 +273,4 @@ bool WMClient::SendGMEventTrigger(uint32 uiEventNo, uint32 uiDurationSec, bool b
     return m_kConn.SendPacket(kPkt);
 }
 
-} // namespace fiesta
+} // namespace shine

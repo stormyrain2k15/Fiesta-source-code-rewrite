@@ -3,7 +3,7 @@
 #include "ActiveSkillInfoServer.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ActiveSkillInfoServerShn& ActiveSkillInfoServerShn::Get() { static ActiveSkillInfoServerShn s; return s; }
 
@@ -49,4 +49,4 @@ const ActiveSkillInfoServerRow* ActiveSkillInfoServerShn::FindByInx(const std::s
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

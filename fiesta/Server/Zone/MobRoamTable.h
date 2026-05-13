@@ -4,14 +4,14 @@
 // Mob AI consumes this via the per-map MobAI tick: when a roamer reaches
 // a waypoint, advance to (ID + 1) % count; if EventIndex != "-" the AI
 // fires the named event (chat / mobregen / linkto / ...).
-#ifndef FIESTA_ZONE_MOBROAMTABLE_H
-#define FIESTA_ZONE_MOBROAMTABLE_H
+#ifndef SHINE_ZONE_MOBROAMTABLE_H
+#define SHINE_ZONE_MOBROAMTABLE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MobRoamPoint {
     uint16      uiID;
@@ -39,5 +39,5 @@ private:
     std::map<std::string, MobRoamMap*> m_kAll;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

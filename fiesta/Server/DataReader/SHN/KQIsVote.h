@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/KQIsVote.h
 // Auto-generated: one-file-per-SHN split for KQIsVote.shn
-#ifndef FIESTA_DATAREADER_SHN_KQISVOTE_H
-#define FIESTA_DATAREADER_SHN_KQISVOTE_H
+#ifndef SHINE_DATAREADER_SHN_KQISVOTE_H
+#define SHINE_DATAREADER_SHN_KQISVOTE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct KQIsVoteRow {
     int16            iID;
@@ -27,5 +27,5 @@ private:
     std::map<uint32,      size_t>  m_kById;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_KQISVOTE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_KQISVOTE_H

@@ -6,7 +6,7 @@
 #include "../Common/NETCOMMAND.h"
 #include "../Common/SendPacket.h"
 
-namespace fiesta {
+namespace shine {
 
 void CharLogin(ClientSession* pkSess, const GPacket& rPkt) {
     if (!pkSess) return;
@@ -83,4 +83,4 @@ void BriefInfoExchange(ClientSession*, const GPacket&) {
     // 06 -- broadcast brief info for nearby players.
 }
 
-} // namespace fiesta
+} // namespace shine

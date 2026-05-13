@@ -3,7 +3,7 @@
 #include "CharacterTitleStateServer.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 CharacterTitleStateServerShn& CharacterTitleStateServerShn::Get() { static CharacterTitleStateServerShn s; return s; }
 
@@ -22,4 +22,4 @@ void CharacterTitleStateServerShn::Load() {
     SHINELOG_INFO("CharacterTitleStateServer.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

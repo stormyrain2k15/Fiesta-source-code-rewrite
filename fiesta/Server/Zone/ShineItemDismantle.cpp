@@ -5,7 +5,7 @@
 #include "Inventory.h"
 #include "CharDBClient.h"
 #include "ShineObject.h"
-namespace fiesta {
+namespace shine {
 class ShineItemDismantle {
 public:
     static bool Dismantle(ShinePlayer* pkP, uint32 uiItemId);
@@ -14,4 +14,4 @@ bool ShineItemDismantle::Dismantle(ShinePlayer* pkP, uint32 uiItemId) {
     if (!pkP) return false;
     return pkP->Inv().Remove(uiItemId);
 }
-} // namespace fiesta
+} // namespace shine

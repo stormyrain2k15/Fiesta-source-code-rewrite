@@ -4,7 +4,7 @@
 #include "../../../DataReader/ShnRegistry.h"
 #include "../../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 DiceRateTable& DiceRateTable::Get() { static DiceRateTable s; return s; }
 
@@ -33,4 +33,4 @@ int32 DiceRateTable::PickIndex(uint32 uiRoll) const {
     return -1;
 }
 
-} // namespace fiesta
+} // namespace shine

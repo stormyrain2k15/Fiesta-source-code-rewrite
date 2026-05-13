@@ -2,7 +2,7 @@
 // Real implementation -- formerly a stub in an anonymous namespace.
 #include "PartyContainer.h"
 
-namespace fiesta {
+namespace shine {
 
 PartyContainer::PartyContainer()
     : uiLootRule(PLR_FreeForAll), uiMinLevel(0), uiMaxLevel(0),
@@ -75,4 +75,4 @@ void PartyContainer::SetLeader(uint32 cid) {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

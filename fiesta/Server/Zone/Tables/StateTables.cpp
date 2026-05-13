@@ -6,7 +6,7 @@
 #include "BindMacros.h"
 #include "../MiscTables.h"
 
-namespace fiesta {
+namespace shine {
 
 StateTables& StateTables::Get() { static StateTables s; return s; }
 
@@ -36,4 +36,4 @@ int32 StateTables::MobEffect  (uint32 uiMob)   const {
     return (it == m_kMob.end()) ? 0 : it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

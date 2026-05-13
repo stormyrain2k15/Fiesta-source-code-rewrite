@@ -2,7 +2,7 @@
 #include "ScenarioScript.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 bool ScenarioScript::Load(const std::string& rPath) {
     return m_kFile.Load(rPath);
@@ -33,4 +33,4 @@ void ScenarioBookShelf::Clear() {
     m_kAll.clear();
 }
 
-} // namespace fiesta
+} // namespace shine

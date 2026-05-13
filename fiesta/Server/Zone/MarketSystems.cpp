@@ -2,7 +2,7 @@
 #include "../Shared/GTimer.h"
 #include <windows.h>
 #include <string.h>
-namespace fiesta {
+namespace shine {
 
 AuctionSystem& AuctionSystem::Get() { static AuctionSystem s; return s; }
 
@@ -112,4 +112,4 @@ void BoothManager::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

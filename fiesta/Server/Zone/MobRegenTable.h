@@ -1,13 +1,13 @@
 // Server/Zone/MobRegenTable.h
 // typed loader for MobRegen/<Map>.txt (MobRegenGroup + MobRegen tables).
-#ifndef FIESTA_ZONE_MOBREGENTABLE_H
-#define FIESTA_ZONE_MOBREGENTABLE_H
+#ifndef SHINE_ZONE_MOBREGENTABLE_H
+#define SHINE_ZONE_MOBREGENTABLE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MobRegenGroupRow {
     std::string kGroupIndex;     // INDEX
@@ -48,5 +48,5 @@ private:
     std::map<std::string, MobRegenTable*> m_kAll;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

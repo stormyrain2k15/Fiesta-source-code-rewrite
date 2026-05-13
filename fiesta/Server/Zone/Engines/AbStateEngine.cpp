@@ -3,7 +3,7 @@
 #include "AbStateEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 AbStateEngine& AbStateEngine::Get() { static AbStateEngine s; return s; }
 
@@ -18,4 +18,4 @@ void AbStateEngine::Bind() {
     SHINELOG_INFO("AbStateEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

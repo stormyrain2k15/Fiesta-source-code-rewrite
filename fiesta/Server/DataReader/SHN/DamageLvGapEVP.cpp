@@ -3,7 +3,7 @@
 #include "DamageLvGapEVP.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 DamageLvGapEVPShn& DamageLvGapEVPShn::Get() { static DamageLvGapEVPShn s; return s; }
 
@@ -20,4 +20,4 @@ void DamageLvGapEVPShn::Load() {
     SHINELOG_INFO("DamageLvGapEVP.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -3,7 +3,7 @@
 #include "RandomOption.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 RandomOptionShn& RandomOptionShn::Get() { static RandomOptionShn s; return s; }
 
@@ -23,4 +23,4 @@ void RandomOptionShn::Load() {
     SHINELOG_INFO("RandomOption.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

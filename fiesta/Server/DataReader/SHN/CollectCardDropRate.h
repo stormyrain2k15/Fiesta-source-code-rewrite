@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/CollectCardDropRate.h
 // Auto-generated: one-file-per-SHN split for CollectCardDropRate.shn
-#ifndef FIESTA_DATAREADER_SHN_COLLECTCARDDROPRATE_H
-#define FIESTA_DATAREADER_SHN_COLLECTCARDDROPRATE_H
+#ifndef SHINE_DATAREADER_SHN_COLLECTCARDDROPRATE_H
+#define SHINE_DATAREADER_SHN_COLLECTCARDDROPRATE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct CollectCardDropRateRow {
     uint16           uiCC_CardID;
@@ -25,5 +25,5 @@ private:
     std::vector<CollectCardDropRateRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_COLLECTCARDDROPRATE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_COLLECTCARDDROPRATE_H

@@ -1,7 +1,7 @@
 // Server/Shared/RandomBox.cpp
 #include "RandomBox.h"
 
-namespace fiesta {
+namespace shine {
 
 RandomBox::RandomBox() : m_uiTotal(0) {}
 
@@ -25,4 +25,4 @@ uint32 RandomBox::Draw() {
     return m_kSlots.back().uiId;
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/CharacterTitleStateServer.h
 // Auto-generated: one-file-per-SHN split for CharacterTitleStateServer.shn
-#ifndef FIESTA_DATAREADER_SHN_CHARACTERTITLESTATESERVER_H
-#define FIESTA_DATAREADER_SHN_CHARACTERTITLESTATESERVER_H
+#ifndef SHINE_DATAREADER_SHN_CHARACTERTITLESTATESERVER_H
+#define SHINE_DATAREADER_SHN_CHARACTERTITLESTATESERVER_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct CharacterTitleStateServerRow {
     uint32           uiType;
@@ -27,5 +27,5 @@ private:
     std::vector<CharacterTitleStateServerRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_CHARACTERTITLESTATESERVER_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_CHARACTERTITLESTATESERVER_H

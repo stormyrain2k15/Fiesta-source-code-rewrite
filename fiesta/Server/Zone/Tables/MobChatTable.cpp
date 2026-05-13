@@ -8,7 +8,7 @@
 #include "../../DataReader/TableScriptFile.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 MobChatTable& MobChatTable::Get() { static MobChatTable s; return s; }
 
@@ -52,4 +52,4 @@ std::string MobChatTable::Pick(eMobChatBucket eB, const std::string& rM) const {
     return r.aScript[3];
 }
 
-} // namespace fiesta
+} // namespace shine

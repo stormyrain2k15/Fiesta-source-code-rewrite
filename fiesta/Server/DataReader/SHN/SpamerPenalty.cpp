@@ -3,7 +3,7 @@
 #include "SpamerPenalty.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 SpamerPenaltyShn& SpamerPenaltyShn::Get() { static SpamerPenaltyShn s; return s; }
 
@@ -21,4 +21,4 @@ void SpamerPenaltyShn::Load() {
     SHINELOG_INFO("SpamerPenalty.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

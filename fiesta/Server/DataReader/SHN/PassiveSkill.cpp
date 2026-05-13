@@ -3,7 +3,7 @@
 #include "PassiveSkill.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 PassiveSkillShn& PassiveSkillShn::Get() { static PassiveSkillShn s; return s; }
 
@@ -78,4 +78,4 @@ const PassiveSkillRow* PassiveSkillShn::FindByInx(const std::string& rInx) const
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

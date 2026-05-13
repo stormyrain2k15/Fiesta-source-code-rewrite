@@ -5,7 +5,7 @@
 // gates per target-type, then defers to TargetAnalyser for distance.
 #include "ShineObject.h"
 #include "TargetAnalyser.h"
-namespace fiesta {
+namespace shine {
 
 class ActionTargetTypeValidator {
 public:
@@ -63,4 +63,4 @@ bool ActionTargetTypeValidator::Accept(eTargetType eTT, ShineObject* pkA,
     return false;
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -19,7 +19,7 @@
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 static well512 s_kRng;
 
@@ -69,7 +69,7 @@ void RuleOfEngagement::CalcDamage(DAMAGERESULT*    pOut,
     int32 def = PickDEF(t, nDmgFlags);
     int64 dmg;
     if (kRawDmgMode == 0) {
-        // Quadratic (Fiesta-style): (ATK+bias)^2 / (ATK+DEF+2*bias)
+        // Quadratic (Shine-style): (ATK+bias)^2 / (ATK+DEF+2*bias)
         // At equal ATK/DEF: ~50% of ATK. Higher ATK advantage = better scaling.
         // TUNE: kQuadraticBias, kRawDmgScalerX1k in BattleTunables.h.
         int64 a2 = (int64)(atk + kQuadraticBias);
@@ -408,4 +408,4 @@ void Battle::Regen(ShineObject* pk, int32 iHp, int32 iSp) {
     pk->SetSP(pk->GetSP() + iSp);
 }
 
-} // namespace fiesta
+} // namespace shine

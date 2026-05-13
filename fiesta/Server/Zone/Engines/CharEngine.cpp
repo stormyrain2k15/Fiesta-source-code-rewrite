@@ -4,7 +4,7 @@
 #include "CharEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 CharEngine& CharEngine::Get() { static CharEngine s; return s; }
 
@@ -161,4 +161,4 @@ NewCharacterTemplate CharEngine::GenerateCharacter(
     return tmpl;
 }
 
-} // namespace fiesta
+} // namespace shine

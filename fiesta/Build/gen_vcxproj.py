@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# Visual Studio 2010 project file generator for the Fiesta tree.
-# One-shot run from /app/fiesta/Build/. Re-run after adding files to keep
+# Visual Studio 2010 project file generator for the Shine tree.
+# One-shot run from /app/shine/Build/. Re-run after adding files to keep
 # .vcxproj / .filters in sync. Outputs go next to the source dirs:
 #   Build/Login.vcxproj, Build/Zone.vcxproj, etc.
-# Single solution: Build/Fiesta.sln.
+# Single solution: Build/Shine.sln.
 #
 # Toolset: v100 (VS2010), Win32, MBCS, /MT (static CRT).
 import os, uuid, sys
@@ -14,7 +14,7 @@ os.makedirs(BUILD, exist_ok=True)
 
 # Deterministic GUIDs so re-running doesn't churn the .sln.
 def stable_guid(name):
-    return "{" + str(uuid.uuid5(uuid.NAMESPACE_DNS, "fiesta." + name)).upper() + "}"
+    return "{" + str(uuid.uuid5(uuid.NAMESPACE_DNS, "shine." + name)).upper() + "}"
 
 # (project_name, source_dirs[list of dirs relative to root], type, deps[list of project names])
 # type: "StaticLibrary" or "Application"
@@ -67,9 +67,9 @@ EXCLUDES = {
 }
 
 # Per-project extra preprocessor definitions. ZoneTests needs
-# FIESTA_TEST_MAIN to enable the main() in TestBase.cpp.
+# SHINE_TEST_MAIN to enable the main() in TestBase.cpp.
 EXTRA_DEFINES = {
-    "ZoneTests": ["FIESTA_TEST_MAIN"],
+    "ZoneTests": ["SHINE_TEST_MAIN"],
 }
 
 def gather(src_dirs, exts, excludes=None):
@@ -313,7 +313,7 @@ def write_solution(infos):
     sln.append("\t\tHideSolutionNode = FALSE")
     sln.append("\tEndGlobalSection")
     sln.append("EndGlobal")
-    open(os.path.join(BUILD, "Fiesta.sln"), "w", newline="\r\n").write("\n".join(sln))
+    open(os.path.join(BUILD, "Shine.sln"), "w", newline="\r\n").write("\n".join(sln))
 
 def write_props():
     # Property sheet for the Gamebryo SDK location. Users edit the
@@ -349,7 +349,7 @@ def main():
         print(f"{name:30s}  guid={guid}  cpp={ncpp:4d}  h={nhdr:4d}")
         infos.append((name, guid, ncpp, nhdr))
     write_solution(infos)
-    print(f"\nWrote {len(infos)} projects + Fiesta.sln + Gamebryo.props to {BUILD}/")
+    print(f"\nWrote {len(infos)} projects + Shine.sln + Gamebryo.props to {BUILD}/")
 
 if __name__ == "__main__":
     main()

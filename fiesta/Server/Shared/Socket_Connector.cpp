@@ -4,7 +4,7 @@
 #include "ShineLogSystem.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 Socket_Connector::Socket_Connector() : m_pkIOCP(NULL), m_pkSession(NULL) {}
 Socket_Connector::~Socket_Connector() { Close(); }
@@ -50,4 +50,4 @@ void Socket_Connector::Close() {
     m_pkIOCP = NULL;
 }
 
-} // namespace fiesta
+} // namespace shine

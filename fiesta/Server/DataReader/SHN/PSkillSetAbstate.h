@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/PSkillSetAbstate.h
 // Auto-generated: one-file-per-SHN split for PSkillSetAbstate.shn
-#ifndef FIESTA_DATAREADER_SHN_PSKILLSETABSTATE_H
-#define FIESTA_DATAREADER_SHN_PSKILLSETABSTATE_H
+#ifndef SHINE_DATAREADER_SHN_PSKILLSETABSTATE_H
+#define SHINE_DATAREADER_SHN_PSKILLSETABSTATE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct PSkillSetAbstateRow {
     std::string      kPS_InxName;
@@ -28,5 +28,5 @@ private:
     std::vector<PSkillSetAbstateRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_PSKILLSETABSTATE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_PSKILLSETABSTATE_H

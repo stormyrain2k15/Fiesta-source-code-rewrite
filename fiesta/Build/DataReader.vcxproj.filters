@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="DataReader"><UniqueIdentifier>{F4B0F92F-2812-571E-B121-B9C4DADAFD19}</UniqueIdentifier></Filter>
-    <Filter Include="DataReader\SHN"><UniqueIdentifier>{5E967B54-1CE2-55C7-9CF0-B58DA2D12579}</UniqueIdentifier></Filter>
+    <Filter Include="DataReader"><UniqueIdentifier>{CB698D21-AFD4-5EDC-9F88-A549F7D18B63}</UniqueIdentifier></Filter>
+    <Filter Include="DataReader\SHN"><UniqueIdentifier>{496FD3E3-A1BA-5B0D-B927-B322F2221FE2}</UniqueIdentifier></Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Server\DataReader\AbStateInfoFile.cpp"><Filter>DataReader</Filter></ClCompile>

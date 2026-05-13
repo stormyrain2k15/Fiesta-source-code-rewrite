@@ -11,7 +11,7 @@
 #include "../Shared/PacketBuffer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 NpcScheduleServer& NpcScheduleServer::Get() { static NpcScheduleServer s; return s; }
 
@@ -61,4 +61,4 @@ void NpcScheduleServer::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

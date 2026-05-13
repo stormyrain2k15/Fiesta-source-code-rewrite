@@ -3,6 +3,6 @@
 // Combat-side pet logic (attack target, follow, recall) is in PetData.cpp.
 #include "ShineObject.h"
 
-namespace fiesta {
+namespace shine {
 // Pet-specific overrides go here; most behaviour is in PetData.cpp.
-} // namespace fiesta
+} // namespace shine

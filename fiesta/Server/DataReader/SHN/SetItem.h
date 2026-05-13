@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/SetItem.h
 // Auto-generated: one-file-per-SHN split for SetItem.shn
-#ifndef FIESTA_DATAREADER_SHN_SETITEM_H
-#define FIESTA_DATAREADER_SHN_SETITEM_H
+#ifndef SHINE_DATAREADER_SHN_SETITEM_H
+#define SHINE_DATAREADER_SHN_SETITEM_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct SetItemRow {
     std::string      kIndex;
@@ -26,5 +26,5 @@ private:
     std::vector<SetItemRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_SETITEM_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_SETITEM_H

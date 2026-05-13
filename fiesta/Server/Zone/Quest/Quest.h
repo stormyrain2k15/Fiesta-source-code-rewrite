@@ -3,12 +3,12 @@
 // each quest tracks per-objective counters / flags persisted via
 // CharDBClient::QuestSet. Quest acceptance, abandonment, completion, and
 // reward grant all flow through this module.
-#ifndef FIESTA_ZONE_QUEST_QUEST_H
-#define FIESTA_ZONE_QUEST_QUEST_H
+#ifndef SHINE_ZONE_QUEST_QUEST_H
+#define SHINE_ZONE_QUEST_QUEST_H
 #include "../../Shared/ShineTypes.h"
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -33,5 +33,5 @@ private:
     std::map<uint32, std::map<uint32, QuestState> > m_kPerChar; // char -> qid -> state
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

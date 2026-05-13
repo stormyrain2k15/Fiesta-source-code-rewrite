@@ -5,4 +5,4 @@
 // so the project file slot is preserved; no extra runtime symbols are
 // emitted because all behaviour lives inline in MapField.h.
 #include "MapBlockInformation.h"
-namespace fiesta { /* see MapField.h */ }
+namespace shine { /* see MapField.h */ }

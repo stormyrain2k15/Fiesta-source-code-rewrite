@@ -6,12 +6,12 @@
 // All values are sourced from `WorldTables::ItemUseFunctionTable` -- the
 // constants below are clamps / common-sense bounds, not authoritative
 // numbers.
-#ifndef FIESTA_ZONE_POTSYSTEM_H
-#define FIESTA_ZONE_POTSYSTEM_H
+#ifndef SHINE_ZONE_POTSYSTEM_H
+#define SHINE_ZONE_POTSYSTEM_H
 #include "ShineObject.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 enum ePotKind {
     POT_NONE     = 0,
@@ -60,5 +60,5 @@ private:
     const PotDef* FindDef  (uint32 uiItemId) const;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -21,14 +21,14 @@
 // keep working until each consumer is migrated to the *Shn API in a
 // later sprint. Once a Legacy*Row has zero remaining consumers, drop
 // it from this header and the corresponding *Tables binder file.
-#ifndef FIESTA_ZONE_GROUPTABLES_H
-#define FIESTA_ZONE_GROUPTABLES_H
+#ifndef SHINE_ZONE_GROUPTABLES_H
+#define SHINE_ZONE_GROUPTABLES_H
 #include "../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 // =============================================================================
 //  Forward-declared row POD structs -- one per typed accessor below.
@@ -505,5 +505,5 @@ private:
 // One-call initializer: Binds every group above. Safe to call multiple times.
 void BindAllGroupTables();
 
-} // namespace fiesta
+} // namespace shine
 #endif

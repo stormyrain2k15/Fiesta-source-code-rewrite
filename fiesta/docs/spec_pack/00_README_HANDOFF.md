@@ -1,12 +1,12 @@
-# Fiesta Online Complete Engine Rewrite Pack — Engine Handoff
+# Shine Online Complete Engine Rewrite Pack — Engine Handoff
 
 Generated: 2026-05-09 00:37:38
 
-This replaces the thin first-pass `fiesta_engine_requirements` pack with a fuller rewrite spec based on:
+This replaces the thin first-pass `shine_engine_requirements` pack with a fuller rewrite spec based on:
 
 - NA2016 server/client file layout and service PDB symbol names.
 - Documentation-main SHN/Lua/GM docs.
-- Existing packet-capture notes and the planned FiestaShark/IOCP/Olly/IDA/Hex-Rays capture workflow.
+- Existing packet-capture notes and the planned ShineShark/IOCP/Olly/IDA/Hex-Rays capture workflow.
 - Current recovered source inventory.
 - Official/fan-facing feature references for public names and gameplay meaning.
 
@@ -26,7 +26,7 @@ This replaces the thin first-pass `fiesta_engine_requirements` pack with a fulle
 - `02_COMPLETE_SYSTEM_CATALOG.md` — all systems seen in PDB/data/docs and what each does.
 - `03_ORIGINAL_NAMING_AND_FUNCTION_REUSE.md` — how to reuse original naming and where to find names.
 - `04_BUILD_ORDER_AND_ACCEPTANCE_TESTS.md` — ordered rewrite plan and pass/fail checks.
-- `05_CAPTURE_TO_CODE_WORKFLOW.md` — how FiestaShark/rat/Olly/IDA/Hex-Rays output becomes source.
+- `05_CAPTURE_TO_CODE_WORKFLOW.md` — how ShineShark/rat/Olly/IDA/Hex-Rays output becomes source.
 - `06_DATA_TABLE_AND_DOC_CROSSWALK.md` — data files by feature family.
 - `07_EXTERNAL_REFERENCE_MAP.md` — official/fan reference use rules.
 - `08_FUNCTION_LOCAL_MATH_AND_NO_EXTRA_TUNING_DOCS.md` — policy for missing math/formulas: implement functions first, keep tune values in the function body, and do not invent extra balance documents.

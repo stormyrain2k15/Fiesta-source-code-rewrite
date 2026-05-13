@@ -12,7 +12,7 @@
 #include "../DataReader/ShnRegistry.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 class GatherNProduce {
 public:
@@ -42,4 +42,4 @@ public:
     }
 };
 
-} // namespace fiesta
+} // namespace shine

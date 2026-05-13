@@ -1,7 +1,7 @@
 // Server/Zone/AggroList.cpp
 #include "AggroList.h"
 
-namespace fiesta {
+namespace shine {
 
 AggroList::Entry* AggroList::Find(CharID c) {
     for (size_t i = 0; i < m_kEntries.size(); ++i) {
@@ -81,4 +81,4 @@ void AggroList::AddScaled(CharID c, int32 iRawHate, uint16 uiPlayerLevel, uint16
     Add(c, (int32)scaled);
 }
 
-} // namespace fiesta
+} // namespace shine

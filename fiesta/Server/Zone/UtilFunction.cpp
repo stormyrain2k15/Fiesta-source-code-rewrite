@@ -3,7 +3,7 @@
 // tests/test_UtilFunction.cpp.
 #include "../Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class UtilFunction {
 public:
@@ -14,4 +14,4 @@ public:
     static bool   InRange(int32 v, int32 lo, int32 hi) { return v >= lo && v <= hi; }
 };
 
-} // namespace fiesta
+} // namespace shine

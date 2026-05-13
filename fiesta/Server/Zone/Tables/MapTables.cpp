@@ -6,7 +6,7 @@
 #include "BindMacros.h"
 #include "../GroupTables.h"
 
-namespace fiesta {
+namespace shine {
 
 MapTables& MapTables::Get() { static MapTables s; return s; }
 
@@ -44,4 +44,4 @@ const LegacyMapInfoRow* MapTables::FindByName(const std::string& rN) const {
     return (it == m_kByName.end()) ? NULL : &m_kMaps[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

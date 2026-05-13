@@ -3,9 +3,9 @@
 // mob's near-scan radius, applying class-bias, party-tank-bias, and
 // distance falloff.
 #include "ShineObject.h"
-namespace fiesta {
+namespace shine {
 class MobTargetAggresive {
 public:
     static ShinePlayer* Pick(uint32 /*uiMobId*/) { return NULL; }
 };
-} // namespace fiesta
+} // namespace shine

@@ -5,7 +5,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include "../Common/NETCOMMAND.h"
 
-namespace fiesta {
+namespace shine {
 
 class GameLogClientSession : public IOCPSession {
 public:
@@ -67,4 +67,4 @@ void GameLogClient::Report(const std::string& rKind, const std::string& rPayload
     m_kConn.SendPacket(kPkt);
 }
 
-} // namespace fiesta
+} // namespace shine

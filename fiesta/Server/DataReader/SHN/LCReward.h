@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/LCReward.h
 // Auto-generated: one-file-per-SHN split for LCReward.shn
-#ifndef FIESTA_DATAREADER_SHN_LCREWARD_H
-#define FIESTA_DATAREADER_SHN_LCREWARD_H
+#ifndef SHINE_DATAREADER_SHN_LCREWARD_H
+#define SHINE_DATAREADER_SHN_LCREWARD_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct LCRewardRow {
     uint8            uiLCR_Group;
@@ -26,5 +26,5 @@ private:
     std::vector<LCRewardRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_LCREWARD_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_LCREWARD_H

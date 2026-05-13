@@ -12,7 +12,7 @@
 #include "../Shared/PacketBuffer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MatchInstanceDungeonServer& MatchInstanceDungeonServer::Get() {
     static MatchInstanceDungeonServer s; return s;
@@ -63,4 +63,4 @@ void MatchInstanceDungeonServer::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

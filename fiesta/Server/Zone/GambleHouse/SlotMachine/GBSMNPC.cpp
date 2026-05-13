@@ -3,7 +3,7 @@
 #include "GBSMTables.h"
 #include "../../../DataReader/ShnRegistry.h"
 #include "../../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 GBSMNPCTable& GBSMNPCTable::Get() { static GBSMNPCTable s; return s; }
 bool GBSMNPCTable::Bind() {
     m_kRows.clear();
@@ -23,4 +23,4 @@ int32 GBSMNPCTable::BetTierFor(const std::string& rInx) const {
     std::map<std::string, uint32>::const_iterator it = m_kRows.find(rInx);
     return (it == m_kRows.end()) ? -1 : (int32)it->second;
 }
-} // namespace fiesta
+} // namespace shine

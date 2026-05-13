@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/HolyPromiseReward.h
 // Auto-generated: one-file-per-SHN split for HolyPromiseReward.shn
-#ifndef FIESTA_DATAREADER_SHN_HOLYPROMISEREWARD_H
-#define FIESTA_DATAREADER_SHN_HOLYPROMISEREWARD_H
+#ifndef SHINE_DATAREADER_SHN_HOLYPROMISEREWARD_H
+#define SHINE_DATAREADER_SHN_HOLYPROMISEREWARD_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct HolyPromiseRewardRow {
     uint8            uiLevel;
@@ -36,5 +36,5 @@ private:
     std::vector<HolyPromiseRewardRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_HOLYPROMISEREWARD_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_HOLYPROMISEREWARD_H

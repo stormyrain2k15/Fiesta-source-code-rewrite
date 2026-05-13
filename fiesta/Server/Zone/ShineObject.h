@@ -4,8 +4,8 @@
 // without out-of-band lookups.
 //                                  ShineNPC, ShinePet, ShineItemDrop, CharacterSkill,
 //                                  AbnormalState
-#ifndef FIESTA_ZONE_SHINEOBJECT_H
-#define FIESTA_ZONE_SHINEOBJECT_H
+#ifndef SHINE_ZONE_SHINEOBJECT_H
+#define SHINE_ZONE_SHINEOBJECT_H
 #include "../Shared/ShineTypes.h"
 #include "../DataServer/Common/Database.h"   // DBRecord
 #include "AbState.h"
@@ -15,7 +15,7 @@
 #include "QuestSystem.h"
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class ClientSession;
 
@@ -168,5 +168,5 @@ class ShineNPC   : public ShineObject { public: virtual ObjType GetType() const 
 class ShinePet   : public ShineObject { public: virtual ObjType GetType() const { return OT_PET;   } CharID m_uiOwner; };
 class ShineItemDrop: public ShineObject { public: virtual ObjType GetType() const { return OT_ITEMDROP; } ItemID m_uiItem; uint32 m_uiQty; };
 
-} // namespace fiesta
+} // namespace shine
 #endif

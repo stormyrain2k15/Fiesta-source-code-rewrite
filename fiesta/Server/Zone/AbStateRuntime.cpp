@@ -20,7 +20,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 bool AbStateRuntime::Resolve(const AbStateRow& rAb, uint32 uiStrength,
                              AbStateRuntimeRow& rOut) {
@@ -232,4 +232,4 @@ int32 AbStateRuntime::ReflectIncoming(ShineObject* pkTarget, int32 iApplied) {
     return mirror;
 }
 
-} // namespace fiesta
+} // namespace shine

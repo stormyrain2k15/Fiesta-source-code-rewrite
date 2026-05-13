@@ -3,7 +3,7 @@
 #include "ColorInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ColorInfoShn& ColorInfoShn::Get() { static ColorInfoShn s; return s; }
 
@@ -22,4 +22,4 @@ void ColorInfoShn::Load() {
     SHINELOG_INFO("ColorInfo.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

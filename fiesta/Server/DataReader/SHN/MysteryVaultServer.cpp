@@ -3,7 +3,7 @@
 #include "MysteryVaultServer.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MysteryVaultServerShn& MysteryVaultServerShn::Get() { static MysteryVaultServerShn s; return s; }
 
@@ -24,4 +24,4 @@ void MysteryVaultServerShn::Load() {
     SHINELOG_INFO("MysteryVaultServer.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

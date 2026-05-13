@@ -3,7 +3,7 @@
 #include "DiceRate.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 DiceRateShn& DiceRateShn::Get() { static DiceRateShn s; return s; }
 
@@ -19,4 +19,4 @@ void DiceRateShn::Load() {
     SHINELOG_INFO("DiceRate.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

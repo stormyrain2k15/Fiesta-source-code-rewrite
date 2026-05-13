@@ -4,7 +4,7 @@
 #include "../../DataReader/TableScriptFile.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MiscDataTable& MiscDataTable::Get() { static MiscDataTable s; return s; }
 
@@ -56,4 +56,4 @@ void MiscDataTable::RowsForSkill(const std::string& rSkill,
         rOut.push_back(&m_kRows[it->second[i]]);
 }
 
-} // namespace fiesta
+} // namespace shine

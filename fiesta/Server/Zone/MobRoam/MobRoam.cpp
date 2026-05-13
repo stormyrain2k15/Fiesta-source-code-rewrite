@@ -3,11 +3,11 @@
 // list of waypoints is loaded from MobRoam.shn. Idle mobs walk the path
 // and reset to it after combat.
 #include "../MobRoamTable.h"
-namespace fiesta {
+namespace shine {
 class MobRoam {
 public:
     static MobRoam& Get() { static MobRoam s; return s; }
     bool BeginPatrol(uint32 /*uiMobId*/, uint32 /*uiRoamId*/) { return true; }
     void TickPatrol (uint32 /*uiMobId*/) {}
 };
-} // namespace fiesta
+} // namespace shine

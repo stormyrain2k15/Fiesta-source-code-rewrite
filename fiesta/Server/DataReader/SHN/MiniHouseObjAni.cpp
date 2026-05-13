@@ -3,7 +3,7 @@
 #include "MiniHouseObjAni.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MiniHouseObjAniShn& MiniHouseObjAniShn::Get() { static MiniHouseObjAniShn s; return s; }
 
@@ -32,4 +32,4 @@ void MiniHouseObjAniShn::Load() {
     SHINELOG_INFO("MiniHouseObjAni.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

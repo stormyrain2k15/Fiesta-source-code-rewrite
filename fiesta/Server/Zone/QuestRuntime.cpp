@@ -7,7 +7,7 @@
 #include "../Shared/GTimer.h"
 #include <windows.h>
 
-namespace fiesta {
+namespace shine {
 
 // Quest status enum mirrors the World00_Character.tQuest schema:
 //   0 = INACTIVE  1 = ACTIVE  2 = COMPLETED  3 = ABANDONED
@@ -144,4 +144,4 @@ bool QuestRuntime::AllGoalsComplete(const PlayerLog& rL, uint16 uiHandle) {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

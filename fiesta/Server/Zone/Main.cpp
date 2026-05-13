@@ -67,7 +67,7 @@
 #include "../DataReader/TableScriptFile.h"
 #include "../../Lua/LuaRuntime.h"
 
-namespace fiesta {
+namespace shine {
 
 extern void RegisterZoneHandlers();
 
@@ -75,7 +75,7 @@ static IOCPSession* MakeZoneClient() { return new ClientSession(); }
 
 class ZoneService : public WinService {
 public:
-    ZoneService() : WinService("FiestaZone") {}
+    ZoneService() : WinService("ShineZone") {}
     virtual bool OnStart() {
         m_kInfo.Load("ZoneServerInfo.txt");
         m_kReader.SetRoot(m_kInfo.GetString("Data.Root", "9Data"));
@@ -314,6 +314,6 @@ private:
     LuaRuntime      m_kLua;
 };
 
-} // namespace fiesta
+} // namespace shine
 
-int main(int argc, char** argv) { fiesta::ZoneService s; return s.Run(argc, argv); }
+int main(int argc, char** argv) { shine::ZoneService s; return s.Run(argc, argv); }

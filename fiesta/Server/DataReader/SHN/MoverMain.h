@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MoverMain.h
 // Auto-generated: one-file-per-SHN split for MoverMain.shn
-#ifndef FIESTA_DATAREADER_SHN_MOVERMAIN_H
-#define FIESTA_DATAREADER_SHN_MOVERMAIN_H
+#ifndef SHINE_DATAREADER_SHN_MOVERMAIN_H
+#define SHINE_DATAREADER_SHN_MOVERMAIN_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MoverMainRow {
     uint32           uiMoverID;
@@ -31,5 +31,5 @@ private:
     std::vector<MoverMainRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MOVERMAIN_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MOVERMAIN_H

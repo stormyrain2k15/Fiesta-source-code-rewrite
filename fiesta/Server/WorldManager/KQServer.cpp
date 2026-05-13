@@ -12,7 +12,7 @@
 #include "../Shared/GTimer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 KQServer& KQServer::Get() { static KQServer s; return s; }
 
@@ -114,4 +114,4 @@ void KQServer::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -2,14 +2,14 @@
 //
 // Zone-side outbound IOCP client to the GameLog DB exe. Routes combat
 // kill / drop / trade events into World00_GameLog.
-#ifndef FIESTA_ZONE_GAMELOG_CLIENT_H
-#define FIESTA_ZONE_GAMELOG_CLIENT_H
+#ifndef SHINE_ZONE_GAMELOG_CLIENT_H
+#define SHINE_ZONE_GAMELOG_CLIENT_H
 #include "../Shared/Socket_Connector.h"
 #include "../Shared/IOCPManager.h"
 #include "../Shared/ShineTypes.h"
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class GameLogClient {
 public:
@@ -35,5 +35,5 @@ private:
     Socket_Connector m_kConn;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/ItemOptions.h
 // Auto-generated: one-file-per-SHN split for ItemOptions.shn
-#ifndef FIESTA_DATAREADER_SHN_ITEMOPTIONS_H
-#define FIESTA_DATAREADER_SHN_ITEMOPTIONS_H
+#ifndef SHINE_DATAREADER_SHN_ITEMOPTIONS_H
+#define SHINE_DATAREADER_SHN_ITEMOPTIONS_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ItemOptionsRow {
     uint16           uiOptionDegree;
@@ -35,5 +35,5 @@ private:
     std::vector<ItemOptionsRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ITEMOPTIONS_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ITEMOPTIONS_H

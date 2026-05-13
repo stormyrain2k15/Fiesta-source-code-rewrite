@@ -7,9 +7,9 @@
 // constants, so any typo here would surface immediately in `up_*` / `p_*`
 // stored-procedure dispatch.
 // VS2010-compatible: only `static const char* const` storage in headers.
-#ifndef FIESTA_DBSCHEMA_CONST_H
-#define FIESTA_DBSCHEMA_CONST_H
-namespace fiesta { namespace DB {
+#ifndef SHINE_DBSCHEMA_CONST_H
+#define SHINE_DBSCHEMA_CONST_H
+namespace shine { namespace DB {
 
 // ============================================================================
 //  Account database (logical DB name: Account)
@@ -496,5 +496,5 @@ inline const char* Character_Rebirth_Unequip_Character_Items() { return "Charact
 inline const char* Tutorial_Skip_Enabled()                 { return "Tutorial_Skip.Enabled"; }
 } // namespace DBField
 
-} // namespace fiesta
+} // namespace shine
 #endif

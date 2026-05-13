@@ -1,13 +1,13 @@
 // Server/Common/SendPacket.h
 // helper SendPacket(session, opcode, builder) symmetric with PDB symbol SendPacket.
-#ifndef FIESTA_SENDPACKET_H
-#define FIESTA_SENDPACKET_H
+#ifndef SHINE_SENDPACKET_H
+#define SHINE_SENDPACKET_H
 #include "../Shared/ShineTypes.h"
 #include "../Shared/GPacket.h"
 #include "../Shared/Socket_Acceptor.h"
 #include "NETCOMMAND.h"
 
-namespace fiesta {
+namespace shine {
 
 inline bool SendPacket(IOCPSession* pkSess, NCOpcode nc) {
     if (!pkSess) return false;
@@ -19,5 +19,5 @@ inline bool SendPacket(IOCPSession* pkSess, NCOpcode nc, const void* pv, size_t 
     GPacket pk(nc, pv, n); return pkSess->SendPacket(pk);
 }
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -13,14 +13,14 @@
 // Lines starting with ';' are comments. Trailing ';' comments on data lines
 // are honored. Records may repeat (multiple SERVER_INFO / ODBC_INFO rows).
 // LoginServerInfo.txt templates (May 2026).
-#ifndef FIESTA_SHARED_CONFIGPARSER_H
-#define FIESTA_SHARED_CONFIGPARSER_H
+#ifndef SHINE_SHARED_CONFIGPARSER_H
+#define SHINE_SHARED_CONFIGPARSER_H
 #include "ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 enum CfgFieldType { CFT_NONE = 0, CFT_STRING = 1, CFT_INTEGER = 2 };
 
@@ -67,5 +67,5 @@ private:
     bool         m_bDoneEnd;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

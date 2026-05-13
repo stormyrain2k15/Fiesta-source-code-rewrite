@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/JobEquipInfo.h
 // Auto-generated: one-file-per-SHN split for JobEquipInfo.shn
-#ifndef FIESTA_DATAREADER_SHN_JOBEQUIPINFO_H
-#define FIESTA_DATAREADER_SHN_JOBEQUIPINFO_H
+#ifndef SHINE_DATAREADER_SHN_JOBEQUIPINFO_H
+#define SHINE_DATAREADER_SHN_JOBEQUIPINFO_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct JobEquipInfoRow {
     uint32           uiChrClass;
@@ -31,5 +31,5 @@ private:
     std::vector<JobEquipInfoRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_JOBEQUIPINFO_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_JOBEQUIPINFO_H

@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 ChrCommonTable& ChrCommonTable::Get() { static ChrCommonTable s; return s; }
 
@@ -124,4 +124,4 @@ int32 ChrCommonTable::MRPerMen(uint16 p) const {
     return NamedCol(m_kFreeColNames[STAT_MEN], FreeStatRowByPoints(STAT_MEN, p), "MR");
 }
 
-} // namespace fiesta
+} // namespace shine

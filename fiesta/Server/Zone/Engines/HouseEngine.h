@@ -1,7 +1,7 @@
 // Server/Zone/Engines/HouseEngine.h
 // HouseEngine — aggregates 7 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_HOUSEENGINE_H
-#define FIESTA_ZONE_ENGINES_HOUSEENGINE_H
+#ifndef SHINE_ZONE_ENGINES_HOUSEENGINE_H
+#define SHINE_ZONE_ENGINES_HOUSEENGINE_H
 #include "../../DataReader/SHN/CharacterTitleStateServer.h"
 #include "../../DataReader/SHN/MiniHouse.h"
 #include "../../DataReader/SHN/MiniHouseDummy.h"
@@ -12,7 +12,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class HouseEngine {
 public:
@@ -32,5 +32,5 @@ private:
     HouseEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_HOUSEENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_HOUSEENGINE_H

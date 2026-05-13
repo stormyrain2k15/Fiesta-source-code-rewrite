@@ -3,14 +3,14 @@
 // language used for KQ wave timing, GM events, mob regen, and scripted
 // scenes. The engine here parses *.ps files at boot, holds compiled
 // programs in memory, and executes them on a frame-driven scheduler.
-#ifndef FIESTA_ZONE_PINESCRIPT_H
-#define FIESTA_ZONE_PINESCRIPT_H
+#ifndef SHINE_ZONE_PINESCRIPT_H
+#define SHINE_ZONE_PINESCRIPT_H
 #include "../../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 struct PSStatement {
     std::string             kCmd;     // e.g. "MobRegen", "Wait", "Print"
@@ -41,5 +41,5 @@ private:
     std::vector<PSProgram>           m_kRunning;      // active instances
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

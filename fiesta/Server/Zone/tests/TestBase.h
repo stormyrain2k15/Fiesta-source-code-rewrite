@@ -2,13 +2,13 @@
 // Tiny VS2010-compatible assert harness for the per-system tests. Each
 // test_*.cpp registers cases through TEST_CASE(name); main() walks the
 // registry and prints PASS/FAIL.
-#ifndef FIESTA_ZONE_TESTBASE_H
-#define FIESTA_ZONE_TESTBASE_H
+#ifndef SHINE_ZONE_TESTBASE_H
+#define SHINE_ZONE_TESTBASE_H
 #include <string>
 #include <vector>
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 
 typedef bool (*TestFn)();
 
@@ -42,5 +42,5 @@ private:
 #define ASSERT_TRUE(x)  do { if (!(x)) { printf("  ASSERT_TRUE failed: %s\n", #x); return false; } } while (0)
 #define ASSERT_EQ(a,b)  do { if ((a)!=(b)) { printf("  ASSERT_EQ failed\n"); return false; } } while (0)
 
-} // namespace fiesta
+} // namespace shine
 #endif

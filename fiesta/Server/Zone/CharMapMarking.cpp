@@ -3,7 +3,7 @@
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <vector>
-namespace fiesta {
+namespace shine {
 struct MapMark { uint16 uiMap; float x, y; uint8 uiKind; std::string kLabel; };
 class CharMapMarking {
 public:
@@ -13,4 +13,4 @@ public:
 private:
     std::map<uint32, std::vector<MapMark> > m_kPer;
 };
-} // namespace fiesta
+} // namespace shine

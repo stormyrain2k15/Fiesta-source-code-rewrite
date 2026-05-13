@@ -3,4 +3,4 @@
 // scripted scenes. Chest is a special ItemDrop with a per-player open
 // roll.
 #include "../Shared/ShineTypes.h"
-namespace fiesta { class TreasureChestMaker { public: static bool SpawnAt(uint16, float, float, uint32) { return true; } }; }
+namespace shine { class TreasureChestMaker { public: static bool SpawnAt(uint16, float, float, uint32) { return true; } }; }

@@ -1,13 +1,13 @@
 // Server/Zone/MapField.h
 // map / field / layer / collision / portal management.
 //                                  BlockImage, MapNavigator, FindWay, Link, TownPortal
-#ifndef FIESTA_ZONE_MAPFIELD_H
-#define FIESTA_ZONE_MAPFIELD_H
+#ifndef SHINE_ZONE_MAPFIELD_H
+#define SHINE_ZONE_MAPFIELD_H
 #include "ShineObject.h"
 #include <map>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 // World <-> cell scale. Live SHBD grids store one byte per 16-world-unit
 // cell (verified against Adl.shbd: file size - 8 == width*height where
@@ -89,5 +89,5 @@ void TownPortal(ShinePlayer* pk, MapID dest, const Vec3& kSpawn);
 // stem instead of its numeric id.
 MapID ResolveMapByName(const char* szInxName);
 
-} // namespace fiesta
+} // namespace shine
 #endif

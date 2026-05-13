@@ -11,7 +11,7 @@
 #include <map>
 #include "../../Server/Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 struct ShineConfig {
 
@@ -77,6 +77,9 @@ struct ShineConfig {
     }
     std::string ItemPath  (const char* szInx,  const char* szFile) const {
         return kResItem + "\\" + szInx  + "\\" + szFile;
+    }
+    std::string CtrlPath  (const char* szFile) const {
+        return kResCtrl + "\\" + szFile;
     }
     std::string MenuPath  (const char* szFile) const {
         return kResMenu + "\\game\\" + szFile;
@@ -152,5 +155,5 @@ private:
     }
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif // SHINE_CLIENT_ENGINE_SHINECONFIG_H

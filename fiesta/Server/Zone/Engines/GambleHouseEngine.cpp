@@ -2,7 +2,7 @@
 #include "GambleHouseEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GambleHouseEngine& GambleHouseEngine::Get() { static GambleHouseEngine s; return s; }
 
@@ -33,4 +33,4 @@ void GambleHouseEngine::Bind() {
     SHINELOG_INFO("GambleHouseEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

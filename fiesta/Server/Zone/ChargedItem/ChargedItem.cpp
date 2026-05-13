@@ -6,7 +6,7 @@
 #include "../CharDBClient.h"
 #include "../../Shared/GTimer.h"
 
-namespace fiesta {
+namespace shine {
 
 struct ChargedBuff {
     uint32 uiBuffId;
@@ -30,4 +30,4 @@ bool ChargedItem::Activate(ShinePlayer* pkP, uint32 uiBuffId, uint32 uiDurMs) {
 
 void ChargedItem::Tick(ShinePlayer* /*pkP*/) {}
 
-} // namespace fiesta
+} // namespace shine

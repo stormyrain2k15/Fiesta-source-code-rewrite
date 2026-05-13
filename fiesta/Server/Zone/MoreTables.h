@@ -5,14 +5,14 @@
 // Mob{AutoAction,Weapon,Resist}, RaceNameInfo, ReactionType,
 // TermExtendMatch, RareMoverRate, RandomOptionCount, SubAbState,
 // AbStateSaveTypeInfo, SingleData.
-#ifndef FIESTA_ZONE_MORETABLES_H
-#define FIESTA_ZONE_MORETABLES_H
+#ifndef SHINE_ZONE_MORETABLES_H
+#define SHINE_ZONE_MORETABLES_H
 #include "../DataReader/ShnRegistry.h"
 #include <map>
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 // ----- Party bonus tables (XP + drop scale by group size / level diff) ------
 class PartyBonusTables {
@@ -324,5 +324,5 @@ private:
 // ----- One-call binder for everything in this file -------------------------
 void BindAllMoreTables();
 
-} // namespace fiesta
+} // namespace shine
 #endif

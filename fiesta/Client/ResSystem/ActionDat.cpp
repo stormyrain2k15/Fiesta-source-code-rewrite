@@ -5,7 +5,7 @@
 #include <fstream>
 #include <cstring>
 
-namespace fiesta {
+namespace shine {
 
 ActionDat::ActionDat() : m_bLoaded(false) {}
 
@@ -140,7 +140,7 @@ const ActionDat* ActionDatCache::Acquire(const std::string& rInxName,
 
 void ActionDatCache::Clear() { m_kCache.clear(); }
 
-} // namespace fiesta
+} // namespace shine
 
 // ── PE resource acquire (checks embedded resources before disk) ───────────────
 // Included separately so ActionDat.cpp compiles without PEResourceReader
@@ -153,7 +153,7 @@ const ActionDat* ActionDatCache::AcquireFromPE(const std::string& rInxName) {
     if (it != m_kCache.end()) return &it->second;
 
     DWORD dwSize = 0;
-    const void* pData = fiesta::PEResourceReader::Find(
+    const void* pData = shine::PEResourceReader::Find(
         rInxName.c_str(), "DAT", dwSize);
 
     if (!pData || dwSize == 0) return NULL;

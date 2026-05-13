@@ -3,7 +3,7 @@
 #include "MapField.h"
 #include <stdarg.h>
 #include <ctype.h>
-namespace fiesta {
+namespace shine {
 
 void ShinePrison::Send (ShinePlayer* pk, uint32) {
     if (pk) TownPortal(pk, /*MapID*/ 100, Vec3(0,0,0)); // Prison map id placeholder
@@ -44,4 +44,4 @@ void EasyLogSys::Write(const char* topic, const char* fmt, ...) {
 void MobHuntLog::Record (CharID c, MobID s) { EasyLogSys::Write("MobHunt"  , "cid=%u species=%u", c, s); }
 void ItemDropLog::Record(CharID c, ItemID i, uint16 q) { EasyLogSys::Write("ItemDrop", "cid=%u inx=%u qty=%u", c, i, q); }
 
-} // namespace fiesta
+} // namespace shine

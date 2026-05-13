@@ -11,12 +11,12 @@
 //   * Vendors: NPCs with `Role=Merchant RoleArg0=SoulStone` in
 //     `World/NPC.txt`. `SoulStoneVendor::Buy` debits Vis + grants stones.
 //           PDB_CONFIRMED   SoulStoneCount, SoulStoneUse_Req.
-#ifndef FIESTA_ZONE_SOULSTONESYSTEM_H
-#define FIESTA_ZONE_SOULSTONESYSTEM_H
+#ifndef SHINE_ZONE_SOULSTONESYSTEM_H
+#define SHINE_ZONE_SOULSTONESYSTEM_H
 #include "../Shared/ShineTypes.h"
 #include "ClassParamTable.h"
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -70,5 +70,5 @@ public:
     static uint32 RemainingSpCooldownMs(const SoulStoneCounts& rC);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

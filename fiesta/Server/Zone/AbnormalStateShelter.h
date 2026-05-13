@@ -11,10 +11,10 @@
 // `Save()` walks the ledger and only persists rows whose save-type
 // matches the trigger; `Load()` issues the async query on login and
 // the response handler hydrates the ledger back.
-#ifndef FIESTA_ZONE_ABNORMALSTATESHELTER_H
-#define FIESTA_ZONE_ABNORMALSTATESHELTER_H
+#ifndef SHINE_ZONE_ABNORMALSTATESHELTER_H
+#define SHINE_ZONE_ABNORMALSTATESHELTER_H
 #include "../Shared/ShineTypes.h"
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -41,5 +41,5 @@ public:
                             uint32 uiStrength, uint32 uiRemainMs);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

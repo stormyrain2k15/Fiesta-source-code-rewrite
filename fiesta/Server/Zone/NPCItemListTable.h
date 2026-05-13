@@ -2,14 +2,14 @@
 // typed loader for NPCItemList/<NpcKey>.txt. Each file declares many
 // "TabXX" tables (one per UI tab) of merchant items. Each tab row holds up
 // to 6 item-index columns (Column00..Column05) where '-' means empty slot.
-#ifndef FIESTA_ZONE_NPCITEMLISTTABLE_H
-#define FIESTA_ZONE_NPCITEMLISTTABLE_H
+#ifndef SHINE_ZONE_NPCITEMLISTTABLE_H
+#define SHINE_ZONE_NPCITEMLISTTABLE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct NPCShopRow {
     uint8                    uiRec;
@@ -39,5 +39,5 @@ private:
     std::map<std::string, NPCItemListFile*> m_kAll;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

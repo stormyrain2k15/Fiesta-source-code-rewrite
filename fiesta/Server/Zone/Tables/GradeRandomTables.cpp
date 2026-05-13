@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../GroupTables.h"
 
-namespace fiesta {
+namespace shine {
 
 GradeRandomTables& GradeRandomTables::Get() { static GradeRandomTables s; return s; }
 void GradeRandomTables::Bind() {
@@ -65,4 +65,4 @@ const LegacySetItemRow*         GradeRandomTables::FindSet  (uint32 uiI) const {
     return (it == m_kSetById.end()) ? NULL : &m_kSet[it->second]; }
 
 
-} // namespace fiesta
+} // namespace shine

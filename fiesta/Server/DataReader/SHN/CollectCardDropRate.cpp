@@ -3,7 +3,7 @@
 #include "CollectCardDropRate.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 CollectCardDropRateShn& CollectCardDropRateShn::Get() { static CollectCardDropRateShn s; return s; }
 
@@ -20,4 +20,4 @@ void CollectCardDropRateShn::Load() {
     SHINELOG_INFO("CollectCardDropRate.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

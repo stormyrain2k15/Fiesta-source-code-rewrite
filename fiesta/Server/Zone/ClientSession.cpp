@@ -3,4 +3,4 @@
 // ZoneServer.h and the dispatch is in ZoneHandlers.cpp; this file is the
 // per-symbol .cpp the original PDB used.
 #include "ZoneServer.h"
-namespace fiesta { /* see ZoneServer.h / ZoneHandlers.cpp for impl */ }
+namespace shine { /* see ZoneServer.h / ZoneHandlers.cpp for impl */ }

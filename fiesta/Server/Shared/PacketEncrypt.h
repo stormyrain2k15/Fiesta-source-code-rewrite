@@ -1,10 +1,10 @@
 // Server/Shared/PacketEncrypt.h
 // per-session stream cipher seeded from CToken seed exchange.
-#ifndef FIESTA_PACKETENCRYPT_H
-#define FIESTA_PACKETENCRYPT_H
+#ifndef SHINE_PACKETENCRYPT_H
+#define SHINE_PACKETENCRYPT_H
 #include "ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class PacketEncrypt {
 public:
@@ -18,5 +18,5 @@ private:
     void   Schedule(uint32 uiSeed);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

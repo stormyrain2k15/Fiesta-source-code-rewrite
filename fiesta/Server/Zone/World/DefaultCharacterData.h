@@ -1,13 +1,13 @@
 // Server/Zone/World/DefaultCharacterData.h
 // Auto-generated: loader for DefaultCharacterData.txt (Shine root).
-#ifndef FIESTA_ZONE_WORLD_DEFAULTCHARACTERDATA_H
-#define FIESTA_ZONE_WORLD_DEFAULTCHARACTERDATA_H
+#ifndef SHINE_ZONE_WORLD_DEFAULTCHARACTERDATA_H
+#define SHINE_ZONE_WORLD_DEFAULTCHARACTERDATA_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct DefaultCharacterDataRow {
     int32            iClass;
@@ -32,5 +32,5 @@ private:
     std::vector<DefaultCharacterDataRow> m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_WORLD_DEFAULTCHARACTERDATA_H
+} // namespace shine
+#endif // SHINE_ZONE_WORLD_DEFAULTCHARACTERDATA_H

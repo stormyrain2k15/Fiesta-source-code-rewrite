@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 
 AbStateSaveTypeInfoTable& AbStateSaveTypeInfoTable::Get() {
     static AbStateSaveTypeInfoTable s; return s;
@@ -31,4 +31,4 @@ AbStateSaveTypeInfoTable::Find(uint32 uT) const {
     return (it == m_kByType.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MiniHouseDummy.h
 // Auto-generated: one-file-per-SHN split for MiniHouseDummy.shn
-#ifndef FIESTA_DATAREADER_SHN_MINIHOUSEDUMMY_H
-#define FIESTA_DATAREADER_SHN_MINIHOUSEDUMMY_H
+#ifndef SHINE_DATAREADER_SHN_MINIHOUSEDUMMY_H
+#define SHINE_DATAREADER_SHN_MINIHOUSEDUMMY_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MiniHouseDummyRow {
     uint16           uiNo;
@@ -39,5 +39,5 @@ private:
     std::vector<MiniHouseDummyRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MINIHOUSEDUMMY_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MINIHOUSEDUMMY_H

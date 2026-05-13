@@ -1,7 +1,7 @@
 // Server/Zone/PetRelatedSkill.cpp
 // Per-pet skill list -- the skills the pet can use in combat.
 #include "../DataReader/ShnRegistry.h"
-namespace fiesta { namespace {
+namespace shine { namespace {
 class PetRelatedSkill {
 public:
     static PetRelatedSkill& Get() { static PetRelatedSkill s; return s; }

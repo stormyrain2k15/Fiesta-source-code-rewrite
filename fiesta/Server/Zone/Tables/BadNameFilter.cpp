@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../MiscTables.h"
 
-namespace fiesta {
+namespace shine {
 
 BadNameFilter& BadNameFilter::Get() { static BadNameFilter s; return s; }
 
@@ -27,4 +27,4 @@ bool BadNameFilter::IsBlocked(const std::string& rName) const {
     return false;
 }
 
-} // namespace fiesta
+} // namespace shine

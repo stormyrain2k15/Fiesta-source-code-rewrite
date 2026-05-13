@@ -8,7 +8,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 TownPortalSystem& TownPortalSystem::Get() { static TownPortalSystem s; return s; }
 
@@ -107,4 +107,4 @@ bool TownPortalSystem::Teleport(ShinePlayer* pk, uint8 uiGroup,
     return false;
 }
 
-} // namespace fiesta
+} // namespace shine

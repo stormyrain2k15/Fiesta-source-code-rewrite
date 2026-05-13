@@ -3,7 +3,7 @@
 #include "ChargedDeletableBuff.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ChargedDeletableBuffShn& ChargedDeletableBuffShn::Get() { static ChargedDeletableBuffShn s; return s; }
 
@@ -19,4 +19,4 @@ void ChargedDeletableBuffShn::Load() {
     SHINELOG_INFO("ChargedDeletableBuff.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

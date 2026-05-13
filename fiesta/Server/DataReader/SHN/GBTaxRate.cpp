@@ -3,7 +3,7 @@
 #include "GBTaxRate.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBTaxRateShn& GBTaxRateShn::Get() { static GBTaxRateShn s; return s; }
 
@@ -22,4 +22,4 @@ void GBTaxRateShn::Load() {
     SHINELOG_INFO("GBTaxRate.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

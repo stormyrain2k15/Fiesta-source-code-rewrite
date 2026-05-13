@@ -3,7 +3,7 @@
 #include "MiniHouse.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MiniHouseShn& MiniHouseShn::Get() { static MiniHouseShn s; return s; }
 
@@ -29,4 +29,4 @@ void MiniHouseShn::Load() {
     SHINELOG_INFO("MiniHouse.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

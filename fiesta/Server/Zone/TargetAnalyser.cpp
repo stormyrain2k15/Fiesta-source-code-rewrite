@@ -1,7 +1,7 @@
 // Server/Zone/TargetAnalyser.cpp
 // Validates that a candidate target is legal for combat or skill use.
 // function
-// is now in namespace fiesta (no anonymous wrapper) so Battle.cpp can call it.
+// is now in namespace shine (no anonymous wrapper) so Battle.cpp can call it.
 // Pass 6 (Feb 2026): adds same-self / same-faction / dead-target /
 // crime-zone gates. PvP/PvE faction logic mirrors the verdict gate in
 // `RuleOfEngagement.cpp` (mob-vs-mob = no engagement). Map-flag checks
@@ -9,7 +9,7 @@
 #include "TargetAnalyser.h"
 #include "ShineObject.h"
 
-namespace fiesta {
+namespace shine {
 
 bool IsLegalTarget(ShineObject* pkA, ShineObject* pkT, float fMaxDistSq) {
     if (!pkA || !pkT)            return false;
@@ -25,4 +25,4 @@ bool IsLegalTarget(ShineObject* pkA, ShineObject* pkT, float fMaxDistSq) {
     return dx*dx + dy*dy <= fMaxDistSq;
 }
 
-} // namespace fiesta
+} // namespace shine

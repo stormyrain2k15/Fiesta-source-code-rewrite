@@ -2,14 +2,14 @@
 // typed loader for Script/<Set>.txt (NPC dialog / system message catalogs).
 // Each file declares a "Script" table with two columns: ScrIndex (INDEX) and
 // ScrString (STRING[128]).
-#ifndef FIESTA_ZONE_SCRIPTSTRINGTABLE_H
-#define FIESTA_ZONE_SCRIPTSTRINGTABLE_H
+#ifndef SHINE_ZONE_SCRIPTSTRINGTABLE_H
+#define SHINE_ZONE_SCRIPTSTRINGTABLE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class ScriptStringTable {
 public:
@@ -34,5 +34,5 @@ private:
     std::vector<std::string>        m_kFlatVal;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

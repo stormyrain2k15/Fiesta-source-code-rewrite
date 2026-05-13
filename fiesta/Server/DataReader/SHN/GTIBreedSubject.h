@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GTIBreedSubject.h
 // Auto-generated: one-file-per-SHN split for GTIBreedSubject.shn
-#ifndef FIESTA_DATAREADER_SHN_GTIBREEDSUBJECT_H
-#define FIESTA_DATAREADER_SHN_GTIBREEDSUBJECT_H
+#ifndef SHINE_DATAREADER_SHN_GTIBREEDSUBJECT_H
+#define SHINE_DATAREADER_SHN_GTIBREEDSUBJECT_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GTIBreedSubjectRow {
     std::string      kInxName;
@@ -27,5 +27,5 @@ private:
     std::map<std::string, size_t>  m_kByInx;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GTIBREEDSUBJECT_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GTIBREEDSUBJECT_H

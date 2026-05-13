@@ -7,7 +7,7 @@
 #include "../../Shared/GTimer.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 Quest& Quest::Get() { static Quest s; return s; }
 
@@ -42,4 +42,4 @@ bool Quest::Complete(ShinePlayer* pkP, uint32 uiQuestId) {
 void Quest::OnMobKill(ShinePlayer* /*pkP*/, uint32 /*uiNpcID*/) {}
 void Quest::OnItemPick(ShinePlayer* /*pkP*/, uint32 /*uiItemId*/) {}
 
-} // namespace fiesta
+} // namespace shine

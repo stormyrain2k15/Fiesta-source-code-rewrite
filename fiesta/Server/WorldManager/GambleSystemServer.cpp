@@ -14,7 +14,7 @@
 #include "../Shared/GTimer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GambleSystemServer& GambleSystemServer::Get() { static GambleSystemServer s; return s; }
 
@@ -80,4 +80,4 @@ void GambleSystemServer::TickCoinExchangeWindow() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

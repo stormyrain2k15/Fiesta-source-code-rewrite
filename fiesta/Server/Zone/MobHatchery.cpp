@@ -2,4 +2,4 @@
 // Spawn / regen authority. Class declared in MobSpawnSystem.h.
 #include "MobSpawnSystem.h"
 #include "MobRegenTable.h"
-namespace fiesta { /* see MobSpawnSystem.h for MobHatchery */ }
+namespace shine { /* see MobSpawnSystem.h for MobHatchery */ }

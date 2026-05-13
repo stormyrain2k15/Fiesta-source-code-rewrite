@@ -5,14 +5,14 @@
 //   MoverAbility.shn -- one row per Class with the per-stat-point gains
 //                       (delta HP/SP/ATK/MATK/DEF/MDEF/Hit/Crit/Dodge per
 //                        STR/END/DEX/INT/MEN allocated).
-#ifndef FIESTA_ZONE_MOVERTABLES_H
-#define FIESTA_ZONE_MOVERTABLES_H
+#ifndef SHINE_ZONE_MOVERTABLES_H
+#define SHINE_ZONE_MOVERTABLES_H
 #include "BattleStat.h"
 #include "StatDistribute.h"
 #include <map>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 struct LegacyMoverMainRow {
     uint8  bClass;
@@ -62,5 +62,5 @@ private:
     std::map<uint8, LegacyMoverAbilityRow> m_kRows;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

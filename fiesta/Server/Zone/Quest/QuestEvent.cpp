@@ -4,7 +4,7 @@
 // applied against every active quest on the player.
 #include "Quest.h"
 #include "../ShineObject.h"
-namespace fiesta {
+namespace shine {
 class QuestEvent {
 public:
     static void OnMobKill   (ShinePlayer* pkP, uint32 uiNpcID)  { Quest::Get().OnMobKill (pkP, uiNpcID); }
@@ -12,4 +12,4 @@ public:
     static void OnNpcTalk   (ShinePlayer* /*pkP*/, uint32 /*uiNpcID*/) {}
     static void OnLocationEnter(ShinePlayer* /*pkP*/, uint16 /*uiMap*/, float /*x*/, float /*y*/) {}
 };
-} // namespace fiesta
+} // namespace shine

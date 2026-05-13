@@ -3,7 +3,7 @@
 #include "MultiHitType.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MultiHitTypeShn& MultiHitTypeShn::Get() { static MultiHitTypeShn s; return s; }
 
@@ -31,4 +31,4 @@ const MultiHitTypeRow* MultiHitTypeShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

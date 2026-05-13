@@ -3,7 +3,7 @@
 #include "GBSMBetCoin.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBSMBetCoinShn& GBSMBetCoinShn::Get() { static GBSMBetCoinShn s; return s; }
 
@@ -20,4 +20,4 @@ void GBSMBetCoinShn::Load() {
     SHINELOG_INFO("GBSMBetCoin.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MoverUseSkill.h
 // Auto-generated: one-file-per-SHN split for MoverUseSkill.shn
-#ifndef FIESTA_DATAREADER_SHN_MOVERUSESKILL_H
-#define FIESTA_DATAREADER_SHN_MOVERUSESKILL_H
+#ifndef SHINE_DATAREADER_SHN_MOVERUSESKILL_H
+#define SHINE_DATAREADER_SHN_MOVERUSESKILL_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MoverUseSkillRow {
     std::string      kMoverIDX;
@@ -25,5 +25,5 @@ private:
     std::vector<MoverUseSkillRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MOVERUSESKILL_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MOVERUSESKILL_H

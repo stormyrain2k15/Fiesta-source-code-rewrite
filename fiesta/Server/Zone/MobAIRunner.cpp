@@ -12,7 +12,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <math.h>
 
-namespace fiesta {
+namespace shine {
 
 MobAIRunner& MobAIRunner::Get() { static MobAIRunner s; return s; }
 
@@ -120,4 +120,4 @@ void MobAIRunner::Tick(uint64 uiNowMs) {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

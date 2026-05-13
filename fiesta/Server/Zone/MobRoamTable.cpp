@@ -3,7 +3,7 @@
 #include "../DataReader/TableScriptFile.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 bool MobRoamMap::Load(const std::string& rPath) {
     m_kPoints.clear();
@@ -54,4 +54,4 @@ void MobRoamBox::Clear() {
     m_kAll.clear();
 }
 
-} // namespace fiesta
+} // namespace shine

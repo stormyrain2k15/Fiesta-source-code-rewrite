@@ -3,7 +3,7 @@
 #include "GBExchangeMaxCoin.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBExchangeMaxCoinShn& GBExchangeMaxCoinShn::Get() { static GBExchangeMaxCoinShn s; return s; }
 
@@ -20,4 +20,4 @@ void GBExchangeMaxCoinShn::Load() {
     SHINELOG_INFO("GBExchangeMaxCoin.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -4,7 +4,7 @@
 #include "AbState.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 static const size_t MAX_SUB_PARTIES = 6;-- ExpeditionPartyWin
 
@@ -128,4 +128,4 @@ void ExpeditionSystem::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

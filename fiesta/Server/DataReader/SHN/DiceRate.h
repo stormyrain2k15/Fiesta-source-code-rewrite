@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/DiceRate.h
 // Auto-generated: one-file-per-SHN split for DiceRate.shn
-#ifndef FIESTA_DATAREADER_SHN_DICERATE_H
-#define FIESTA_DATAREADER_SHN_DICERATE_H
+#ifndef SHINE_DATAREADER_SHN_DICERATE_H
+#define SHINE_DATAREADER_SHN_DICERATE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct DiceRateRow {
     uint32           uiRate;
@@ -24,5 +24,5 @@ private:
     std::vector<DiceRateRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_DICERATE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_DICERATE_H

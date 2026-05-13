@@ -3,7 +3,7 @@
 #include "DiceGame.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 DiceGameShn& DiceGameShn::Get() { static DiceGameShn s; return s; }
 
@@ -32,4 +32,4 @@ void DiceGameShn::Load() {
     SHINELOG_INFO("DiceGame.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

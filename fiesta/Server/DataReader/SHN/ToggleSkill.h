@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/ToggleSkill.h
 // Auto-generated: one-file-per-SHN split for ToggleSkill.shn
-#ifndef FIESTA_DATAREADER_SHN_TOGGLESKILL_H
-#define FIESTA_DATAREADER_SHN_TOGGLESKILL_H
+#ifndef SHINE_DATAREADER_SHN_TOGGLESKILL_H
+#define SHINE_DATAREADER_SHN_TOGGLESKILL_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ToggleSkillRow {
     std::string      kTS_SkillInx;
@@ -26,5 +26,5 @@ private:
     std::vector<ToggleSkillRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_TOGGLESKILL_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_TOGGLESKILL_H

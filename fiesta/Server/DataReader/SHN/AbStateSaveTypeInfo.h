@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/AbStateSaveTypeInfo.h
 // Auto-generated: one-file-per-SHN split for AbStateSaveTypeInfo.shn
-#ifndef FIESTA_DATAREADER_SHN_ABSTATESAVETYPEINFO_H
-#define FIESTA_DATAREADER_SHN_ABSTATESAVETYPEINFO_H
+#ifndef SHINE_DATAREADER_SHN_ABSTATESAVETYPEINFO_H
+#define SHINE_DATAREADER_SHN_ABSTATESAVETYPEINFO_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct AbStateSaveTypeInfoRow {
     uint32           uiAbStateSaveType;
@@ -27,5 +27,5 @@ private:
     std::vector<AbStateSaveTypeInfoRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ABSTATESAVETYPEINFO_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ABSTATESAVETYPEINFO_H

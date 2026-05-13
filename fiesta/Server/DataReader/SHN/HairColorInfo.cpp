@@ -3,7 +3,7 @@
 #include "HairColorInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 HairColorInfoShn& HairColorInfoShn::Get() { static HairColorInfoShn s; return s; }
 
@@ -29,4 +29,4 @@ const HairColorInfoRow* HairColorInfoShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

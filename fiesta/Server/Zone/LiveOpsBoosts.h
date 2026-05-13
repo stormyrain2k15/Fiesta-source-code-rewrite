@@ -18,13 +18,13 @@
 //
 // Lifecycle: ZoneServer::Tick() calls LiveOpsBoosts::Get().Tick() once a
 // second; expired boosts auto-revert to stock.
-#ifndef FIESTA_ZONE_LIVEOPSBOOSTS_H
-#define FIESTA_ZONE_LIVEOPSBOOSTS_H
+#ifndef SHINE_ZONE_LIVEOPSBOOSTS_H
+#define SHINE_ZONE_LIVEOPSBOOSTS_H
 #include "../Shared/ShineTypes.h"
 #include "BattleTunables.h"     // kGMEvent_* well-known event ids
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 // Well-known GMEvent.shn event ids handled specially live in
 // BattleTunables.h (kGMEvent_LuckyHour / DoubleExp / DoubleDrop /
@@ -76,5 +76,5 @@ private:
     std::string m_kActiveLabel;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -6,7 +6,7 @@
 #include <ctype.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 ConfigParser::ConfigParser() : m_bInDefine(false), m_bDoneEnd(false) {}
 
@@ -163,4 +163,4 @@ const std::vector<CfgFieldType>* ConfigParser::Schema(const std::string& nm) con
     return (it == m_kSchema.end()) ? NULL : &it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -3,11 +3,11 @@
 // table directly. Delegates ingest to the per-SHN binders in
 // GBHouseTable / GBExchangeMaxCoinTable / GBTaxRateTable / GBAuxTables /
 // DiceTaiSai/* / SlotMachine/*.
-#ifndef FIESTA_ZONE_GAMBLEHOUSE_GAMBLESYSTEM_H
-#define FIESTA_ZONE_GAMBLEHOUSE_GAMBLESYSTEM_H
+#ifndef SHINE_ZONE_GAMBLEHOUSE_GAMBLESYSTEM_H
+#define SHINE_ZONE_GAMBLEHOUSE_GAMBLESYSTEM_H
 #include "../../../Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 class ShinePlayer;
 
 // Game-type ids (matching GBSM/GBReward/GBJoinGameMember/GBTaxRate
@@ -54,5 +54,5 @@ private:
     GambleSystem() {}
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

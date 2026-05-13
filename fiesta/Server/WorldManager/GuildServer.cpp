@@ -7,7 +7,7 @@
 #include "../Shared/GTimer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GuildServer& GuildServer::Get() { static GuildServer s; return s; }
 
@@ -71,4 +71,4 @@ void GuildServer::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

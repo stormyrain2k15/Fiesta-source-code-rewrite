@@ -5,14 +5,14 @@
 // ConditionID identifies a runtime gate (e.g. "OnRegen", "OnDamageBelowHP30%",
 // "OnTargetTooFar") and ActionID names a row in the mob's AI script that
 // should fire. Same backing format as the rest -- TableScript.
-#ifndef FIESTA_ZONE_MOBSETTINGACTIONTABLE_H
-#define FIESTA_ZONE_MOBSETTINGACTIONTABLE_H
+#ifndef SHINE_ZONE_MOBSETTINGACTIONTABLE_H
+#define SHINE_ZONE_MOBSETTINGACTIONTABLE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MobActionTrigger {
     uint32 uiConditionID;
@@ -38,5 +38,5 @@ private:
     std::map<std::string, MobSettingActionFile*> m_kAll;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

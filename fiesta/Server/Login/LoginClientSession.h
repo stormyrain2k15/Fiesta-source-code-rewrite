@@ -1,11 +1,11 @@
 // Server/Login/LoginClientSession.h
 // one connected login client.
-#ifndef FIESTA_LOGIN_LOGINCLIENTSESSION_H
-#define FIESTA_LOGIN_LOGINCLIENTSESSION_H
+#ifndef SHINE_LOGIN_LOGINCLIENTSESSION_H
+#define SHINE_LOGIN_LOGINCLIENTSESSION_H
 #include "../Shared/Socket_Acceptor.h"
 #include "../Shared/CToken.h"
 
-namespace fiesta {
+namespace shine {
 
 enum LoginState { LS_NEW = 0, LS_VERSION_OK, LS_AUTHED, LS_WORLD_PICKED };
 
@@ -32,5 +32,5 @@ private:
     std::string m_kAccountName;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

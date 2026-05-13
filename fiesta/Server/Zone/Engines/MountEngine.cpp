@@ -3,7 +3,7 @@
 #include "MountEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MountEngine& MountEngine::Get() { static MountEngine s; return s; }
 
@@ -20,4 +20,4 @@ void MountEngine::Bind() {
     SHINELOG_INFO("MountEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

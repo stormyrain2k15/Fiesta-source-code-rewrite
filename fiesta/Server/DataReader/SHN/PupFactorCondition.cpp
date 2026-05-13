@@ -3,7 +3,7 @@
 #include "PupFactorCondition.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 PupFactorConditionShn& PupFactorConditionShn::Get() { static PupFactorConditionShn s; return s; }
 
@@ -23,4 +23,4 @@ void PupFactorConditionShn::Load() {
     SHINELOG_INFO("PupFactorCondition.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

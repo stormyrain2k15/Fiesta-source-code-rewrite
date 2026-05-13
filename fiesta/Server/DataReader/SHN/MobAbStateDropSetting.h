@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MobAbStateDropSetting.h
 // Auto-generated: one-file-per-SHN split for MobAbStateDropSetting.shn
-#ifndef FIESTA_DATAREADER_SHN_MOBABSTATEDROPSETTING_H
-#define FIESTA_DATAREADER_SHN_MOBABSTATEDROPSETTING_H
+#ifndef SHINE_DATAREADER_SHN_MOBABSTATEDROPSETTING_H
+#define SHINE_DATAREADER_SHN_MOBABSTATEDROPSETTING_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MobAbStateDropSettingRow {
     std::string      kMobInx;
@@ -27,5 +27,5 @@ private:
     std::vector<MobAbStateDropSettingRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MOBABSTATEDROPSETTING_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MOBABSTATEDROPSETTING_H

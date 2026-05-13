@@ -9,7 +9,7 @@
 #include "../Shared/GTimer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 EventAttendanceServer& EventAttendanceServer::Get() { static EventAttendanceServer s; return s; }
 
@@ -36,4 +36,4 @@ void EventAttendanceServer::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

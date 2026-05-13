@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GuildTournamentRequire.h
 // Auto-generated: one-file-per-SHN split for GuildTournamentRequire.shn
-#ifndef FIESTA_DATAREADER_SHN_GUILDTOURNAMENTREQUIRE_H
-#define FIESTA_DATAREADER_SHN_GUILDTOURNAMENTREQUIRE_H
+#ifndef SHINE_DATAREADER_SHN_GUILDTOURNAMENTREQUIRE_H
+#define SHINE_DATAREADER_SHN_GUILDTOURNAMENTREQUIRE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GuildTournamentRequireRow {
     uint8            uiMinLv;
@@ -26,5 +26,5 @@ private:
     std::vector<GuildTournamentRequireRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GUILDTOURNAMENTREQUIRE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GUILDTOURNAMENTREQUIRE_H

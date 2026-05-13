@@ -11,12 +11,12 @@
 //   StoneMctTomson, SoulMctChloe, AlruinSoulRunadilla, BeraSoulOlivia,
 //   TempSoul, ... (use ShineNPCTable::FindNPC + RoleArg0 check).
 //                           DATA_CONFIRMED  World/NPC.txt SoulStone vendors.
-#ifndef FIESTA_ZONE_SOULSTONEVENDOR_H
-#define FIESTA_ZONE_SOULSTONEVENDOR_H
+#ifndef SHINE_ZONE_SOULSTONEVENDOR_H
+#define SHINE_ZONE_SOULSTONEVENDOR_H
 #include "SoulStoneSystem.h"
 #include "Inventory.h"
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -45,5 +45,5 @@ public:
                                     uint16             uiQty);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

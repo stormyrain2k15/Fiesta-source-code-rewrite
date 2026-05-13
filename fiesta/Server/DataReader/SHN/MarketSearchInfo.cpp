@@ -3,7 +3,7 @@
 #include "MarketSearchInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MarketSearchInfoShn& MarketSearchInfoShn::Get() { static MarketSearchInfoShn s; return s; }
 
@@ -20,4 +20,4 @@ void MarketSearchInfoShn::Load() {
     SHINELOG_INFO("MarketSearchInfo.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

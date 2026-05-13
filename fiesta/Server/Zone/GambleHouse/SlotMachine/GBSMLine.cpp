@@ -3,7 +3,7 @@
 #include "GBSMTables.h"
 #include "../../../DataReader/ShnRegistry.h"
 #include "../../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 GBSMLineTable& GBSMLineTable::Get() { static GBSMLineTable s; return s; }
 bool GBSMLineTable::Bind() {
     m_kRows.clear();
@@ -20,4 +20,4 @@ bool GBSMLineTable::Bind() {
     SHINELOG_INFO("GBSMLine: %u line-tiers", (uint32)m_kRows.size());
     return !m_kRows.empty();
 }
-} // namespace fiesta
+} // namespace shine

@@ -3,7 +3,7 @@
 #include "KingdomQuest.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 KingdomQuestShn& KingdomQuestShn::Get() { static KingdomQuestShn s; return s; }
 
@@ -59,4 +59,4 @@ const KingdomQuestRow* KingdomQuestShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

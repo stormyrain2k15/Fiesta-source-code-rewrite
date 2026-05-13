@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/AttendSchedule.h
 // Auto-generated: one-file-per-SHN split for AttendSchedule.shn
-#ifndef FIESTA_DATAREADER_SHN_ATTENDSCHEDULE_H
-#define FIESTA_DATAREADER_SHN_ATTENDSCHEDULE_H
+#ifndef SHINE_DATAREADER_SHN_ATTENDSCHEDULE_H
+#define SHINE_DATAREADER_SHN_ATTENDSCHEDULE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct AttendScheduleRow {
     uint16           uiAS_StartYear;
@@ -30,5 +30,5 @@ private:
     std::vector<AttendScheduleRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ATTENDSCHEDULE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ATTENDSCHEDULE_H

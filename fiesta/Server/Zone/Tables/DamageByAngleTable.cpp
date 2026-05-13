@@ -7,7 +7,7 @@
 #include "../../DataReader/TableScriptFile.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 DamageByAngleTable& DamageByAngleTable::Get() { static DamageByAngleTable s; return s; }
 
@@ -48,4 +48,4 @@ static int32 LookupAngle(const std::map<uint16, int32>& m, uint16 a) {
 int32 DamageByAngleTable::ChrAttackerScalerX1k(uint16 a) const { return LookupAngle(m_kChr, a); }
 int32 DamageByAngleTable::MobAttackerScalerX1k(uint16 a) const { return LookupAngle(m_kMob, a); }
 
-} // namespace fiesta
+} // namespace shine

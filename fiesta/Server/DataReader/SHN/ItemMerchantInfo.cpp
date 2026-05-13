@@ -3,7 +3,7 @@
 #include "ItemMerchantInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ItemMerchantInfoShn& ItemMerchantInfoShn::Get() { static ItemMerchantInfoShn s; return s; }
 
@@ -20,4 +20,4 @@ void ItemMerchantInfoShn::Load() {
     SHINELOG_INFO("ItemMerchantInfo.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

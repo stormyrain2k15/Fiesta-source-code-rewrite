@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 DatFile::DatFile() : m_eKind(DAT_KIND_ACTION) {}
 
@@ -89,4 +89,4 @@ void ActionDatBox::Clear() {
     m_kAll.clear();
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -9,12 +9,12 @@
 // every `*.shn`, and caches the result in-memory. The original game shipped
 // ~25 MB of SHN data; in-process residency is fine.
 //                                         intended" (2026-02 user note).
-#ifndef FIESTA_DATAREADER_SHNREGISTRY_H
-#define FIESTA_DATAREADER_SHNREGISTRY_H
+#ifndef SHINE_DATAREADER_SHNREGISTRY_H
+#define SHINE_DATAREADER_SHNREGISTRY_H
 #include "ShnFile.h"
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 class ShnRegistry {
 public:
@@ -83,5 +83,5 @@ void ShnAudit_BeginTable(const std::string& rT);
 void ShnAudit_RecordRead(const std::string& rC);
 void ShnAudit_EmitReport(const ShnRegistry& rReg);
 
-} // namespace fiesta
+} // namespace shine
 #endif

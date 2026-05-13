@@ -1,6 +1,6 @@
-# Fiesta Online — Complete Engine Rewrite Requirements
+# Shine Online — Complete Engine Rewrite Requirements
 
-This is the rewrite target: rebuild the server/client-support code as an original-style Fiesta engine, not a hacked pile of isolated table readers. The current source is pass 1 scaffolding. This document defines the missing system surface so the implementer can rewrite with all systems accounted for.
+This is the rewrite target: rebuild the server/client-support code as an original-style Shine engine, not a hacked pile of isolated table readers. The current source is pass 1 scaffolding. This document defines the missing system surface so the implementer can rewrite with all systems accounted for.
 
 ## Non-negotiable architecture rules
 
@@ -282,15 +282,15 @@ AccountLog/GameLog, statistics DB, report/SPAM/GM/event logs, item drop/mob kill
 
 ### 42 Client Mirror / UI / Resource Tables
 
-Client-side mirror tables, UI windows, skill/item/mob names, packet send/recv names from Fiesta.pdb. Used to map InxName/internal names to public names.
+Client-side mirror tables, UI windows, skill/item/mob names, packet send/recv names from Shine.pdb. Used to map InxName/internal names to public names.
 
-**Original names / evidence anchors:** `Fiesta.pdb, Client/ressystem/*.shn, Recv_NC_*, Send_NC_*, UI resource tables`
+**Original names / evidence anchors:** `Shine.pdb, Client/ressystem/*.shn, Recv_NC_*, Send_NC_*, UI resource tables`
 
 ## Proof levels
 
 - `PDB_CONFIRMED`: symbol/module exists in matching PDB.
 - `DATA_CONFIRMED`: SHN/TXT/Lua/doc file exists.
-- `RUNTIME_CONFIRMED`: FiestaShark/rat/Olly/IDA capture proves packet/function/DB path.
+- `RUNTIME_CONFIRMED`: ShineShark/rat/Olly/IDA capture proves packet/function/DB path.
 - `HEX_CONFIRMED`: Hex-Rays pseudocode confirms logic.
 - `GAMEPLAY_CONFIRMED`: official/fan-facing source confirms user-facing meaning/name.
 - `VERIFY`: evidence exists but exact opcode/packet layout or final formula constants still need proof. Formula uncertainty does not block implementing the function surface.

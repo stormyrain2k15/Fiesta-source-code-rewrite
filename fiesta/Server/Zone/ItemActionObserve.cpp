@@ -4,7 +4,7 @@
 // successful apply.
 #include "../Shared/ShineTypes.h"
 #include <vector>
-namespace fiesta {
+namespace shine {
 typedef void (*ItemActionObserverFn)(uint32 cid, uint32 uiItemId, uint32 uiActionId);
 class ItemActionObserve {
 public:
@@ -16,4 +16,4 @@ public:
 private:
     std::vector<ItemActionObserverFn> m_kObservers;
 };
-} // namespace fiesta
+} // namespace shine

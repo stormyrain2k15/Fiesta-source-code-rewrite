@@ -1,15 +1,15 @@
 // Server/Zone/ZoneServer.h
 // Zone server: holds Field/Layer/Map registry, all ShineObject lifecycles,
 // every gameplay subsystem singleton.
-#ifndef FIESTA_ZONE_ZONESERVER_H
-#define FIESTA_ZONE_ZONESERVER_H
+#ifndef SHINE_ZONE_ZONESERVER_H
+#define SHINE_ZONE_ZONESERVER_H
 #include "../Shared/Socket_Acceptor.h"
 #include "../Shared/CToken.h"
 #include "ShineObject.h"
 #include <map>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class ClientSession : public IOCPSession {
 public:
@@ -69,5 +69,5 @@ private:
     CRITICAL_SECTION m_kCs;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

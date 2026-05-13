@@ -3,7 +3,7 @@
 #include "BelongTypeInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 BelongTypeInfoShn& BelongTypeInfoShn::Get() { static BelongTypeInfoShn s; return s; }
 
@@ -25,4 +25,4 @@ void BelongTypeInfoShn::Load() {
     SHINELOG_INFO("BelongTypeInfo.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

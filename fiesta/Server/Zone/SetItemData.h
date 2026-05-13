@@ -1,8 +1,8 @@
 // Server/Zone/SetItemData.h
-#ifndef FIESTA_ZONE_SETITEMDATA_H
-#define FIESTA_ZONE_SETITEMDATA_H
+#ifndef SHINE_ZONE_SETITEMDATA_H
+#define SHINE_ZONE_SETITEMDATA_H
 
-namespace fiesta {
+namespace shine {
 class ShinePlayer;
 
 class SetItemData {
@@ -14,5 +14,5 @@ public:
     int  CountEquippedPieces(ShinePlayer* pkPlayer, const char* szSetIndex) const;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

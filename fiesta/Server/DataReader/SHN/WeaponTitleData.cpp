@@ -3,7 +3,7 @@
 #include "WeaponTitleData.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 WeaponTitleDataShn& WeaponTitleDataShn::Get() { static WeaponTitleDataShn s; return s; }
 
@@ -34,4 +34,4 @@ void WeaponTitleDataShn::Load() {
     SHINELOG_INFO("WeaponTitleData.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

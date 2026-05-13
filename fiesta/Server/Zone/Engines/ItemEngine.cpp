@@ -3,7 +3,7 @@
 #include "ItemEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ItemEngine& ItemEngine::Get() { static ItemEngine s; return s; }
 
@@ -28,4 +28,4 @@ void ItemEngine::Bind() {
     SHINELOG_INFO("ItemEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

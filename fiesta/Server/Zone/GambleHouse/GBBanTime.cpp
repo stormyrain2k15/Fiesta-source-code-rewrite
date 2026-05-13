@@ -3,7 +3,7 @@
 #include "GBAuxTables.h"
 #include "../../DataReader/ShnRegistry.h"
 #include "../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 GBBanTimeTable& GBBanTimeTable::Get() { static GBBanTimeTable s; return s; }
 bool GBBanTimeTable::Bind() {
     m_kRows.clear();
@@ -24,4 +24,4 @@ uint32 GBBanTimeTable::BanMs(uint32 uiGT) const {
     std::map<uint32, uint32>::const_iterator it = m_kRows.find(uiGT);
     return (it == m_kRows.end()) ? 0 : it->second;
 }
-} // namespace fiesta
+} // namespace shine

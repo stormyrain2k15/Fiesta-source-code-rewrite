@@ -4,4 +4,4 @@
 // The runtime class `Layer` is declared in MapField.h; this file owns
 // the canonical NA2016 filename for the symbol PDB.
 #include "MapField.h"
-namespace fiesta { /* see MapField.h for the Layer class declaration */ }
+namespace shine { /* see MapField.h for the Layer class declaration */ }

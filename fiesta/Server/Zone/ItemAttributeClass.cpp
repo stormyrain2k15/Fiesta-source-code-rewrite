@@ -3,7 +3,7 @@
 // level attribute family (weapon-blunt, weapon-blade, armor-light,
 // armor-heavy, accessory, consumable, material, quest, special).
 #include "../Shared/ShineTypes.h"
-namespace fiesta {
+namespace shine {
 class ItemAttributeClass {
 public:
     enum eFamily { FAM_WEAPON, FAM_ARMOR, FAM_ACCESSORY, FAM_CONSUMABLE, FAM_MATERIAL, FAM_QUEST, FAM_SPECIAL };
@@ -17,4 +17,4 @@ public:
         return FAM_SPECIAL;
     }
 };
-} // namespace fiesta
+} // namespace shine

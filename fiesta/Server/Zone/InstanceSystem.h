@@ -14,14 +14,14 @@
 // `Functions/Progress.lua` declares the standard hooks); PS scenario is
 // the fallback / KQ-style scenario host.
 //                                   ship both .lua and .ps definitions.
-#ifndef FIESTA_ZONE_INSTANCESYSTEM_H
-#define FIESTA_ZONE_INSTANCESYSTEM_H
+#ifndef SHINE_ZONE_INSTANCESYSTEM_H
+#define SHINE_ZONE_INSTANCESYSTEM_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class LuaRuntime;
 class ScenarioScript;
@@ -53,5 +53,5 @@ private:
     std::map<std::string, size_t> m_kIndex;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

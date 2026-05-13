@@ -4,7 +4,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 MobResistTable& MobResistTable::Get() { static MobResistTable s; return s; }
 
@@ -106,4 +106,4 @@ int32 MobResistTable::GetDamageTypeResist(uint16 uiMobID, int32 nDmgTypeFlags) c
     return p->iPhysResist;
 }
 
-} // namespace fiesta
+} // namespace shine

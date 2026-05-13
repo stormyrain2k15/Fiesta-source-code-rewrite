@@ -3,7 +3,7 @@
 // dropped, sold, or moved until the operation completes / aborts.
 #include "../Shared/ShineTypes.h"
 #include <set>
-namespace fiesta {
+namespace shine {
 class InventoryLocking {
 public:
     static InventoryLocking& Get() { static InventoryLocking s; return s; }
@@ -15,4 +15,4 @@ public:
 private:
     std::set<uint64> m_kLocked;
 };
-} // namespace fiesta
+} // namespace shine

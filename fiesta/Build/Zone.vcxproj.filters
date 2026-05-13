@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Zone"><UniqueIdentifier>{8D9649AA-094D-5E43-AB94-32E7B3ECE4B7}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\AIScript"><UniqueIdentifier>{665F04B4-4A51-557E-876D-7F1800B139E6}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\AreaInfoData"><UniqueIdentifier>{06966F98-EBF4-581C-B360-FA601E56A948}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\Booth"><UniqueIdentifier>{7A89F5EB-32C5-5241-8E6E-A7E278480D86}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\CardCollection"><UniqueIdentifier>{C1443C39-ED9F-5FE9-A665-0A34820CF9B1}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\CharacterTitle"><UniqueIdentifier>{58952489-634E-5E9C-B979-5C4BAFCBF137}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\ChargedItem"><UniqueIdentifier>{E73E54FE-2508-5AB6-8371-80ECF511F4E7}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\Engines"><UniqueIdentifier>{6153E5FA-E21C-540A-9752-A389D3668EC3}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\FindWay"><UniqueIdentifier>{3AA49D24-BA3B-5B01-AB6D-33CD6E26AFC3}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\GambleHouse"><UniqueIdentifier>{EC81539F-BA2F-5ED6-BAA9-0D41D64446D3}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\GambleHouse\DiceTaiSai"><UniqueIdentifier>{1AB4DACA-B4C9-58D6-A897-0345034E6A88}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\GambleHouse\SlotMachine"><UniqueIdentifier>{6D865069-3A6A-5FA1-B6C3-A1A0AE7D8371}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\LuaScript"><UniqueIdentifier>{770625E2-6D0A-5A17-B44E-39AB2CFC3DA1}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\MapNavigator"><UniqueIdentifier>{E385B4B3-FA56-5751-95F0-8B83D1377114}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\MobRoam"><UniqueIdentifier>{080F2A8E-C8B9-5600-B840-4157EDE67C30}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\Network"><UniqueIdentifier>{E1F50031-B29A-55FC-B8D9-0C9FE0CDF408}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\PineScript"><UniqueIdentifier>{3152A355-ED87-5649-88E1-B8D8E5CBA4FB}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\Quest"><UniqueIdentifier>{5ACB90A7-C537-5382-BDCA-597030F56968}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\Tables"><UniqueIdentifier>{F39A94AD-9B51-5A0D-8A06-E2BB0A25FA10}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\WeaponTitle"><UniqueIdentifier>{FDDC13AB-4504-57F8-A162-8C9CFCEB06B4}</UniqueIdentifier></Filter>
-    <Filter Include="Zone\World"><UniqueIdentifier>{B1B826A2-A304-5151-943A-F3440C83BB30}</UniqueIdentifier></Filter>
+    <Filter Include="Zone"><UniqueIdentifier>{74C0D0F9-7AAB-54A8-A25D-0E2C0CD15A42}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\AIScript"><UniqueIdentifier>{0FFA0D80-92C9-55EA-818B-47EC605A4BE0}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\AreaInfoData"><UniqueIdentifier>{790AFCAE-E3D3-5F00-B2CC-061A43C86FA3}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\Booth"><UniqueIdentifier>{EAC78837-B08D-5634-95F6-B759CFB716CC}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\CardCollection"><UniqueIdentifier>{F30E81E9-5659-54EB-850C-670DD9E27F8C}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\CharacterTitle"><UniqueIdentifier>{89759618-709B-5E68-AF36-E6F09A82EF1B}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\ChargedItem"><UniqueIdentifier>{AC8BA410-E88E-5535-92C7-BFE79D1FBA48}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\Engines"><UniqueIdentifier>{0C875F9D-C4A1-5523-8383-3E4165826230}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\FindWay"><UniqueIdentifier>{419CB96F-762A-5B15-A465-68219D987E3D}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\GambleHouse"><UniqueIdentifier>{D24959FB-44BF-54FE-B4D3-44336915B944}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\GambleHouse\DiceTaiSai"><UniqueIdentifier>{F4335C63-99F3-5CA1-9B96-15640FE0DBE4}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\GambleHouse\SlotMachine"><UniqueIdentifier>{C95A8EA5-914B-5D6C-B985-59BD1173AB43}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\LuaScript"><UniqueIdentifier>{B5D0D7C1-9BDD-5F98-BA9B-84770448FD0A}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\MapNavigator"><UniqueIdentifier>{590CBB61-9BDC-5B5C-8491-E42766D609D3}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\MobRoam"><UniqueIdentifier>{E0534DD6-9140-5CE2-941A-05ED77765B1C}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\Network"><UniqueIdentifier>{79B41217-EAD0-52CC-BD3A-F3891CD53D74}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\PineScript"><UniqueIdentifier>{4CC89273-26E0-5DE7-8576-E0E4D3E195A2}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\Quest"><UniqueIdentifier>{A35A49F3-9F9F-5577-8AFE-1A36B7D12C8E}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\Tables"><UniqueIdentifier>{AEFAB872-251E-5893-8D54-17FD1D6CAE2D}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\WeaponTitle"><UniqueIdentifier>{0D9E3EBE-0AFC-59B9-B7FB-3661648303BA}</UniqueIdentifier></Filter>
+    <Filter Include="Zone\World"><UniqueIdentifier>{452A42C1-71E9-5527-9343-650C1ED6CB51}</UniqueIdentifier></Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Server\Zone\AIScript\AIScript.cpp"><Filter>Zone\AIScript</Filter></ClCompile>

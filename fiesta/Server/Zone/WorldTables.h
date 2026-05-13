@@ -17,14 +17,14 @@
 //   NPCActionTable         -- World/NPCAction.txt (NPCCondition routing)
 // All loaders are typed wrappers over `TableScriptFile` -- they parse once
 // at zone start and expose row lookups for the runtime systems.
-#ifndef FIESTA_ZONE_WORLDTABLES_H
-#define FIESTA_ZONE_WORLDTABLES_H
+#ifndef SHINE_ZONE_WORLDTABLES_H
+#define SHINE_ZONE_WORLDTABLES_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 // =============================================================================
 // QuestTable
@@ -308,5 +308,5 @@ private:
     std::map<std::string, std::vector<size_t> > m_kIndex[MC_BUCKETS];
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

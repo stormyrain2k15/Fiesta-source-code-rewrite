@@ -9,7 +9,7 @@
 #include <string.h>
 #include <ctype.h>
 
-namespace fiesta {
+namespace shine {
 
 PineScript& PineScript::Get() { static PineScript s; return s; }
 
@@ -101,4 +101,4 @@ void PineScript::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

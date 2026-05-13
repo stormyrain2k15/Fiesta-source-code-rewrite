@@ -1,11 +1,11 @@
 // Server/Zone/StatDistribute.h
 // input structures + BuildBattleStat for compiling a BATTLESTAT from
 // raw character stats + equipment + active buffs.
-#ifndef FIESTA_ZONE_STATDISTRIBUTE_H
-#define FIESTA_ZONE_STATDISTRIBUTE_H
+#ifndef SHINE_ZONE_STATDISTRIBUTE_H
+#define SHINE_ZONE_STATDISTRIBUTE_H
 #include "BattleStat.h"
 
-namespace fiesta {
+namespace shine {
 
 // Base stats before any compilation. Sourced from character DB +
 // MoverMain.shn lookup at login time.
@@ -79,6 +79,6 @@ class ShinePlayer;
 // player's free-stat ledger.
 void FillRawCharStatFromPlayer(RAWCHARSTAT& rOut, const ShinePlayer& kP);
 
-} // namespace fiesta
+} // namespace shine
 #endif
 

@@ -1,7 +1,7 @@
 // Server/Zone/Engines/UpgradeEngine.h
 // Auto-generated: UpgradeEngine — aggregates 13 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_UPGRADEENGINE_H
-#define FIESTA_ZONE_ENGINES_UPGRADEENGINE_H
+#ifndef SHINE_ZONE_ENGINES_UPGRADEENGINE_H
+#define SHINE_ZONE_ENGINES_UPGRADEENGINE_H
 #include "../../DataReader/SHN/AccUpGradeInfo.h"
 #include "../../DataReader/SHN/AccUpgrade.h"
 #include "../../DataReader/SHN/BRAccUpgrade.h"
@@ -18,7 +18,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class UpgradeEngine {
 public:
@@ -44,5 +44,5 @@ private:
     UpgradeEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_UPGRADEENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_UPGRADEENGINE_H

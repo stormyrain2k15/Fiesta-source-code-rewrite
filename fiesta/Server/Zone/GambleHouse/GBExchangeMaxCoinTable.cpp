@@ -4,7 +4,7 @@
 #include "../../DataReader/ShnRegistry.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBExchangeMaxCoinTable& GBExchangeMaxCoinTable::Get() {
     static GBExchangeMaxCoinTable s; return s;
@@ -30,4 +30,4 @@ uint32 GBExchangeMaxCoinTable::Cap(uint8 uiLevel) const {
     return (it == m_kRows.end()) ? 0 : it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

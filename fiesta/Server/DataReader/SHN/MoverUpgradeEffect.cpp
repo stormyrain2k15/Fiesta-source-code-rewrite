@@ -3,7 +3,7 @@
 #include "MoverUpgradeEffect.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MoverUpgradeEffectShn& MoverUpgradeEffectShn::Get() { static MoverUpgradeEffectShn s; return s; }
 
@@ -26,4 +26,4 @@ void MoverUpgradeEffectShn::Load() {
     SHINELOG_INFO("MoverUpgradeEffect.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

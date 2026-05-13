@@ -1,12 +1,12 @@
 // Server/Zone/MoveManager.h
 // movement / action / visibility.
-#ifndef FIESTA_ZONE_MOVEMANAGER_H
-#define FIESTA_ZONE_MOVEMANAGER_H
+#ifndef SHINE_ZONE_MOVEMANAGER_H
+#define SHINE_ZONE_MOVEMANAGER_H
 #include "ShineObject.h"
 #include "MapField.h"
 #include "NearScan.h"           // canonical NearScan class lives there
 
-namespace fiesta {
+namespace shine {
 
 enum MoveKind { MOVE_STOP = 0, MOVE_WALK = 1, MOVE_RUN = 2, MOVE_JUMP = 3 };
 
@@ -26,5 +26,5 @@ public:
 // The legacy `NearScan::Run(Field&, Vec3, vector<ShineObject*>)` entry
 // is implemented as `NearScan::RunOnField` in NearScan.cpp.
 
-} // namespace fiesta
+} // namespace shine
 #endif

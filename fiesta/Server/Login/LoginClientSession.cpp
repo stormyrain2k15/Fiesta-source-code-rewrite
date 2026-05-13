@@ -7,7 +7,7 @@
 #include "../Common/NETCOMMAND.h"
 #include "../Common/SendPacket.h"
 
-namespace fiesta {
+namespace shine {
 
 extern Database*        g_pkLoginAccountDB;
 extern SQLP_Account*    g_pkLoginAccount;
@@ -145,4 +145,4 @@ void LoginClientSession::HandleWorldSelect(const GPacket& rPkt) {
     // The WM is told about the issued token via NC_INTER_AUTH_TOKEN_PUSH (LoginAccountDBSession).
 }
 
-} // namespace fiesta
+} // namespace shine

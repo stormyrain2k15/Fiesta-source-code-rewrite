@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GBDiceGame.h
 // Auto-generated: one-file-per-SHN split for GBDiceGame.shn
-#ifndef FIESTA_DATAREADER_SHN_GBDICEGAME_H
-#define FIESTA_DATAREADER_SHN_GBDICEGAME_H
+#ifndef SHINE_DATAREADER_SHN_GBDICEGAME_H
+#define SHINE_DATAREADER_SHN_GBDICEGAME_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GBDiceGameRow {
     uint32           uiMaxBetMoney;
@@ -26,5 +26,5 @@ private:
     std::vector<GBDiceGameRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GBDICEGAME_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GBDICEGAME_H

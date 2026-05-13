@@ -7,4 +7,4 @@
 // is kept as a project-file slot so the NA2016-style file inventory
 // remains intact, but emits no symbols of its own.
 #include "../DataReader/ShnDataFileCheckSum.h"
-namespace fiesta { /* see DataReader/ShnDataFileCheckSum.cpp */ }
+namespace shine { /* see DataReader/ShnDataFileCheckSum.cpp */ }

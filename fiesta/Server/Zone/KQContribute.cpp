@@ -1,7 +1,7 @@
 // Server/Zone/KQContribute.cpp
 // Per-player KQ contribution. #include "KQContribute.h"
 #include <map>
-namespace fiesta {
+namespace shine {
 KQContribute& KQContribute::Get() { static KQContribute s; return s; }
 void KQContribute::Add(uint32 uiKQID, uint32 cid, uint32 uiPoints) {
     m_kPer[(uint64)uiKQID << 32 | cid] += uiPoints;
@@ -17,4 +17,4 @@ void KQContribute::Clear(uint32 uiKQID) {
     std::map<uint64, uint32>::iterator it = m_kPer.lower_bound(lo);
     while (it != m_kPer.end() && it->first <= hi) it = m_kPer.erase(it);
 }
-} // namespace fiesta
+} // namespace shine

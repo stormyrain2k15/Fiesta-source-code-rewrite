@@ -6,7 +6,7 @@
 #include "../Shared/PacketBuffer.h"
 #include "../Shared/GTimer.h"
 #include "../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 
 static std::map<CharID, uint32> s_kKQContrib;
 
@@ -99,4 +99,4 @@ bool KingdomQuest::End(const char* szMapInx) {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

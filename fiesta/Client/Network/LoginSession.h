@@ -20,7 +20,7 @@
 #include "ShineNetClient.h"
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 struct WorldInfo {
     uint16      uiId;
@@ -36,8 +36,7 @@ struct WMHandoff {
     uint32      uiAccountId;
 };
 
-// VS2010 has no std::function; use C-style function pointers + a void* ctx
-// so a single LoginSession can call back into arbitrary owner objects.
+// VS2010-compatible callback typedefs (no <functional>/std::function).
 typedef void (*LoginSuccessCallback)(void* pkCtx, const WMHandoff& rHandoff);
 typedef void (*LoginFailCallback)   (void* pkCtx, const char* szReason);
 
@@ -46,9 +45,7 @@ public:
     LoginSession();
 
     void SetCredentials(const std::string& rUser, const std::string& rPass);
-    void SetCallbacks(LoginSuccessCallback onSuccess,
-                      LoginFailCallback onFail,
-                      void* pkCtx);
+    void SetCallbacks(LoginSuccessCallback onSuccess, LoginFailCallback onFail, void* pkCtx);
 
     // INetPacketSink
     virtual void OnConnected()                  override;
@@ -92,5 +89,5 @@ private:
     void HandleWorldSelectAck   (const GPacket& rPkt);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif // SHINE_CLIENT_NETWORK_LOGINSESSION_H

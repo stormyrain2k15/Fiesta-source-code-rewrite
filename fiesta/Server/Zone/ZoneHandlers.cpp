@@ -31,7 +31,7 @@
 #include "GambleHouse/GambleSystem.h"
 #include "GroupTables.h"   // ItemTables::Get().Find
 
-namespace fiesta {
+namespace shine {
 
 // ---------------------------------------------------------------------------
 // Movement
@@ -352,4 +352,4 @@ void RegisterZoneHandlers() {
     p.Register(NC_GAMBLE_SLOT_REQ,              &H_GambleSlot);        // FEATURE: casino-slot
 }
 
-} // namespace fiesta
+} // namespace shine

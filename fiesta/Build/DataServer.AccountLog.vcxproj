@@ -5,7 +5,7 @@
     <ProjectConfiguration Include="Release|Win32"><Configuration>Release</Configuration><Platform>Win32</Platform></ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{95760276-4A8D-52AA-B37F-AAC81D6DA932}</ProjectGuid>
+    <ProjectGuid>{0D5B58FA-2BFD-5799-B122-4BF9815B885D}</ProjectGuid>
     <RootNamespace>DataServer_AccountLog</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
@@ -82,13 +82,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Common.vcxproj">
-      <Project>{A5CF205C-0587-553D-8FB6-CB2F44CEA975}</Project>
+      <Project>{9DF66815-A10F-56BE-AE15-9166C5FBBF12}</Project>
     </ProjectReference>
     <ProjectReference Include="Shared.vcxproj">
-      <Project>{E9D051DA-BFB9-515D-8A78-978216F79EF7}</Project>
+      <Project>{64CB1FEF-951B-58F0-B315-EF7A467004E1}</Project>
     </ProjectReference>
     <ProjectReference Include="DataServerCommon.vcxproj">
-      <Project>{DD822AD3-0AFA-5698-A96B-A49A70A0BD86}</Project>
+      <Project>{A6ED4366-FF5B-5C41-B9CD-87ABDF85487A}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

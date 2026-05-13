@@ -26,13 +26,13 @@
 //   MobBehaviorDescript/DefaultBehavior.ps,
 //   MobBehaviorDescript/KQ/KingSlime.ps,
 //   ScenarioBookShelf/Promote/JobChange1.ps.
-#ifndef FIESTA_DATAREADER_PSSCRIPTFILE_H
-#define FIESTA_DATAREADER_PSSCRIPTFILE_H
+#ifndef SHINE_DATAREADER_PSSCRIPTFILE_H
+#define SHINE_DATAREADER_PSSCRIPTFILE_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 enum PsTokenKind {
     PSTK_EOF = 0,
@@ -121,5 +121,5 @@ private:
     bool Expect(PsTokenKind k);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

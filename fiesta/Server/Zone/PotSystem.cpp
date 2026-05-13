@@ -4,7 +4,7 @@
 #include "../Shared/GTimer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 PotSystem& PotSystem::Get() { static PotSystem s; return s; }
 PotSystem::PotSystem() {}
@@ -99,4 +99,4 @@ bool PotSystem::Use(ShinePlayer* pk, uint32 uiItemId) {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

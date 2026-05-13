@@ -1,13 +1,13 @@
 // Server/Zone/InstanceDungeon.h / .cpp combined
 // Instance Dungeon (MID).
 //                                  MIDRewardDataBox, MatchInstanceDungeonServer
-#ifndef FIESTA_ZONE_INSTANCEDUNGEON_H
-#define FIESTA_ZONE_INSTANCEDUNGEON_H
+#ifndef SHINE_ZONE_INSTANCEDUNGEON_H
+#define SHINE_ZONE_INSTANCEDUNGEON_H
 #include "ShineObject.h"
 #include <vector>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 struct MIDGroupRec { uint32 uiInstanceId; std::vector<CharID> kMembers; uint64 uiStartMs; uint64 uiEndMs; };
 
@@ -29,5 +29,5 @@ class MatchInstanceDungeonServer { public: static bool TryQueue(ShinePlayer* pk,
 class InstanceDungeon { public: static void OnPlayerEnter(ShinePlayer* pk, uint32 uiInstanceId); };
 class InstanceDungeon_util { public: static uint64 ProvisionalDurationMs(uint32 uiTemplate); };
 
-} // namespace fiesta
+} // namespace shine
 #endif

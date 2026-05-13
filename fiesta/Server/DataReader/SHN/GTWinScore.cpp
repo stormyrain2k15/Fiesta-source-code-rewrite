@@ -3,7 +3,7 @@
 #include "GTWinScore.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GTWinScoreShn& GTWinScoreShn::Get() { static GTWinScoreShn s; return s; }
 
@@ -19,4 +19,4 @@ void GTWinScoreShn::Load() {
     SHINELOG_INFO("GTWinScore.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

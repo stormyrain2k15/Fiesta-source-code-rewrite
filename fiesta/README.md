@@ -1,6 +1,6 @@
-# Fiesta Online — Original-Style Engine Rewrite
+# Shine Online — Original-Style Engine Rewrite
 
-Native C++ reimplementation of the NA2016-era Fiesta Online server and
+Native C++ reimplementation of the NA2016-era Shine Online server and
 client engine. The 43 gameplay systems all carry their original
 class / function names so the layout matches the published PDB symbol
 manifests one-for-one.

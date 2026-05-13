@@ -3,7 +3,7 @@
 #include "MapLinkPoint.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MapLinkPointShn& MapLinkPointShn::Get() { static MapLinkPointShn s; return s; }
 
@@ -22,4 +22,4 @@ void MapLinkPointShn::Load() {
     SHINELOG_INFO("MapLinkPoint.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

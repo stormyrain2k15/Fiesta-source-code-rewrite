@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/RareMoverSubRate.h
 // Auto-generated: one-file-per-SHN split for RareMoverSubRate.shn
-#ifndef FIESTA_DATAREADER_SHN_RAREMOVERSUBRATE_H
-#define FIESTA_DATAREADER_SHN_RAREMOVERSUBRATE_H
+#ifndef SHINE_DATAREADER_SHN_RAREMOVERSUBRATE_H
+#define SHINE_DATAREADER_SHN_RAREMOVERSUBRATE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct RareMoverSubRateRow {
     uint16           uiRMR_SubRate;
@@ -24,5 +24,5 @@ private:
     std::vector<RareMoverSubRateRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_RAREMOVERSUBRATE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_RAREMOVERSUBRATE_H

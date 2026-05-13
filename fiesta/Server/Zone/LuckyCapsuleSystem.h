@@ -10,19 +10,19 @@
 //   LCReward.shn     (LCR_Group, Item_Inx, LCR_Lot)
 //     - Per-group reward bag. LCR_Lot is the quantity to grant when
 //       this entry rolls. Multiple rows in the same group are sampled
-//       uniformly at the end of the roll (canon Fiesta behavior:
+//       uniformly at the end of the roll (canon Shine behavior:
 //       group decides quality, then a random item from the group is
 //       picked as the actual prize).
 //
 // Hook: ZoneHandlers H_ItemUse calls LuckyCapsuleSystem::TryOpen on the
 // item-use packet path; if it returns true the item was consumed.
-#ifndef FIESTA_ZONE_LUCKYCAPSULESYSTEM_H
-#define FIESTA_ZONE_LUCKYCAPSULESYSTEM_H
+#ifndef SHINE_ZONE_LUCKYCAPSULESYSTEM_H
+#define SHINE_ZONE_LUCKYCAPSULESYSTEM_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 class ShinePlayer;
 
 struct LCRewardEntry {
@@ -63,5 +63,5 @@ private:
     std::vector<uint8>            m_kRewardGroups;   // parallel to m_kRewards
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

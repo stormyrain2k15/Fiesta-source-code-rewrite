@@ -8,7 +8,7 @@
 #include "../Shared/well512.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 static well512 s_kRng;
 
@@ -134,4 +134,4 @@ bool LuckyCapsuleSystem::TryOpen(ShinePlayer* pk, uint32 uiItemId) const {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

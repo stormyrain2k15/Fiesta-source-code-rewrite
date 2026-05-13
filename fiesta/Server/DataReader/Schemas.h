@@ -1,13 +1,13 @@
 // Server/DataReader/Schemas.h
 // Field ordinals + types are taken verbatim from public SHN documentation.
 // Field bodies/comments are short factual labels only.
-#ifndef FIESTA_DATAREADER_SCHEMAS_H
-#define FIESTA_DATAREADER_SCHEMAS_H
+#ifndef SHINE_DATAREADER_SCHEMAS_H
+#define SHINE_DATAREADER_SCHEMAS_H
 #include "../Shared/ShineTypes.h"
 #include "ITableBase.h"
 #include "DataBox.h"
 #include <vector>
-namespace fiesta {
+namespace shine {
 
 // ItemInfo.shn  -- 91 fields
 struct ItemInfoRow {
@@ -758,5 +758,5 @@ public: ItemDropTableTab() { ms_pkTable = this; }
 extern ItemDropTableTab g_ItemDropTableTab;
 
 void RegisterAllSchemaTabs();
-} // namespace fiesta
+} // namespace shine
 #endif

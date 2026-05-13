@@ -4,7 +4,7 @@
 #include "Inventory.h"
 #include "CharDBClient.h"
 #include "ShineObject.h"
-namespace fiesta {
+namespace shine {
 class ShineItemUse {
 public:
     static bool Use(ShinePlayer* pkP, uint32 uiItemId);
@@ -14,4 +14,4 @@ bool ShineItemUse::Use(ShinePlayer* pkP, uint32 uiItemId) {
     // Effect dispatch is in ItemActions.cpp; consumption is independent.
     return pkP->Inv().Remove(uiItemId);
 }
-} // namespace fiesta
+} // namespace shine

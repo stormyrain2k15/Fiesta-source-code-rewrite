@@ -7,7 +7,7 @@
 #define M_PI 3.14159265358979f
 #endif
 
-namespace fiesta {
+namespace shine {
 
 ShineCamera::ShineCamera()
     : m_fYaw(0.0f), m_fPitch(-45.0f), m_fDist(600.0f),
@@ -107,4 +107,4 @@ void ShineCamera::UpdateTransform() {
     m_spCamera->Update(0.0f);
 }
 
-} // namespace fiesta
+} // namespace shine

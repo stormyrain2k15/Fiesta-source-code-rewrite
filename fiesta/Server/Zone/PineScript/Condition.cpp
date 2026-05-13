@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class Condition {
 public:
@@ -23,4 +23,4 @@ public:
     }
 };
 
-} // namespace fiesta
+} // namespace shine

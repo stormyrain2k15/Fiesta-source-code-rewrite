@@ -3,14 +3,14 @@
 // Per-(map, mob) drop matrix: 45 numbered drop slots + 5 exclusive
 // items per row. Each slot has its own item, drop rate (R, per-1000),
 // upgrade range, rule code (r/m/...), and quantity.
-#ifndef FIESTA_ZONE_TABLES_ITEMDROPTABLEW_H
-#define FIESTA_ZONE_TABLES_ITEMDROPTABLEW_H
+#ifndef SHINE_ZONE_TABLES_ITEMDROPTABLEW_H
+#define SHINE_ZONE_TABLES_ITEMDROPTABLEW_H
 #include "../../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ItemDropSlot {
     std::string kItem;          // "-" if empty
@@ -51,5 +51,5 @@ private:
     std::map<std::string, std::vector<size_t> > m_kByMob;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

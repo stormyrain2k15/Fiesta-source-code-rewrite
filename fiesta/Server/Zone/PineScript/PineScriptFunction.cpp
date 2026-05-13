@@ -6,7 +6,7 @@
 #include "../../Shared/ShineLogSystem.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 // Forward decls from sibling files.
 extern bool PSCmdMobRegen (const PSStatement&, PSProgram&);
@@ -32,4 +32,4 @@ bool PSDispatchFunction(const PSStatement& rSt, PSProgram& rProg) {
     return false;
 }
 
-} // namespace fiesta
+} // namespace shine

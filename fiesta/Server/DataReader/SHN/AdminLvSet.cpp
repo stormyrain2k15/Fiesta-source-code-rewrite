@@ -3,7 +3,7 @@
 #include "AdminLvSet.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 AdminLvSetShn& AdminLvSetShn::Get() { static AdminLvSetShn s; return s; }
 
@@ -20,4 +20,4 @@ void AdminLvSetShn::Load() {
     SHINELOG_INFO("AdminLvSet.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

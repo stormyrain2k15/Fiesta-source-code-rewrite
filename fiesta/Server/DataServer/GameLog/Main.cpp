@@ -13,7 +13,7 @@
 #include "../Common/Database.h"
 #include "../Common/SQLP.h"
 
-namespace fiesta {
+namespace shine {
 
 static Database*     g_pkGameLogDB = NULL;
 static SQLP_GameLog* g_pkSQLPGL    = NULL;
@@ -70,7 +70,7 @@ static IOCPSession* MakeGameLogSession() { return new GameLogSession(); }
 
 class GameLogService : public WinService {
 public:
-    GameLogService() : WinService("FiestaGameLog") {}
+    GameLogService() : WinService("ShineGameLog") {}
     virtual bool OnStart() {
         m_kInfo.Load("ServerInfo.txt");
         g_pkGameLogDB = new Database();
@@ -92,6 +92,6 @@ private:
     ServerInfo m_kInfo; IOCPManager m_kIOCP; Socket_Acceptor m_kAcceptor;
 };
 
-} // namespace fiesta
+} // namespace shine
 
-int main(int argc, char** argv) { fiesta::GameLogService s; return s.Run(argc, argv); }
+int main(int argc, char** argv) { shine::GameLogService s; return s.Run(argc, argv); }

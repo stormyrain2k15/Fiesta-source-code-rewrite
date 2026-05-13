@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../GroupTables.h"
 
-namespace fiesta {
+namespace shine {
 
 KQTables& KQTables::Get() { static KQTables s; return s; }
 void KQTables::Bind() {
@@ -71,4 +71,4 @@ void BindAllGroupTables() {
     GuildTables2::Get()      .Bind();
     CollectTables::Get()     .Bind();
 
-} // namespace fiesta
+} // namespace shine

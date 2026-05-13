@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <windows.h>
 
-namespace fiesta {
+namespace shine {
 
 // ---- Canonical names taken from the project owner's data archive listing.
 //      Confirmed present in the Shine.zip drop (LuaScript/KQ/* and LuaScript/ID/*).
@@ -157,4 +157,4 @@ size_t ScriptLoader::LoadAIScript(LuaRuntime& rL, const std::string& rRoot) {
     return n;
 }
 
-} // namespace fiesta
+} // namespace shine

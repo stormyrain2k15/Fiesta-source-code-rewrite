@@ -7,7 +7,7 @@
 #include "../Shared/GTimer.h"
 #include <windows.h>
 
-namespace fiesta {
+namespace shine {
 
 static uint64 NowMs() { return (uint64)GTimer::NowMillis(); }
 static eShineClass ClassOf(ShinePlayer* /*pk*/) { return SC_FIGHTER; }   // until ShinePlayerCharacter::m_eClass exists
@@ -119,4 +119,4 @@ eStoneUseResult PowerGuardStoneVendor::Buy(ShinePlayer*       pkP,
     return STONE_USE_OK;
 }
 
-} // namespace fiesta
+} // namespace shine

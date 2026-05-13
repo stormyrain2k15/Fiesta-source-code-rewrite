@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MapBuff.h
 // Auto-generated: one-file-per-SHN split for MapBuff.shn
-#ifndef FIESTA_DATAREADER_SHN_MAPBUFF_H
-#define FIESTA_DATAREADER_SHN_MAPBUFF_H
+#ifndef SHINE_DATAREADER_SHN_MAPBUFF_H
+#define SHINE_DATAREADER_SHN_MAPBUFF_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MapBuffRow {
     std::string      kMapName;
@@ -26,5 +26,5 @@ private:
     std::vector<MapBuffRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MAPBUFF_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MAPBUFF_H

@@ -20,7 +20,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-namespace fiesta {
+namespace shine {
 
 // sprintf-style proc-arg builder, bounded to 256 bytes (matches the
 // internal helper in SQLP.cpp). VS2010-safe: uses _vsnprintf_s under
@@ -367,7 +367,7 @@ static IOCPSession* MakeCharDBSession() { return new CharDBSession(); }
 
 class CharacterDBService : public WinService {
 public:
-    CharacterDBService() : WinService("FiestaCharacterDB") {}
+    CharacterDBService() : WinService("ShineCharacterDB") {}
     virtual bool OnStart() {
         m_kInfo.Load("ServerInfo.txt");
         g_pkCharDB = new Database();
@@ -403,6 +403,6 @@ private:
     ServerInfo m_kInfo; IOCPManager m_kIOCP; Socket_Acceptor m_kAcceptor;
 };
 
-} // namespace fiesta
+} // namespace shine
 
-int main(int argc, char** argv) { fiesta::CharacterDBService s; return s.Run(argc, argv); }
+int main(int argc, char** argv) { shine::CharacterDBService s; return s.Run(argc, argv); }

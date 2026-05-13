@@ -3,7 +3,7 @@
 #include "BelongDice.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 BelongDiceShn& BelongDiceShn::Get() { static BelongDiceShn s; return s; }
 
@@ -19,4 +19,4 @@ void BelongDiceShn::Load() {
     SHINELOG_INFO("BelongDice.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -1,13 +1,13 @@
 // Server/Zone/NPCSystem.h
 // NPC / menus / shops.
 //                                  CurrentMenu, ServerMenuActor, SellItemManager, NpcScheduleServer
-#ifndef FIESTA_ZONE_NPCSYSTEM_H
-#define FIESTA_ZONE_NPCSYSTEM_H
+#ifndef SHINE_ZONE_NPCSYSTEM_H
+#define SHINE_ZONE_NPCSYSTEM_H
 #include "ShineObject.h"
 #include <map>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct NPCMenuItem { uint32 uiInxName; int64 iPrice; };
 
@@ -81,5 +81,5 @@ private:
 class SellItemManager       { public: static bool BuyFromNpc(ShinePlayer* pk, uint32 uiNpcId, uint32 uiInx, uint16 uiQty); };
 class NpcScheduleServer     { public: static void Tick(); };
 
-} // namespace fiesta
+} // namespace shine
 #endif

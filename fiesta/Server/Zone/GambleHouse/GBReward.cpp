@@ -3,7 +3,7 @@
 #include "GBAuxTables.h"
 #include "../../DataReader/ShnRegistry.h"
 #include "../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 GBRewardTable& GBRewardTable::Get() { static GBRewardTable s; return s; }
 bool GBRewardTable::Bind() {
     m_kRows.clear();
@@ -27,4 +27,4 @@ void GBRewardTable::FindByGameType(uint32 uiGT,
     for (size_t i = 0; i < m_kRows.size(); ++i)
         if (m_kRows[i].uiGameType == uiGT) rOut.push_back(m_kRows[i]);
 }
-} // namespace fiesta
+} // namespace shine

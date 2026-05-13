@@ -6,7 +6,7 @@
 #include "ZoneServer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 void AdminKill(ShineObject* pkObj) {
     if (!pkObj) return;
@@ -24,4 +24,4 @@ void AdminSpawnMob(uint32 uiNpcID, int32 x, int32 y, uint16 uiCount) {
     SHINELOG_WARN("[GM] spawnmob npc=%u count=%u at (%d,%d)", uiNpcID, (uint32)uiCount, x, y);
 }
 
-} // namespace fiesta
+} // namespace shine

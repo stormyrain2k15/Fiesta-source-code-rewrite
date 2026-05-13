@@ -3,7 +3,7 @@
 #include "ItemAction.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ItemActionShn& ItemActionShn::Get() { static ItemActionShn s; return s; }
 
@@ -23,4 +23,4 @@ void ItemActionShn::Load() {
     SHINELOG_INFO("ItemAction.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

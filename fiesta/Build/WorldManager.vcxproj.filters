@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="WorldManager"><UniqueIdentifier>{C23787BF-CEF2-522C-8A2F-8ABEB97AE3EF}</UniqueIdentifier></Filter>
+    <Filter Include="WorldManager"><UniqueIdentifier>{7C8054A9-EA81-589E-A43F-06E9E5F0FA35}</UniqueIdentifier></Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Server\WorldManager\ChatStealServer.cpp"><Filter>WorldManager</Filter></ClCompile>

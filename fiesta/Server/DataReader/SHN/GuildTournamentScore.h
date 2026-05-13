@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GuildTournamentScore.h
 // Auto-generated: one-file-per-SHN split for GuildTournamentScore.shn
-#ifndef FIESTA_DATAREADER_SHN_GUILDTOURNAMENTSCORE_H
-#define FIESTA_DATAREADER_SHN_GUILDTOURNAMENTSCORE_H
+#ifndef SHINE_DATAREADER_SHN_GUILDTOURNAMENTSCORE_H
+#define SHINE_DATAREADER_SHN_GUILDTOURNAMENTSCORE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GuildTournamentScoreRow {
     uint16           uiMAP_TYPE;
@@ -31,5 +31,5 @@ private:
     std::vector<GuildTournamentScoreRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GUILDTOURNAMENTSCORE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GUILDTOURNAMENTSCORE_H

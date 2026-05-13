@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/PartyBonusByLvDiff.h
 // Auto-generated: one-file-per-SHN split for PartyBonusByLvDiff.shn
-#ifndef FIESTA_DATAREADER_SHN_PARTYBONUSBYLVDIFF_H
-#define FIESTA_DATAREADER_SHN_PARTYBONUSBYLVDIFF_H
+#ifndef SHINE_DATAREADER_SHN_PARTYBONUSBYLVDIFF_H
+#define SHINE_DATAREADER_SHN_PARTYBONUSBYLVDIFF_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct PartyBonusByLvDiffRow {
     uint16           uiPB_LvDiff;
@@ -25,5 +25,5 @@ private:
     std::vector<PartyBonusByLvDiffRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_PARTYBONUSBYLVDIFF_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_PARTYBONUSBYLVDIFF_H

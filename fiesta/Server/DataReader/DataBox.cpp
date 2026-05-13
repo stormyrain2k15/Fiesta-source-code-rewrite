@@ -2,7 +2,7 @@
 #include "DataBox.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 DataBox& DataBox::Get() { static DataBox s; return s; }
 
@@ -34,4 +34,4 @@ IDataTable* DataBox::Find(const char* szLogical) {
     return (it == m_kByName.end()) ? NULL : it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

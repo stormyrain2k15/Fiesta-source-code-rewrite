@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/PupMain.h
 // Auto-generated: one-file-per-SHN split for PupMain.shn
-#ifndef FIESTA_DATAREADER_SHN_PUPMAIN_H
-#define FIESTA_DATAREADER_SHN_PUPMAIN_H
+#ifndef SHINE_DATAREADER_SHN_PUPMAIN_H
+#define SHINE_DATAREADER_SHN_PUPMAIN_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct PupMainRow {
     uint32           uiPupID;
@@ -27,5 +27,5 @@ private:
     std::vector<PupMainRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_PUPMAIN_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_PUPMAIN_H

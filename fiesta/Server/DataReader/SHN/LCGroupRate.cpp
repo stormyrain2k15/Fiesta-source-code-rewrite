@@ -3,7 +3,7 @@
 #include "LCGroupRate.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 LCGroupRateShn& LCGroupRateShn::Get() { static LCGroupRateShn s; return s; }
 
@@ -21,4 +21,4 @@ void LCGroupRateShn::Load() {
     SHINELOG_INFO("LCGroupRate.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

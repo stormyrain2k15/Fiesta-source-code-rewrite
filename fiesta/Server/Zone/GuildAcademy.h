@@ -3,13 +3,13 @@
 // Loaded from GuildAcademy.shn -- the row carries the buff InxName,
 // the minimum membership time before a member qualifies, and the
 // rank-aggregation flag (whether sub-guilds inherit).
-#ifndef FIESTA_ZONE_GUILDACADEMY_H
-#define FIESTA_ZONE_GUILDACADEMY_H
+#ifndef SHINE_ZONE_GUILDACADEMY_H
+#define SHINE_ZONE_GUILDACADEMY_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -41,5 +41,5 @@ private:
     std::map<uint32, std::map<uint32, uint32> > m_kActive;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

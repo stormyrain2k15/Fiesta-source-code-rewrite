@@ -7,7 +7,7 @@
 #include "../../DataReader/TableScriptFile.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 static std::vector<QuestRewardRow>  s_kEmptyRewards;
 static std::vector<QuestLootRow>    s_kEmptyLoots;
@@ -137,4 +137,4 @@ bool QuestTable::IsMeeting(uint16 h) const {
     return it != m_kMeetings.end();
 }
 
-} // namespace fiesta
+} // namespace shine

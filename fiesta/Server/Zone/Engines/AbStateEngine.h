@@ -1,7 +1,7 @@
 // Server/Zone/Engines/AbStateEngine.h
 // Auto-generated: AbStateEngine — aggregates 7 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_ABSTATEENGINE_H
-#define FIESTA_ZONE_ENGINES_ABSTATEENGINE_H
+#ifndef SHINE_ZONE_ENGINES_ABSTATEENGINE_H
+#define SHINE_ZONE_ENGINES_ABSTATEENGINE_H
 #include "../../DataReader/SHN/AbStateSaveTypeInfo.h"
 #include "../../DataReader/SHN/ActionEffectAbState.h"
 #include "../../DataReader/SHN/ChargedDeletableBuff.h"
@@ -12,7 +12,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class AbStateEngine {
 public:
@@ -32,5 +32,5 @@ private:
     AbStateEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_ABSTATEENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_ABSTATEENGINE_H

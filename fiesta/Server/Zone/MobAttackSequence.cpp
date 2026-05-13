@@ -4,7 +4,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 
 bool MobAttackSequence::Load(const std::string& rPath) {
     m_kSteps.clear();
@@ -62,4 +62,4 @@ void MobAttackSequenceBox::Clear() {
     m_kAll.clear();
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -1,11 +1,11 @@
 // Server/Shared/IOCPManager.h
 // IO completion port worker pool.
-#ifndef FIESTA_IOCPMANAGER_H
-#define FIESTA_IOCPMANAGER_H
+#ifndef SHINE_IOCPMANAGER_H
+#define SHINE_IOCPMANAGER_H
 #include "ShineTypes.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class IOCPSession;
 
@@ -27,5 +27,5 @@ private:
     LONG                m_bRun;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

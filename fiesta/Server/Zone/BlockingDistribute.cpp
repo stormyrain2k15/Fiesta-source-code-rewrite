@@ -4,7 +4,7 @@
 // but here is blocked" cases.
 #include "MapField.h"
 
-namespace fiesta {
+namespace shine {
 
 class BlockingDistribute {
 public:
@@ -33,4 +33,4 @@ public:
     }
 };
 
-} // namespace fiesta
+} // namespace shine

@@ -3,7 +3,7 @@
 #include "ReactionType.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ReactionTypeShn& ReactionTypeShn::Get() { static ReactionTypeShn s; return s; }
 
@@ -21,4 +21,4 @@ void ReactionTypeShn::Load() {
     SHINELOG_INFO("ReactionType.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

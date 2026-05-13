@@ -1,163 +1,246 @@
 // Client/Engine/ShineApp.cpp
 #include "ShineApp.h"
+#include "MachineOpt.h"
+#include "ShineConfig.h"
+#include "ShineRenderer.h"
+#include "../Sound/ShineSoundMgr.h"
 #include "../../Server/Shared/ShineLogSystem.h"
 #include "../../Server/Common/NETCOMMAND.h"
 
-NiImplementRTTI(fiesta::ShineApp, NiApplication);
+NiImplementRTTI(shine::ShineApp, NiApplication);
 
-namespace fiesta {
+shine::ShineApp* shine::ShineApp::ms_pkApp = NULL;
 
-ShineApp::ShineApp()
-    : NiApplication("Shine", DEFAULT_WIDTH, DEFAULT_HEIGHT, true),
-      m_bWorldReady(false), m_fAccumDt(0.0f), m_dwLastTick(0)
-{
-    ZeroMemory(&m_kPlayer, sizeof(m_kPlayer));
+NiApplication* NiApplication::Create() {
+    shine::ShineApp::ms_pkApp = NiNew shine::ShineApp;
+    return shine::ShineApp::ms_pkApp;
 }
 
-ShineApp::~ShineApp() {}
+namespace shine {
 
-// ── NiApplication overrides ───────────────────────────────────────────────────
+ShineApp::ShineApp()
+    : NiApplication("Shine",
+                     MachineOpt::Get().GetWidth(),
+                     MachineOpt::Get().GetHeight(),
+                     MachineOpt::Get().IsFullscreen() ? 1 : 0),
+      m_pkZone(NULL),
+      m_lZoneReady(0), m_lCharBase(0), m_lCharShape(0),
+      m_dwLastTick(0)
+{
+    ZeroMemory(&m_kPendingPlayer, sizeof(m_kPendingPlayer));
+    InitializeCriticalSection(&m_kStateLock);
+    SHINELOG_INFO("ShineApp: created");
+}
+
+ShineApp::~ShineApp() {
+    DeleteCriticalSection(&m_kStateLock);
+}
 
 bool ShineApp::Initialize() {
-    // Gamebryo renderer is already up at this point (NiApplication::Initialize
-    // calls CreateRenderer() internally before calling us). Scene graph init.
     if (!NiApplication::Initialize()) return false;
-
     m_dwLastTick = GetTickCount();
 
-    // Build scene root
-    if (!m_kScene.Init(m_pkRenderer)) {
-        SHINELOG_ERROR("ShineApp: ShineScene::Init failed");
-        return false;
-    }
+    // Init sound (non-fatal if Miles missing)
+    g_kSoundMgr.Init(ShineConfig::Get().kMilesDir);
 
-    // Set up camera
-    if (!m_kCamera.Init(m_pkRenderer)) {
-        SHINELOG_ERROR("ShineApp: ShineCamera::Init failed");
-        return false;
-    }
-    m_pkCamera = m_kCamera.GetNiCamera();
+    // Register all frameworks
+    Pgg_kFrameMgr.Register(AccountFrameWorkID,    &m_kAccountFW);
+    Pgg_kFrameMgr.Register(CharSelectFrameWorkID, &m_kCharSelectFW);
+    Pgg_kFrameMgr.Register(GameFrameWorkID,        &m_kGameFW);
 
-    // HUD overlay
-    m_kHUD.Init(m_pkRenderer);
+    // Boot at account/login screen
+    Pgg_kFrameMgr.Start(AccountFrameWorkID);
 
-    SHINELOG_INFO("ShineApp: initialized (%ux%u)", m_uiWidth, m_uiHeight);
+    SHINELOG_INFO("ShineApp::Initialize complete");
     return true;
+}
+
+bool ShineApp::CreateRenderer() {
+    HWND hWnd = m_pkAppWindow ? m_pkAppWindow->GetWindowReference() : NULL;
+    if (!hWnd) return false;
+    m_pkRenderer = ShineRenderer::Create(hWnd);
+    return m_pkRenderer != NULL;
 }
 
 bool ShineApp::UpdateFrame() {
     if (!NiApplication::UpdateFrame()) return false;
-
     float fDt = GetDeltaTime();
-
-    // Camera input
-    m_kCamera.Tick(fDt);
-
-    // Scene animation update
-    if (m_bWorldReady) {
-        m_kScene.Tick(fDt);
-        m_kHUD.Update(m_kPlayer);
-    }
-
-    // Advance scene graph time
+    PumpPendingEvents();
+    if (!Pgg_kFrameMgr.Update(fDt)) return false;
     NiTimeController::UpdateTime();
-
     return true;
 }
 
 bool ShineApp::RenderFrame() {
     if (!m_pkRenderer) return false;
-
-    m_pkRenderer->BeginFrame();
-    m_pkRenderer->ClearBuffer(NULL, NiRenderer::CLEAR_ALL);
-
-    if (m_bWorldReady && m_kScene.GetRoot()) {
-        // Cull scene from camera's perspective
-        NiCullScene(m_pkCamera, m_kScene.GetRoot(), m_kVisibleSet);
-        // Draw visible geometry
-        m_pkRenderer->RenderScene(m_kScene.GetRoot(), m_pkCamera);
-    }
-
-    // HUD draws on top of 3D
-    m_kHUD.Render(m_pkRenderer);
-
-    m_pkRenderer->DisplayFrame();
-    m_pkRenderer->EndFrame();
-
+    Pgg_kFrameMgr.Render();
     return true;
 }
 
 void ShineApp::Terminate() {
-    m_kHUD.Shutdown();
-    m_kScene.Shutdown();
-    m_kCamera.Shutdown();
+    g_kSoundMgr.Shutdown();
+    Pgg_kFrameMgr.Stop();
+    MachineOpt::Get().Save();
     NiApplication::Terminate();
-    SHINELOG_INFO("ShineApp: terminated");
+    SHINELOG_INFO("ShineApp::Terminate");
 }
 
-// ── Game callbacks ────────────────────────────────────────────────────────────
+bool ShineApp::OnDefault(NiEventRef pEventRecord) {
+    switch (pEventRecord->uiMsg) {
+    case WM_SETCURSOR:
+        ::SetCursor(NULL);
+        return true;
+    case WM_SYSKEYDOWN:
+        if (pEventRecord->wParam == VK_F10 || pEventRecord->wParam == VK_MENU)
+            return true;
+        break;
+    case WM_KEYUP:
+        if (pEventRecord->wParam == VK_SNAPSHOT) {
+            SHINELOG_INFO("ShineApp: screenshot");
+            return true;
+        }
+        break;
+    case WM_LBUTTONDOWN:
+        if (Pgg_kFrameMgr.IsInRun(CharSelectFrameWorkID))
+            m_kCharSelectFW.GetUI().OnLButtonDown(
+                LOWORD(pEventRecord->lParam), HIWORD(pEventRecord->lParam));
+        break;
+    case WM_MOUSEMOVE:
+        if (Pgg_kFrameMgr.IsInRun(CharSelectFrameWorkID))
+            m_kCharSelectFW.GetUI().OnMouseMove(
+                LOWORD(pEventRecord->lParam), HIWORD(pEventRecord->lParam));
+        break;
+    case WM_KEYDOWN:
+        if (Pgg_kFrameMgr.IsInRun(CharSelectFrameWorkID))
+            m_kCharSelectFW.GetUI().OnKeyDown((int)pEventRecord->wParam);
+        break;
+    case WM_CLOSE:
+        if (Pgg_kFrameMgr.IsInRun(GameFrameWorkID)) {
+            Pgg_kFrameMgr.AddMsg(PGFM_EXIT);
+            return true;
+        }
+        break;
+    case WM_ACTIVATE:
+        switch (LOWORD(pEventRecord->wParam)) {
+        case WA_ACTIVE: case WA_CLICKACTIVE:
+            OnWindowActivate(NULL, true);
+            g_kSoundMgr.HoldSound(false);
+            break;
+        case WA_INACTIVE:
+            OnWindowActivate(NULL, false);
+            g_kSoundMgr.HoldSound(true);
+            break;
+        }
+        break;
+    }
+    return NiApplication::OnDefault(pEventRecord);
+}
+
+// ── Network event bridge ──────────────────────────────────────────────────────
+
+void ShineApp::SetZoneSession(ZoneSession* pkZone) {
+    m_pkZone = pkZone;
+    m_kCharSelectFW.SetZoneSession(pkZone);
+    // GameFrameWork's SetupWorld is deferred to PumpPendingEvents() when
+    // OnZoneReady fires and we have a PlayerState.
+}
 
 void ShineApp::OnZoneReady(const PlayerState& rPlayer) {
-    m_kPlayer     = rPlayer;
-    m_bWorldReady = true;
-    m_kHUD.SetVisible(true);
+    EnterCriticalSection(&m_kStateLock);
+    m_kPendingPlayer = rPlayer;
+    LeaveCriticalSection(&m_kStateLock);
+    InterlockedExchange(&m_lZoneReady, 1);
+}
 
-    // Load the starting map assets (.sga files)
-    LoadStartMap();
+void ShineApp::OnCharBaseCmd(const GPacket& rPkt) {
+    EnterCriticalSection(&m_kStateLock);
+    m_kPendingCharBase = rPkt;
+    LeaveCriticalSection(&m_kStateLock);
+    InterlockedExchange(&m_lCharBase, 1);
+}
 
-    SHINELOG_INFO("ShineApp: world ready lv=%u class=%u map=%u",
-                  rPlayer.uiLevel, rPlayer.uiClass, rPlayer.uiMapId);
+void ShineApp::OnCharShapeCmd(const GPacket& rPkt) {
+    EnterCriticalSection(&m_kStateLock);
+    m_kPendingCharShape = rPkt;
+    LeaveCriticalSection(&m_kStateLock);
+    InterlockedExchange(&m_lCharShape, 1);
 }
 
 void ShineApp::OnGamePacket(const GPacket& rPkt) {
-    uint16 nc = (uint16)rPkt.GetOpcode();
-    // Route incoming game packets to the correct subsystem
-    switch (nc) {
-    case NC_CHAR_STATUS_CHANGE_CMD: {
-        // Server is updating our stats (hp/sp changed etc)
-        PacketBuffer body = rPkt.Body();
-        // Update local player state and push to HUD
-        // PROVISIONAL -- full field layout from capture
-        int32 iHP = 0, iSP = 0;
-        body.ReadI32(iHP); body.ReadI32(iSP);
-        m_kPlayer.iHP = iHP;
-        m_kPlayer.iSP = iSP;
-        break;
+    if (Pgg_kFrameMgr.IsInRun(GameFrameWorkID))
+        m_kGameFW.OnGamePacket(rPkt);
+}
+
+void ShineApp::PumpPendingEvents() {
+    // Char base/shape → CharSelectFrameWork
+    if (InterlockedExchange(&m_lCharBase, 0) != 0) {
+        EnterCriticalSection(&m_kStateLock);
+        GPacket pkt = m_kPendingCharBase;
+        LeaveCriticalSection(&m_kStateLock);
+
+        // Transition to char select if not already there
+        if (!Pgg_kFrameMgr.IsInRun(CharSelectFrameWorkID)) {
+            m_kCharSelectFW.SetZoneSession(m_pkZone);
+            // Wire UI callbacks via static thunks (VS2010: no lambdas).
+            m_kCharSelectFW.GetUI().SetCallbacks(
+                &ShineApp::CharSelectThunk,
+                &ShineApp::CharCreateThunk,
+                &ShineApp::CharDeleteThunk,
+                this);
+            m_kCharSelectFW.SetRenderer(m_pkRenderer);
+            Pgg_kFrameMgr.Start(CharSelectFrameWorkID);
+        }
+        m_kCharSelectFW.OnCharBaseCmd(pkt);
     }
-    case NC_MAP_WORLDTICK_CMD:
-        // Handled in ZoneSession, shouldn't reach here
-        break;
-    default:
-        break;
+
+    if (InterlockedExchange(&m_lCharShape, 0) != 0) {
+        EnterCriticalSection(&m_kStateLock);
+        GPacket pkt = m_kPendingCharShape;
+        LeaveCriticalSection(&m_kStateLock);
+        if (Pgg_kFrameMgr.IsInRun(CharSelectFrameWorkID))
+            m_kCharSelectFW.OnCharShapeCmd(pkt);
+    }
+
+    // Zone ready → GameFrameWork
+    if (InterlockedExchange(&m_lZoneReady, 0) != 0) {
+        EnterCriticalSection(&m_kStateLock);
+        PlayerState player = m_kPendingPlayer;
+        LeaveCriticalSection(&m_kStateLock);
+        m_kGameFW.SetupWorld(player, m_pkZone, m_pkRenderer);
     }
 }
 
-// ── Private ───────────────────────────────────────────────────────────────────
+// Member dispatchers invoked by the static thunks below.
+void ShineApp::OnCharSelected(uint32 uiCharId) {
+    m_kCharSelectFW.SelectChar(uiCharId);
+}
+void ShineApp::OnCharCreated(const std::string& rName, uint16 uiClass,
+                              uint8 uiHair, uint8 uiHairColor, uint8 uiFace) {
+    m_kCharSelectFW.CreateChar(rName, uiClass, uiHair, uiHairColor, uiFace);
+}
+void ShineApp::OnCharDeleted(uint32 uiCharId) {
+    m_kCharSelectFW.DeleteChar(uiCharId);
+}
+
+// Static thunks: cast ctx to ShineApp*, dispatch.
+void ShineApp::CharSelectThunk(void* pkCtx, uint32 uiCharId) {
+    ((ShineApp*)pkCtx)->OnCharSelected(uiCharId);
+}
+void ShineApp::CharCreateThunk(void* pkCtx, const std::string& rName,
+                                uint16 uiClass, uint8 uiHair,
+                                uint8 uiHairColor, uint8 uiFace) {
+    ((ShineApp*)pkCtx)->OnCharCreated(rName, uiClass, uiHair, uiHairColor, uiFace);
+}
+void ShineApp::CharDeleteThunk(void* pkCtx, uint32 uiCharId) {
+    ((ShineApp*)pkCtx)->OnCharDeleted(uiCharId);
+}
 
 float ShineApp::GetDeltaTime() {
-    DWORD dwNow = GetTickCount();
-    float fDt   = (float)(dwNow - m_dwLastTick) / 1000.0f;
+    DWORD dwNow  = GetTickCount();
+    float fDt    = (float)(dwNow - m_dwLastTick) / 1000.0f;
     m_dwLastTick = dwNow;
-    if (fDt > 0.1f) fDt = 0.1f; // clamp runaway dt
+    if (fDt > 0.1f) fDt = 0.1f;
     return fDt;
 }
 
-bool ShineApp::LoadStartMap() {
-    if (m_kAssetRoot.empty()) return false;
-    // Build path: Assets/Graphics/Map/<mapId>/terrain.sga
-    char szPath[512];
-    _snprintf_s(szPath, sizeof(szPath), "%s\\Graphics\\Map\\%u\\terrain.sga",
-                m_kAssetRoot.c_str(), m_kPlayer.uiMapId);
-
-    bool bOk = m_kScene.LoadSGA(szPath);
-    if (bOk) {
-        m_kCamera.SetTarget(m_kPlayer.fPosX, m_kPlayer.fPosY, m_kPlayer.fPosZ);
-        SHINELOG_INFO("ShineApp: map %u loaded", m_kPlayer.uiMapId);
-    } else {
-        SHINELOG_WARN("ShineApp: map %u asset not found at '%s' -- world renders empty",
-                      m_kPlayer.uiMapId, szPath);
-    }
-    return bOk;
-}
-
-} // namespace fiesta
+} // namespace shine

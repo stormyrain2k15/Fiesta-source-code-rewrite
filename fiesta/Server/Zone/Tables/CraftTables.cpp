@@ -8,7 +8,7 @@
 #include "BindMacros.h"
 #include "../MiscTables.h"
 
-namespace fiesta {
+namespace shine {
 
 CraftTables& CraftTables::Get() { static CraftTables s; return s; }
 
@@ -29,4 +29,4 @@ bool CraftTables::HasTownPortal(uint32 u) const { return m_kTP.find(u) != m_kTP.
 bool CraftTables::HasGather    (uint32 u) const { return m_kGather.find(u) != m_kGather.end(); }
 bool CraftTables::HasProduce   (uint32 u) const { return m_kProduce.find(u) != m_kProduce.end(); }
 
-} // namespace fiesta
+} // namespace shine

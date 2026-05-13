@@ -1,13 +1,13 @@
 // Server/Zone/SocialSystems.h
 // HolyPromise, Friend, Chat, CardCollection, Title, Attendance.
-#ifndef FIESTA_ZONE_SOCIALSYSTEMS_H
-#define FIESTA_ZONE_SOCIALSYSTEMS_H
+#ifndef SHINE_ZONE_SOCIALSYSTEMS_H
+#define SHINE_ZONE_SOCIALSYSTEMS_H
 #include "ShineObject.h"
 #include <map>
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class HolyPromise { public:
     static bool Propose (CharID a, CharID b);
@@ -50,5 +50,5 @@ class GBHouseTable    { public: static int32 RentFor(uint16 uiTier); };
 class GBTaxRate       { public: static int32 Pct    (uint16 uiTier); };
 class GBExchangeMaxCoin { public: static int32 Cap (uint16 uiTier); };
 
-} // namespace fiesta
+} // namespace shine
 #endif

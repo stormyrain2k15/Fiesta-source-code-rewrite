@@ -1,13 +1,13 @@
 // Server/Zone/MobResistTable.h
 // elemental + damage-type resist lookup per mob species.
 // Source: MobResist.shn.
-#ifndef FIESTA_ZONE_MOBRESISTTABLE_H
-#define FIESTA_ZONE_MOBRESISTTABLE_H
+#ifndef SHINE_ZONE_MOBRESISTTABLE_H
+#define SHINE_ZONE_MOBRESISTTABLE_H
 #include "BattleStat.h"
 #include <map>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 struct LegacyMobResistRow {
     uint16 uiMobID;                 // links to MobInfo.shn
@@ -36,5 +36,5 @@ private:
     std::map<uint16, LegacyMobResistRow> m_kRows;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

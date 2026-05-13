@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/PartyBonusLimit.h
 // Auto-generated: one-file-per-SHN split for PartyBonusLimit.shn
-#ifndef FIESTA_DATAREADER_SHN_PARTYBONUSLIMIT_H
-#define FIESTA_DATAREADER_SHN_PARTYBONUSLIMIT_H
+#ifndef SHINE_DATAREADER_SHN_PARTYBONUSLIMIT_H
+#define SHINE_DATAREADER_SHN_PARTYBONUSLIMIT_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct PartyBonusLimitRow {
     uint8            uiPSE_ChrLv;
@@ -25,5 +25,5 @@ private:
     std::vector<PartyBonusLimitRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_PARTYBONUSLIMIT_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_PARTYBONUSLIMIT_H

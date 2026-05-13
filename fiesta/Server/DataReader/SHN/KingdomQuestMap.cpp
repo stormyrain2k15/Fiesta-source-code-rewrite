@@ -3,7 +3,7 @@
 #include "KingdomQuestMap.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 KingdomQuestMapShn& KingdomQuestMapShn::Get() { static KingdomQuestMapShn s; return s; }
 
@@ -40,4 +40,4 @@ void KingdomQuestMapShn::Load() {
     SHINELOG_INFO("KingdomQuestMap.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

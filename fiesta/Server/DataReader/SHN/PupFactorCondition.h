@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/PupFactorCondition.h
 // Auto-generated: one-file-per-SHN split for PupFactorCondition.shn
-#ifndef FIESTA_DATAREADER_SHN_PUPFACTORCONDITION_H
-#define FIESTA_DATAREADER_SHN_PUPFACTORCONDITION_H
+#ifndef SHINE_DATAREADER_SHN_PUPFACTORCONDITION_H
+#define SHINE_DATAREADER_SHN_PUPFACTORCONDITION_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct PupFactorConditionRow {
     uint32           uiPupMindType;
@@ -28,5 +28,5 @@ private:
     std::vector<PupFactorConditionRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_PUPFACTORCONDITION_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_PUPFACTORCONDITION_H

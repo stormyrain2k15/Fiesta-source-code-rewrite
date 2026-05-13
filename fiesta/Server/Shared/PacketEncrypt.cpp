@@ -4,7 +4,7 @@
 // runtime capture pins down the original cipher schedule.
 #include "PacketEncrypt.h"
 
-namespace fiesta {
+namespace shine {
 
 // Local provisional constants -- edit in-place to match capture.
 static const uint32 kProvSchedMul = 0x9E3779B9u;
@@ -38,4 +38,4 @@ void PacketEncrypt::Encrypt(uint8* pBuf, size_t uiLen) {
 
 void PacketEncrypt::Decrypt(uint8* pBuf, size_t uiLen) { Encrypt(pBuf, uiLen); }
 
-} // namespace fiesta
+} // namespace shine

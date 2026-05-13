@@ -2,7 +2,7 @@
 // Server-side main options -- read from MainOption.shn / ServerInfo.txt
 // at boot. Holds drop-rate scaler, exp-rate scaler, KQ wave count, etc.
 #include "../DataReader/ShnRegistry.h"
-namespace fiesta {
+namespace shine {
 class MainOption {
 public:
     static MainOption& Get() { static MainOption s; return s; }
@@ -17,4 +17,4 @@ private:
     MainOption() : m_iExpRate(100), m_iDropRate(100), m_iMoneyRate(100) {}
     int32 m_iExpRate, m_iDropRate, m_iMoneyRate;
 };
-} // namespace fiesta
+} // namespace shine

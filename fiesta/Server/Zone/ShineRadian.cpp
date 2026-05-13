@@ -2,7 +2,7 @@
 // Radian / yaw helpers -- normalize-to-(-pi,pi), diff, lerp.
 #include <math.h>
 #include "../Shared/ShineTypes.h"
-namespace fiesta {
+namespace shine {
 class ShineRadian {
 public:
     static float Normalize(float r) {
@@ -12,4 +12,4 @@ public:
     }
     static float Diff(float a, float b) { return Normalize(a - b); }
 };
-} // namespace fiesta
+} // namespace shine

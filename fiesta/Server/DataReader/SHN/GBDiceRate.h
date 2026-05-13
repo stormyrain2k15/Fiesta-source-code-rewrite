@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GBDiceRate.h
 // Auto-generated: one-file-per-SHN split for GBDiceRate.shn
-#ifndef FIESTA_DATAREADER_SHN_GBDICERATE_H
-#define FIESTA_DATAREADER_SHN_GBDICERATE_H
+#ifndef SHINE_DATAREADER_SHN_GBDICERATE_H
+#define SHINE_DATAREADER_SHN_GBDICERATE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GBDiceRateRow {
     uint32           uiRate;
@@ -24,5 +24,5 @@ private:
     std::vector<GBDiceRateRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GBDICERATE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GBDICERATE_H

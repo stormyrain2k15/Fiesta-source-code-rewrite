@@ -1,11 +1,11 @@
 // Server/Zone/MinimonDataBox.h
-#ifndef FIESTA_ZONE_MINIONMONDATABOX_H
-#define FIESTA_ZONE_MINIONMONDATABOX_H
-namespace fiesta {
+#ifndef SHINE_ZONE_MINIONMONDATABOX_H
+#define SHINE_ZONE_MINIONMONDATABOX_H
+namespace shine {
 class MinimonDataBox {
 public:
     static MinimonDataBox& Get();
     bool Load();
 };
-} // namespace fiesta
+} // namespace shine
 #endif

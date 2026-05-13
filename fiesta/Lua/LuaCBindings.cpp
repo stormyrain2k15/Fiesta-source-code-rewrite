@@ -18,7 +18,7 @@
 #include "../Server/Shared/ShineLogSystem.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 // cDamaged(targetHandle, amount): apply damage to target.
 static int Lua_cDamaged(lua_State* L) {
@@ -520,4 +520,4 @@ void RegisterZoneLuaAPI(lua_State* L) {
     lua_register(L, "cGroupRegenInstance", &Lua_cGroupRegenInstance_Real);
 }
 
-} // namespace fiesta
+} // namespace shine

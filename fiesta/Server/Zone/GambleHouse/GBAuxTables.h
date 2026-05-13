@@ -2,14 +2,14 @@
 // FEATURE: casino -- four ancillary single-purpose tables. Each is a
 // thin per-SHN binder; one shared header keeps the slot/dice
 // orchestrator's include list manageable.
-#ifndef FIESTA_ZONE_GAMBLEHOUSE_GBAUXTABLES_H
-#define FIESTA_ZONE_GAMBLEHOUSE_GBAUXTABLES_H
+#ifndef SHINE_ZONE_GAMBLEHOUSE_GBAUXTABLES_H
+#define SHINE_ZONE_GAMBLEHOUSE_GBAUXTABLES_H
 #include "../../../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 // ----- GBReward (3 cols: GameType, RewardType, Item_INX) -----
 struct LegacyGBRewardRow {
@@ -63,5 +63,5 @@ private:
     std::map<uint64, int32> m_kRows;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -12,14 +12,14 @@
 // movement, ...) -- the enum mirror is built directly from `EffectEnum`.
 // `ChargedDeletableBuff` lists the abstate ids that the player is allowed to
 // cancel manually before the keep-time runs out (consumables, world buffs).
-#ifndef FIESTA_ZONE_CHARGEDEFFECT_H
-#define FIESTA_ZONE_CHARGEDEFFECT_H
+#ifndef SHINE_ZONE_CHARGEDEFFECT_H
+#define SHINE_ZONE_CHARGEDEFFECT_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -103,5 +103,5 @@ private:
     std::vector<uint16>                               m_kDeletable;  // handles
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

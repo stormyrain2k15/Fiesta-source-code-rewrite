@@ -3,7 +3,7 @@
 #include "GBSMTables.h"
 #include "../../../DataReader/ShnRegistry.h"
 #include "../../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 GBSMJPRateTable& GBSMJPRateTable::Get() { static GBSMJPRateTable s; return s; }
 bool GBSMJPRateTable::Bind() {
     m_kRows.clear();
@@ -27,4 +27,4 @@ uint32 GBSMJPRateTable::RateForPool(uint32 uiPool) const {
     }
     return 0;
 }
-} // namespace fiesta
+} // namespace shine

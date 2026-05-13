@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 
 UseClassTypeInfoTable& UseClassTypeInfoTable::Get() {
     static UseClassTypeInfoTable s; return s;
@@ -34,4 +34,4 @@ bool UseClassTypeInfoTable::IsUsable(uint32 uiUseClass, uint32 uiClassID) const 
     return (it->second & (1ULL << uiClassID)) != 0;
 }
 
-} // namespace fiesta
+} // namespace shine

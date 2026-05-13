@@ -3,7 +3,7 @@
 #include "PupMain.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 PupMainShn& PupMainShn::Get() { static PupMainShn s; return s; }
 
@@ -22,4 +22,4 @@ void PupMainShn::Load() {
     SHINELOG_INFO("PupMain.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

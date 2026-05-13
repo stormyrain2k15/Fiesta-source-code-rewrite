@@ -4,6 +4,6 @@
 // ItemActionEffects.cpp. Observers (ItemActionObserve.cpp) record the
 // result for telemetry / titles.
 #include "../Shared/ShineTypes.h"
-namespace fiesta {
+namespace shine {
 class ItemActions { public: static bool Apply(uint32 /*cid*/, uint32 /*uiActionId*/) { return true; } };
-} // namespace fiesta
+} // namespace shine

@@ -1,12 +1,12 @@
 // Server/Zone/AnnounceSystem.h
 // Public entry point for zone-wide announcements -- system messages,
 // PineScript broadcasts, GMEvent banners.
-#ifndef FIESTA_ZONE_ANNOUNCESYSTEM_H
-#define FIESTA_ZONE_ANNOUNCESYSTEM_H
+#ifndef SHINE_ZONE_ANNOUNCESYSTEM_H
+#define SHINE_ZONE_ANNOUNCESYSTEM_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class AnnounceSystem {
 public:
@@ -16,5 +16,5 @@ public:
     static void Broadcast(uint8 uiLevel, const std::string& rText);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

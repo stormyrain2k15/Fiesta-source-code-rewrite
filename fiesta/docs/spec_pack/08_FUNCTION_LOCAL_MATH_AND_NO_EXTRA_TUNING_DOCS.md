@@ -1,6 +1,6 @@
 # Function-Local Math Policy — No Invented Tuning Documents
 
-This rewrite should look like original Fiesta server source, not a modern balance framework layered on top of it.
+This rewrite should look like original Shine server source, not a modern balance framework layered on top of it.
 
 ## Core rule
 
@@ -25,7 +25,7 @@ Do not create any of these unless original evidence shows the real server had th
 - new global formula registry;
 - new script-only formula override layer.
 
-Original Fiesta already has many data sources: SHN, TXT, Lua, PineScript, SQL, service config, and hardcoded C++ functions. Use those original-style locations only.
+Original Shine already has many data sources: SHN, TXT, Lua, PineScript, SQL, service config, and hardcoded C++ functions. Use those original-style locations only.
 
 ## What belongs in code
 

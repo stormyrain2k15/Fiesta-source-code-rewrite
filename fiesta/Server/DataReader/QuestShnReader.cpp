@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-namespace fiesta {
+namespace shine {
 
 QuestShnReader& QuestShnReader::Get() { static QuestShnReader s; return s; }
 
@@ -133,4 +133,4 @@ const QuestRow* QuestShnReader::FindQuest(uint32 uiQuestId) const {
     return it == m_kQuests.end() ? NULL : &it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

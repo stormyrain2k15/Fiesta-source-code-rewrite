@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../MiscTables.h"
 
-namespace fiesta {
+namespace shine {
 
 RidingTable& RidingTable::Get() { static RidingTable s; return s; }
 
@@ -20,4 +20,4 @@ int32 RidingTable::SpeedFor(uint32 uiID) const {
     return (it == m_kSpeed.end()) ? 0 : it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

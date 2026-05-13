@@ -3,7 +3,7 @@
 #include "TestBase.h"
 #include "../ShineObject.h"
 
-namespace fiesta {
+namespace shine {
 
 TEST_CASE(DynamicCast_PlayerToObject) {
     ShinePlayer* p = new ShinePlayer();
@@ -14,4 +14,4 @@ TEST_CASE(DynamicCast_PlayerToObject) {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

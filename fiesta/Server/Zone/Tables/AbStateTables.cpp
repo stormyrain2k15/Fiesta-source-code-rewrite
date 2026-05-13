@@ -7,7 +7,7 @@
 #include "BindMacros.h"
 #include "../GroupTables.h"
 
-namespace fiesta {
+namespace shine {
 
 AbStateTables& AbStateTables::Get() { static AbStateTables s; return s; }
 
@@ -56,4 +56,4 @@ const AbStateRow* AbStateTables::FindByInx(const std::string& rN) const {
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

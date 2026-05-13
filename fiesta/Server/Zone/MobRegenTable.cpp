@@ -3,7 +3,7 @@
 #include "../DataReader/TableScriptFile.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 bool MobRegenTable::Load(const std::string& rPath) {
     m_kGroups.clear(); m_kRegens.clear();
@@ -64,4 +64,4 @@ void MobRegenBox::Clear() {
     m_kAll.clear();
 }
 
-} // namespace fiesta
+} // namespace shine

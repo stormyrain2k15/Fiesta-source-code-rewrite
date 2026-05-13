@@ -12,13 +12,13 @@
 // Buffs: a master-buff applies to every sub-party while the expedition is
 // active; this matches the GuildTournamentMasterBuff data the original
 // game used during Guild Tournament expeditions.
-#ifndef FIESTA_ZONE_EXPEDITIONSYSTEM_H
-#define FIESTA_ZONE_EXPEDITIONSYSTEM_H
+#ifndef SHINE_ZONE_EXPEDITIONSYSTEM_H
+#define SHINE_ZONE_EXPEDITIONSYSTEM_H
 #include "Party.h"
 #include <vector>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 enum eExpeditionLoot {
     EL_FREE   = 0,
@@ -62,5 +62,5 @@ private:
     uint32                          m_uiNext;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

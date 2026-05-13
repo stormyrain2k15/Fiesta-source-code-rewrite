@@ -3,7 +3,7 @@
 #include "FreeStatSystem.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 ShineObject::ShineObject()
     : m_uiHandle(INVALID_HANDLE), m_uiMap(0),
@@ -108,4 +108,4 @@ void ShinePlayer::LoadFromCharDBRow(const DBRecord& r) {
     m_iHP = m_iMaxHP; m_iSP = m_iMaxSP;
 }
 
-} // namespace fiesta
+} // namespace shine

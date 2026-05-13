@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GuildTournamentOccupy.h
 // Auto-generated: one-file-per-SHN split for GuildTournamentOccupy.shn
-#ifndef FIESTA_DATAREADER_SHN_GUILDTOURNAMENTOCCUPY_H
-#define FIESTA_DATAREADER_SHN_GUILDTOURNAMENTOCCUPY_H
+#ifndef SHINE_DATAREADER_SHN_GUILDTOURNAMENTOCCUPY_H
+#define SHINE_DATAREADER_SHN_GUILDTOURNAMENTOCCUPY_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GuildTournamentOccupyRow {
     uint16           uiMAP_TYPE;
@@ -26,5 +26,5 @@ private:
     std::vector<GuildTournamentOccupyRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GUILDTOURNAMENTOCCUPY_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GUILDTOURNAMENTOCCUPY_H

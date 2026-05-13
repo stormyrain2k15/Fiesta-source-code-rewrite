@@ -4,12 +4,12 @@
 // number of chips a character of given level may convert in one
 // daily window. The level here is the gamble-house seasonal "exchange
 // level", not character level; it's tracked per-character on the WM.
-#ifndef FIESTA_ZONE_GAMBLEHOUSE_GBEXCHANGEMAXCOINTABLE_H
-#define FIESTA_ZONE_GAMBLEHOUSE_GBEXCHANGEMAXCOINTABLE_H
+#ifndef SHINE_ZONE_GAMBLEHOUSE_GBEXCHANGEMAXCOINTABLE_H
+#define SHINE_ZONE_GAMBLEHOUSE_GBEXCHANGEMAXCOINTABLE_H
 #include "../../../Shared/ShineTypes.h"
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 class GBExchangeMaxCoinTable {
 public:
@@ -25,5 +25,5 @@ private:
     std::map<uint8, uint32> m_kRows;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

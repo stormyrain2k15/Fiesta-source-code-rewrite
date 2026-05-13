@@ -1,13 +1,13 @@
 // Server/Zone/GuildSystem.h
 // Guild / Storage / Academy / War / Tournament.
 //                                  GuildAcademy, GuildTournamentSystem, GuildWarManager
-#ifndef FIESTA_ZONE_GUILDSYSTEM_H
-#define FIESTA_ZONE_GUILDSYSTEM_H
+#ifndef SHINE_ZONE_GUILDSYSTEM_H
+#define SHINE_ZONE_GUILDSYSTEM_H
 #include "Inventory.h"
 #include <map>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GuildMember { CharID c; uint8 rank; uint64 uiJoinedMs; };
 struct GuildRec {
@@ -78,5 +78,5 @@ public:
     static int32 OccupyPoints(uint16 uiSec);             // GuildTournamentOccupy
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -1,7 +1,7 @@
 // Server/Zone/Engines/CollectEngine.h
 // Auto-generated: CollectEngine — aggregates 6 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_COLLECTENGINE_H
-#define FIESTA_ZONE_ENGINES_COLLECTENGINE_H
+#ifndef SHINE_ZONE_ENGINES_COLLECTENGINE_H
+#define SHINE_ZONE_ENGINES_COLLECTENGINE_H
 #include "../../DataReader/SHN/CollectCardGroupDesc.h"
 #include "../../DataReader/SHN/CollectCardMobGroup.h"
 #include "../../DataReader/SHN/CollectCardReward.h"
@@ -11,7 +11,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class CollectEngine {
 public:
@@ -30,5 +30,5 @@ private:
     CollectEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_COLLECTENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_COLLECTENGINE_H

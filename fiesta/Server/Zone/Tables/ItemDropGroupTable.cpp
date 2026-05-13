@@ -8,7 +8,7 @@
 #include "../../DataReader/TableScriptFile.h"
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 
 ItemDropGroupTable& ItemDropGroupTable::Get() { static ItemDropGroupTable s; return s; }
 
@@ -40,4 +40,4 @@ const ItemDropGroupRow* ItemDropGroupTable::Find(const std::string& r) const {
     return (it == m_kRows.end()) ? NULL : &it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

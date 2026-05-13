@@ -5,7 +5,7 @@
 #include "PineScript.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 class ScriptInterrupt {
 public:
@@ -15,4 +15,4 @@ public:
     void OnTimer     (uint32 uiTimerId)                        { (void)uiTimerId; }
 };
 
-} // namespace fiesta
+} // namespace shine

@@ -16,7 +16,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 static well512 s_kRng;
 
@@ -258,4 +258,4 @@ eUpgradeResult ItemUpgrade::ResolveForPlayer(ShinePlayer* pkPlayer,
     return eRes;
 }
 
-} // namespace fiesta
+} // namespace shine

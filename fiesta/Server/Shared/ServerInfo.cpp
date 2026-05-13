@@ -3,7 +3,7 @@
 #include "ShineLogSystem.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 std::string ServerInfo::s_kEmpty;
 
@@ -127,4 +127,4 @@ uint16 ServerInfo::GetU16(const std::string& rKey, uint16 uDef) const {
     return (uint16)GetInt(rKey, (int)uDef);
 }
 
-} // namespace fiesta
+} // namespace shine

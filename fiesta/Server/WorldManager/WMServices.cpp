@@ -6,7 +6,7 @@
 #include "WMServices.h"
 #include "GuildServer.h"
 
-namespace fiesta {
+namespace shine {
 
 void WMServicesTickAll() {
     PartyFinderServer        ::Get().Tick();
@@ -25,4 +25,4 @@ void WMServicesTickAll() {
     GambleSystemServer       ::Get().TickCoinExchangeWindow();
 }
 
-} // namespace fiesta
+} // namespace shine

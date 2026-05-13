@@ -6,7 +6,7 @@
 #include "../../Shared/ShineLogSystem.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 bool PSCmdMobRegen(const PSStatement& rSt, PSProgram& /*rProg*/) {
     if (rSt.kCmd == "MobRegen" && rSt.kArgs.size() >= 4) {
@@ -27,4 +27,4 @@ bool PSCmdMobRegen(const PSStatement& rSt, PSProgram& /*rProg*/) {
     return false;
 }
 
-} // namespace fiesta
+} // namespace shine

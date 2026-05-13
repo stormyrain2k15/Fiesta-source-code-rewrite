@@ -10,7 +10,7 @@
 #include "../Common/SendPacket.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 // ---------------------------------------------------------------------------
 //  CharDBClientSession -- glue between the raw IOCPSession and the registry
@@ -375,4 +375,4 @@ void CharDBClient::AbStateGetAll(CharID c) { DBC_SEND1(91, c); }
 #undef DBC_SEND2
 #undef DBC_SEND1
 
-} // namespace fiesta
+} // namespace shine

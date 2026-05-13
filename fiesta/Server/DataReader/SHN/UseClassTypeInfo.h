@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/UseClassTypeInfo.h
 // Auto-generated: one-file-per-SHN split for UseClassTypeInfo.shn
-#ifndef FIESTA_DATAREADER_SHN_USECLASSTYPEINFO_H
-#define FIESTA_DATAREADER_SHN_USECLASSTYPEINFO_H
+#ifndef SHINE_DATAREADER_SHN_USECLASSTYPEINFO_H
+#define SHINE_DATAREADER_SHN_USECLASSTYPEINFO_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct UseClassTypeInfoRow {
     uint32           uiUseClass;
@@ -51,5 +51,5 @@ private:
     std::vector<UseClassTypeInfoRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_USECLASSTYPEINFO_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_USECLASSTYPEINFO_H

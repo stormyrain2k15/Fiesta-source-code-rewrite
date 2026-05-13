@@ -3,7 +3,7 @@
 #include "UpgradeInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 UpgradeInfoShn& UpgradeInfoShn::Get() { static UpgradeInfoShn s; return s; }
 
@@ -45,4 +45,4 @@ const UpgradeInfoRow* UpgradeInfoShn::FindByInx(const std::string& rInx) const {
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

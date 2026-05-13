@@ -1,7 +1,7 @@
 // Server/Zone/Engines/ItemEngine.h
 // Auto-generated: ItemEngine — aggregates 17 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_ITEMENGINE_H
-#define FIESTA_ZONE_ENGINES_ITEMENGINE_H
+#ifndef SHINE_ZONE_ENGINES_ITEMENGINE_H
+#define SHINE_ZONE_ENGINES_ITEMENGINE_H
 #include "../../DataReader/SHN/ActionEffectItem.h"
 #include "../../DataReader/SHN/CollectCardDropRate.h"
 #include "../../DataReader/SHN/ItemAction.h"
@@ -22,7 +22,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class ItemEngine {
 public:
@@ -52,5 +52,5 @@ private:
     ItemEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_ITEMENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_ITEMENGINE_H

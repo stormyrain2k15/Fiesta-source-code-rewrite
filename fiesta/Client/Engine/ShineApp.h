@@ -1,79 +1,86 @@
 // Client/Engine/ShineApp.h
-// ShineApp: NiApplication subclass.
-// Owns the Gamebryo render loop, scene graph, and camera.
-// Wired to ShineNetClient through ClientApp which calls Tick() and Render()
-// on each frame from the Win32 message pump.
-//
-// NiApplication lifecycle (Gamebryo 2.3):
-//   NiInit()                       -- global Ni* subsystem startup
-//   NiApplication::Initialize()    -- virtual, called once before main loop
-//   NiApplication::UpdateFrame()   -- virtual, called each frame
-//   NiApplication::RenderFrame()   -- virtual, called each frame
-//   NiApplication::Terminate()     -- virtual, cleanup
-//   NiShutdown()                   -- global teardown
-//
-// Renderer selection: D3D9 by default (NiDX9Renderer). D3D10 path exists
-// in Gamebryo 2.3 but Fiesta assets are D3D9 era. Switch to D3D10 or your
-// own renderer by overriding CreateRenderer().
 #ifndef SHINE_CLIENT_ENGINE_SHINEAPP_H
 #define SHINE_CLIENT_ENGINE_SHINEAPP_H
 
-// Gamebryo headers -- add ThirdParty/Gamebryo include paths in project settings.
 #include <NiApplication.h>
 #include <NiMain.h>
 #include <NiAnimation.h>
 #include <NiDX9Renderer.h>
 
 #include "../../Server/Shared/ShineTypes.h"
-#include "ShineScene.h"
-#include "ShineCamera.h"
-#include "../UI/ShineHUD.h"
+#include "../Framework/ShineFrameWork.h"
+#include "../Framework/AccountFrameWork.h"
+#include "../Framework/CharSelectFrameWork.h"
+#include "../Framework/GameFrameWork.h"
 #include "../Network/ZoneSession.h"
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class ShineApp : public NiApplication {
     NiDeclareRTTI;
 public:
+    static ShineApp* ms_pkApp;
+    static ShineApp* GetInstance() { return ms_pkApp; }
+
     ShineApp();
     virtual ~ShineApp();
 
-    // NiApplication overrides
-    virtual bool    Initialize()   override;
-    virtual bool    UpdateFrame()  override;
-    virtual bool    RenderFrame()  override;
-    virtual void    Terminate()    override;
+    virtual bool    Initialize()                        override;
+    virtual bool    UpdateFrame()                       override;
+    virtual bool    RenderFrame()                       override;
+    virtual void    Terminate()                         override;
+    virtual bool    CreateRenderer()                    override;
+    virtual bool    OnDefault(NiEventRef pEventRecord)  override;
 
-    // Called by ClientApp when zone is ready with player state
-    void OnZoneReady(const PlayerState& rPlayer);
+    // Render-thread safe -- called after net event pump
+    void OnZoneReady         (const PlayerState& rPlayer);
+    void OnGamePacket        (const GPacket& rPkt);
+    void OnCharBaseCmd       (const GPacket& rPkt);
+    void OnCharShapeCmd      (const GPacket& rPkt);
 
-    // Called by ClientApp each game tick (from WinMain pump, not render thread)
-    void OnGamePacket(const GPacket& rPkt);
+    void SetZoneSession      (ZoneSession* pkZone);
 
-    // Asset root (path to Assets/ dir set by ClientApp before Initialize)
-    void SetAssetRoot(const std::string& rRoot) { m_kAssetRoot = rRoot; }
+    // CharSelectUI handlers (routed via static thunks below).
+    void OnCharSelected(uint32 uiCharId);
+    void OnCharCreated (const std::string& rName, uint16 uiClass,
+                        uint8 uiHair, uint8 uiHairColor, uint8 uiFace);
+    void OnCharDeleted (uint32 uiCharId);
 
-    ShineScene*  GetScene()  { return &m_kScene; }
-    ShineCamera* GetCamera() { return &m_kCamera; }
-    ShineHUD*    GetHUD()    { return &m_kHUD; }
+    GameFrameWork*       GetGameFW()      { return &m_kGameFW; }
+    AccountFrameWork*    GetAccountFW()   { return &m_kAccountFW; }
+    CharSelectFrameWork* GetCharSelectFW(){ return &m_kCharSelectFW; }
 
 private:
-    std::string  m_kAssetRoot;
-    ShineScene   m_kScene;
-    ShineCamera  m_kCamera;
-    ShineHUD     m_kHUD;
+    AccountFrameWork    m_kAccountFW;
+    CharSelectFrameWork m_kCharSelectFW;
+    GameFrameWork       m_kGameFW;
+    ZoneSession*        m_pkZone;
 
-    bool         m_bWorldReady;
-    PlayerState  m_kPlayer;
+    // Zone-ready handoff (net thread -> render thread).
+    // VS2010 has no <atomic>; use volatile LONG + InterlockedExchange.
+    volatile LONG       m_lZoneReady;
+    PlayerState         m_kPendingPlayer;
+    CRITICAL_SECTION    m_kStateLock;
 
-    // Frame timing
-    float        m_fAccumDt;
-    DWORD        m_dwLastTick;
+    // Char base/shape handoff
+    volatile LONG       m_lCharBase;
+    volatile LONG       m_lCharShape;
+    GPacket             m_kPendingCharBase;
+    GPacket             m_kPendingCharShape;
 
-    float        GetDeltaTime();
-    bool         LoadStartMap();
+    DWORD               m_dwLastTick;
+
+    float GetDeltaTime();
+    void  PumpPendingEvents();
+
+    // Static thunks routing CharSelectUI's C-style callbacks back here.
+    static void CharSelectThunk(void* pkCtx, uint32 uiCharId);
+    static void CharCreateThunk(void* pkCtx, const std::string& rName,
+                                 uint16 uiClass, uint8 uiHair,
+                                 uint8 uiHairColor, uint8 uiFace);
+    static void CharDeleteThunk(void* pkCtx, uint32 uiCharId);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif // SHINE_CLIENT_ENGINE_SHINEAPP_H

@@ -11,7 +11,7 @@
 #include "../Shared/PacketBuffer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 DailyQuestTimer& DailyQuestTimer::Get() { static DailyQuestTimer s; return s; }
 
@@ -37,4 +37,4 @@ void DailyQuestTimer::Tick() {
                                                body.Data(), body.Size());
 }
 
-} // namespace fiesta
+} // namespace shine

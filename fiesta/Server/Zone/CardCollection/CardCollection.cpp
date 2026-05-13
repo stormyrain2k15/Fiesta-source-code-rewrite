@@ -3,7 +3,7 @@
 // the card is added to the player's collection book. Completing a set
 // grants a permanent stat bonus.
 #include "../ShineObject.h"
-namespace fiesta {
+namespace shine {
 class CardCollection {
 public:
     static CardCollection& Get() { static CardCollection s; return s; }
@@ -11,4 +11,4 @@ public:
     bool HasSet  (ShinePlayer* pkP, uint32 uiSetId)  { (void)pkP; (void)uiSetId;  return false; }
 };
 class CardDeck { public: static CardDeck& Get() { static CardDeck s; return s; } };
-} // namespace fiesta
+} // namespace shine

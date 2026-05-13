@@ -3,7 +3,7 @@
 #include "BindMacros.h"
 #include "../MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 
 WeaponAttribTable& WeaponAttribTable::Get() { static WeaponAttribTable s; return s; }
 
@@ -27,4 +27,4 @@ const WeaponAttribTable::Row* WeaponAttribTable::Find(uint32 t) const {
     return (it == m_kByType.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

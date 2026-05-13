@@ -4,7 +4,7 @@
 #include "Inventory.h"
 #include "ShineObject.h"
 #include "CharDBClient.h"
-namespace fiesta {
+namespace shine {
 class ShineItemEquip {
 public:
     static bool Equip(ShinePlayer* pkP, uint32 uiItemId, uint16 uiSlot);
@@ -13,4 +13,4 @@ bool ShineItemEquip::Equip(ShinePlayer* pkP, uint32 uiItemId, uint16 /*uiSlot*/)
     if (!pkP) return false;
     return pkP->Inv().Equip(uiItemId);
 }
-} // namespace fiesta
+} // namespace shine

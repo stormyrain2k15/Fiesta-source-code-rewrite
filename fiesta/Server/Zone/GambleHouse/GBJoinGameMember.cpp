@@ -3,7 +3,7 @@
 #include "GBAuxTables.h"
 #include "../../DataReader/ShnRegistry.h"
 #include "../../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 GBJoinGameMemberTable& GBJoinGameMemberTable::Get() {
     static GBJoinGameMemberTable s; return s;
 }
@@ -28,4 +28,4 @@ bool GBJoinGameMemberTable::Find(uint32 uiGT, GBJoinRow& rOut) const {
     if (it == m_kRows.end()) return false;
     rOut = it->second; return true;
 }
-} // namespace fiesta
+} // namespace shine

@@ -1,9 +1,10 @@
-# Fiesta Online Server + Client Engine
+# Shine Engine -- Fiesta Online Server + Client Rewrite
 
 ## Goal
 
-Reproduce the NA2016-era Fiesta Online server and client engine from the
-project owner's documentation pack and the vendored Gamebryo 2.3 CoreLibs.
+Reproduce the NA2016-era Fiesta Online server and client engine -- under
+the brand name **Shine Engine** -- from the project owner's documentation
+pack and the vendored Gamebryo 2.3 CoreLibs.
 Targets: VS2010 (`v100` / Win32), Lua 5.2, Trinigy/Gamebryo as the
 read-only client renderer.
 

@@ -3,7 +3,7 @@
 #include "../../Shared/ShineLogSystem.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 Database::Database() : m_hEnv(SQL_NULL_HENV), m_hDbc(SQL_NULL_HDBC) {
     InitializeCriticalSection(&m_kCs);
@@ -96,4 +96,4 @@ bool Database::QueryProc(const std::string& rProc, const std::string& rArgs, std
     return Query(kSql, rOut);
 }
 
-} // namespace fiesta
+} // namespace shine

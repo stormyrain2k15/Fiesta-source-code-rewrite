@@ -4,7 +4,7 @@
 #include "GTimer.h"
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 CToken::CToken() { Reset(); }
 
@@ -31,4 +31,4 @@ bool CToken::Verify(AccountID aid, uint32 uiWorldId, const uint8 aSecret[16]) co
     return d == 0;
 }
 
-} // namespace fiesta
+} // namespace shine

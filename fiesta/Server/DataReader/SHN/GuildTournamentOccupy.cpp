@@ -3,7 +3,7 @@
 #include "GuildTournamentOccupy.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GuildTournamentOccupyShn& GuildTournamentOccupyShn::Get() { static GuildTournamentOccupyShn s; return s; }
 
@@ -21,4 +21,4 @@ void GuildTournamentOccupyShn::Load() {
     SHINELOG_INFO("GuildTournamentOccupy.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

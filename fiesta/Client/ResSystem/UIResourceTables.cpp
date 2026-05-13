@@ -1,7 +1,7 @@
 // Client/ResSystem/UIResourceTables.cpp
 #include "UIResourceTables.h"
 #include <map>
-namespace fiesta {
+namespace shine {
 
 #define _NC_ENTRY(name) { name, #name }
 struct NCNameEntry { NCOpcode nc; const char* sz; };
@@ -47,4 +47,4 @@ NCOpcode ParseNCName(const std::string& rName) {
     return (NCOpcode)0;
 }
 
-} // namespace fiesta
+} // namespace shine

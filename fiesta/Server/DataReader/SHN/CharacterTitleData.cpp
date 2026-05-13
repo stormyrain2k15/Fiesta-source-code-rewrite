@@ -2,7 +2,7 @@
 #include "CharacterTitleData.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 CharacterTitleDataShn& CharacterTitleDataShn::Get() {
     static CharacterTitleDataShn s; return s;
@@ -40,4 +40,4 @@ const CharacterTitleDataRow* CharacterTitleDataShn::FindByType(uint32 uiType) co
     return (it == m_kByType.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

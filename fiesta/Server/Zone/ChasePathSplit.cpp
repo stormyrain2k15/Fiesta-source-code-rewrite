@@ -3,6 +3,6 @@
 // intermediate intercept points so the chaser doesn't lock onto a stale
 // destination.
 #include "../Shared/ShineTypes.h"
-namespace fiesta {
+namespace shine {
 class ChasePathSplit { public: ChasePathSplit() {} };
-} // namespace fiesta
+} // namespace shine

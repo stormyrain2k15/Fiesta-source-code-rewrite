@@ -4,7 +4,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include "BattleTunables.h"
 
-namespace fiesta {
+namespace shine {
 
 static void AnnounceSystem_Broadcast(uint8 uiLevel, const std::string& rText) {
     AnnounceSystem::Broadcast(uiLevel, rText);
@@ -99,4 +99,4 @@ void LiveOpsBoosts::Tick() {
     Stop();
 }
 
-} // namespace fiesta
+} // namespace shine

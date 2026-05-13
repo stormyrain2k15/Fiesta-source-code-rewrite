@@ -1,14 +1,14 @@
 // Server/Zone/FieldTable.h
 // typed loader for World/Field.txt (FieldList table).
 // Source format: TableScript (#Table FieldList / #ColumnType / #Record ...).
-#ifndef FIESTA_ZONE_FIELDTABLE_H
-#define FIESTA_ZONE_FIELDTABLE_H
+#ifndef SHINE_ZONE_FIELDTABLE_H
+#define SHINE_ZONE_FIELDTABLE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct FieldRow {
     std::string kMapIDClient;     // e.g. "Rou", "Eld", "RouCos01"
@@ -56,7 +56,7 @@ struct FieldRow {
     uint16      uiExpLostAtDeadByPly;
     uint8       uiUsrSubLayer;
     uint8       uiCheckSum;
-    uint8       uiFiesta;
+    uint8       uiShine;
 };
 
 class FieldTable {
@@ -78,5 +78,5 @@ private:
     std::map<std::string, size_t>    m_kByName;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

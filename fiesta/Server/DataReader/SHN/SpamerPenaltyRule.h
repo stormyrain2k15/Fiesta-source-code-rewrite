@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/SpamerPenaltyRule.h
 // Auto-generated: one-file-per-SHN split for SpamerPenaltyRule.shn
-#ifndef FIESTA_DATAREADER_SHN_SPAMERPENALTYRULE_H
-#define FIESTA_DATAREADER_SHN_SPAMERPENALTYRULE_H
+#ifndef SHINE_DATAREADER_SHN_SPAMERPENALTYRULE_H
+#define SHINE_DATAREADER_SHN_SPAMERPENALTYRULE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct SpamerPenaltyRuleRow {
     uint16           uiSecondRule;
@@ -25,5 +25,5 @@ private:
     std::vector<SpamerPenaltyRuleRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_SPAMERPENALTYRULE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_SPAMERPENALTYRULE_H

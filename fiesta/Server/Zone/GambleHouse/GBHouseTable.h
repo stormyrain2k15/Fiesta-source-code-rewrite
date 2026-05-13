@@ -10,11 +10,11 @@
 //
 // One file per SHN; this is the per-table binder convention adopted
 // 2026-02 (NA2016 canon).
-#ifndef FIESTA_ZONE_GAMBLEHOUSE_GBHOUSETABLE_H
-#define FIESTA_ZONE_GAMBLEHOUSE_GBHOUSETABLE_H
+#ifndef SHINE_ZONE_GAMBLEHOUSE_GBHOUSETABLE_H
+#define SHINE_ZONE_GAMBLEHOUSE_GBHOUSETABLE_H
 #include "../../../Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 struct LegacyGBHouseRow {
     uint32 uiGameMoney;     // gold cost per 1 chip (Lucky Coin)
@@ -37,5 +37,5 @@ private:
     bool       m_bLoaded;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Lua"><UniqueIdentifier>{348CE68F-910D-5AEA-8F89-3D8AA826CCA9}</UniqueIdentifier></Filter>
+    <Filter Include="Lua"><UniqueIdentifier>{37A75B25-49ED-5A46-B232-B037D5304FC6}</UniqueIdentifier></Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Lua\LuaAPI.cpp"><Filter>Lua</Filter></ClCompile>

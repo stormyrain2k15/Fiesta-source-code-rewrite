@@ -5,7 +5,7 @@
 #include "../../Shared/ShineTypes.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct NavWaypoint { float x, y; };
 
@@ -25,4 +25,4 @@ bool MapNavigator::RouteTo(uint16 /*uiMap*/, float sx, float sy, float dx, float
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

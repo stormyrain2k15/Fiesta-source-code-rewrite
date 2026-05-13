@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 PacketBuffer::PacketBuffer() : m_pData(NULL), m_uiSize(0), m_uiCap(0), m_uiRead(0) {}
 
@@ -66,4 +66,4 @@ bool PacketBuffer::ReadString(std::string& s){
     s.assign((const char*)(m_pData+m_uiRead), n); m_uiRead+=n; return true;
 }
 
-} // namespace fiesta
+} // namespace shine

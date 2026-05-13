@@ -5,7 +5,7 @@
 #include "MoveManager.h"
 #include "MobAIRunner.h"
 
-namespace fiesta {
+namespace shine {
 
 void ShineObjectRoutine::TickAll() {
     const std::map<Handle, ShinePlayer*>& kPlayers = ZoneServer::Get().Players();
@@ -37,4 +37,4 @@ void ShineObjectRoutine::Tick(ShineObject* pkObj) {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

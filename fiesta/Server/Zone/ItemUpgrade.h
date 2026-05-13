@@ -12,11 +12,11 @@
 // success / downgrade the new enchant level is persisted via
 // CharDBClient::ItemSetOption (uiType = 1 = enchant level), and on destroy
 // via CharDBClient::ItemDelete.
-#ifndef FIESTA_ZONE_ITEMUPGRADE_H
-#define FIESTA_ZONE_ITEMUPGRADE_H
+#ifndef SHINE_ZONE_ITEMUPGRADE_H
+#define SHINE_ZONE_ITEMUPGRADE_H
 #include "Inventory.h"
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -57,6 +57,6 @@ public:
     static void CloseSession(ShinePlayer* pkPlayer);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif
 

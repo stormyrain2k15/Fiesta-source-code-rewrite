@@ -8,12 +8,12 @@
 // Inbound from WM:
 //   - NC_INTER_OPTOOL_*_PUSH (ban/kick/jail/unjail/sysmsg/giveitem/takeitem)
 //     -- routed through WMClient to the in-process Zone helpers.
-#ifndef FIESTA_ZONE_WMCLIENT_H
-#define FIESTA_ZONE_WMCLIENT_H
+#ifndef SHINE_ZONE_WMCLIENT_H
+#define SHINE_ZONE_WMCLIENT_H
 #include "../Shared/Socket_Connector.h"
 #include "../Shared/IOCPManager.h"
 
-namespace fiesta {
+namespace shine {
 
 class WMClient {
 public:
@@ -36,5 +36,5 @@ private:
     Socket_Connector m_kConn;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

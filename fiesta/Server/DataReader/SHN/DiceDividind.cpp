@@ -3,7 +3,7 @@
 #include "DiceDividind.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 DiceDividindShn& DiceDividindShn::Get() { static DiceDividindShn s; return s; }
 
@@ -34,4 +34,4 @@ void DiceDividindShn::Load() {
     SHINELOG_INFO("DiceDividind.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

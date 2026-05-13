@@ -25,7 +25,7 @@
 #include "MiscTables.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 // Stub binders for the deprecated DamageLvGapTables so the class still
 // links. Returns the safe 1.0x neutral fallback for every lookup; the
@@ -51,4 +51,4 @@ void BindAllMiscTables() {
     BadNameFilter::Get()    .Bind();
 }
 
-} // namespace fiesta
+} // namespace shine

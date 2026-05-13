@@ -3,14 +3,14 @@
 // the per-ID script declares OnEnter / OnPhase / OnTimer / OnMobDeath
 // callbacks. Each ID gets its own lua_State; AI scripts (per-mob behaviour)
 // share the global state owned by AIScript.cpp.
-#ifndef FIESTA_ZONE_LUASCRIPT_H
-#define FIESTA_ZONE_LUASCRIPT_H
+#ifndef SHINE_ZONE_LUASCRIPT_H
+#define SHINE_ZONE_LUASCRIPT_H
 #include "../../Shared/ShineTypes.h"
 #include <string>
 
 struct lua_State;
 
-namespace fiesta {
+namespace shine {
 
 class LuaScript {
 public:
@@ -26,5 +26,5 @@ private:
     lua_State* m_pkL;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

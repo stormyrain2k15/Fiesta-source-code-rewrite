@@ -5,7 +5,7 @@
 #include "../../Shared/ShineLogSystem.h"
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 
 ItemOptionsTable& ItemOptionsTable::Get() { static ItemOptionsTable s; return s; }
 
@@ -49,4 +49,4 @@ int32 ItemOptionsTable::PickBucket(uint16 uiDegree, const std::string& rType,
     return -1;
 }
 
-} // namespace fiesta
+} // namespace shine

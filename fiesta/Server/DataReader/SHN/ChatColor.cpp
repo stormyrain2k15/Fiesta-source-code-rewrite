@@ -3,7 +3,7 @@
 #include "ChatColor.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ChatColorShn& ChatColorShn::Get() { static ChatColorShn s; return s; }
 
@@ -22,4 +22,4 @@ void ChatColorShn::Load() {
     SHINELOG_INFO("ChatColor.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -8,7 +8,7 @@
 #include "WMServices.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 HolyPromiseServer& HolyPromiseServer::Get() { static HolyPromiseServer s; return s; }
 
@@ -40,4 +40,4 @@ bool HolyPromiseServer::IsPromised(CharID c, CharID* pPartnerOut) const {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

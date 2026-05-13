@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/KQItem.h
 // Auto-generated: one-file-per-SHN split for KQItem.shn
-#ifndef FIESTA_DATAREADER_SHN_KQITEM_H
-#define FIESTA_DATAREADER_SHN_KQITEM_H
+#ifndef SHINE_DATAREADER_SHN_KQITEM_H
+#define SHINE_DATAREADER_SHN_KQITEM_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct KQItemRow {
     std::string      kItemIndex;
@@ -27,5 +27,5 @@ private:
     std::vector<KQItemRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_KQITEM_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_KQITEM_H

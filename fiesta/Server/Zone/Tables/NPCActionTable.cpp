@@ -7,7 +7,7 @@
 #include "../../DataReader/TableScriptFile.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 NPCActionTable& NPCActionTable::Get() { static NPCActionTable s; return s; }
 
@@ -69,4 +69,4 @@ const NPCActionTable::CondRow* NPCActionTable::FindCond(uint8 uiConditionID) con
     return (it == m_kCondById.end()) ? NULL : &m_kConds[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

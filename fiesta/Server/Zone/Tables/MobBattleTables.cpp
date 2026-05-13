@@ -7,7 +7,7 @@
 #include "BindMacros.h"
 #include "../MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 
 MobBattleTables& MobBattleTables::Get() { static MobBattleTables s; return s; }
 
@@ -99,4 +99,4 @@ void MobBattleTables::AutoActionsByMob(const std::string& rN,
         if (m_kAuto[i].kMobInx == rN) rOut.push_back(&m_kAuto[i]);
 }
 
-} // namespace fiesta
+} // namespace shine

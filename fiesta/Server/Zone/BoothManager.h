@@ -9,15 +9,15 @@
 //
 // Booth pricing / item listing lives on the per-booth record; the
 // manager is purely a directory.
-#ifndef FIESTA_ZONE_BOOTHMANAGER_H
-#define FIESTA_ZONE_BOOTHMANAGER_H
+#ifndef SHINE_ZONE_BOOTHMANAGER_H
+#define SHINE_ZONE_BOOTHMANAGER_H
 #include "Inventory.h"
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -56,5 +56,5 @@ private:
     std::map<CharID, BoothRecord> m_kOpen;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

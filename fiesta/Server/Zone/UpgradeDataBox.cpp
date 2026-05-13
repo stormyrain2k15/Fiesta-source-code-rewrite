@@ -2,7 +2,7 @@
 // Generic upgrade data box -- bundles weapon / armor / accessory
 // upgrade tables for one-stop lookup.
 #include "../DataReader/ShnRegistry.h"
-namespace fiesta {
+namespace shine {
 class UpgradeDataBox {
 public:
     static UpgradeDataBox& Get() { static UpgradeDataBox s; return s; }
@@ -11,4 +11,4 @@ public:
             || ShnRegistry::Get().GetTable("ArmorUpgrade")   != NULL;
     }
 };
-} // namespace fiesta
+} // namespace shine

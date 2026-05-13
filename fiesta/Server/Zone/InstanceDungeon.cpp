@@ -5,7 +5,7 @@
 #include "../Common/SendPacket.h"
 #include "../Shared/ShineLogSystem.h"
 #include "../Shared/GTimer.h"
-namespace fiesta {
+namespace shine {
 
 MIDServer& MIDServer::Get() { static MIDServer s; return s; }
 
@@ -55,4 +55,4 @@ void InstanceDungeon::OnPlayerEnter(ShinePlayer* pk, uint32 uiTypeId) {
 }
 uint64 InstanceDungeon_util::ProvisionalDurationMs(uint32) { return 30ULL * 60ULL * 1000ULL; }
 
-} // namespace fiesta
+} // namespace shine

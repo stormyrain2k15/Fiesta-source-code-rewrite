@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/CollectCardStarRate.h
 // Auto-generated: one-file-per-SHN split for CollectCardStarRate.shn
-#ifndef FIESTA_DATAREADER_SHN_COLLECTCARDSTARRATE_H
-#define FIESTA_DATAREADER_SHN_COLLECTCARDSTARRATE_H
+#ifndef SHINE_DATAREADER_SHN_COLLECTCARDSTARRATE_H
+#define SHINE_DATAREADER_SHN_COLLECTCARDSTARRATE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct CollectCardStarRateRow {
     uint32           uiCC_CardGradeType;
@@ -26,5 +26,5 @@ private:
     std::vector<CollectCardStarRateRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_COLLECTCARDSTARRATE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_COLLECTCARDSTARRATE_H

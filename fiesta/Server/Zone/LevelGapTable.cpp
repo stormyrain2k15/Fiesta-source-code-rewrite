@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 LevelGapTable& LevelGapTable::Get() { static LevelGapTable s; return s; }
 
@@ -174,4 +174,4 @@ int32 LevelGapTable::GetMultiplier(int32 nAtkLevel, int32 nDefLevel,
     return m_aPvE[slot];
 }
 
-} // namespace fiesta
+} // namespace shine

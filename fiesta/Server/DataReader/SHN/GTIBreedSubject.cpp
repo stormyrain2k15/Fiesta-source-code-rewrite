@@ -3,7 +3,7 @@
 #include "GTIBreedSubject.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GTIBreedSubjectShn& GTIBreedSubjectShn::Get() { static GTIBreedSubjectShn s; return s; }
 
@@ -26,4 +26,4 @@ const GTIBreedSubjectRow* GTIBreedSubjectShn::FindByInx(const std::string& rInx)
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

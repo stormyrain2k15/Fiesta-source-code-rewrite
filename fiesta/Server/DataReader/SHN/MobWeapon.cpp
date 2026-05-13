@@ -3,7 +3,7 @@
 #include "MobWeapon.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MobWeaponShn& MobWeaponShn::Get() { static MobWeaponShn s; return s; }
 
@@ -52,4 +52,4 @@ const MobWeaponRow* MobWeaponShn::FindByInx(const std::string& rInx) const {
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

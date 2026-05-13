@@ -5,7 +5,7 @@
 #include "ShineObject.h"
 #include "BattleTunables.h"
 
-namespace fiesta {
+namespace shine {
 
 void FillRawCharStatFromPlayer(RAWCHARSTAT& rOut, const ShinePlayer& kP) {
     rOut.Clear();
@@ -121,5 +121,5 @@ void BuildBattleStat(BATTLESTAT* pOut,
     if (pOut->nMaxSP < 0) pOut->nMaxSP = 0;
 }
 
-} // namespace fiesta
+} // namespace shine
 

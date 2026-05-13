@@ -3,7 +3,7 @@
 #include "../../Server/Shared/ShineLogSystem.h"
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 const void* PEResourceReader::Find(const char* szName, const char* szType, DWORD& rdwSize) {
     rdwSize = 0;
@@ -38,4 +38,4 @@ bool PEResourceReader::ReadInto(const char* szName, const char* szType,
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

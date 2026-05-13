@@ -6,7 +6,7 @@ extern "C" {
 #include <lua.h>
 #include <lauxlib.h>
 }
-namespace fiesta {
+namespace shine {
 static int Lua_InstanceDungeonClear(lua_State* L) { (void)L; return 0; }
 static int Lua_cAbstateRestTime(lua_State* L) { (void)L; return 0; }
 static int Lua_cActByEventCode(lua_State* L) { (void)L; return 0; }
@@ -554,4 +554,4 @@ void RegisterAllLuaAPIs(lua_State* L) {
     lua_register(L, "cWaitIdle", &Lua_cWaitIdle);
     lua_register(L, "cWillMovement", &Lua_cWillMovement);
 }
-} // namespace fiesta
+} // namespace shine

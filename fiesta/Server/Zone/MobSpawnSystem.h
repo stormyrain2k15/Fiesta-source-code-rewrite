@@ -4,14 +4,14 @@
 // `SpawnGroup` per `MobRegenGroup` row, and per-tick instantiates
 // `MobNum` mobs of the referenced species inside the group's area.
 // Killed mobs respawn after a `RegStandard` (+ aDelta/aSec curve) delay.
-#ifndef FIESTA_ZONE_MOBSPAWNSYSTEM_H
-#define FIESTA_ZONE_MOBSPAWNSYSTEM_H
+#ifndef SHINE_ZONE_MOBSPAWNSYSTEM_H
+#define SHINE_ZONE_MOBSPAWNSYSTEM_H
 #include "MobRegenTable.h"
 #include "ShineObject.h"
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 struct MobSpawnGroup {
     std::string kGroupIndex;
@@ -62,5 +62,5 @@ private:
     std::map<Handle, size_t>   m_kHandleToGroup;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

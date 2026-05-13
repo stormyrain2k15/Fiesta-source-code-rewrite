@@ -21,14 +21,14 @@
 //
 // CSV exporters / audit tooling: call ShnRegistry::IsQuestShn() to
 // SKIP these files entirely. They must not invoke this reader.
-#ifndef FIESTA_DATAREADER_QUESTSHNREADER_H
-#define FIESTA_DATAREADER_QUESTSHNREADER_H
+#ifndef SHINE_DATAREADER_QUESTSHNREADER_H
+#define SHINE_DATAREADER_QUESTSHNREADER_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 // Per-quest record produced by the dedicated reader. Field set is
 // deliberately minimal -- the canonical NA2016 quest record shape is
@@ -85,5 +85,5 @@ private:
     std::map<uint32, QuestRow> m_kQuests;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

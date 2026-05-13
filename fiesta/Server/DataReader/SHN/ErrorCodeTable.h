@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/ErrorCodeTable.h
 // Auto-generated: one-file-per-SHN split for ErrorCodeTable.shn
-#ifndef FIESTA_DATAREADER_SHN_ERRORCODETABLE_H
-#define FIESTA_DATAREADER_SHN_ERRORCODETABLE_H
+#ifndef SHINE_DATAREADER_SHN_ERRORCODETABLE_H
+#define SHINE_DATAREADER_SHN_ERRORCODETABLE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ErrorCodeTableRow {
     uint32           uiErrorCode;
@@ -25,5 +25,5 @@ private:
     std::vector<ErrorCodeTableRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ERRORCODETABLE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ERRORCODETABLE_H

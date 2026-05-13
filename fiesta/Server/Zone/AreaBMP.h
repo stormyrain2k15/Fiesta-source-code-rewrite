@@ -2,14 +2,14 @@
 // 1-bit / grayscale bitmaps that define the on-ground shape of AOE skills.
 // Files live under AreaBMP/<SkillName>_*.bmp. Each pixel is a cell in the
 // skill's footprint (origin = caster, scale per-cell from skill metadata).
-#ifndef FIESTA_ZONE_AREABMP_H
-#define FIESTA_ZONE_AREABMP_H
+#ifndef SHINE_ZONE_AREABMP_H
+#define SHINE_ZONE_AREABMP_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 struct AreaMask {
     uint16             uiW, uiH;
@@ -34,5 +34,5 @@ private:
 // Minimal Windows BMP reader (BI_RGB 8/24/32 bpp, top-down or bottom-up).
 bool LoadBmp(const std::string& rPath, AreaMask& rOut);
 
-} // namespace fiesta
+} // namespace shine
 #endif

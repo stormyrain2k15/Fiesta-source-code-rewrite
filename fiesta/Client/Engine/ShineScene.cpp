@@ -3,7 +3,7 @@
 #include "../../Server/Shared/ShineLogSystem.h"
 #include <NiStream.h>
 
-namespace fiesta {
+namespace shine {
 
 ShineScene::ShineScene() : m_pkRenderer(NULL) {}
 ShineScene::~ShineScene() { Shutdown(); }
@@ -63,4 +63,4 @@ void ShineScene::ClearScene() {
         m_spRoot->DetachAllChildren();
 }
 
-} // namespace fiesta
+} // namespace shine

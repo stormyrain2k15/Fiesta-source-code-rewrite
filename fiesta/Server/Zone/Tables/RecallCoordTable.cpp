@@ -7,7 +7,7 @@
 #include "../../DataReader/TableScriptFile.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 RecallCoordTable& RecallCoordTable::Get() { static RecallCoordTable s; return s; }
 
@@ -36,4 +36,4 @@ const RecallCoordRow* RecallCoordTable::FindByItem(const std::string& r) const {
     return (it == m_kRows.end()) ? NULL : &it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

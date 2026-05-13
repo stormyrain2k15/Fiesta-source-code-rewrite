@@ -3,7 +3,7 @@
 #include "CollectEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 CollectEngine& CollectEngine::Get() { static CollectEngine s; return s; }
 
@@ -17,4 +17,4 @@ void CollectEngine::Bind() {
     SHINELOG_INFO("CollectEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build/CI/audit_client_compat.py
 
-Validates that every file under fiesta/Client/ stays compatible with the
+Validates that every file under shine/Client/ stays compatible with the
 project's hard VS2010 / MBCS / Win32 ceiling. The user's toolchain has no
 C++11 STL (no <atomic>, <functional>, <thread>, <mutex>, etc.) and the
 compiler rejects lambdas, range-for, nullptr, auto, and the inline

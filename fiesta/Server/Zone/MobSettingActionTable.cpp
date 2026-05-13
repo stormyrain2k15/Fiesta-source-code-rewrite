@@ -3,7 +3,7 @@
 #include "../DataReader/TableScriptFile.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 bool MobSettingActionFile::Load(const std::string& rPath) {
     m_kTriggers.clear();
@@ -50,4 +50,4 @@ void MobSettingActionBox::Clear() {
     m_kAll.clear();
 }
 
-} // namespace fiesta
+} // namespace shine

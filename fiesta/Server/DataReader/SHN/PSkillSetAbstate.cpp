@@ -3,7 +3,7 @@
 #include "PSkillSetAbstate.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 PSkillSetAbstateShn& PSkillSetAbstateShn::Get() { static PSkillSetAbstateShn s; return s; }
 
@@ -23,4 +23,4 @@ void PSkillSetAbstateShn::Load() {
     SHINELOG_INFO("PSkillSetAbstate.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

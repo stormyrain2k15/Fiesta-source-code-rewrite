@@ -1,8 +1,8 @@
 // Server/DataServer/Common/Database.h
 // thin wrapper around ODBC connection. Per spec rule, we do not introduce
 // a new ORM/config layer. Connection string comes from ServerInfo.txt.
-#ifndef FIESTA_DATABASE_H
-#define FIESTA_DATABASE_H
+#ifndef SHINE_DATABASE_H
+#define SHINE_DATABASE_H
 #include "../../Shared/ShineTypes.h"
 #include <sql.h>
 #include <sqlext.h>
@@ -11,7 +11,7 @@
 
 #pragma comment(lib, "odbc32.lib")
 
-namespace fiesta {
+namespace shine {
 
 class DBRecord {
 public:
@@ -45,5 +45,5 @@ private:
     CRITICAL_SECTION m_kCs;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -3,7 +3,7 @@
 #include "MobEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MobEngine& MobEngine::Get() { static MobEngine s; return s; }
 
@@ -25,4 +25,4 @@ void MobEngine::Bind() {
     SHINELOG_INFO("MobEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

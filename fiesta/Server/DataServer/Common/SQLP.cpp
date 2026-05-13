@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <stdarg.h>     // va_list / va_start / va_end (required on VS2010)
 
-namespace fiesta {
+namespace shine {
 
 // ---------------------------------------------------------------------------
 //  Internal helpers (file-local).
@@ -248,7 +248,7 @@ bool SQLP_Guild::TournamentGetLastMatch(DBRecord& rOut) {
 // WM-side guild mutators -----------------------------------------------------
 //
 // Each forwards to a stored proc on the Character DB. The named procs are
-// the published Fiesta schema; the strings here are exactly what the SQL
+// the published Shine schema; the strings here are exactly what the SQL
 // scripts in the project owner's pack create.
 bool SQLP_Guild::Create(CharID c, const std::string& rName, uint32& uiOut) {
     uiOut = 0;
@@ -548,4 +548,4 @@ bool SQLP_Estate::Load(CharID owner, std::vector<DBRecord>& rOut) {
     return m_pkDb->QueryProc("p_Estate_LoadFurniture", F("%u", owner), rOut);
 }
 
-} // namespace fiesta
+} // namespace shine

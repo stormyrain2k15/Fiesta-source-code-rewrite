@@ -3,7 +3,7 @@
 #include "RaceNameInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 RaceNameInfoShn& RaceNameInfoShn::Get() { static RaceNameInfoShn s; return s; }
 
@@ -22,4 +22,4 @@ void RaceNameInfoShn::Load() {
     SHINELOG_INFO("RaceNameInfo.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

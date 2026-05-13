@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 
 SetEffectTable& SetEffectTable::Get() { static SetEffectTable s; return s; }
 
@@ -30,4 +30,4 @@ void SetEffectTable::RowsForSet(uint32 uiIdx, std::vector<const Row*>& rOut) con
         rOut.push_back(&m_kRows[it->second[i]]);
 }
 
-} // namespace fiesta
+} // namespace shine

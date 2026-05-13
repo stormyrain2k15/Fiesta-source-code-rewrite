@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/CollectCardGroupDesc.h
 // Auto-generated: one-file-per-SHN split for CollectCardGroupDesc.shn
-#ifndef FIESTA_DATAREADER_SHN_COLLECTCARDGROUPDESC_H
-#define FIESTA_DATAREADER_SHN_COLLECTCARDGROUPDESC_H
+#ifndef SHINE_DATAREADER_SHN_COLLECTCARDGROUPDESC_H
+#define SHINE_DATAREADER_SHN_COLLECTCARDGROUPDESC_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct CollectCardGroupDescRow {
     uint32           uiCC_CardMobGroup;
@@ -25,5 +25,5 @@ private:
     std::vector<CollectCardGroupDescRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_COLLECTCARDGROUPDESC_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_COLLECTCARDGROUPDESC_H

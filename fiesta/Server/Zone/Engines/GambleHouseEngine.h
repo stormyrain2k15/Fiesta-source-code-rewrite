@@ -1,7 +1,7 @@
 // Server/Zone/Engines/GambleHouseEngine.h
 // GambleHouseEngine — aggregates 23 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_GAMBLEHOUSEENGINE_H
-#define FIESTA_ZONE_ENGINES_GAMBLEHOUSEENGINE_H
+#ifndef SHINE_ZONE_ENGINES_GAMBLEHOUSEENGINE_H
+#define SHINE_ZONE_ENGINES_GAMBLEHOUSEENGINE_H
 #include "../../DataReader/SHN/DiceDividind.h"
 #include "../../DataReader/SHN/DiceGame.h"
 #include "../../DataReader/SHN/DiceRate.h"
@@ -28,7 +28,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class GambleHouseEngine {
 public:
@@ -64,5 +64,5 @@ private:
     GambleHouseEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_GAMBLEHOUSEENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_GAMBLEHOUSEENGINE_H

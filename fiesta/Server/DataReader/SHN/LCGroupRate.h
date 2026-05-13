@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/LCGroupRate.h
 // Auto-generated: one-file-per-SHN split for LCGroupRate.shn
-#ifndef FIESTA_DATAREADER_SHN_LCGROUPRATE_H
-#define FIESTA_DATAREADER_SHN_LCGROUPRATE_H
+#ifndef SHINE_DATAREADER_SHN_LCGROUPRATE_H
+#define SHINE_DATAREADER_SHN_LCGROUPRATE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct LCGroupRateRow {
     uint32           uiItem_ID;
@@ -26,5 +26,5 @@ private:
     std::vector<LCGroupRateRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_LCGROUPRATE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_LCGROUPRATE_H

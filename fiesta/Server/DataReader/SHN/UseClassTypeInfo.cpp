@@ -3,7 +3,7 @@
 #include "UseClassTypeInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 UseClassTypeInfoShn& UseClassTypeInfoShn::Get() { static UseClassTypeInfoShn s; return s; }
 
@@ -46,4 +46,4 @@ void UseClassTypeInfoShn::Load() {
     SHINELOG_INFO("UseClassTypeInfo.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

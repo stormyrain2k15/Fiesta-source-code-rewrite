@@ -3,7 +3,7 @@
 #include "../DataReader/TableScriptFile.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 bool NPCItemListFile::Load(const std::string& rPath) {
     m_kTabs.clear(); m_kIndex.clear();
@@ -56,4 +56,4 @@ void NPCItemListBox::Clear() {
     m_kAll.clear();
 }
 
-} // namespace fiesta
+} // namespace shine

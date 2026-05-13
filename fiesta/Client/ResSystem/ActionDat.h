@@ -33,7 +33,7 @@
 #include <vector>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 struct ActionBlock {
     int16       iActID;
@@ -96,5 +96,5 @@ private:
     std::map<std::string, ActionDat> m_kCache;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif // SHINE_CLIENT_RESSYSTEM_ACTIONDAT_H

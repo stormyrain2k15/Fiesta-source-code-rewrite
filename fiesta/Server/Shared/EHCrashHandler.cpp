@@ -5,7 +5,7 @@
 #include <stdio.h>
 #pragma comment(lib, "DbgHelp.lib")
 
-namespace fiesta {
+namespace shine {
 
 char  EHCrashHandler::ms_szService[64] = {0};
 char  EHCrashHandler::ms_szDumpDir[MAX_PATH] = {0};
@@ -46,4 +46,4 @@ LONG WINAPI EHCrashHandler::OnUnhandled(EXCEPTION_POINTERS* pkExc) {
     return EXCEPTION_EXECUTE_HANDLER;
 }
 
-} // namespace fiesta
+} // namespace shine

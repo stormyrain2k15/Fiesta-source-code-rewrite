@@ -1,8 +1,8 @@
 // Server/Zone/TargetAnalyser.h
-#ifndef FIESTA_ZONE_TARGETANALYSER_H
-#define FIESTA_ZONE_TARGETANALYSER_H
+#ifndef SHINE_ZONE_TARGETANALYSER_H
+#define SHINE_ZONE_TARGETANALYSER_H
 
-namespace fiesta {
+namespace shine {
 class ShineObject;
 
 // Returns true if pkA can legally target pkT for combat:
@@ -14,5 +14,5 @@ class ShineObject;
 //   - (optional) per-map PvP flag enforcement when FieldTable is wired
 bool IsLegalTarget(ShineObject* pkA, ShineObject* pkT, float fMaxDistSq);
 
-} // namespace fiesta
+} // namespace shine
 #endif

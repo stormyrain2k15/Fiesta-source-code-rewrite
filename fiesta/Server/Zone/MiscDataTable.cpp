@@ -3,7 +3,7 @@
 // SkillBreedMob, Polymorph, Neutralization. Each is a flat shn that the
 // SkillSystem queries at runtime.
 #include "../DataReader/ShnRegistry.h"
-namespace fiesta {
+namespace shine {
 class MiscDataTable {
 public:
     static MiscDataTable& Get() { static MiscDataTable s; return s; }
@@ -15,4 +15,4 @@ public:
         return bAny;
     }
 };
-} // namespace fiesta
+} // namespace shine

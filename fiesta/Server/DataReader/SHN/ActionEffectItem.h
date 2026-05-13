@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/ActionEffectItem.h
 // Auto-generated: one-file-per-SHN split for ActionEffectItem.shn
-#ifndef FIESTA_DATAREADER_SHN_ACTIONEFFECTITEM_H
-#define FIESTA_DATAREADER_SHN_ACTIONEFFECTITEM_H
+#ifndef SHINE_DATAREADER_SHN_ACTIONEFFECTITEM_H
+#define SHINE_DATAREADER_SHN_ACTIONEFFECTITEM_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ActionEffectItemRow {
     uint16           uiSHINE_ITEM_ID;
@@ -26,5 +26,5 @@ private:
     std::vector<ActionEffectItemRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ACTIONEFFECTITEM_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ACTIONEFFECTITEM_H

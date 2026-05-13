@@ -5,7 +5,7 @@
 #include "Inventory.h"
 #include "ShineObject.h"
 #include "CharDBClient.h"
-namespace fiesta {
+namespace shine {
 class ShineItemDrop {
 public:
     static bool DropToGround(ShinePlayer* pkP, uint32 uiItemId, uint16 uiCount);
@@ -14,4 +14,4 @@ bool ShineItemDrop::DropToGround(ShinePlayer* pkP, uint32 uiItemId, uint16 /*uiC
     if (!pkP) return false;
     return pkP->Inv().Remove(uiItemId);
 }
-} // namespace fiesta
+} // namespace shine

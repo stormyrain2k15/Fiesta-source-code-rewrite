@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/StateItem.h
 // Auto-generated: one-file-per-SHN split for StateItem.shn
-#ifndef FIESTA_DATAREADER_SHN_STATEITEM_H
-#define FIESTA_DATAREADER_SHN_STATEITEM_H
+#ifndef SHINE_DATAREADER_SHN_STATEITEM_H
+#define SHINE_DATAREADER_SHN_STATEITEM_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct StateItemRow {
     std::string      kItemIDX;
@@ -27,5 +27,5 @@ private:
     std::vector<StateItemRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_STATEITEM_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_STATEITEM_H

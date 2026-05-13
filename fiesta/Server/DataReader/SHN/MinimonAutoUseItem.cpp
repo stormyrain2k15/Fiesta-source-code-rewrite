@@ -3,7 +3,7 @@
 #include "MinimonAutoUseItem.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MinimonAutoUseItemShn& MinimonAutoUseItemShn::Get() { static MinimonAutoUseItemShn s; return s; }
 
@@ -20,4 +20,4 @@ void MinimonAutoUseItemShn::Load() {
     SHINELOG_INFO("MinimonAutoUseItem.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -3,7 +3,7 @@
 #include "KQIsVote.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 KQIsVoteShn& KQIsVoteShn::Get() { static KQIsVoteShn s; return s; }
 
@@ -26,4 +26,4 @@ const KQIsVoteRow* KQIsVoteShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

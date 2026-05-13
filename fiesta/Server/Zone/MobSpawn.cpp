@@ -3,7 +3,7 @@
 #include "GroupTables.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ShineMob* SpawnMob(MobID uiSpecies, MapID uiMap, const Vec3& rPos) {
     const MobInfoRow* pkInfo = MobTables::Get().FindMob((uint32)uiSpecies);
@@ -23,4 +23,4 @@ ShineMob* SpawnMob(MobID uiSpecies, MapID uiMap, const Vec3& rPos) {
     return pk;
 }
 
-} // namespace fiesta
+} // namespace shine

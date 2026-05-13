@@ -8,7 +8,7 @@
 #include "../ScenarioScript.h"
 #include "../../DataReader/TableScriptFile.h"
 
-namespace fiesta {
+namespace shine {
 
 PineScriptTable& PineScriptTable::Get() { static PineScriptTable s; return s; }
 
@@ -49,4 +49,4 @@ size_t LoadAllPineScripts(const std::string& rRoot) {
     return loaded;
 }
 
-} // namespace fiesta
+} // namespace shine

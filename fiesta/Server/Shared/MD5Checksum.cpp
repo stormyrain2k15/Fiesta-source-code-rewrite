@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 
 #define F(x,y,z) (((x)&(y))|((~x)&(z)))
 #define G(x,y,z) (((x)&(z))|((y)&(~z)))
@@ -109,4 +109,4 @@ std::string MD5Checksum::ToHex(const uint8 d[16]) {
 #undef HH
 #undef II
 
-} // namespace fiesta
+} // namespace shine

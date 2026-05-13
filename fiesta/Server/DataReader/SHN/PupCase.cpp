@@ -3,7 +3,7 @@
 #include "PupCase.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 PupCaseShn& PupCaseShn::Get() { static PupCaseShn s; return s; }
 
@@ -21,4 +21,4 @@ void PupCaseShn::Load() {
     SHINELOG_INFO("PupCase.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -1,7 +1,7 @@
 // Server/Zone/Engines/MapEngine.h
 // Auto-generated: MapEngine — aggregates 5 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_MAPENGINE_H
-#define FIESTA_ZONE_ENGINES_MAPENGINE_H
+#ifndef SHINE_ZONE_ENGINES_MAPENGINE_H
+#define SHINE_ZONE_ENGINES_MAPENGINE_H
 #include "../../DataReader/SHN/BMP.h"
 #include "../../DataReader/SHN/FieldLvCondition.h"
 #include "../../DataReader/SHN/MapInfo.h"
@@ -10,7 +10,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class MapEngine {
 public:
@@ -28,5 +28,5 @@ private:
     MapEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_MAPENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_MAPENGINE_H

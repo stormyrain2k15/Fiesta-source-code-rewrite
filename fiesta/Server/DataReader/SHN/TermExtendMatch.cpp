@@ -3,7 +3,7 @@
 #include "TermExtendMatch.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 TermExtendMatchShn& TermExtendMatchShn::Get() { static TermExtendMatchShn s; return s; }
 
@@ -20,4 +20,4 @@ void TermExtendMatchShn::Load() {
     SHINELOG_INFO("TermExtendMatch.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

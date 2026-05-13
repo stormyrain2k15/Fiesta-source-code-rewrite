@@ -3,7 +3,7 @@
 #include "GBSMJPRate.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBSMJPRateShn& GBSMJPRateShn::Get() { static GBSMJPRateShn s; return s; }
 
@@ -21,4 +21,4 @@ void GBSMJPRateShn::Load() {
     SHINELOG_INFO("GBSMJPRate.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

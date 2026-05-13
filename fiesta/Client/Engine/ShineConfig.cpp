@@ -2,7 +2,7 @@
 #include "ShineConfig.h"
 #include "../../Server/Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ShineConfig& ShineConfig::Get() {
     static ShineConfig s;
@@ -149,4 +149,4 @@ bool ShineConfig::Load(const char* szIniPath) {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

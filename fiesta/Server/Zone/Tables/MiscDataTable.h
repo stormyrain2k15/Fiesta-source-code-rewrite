@@ -3,14 +3,14 @@
 // Holds SkillBreedMob: when a skill (Entrap, SlowShot, Summon...) fires,
 // it spawns a sub-mob with these settings (AI, regen-loc, lifetime,
 // trigger object, explosion fx, multi-target flag).
-#ifndef FIESTA_ZONE_TABLES_MISCDATATABLE_H
-#define FIESTA_ZONE_TABLES_MISCDATATABLE_H
+#ifndef SHINE_ZONE_TABLES_MISCDATATABLE_H
+#define SHINE_ZONE_TABLES_MISCDATATABLE_H
 #include "../../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct SkillBreedMobRow {
     uint8       uiSerial;
@@ -46,5 +46,5 @@ private:
     std::map<std::string, std::vector<size_t> > m_kBySkill;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

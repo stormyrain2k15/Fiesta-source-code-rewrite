@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MiniHouseObjAni.h
 // Auto-generated: one-file-per-SHN split for MiniHouseObjAni.shn
-#ifndef FIESTA_DATAREADER_SHN_MINIHOUSEOBJANI_H
-#define FIESTA_DATAREADER_SHN_MINIHOUSEOBJANI_H
+#ifndef SHINE_DATAREADER_SHN_MINIHOUSEOBJANI_H
+#define SHINE_DATAREADER_SHN_MINIHOUSEOBJANI_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MiniHouseObjAniRow {
     uint16           uiHandle;
@@ -37,5 +37,5 @@ private:
     std::vector<MiniHouseObjAniRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MINIHOUSEOBJANI_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MINIHOUSEOBJANI_H

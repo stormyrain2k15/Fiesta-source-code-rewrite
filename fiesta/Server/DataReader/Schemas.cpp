@@ -2,7 +2,7 @@
 #include "Schemas.h"
 #include "../Shared/ShineLogSystem.h"
 #include <stdlib.h>
-namespace fiesta {
+namespace shine {
 static uint32 ColU32(const std::vector<std::string>& r, size_t i){return (i<r.size()&&!r[i].empty())?(uint32)strtoul(r[i].c_str(),NULL,10):0u;}
 static int32  ColI32(const std::vector<std::string>& r, size_t i){return (i<r.size()&&!r[i].empty())?(int32)atoi(r[i].c_str()):0;}
 static float  ColF32(const std::vector<std::string>& r, size_t i){return (i<r.size()&&!r[i].empty())?(float)atof(r[i].c_str()):0.0f;}
@@ -778,4 +778,4 @@ void RegisterAllSchemaTabs() {
     DataBox::Get().Register(&g_MobInfoServerTab);
     DataBox::Get().Register(&g_ItemDropTableTab);
 }
-} // namespace fiesta
+} // namespace shine

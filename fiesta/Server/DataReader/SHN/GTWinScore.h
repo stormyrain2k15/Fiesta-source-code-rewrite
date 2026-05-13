@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GTWinScore.h
 // Auto-generated: one-file-per-SHN split for GTWinScore.shn
-#ifndef FIESTA_DATAREADER_SHN_GTWINSCORE_H
-#define FIESTA_DATAREADER_SHN_GTWINSCORE_H
+#ifndef SHINE_DATAREADER_SHN_GTWINSCORE_H
+#define SHINE_DATAREADER_SHN_GTWINSCORE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GTWinScoreRow {
     uint16           uiWinScore;
@@ -24,5 +24,5 @@ private:
     std::vector<GTWinScoreRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GTWINSCORE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GTWINSCORE_H

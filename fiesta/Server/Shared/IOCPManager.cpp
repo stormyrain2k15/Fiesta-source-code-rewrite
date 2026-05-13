@@ -4,7 +4,7 @@
 #include "ShineLogSystem.h"
 #include <process.h>
 
-namespace fiesta {
+namespace shine {
 
 // Per-IO context overlay. We tag pkSess via lpCompletionKey.
 IOCPManager::IOCPManager() : m_hPort(NULL), m_bRun(0) {}
@@ -63,4 +63,4 @@ void IOCPManager::WorkerLoop() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

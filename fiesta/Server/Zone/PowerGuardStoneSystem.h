@@ -9,11 +9,11 @@
 // Guard Stone: bumps AC + MR for kStoneBuffSec when consumed.
 //   ClassParam columns:  MaxGrdStone, NumGrdStone, PriceGrdStone,
 //                        GrdStoneAC, GrdStoneMR
-#ifndef FIESTA_ZONE_POWERGUARDSTONESYSTEM_H
-#define FIESTA_ZONE_POWERGUARDSTONESYSTEM_H
+#ifndef SHINE_ZONE_POWERGUARDSTONESYSTEM_H
+#define SHINE_ZONE_POWERGUARDSTONESYSTEM_H
 #include "ClassParamTable.h"
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 class Inventory;
@@ -84,5 +84,5 @@ public:
                                uint16             uiQty);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

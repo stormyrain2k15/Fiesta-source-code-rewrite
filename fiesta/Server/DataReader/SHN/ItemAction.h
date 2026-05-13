@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/ItemAction.h
 // Auto-generated: one-file-per-SHN split for ItemAction.shn
-#ifndef FIESTA_DATAREADER_SHN_ITEMACTION_H
-#define FIESTA_DATAREADER_SHN_ITEMACTION_H
+#ifndef SHINE_DATAREADER_SHN_ITEMACTION_H
+#define SHINE_DATAREADER_SHN_ITEMACTION_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ItemActionRow {
     uint16           uiItemActionID;
@@ -28,5 +28,5 @@ private:
     std::vector<ItemActionRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ITEMACTION_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ITEMACTION_H

@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/NpcSchedule.h
 // Auto-generated: one-file-per-SHN split for NpcSchedule.shn
-#ifndef FIESTA_DATAREADER_SHN_NPCSCHEDULE_H
-#define FIESTA_DATAREADER_SHN_NPCSCHEDULE_H
+#ifndef SHINE_DATAREADER_SHN_NPCSCHEDULE_H
+#define SHINE_DATAREADER_SHN_NPCSCHEDULE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct NpcScheduleRow {
     std::string      kMob_Inx;
@@ -32,5 +32,5 @@ private:
     std::vector<NpcScheduleRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_NPCSCHEDULE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_NPCSCHEDULE_H

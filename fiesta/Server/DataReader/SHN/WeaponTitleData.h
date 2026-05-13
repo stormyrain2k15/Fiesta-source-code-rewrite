@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/WeaponTitleData.h
 // Auto-generated: one-file-per-SHN split for WeaponTitleData.shn
-#ifndef FIESTA_DATAREADER_SHN_WEAPONTITLEDATA_H
-#define FIESTA_DATAREADER_SHN_WEAPONTITLEDATA_H
+#ifndef SHINE_DATAREADER_SHN_WEAPONTITLEDATA_H
+#define SHINE_DATAREADER_SHN_WEAPONTITLEDATA_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct WeaponTitleDataRow {
     uint16           uiMobID;
@@ -39,5 +39,5 @@ private:
     std::vector<WeaponTitleDataRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_WEAPONTITLEDATA_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_WEAPONTITLEDATA_H

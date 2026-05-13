@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/PupCaseDesc.h
 // Auto-generated: one-file-per-SHN split for PupCaseDesc.shn
-#ifndef FIESTA_DATAREADER_SHN_PUPCASEDESC_H
-#define FIESTA_DATAREADER_SHN_PUPCASEDESC_H
+#ifndef SHINE_DATAREADER_SHN_PUPCASEDESC_H
+#define SHINE_DATAREADER_SHN_PUPCASEDESC_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct PupCaseDescRow {
     uint32           uiPupPriorityType;
@@ -30,5 +30,5 @@ private:
     std::vector<PupCaseDescRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_PUPCASEDESC_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_PUPCASEDESC_H

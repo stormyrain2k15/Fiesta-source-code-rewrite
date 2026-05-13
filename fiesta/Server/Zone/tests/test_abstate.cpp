@@ -3,7 +3,7 @@
 // in anonymous namespace so this compiles standalone without dragging
 // AbState.h's full type into the test exe.
 #include "TestBase.h"
-namespace fiesta { namespace {
+namespace shine { namespace {
 class TestAbStateApi {
 public:
     static bool Apply (uint32, uint32, uint32) { return true; }
@@ -15,4 +15,4 @@ TEST_CASE(AbState_ApplyRemove) {
     ASSERT_TRUE(TestAbStateApi::Remove(1, 100));
     return true;
 }
-} // namespace fiesta
+} // namespace shine

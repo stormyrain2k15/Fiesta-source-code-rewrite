@@ -10,7 +10,7 @@
 #include "BindMacros.h"
 #include "../GroupTables.h"
 
-namespace fiesta {
+namespace shine {
 
 SkillTables& SkillTables::Get() { static SkillTables s; return s; }
 
@@ -92,4 +92,4 @@ const LegacyAreaSkillRow* SkillTables::FindArea(uint32 uiID) const {
     return (it == m_kAreaById.end()) ? NULL : &m_kArea[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

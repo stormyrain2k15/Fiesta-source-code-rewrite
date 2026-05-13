@@ -2,15 +2,15 @@
 // WM-side outbound client to the CharDB exe. Opcodes 90+ are reserved
 // for the cross-zone systems WM owns (guild / friend / mail / shout-block
 // / ranking / KQ / event-attendance / daily-quest-reset).
-#ifndef FIESTA_WM_CHARDB_CLIENT_H
-#define FIESTA_WM_CHARDB_CLIENT_H
+#ifndef SHINE_WM_CHARDB_CLIENT_H
+#define SHINE_WM_CHARDB_CLIENT_H
 #include "../Shared/Socket_Connector.h"
 #include "../Shared/IOCPManager.h"
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class WMCharDBClient {
 public:
@@ -54,5 +54,5 @@ private:
     Socket_Connector m_kConn;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

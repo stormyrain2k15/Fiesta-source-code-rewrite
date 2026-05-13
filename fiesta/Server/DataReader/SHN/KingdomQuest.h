@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/KingdomQuest.h
 // Auto-generated: one-file-per-SHN split for KingdomQuest.shn
-#ifndef FIESTA_DATAREADER_SHN_KINGDOMQUEST_H
-#define FIESTA_DATAREADER_SHN_KINGDOMQUEST_H
+#ifndef SHINE_DATAREADER_SHN_KINGDOMQUEST_H
+#define SHINE_DATAREADER_SHN_KINGDOMQUEST_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct KingdomQuestRow {
     int16            iID;
@@ -60,5 +60,5 @@ private:
     std::map<uint32,      size_t>  m_kById;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_KINGDOMQUEST_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_KINGDOMQUEST_H

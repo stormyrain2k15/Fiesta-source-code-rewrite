@@ -3,7 +3,7 @@
 #include "Gather.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GatherShn& GatherShn::Get() { static GatherShn s; return s; }
 
@@ -27,4 +27,4 @@ void GatherShn::Load() {
     SHINELOG_INFO("Gather.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

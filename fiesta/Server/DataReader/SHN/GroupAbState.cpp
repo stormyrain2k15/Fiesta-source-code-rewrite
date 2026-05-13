@@ -3,7 +3,7 @@
 #include "GroupAbState.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GroupAbStateShn& GroupAbStateShn::Get() { static GroupAbStateShn s; return s; }
 
@@ -21,4 +21,4 @@ void GroupAbStateShn::Load() {
     SHINELOG_INFO("GroupAbState.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -3,7 +3,7 @@
 #include "AbStateSaveTypeInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 AbStateSaveTypeInfoShn& AbStateSaveTypeInfoShn::Get() { static AbStateSaveTypeInfoShn s; return s; }
 
@@ -22,4 +22,4 @@ void AbStateSaveTypeInfoShn::Load() {
     SHINELOG_INFO("AbStateSaveTypeInfo.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

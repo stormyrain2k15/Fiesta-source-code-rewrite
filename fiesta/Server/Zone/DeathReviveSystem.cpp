@@ -3,7 +3,7 @@
 #include "ShineObject.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 // live-game tunes this curve every few patches; reasonable default.
 int32 DeathReviveSystem::ExpLossOnTownRevive(int32 nLevel) {
@@ -54,4 +54,4 @@ eReviveResult DeathReviveSystem::Choose(ShinePlayer*    pkP,
     }
 }
 
-} // namespace fiesta
+} // namespace shine

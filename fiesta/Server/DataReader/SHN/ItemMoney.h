@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/ItemMoney.h
 // Auto-generated: one-file-per-SHN split for ItemMoney.shn
-#ifndef FIESTA_DATAREADER_SHN_ITEMMONEY_H
-#define FIESTA_DATAREADER_SHN_ITEMMONEY_H
+#ifndef SHINE_DATAREADER_SHN_ITEMMONEY_H
+#define SHINE_DATAREADER_SHN_ITEMMONEY_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ItemMoneyRow {
     std::string      kIM_ItemIDX;
@@ -26,5 +26,5 @@ private:
     std::vector<ItemMoneyRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ITEMMONEY_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ITEMMONEY_H

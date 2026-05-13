@@ -16,12 +16,12 @@
 // Plus the merchant sub-types observed in RoleArg0:
 //   Weapon, WeaponTitle, Item, Skill, Guild, SoulStone, PowerStone,
 //   GuardStone, Stone, Mount, Pet, Costume, Title, ItemCraft.
-#ifndef FIESTA_ZONE_NPCROLE_H
-#define FIESTA_ZONE_NPCROLE_H
+#ifndef SHINE_ZONE_NPCROLE_H
+#define SHINE_ZONE_NPCROLE_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 enum eNpcRole {
     NPC_ROLE_NONE         = 0,
@@ -64,5 +64,5 @@ public:
     static const char*    MerchantKindName(eMerchantKind e);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -3,7 +3,7 @@
 #include "GBJoinGameMember.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBJoinGameMemberShn& GBJoinGameMemberShn::Get() { static GBJoinGameMemberShn s; return s; }
 
@@ -21,4 +21,4 @@ void GBJoinGameMemberShn::Load() {
     SHINELOG_INFO("GBJoinGameMember.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

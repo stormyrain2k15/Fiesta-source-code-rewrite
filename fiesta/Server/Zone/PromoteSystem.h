@@ -4,13 +4,13 @@
 //   * Lua side: LuaScript/Promote/<JobChange>.lua (registration / hooks)
 //   * PS  side: ScenarioBookShelf/Promote/<JobChange>.ps (scenario flow)
 //                                   LuaScript/Promote + ScenarioBookShelf/Promote.
-#ifndef FIESTA_ZONE_PROMOTESYSTEM_H
-#define FIESTA_ZONE_PROMOTESYSTEM_H
+#ifndef SHINE_ZONE_PROMOTESYSTEM_H
+#define SHINE_ZONE_PROMOTESYSTEM_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class LuaRuntime;
 class ScenarioScript;
@@ -39,5 +39,5 @@ private:
     std::map<std::string, PromoteDef> m_kAll;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

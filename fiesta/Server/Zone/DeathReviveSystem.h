@@ -7,11 +7,11 @@
 //   * "Town Respawn"          -- free; warp to bind town; XP penalty per
 //                                ExpLossOnTownRevive(level).
 //   * "Wait for Resurrect"    -- another player may cast a resurrect skill.
-#ifndef FIESTA_ZONE_DEATHREVIVESYSTEM_H
-#define FIESTA_ZONE_DEATHREVIVESYSTEM_H
+#ifndef SHINE_ZONE_DEATHREVIVESYSTEM_H
+#define SHINE_ZONE_DEATHREVIVESYSTEM_H
 #include "../Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -49,5 +49,5 @@ public:
     static void GrantShineSoul(ShineSoulPouch& rPouch, uint16 uiQty);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

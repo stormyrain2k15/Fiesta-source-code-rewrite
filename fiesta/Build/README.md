@@ -1,13 +1,13 @@
 # Build Instructions (Visual Studio 2010, Win32)
 
 This directory contains the canonical Visual Studio 2010 project layout
-for the entire Fiesta server + client tree.
+for the entire Shine server + client tree.
 
 ## What's here
 
 | File                                  | Purpose                                                     |
 |---------------------------------------|-------------------------------------------------------------|
-| `Fiesta.sln`                          | Master solution. Open this in VS2010.                       |
+| `Shine.sln`                          | Master solution. Open this in VS2010.                       |
 | `Gamebryo.props`                      | Property sheet for the Gamebryo SDK include / lib paths.    |
 | `gen_vcxproj.py`                      | Re-generates every `.vcxproj` + `.filters` from disk.       |
 | `Common.vcxproj`                      | StaticLib: NETCOMMAND, ProtocolParser, SendPacket.          |
@@ -36,7 +36,7 @@ for the entire Fiesta server + client tree.
 
 ## First-time setup
 
-1. Open `Fiesta.sln` in Visual Studio 2010.
+1. Open `Shine.sln` in Visual Studio 2010.
 2. **Edit `Gamebryo.props`** -- set `<GamebryoRoot>` to wherever your
    Gamebryo SDK lives. Default points at `..\ThirdParty\Gamebryo\` (the
    read-only in-tree copy). If you have a fuller SDK install elsewhere,
@@ -53,7 +53,7 @@ for the entire Fiesta server + client tree.
    `lib\x86\` is on the system lib path, or add it to
    `VC++ Directories -> Library Directories` for each DataServer project.
 5. **Build order** -- VS resolves automatically from `ProjectSection
-   (ProjectDependencies)` blocks in `Fiesta.sln`. Order resolves to:
+   (ProjectDependencies)` blocks in `Shine.sln`. Order resolves to:
    ```
    Common, Shared, LuaRuntime, DataReader, DataServerCommon
        -> Login, DataServer.*
@@ -73,7 +73,7 @@ python3 gen_vcxproj.py
 ```
 
 This rewrites every `.vcxproj` + `.filters` from a fresh directory walk
-and updates `Fiesta.sln`. GUIDs are derived from project name (UUIDv5)
+and updates `Shine.sln`. GUIDs are derived from project name (UUIDv5)
 so they remain stable across regenerations -- diffs are clean and
 project references never break.
 

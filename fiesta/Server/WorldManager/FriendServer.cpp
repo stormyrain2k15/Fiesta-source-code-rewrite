@@ -11,7 +11,7 @@
 #include "../Shared/PacketBuffer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 FriendServer& FriendServer::Get() { static FriendServer s; return s; }
 
@@ -75,4 +75,4 @@ void FriendServer::OnMapChange(CharID c, uint16 uiNewMap) {
                   (p != m_kPresence.end()) ? p->second.uiLevel : 0);
 }
 
-} // namespace fiesta
+} // namespace shine

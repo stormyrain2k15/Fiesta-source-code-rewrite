@@ -10,13 +10,13 @@
 // At ENTER time a mob asks `MobAISystem::ResolveFor(species)` and
 // receives a small descriptor that names which runtime to drive.
 //                                   BH_Helga.lua) + MobBehaviorDescript/.
-#ifndef FIESTA_ZONE_MOBAISYSTEM_H
-#define FIESTA_ZONE_MOBAISYSTEM_H
+#ifndef SHINE_ZONE_MOBAISYSTEM_H
+#define SHINE_ZONE_MOBAISYSTEM_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class LuaRuntime;
 class ShineMob;
@@ -80,5 +80,5 @@ private:
     std::map<std::string, MobAiDef> m_kAll;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

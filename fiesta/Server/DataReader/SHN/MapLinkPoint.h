@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MapLinkPoint.h
 // Auto-generated: one-file-per-SHN split for MapLinkPoint.shn
-#ifndef FIESTA_DATAREADER_SHN_MAPLINKPOINT_H
-#define FIESTA_DATAREADER_SHN_MAPLINKPOINT_H
+#ifndef SHINE_DATAREADER_SHN_MAPLINKPOINT_H
+#define SHINE_DATAREADER_SHN_MAPLINKPOINT_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MapLinkPointRow {
     uint32           uiMLP_FromID;
@@ -27,5 +27,5 @@ private:
     std::vector<MapLinkPointRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MAPLINKPOINT_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MAPLINKPOINT_H

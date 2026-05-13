@@ -1,7 +1,7 @@
 // Server/Zone/Engines/SkillEngine.h
 // Auto-generated: SkillEngine — aggregates 8 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_SKILLENGINE_H
-#define FIESTA_ZONE_ENGINES_SKILLENGINE_H
+#ifndef SHINE_ZONE_ENGINES_SKILLENGINE_H
+#define SHINE_ZONE_ENGINES_SKILLENGINE_H
 #include "../../DataReader/SHN/ActiveSkillGroup.h"
 #include "../../DataReader/SHN/ActiveSkillInfoServer.h"
 #include "../../DataReader/SHN/AreaSkill.h"
@@ -13,7 +13,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class SkillEngine {
 public:
@@ -34,5 +34,5 @@ private:
     SkillEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_SKILLENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_SKILLENGINE_H

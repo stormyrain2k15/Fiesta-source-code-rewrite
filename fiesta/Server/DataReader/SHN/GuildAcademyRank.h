@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GuildAcademyRank.h
 // Auto-generated: one-file-per-SHN split for GuildAcademyRank.shn
-#ifndef FIESTA_DATAREADER_SHN_GUILDACADEMYRANK_H
-#define FIESTA_DATAREADER_SHN_GUILDACADEMYRANK_H
+#ifndef SHINE_DATAREADER_SHN_GUILDACADEMYRANK_H
+#define SHINE_DATAREADER_SHN_GUILDACADEMYRANK_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GuildAcademyRankRow {
     int8             iRank;
@@ -27,5 +27,5 @@ private:
     std::vector<GuildAcademyRankRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GUILDACADEMYRANK_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GUILDACADEMYRANK_H

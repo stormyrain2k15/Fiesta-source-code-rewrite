@@ -5,8 +5,8 @@
 //              HairColorInfo, FaceInfo, ColorInfo, JobEquipInfo,
 //              WeaponTitleData, CharacterTitleData
 // TXT inputs:  DefaultCharacterData.txt, TutorialCharacterData.txt
-#ifndef FIESTA_ZONE_ENGINES_CHARENGINE_H
-#define FIESTA_ZONE_ENGINES_CHARENGINE_H
+#ifndef SHINE_ZONE_ENGINES_CHARENGINE_H
+#define SHINE_ZONE_ENGINES_CHARENGINE_H
 #include "../../DataReader/SHN/ClassName.h"
 #include "../../DataReader/SHN/RaceNameInfo.h"
 #include "../../DataReader/SHN/UseClassTypeInfo.h"
@@ -23,7 +23,7 @@
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 // ----------------------------------------------------------------------------
 // NewCharacterTemplate
@@ -106,5 +106,5 @@ private:
     CharEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_CHARENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_CHARENGINE_H

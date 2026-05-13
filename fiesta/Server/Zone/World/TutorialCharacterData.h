@@ -1,13 +1,13 @@
 // Server/Zone/World/TutorialCharacterData.h
 // Auto-generated: loader for TutorialCharacterData.txt (Shine root).
-#ifndef FIESTA_ZONE_WORLD_TUTORIALCHARACTERDATA_H
-#define FIESTA_ZONE_WORLD_TUTORIALCHARACTERDATA_H
+#ifndef SHINE_ZONE_WORLD_TUTORIALCHARACTERDATA_H
+#define SHINE_ZONE_WORLD_TUTORIALCHARACTERDATA_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct TutorialCharacterDataRow {
     int32            iClass;
@@ -30,5 +30,5 @@ private:
     std::vector<TutorialCharacterDataRow> m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_WORLD_TUTORIALCHARACTERDATA_H
+} // namespace shine
+#endif // SHINE_ZONE_WORLD_TUTORIALCHARACTERDATA_H

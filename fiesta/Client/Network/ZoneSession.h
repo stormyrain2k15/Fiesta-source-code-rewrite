@@ -18,7 +18,7 @@
 #include "../../Server/Shared/ShineTypes.h"
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 struct ZoneHandoff {
     std::string kIp;
@@ -42,7 +42,7 @@ struct PlayerState {
     uint16  uiMapId;
 };
 
-// VS2010-compatible callback typedefs (no std::function).
+// VS2010-compatible callback typedefs (no <functional>/std::function).
 typedef void (*ZoneReadyCallback) (void* pkCtx, const PlayerState& rPlayer);
 typedef void (*ZonePacketCallback)(void* pkCtx, const GPacket& rPkt);
 typedef void (*ZoneFailCallback)  (void* pkCtx, const char* szReason);
@@ -90,8 +90,12 @@ private:
     void SendLoginReq();
     void HandleLoginAck     (const GPacket& rPkt);
     void HandleCharInfo     (const GPacket& rPkt);
+    void HandleCharBase     (const GPacket& rPkt);
+    void HandleCharShape    (const GPacket& rPkt);
+    void HandleCharNewAck   (const GPacket& rPkt);
+    void HandleCharDelAck   (const GPacket& rPkt);
     void HandleWorldTick    (const GPacket& rPkt);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif // SHINE_CLIENT_NETWORK_ZONESESSION_H

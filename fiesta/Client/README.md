@@ -1,95 +1,136 @@
-# Shine Client — Phase 1 Bootstrap
+# Shine Client Bootstrap
 
-Full source client wired to the Shine server stack.
+Full client source built against Gamebryo 2.3, wired to the Shine server stack.
+No XTrap. No SSO. No WebCtrl. No NetMarble branding. Clean.
 
-## Project Structure
+## Architecture
+
+Matches the original MainApp.cpp pattern:
 
 ```
-fiesta/Client/
+WinMain
+  └─ NiApplication::Run()
+       └─ NiApplication::Create()  ← ShineApp factory
+            └─ ShineApp::Initialize()
+                 └─ Pgg_kFrameMgr.Start(AccountFrameWorkID)
+                      ├─ AccountFrameWork  (login → WM → Zone)
+                      └─ GameFrameWork     (in-world, driven by NC packets)
+```
+
+## File Structure
+
+```
+shine/Client/
   Engine/
-    Main.cpp            WinMain — reads ShineClient.ini, runs ClientApp
-    ClientApp.h/.cpp    Top-level coordinator — owns login/zone sessions,
-                        bridges net worker thread to render thread
-    ShineApp.h/.cpp     NiApplication subclass — render loop, scene, camera
-    ShineScene.h/.cpp   Scene graph wrapper — loads .sga (NIF) assets
-    ShineCamera.h/.cpp  Third-person chase camera — mouse orbit, wheel zoom
+    Main.cpp              WinMain -- loads configs, calls NiApplication::Run()
+    ShineApp.h/.cpp       NiApplication subclass -- NiApplication::Create() factory,
+                          CreateRenderer() override, framework manager driver
+    ShineRenderer.h/.cpp  MachineOpt-driven DX9 renderer -- validates display modes,
+                          AA, VSync, fullscreen, applies option changes at runtime
+    MachineOpt.h/.cpp     Player-adjustable settings -- resolution, sound, game options
+                          Saved to ShineOption.cfg
+    ShineConfig.h/.cpp    Server/path config -- IPs, ports, asset paths
+                          Read from ShineClient.ini
+    ShineScene.h/.cpp     NiNode scene graph wrapper -- loads .sga (NIF) assets
+    ShineCamera.h/.cpp    Third-person chase camera -- mouse orbit, wheel zoom
+    ClientApp.h/.cpp      DEPRECATED -- network moved into AccountFrameWork
+
+  Framework/
+    ShineFrameWork.h/.cpp  Pgg_kFrameMgr -- state machine, AddMsg(), IsInRun()
+    AccountFrameWork.h/.cpp Login/WM/ZoneSession -- handles NC_CHAR_OPTION_KEYMAP_CMD
+    GameFrameWork.h/.cpp   In-world -- scene/camera/UI/input, packet handlers
+
   Network/
-    ShineNetClient.h/.cpp   IOCP outbound TCP socket — same wire format as server
-    LoginSession.h/.cpp     NC_USER_* state machine — login → world select
-    ZoneSession.h/.cpp      NC_CHAR_* state machine — char login → in-world
+    ShineNetClient.h/.cpp  IOCP outbound TCP -- same wire format as server
+    LoginSession.h/.cpp    NC_USER_* state machine
+    WMSession.h/.cpp       NC_WM_* state machine (between login and zone)
+    ZoneSession.h/.cpp     NC_CHAR_* state machine, world tick keepalive
+
+  Input/
+    ShineInput.h/.cpp      WASD movement -- camera-relative, dead-reckoning,
+                           NC_ACT_MOVERUN_CMD / NC_ACT_MOVEWALK_CMD / NC_ACT_STOP_REQ
+    KeyMap.h/.cpp          95 key bindings from tKeyMapInit (Key_Remapping.sql)
+                           Server override via NC_CHAR_OPTION_KEYMAP_CMD (0x7033)
+                           Saved to ShineKeys.cfg
+
   UI/
-    ShineHUD.h/.cpp     HP/SP bars via NiScreenElements
+    ShineUI.h/.cpp         Loads resmenu\game\ + resctrl\ DDS textures via NiSourceTexture
+                           Positions driven by UILayout -- Alt+drag to move panels
+                           Saved to ShineUI.cfg
+    UILayout.h/.cpp        Panel position save/load -- ShineUI.cfg, per-panel float
+                           Drag system, clamped to screen bounds, save on drag-end
+    ShineHUD.h/.cpp        DEPRECATED -- replaced by ShineUI
+
+  ResSystem/
+    PEResourceReader.h/.cpp     FindResource/LoadResource -- zero-copy PE section reads
+    ShineResourceLoader.h/.cpp  PE first, disk fallback (SHINE_EMBED_ONLY disables disk)
+    ActionDat.h/.cpp            ressystem\action\<InxName>.dat loader (352 bytes/entry)
+                                Verified against ActionReader v12 / ActionFile.cs
+    ActionDatCache              Singleton cache keyed by InxName
+    CharacterLoader.h/.cpp      class ID → InxName → body.sga + action dat
 ```
+
+## Config Files (beside exe)
+
+| File              | Contents                                      |
+|-------------------|-----------------------------------------------|
+| ShineClient.ini   | Server IPs, ports, asset paths, debug flags   |
+| ShineOption.cfg   | Resolution, fullscreen, sound, game options   |
+| ShineKeys.cfg     | Key bindings (from tKeyMapInit / server)      |
+| ShineUI.cfg       | UI panel positions (Alt+drag to adjust)       |
 
 ## Build Setup (Visual Studio)
 
-1. Add to existing project or create new Win32 exe project.
+**Include paths:**
+```
+$(GB)\CoreLibs\NiMain\Win32\VC80\Include
+$(GB)\CoreLibs\NiAnimation\Win32\VC80\Include
+$(GB)\CoreLibs\NiSystem\Win32\VC80\Include
+$(GB)\AppFrameworks\NiApplication
+$(SolutionDir)shine\Server\Shared
+$(SolutionDir)shine\Server\Common
+```
 
-2. Include paths (add to project C/C++ → Additional Include Directories):
-   ```
-   $(SolutionDir)Gamebryo_2.3\CoreLibs\NiMain\Win32\VC80\Include
-   $(SolutionDir)Gamebryo_2.3\CoreLibs\NiAnimation\Win32\VC80\Include
-   $(SolutionDir)Gamebryo_2.3\CoreLibs\NiSystem\Win32\VC80\Include
-   $(SolutionDir)Gamebryo_2.3\AppFrameworks\NiApplication
-   $(SolutionDir)fiesta\Server\Shared
-   $(SolutionDir)fiesta\Server\Common
-   ```
+**Libraries:**
+```
+NiMain.lib  NiAnimation.lib  NiSystem.lib
+NiDX9Renderer.lib  NiApplication.lib
+d3d9.lib  d3dx9.lib  Ws2_32.lib
+```
 
-3. Library paths (Linker → Additional Library Directories):
-   ```
-   $(SolutionDir)Gamebryo_2.3\SDK\Win32\VC80\$(Configuration)
-   ```
-
-4. Libraries (Linker → Additional Dependencies):
-   ```
-   NiMain.lib NiAnimation.lib NiSystem.lib NiDX9Renderer.lib
-   NiApplication.lib Ws2_32.lib d3d9.lib d3dx9.lib
-   ```
-
-5. Place `ShineClient.ini` next to the built exe.
+**Preprocessor defines:**
+```
+SHINE_CLIENT          (enables PE resource loading in ActionDatCache)
+SHINE_EMBED_ONLY      (release builds -- disables disk fallback for SHNs/DATs)
+```
 
 ## Network Flow
 
 ```
-[Login:9010]
+Login:9010
   VERSION_REQ → SEED_ACK → cipher init
   LOGIN_REQ → LOGIN_ACK
   WORLDSELECT_REQ → WORLDSELECT_ACK (WM ip + 16-byte token)
 
-[Zone (ip from WM)]
+WM:28000
+  CHAR_LOGIN_REQ [accountId, token]
+  ← CHAR_LOGIN_ACK
+  WM_CHARSELECT_REQ [charId]
+  ← WM_ZONE_ASSIGN_CMD [zoneIp, zonePort, zoneToken]
+
+Zone (ip from WM)
   CHAR_LOGIN_REQ [accountId, charId, token]
   ← CHAR_LOGIN_ACK [handle]
-  ← CHAR_INFO_CMD  [level, class, hp, sp, pos, mapId]
-  → [in-world packet stream]
+  ← CHAR_OPTION_KEYMAP_CMD (0x7033) -- seeds KeyMap, saved to ShineKeys.cfg
+  ← CHAR_INFO_CMD [level, class, hp, sp, pos, mapId]
+  → [in-world stream]
 ```
 
-## Asset Convention
+## Dropped from original client
 
-Assets live under `Assets\` beside the exe:
-```
-Assets\
-  Graphics\
-    Map\
-      <mapId>\
-        terrain.sga     (NIF binary, renamed extension)
-    Character\
-    Monster\
-  Data\
-    *.shine             (SHN binary, renamed extension)
-```
-
-## Phase 1 State
-
-- [x] IOCP client socket with stream cipher
-- [x] Full login handshake state machine  
-- [x] Zone character login state machine
-- [x] NiApplication render loop
-- [x] .sga scene loading (NiStream, extension-transparent)
-- [x] Third-person chase camera
-- [x] HP/SP HUD bars
-- [ ] WM handshake (phase-1 connects direct to zone — add WMSession for full path)
-- [ ] Character model loading (add per-class .sga path lookup from CharEngine)
-- [ ] Movement input → NC_ACT_MOVERUN_CMD
-- [ ] UI overhaul (replace NiScreenElements HUD with full UI framework)
-- [ ] TTS voice profile system
-- [ ] Cutscene player
+- XTrap anti-cheat
+- SSOWebLib / WebCtrl (browser-based login)
+- ShineException server crash reporter
+- NetMarble logo video / branding
+- Locale version defines (_LOCALE_VER_KR etc.)
+- Renderer selection dialog (NiDX9Select)

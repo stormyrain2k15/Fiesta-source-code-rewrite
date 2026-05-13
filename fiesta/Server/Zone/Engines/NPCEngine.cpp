@@ -3,7 +3,7 @@
 #include "NPCEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 NPCEngine& NPCEngine::Get() { static NPCEngine s; return s; }
 
@@ -13,4 +13,4 @@ void NPCEngine::Bind() {
     SHINELOG_INFO("NPCEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -5,11 +5,11 @@
 //                                  ItemDropFromMob, ItemDropTable, DropItemAnalyzer,
 //                                  DropLocationManager, ItemLotInspector, BelongDiceTable,
 //                                  RewardInven, ItemsInChest
-#ifndef FIESTA_ZONE_ITEMSYSTEMS_H
-#define FIESTA_ZONE_ITEMSYSTEMS_H
+#ifndef SHINE_ZONE_ITEMSYSTEMS_H
+#define SHINE_ZONE_ITEMSYSTEMS_H
 #include "Inventory.h"
 
-namespace fiesta {
+namespace shine {
 
 class ShineItemUpgrade {
 public:
@@ -42,5 +42,5 @@ class DropLocationManager { public: static Vec3 ScatterAround(const Vec3& kCente
 class BelongDiceTable   { public: static CharID PickWinner(const std::vector<CharID>& rGroup); };
 class RewardInven       { public: static void Push(ShinePlayer* pk, ItemID uiItem, uint16 uiQty); };
 
-} // namespace fiesta
+} // namespace shine
 #endif

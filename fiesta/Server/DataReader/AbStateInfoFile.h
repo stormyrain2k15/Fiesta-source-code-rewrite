@@ -23,13 +23,13 @@
 //        uint32 reserved
 // Field semantics (timestep / actionId / strength) are tentative; we surface
 // the raw fields so callers can reinterpret. Parsing is best-effort.
-#ifndef FIESTA_DATAREADER_ABSTATEINFOFILE_H
-#define FIESTA_DATAREADER_ABSTATEINFOFILE_H
+#ifndef SHINE_DATAREADER_ABSTATEINFOFILE_H
+#define SHINE_DATAREADER_ABSTATEINFOFILE_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct AbStateMasterEntry {
     uint8       uiMainStateId;
@@ -52,5 +52,5 @@ struct AbStateTimeline {
 };
 bool LoadAbStateTimeline(const std::string& rPath, AbStateTimeline& rOut);
 
-} // namespace fiesta
+} // namespace shine
 #endif

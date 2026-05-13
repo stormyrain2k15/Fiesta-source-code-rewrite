@@ -5,7 +5,7 @@
 #include <ctype.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 // ---------------- Tokenizer ----------------
 bool PsScriptFile::Tokenize(const std::string& rSrc) {
@@ -331,4 +331,4 @@ const PsBlock* PsScriptFile::FindBlock(const std::string& rName) const {
     return NULL;
 }
 
-} // namespace fiesta
+} // namespace shine

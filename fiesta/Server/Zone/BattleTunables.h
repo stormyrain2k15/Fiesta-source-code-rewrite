@@ -4,11 +4,11 @@
 // All values are they are reasonable starting points for the
 // 145-cap live-game balance shape. Verify against community theorycraft
 // before treating any of them as ground truth.
-#ifndef FIESTA_ZONE_BATTLETUNABLES_H
-#define FIESTA_ZONE_BATTLETUNABLES_H
+#ifndef SHINE_ZONE_BATTLETUNABLES_H
+#define SHINE_ZONE_BATTLETUNABLES_H
 #include "../Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 // =============================================================================
 //  Damage formula constants
@@ -41,7 +41,7 @@ const int32  kPvPDamageScalerX1k       = 700;     // 0.70x in PvP by default
 //  Raw damage formula (Step 2 of CalcDamage)
 // =============================================================================
 // kRawDmgMode: selects the base formula before level-gap / element / etc.
-//   0 = Quadratic  dmg = ATK*ATK / (ATK + DEF)          <- default, Fiesta-style
+//   0 = Quadratic  dmg = ATK*ATK / (ATK + DEF)          <- default, Shine-style
 //   1 = Linear     dmg = ATK - DEF  (clamped to floor)  <- simple fallback
 // At mode 0, equal ATK/DEF means target absorbs 50% of ATK. 
 // TUNE: switch to mode 1 temporarily if combat feels weak vs. normal mobs.
@@ -211,5 +211,5 @@ const int32  kAbStateDotScalerX1k     = 1000;     // 1000 = 1.0x raw arg
 // container with no SubAbState binding still gets a minimum lifetime).
 const uint32 kAbStateDefaultKeepMs    = 10000;
 
-} // namespace fiesta
+} // namespace shine
 #endif

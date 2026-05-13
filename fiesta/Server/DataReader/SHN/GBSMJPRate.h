@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GBSMJPRate.h
 // Auto-generated: one-file-per-SHN split for GBSMJPRate.shn
-#ifndef FIESTA_DATAREADER_SHN_GBSMJPRATE_H
-#define FIESTA_DATAREADER_SHN_GBSMJPRATE_H
+#ifndef SHINE_DATAREADER_SHN_GBSMJPRATE_H
+#define SHINE_DATAREADER_SHN_GBSMJPRATE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GBSMJPRateRow {
     uint32           uiGBSM_MinCount;
@@ -26,5 +26,5 @@ private:
     std::vector<GBSMJPRateRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GBSMJPRATE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GBSMJPRATE_H

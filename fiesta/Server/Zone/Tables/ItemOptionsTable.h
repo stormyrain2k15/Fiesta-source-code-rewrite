@@ -3,13 +3,13 @@
 // Per-(OptionDegree, type) weight ladder of 9 buckets. The runtime
 // rolls a random uniform weight against the cumulative ladder to pick
 // the option count for that stat at that degree tier.
-#ifndef FIESTA_ZONE_TABLES_ITEMOPTIONSTABLE_H
-#define FIESTA_ZONE_TABLES_ITEMOPTIONSTABLE_H
+#ifndef SHINE_ZONE_TABLES_ITEMOPTIONSTABLE_H
+#define SHINE_ZONE_TABLES_ITEMOPTIONSTABLE_H
 #include "../../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 struct LegacyItemOptionsRow {
     uint16 uiOptionDegree;
@@ -33,5 +33,5 @@ private:
     static std::string Key(uint16 d, const std::string& t);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

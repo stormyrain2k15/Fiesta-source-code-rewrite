@@ -1,10 +1,10 @@
 // Server/Zone/GMEventManager.h
 // Zone-side hook for GM event broadcasts received from WorldManager.
-#ifndef FIESTA_ZONE_GMEVENTMANAGER_H
-#define FIESTA_ZONE_GMEVENTMANAGER_H
+#ifndef SHINE_ZONE_GMEVENTMANAGER_H
+#define SHINE_ZONE_GMEVENTMANAGER_H
 #include "../Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class GMEventManager_Zone {
 public:
@@ -13,5 +13,5 @@ public:
     static void OnEventBroadcast(uint32 uiEventNo, bool bStart);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

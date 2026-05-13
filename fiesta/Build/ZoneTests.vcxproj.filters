@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="tests"><UniqueIdentifier>{D82D0AF4-BCF0-5741-A721-C1120B188CE6}</UniqueIdentifier></Filter>
+    <Filter Include="tests"><UniqueIdentifier>{4CFBFD3C-CEFA-5C80-B4BC-A3141C083493}</UniqueIdentifier></Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Server\Zone\tests\TestBase.cpp"><Filter>tests</Filter></ClCompile>

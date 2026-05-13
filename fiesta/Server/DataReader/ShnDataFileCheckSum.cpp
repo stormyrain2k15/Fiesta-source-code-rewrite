@@ -5,7 +5,7 @@
 #include <string.h>
 #include <ctype.h>
 
-namespace fiesta {
+namespace shine {
 
 ShnDataFileCheckSum::ShnDataFileCheckSum() {}
 
@@ -47,4 +47,4 @@ bool ShnDataFileCheckSum::Verify(const std::string& rLogical, const void* pv, si
     return ok;
 }
 
-} // namespace fiesta
+} // namespace shine

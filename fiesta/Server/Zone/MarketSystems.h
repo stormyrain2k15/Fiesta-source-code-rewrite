@@ -1,14 +1,14 @@
 // Server/Zone/MarketSystems.h
 // Auction / TradeBoard / Trade / StreetBooth.
 //                                  Trade, TradeMisc, StreetBooth, StreetBoothBuy/Sell, BoothManager
-#ifndef FIESTA_ZONE_MARKETSYSTEMS_H
-#define FIESTA_ZONE_MARKETSYSTEMS_H
+#ifndef SHINE_ZONE_MARKETSYSTEMS_H
+#define SHINE_ZONE_MARKETSYSTEMS_H
 #include "Inventory.h"
 #include <map>
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 struct AuctionListing { uint32 uiId; CharID uiSeller; ShineItem kItem; int64 iMinBid; int64 iBuyout; uint64 uiEndMs; CharID uiBidder; int64 iCurBid; };
 
@@ -50,5 +50,5 @@ class StreetBoothBuy  { public: static bool BuyFromBooth (CharID self, CharID bo
 class StreetBoothSell { public: static bool ListInBooth  (CharID self, const ShineItem& kIt, int64 iPrice); };
 class BoothManager    { public: static void Tick(); };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GuildGradeScoreData.h
 // Auto-generated: one-file-per-SHN split for GuildGradeScoreData.shn
-#ifndef FIESTA_DATAREADER_SHN_GUILDGRADESCOREDATA_H
-#define FIESTA_DATAREADER_SHN_GUILDGRADESCOREDATA_H
+#ifndef SHINE_DATAREADER_SHN_GUILDGRADESCOREDATA_H
+#define SHINE_DATAREADER_SHN_GUILDGRADESCOREDATA_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GuildGradeScoreDataRow {
     int16            iGradeScore;
@@ -30,5 +30,5 @@ private:
     std::vector<GuildGradeScoreDataRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GUILDGRADESCOREDATA_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GUILDGRADESCOREDATA_H

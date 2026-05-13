@@ -1,5 +1,5 @@
 #include "Party.h"
-namespace fiesta {
+namespace shine {
 
 PartyContainer& PartyContainer::Get() { static PartyContainer s; return s; }
 
@@ -70,4 +70,4 @@ void PartyLeave  (CharID c)        { PartyContainer::Get().Leave(c); }
 void PartyKickOut(CharID a, CharID b){ Party* p = PartyContainer::Get().GetByMember(a); if (p) PartyContainer::Get().Kick(p->uiPartyId, a, b); }
 void PartyBreak  (CharID a)        { Party* p = PartyContainer::Get().GetByMember(a); if (p) PartyContainer::Get().Break(p->uiPartyId, a); }
 
-} // namespace fiesta
+} // namespace shine

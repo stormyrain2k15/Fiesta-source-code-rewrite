@@ -3,7 +3,7 @@
 #include "RandomOptionCount.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 RandomOptionCountShn& RandomOptionCountShn::Get() { static RandomOptionCountShn s; return s; }
 
@@ -27,4 +27,4 @@ const RandomOptionCountRow* RandomOptionCountShn::FindByInx(const std::string& r
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

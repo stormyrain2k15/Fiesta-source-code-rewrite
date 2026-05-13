@@ -3,7 +3,7 @@
 #include "MapWayPoint.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MapWayPointShn& MapWayPointShn::Get() { static MapWayPointShn s; return s; }
 
@@ -22,4 +22,4 @@ void MapWayPointShn::Load() {
     SHINELOG_INFO("MapWayPoint.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

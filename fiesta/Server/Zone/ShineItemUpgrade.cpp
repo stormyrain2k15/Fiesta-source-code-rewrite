@@ -2,7 +2,7 @@
 // Canonical-named alias for ItemUpgrade. The real flow lives in
 // ItemUpgrade.cpp (Try / ResolveForPlayer).
 #include "ItemUpgrade.h"
-namespace fiesta {
+namespace shine {
 // The PDB has both ShineItemUpgrade and ItemUpgrade prefixes; expose a
 // trivial pass-through so symbols resolve under either name.
 class ShineItemUpgrade_Pdb {
@@ -11,4 +11,4 @@ public:
         return ItemUpgrade::ResolveForPlayer(pkP, uiItemId, bLuck);
     }
 };
-} // namespace fiesta
+} // namespace shine

@@ -1,14 +1,14 @@
 // Server/Zone/AdminSecLog.h
 //                                  XTrap4Server, BadNameFilterData, BadNameFilter,
 //                                  AccountLog, GameLogSession, EasyLogSys, MobHuntLog, ItemDropLog
-#ifndef FIESTA_ZONE_ADMINSECLOG_H
-#define FIESTA_ZONE_ADMINSECLOG_H
+#ifndef SHINE_ZONE_ADMINSECLOG_H
+#define SHINE_ZONE_ADMINSECLOG_H
 #include "ShineObject.h"
 #include <string>
 #include <vector>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 class ShinePrison    { public: static void Send (ShinePlayer* pk, uint32 uiSec); static void Release(ShinePlayer* pk); };
 class PrisonServer   { public: static void Tick(); };
@@ -28,5 +28,5 @@ class EasyLogSys { public: static void Write(const char* szTopic, const char* sz
 class MobHuntLog { public: static void Record (CharID c, MobID s); };
 class ItemDropLog{ public: static void Record (CharID c, ItemID i, uint16 q); };
 
-} // namespace fiesta
+} // namespace shine
 #endif

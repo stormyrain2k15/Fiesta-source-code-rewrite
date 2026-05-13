@@ -7,7 +7,7 @@
 #include "../Common/SendPacket.h"
 #include "../Shared/PacketBuffer.h"
 
-namespace fiesta {
+namespace shine {
 
 void AnnounceSystem::Broadcast(uint8 uiLevel, const std::string& rText) {
     PacketBuffer body;
@@ -22,4 +22,4 @@ void AnnounceSystem::Broadcast(uint8 uiLevel, const std::string& rText) {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

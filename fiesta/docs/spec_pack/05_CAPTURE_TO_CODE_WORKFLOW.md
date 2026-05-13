@@ -11,14 +11,14 @@ Josh's weekend run should become source pages, not a giant packet soup.
 
 ## Evidence chain
 
-Player action → FiestaShark wire packet → rat IOCP/internal packet → Olly live call stack → IDA/Hex-Rays handler → PDB symbol → DB write → server response → client UI/state change.
+Player action → ShineShark wire packet → rat IOCP/internal packet → Olly live call stack → IDA/Hex-Rays handler → PDB symbol → DB write → server response → client UI/state change.
 
 ## Event folder standard
 
 ```txt
 EVENT_042_job_change_attempt_01/
   notes.txt
-  fiestashark_both_sides.txt
+  shineshark_both_sides.txt
   rat_zone_iocp.log
   rat_wm_iocp.log
   olly_zone_callstack.log

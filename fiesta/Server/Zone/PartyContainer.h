@@ -2,11 +2,11 @@
 // In-memory party state -- 8 player slots, leader index, loot rule,
 // level range. The PartyFinderServer in WM mirrors a flattened view via
 // NC_INTER_PARTY_STATE_PUSH.
-#ifndef FIESTA_ZONE_PARTYCONTAINER_H
-#define FIESTA_ZONE_PARTYCONTAINER_H
+#ifndef SHINE_ZONE_PARTYCONTAINER_H
+#define SHINE_ZONE_PARTYCONTAINER_H
 #include "../Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 enum ePartyLootRule {
     PLR_FreeForAll       = 0,
@@ -45,5 +45,5 @@ public:
     void   SetLeader  (uint32 cid);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

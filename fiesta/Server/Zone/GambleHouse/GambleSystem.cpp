@@ -14,7 +14,7 @@
 #include "../../Shared/well512.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 static well512 s_kRng;
 
@@ -235,4 +235,4 @@ int32 GambleSystem::ResolveSlot(ShinePlayer* pk,
     return pay;
 }
 
-} // namespace fiesta
+} // namespace shine

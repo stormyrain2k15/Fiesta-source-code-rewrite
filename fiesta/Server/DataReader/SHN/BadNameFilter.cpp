@@ -3,7 +3,7 @@
 #include "BadNameFilter.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 BadNameFilterShn& BadNameFilterShn::Get() { static BadNameFilterShn s; return s; }
 
@@ -20,4 +20,4 @@ void BadNameFilterShn::Load() {
     SHINELOG_INFO("BadNameFilter.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

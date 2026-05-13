@@ -3,7 +3,7 @@
 #include "MobSpecies.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MobSpeciesShn& MobSpeciesShn::Get() { static MobSpeciesShn s; return s; }
 
@@ -29,4 +29,4 @@ const MobSpeciesRow* MobSpeciesShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

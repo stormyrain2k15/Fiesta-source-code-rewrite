@@ -3,7 +3,7 @@
 #include "AttackRhythm.h"
 #include "../Shared/GTimer.h"
 
-namespace fiesta {
+namespace shine {
 
 AttackRhythm& AttackRhythm::Get() { static AttackRhythm s; return s; }
 
@@ -27,4 +27,4 @@ void AttackRhythm::Forget(uint32 cid) {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -1,10 +1,10 @@
 // Server/Shared/EHCrashHandler.h
 // structured-exception handler with minidump writer.
-#ifndef FIESTA_EHCRASHHANDLER_H
-#define FIESTA_EHCRASHHANDLER_H
+#ifndef SHINE_EHCRASHHANDLER_H
+#define SHINE_EHCRASHHANDLER_H
 #include "ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class EHCrashHandler {
 public:
@@ -17,5 +17,5 @@ private:
     static void* ms_pPrevFilter;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

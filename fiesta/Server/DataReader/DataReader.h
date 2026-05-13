@@ -1,7 +1,7 @@
 // Server/DataReader/DataReader.h
 // top-level SHN/TXT loader and table registry.
-#ifndef FIESTA_DATAREADER_H
-#define FIESTA_DATAREADER_H
+#ifndef SHINE_DATAREADER_H
+#define SHINE_DATAREADER_H
 #include "../Shared/ShineTypes.h"
 #include "ShnDataFileCheckSum.h"
 #include "ITableBase.h"
@@ -9,7 +9,7 @@
 #include <vector>
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 class DataReader {
 public:
@@ -38,5 +38,5 @@ private:
                       std::vector<std::vector<std::string> >& rOut);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 
 PupAITables& PupAITables::Get() { static PupAITables s; return s; }
 
@@ -79,4 +79,4 @@ void PupAITables::CasesByPriority(uint32 uP, std::vector<const CaseDesc*>& rOut)
         if (m_kCase[i].uiPriorityType == uP) rOut.push_back(&m_kCase[i]);
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -1,7 +1,7 @@
 // Server/Zone/Engines/MobEngine.h
 // Auto-generated: MobEngine — aggregates 14 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_MOBENGINE_H
-#define FIESTA_ZONE_ENGINES_MOBENGINE_H
+#ifndef SHINE_ZONE_ENGINES_MOBENGINE_H
+#define SHINE_ZONE_ENGINES_MOBENGINE_H
 #include "../../DataReader/SHN/MobAbStateDropSetting.h"
 #include "../../DataReader/SHN/MobAutoAction.h"
 #include "../../DataReader/SHN/MobConditionServer.h"
@@ -19,7 +19,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class MobEngine {
 public:
@@ -46,5 +46,5 @@ private:
     MobEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_MOBENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_MOBENGINE_H

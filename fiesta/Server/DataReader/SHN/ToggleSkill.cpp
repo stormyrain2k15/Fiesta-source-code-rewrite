@@ -3,7 +3,7 @@
 #include "ToggleSkill.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ToggleSkillShn& ToggleSkillShn::Get() { static ToggleSkillShn s; return s; }
 
@@ -21,4 +21,4 @@ void ToggleSkillShn::Load() {
     SHINELOG_INFO("ToggleSkill.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -3,13 +3,13 @@
 // against MultiHitType.shn and the per-group lookup. SkillSystem.cpp
 // references `MultiHitTable::Resolve(SkillID)` for the hit-count
 // branch in `Skill::TryUse`.
-#ifndef FIESTA_ZONE_MULTIHITTABLE_H
-#define FIESTA_ZONE_MULTIHITTABLE_H
+#ifndef SHINE_ZONE_MULTIHITTABLE_H
+#define SHINE_ZONE_MULTIHITTABLE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MultiHitEntry {
     uint8  bGroupID;
@@ -37,5 +37,5 @@ private:
     std::map<uint8, std::vector<MultiHitEntry> > m_kByGroup;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -7,7 +7,7 @@
 #include "BindMacros.h"
 #include "../GroupTables.h"
 
-namespace fiesta {
+namespace shine {
 
 MobTables& MobTables::Get() { static MobTables s; return s; }
 
@@ -87,4 +87,4 @@ const LegacyMobLifeTimeRow* MobTables::FindLife(uint32 uiID) const {
     return (it == m_kLifeById.end()) ? NULL : &m_kLife[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

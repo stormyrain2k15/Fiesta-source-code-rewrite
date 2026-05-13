@@ -4,12 +4,12 @@
 // consecutive uses of the same skill -- the original NA2016 server
 // rejects fast-fire packets at this layer rather than relying on
 // client-side cooldown.
-#ifndef FIESTA_ZONE_ATTACKRHYTHM_H
-#define FIESTA_ZONE_ATTACKRHYTHM_H
+#ifndef SHINE_ZONE_ATTACKRHYTHM_H
+#define SHINE_ZONE_ATTACKRHYTHM_H
 #include "../Shared/ShineTypes.h"
 #include <map>
 
-namespace fiesta {
+namespace shine {
 
 class AttackRhythm {
 public:
@@ -25,5 +25,5 @@ private:
     std::map<uint64, uint64> m_kLast;   // key = (cid<<32) | sid -> ms
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

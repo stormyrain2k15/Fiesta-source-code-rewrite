@@ -3,7 +3,7 @@
 #include "../../Server/Shared/ShineLogSystem.h"
 #include <NiScreenElements.h>
 
-namespace fiesta {
+namespace shine {
 
 ShineHUD::ShineHUD() : m_bVisible(false), m_pkRenderer(NULL) {
     ZeroMemory(&m_kLast, sizeof(m_kLast));
@@ -103,4 +103,4 @@ void ShineHUD::Render(NiRenderer* pkRenderer) {
     if (m_spSPBarFill) pkRenderer->RenderScreenElements(m_spSPBarFill);
 }
 
-} // namespace fiesta
+} // namespace shine

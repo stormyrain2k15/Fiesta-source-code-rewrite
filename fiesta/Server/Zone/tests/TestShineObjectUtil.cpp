@@ -4,7 +4,7 @@
 #include "TestBase.h"
 #include "../ShineObject.h"
 
-namespace fiesta {
+namespace shine {
 
 static ShinePlayer* MakePlayer(uint32 cid, uint8 cls, uint16 lv) {
     ShinePlayer* p = new ShinePlayer();
@@ -16,4 +16,4 @@ static ShinePlayer* MakePlayer(uint32 cid, uint8 cls, uint16 lv) {
 
 (void)MakePlayer;  // silence "unused" warning when no test pulls it.
 
-} // namespace fiesta
+} // namespace shine

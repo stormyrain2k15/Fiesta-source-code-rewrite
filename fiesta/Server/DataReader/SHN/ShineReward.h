@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/ShineReward.h
 // Auto-generated: one-file-per-SHN split for ShineReward.shn
-#ifndef FIESTA_DATAREADER_SHN_SHINEREWARD_H
-#define FIESTA_DATAREADER_SHN_SHINEREWARD_H
+#ifndef SHINE_DATAREADER_SHN_SHINEREWARD_H
+#define SHINE_DATAREADER_SHN_SHINEREWARD_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ShineRewardRow {
     uint16           uiRewardHandle;
@@ -39,5 +39,5 @@ private:
     std::vector<ShineRewardRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_SHINEREWARD_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_SHINEREWARD_H

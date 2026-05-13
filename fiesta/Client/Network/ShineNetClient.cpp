@@ -3,7 +3,7 @@
 #include "../../Server/Shared/ShineLogSystem.h"
 #include <process.h>
 
-namespace fiesta {
+namespace shine {
 
 ShineNetClient::ShineNetClient()
     : m_kSock(INVALID_SOCKET), m_hPort(NULL), m_hWorker(NULL),
@@ -210,4 +210,4 @@ void ShineNetClient::WorkerLoop() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -3,7 +3,7 @@
 #include "BindMacros.h"
 #include "../MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 ShineRewardTable& ShineRewardTable::Get() { static ShineRewardTable s; return s; }
 void ShineRewardTable::Bind() {
     // FEATURE: world-creation -- column read: RewardHandle, RewardType,
@@ -26,4 +26,4 @@ const ShineRewardTable::Row* ShineRewardTable::Find(uint32 h) const {
     std::map<uint32,size_t>::const_iterator i=m_kByHandle.find(h);
     return i==m_kByHandle.end()?NULL:&m_kRows[i->second];
 }
-} // namespace fiesta
+} // namespace shine

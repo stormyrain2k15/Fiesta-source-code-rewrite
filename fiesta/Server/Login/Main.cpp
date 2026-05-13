@@ -20,7 +20,7 @@
 #include "LoginClientSession.h"
 #include "ClientVersionKeyInfo.h"
 
-namespace fiesta {
+namespace shine {
 
 // Globals consumed by LoginClientSession::HandleLogin.
 Database*           g_pkLoginAccountDB = NULL;
@@ -33,7 +33,7 @@ static IOCPSession* MakeLoginClientSession() { return new LoginClientSession(); 
 
 class LoginService : public WinService {
 public:
-    LoginService() : WinService("FiestaLogin") {}
+    LoginService() : WinService("ShineLogin") {}
     virtual bool OnStart() {
         m_kInfo.Load("LoginServerInfo.txt");
         ServerInfo::SetCurrent(&m_kInfo);
@@ -88,6 +88,6 @@ private:
     Socket_Acceptor m_kAcceptor;
 };
 
-} // namespace fiesta
+} // namespace shine
 
-int main(int argc, char** argv) { fiesta::LoginService s; return s.Run(argc, argv); }
+int main(int argc, char** argv) { shine::LoginService s; return s.Run(argc, argv); }

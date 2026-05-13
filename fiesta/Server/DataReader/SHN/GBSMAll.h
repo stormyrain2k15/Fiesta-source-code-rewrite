@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GBSMAll.h
 // Auto-generated: one-file-per-SHN split for GBSMAll.shn
-#ifndef FIESTA_DATAREADER_SHN_GBSMALL_H
-#define FIESTA_DATAREADER_SHN_GBSMALL_H
+#ifndef SHINE_DATAREADER_SHN_GBSMALL_H
+#define SHINE_DATAREADER_SHN_GBSMALL_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GBSMAllRow {
     uint8            uiGBSM_GroupID;
@@ -27,5 +27,5 @@ private:
     std::vector<GBSMAllRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GBSMALL_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GBSMALL_H

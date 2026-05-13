@@ -4,7 +4,7 @@
 #include <time.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 static const char* LvlName(LogLevel e) {
     switch (e) {
@@ -68,4 +68,4 @@ void ShineLogSystem::Write(LogLevel eLvl, const char* szFmt, ...) {
     OutputDebugStringA(szLine);
 }
 
-} // namespace fiesta
+} // namespace shine

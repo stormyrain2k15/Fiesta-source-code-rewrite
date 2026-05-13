@@ -3,7 +3,7 @@
 #include "ItemOptions.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ItemOptionsShn& ItemOptionsShn::Get() { static ItemOptionsShn s; return s; }
 
@@ -30,4 +30,4 @@ void ItemOptionsShn::Load() {
     SHINELOG_INFO("ItemOptions.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

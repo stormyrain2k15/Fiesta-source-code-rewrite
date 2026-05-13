@@ -3,7 +3,7 @@
 #include "ItemDismantle.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ItemDismantleShn& ItemDismantleShn::Get() { static ItemDismantleShn s; return s; }
 
@@ -51,4 +51,4 @@ const ItemDismantleRow* ItemDismantleShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

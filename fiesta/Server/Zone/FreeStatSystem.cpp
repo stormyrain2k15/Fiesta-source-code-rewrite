@@ -9,7 +9,7 @@
 #include "BattleTunables.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 void FreeStatSystem::GrantPointsForLevelUp(FreeStatLedger& rL, int32 nNewLevel) {
     if (nNewLevel < 1) return;
@@ -57,4 +57,4 @@ int32 FreeStatSystem::RefundAll(FreeStatLedger& rL) {
     return nRefunded;
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -3,7 +3,7 @@
 #include "GroupTables.h"
 #include "../Shared/GTimer.h"
 #include <windows.h>
-namespace fiesta {
+namespace shine {
 
 GuildServer& GuildServer::Get() { static GuildServer s; return s; }
 
@@ -118,4 +118,4 @@ int32 GuildTournamentSystem::OccupyPoints(uint16 sec) {
     return GuildTournamentExtraTables::Get().OccupyPoints(sec);
 }
 
-} // namespace fiesta
+} // namespace shine

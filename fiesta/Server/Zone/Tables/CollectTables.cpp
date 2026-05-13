@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../GroupTables.h"
 
-namespace fiesta {
+namespace shine {
 
 CollectTables& CollectTables::Get() { static CollectTables s; return s; }
 void CollectTables::Bind() {
@@ -40,4 +40,4 @@ const LegacyCollectCardRewardRow* CollectTables::FindReward(uint32 uiID) const {
     return (it == m_kRewardById.end()) ? NULL : &m_kReward[it->second]; }
 
 
-} // namespace fiesta
+} // namespace shine

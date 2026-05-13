@@ -3,7 +3,7 @@
 #include "ShineReward.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ShineRewardShn& ShineRewardShn::Get() { static ShineRewardShn s; return s; }
 
@@ -34,4 +34,4 @@ void ShineRewardShn::Load() {
     SHINELOG_INFO("ShineReward.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

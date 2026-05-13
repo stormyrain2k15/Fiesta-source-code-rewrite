@@ -2,7 +2,7 @@
 #include "MoveManager.h"
 #include <math.h>
 
-namespace fiesta {
+namespace shine {
 
 // Local provisional movement caps.
 static const float kMaxWalkUnitsPerCmd = 8.0f;
@@ -39,4 +39,4 @@ void NearScan_RunLegacy(Field& rField, const Vec3& kFrom,
     NearScan::RunOnField(rField, kFrom, rOut);
 }
 
-} // namespace fiesta
+} // namespace shine

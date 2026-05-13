@@ -25,7 +25,7 @@
 //   AreaSkillTable.cpp        AreaSkill
 #include "MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 
 void BindAllMoreTables() {
     PartyBonusTables::Get()        .Bind();
@@ -46,4 +46,4 @@ void BindAllMoreTables() {
     AreaSkillTable::Get()          .Bind();
 }
 
-} // namespace fiesta
+} // namespace shine

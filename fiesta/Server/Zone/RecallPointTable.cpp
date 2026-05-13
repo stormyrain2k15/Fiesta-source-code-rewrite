@@ -3,7 +3,7 @@
 // to; goddess-wing items (SparrowWing) port by recall-point id.
 #include "../DataReader/ShnRegistry.h"
 #include <map>
-namespace fiesta {
+namespace shine {
 struct RecallPoint { uint32 uiId; uint16 uiMap; float x, y; };
 class RecallPointTable {
 public:
@@ -28,4 +28,4 @@ public:
 private:
     std::map<uint32, RecallPoint> m_kRows;
 };
-} // namespace fiesta
+} // namespace shine

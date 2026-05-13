@@ -1,6 +1,6 @@
 // Server/Common/NETCOMMAND.h
 // canonical NC opcode enum.
-// Numeric values pinned from FiestaShark live captures + recovered Login.pdb /
+// Numeric values pinned from ShineShark live captures + recovered Login.pdb /
 // WorldManager.pdb / 5ZoneServer2.pdb symbol set (5087 unique symbols).
 // Opcodes marked CONFIRMED are from live captures. Opcodes left at the per-
 // family base allocation are name-only -- pin via capture as you see them.
@@ -8,11 +8,11 @@
 //   * Family bases below: change if a server build moves a whole subsystem.
 //   * `kClientID` / `kClientBuildToken` in Login/ClientVersionKeyInfo.h
 //   * Damage formula constants in Server/Zone/BattleTunables.h
-#ifndef FIESTA_NETCOMMAND_H
-#define FIESTA_NETCOMMAND_H
+#ifndef SHINE_NETCOMMAND_H
+#define SHINE_NETCOMMAND_H
 #include "../Shared/ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 // ----------------------------------------------------------------------------
 // Family bases (provisional).
@@ -414,5 +414,5 @@ enum NETCOMMAND {
     NC_INTER_GMEVENT_TRIGGER_REQ    = NC_FAMILY_INTERSVR + 0x15
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

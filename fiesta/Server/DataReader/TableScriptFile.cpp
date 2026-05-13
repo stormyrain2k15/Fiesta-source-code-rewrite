@@ -7,7 +7,7 @@
 #include <ctype.h>
 #include <set>
 
-namespace fiesta {
+namespace shine {
 
 // --- column auditor for the TS-format files (mirrors the
 // ShnAudit hook in ShnRegistry). Stamp every (table, column) pair the
@@ -409,4 +409,4 @@ const TsTable* TableScriptFile::Find(const std::string& rName) const {
     return (it == m_kIndex.end()) ? NULL : &m_kTables[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

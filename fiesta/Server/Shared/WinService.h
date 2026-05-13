@@ -1,10 +1,10 @@
 // Server/Shared/WinService.h
 // Windows Service host base. Each service exe subclasses this.
-#ifndef FIESTA_WINSERVICE_H
-#define FIESTA_WINSERVICE_H
+#ifndef SHINE_WINSERVICE_H
+#define SHINE_WINSERVICE_H
 #include "ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class WinService {
 public:
@@ -42,5 +42,5 @@ private:
     static WinService*    ms_pInst;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

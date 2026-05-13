@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/FieldLvCondition.h
 // Auto-generated: one-file-per-SHN split for FieldLvCondition.shn
-#ifndef FIESTA_DATAREADER_SHN_FIELDLVCONDITION_H
-#define FIESTA_DATAREADER_SHN_FIELDLVCONDITION_H
+#ifndef SHINE_DATAREADER_SHN_FIELDLVCONDITION_H
+#define SHINE_DATAREADER_SHN_FIELDLVCONDITION_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct FieldLvConditionRow {
     std::string      kMapIndex;
@@ -27,5 +27,5 @@ private:
     std::vector<FieldLvConditionRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_FIELDLVCONDITION_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_FIELDLVCONDITION_H

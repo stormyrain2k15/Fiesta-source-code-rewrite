@@ -4,7 +4,7 @@ Use external references only to fill public-facing names/meanings, not to overri
 
 ## Official Gamigo pages to use for public feature names
 
-- Fiesta homepage/about: confirms high-level systems such as quests, KQ, guilds, master/apprentice, wedding, daily quest/premium reward loops.
+- Shine homepage/about: confirms high-level systems such as quests, KQ, guilds, master/apprentice, wedding, daily quest/premium reward loops.
 - Character Classes: public names and role descriptions for Fighter, Cleric, Archer, Mage, Trickster, Crusader.
 - Class Change: public job-change levels and NPC/map flow: level 20, 60, 100.
 - Dungeons: public dungeon names and level ranges.
@@ -16,8 +16,8 @@ Use external references only to fill public-facing names/meanings, not to overri
 
 ## Fan/community references
 
-- Fiesta Wiki / Fiesta-Wiki: use for skill names, item names, mob names, card names, production/gathering names, and public stats when internal InxName is cryptic.
-- RageZone / EPVP / Fiesta Heroes: use for emulator behavior comparisons, packet folklore, and tool references, but mark as community evidence unless matched by PDB/capture/data.
+- Shine Wiki / Shine-Wiki: use for skill names, item names, mob names, card names, production/gathering names, and public stats when internal InxName is cryptic.
+- RageZone / EPVP / Shine Heroes: use for emulator behavior comparisons, packet folklore, and tool references, but mark as community evidence unless matched by PDB/capture/data.
 
 ## Rule
 

@@ -7,4 +7,4 @@
 // This translation unit exists only to anchor the `Field.cpp` symbol
 // in the canonical NA2016 PDB layout; no code -- just a TU placeholder.
 #include "MapField.h"
-namespace fiesta { } // namespace fiesta
+namespace shine { } // namespace shine

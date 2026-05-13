@@ -12,7 +12,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include "../Common/NETCOMMAND.h"
 
-namespace fiesta {
+namespace shine {
 
 class WMCharDBClientSession : public IOCPSession {
 public:
@@ -139,4 +139,4 @@ bool WMCharDBClient::RankingPublish(uint8 cat, const std::vector<DBRecord>& rRow
 #undef SEND_BEGIN
 #undef SEND_END
 
-} // namespace fiesta
+} // namespace shine

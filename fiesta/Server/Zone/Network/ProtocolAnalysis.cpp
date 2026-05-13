@@ -3,7 +3,7 @@
 // unexpected client opcode floods.
 #include "../../Shared/ShineTypes.h"
 #include <map>
-namespace fiesta {
+namespace shine {
 class ProtocolAnalysis {
 public:
     static ProtocolAnalysis& Get() { static ProtocolAnalysis s; return s; }
@@ -15,4 +15,4 @@ public:
 private:
     std::map<uint16, uint64> m_kCounts;
 };
-} // namespace fiesta
+} // namespace shine

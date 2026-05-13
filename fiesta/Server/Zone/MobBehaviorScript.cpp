@@ -3,7 +3,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 bool MobBehaviorScript::Load(const std::string& rPath) {
     return m_kFile.Load(rPath);
@@ -176,4 +176,4 @@ void MobBehaviorBox::Clear() {
     m_kAll.clear();
 }
 
-} // namespace fiesta
+} // namespace shine

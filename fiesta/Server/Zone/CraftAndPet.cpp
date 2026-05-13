@@ -1,6 +1,6 @@
 #include "CraftAndPet.h"
 #include "../Shared/well512.h"
-namespace fiesta {
+namespace shine {
 
 static well512 s_kRng;
 
@@ -37,4 +37,4 @@ int32 SlotMachine::Spin(int64 w) {
     return 0;
 }
 
-} // namespace fiesta
+} // namespace shine

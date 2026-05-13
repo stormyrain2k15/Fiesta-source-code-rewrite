@@ -3,7 +3,7 @@
 #include "KQItem.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 KQItemShn& KQItemShn::Get() { static KQItemShn s; return s; }
 
@@ -22,4 +22,4 @@ void KQItemShn::Load() {
     SHINELOG_INFO("KQItem.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

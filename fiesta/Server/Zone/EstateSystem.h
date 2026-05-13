@@ -25,14 +25,14 @@
 //      owner toggles vendor mode, items priced via `StreetBoothSell` are
 //      visible to other players who can browse the estate; this funnels
 //      into the existing `StreetBooth` flow in MarketSystems.h.
-#ifndef FIESTA_ZONE_ESTATESYSTEM_H
-#define FIESTA_ZONE_ESTATESYSTEM_H
+#ifndef SHINE_ZONE_ESTATESYSTEM_H
+#define SHINE_ZONE_ESTATESYSTEM_H
 #include "Inventory.h"
 #include <map>
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 struct EstatePlacement {
     uint32      uiSlotID;       // bone slot from MiniHouseDummy
@@ -94,5 +94,5 @@ private:
     uint32                      m_uiNext;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

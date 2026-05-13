@@ -3,7 +3,7 @@
 #include "JobEquipInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 JobEquipInfoShn& JobEquipInfoShn::Get() { static JobEquipInfoShn s; return s; }
 
@@ -26,4 +26,4 @@ void JobEquipInfoShn::Load() {
     SHINELOG_INFO("JobEquipInfo.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

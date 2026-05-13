@@ -6,7 +6,7 @@
 #include "../../DataReader/TableScriptFile.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ExpRecalcTable& ExpRecalcTable::Get() { static ExpRecalcTable s; return s; }
 
@@ -55,4 +55,4 @@ int32 ExpRecalcTable::Scaler(uint16 uiKillerLv, uint16 uiMobLv) const {
     return bonus / 10;                       // -> percentage
 }
 
-} // namespace fiesta
+} // namespace shine

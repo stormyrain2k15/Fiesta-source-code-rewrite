@@ -3,7 +3,7 @@
 #include "QuestEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 QuestEngine& QuestEngine::Get() { static QuestEngine s; return s; }
 
@@ -22,4 +22,4 @@ void QuestEngine::Bind() {
     SHINELOG_INFO("QuestEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

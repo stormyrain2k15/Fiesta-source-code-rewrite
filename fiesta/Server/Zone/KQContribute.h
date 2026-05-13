@@ -1,9 +1,9 @@
 // Server/Zone/KQContribute.h
-#ifndef FIESTA_ZONE_KQCONTRIBUTE_H
-#define FIESTA_ZONE_KQCONTRIBUTE_H
+#ifndef SHINE_ZONE_KQCONTRIBUTE_H
+#define SHINE_ZONE_KQCONTRIBUTE_H
 #include "../Shared/ShineTypes.h"
 #include <map>
-namespace fiesta {
+namespace shine {
 class KQContribute {
 public:
     static KQContribute& Get();
@@ -13,5 +13,5 @@ public:
 private:
     std::map<uint64, uint32> m_kPer;
 };
-} // namespace fiesta
+} // namespace shine
 #endif

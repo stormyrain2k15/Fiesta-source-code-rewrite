@@ -5,7 +5,7 @@
     <ProjectConfiguration Include="Release|Win32"><Configuration>Release</Configuration><Platform>Win32</Platform></ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E9D051DA-BFB9-515D-8A78-978216F79EF7}</ProjectGuid>
+    <ProjectGuid>{64CB1FEF-951B-58F0-B315-EF7A467004E1}</ProjectGuid>
     <RootNamespace>Shared</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>

@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 ClassParamTable& ClassParamTable::Get() { static ClassParamTable s; return s; }
 
@@ -194,4 +194,4 @@ DEF_GETTER(GrdStoneAcForLevel,    nGrdStoneAC)
 DEF_GETTER(GrdStoneMrForLevel,    nGrdStoneMR)
 #undef DEF_GETTER
 
-} // namespace fiesta
+} // namespace shine

@@ -4,15 +4,15 @@
 // Ranking / Prison / HolyPromise / Gamble / EventAttendance / DailyQuest /
 // NpcSchedule / GMEvent / MatchInstanceDungeon / KQ / DataFile) live in
 // WMServices.h and are ticked from WMServicesTickAll() each frame.
-#ifndef FIESTA_WMSERVER_H
-#define FIESTA_WMSERVER_H
+#ifndef SHINE_WMSERVER_H
+#define SHINE_WMSERVER_H
 #include "../Shared/Socket_Acceptor.h"
 #include "../Shared/CToken.h"
 #include "WMServices.h"
 #include <map>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ZoneInfo {
     uint16      uiZoneId;       // 0..4
@@ -112,5 +112,5 @@ private:
     bool m_bAuthed;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

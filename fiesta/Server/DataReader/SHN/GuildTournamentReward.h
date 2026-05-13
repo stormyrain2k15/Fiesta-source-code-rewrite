@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GuildTournamentReward.h
 // Auto-generated: one-file-per-SHN split for GuildTournamentReward.shn
-#ifndef FIESTA_DATAREADER_SHN_GUILDTOURNAMENTREWARD_H
-#define FIESTA_DATAREADER_SHN_GUILDTOURNAMENTREWARD_H
+#ifndef SHINE_DATAREADER_SHN_GUILDTOURNAMENTREWARD_H
+#define SHINE_DATAREADER_SHN_GUILDTOURNAMENTREWARD_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GuildTournamentRewardRow {
     uint8            uiRank;
@@ -34,5 +34,5 @@ private:
     std::vector<GuildTournamentRewardRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GUILDTOURNAMENTREWARD_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GUILDTOURNAMENTREWARD_H

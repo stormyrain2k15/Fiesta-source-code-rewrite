@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MiniHouseFurnitureObjEffect.h
 // Auto-generated: one-file-per-SHN split for MiniHouseFurnitureObjEffect.shn
-#ifndef FIESTA_DATAREADER_SHN_MINIHOUSEFURNITUREOBJEFFECT_H
-#define FIESTA_DATAREADER_SHN_MINIHOUSEFURNITUREOBJEFFECT_H
+#ifndef SHINE_DATAREADER_SHN_MINIHOUSEFURNITUREOBJEFFECT_H
+#define SHINE_DATAREADER_SHN_MINIHOUSEFURNITUREOBJEFFECT_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MiniHouseFurnitureObjEffectRow {
     uint16           uiHandle;
@@ -41,5 +41,5 @@ private:
     std::vector<MiniHouseFurnitureObjEffectRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MINIHOUSEFURNITUREOBJEFFECT_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MINIHOUSEFURNITUREOBJEFFECT_H

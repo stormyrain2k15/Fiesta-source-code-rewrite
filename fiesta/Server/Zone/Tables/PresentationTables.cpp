@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../GroupTables.h"
 
-namespace fiesta {
+namespace shine {
 
 // =============================================================================
 
@@ -82,4 +82,4 @@ const WeaponTitleRow*    PresentationTables::FindWeapTitle(uint32 uiID) const {
     std::map<uint32, size_t>::const_iterator it = m_kWeapTitleById.find(uiID);
     return (it == m_kWeapTitleById.end()) ? NULL : &m_kWeapTitle[it->second]; }
 
-} // namespace fiesta
+} // namespace shine

@@ -1,8 +1,8 @@
 // Lua/LuaAPI.h
-#ifndef FIESTA_LUA_LUAAPI_H
-#define FIESTA_LUA_LUAAPI_H
+#ifndef SHINE_LUA_LUAAPI_H
+#define SHINE_LUA_LUAAPI_H
 extern "C" { struct lua_State; }
-namespace fiesta {
+namespace shine {
 void RegisterAllLuaAPIs(struct lua_State* L);
-} // namespace fiesta
+} // namespace shine
 #endif

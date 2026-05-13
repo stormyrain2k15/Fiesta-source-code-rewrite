@@ -5,7 +5,7 @@
 #include "../Shared/GTimer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 BoothManager& BoothManager::Get() { static BoothManager s; return s; }
 
@@ -92,4 +92,4 @@ void BoothManager::ListNearby(MapID uiMap, float fX, float fY, float fRadius,
     }
 }
 
-} // namespace fiesta
+} // namespace shine

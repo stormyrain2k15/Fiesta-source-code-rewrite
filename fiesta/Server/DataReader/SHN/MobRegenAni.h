@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/MobRegenAni.h
 // Auto-generated: one-file-per-SHN split for MobRegenAni.shn
-#ifndef FIESTA_DATAREADER_SHN_MOBREGENANI_H
-#define FIESTA_DATAREADER_SHN_MOBREGENANI_H
+#ifndef SHINE_DATAREADER_SHN_MOBREGENANI_H
+#define SHINE_DATAREADER_SHN_MOBREGENANI_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct MobRegenAniRow {
     std::string      kMobIDX;
@@ -27,5 +27,5 @@ private:
     std::vector<MobRegenAniRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_MOBREGENANI_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_MOBREGENANI_H

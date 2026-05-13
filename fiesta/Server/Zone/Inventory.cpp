@@ -5,7 +5,7 @@
 #include "CharDBClient.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 Inventory::Inventory() : m_iMoney(0), m_uiOwner(0) {}
 
@@ -159,4 +159,4 @@ uint16 EquipEnumChanger::ToEquipSlot(ItemID uiInxName) {
     return 0;
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -4,13 +4,13 @@
 // Each accessor caches the underlying ShnFile pointer at Bind() time and
 // exposes a Find() helper. Column reads use ShnGetU32/Str/I32 by name so
 // missing columns degrade gracefully (zero/empty).
-#ifndef FIESTA_ZONE_MISCTABLES_H
-#define FIESTA_ZONE_MISCTABLES_H
+#ifndef SHINE_ZONE_MISCTABLES_H
+#define SHINE_ZONE_MISCTABLES_H
 #include "../DataReader/ShnRegistry.h"
 #include <map>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 // ----- Damage L vs L gap tables (PvE / EvP / PvP) ---------------------------
 // The 20-level-span scaler in AggroList is the *threat* side; these tables
@@ -111,5 +111,5 @@ private:
 // ----- One-call binder for all of the above --------------------------------
 void BindAllMiscTables();
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -3,4 +3,4 @@
 // ShineItemXxx siblings below (Buy, Sell, Use, Equip, etc.). The actual
 // in-memory item shape is `ShineItem` in Inventory.h.
 #include "Inventory.h"
-namespace fiesta { /* see siblings */ }
+namespace shine { /* see siblings */ }

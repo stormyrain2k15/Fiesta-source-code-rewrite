@@ -22,13 +22,13 @@
 // is parsable and surface unknown bytes as a raw blob so the rest of the code
 // can wire to them without losing information.
 //                                Adl.shbd, Adl.aid, AdlF.sbi.
-#ifndef FIESTA_DATAREADER_BLOCKINFOFILE_H
-#define FIESTA_DATAREADER_BLOCKINFOFILE_H
+#ifndef SHINE_DATAREADER_BLOCKINFOFILE_H
+#define SHINE_DATAREADER_BLOCKINFOFILE_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 // .shbd -- packed walk grid.
 struct BlockGrid {
@@ -56,5 +56,5 @@ struct SbiFile {
 };
 bool LoadSbi(const std::string& rPath, SbiFile& rOut);
 
-} // namespace fiesta
+} // namespace shine
 #endif

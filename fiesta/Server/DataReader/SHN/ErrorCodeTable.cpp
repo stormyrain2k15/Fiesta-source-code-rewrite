@@ -3,7 +3,7 @@
 #include "ErrorCodeTable.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ErrorCodeTableShn& ErrorCodeTableShn::Get() { static ErrorCodeTableShn s; return s; }
 
@@ -20,4 +20,4 @@ void ErrorCodeTableShn::Load() {
     SHINELOG_INFO("ErrorCodeTable.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

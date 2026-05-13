@@ -4,7 +4,7 @@
 #include "BindMacros.h"
 #include "../MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 PartyBonusTables& PartyBonusTables::Get() { static PartyBonusTables s; return s; }
 void PartyBonusTables::Bind() {
     // FEATURE: world-creation -- column read: PB_LvDiff, PB_BonusRatio,
@@ -19,4 +19,4 @@ void PartyBonusTables::Bind() {
 int32 PartyBonusTables::ByLvDiff(int32 d) const  { std::map<int32,int32>::const_iterator i=m_kByDiff.find(d);  return i==m_kByDiff.end()?1000:i->second; }
 int32 PartyBonusTables::ByMember(uint32 n) const { std::map<uint32,int32>::const_iterator i=m_kByMember.find(n); return i==m_kByMember.end()?1000:i->second; }
 int32 PartyBonusTables::ChrLvLimit(uint32 l) const { std::map<uint32,int32>::const_iterator i=m_kLimit.find(l); return i==m_kLimit.end()?0:i->second; }
-} // namespace fiesta
+} // namespace shine

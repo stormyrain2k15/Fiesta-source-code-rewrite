@@ -3,7 +3,7 @@
 #include "GTIGetRate.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GTIGetRateShn& GTIGetRateShn::Get() { static GTIGetRateShn s; return s; }
 
@@ -31,4 +31,4 @@ const GTIGetRateRow* GTIGetRateShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

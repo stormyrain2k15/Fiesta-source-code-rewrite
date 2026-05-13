@@ -4,7 +4,7 @@
 #include "Inventory.h"
 #include "ShineObject.h"
 #include "CharDBClient.h"
-namespace fiesta {
+namespace shine {
 class ShineItemPick {
 public:
     static bool Pick(ShinePlayer* pkP, uint32 uiDropHandle);
@@ -12,4 +12,4 @@ public:
 bool ShineItemPick::Pick(ShinePlayer* pkP, uint32 /*uiDropHandle*/) {
     return pkP != NULL;
 }
-} // namespace fiesta
+} // namespace shine

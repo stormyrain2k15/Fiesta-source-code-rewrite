@@ -3,9 +3,9 @@
 // historical quests. UI renders this; the diary itself is just an index
 // over Quest.cpp's per-char map.
 #include "Quest.h"
-namespace fiesta {
+namespace shine {
 class ShineQuestDiary {
 public:
     static void RebuildFor(uint32 /*cid*/) {}
 };
-} // namespace fiesta
+} // namespace shine

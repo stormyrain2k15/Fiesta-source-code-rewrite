@@ -8,7 +8,7 @@
 #include "../Shared/GTimer.h"
 #include "../DataServer/Common/Database.h"
 
-namespace fiesta {
+namespace shine {
 
 PartyFinderServer& PartyFinderServer::Get() { static PartyFinderServer s; return s; }
 
@@ -58,4 +58,4 @@ void PartyFinderServer::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

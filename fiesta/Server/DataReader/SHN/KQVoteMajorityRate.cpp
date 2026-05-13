@@ -3,7 +3,7 @@
 #include "KQVoteMajorityRate.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 KQVoteMajorityRateShn& KQVoteMajorityRateShn::Get() { static KQVoteMajorityRateShn s; return s; }
 
@@ -19,4 +19,4 @@ void KQVoteMajorityRateShn::Load() {
     SHINELOG_INFO("KQVoteMajorityRate.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

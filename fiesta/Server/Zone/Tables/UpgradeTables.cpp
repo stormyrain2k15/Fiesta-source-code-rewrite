@@ -3,7 +3,7 @@
 #include "BindMacros.h"
 #include "../MoreTables.h"
 
-namespace fiesta {
+namespace shine {
 
 UpgradeTables& UpgradeTables::Get() { static UpgradeTables s; return s; }
 
@@ -46,4 +46,4 @@ const UpgradeTables::InfoRow* UpgradeTables::FindInfo(uint32 uiID) const {
     return (it == m_kInfoById.end()) ? NULL : &m_kInfo[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

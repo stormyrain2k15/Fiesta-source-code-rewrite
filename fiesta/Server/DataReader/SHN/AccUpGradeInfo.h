@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/AccUpGradeInfo.h
 // Auto-generated: one-file-per-SHN split for AccUpGradeInfo.shn
-#ifndef FIESTA_DATAREADER_SHN_ACCUPGRADEINFO_H
-#define FIESTA_DATAREADER_SHN_ACCUPGRADEINFO_H
+#ifndef SHINE_DATAREADER_SHN_ACCUPGRADEINFO_H
+#define SHINE_DATAREADER_SHN_ACCUPGRADEINFO_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct AccUpGradeInfoRow {
     uint16           uiID;
@@ -67,5 +67,5 @@ private:
     std::map<std::string, size_t>  m_kByInx;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_ACCUPGRADEINFO_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_ACCUPGRADEINFO_H

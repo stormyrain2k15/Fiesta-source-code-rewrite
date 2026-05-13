@@ -21,7 +21,7 @@
 #include "../Shared/GTimer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 void AbnormalStateShelter::Save(uint32 cid, uint32 uiAbStateId,
                                 uint32 uiRemainMs) {
@@ -76,4 +76,4 @@ bool AbnormalStateShelter::ApplyLoaded(ShinePlayer* pkPlayer,
                                        (int32)uiRemainMs);
 }
 
-} // namespace fiesta
+} // namespace shine

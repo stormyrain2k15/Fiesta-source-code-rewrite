@@ -5,7 +5,7 @@
 #include "ZoneServer.h"
 #include "ShineObjectRoutine.h"
 #include "PineScript/PineScript.h"
-namespace fiesta {
+namespace shine {
 class ZoneServerEvent {
 public:
     static void TickAll() {
@@ -13,4 +13,4 @@ public:
         PineScript::Get().Tick();
     }
 };
-} // namespace fiesta
+} // namespace shine

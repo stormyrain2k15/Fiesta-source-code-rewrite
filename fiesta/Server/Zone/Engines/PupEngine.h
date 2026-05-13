@@ -1,7 +1,7 @@
 // Server/Zone/Engines/PupEngine.h
 // Auto-generated: PupEngine — aggregates 9 SHN loader(s).
-#ifndef FIESTA_ZONE_ENGINES_PUPENGINE_H
-#define FIESTA_ZONE_ENGINES_PUPENGINE_H
+#ifndef SHINE_ZONE_ENGINES_PUPENGINE_H
+#define SHINE_ZONE_ENGINES_PUPENGINE_H
 #include "../../DataReader/SHN/MinimonAutoUseItem.h"
 #include "../../DataReader/SHN/MinimonInfo.h"
 #include "../../DataReader/SHN/PupCase.h"
@@ -14,7 +14,7 @@
 #include <vector>
 #include <string>
 
-namespace fiesta {
+namespace shine {
 
 class PupEngine {
 public:
@@ -36,5 +36,5 @@ private:
     PupEngine() {}
 };
 
-} // namespace fiesta
-#endif // FIESTA_ZONE_ENGINES_PUPENGINE_H
+} // namespace shine
+#endif // SHINE_ZONE_ENGINES_PUPENGINE_H

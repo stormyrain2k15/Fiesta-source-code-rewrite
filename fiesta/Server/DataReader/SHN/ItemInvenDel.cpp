@@ -3,7 +3,7 @@
 #include "ItemInvenDel.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ItemInvenDelShn& ItemInvenDelShn::Get() { static ItemInvenDelShn s; return s; }
 
@@ -26,4 +26,4 @@ const ItemInvenDelRow* ItemInvenDelShn::FindByInx(const std::string& rInx) const
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

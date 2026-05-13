@@ -3,7 +3,7 @@
 #include "MoverHG.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MoverHGShn& MoverHGShn::Get() { static MoverHGShn s; return s; }
 
@@ -25,4 +25,4 @@ void MoverHGShn::Load() {
     SHINELOG_INFO("MoverHG.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

@@ -5,7 +5,7 @@
 #include "CharDBClient.h"
 #include "ShineObject.h"
 #include "../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 class ShineItemBuy {
 public:
     static bool Buy(ShinePlayer* pkP, uint32 uiNpcID, uint32 uiItemId,
@@ -25,4 +25,4 @@ bool ShineItemBuy::Buy(ShinePlayer* pkP, uint32 uiNpcID, uint32 uiItemId,
                   pkP->GetCharID(), uiNpcID, uiItemId, (uint32)uiCount, (long long)total);
     return true;
 }
-} // namespace fiesta
+} // namespace shine

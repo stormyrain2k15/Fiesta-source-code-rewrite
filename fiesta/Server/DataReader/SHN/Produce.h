@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/Produce.h
 // Auto-generated: one-file-per-SHN split for Produce.shn
-#ifndef FIESTA_DATAREADER_SHN_PRODUCE_H
-#define FIESTA_DATAREADER_SHN_PRODUCE_H
+#ifndef SHINE_DATAREADER_SHN_PRODUCE_H
+#define SHINE_DATAREADER_SHN_PRODUCE_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct ProduceRow {
     uint16           uiProductID;
@@ -48,5 +48,5 @@ private:
     std::vector<ProduceRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_PRODUCE_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_PRODUCE_H

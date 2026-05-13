@@ -5,7 +5,7 @@
 #include "../../Shared/ShineLogSystem.h"
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 
 ItemDropTableW& ItemDropTableW::Get() { static ItemDropTableW s; return s; }
 
@@ -73,4 +73,4 @@ void ItemDropTableW::RowsForMob(const std::string& rMobInx,
         rOut.push_back(&m_kRows[it->second[i]]);
 }
 
-} // namespace fiesta
+} // namespace shine

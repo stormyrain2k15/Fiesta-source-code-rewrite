@@ -6,7 +6,7 @@
 #include "CharDBClient.h"
 #include "ShineObject.h"
 #include "../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 class ShineItemSell {
 public:
     // Sell by item-id (not slot) -- routes through the existing
@@ -22,4 +22,4 @@ bool ShineItemSell::Sell(ShinePlayer* pkP, uint32 uiItemId, uint16 uiCount, uint
                   pkP->GetCharID(), uiItemId, (uint32)uiCount, (long long)gain);
     return true;
 }
-} // namespace fiesta
+} // namespace shine

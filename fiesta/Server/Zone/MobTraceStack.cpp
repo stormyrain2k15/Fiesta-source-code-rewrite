@@ -3,7 +3,7 @@
 // path-back / stuck-detect.
 #include "../Shared/ShineTypes.h"
 #include <vector>
-namespace fiesta {
+namespace shine {
 struct TracePos { float x, y; uint64 uiAt; };
 class MobTraceStack {
 public:
@@ -12,4 +12,4 @@ public:
 private:
     std::vector<TracePos> m_kStack;
 };
-} // namespace fiesta
+} // namespace shine

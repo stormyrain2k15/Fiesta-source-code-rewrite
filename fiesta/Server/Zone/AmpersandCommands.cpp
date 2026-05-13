@@ -4,7 +4,7 @@
 #include "WMClient.h"
 #include "../Shared/ShineLogSystem.h"
 #include <stdlib.h>
-namespace fiesta {
+namespace shine {
 // Default handler: log and succeed. Per-command bodies wire in pass 2.
 static bool Cmd_default(ShinePlayer* pk, const std::vector<std::string>& a) {
     SHINELOG_INFO("&cmd by %s args=%u", pk?pk->GetName().c_str():"?", (uint32)a.size());
@@ -236,4 +236,4 @@ bool DispatchAmpersand(ShinePlayer* pk, const std::string& rLine) {
     SHINELOG_WARN("Unknown ampersand command: %s", head.c_str());
     return false;
 }
-} // namespace fiesta
+} // namespace shine

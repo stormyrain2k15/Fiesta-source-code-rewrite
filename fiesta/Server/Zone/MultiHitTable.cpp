@@ -15,7 +15,7 @@
 #include "../DataReader/ShnRegistry.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MultiHitTable& MultiHitTable::Get() { static MultiHitTable s; return s; }
 
@@ -57,4 +57,4 @@ int32 MultiHitTable::Resolve(SkillID /*sid*/) {
     return 1;
 }
 
-} // namespace fiesta
+} // namespace shine

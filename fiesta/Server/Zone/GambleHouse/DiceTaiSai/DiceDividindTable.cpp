@@ -5,7 +5,7 @@
 #include "../../../Shared/ShineLogSystem.h"
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 
 DiceDividindTable& DiceDividindTable::Get() {
     static DiceDividindTable s; return s;
@@ -52,4 +52,4 @@ int32 DiceDividindTable::Tier(uint8 uiTier) const {
     return m_aTiers[uiTier];
 }
 
-} // namespace fiesta
+} // namespace shine

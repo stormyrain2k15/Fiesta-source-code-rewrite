@@ -3,7 +3,7 @@
 #include "PartyBonusByLvDiff.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 PartyBonusByLvDiffShn& PartyBonusByLvDiffShn::Get() { static PartyBonusByLvDiffShn s; return s; }
 
@@ -20,4 +20,4 @@ void PartyBonusByLvDiffShn::Load() {
     SHINELOG_INFO("PartyBonusByLvDiff.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

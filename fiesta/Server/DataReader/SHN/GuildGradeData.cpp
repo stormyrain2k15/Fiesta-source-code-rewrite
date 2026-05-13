@@ -3,7 +3,7 @@
 #include "GuildGradeData.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GuildGradeDataShn& GuildGradeDataShn::Get() { static GuildGradeDataShn s; return s; }
 
@@ -28,4 +28,4 @@ void GuildGradeDataShn::Load() {
     SHINELOG_INFO("GuildGradeData.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

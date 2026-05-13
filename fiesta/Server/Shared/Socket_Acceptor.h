@@ -1,7 +1,7 @@
 // Server/Shared/Socket_Acceptor.h
 // IOCP-based listen socket + per-connection session callbacks.
-#ifndef FIESTA_SOCKET_ACCEPTOR_H
-#define FIESTA_SOCKET_ACCEPTOR_H
+#ifndef SHINE_SOCKET_ACCEPTOR_H
+#define SHINE_SOCKET_ACCEPTOR_H
 #include "ShineTypes.h"
 #include "PacketBuffer.h"
 #include "GPacket.h"
@@ -9,7 +9,7 @@
 
 #pragma comment(lib, "Ws2_32.lib")
 
-namespace fiesta {
+namespace shine {
 
 class IOCPManager;
 
@@ -71,5 +71,5 @@ private:
     bool           m_bLoopbackOnly;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

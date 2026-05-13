@@ -5,7 +5,7 @@
     <ProjectConfiguration Include="Release|Win32"><Configuration>Release</Configuration><Platform>Win32</Platform></ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DD822AD3-0AFA-5698-A96B-A49A70A0BD86}</ProjectGuid>
+    <ProjectGuid>{A6ED4366-FF5B-5C41-B9CD-87ABDF85487A}</ProjectGuid>
     <RootNamespace>DataServerCommon</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
@@ -82,7 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Shared.vcxproj">
-      <Project>{E9D051DA-BFB9-515D-8A78-978216F79EF7}</Project>
+      <Project>{64CB1FEF-951B-58F0-B315-EF7A467004E1}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

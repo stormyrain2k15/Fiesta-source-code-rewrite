@@ -20,7 +20,7 @@
 #include <windows.h>
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 
 // =============================================================================
 //  AbStateBinaryBox
@@ -274,4 +274,4 @@ ZoneAssetCounts ZoneAssetLoader::LoadAll(const std::string& rRoot, LuaRuntime* p
     return c;
 }
 
-} // namespace fiesta
+} // namespace shine

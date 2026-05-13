@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/StateMob.h
 // Auto-generated: one-file-per-SHN split for StateMob.shn
-#ifndef FIESTA_DATAREADER_SHN_STATEMOB_H
-#define FIESTA_DATAREADER_SHN_STATEMOB_H
+#ifndef SHINE_DATAREADER_SHN_STATEMOB_H
+#define SHINE_DATAREADER_SHN_STATEMOB_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct StateMobRow {
     std::string      kTargetMobInx;
@@ -27,5 +27,5 @@ private:
     std::vector<StateMobRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_STATEMOB_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_STATEMOB_H

@@ -1,10 +1,10 @@
 // Server/Shared/GTimer.h
 // high-resolution timer.
-#ifndef FIESTA_GTIMER_H
-#define FIESTA_GTIMER_H
+#ifndef SHINE_GTIMER_H
+#define SHINE_GTIMER_H
 #include "ShineTypes.h"
 
-namespace fiesta {
+namespace shine {
 
 class GTimer {
 public:
@@ -18,5 +18,5 @@ private:
     LARGE_INTEGER m_kStart;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

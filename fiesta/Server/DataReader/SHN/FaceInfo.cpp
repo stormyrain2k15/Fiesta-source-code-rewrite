@@ -3,7 +3,7 @@
 #include "FaceInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 FaceInfoShn& FaceInfoShn::Get() { static FaceInfoShn s; return s; }
 
@@ -51,4 +51,4 @@ const FaceInfoRow* FaceInfoShn::FindById(uint32 uiID) const {
     return (it == m_kById.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

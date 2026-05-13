@@ -1,6 +1,6 @@
 #include "SocialSystems.h"
 #include "../Shared/ShineLogSystem.h"
-namespace fiesta {
+namespace shine {
 
 bool HolyPromise::Propose (CharID,CharID){ return true; }
 bool HolyPromise::Ceremony(CharID,CharID){ return true; }
@@ -51,4 +51,4 @@ int32 GBHouseTable    ::RentFor(uint16 t) { return 1000 + (int32)t * 500; }
 int32 GBTaxRate       ::Pct    (uint16 t) { return 5 + (int32)t; }
 int32 GBExchangeMaxCoin::Cap   (uint16 t) { return 10000 * (int32)(t + 1); }
 
-} // namespace fiesta
+} // namespace shine

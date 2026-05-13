@@ -3,7 +3,7 @@
 #include "PartyBonusLimit.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 PartyBonusLimitShn& PartyBonusLimitShn::Get() { static PartyBonusLimitShn s; return s; }
 
@@ -20,4 +20,4 @@ void PartyBonusLimitShn::Load() {
     SHINELOG_INFO("PartyBonusLimit.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

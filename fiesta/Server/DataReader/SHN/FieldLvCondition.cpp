@@ -3,7 +3,7 @@
 #include "FieldLvCondition.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 FieldLvConditionShn& FieldLvConditionShn::Get() { static FieldLvConditionShn s; return s; }
 
@@ -22,4 +22,4 @@ void FieldLvConditionShn::Load() {
     SHINELOG_INFO("FieldLvCondition.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

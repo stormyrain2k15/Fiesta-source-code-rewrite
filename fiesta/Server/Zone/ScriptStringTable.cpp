@@ -4,7 +4,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <windows.h>
 
-namespace fiesta {
+namespace shine {
 
 bool ScriptStringTable::Load(const std::string& rPath) {
     m_kEntries.clear();
@@ -92,4 +92,4 @@ void ScriptStringBox::Clear() {
     m_kFlatVal.clear();
 }
 
-} // namespace fiesta
+} // namespace shine

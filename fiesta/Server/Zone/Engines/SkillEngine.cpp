@@ -3,7 +3,7 @@
 #include "SkillEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 SkillEngine& SkillEngine::Get() { static SkillEngine s; return s; }
 
@@ -19,4 +19,4 @@ void SkillEngine::Bind() {
     SHINELOG_INFO("SkillEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

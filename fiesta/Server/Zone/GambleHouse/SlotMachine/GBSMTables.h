@@ -19,14 +19,14 @@
 //   GBSMJPRate  (3 cols)  jackpot pool size -> JP odds boost
 //   GBSMLine    (3 cols)  group line-payout weight
 //   GBSMNPC     (2 cols)  slot-machine-NPC inx -> bet tier
-#ifndef FIESTA_ZONE_GAMBLEHOUSE_SLOTMACHINE_GBSMTABLES_H
-#define FIESTA_ZONE_GAMBLEHOUSE_SLOTMACHINE_GBSMTABLES_H
+#ifndef SHINE_ZONE_GAMBLEHOUSE_SLOTMACHINE_GBSMTABLES_H
+#define SHINE_ZONE_GAMBLEHOUSE_SLOTMACHINE_GBSMTABLES_H
 #include "../../../../Shared/ShineTypes.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 // ----- GBSMAll -----
 struct LegacyGBSMAllRow { uint8 uiGroupID; uint8 uiNum; uint16 uiRatioAll; uint8 bIsJP; };
@@ -122,5 +122,5 @@ private:
     std::map<std::string, uint32> m_kRows;
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

@@ -4,7 +4,7 @@
 // MapField.h; this header exists so legacy includes that say
 // `#include "MapBlockInformation.h"` keep working without dragging in
 // the rest of the world hierarchy.
-#ifndef FIESTA_ZONE_MAPBLOCKINFORMATION_H
-#define FIESTA_ZONE_MAPBLOCKINFORMATION_H
+#ifndef SHINE_ZONE_MAPBLOCKINFORMATION_H
+#define SHINE_ZONE_MAPBLOCKINFORMATION_H
 #include "MapField.h"
 #endif

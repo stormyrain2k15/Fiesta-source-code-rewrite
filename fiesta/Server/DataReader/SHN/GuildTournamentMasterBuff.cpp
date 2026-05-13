@@ -3,7 +3,7 @@
 #include "GuildTournamentMasterBuff.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GuildTournamentMasterBuffShn& GuildTournamentMasterBuffShn::Get() { static GuildTournamentMasterBuffShn s; return s; }
 
@@ -20,4 +20,4 @@ void GuildTournamentMasterBuffShn::Load() {
     SHINELOG_INFO("GuildTournamentMasterBuff.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

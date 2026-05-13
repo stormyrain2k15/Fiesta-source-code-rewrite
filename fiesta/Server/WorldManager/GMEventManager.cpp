@@ -11,7 +11,7 @@
 #include "../Shared/PacketBuffer.h"
 #include "../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GMEventManager& GMEventManager::Get() { static GMEventManager s; return s; }
 
@@ -52,4 +52,4 @@ void GMEventManager::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

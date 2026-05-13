@@ -3,7 +3,7 @@
 #include "GBSMNPC.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 GBSMNPCShn& GBSMNPCShn::Get() { static GBSMNPCShn s; return s; }
 
@@ -20,4 +20,4 @@ void GBSMNPCShn::Load() {
     SHINELOG_INFO("GBSMNPC.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

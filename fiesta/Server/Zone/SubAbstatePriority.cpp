@@ -5,4 +5,4 @@
 // `ShouldReplace` and `ShouldStack` are defined. Keeping this TU empty
 // preserves the canonical layout without introducing a duplicate
 // definition.
-namespace fiesta { } // namespace fiesta
+namespace shine { } // namespace shine

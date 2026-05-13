@@ -9,7 +9,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 static well512 s_kRng;
 
@@ -124,4 +124,4 @@ void DropResolver::Resolve(const DropContext& rCtx, std::vector<ShineItem>& rOut
     }
 }
 
-} // namespace fiesta
+} // namespace shine

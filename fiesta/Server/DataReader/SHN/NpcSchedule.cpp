@@ -3,7 +3,7 @@
 #include "NpcSchedule.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 NpcScheduleShn& NpcScheduleShn::Get() { static NpcScheduleShn s; return s; }
 
@@ -27,4 +27,4 @@ void NpcScheduleShn::Load() {
     SHINELOG_INFO("NpcSchedule.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

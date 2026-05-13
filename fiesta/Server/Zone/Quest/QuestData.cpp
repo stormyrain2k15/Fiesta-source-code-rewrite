@@ -9,7 +9,7 @@
 #include <map>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct QuestRow {
     uint32 uiQuestId;
@@ -61,4 +61,4 @@ bool QuestData::LoadFromShn() {
     return true;
 }
 
-} // namespace fiesta
+} // namespace shine

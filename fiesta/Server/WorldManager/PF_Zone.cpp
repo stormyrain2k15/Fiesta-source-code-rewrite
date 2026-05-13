@@ -9,7 +9,7 @@
 #include "../Common/NETCOMMAND.h"
 #include "../Common/SendPacket.h"
 
-namespace fiesta {
+namespace shine {
 
 void WMZoneSession::OnConnect()    { m_uiZoneId = 0xFFFF; }
 void WMZoneSession::OnDisconnect() {
@@ -63,4 +63,4 @@ void WMZoneSession::OnPacket(const GPacket& rPkt) {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

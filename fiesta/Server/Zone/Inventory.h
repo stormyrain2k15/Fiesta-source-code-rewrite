@@ -1,13 +1,13 @@
 // Server/Zone/Inventory.h
 // Inventory / Equipment / item authority.
 //                                  EquipEnumChanger
-#ifndef FIESTA_ZONE_INVENTORY_H
-#define FIESTA_ZONE_INVENTORY_H
+#ifndef SHINE_ZONE_INVENTORY_H
+#define SHINE_ZONE_INVENTORY_H
 #include "../Shared/ShineTypes.h"
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 class ShinePlayer;
 
@@ -65,5 +65,5 @@ public:
     static uint16 ToEquipSlot(ItemID uiInxName);
 };
 
-} // namespace fiesta
+} // namespace shine
 #endif

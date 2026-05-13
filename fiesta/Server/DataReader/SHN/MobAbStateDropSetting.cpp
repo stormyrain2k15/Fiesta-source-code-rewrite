@@ -3,7 +3,7 @@
 #include "MobAbStateDropSetting.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 MobAbStateDropSettingShn& MobAbStateDropSettingShn::Get() { static MobAbStateDropSettingShn s; return s; }
 
@@ -22,4 +22,4 @@ void MobAbStateDropSettingShn::Load() {
     SHINELOG_INFO("MobAbStateDropSetting.shn: %u rows", (uint32)m_kRows.size());
 }
 
-} // namespace fiesta
+} // namespace shine

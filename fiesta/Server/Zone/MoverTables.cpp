@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 namespace {
 int idxOf(const std::vector<std::string>& hdr, const char* a, const char* b = NULL, const char* c = NULL) {
@@ -152,4 +152,4 @@ const LegacyMoverAbilityRow* MoverAbilityTable::Find(uint8 bClass) const {
     return (it == m_kRows.end()) ? NULL : &it->second;
 }
 
-} // namespace fiesta
+} // namespace shine

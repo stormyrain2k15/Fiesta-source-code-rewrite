@@ -8,7 +8,7 @@
 #include "../Shared/ShineLogSystem.h"
 #include <stdlib.h>
 
-namespace fiesta {
+namespace shine {
 
 namespace {
     inline uint32 ColU32(const std::vector<ShnValue>& r, size_t i) {
@@ -158,4 +158,4 @@ void ChargedEffectManager::Tick() {
     }
 }
 
-} // namespace fiesta
+} // namespace shine

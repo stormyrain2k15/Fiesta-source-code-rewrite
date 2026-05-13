@@ -3,7 +3,7 @@
 #include "PupEngine.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 PupEngine& PupEngine::Get() { static PupEngine s; return s; }
 
@@ -20,4 +20,4 @@ void PupEngine::Bind() {
     SHINELOG_INFO("PupEngine::Bind done");
 }
 
-} // namespace fiesta
+} // namespace shine

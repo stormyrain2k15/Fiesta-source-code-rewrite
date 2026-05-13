@@ -3,7 +3,7 @@
 #include "ActionViewInfo.h"
 #include "../../Shared/ShineLogSystem.h"
 
-namespace fiesta {
+namespace shine {
 
 ActionViewInfoShn& ActionViewInfoShn::Get() { static ActionViewInfoShn s; return s; }
 
@@ -34,4 +34,4 @@ const ActionViewInfoRow* ActionViewInfoShn::FindByInx(const std::string& rInx) c
     return (it == m_kByInx.end()) ? NULL : &m_kRows[it->second];
 }
 
-} // namespace fiesta
+} // namespace shine

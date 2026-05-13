@@ -8,7 +8,7 @@
 #include "../../Shared/ShineLogSystem.h"
 #include <stdio.h>
 
-namespace fiesta {
+namespace shine {
 
 DamageBySoulTable& DamageBySoulTable::Get() { static DamageBySoulTable s; return s; }
 
@@ -36,4 +36,4 @@ int32 DamageBySoulTable::BonusX1k(uint8 dem, uint8 cnt) const {
     return m_aMatrix[dem][cnt];
 }
 
-} // namespace fiesta
+} // namespace shine

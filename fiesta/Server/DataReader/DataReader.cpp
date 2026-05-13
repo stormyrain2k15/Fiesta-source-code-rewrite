@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <string.h>
 
-namespace fiesta {
+namespace shine {
 
 DataReader::DataReader() : m_kRoot("9Data") {}
 DataReader::~DataReader() {}
@@ -90,7 +90,7 @@ bool DataReader::LoadAsRows(const std::string& rLogical,
 
 bool DataReader::ReadTextRows(const std::string& rPath,
                               std::vector<std::vector<std::string> >& rOut) {
-    return fiesta::ReadTextRows(rPath, rOut);
+    return shine::ReadTextRows(rPath, rOut);
 }
 
-} // namespace fiesta
+} // namespace shine

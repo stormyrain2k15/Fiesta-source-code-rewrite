@@ -1,14 +1,14 @@
 // Server/DataReader/SHN/GBDiceDividind.h
 // Auto-generated: one-file-per-SHN split for GBDiceDividind.shn
-#ifndef FIESTA_DATAREADER_SHN_GBDICEDIVIDIND_H
-#define FIESTA_DATAREADER_SHN_GBDICEDIVIDIND_H
+#ifndef SHINE_DATAREADER_SHN_GBDICEDIVIDIND_H
+#define SHINE_DATAREADER_SHN_GBDICEDIVIDIND_H
 #include "../../Shared/ShineTypes.h"
 #include "../../DataReader/ShnRegistry.h"
 #include <map>
 #include <string>
 #include <vector>
 
-namespace fiesta {
+namespace shine {
 
 struct GBDiceDividindRow {
     int16            iDividendRate;
@@ -39,5 +39,5 @@ private:
     std::vector<GBDiceDividindRow>         m_kRows;
 };
 
-} // namespace fiesta
-#endif // FIESTA_DATAREADER_SHN_GBDICEDIVIDIND_H
+} // namespace shine
+#endif // SHINE_DATAREADER_SHN_GBDICEDIVIDIND_H
