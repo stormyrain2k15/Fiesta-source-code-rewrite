@@ -4,7 +4,7 @@
 
 <!-- 00_README_ENGINE_HANDOFF.md -->
 
-# Shine Online Complete Engine Rewrite Pack — Engine Handoff
+# Shine Engine Complete Engine Rewrite Pack — Engine Handoff
 
 Generated: 2026-05-09 00:37:38
 
@@ -61,7 +61,7 @@ This replaces the thin first-pass `shine_engine_requirements` pack with a fuller
 
 <!-- 01_MASTER_COMPLETE_REWRITE_REQUIREMENTS.md -->
 
-# Shine Online — Complete Engine Rewrite Requirements
+# Shine Engine — Complete Engine Rewrite Requirements
 
 This is the rewrite target: rebuild the server/client-support code as an original-style Shine engine, not a hacked pile of isolated table readers. The current source is pass 1 scaffolding. This document defines the missing system surface so the implementer can rewrite with all systems accounted for.
 

@@ -1,7 +1,8 @@
-# Shine Online — Original-Style Engine Rewrite
+# Shine Engine — Original-Style Engine Rewrite
 
-Native C++ reimplementation of the NA2016-era Shine Online server and
-client engine. The 43 gameplay systems all carry their original
+Native C++ MMO server and client engine, originally bootstrapped from
+the NA2016-era documentation pack and now evolving into a standalone
+product. The 43 gameplay systems all carry their original
 class / function names so the layout matches the published PDB symbol
 manifests one-for-one.
 

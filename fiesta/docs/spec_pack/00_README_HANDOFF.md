@@ -1,4 +1,4 @@
-# Shine Online Complete Engine Rewrite Pack — Engine Handoff
+# Shine Engine Complete Engine Rewrite Pack — Engine Handoff
 
 Generated: 2026-05-09 00:37:38
 

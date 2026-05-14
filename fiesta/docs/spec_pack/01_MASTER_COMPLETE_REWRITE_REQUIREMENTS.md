@@ -1,4 +1,4 @@
-# Shine Online — Complete Engine Rewrite Requirements
+# Shine Engine — Complete Engine Rewrite Requirements
 
 This is the rewrite target: rebuild the server/client-support code as an original-style Shine engine, not a hacked pile of isolated table readers. The current source is pass 1 scaffolding. This document defines the missing system surface so the implementer can rewrite with all systems accounted for.
 

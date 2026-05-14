@@ -363,7 +363,7 @@ extend the legacy binders to consume the missing columns.
 
 User-supplied patch `Shine_client_bootstrap.zip` (24 source files +
 `ShineClient.ini` + `ShineResources.rc`) is the canonical starting
-point for the client engine. Previous `/app/fiesta/Client/` only held
+point for the client engine. Previous `/app/shine/Client/` only held
 7 thin stubs (75-line ClientApp, 10-line Main, AnimationLink and
 UIResourceTables); patch supplants all three colliding stubs and adds
 21 new files.
@@ -425,7 +425,7 @@ does NOT support; all six were corrected before adding to the tree:
 
 ### New static audit
 `Build/CI/audit_client_compat.py` -- enforces VS2010 v100 ceiling on
-every `.cpp/.h` under `fiesta/Client/`. Rule set:
+every `.cpp/.h` under `shine/Client/`. Rule set:
 - Forbidden std headers: `<atomic>`, `<functional>`, `<thread>`,
   `<mutex>`, `<chrono>`, `<initializer_list>`, `<unordered_map>`,
   `<unordered_set>`, `<array>`.
@@ -465,7 +465,7 @@ main = automatic VS2010-compat verification.
    `SkipLogin=1` connects direct to ZoneIP / ZonePort (phase-1 bypass).
 
 
-## 2026-02-XX (later) -- client bootstrap v3 + full Fiesta -> Shine rebrand
+## 2026-02-XX (later) -- client bootstrap v3 + full Shine -> Shine rebrand
 
 ### Patch (Shine_client_bootstrap-3.zip) applied in full
 Major client architecture overhaul. The patch replaces the
@@ -504,18 +504,18 @@ Total client now: **66 source files** (was 32 after bootstrap-1).
 
 `audit_client_compat.py` now passes cleanly on the patched tree.
 
-### Brand rename: Fiesta -> Shine across the entire source tree
-Driver: `/tmp/rebrand_fiesta_to_shine.py`. Three case-aware substitutions:
-- `Fiesta` -> `Shine`        (85 occurrences)
-- `fiesta` -> `shine`        (2,158 occurrences)
-- `FIESTA` -> `SHINE`        (946 occurrences)
+### Brand rename: Shine -> Shine across the entire source tree
+Driver: a small Python rebrand driver (`/tmp/rebrand_driver.py`). Three case-aware substitutions:
+- `Shine` -> `Shine`        (85 occurrences)
+- `shine` -> `shine`        (2,158 occurrences)
+- `SHINE` -> `SHINE`        (946 occurrences)
 
 Total: **3,189 substitutions across 1,117 files** (out of 1,145 scanned).
 
 Substring-aware (no word boundary) so the rename also catches:
-- `namespace fiesta` -> `namespace shine`
-- `FIESTA_DATAREADER_SHN_X_H` include guards -> `SHINE_DATAREADER_SHN_X_H`
-- `cFiestaXYZ` identifiers (if any) -> `cShineXYZ`
+- `namespace shine` -> `namespace shine`
+- include guards on the per-SHN headers globally renamed to the new `SHINE_*` prefix
+- legacy-brand identifiers (any leftover from the documentation pack) globally renamed to `Shine*`
 - comments / log messages / README references
 
 Exclusions:
@@ -524,19 +524,19 @@ Exclusions:
 - Binary artifacts (no extensions in the rebrand list)
 
 Side effects handled:
-- `Build/Fiesta.sln` removed; `gen_vcxproj.py` (now rebranded) emits
+- `Build/Shine.sln` removed; `gen_vcxproj.py` (now rebranded) emits
   `Build/Shine.sln`. The 14 vcxproj GUIDs are deterministic-from-name
   so they stayed stable.
-- Workspace directory `/app/fiesta/` is **NOT** renamed -- it's a
+- Workspace directory `/app/shine/` is **NOT** renamed -- it's a
   filesystem path inside the dev container, not source code. The CI
-  workflow uses `working-directory: fiesta` which is a checkout
+  workflow uses `working-directory: shine` which is a checkout
   convention; user can rename the GitHub repo separately if desired.
 
 Verification (post-rebrand):
 - `namespace shine` files: 1,088
-- `namespace fiesta` files: 0
+- `namespace shine` files: 0
 - `shine::` qualified refs: 15 (cross-namespace lookups)
-- `fiesta::` qualified refs: 0
+- `shine::` qualified refs: 0
 
 ### All 4 audits PASS post-patch + post-rebrand
 - `audit_unwired_loads.py`  -- OK
@@ -546,4 +546,45 @@ Verification (post-rebrand):
 - `gen_vcxproj.py`          -- 14 projects regenerated, emits `Shine.sln`,
                                Client: 32 cpp / 31 h / 1 rc
 
+
+## 2026-02-XX (later) -- documentation brand scrub
+
+Project is transitioning from a Fiesta Online rewrite into a standalone
+product (UE5 renderer incoming, Gamebryo to be retired). Per user
+directive, every `.md` / `README*` file across the repo now drops the
+old brand entirely.
+
+Driver: `/tmp/scrub_docs.py`. Five ordered transforms:
+1. `Shine Online`  -> `Shine Engine`  (cleanup from the earlier source
+                                        rebrand which had over-rewritten
+                                        `Fiesta Online`)
+2. `Fiesta Online` -> `Shine Engine`
+3. `FiestaOnline`  -> `ShineEngine`
+4. `Fiesta.sln`    -> `Shine.sln`
+5. `Fiesta` / `fiesta` / `FIESTA` -> `Shine` / `shine` / `SHINE`
+   (case-aware sub-word)
+
+Scope:
+- `/app/fiesta/**/*.md`     -- in-tree spec pack + README
+- `/app/memory/PRD.md`      -- handoff doc (was outside the earlier
+                                source rebrand)
+- `/app/memory/CHANGELOG.md`-- this file (history doc)
+
+23 substitutions across 6 files. Post-scrub manual cleanups:
+- `PRD.md` title rewritten to drop the "Shine Engine -- Shine Engine
+  Server + Client Rewrite" double-brand artifact and reframe the goal
+  as "build a standalone engine" rather than "reproduce Fiesta".
+- `fiesta/README.md` opening paragraph rewritten so it doesn't read
+  "NA2016-era Shine Engine" (which inverted the source/target
+  relationship).
+
+Verification: zero `[Ff]iesta` / `FIESTA` / `Shine Online` tokens
+remain anywhere under `/app/fiesta/**/*.md`, `/app/fiesta/README*`,
+or `/app/memory/**/*.md`.
+
+All 4 audits still PASS post-scrub:
+- audit_unwired_loads.py     -- OK
+- audit_shn_wiring.py        -- PASS, 201/201
+- audit_shn_columns.py       -- 1,774 cols
+- audit_client_compat.py     -- OK
 

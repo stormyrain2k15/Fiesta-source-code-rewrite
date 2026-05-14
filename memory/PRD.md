@@ -1,17 +1,19 @@
-# Shine Engine -- Fiesta Online Server + Client Rewrite
+# Shine Engine
 
 ## Goal
 
-Reproduce the NA2016-era Fiesta Online server and client engine -- under
-the brand name **Shine Engine** -- from the project owner's documentation
-pack and the vendored Gamebryo 2.3 CoreLibs.
+Build a native C++ MMO server + client engine, originally bootstrapped
+from the NA2016-era documentation pack and the vendored Gamebryo 2.3
+CoreLibs, now evolving into a standalone product under the **Shine
+Engine** brand. The Gamebryo client will be retired once the UE5
+renderer transition is complete.
 Targets: VS2010 (`v100` / Win32), Lua 5.2, Trinigy/Gamebryo as the
-read-only client renderer.
+current read-only client renderer (transitional).
 
 ## Layout
 
 ```
-/app/fiesta/
+/app/shine/
 ├── Server/
 │   ├── Shared/              foundation: timers, packet, crypto, IOCP,
 │   │                         WinService, ShineLog, well512 RNG
@@ -308,7 +310,7 @@ for the per-subsystem audit notes.
 
 ### Build artifacts
 * `Build/gen_vcxproj.py` re-generates the **14-project** VS2010 solution
-  on every change. Wrote `Fiesta.sln` + `Gamebryo.props` + 14 vcxproj
+  on every change. Wrote `Shine.sln` + `Gamebryo.props` + 14 vcxproj
   files. Toolset `v100`, `/MT`, MBCS, Win32.
 * DataReader project now ships **368 files (184 per-SHN .h/.cpp pairs)**
   under `Server/DataReader/SHN/` plus the existing readers.
